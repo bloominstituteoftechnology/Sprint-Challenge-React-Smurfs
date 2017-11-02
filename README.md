@@ -8,7 +8,7 @@
 1. Describe the concept of a "Single Source of Truth" in Redux. Ex. What is the difference between Redux/Application _State_ vs. React/Component _State_?
 2. Describe what an _Action_ is/does.
 3. Describe what a _Reducer_ is/does.
-4. What does HTTP stand for? What does CRUD stand for? Describe four methods that can be mapped to the CRUD acronym that we use to interface with HTTP.
+4. What does HTTP stand for? What does CRUD stand for? Describe four HTTP methods that can be mapped to the CRUD acronym that we use to interface with APIs/Servers.
 
 ## Project
 * 
