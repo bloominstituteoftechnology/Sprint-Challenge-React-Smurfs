@@ -1,13 +1,30 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-const Smurf = (props) => {
-  return (
-    <div className="Smurf">
-      <h3>{props.name}</h3>
-      <strong>{props.height} tall</strong>
-      <p>{props.age} old</p>
-    </div>
-  );
+class Smurf extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      editing: false,
+    }
+  }
+  toggleEdit = () => {
+    this.setState({
+      editing: !this.state.editing
+    })
+  }
+  render() {
+    const { name, height, age, remove } = this.props;
+    return (
+      <div className="Smurf">
+        <h3>{name}</h3>
+        <strong>{height} tall</strong>
+        <p>{age} old</p>
+        <button onClick={remove}>Delete</button>
+        <button onCLick={this.toggleEdit}>Edit</button>
+      </div>
+    );
+}
+
 }
 
 export default Smurf;
