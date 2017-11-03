@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { addSmurf,updateSmurf, deleteSmurf } from '../actions';
+import { addSmurf, updateSmurf, deleteSmurf } from '../actions';
 
 class SmurfForm extends Component {
-
   constructor(props) {
     super(props);
     this.state = {
@@ -21,7 +20,6 @@ class SmurfForm extends Component {
     event.preventDefault();
     this.props.addSmurf(this.state);
     this.setState({
-      id:'',
       name: '',
       age: '',
       height: ''
@@ -66,29 +64,44 @@ class SmurfForm extends Component {
             value={this.state.height}
           />
           <button onClick={this.addSmurf}>Add to the village</button>
-          <button onClick={() => {
-            const found = this.props.smurfs.filter(smurf => smurf.name === this.state.name)[0]
-
-            this.setState({
-              id: found.id
-            }, () => {
-            this.props.updateSmurf(this.state)})
-          }}>Update Smurf</button>
-          <button onClick={() => {
-            const found = this.props.smurfs.filter(smurf => smurf.name === this.state.name)[0]
-            //console.log('found:',found)
-            this.props.deleteSmurf(found.id)
-          }}>Delete Smurf</button>
+          <button
+            onClick={() => {
+              const found = this.props.smurfs.filter(
+                smurf => smurf.name === this.state.name
+              )[0];
+              const data = {
+                id: found.id,
+                name: found.name,
+                age: this.state.age,
+                height: this.state.height
+              };
+              this.props.updateSmurf(data);
+            }}
+          >
+            Update Smurf
+          </button>
+          <button
+            onClick={() => {
+              const found = this.props.smurfs.filter(
+                smurf => smurf.name === this.state.name
+              )[0];
+              this.props.deleteSmurf(found.id);
+            }}
+          >
+            Delete Smurf
+          </button>
         </form>
       </div>
     );
   }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return {
     smurfs: state.smurfs
   };
 };
 
-export default connect(mapStateToProps, { addSmurf, updateSmurf, deleteSmurf })(SmurfForm);
+export default connect(mapStateToProps, { addSmurf, updateSmurf, deleteSmurf })(
+  SmurfForm
+);
