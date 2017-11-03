@@ -13,6 +13,20 @@
 ## Project
 * 
 
+## API Design
+### GET '/smurfs'
+  * to read all the smurfs in the smurf db simply write a get to the endpoint `'/smurfs'`
+### POST '/smurfs'
+  * to add a smurf into the smurf DB you'll need all three fields
+```
+{
+  name: 'Brainey',
+  age: 200,
+  height: '5cm'
+}
+```
+ * if a smurf is created correctly, you should see a response that is an array of smurfs with uniqe id's assigned to each smurf
+
 ### 
 #### 
 
