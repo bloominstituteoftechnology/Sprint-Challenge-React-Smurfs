@@ -1,20 +1,22 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { addSmurf } from '../actions';
+import { addSmurf, deleteSmurf } from '../actions';
 
 class SmurfForm extends Component {
-
   constructor(props) {
     super(props);
     this.state = {
       name: '',
       age: '',
-      height: ''
+      height: '',
+      id: ''
     };
     this.addSmurf = this.addSmurf.bind(this);
     this.updateName = this.updateName.bind(this);
     this.updateAge = this.updateAge.bind(this);
     this.updateHeight = this.updateHeight.bind(this);
+    this.deleteSmurf = this.deleteSmurf.bind(this);
+    this.updateId = this.updateId.bind(this);
   }
 
   addSmurf(event) {
@@ -24,6 +26,18 @@ class SmurfForm extends Component {
       name: '',
       age: '',
       height: ''
+    });
+  }
+
+  deleteSmurf(event) {
+    event.preventDefault();
+    if (!this.state.id) return;
+    this.props.deleteSmurf(this.state.id);
+    this.setState({
+      name: '',
+      age: '',
+      height: '',
+      id: ''
     });
   }
 
@@ -42,6 +56,12 @@ class SmurfForm extends Component {
   updateHeight(event) {
     this.setState({
       height: event.target.value
+    });
+  }
+
+  updateId(event) {
+    this.setState({
+      id: event.target.value
     });
   }
 
@@ -66,15 +86,23 @@ class SmurfForm extends Component {
           />
           <button type="submit">Add to the village</button>
         </form>
+        <form onSubmit={this.deleteSmurf}>
+          <input
+            onChange={this.updateId}
+            placeholder="id"
+            value={this.state.id}
+          />
+          <button type="submit">DELETE</button>
+        </form>
       </div>
     );
   }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return {
     smurfs: state.smurfs
   };
 };
 
-export default connect(mapStateToProps, { addSmurf })(SmurfForm);
+export default connect(mapStateToProps, { addSmurf, deleteSmurf })(SmurfForm);

@@ -13,7 +13,23 @@ const sendUserError = (msg, res) => {
   return;
 };
 
-const smurfs = [];
+const smurfs = [
+  // {
+  //   name: 'smurf name',
+  //   age: 'smurf age',
+  //   height: 'smurf height'
+  // },
+  // {
+  //   name: 'smurf name',
+  //   age: 'smurf age',
+  //   height: 'smurf height'
+  // },
+  // {
+  //   name: 'smurf name',
+  //   age: 'smurf age',
+  //   height: 'smurf height'
+  // }
+];
 server.get('/smurfs', (req, res) => {
   res.json(smurfs);
 });
@@ -61,16 +77,17 @@ server.put('/smurfs', (req, res) => {
 
 server.delete('/smurfs', (req, res) => {
   const { id } = req.body;
-  let foundSMurf;
+  console.log(req.body);
+  let foundSmurf;
   const findSmurfById = smurf => {
-    foundSMurf = smurf;
+    foundSmurf = smurf;
     return smurf.id === id;
   };
   if (smurfs.find(findSmurfById)) {
     smurfs.forEach((smurf, i) => {
       if (smurf.id === id) {
         smurfs.splice(i, 1);
-        return res.status(200).json({ SmurfRemoved: foundSMurf });
+        return res.status(200).json({ SmurfRemoved: foundSmurf });
       }
     });
   } else {
