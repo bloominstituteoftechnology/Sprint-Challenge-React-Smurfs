@@ -74,7 +74,7 @@
 * The following two endpoints are here for you if you'd like to push yourselves a little further. 
 ### PUT '/smurfs'
 * For this endpoint to work, you'll need an `id` and at least one field to update on the Smurf object. `name` `age` `height`.
-* example:
+* Example:
 
 ```
 input:
