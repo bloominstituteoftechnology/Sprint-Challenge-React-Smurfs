@@ -1,7 +1,7 @@
 1. Describe the concept of a "Single Source of Truth" in Redux. 
    Ex. What is the difference between Redux/Application State vs. React/Component State?
 
-      Redux deals with the state of a whole application which is stored in an object tree within a single store, and more so, the store is an object that holds the state. In order to maintain a single source of truth there must be a single process for which the information is to be added and removed from the state.
+      Redux deals with the state of a whole application which is stored in an object tree within a single store, and more so, the store is an object that holds the state. In order to maintain a single source of truth there must be a single process for which the information is to be added and removed from the state. The store is never changing, it is only be created as a copy to be mutated when change is applied
 
       React State: Stored locally within the component. When the state need to be shared with other components it is passed down through [props].
       The highest level component in the application that needs access to a mutable value will hold that value in its state. If it can be mutated by children components, a callback must be passed to handle the change in the children components.
