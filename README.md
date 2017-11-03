@@ -5,10 +5,31 @@
 * **Just a friendly Reminder** Don't fret or get anxious about this, this is a no-pressure assessment that is only going to help guide you here in the near future. This is NOT a pass/fail situation. 
 ## Start by forking and cloning this repository.
 ## Questions - Self Study - You can exercise your Google-Fu for this and any other _Sprint Challenge_ in the future.
-1. Describe the concept of a "Single Source of Truth" in Redux. Ex. What is the difference between Redux/Application _State_ vs. React/Component _State_?
-2. Describe what an _Action_ is/does.
-3. Describe what a _Reducer_ is/does.
-4. What does HTTP stand for? What does CRUD stand for? Describe four HTTP methods that can be mapped to the CRUD acronym that we use to interface with APIs/Servers.
+1. Describe the concept of a "Single Source of Truth" in Redux. 
+Ex. What is the difference between Redux/Application State vs. React/Component State?
+This means that the state of your whole application is stored in an object ree inside a single store. This makes it easy to create universal apps.
+
+2. What is the difference between Redux/Application _State_ vs. React/Component _State_?
+The react state is stored locally within a component. When it needs to be shared with other components, its passed down from parent to child using props. While the redux state is stored globally in the redux store. Any component that needs access to a value can subscribe to the store and gain access to the value.
+
+
+3. Describe what an Action is/does.
+Actions are functions that are invoked when we want to pass the "type" or the signal referenced in the reducer function. Actions are singular - they are one type, and can pass a payload of information. An action is called within a react component with linked with the connect function.
+
+4. Describe what a Reducer is/does.
+Reducers are functions that listen for signals or interaction from the application. When the functions are called or the signal is dispatched, they capture the information and inject it into the state, by adding it to the existing state.
+
+5. What does HTTP stand for? 
+Hyper Text Transfer Protocol
+
+6. What does CRUD stand for?
+Create Read Update Delete
+
+7. Describe four HTTP methods that can be mapped to the CRUD acronym that we use to interface with APIs/Servers.
+Get: Gets information
+Post: Creates a resource on the server
+Put / Patch: Changes a resource or part of a resource, on the server
+Delete: Remove a resource from the server
 
 ## Initializing Project - READ THIS CAREFULLY, you have two apps here. A server, and a client.
 * Start by Forking and Cloning this Repo.
