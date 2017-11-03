@@ -14,9 +14,9 @@
 * Start by Forking and Cloning this Repo.
 * `cd` into the forked copy.
 * _RUN_ `npm install` to retrieve all the dependancies.
-* _LOOK_ at all the files you've been given for this project. One important file to note is `server.js`. This file contains and **API** that you are going to be interfacing with. Below is documentation on how to interact with the **API**.
+* _LOOK_ at all the files you've been given for this project. One important file to note is `server.js`. This file contains an **API** that you are going to be interfacing with. Below is documentation on how to interact with the **API**.
 * _RUN_ `npm start` to get your API up and running on `http://localhost:3333`. This is the **URL** you're going to need to use within your Redux Actions. 
-* After your API is up and running, you can open chrome and type in `http://localhost:3333/smurfs`. You should see an empty Array `[]` returned to you. This is your DB that your **API** will be using to store our Smurf Data. 
+* After your API is up and running, you can open chrome and type in `http://localhost:3333/smurfs`. You should see an empty Array `[]` returned to you. This is the DB that your **API** will be using to store our Smurf Data. 
 
 ## Project Description 
 * Hello students! Welcome to your Redux/Axios Sprint Challenge. For this challenge you're going to be implementing a few HTTP Request from within a Redux Application.
@@ -28,7 +28,7 @@
   * to retreive an array all the smurfs in the Smurf DB simply write a get to the endpoint `'/smurfs'`
 
 ### POST '/smurfs'
-* to add a smurf into the Smurf DB you'll need all three fields
+* to add a smurf to the Smurf DB you'll need all three fields
 * example
 ```
 {
@@ -37,9 +37,9 @@
   height: '5cm'
 }
 ```
-* if a smurf is created correctly, you should see a response that is an array of smurfs with uniqe id's assigned to each smurf.
+* If a smurf is created correctly, you should see a response that is an array of smurfs with uniqe id's assigned to each smurf.
 * **HINT** if you are going to be working on Extra Credit, you'll need to use that unique `id`.
-* example of object created in Smurf DB: 
+* Example of object created in Smurf DB: 
 ```
 [
     {
@@ -61,9 +61,9 @@
 
 
 ## STRETCH PROBLEM - Extra Credit!
-* The following two endpoints are here for you if you'd like to push yourselve a little further. 
+* The following two endpoints are here for you if you'd like to push yourselves a little further. 
 ### PUT '/smurfs'
-* for this endpoint to work, you'll need an `id` and at least one field to update on the Smurf object. `name` `age` `height`.
+* For this endpoint to work, you'll need an `id` and at least one field to update on the Smurf object. `name` `age` `height`.
 * example:
 
 ```
@@ -82,15 +82,15 @@ output:
 ```
 
 ### DELETE '/smurfs'
-* for this endpoint to work, all you need is an id sent up with your request body.
-* example: 
+* For this endpoint to work, all you need is an id sent up with your request body.
+* Example: 
 ```
 {
   id: 1
 }
 ```
-* if your delete worked, You'll get a success object back that looks like this 
-* example: 
+* If your delete worked, you'll get a success object back.
+* Example: 
 ```
 input: 
 {
