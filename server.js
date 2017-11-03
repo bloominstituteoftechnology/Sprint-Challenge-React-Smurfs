@@ -49,6 +49,7 @@ server.put('/smurfs', (req, res) => {
   const findSmurfById = smurf => {
     return smurf.id === id;
   };
+  console.log('In the put with:', smurf.name);    
   const foundSmurf = smurfs.find(findSmurfById);
   if (!foundSmurf) {
     return sendUserError('No Smurf found by that ID', res);
@@ -71,7 +72,7 @@ server.delete('/smurfs', (req, res) => {
     smurfs.forEach((smurf, i) => {
       if (smurf.id === id) {
         smurfs.splice(i, 1);
-        return res.status(200).json({ SmurfRemoved: foundSMurf });
+        return res.status(200).json(smurfs);
       }
     });
   } else {
