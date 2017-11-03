@@ -14,6 +14,7 @@ const sendUserError = (msg, res) => {
 };
 
 const smurfs = [];
+
 server.get('/smurfs', (req, res) => {
   res.json(smurfs);
 });
@@ -60,6 +61,7 @@ server.put('/smurfs', (req, res) => {
 });
 
 server.delete('/smurfs', (req, res) => {
+  console.log(req);
   const { id } = req.body;
   let foundSMurf;
   const findSmurfById = smurf => {
@@ -70,7 +72,7 @@ server.delete('/smurfs', (req, res) => {
     smurfs.forEach((smurf, i) => {
       if (smurf.id === id) {
         smurfs.splice(i, 1);
-        return res.status(200).json({ SmurfRemoved: foundSMurf });
+        return res.status(200).json(smurfs);
       }
     });
   } else {

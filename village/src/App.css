@@ -1,3 +1,20 @@
 .App {
   text-align: center;
 }
+
+.SmurfList {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.Smurf {
+  border: 1px solid black;
+  margin: 0.3em;
+  width: 15em;
+  background: white;
+}
+
+.SmurfForm {
+  margin: 1em;
+}
