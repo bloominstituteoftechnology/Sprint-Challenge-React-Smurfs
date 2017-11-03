@@ -14,7 +14,7 @@
 * Start by Forking and Cloning this Repo.
 * `cd` into the forked copy.
 * _RUN_ `npm install` to retrieve all the dependancies.
-* _LOOK_ at all the files you've been given for this project. One important file to note is `server.js`. This file contains and **API** that you are going to be interfacing with. Below is documentation on how to interact with the **API**.
+* _LOOK_ at all the files you've been given for this project. One important file to note is `server.js`. This file contains an **API** that you are going to be interfacing with. Below is documentation on how to interact with the **API**.
 * _RUN_ `npm start` to get your API up and running on `http://localhost:3333`. This is the **URL** you're going to need to use within your Redux Actions. 
 * After your API is up and running, you can open chrome and type in `http://localhost:3333/smurfs`. You should see an empty Array `[]` returned to you. This is your DB that your **API** will be using to store our Smurf Data.
 * _LOOK_ at your `village` directory and notice it's just a plain ol' React App that we've built and included redux.
@@ -22,6 +22,7 @@
 * _RUN_ `npm start` to fire up your React Server. 
 * _Notice_ your app is built out, but you don't have any actions or reducers!! You're goal is to solve that problem! 
 * You can begin working on your Redux application now. Start with either the actions or reduces. Have fun!
+* After your API is up and running, you can open chrome and type in `http://localhost:3333/smurfs`. You should see an empty Array `[]` returned to you. This is the DB that your **API** will be using to store our Smurf Data. 
 
 ## Project Description 
 * Hello students! Welcome to your Redux/Axios Sprint Challenge. For this challenge you're going to be implementing a few HTTP Requests from within a Redux Application.
@@ -31,11 +32,11 @@
 ## API Design - This is how you'll interface with the API and what is required from every endpoint.
 
 ### GET '/smurfs'
-  * to retreive an array all the smurfs in the Smurf DB simply write a get to the endpoint `'/smurfs'`
+  * To retreive an array all the smurfs in the Smurf DB simply write a get to the endpoint `'/smurfs'`
 
 ### POST '/smurfs'
-* to add a smurf into the Smurf DB you'll need all three fields
-* example
+* To add a smurf to the Smurf DB you'll need all three fields.
+* Example:
 ```
 {
   name: 'Brainey',
@@ -43,9 +44,9 @@
   height: '5cm'
 }
 ```
-* if a smurf is created correctly, you should see a response that is an array of smurfs with uniqe id's assigned to each smurf.
+* If a smurf is created correctly, you should see a response that is an array of smurfs with uniqe id's assigned to each smurf.
 * **HINT** if you are going to be working on Extra Credit, you'll need to use that unique `id`.
-* example of object created in Smurf DB: 
+* Example of object created in Smurf DB: 
 ```
 [
     {
@@ -67,10 +68,10 @@
 
 
 ## STRETCH PROBLEM - Extra Credit!
-* The following two endpoints are here for you if you'd like to push yourselve a little further. 
+* The following two endpoints are here for you if you'd like to push yourselves a little further. 
 ### PUT '/smurfs'
-* for this endpoint to work, you'll need an `id` and at least one field to update on the Smurf object. `name` `age` `height`.
-* example:
+* For this endpoint to work, you'll need an `id` and at least one field to update on the Smurf object. `name` `age` `height`.
+* Example:
 
 ```
 input:
@@ -88,15 +89,15 @@ output:
 ```
 
 ### DELETE '/smurfs'
-* for this endpoint to work, all you need is an id sent up with your request body.
-* example: 
+* For this endpoint to work, all you need is an id sent up with your request body.
+* Example: 
 ```
 {
   id: 1
 }
 ```
-* if your delete worked, You'll get a success object back that looks like this 
-* example: 
+* If your delete worked, you'll get a success object back.
+* Example: 
 ```
 input: 
 {
