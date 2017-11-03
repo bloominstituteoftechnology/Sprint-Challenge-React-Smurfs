@@ -4,7 +4,7 @@ export const GET_SMURFS = "GET_SMURFS";
 export const ADD_SMURF = "ADD_SMURF";
 
 export const getSmurfs = () => {
-    const smurfHouse = '/smurfs';
+    const smurfHouse = 'http://localhost:3333/smurfs';
     const smurfGrab = axios.get(smurfHouse)
     return {
       type: GET_SMURFS,
