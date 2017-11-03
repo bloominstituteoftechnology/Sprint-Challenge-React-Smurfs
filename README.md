@@ -17,7 +17,8 @@
 ### GET '/smurfs'
   * to read all the smurfs in the smurf db simply write a get to the endpoint `'/smurfs'`
 ### POST '/smurfs'
-  * to add a smurf into the smurf DB you'll need all three fields
+* to add a smurf into the smurf DB you'll need all three fields
+* example
 ```
 {
   name: 'Brainey',
@@ -27,6 +28,13 @@
 ```
  * if a smurf is created correctly, you should see a response that is an array of smurfs with uniqe id's assigned to each smurf
 
-### 
+### Delete '/smurfs'
+* for this endpoint to work, all you need is an id sent up with your request body.
+* example: 
+```
+{
+  id: 1
+}
+```
 #### 
 
