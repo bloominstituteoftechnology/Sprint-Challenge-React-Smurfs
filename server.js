@@ -22,6 +22,7 @@ let smurfId = 0;
 server.post('/smurfs', (req, res) => {
   const { name, age, height } = req.body;
   const newSmurf = { name, age, height, id: smurfId };
+  console.log(newSmurf);
   if (!name || !age || !height) {
     return sendUserError(
       'Ya gone did smurfed! Name/Age/Height are all required to create a smurf in the smurf DB.',
@@ -46,7 +47,7 @@ server.post('/smurfs', (req, res) => {
 server.put('/smurfs', (req, res) => {
   const { id, name, age, height } = req.body;
   const findSmurfById = smurf => {
-    return smurf.id === id;
+    return smurf.name === name;
   };
   const foundSmurf = smurfs.find(findSmurfById);
   if (!foundSmurf) {
@@ -55,7 +56,7 @@ server.put('/smurfs', (req, res) => {
     if (name) foundSmurf.name = name;
     if (age) foundSmurf.age = age;
     if (height) foundSmurf.height = height;
-    res.json(foundSmurf);
+    res.json(smurfs);
   }
 });
 
@@ -70,7 +71,7 @@ server.delete('/smurfs', (req, res) => {
     smurfs.forEach((smurf, i) => {
       if (smurf.id === id) {
         smurfs.splice(i, 1);
-        return res.status(200).json({ SmurfRemoved: foundSMurf });
+        return res.status(200).json( smurfs );
       }
     });
   } else {
