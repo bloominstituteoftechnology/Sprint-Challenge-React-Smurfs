@@ -5,7 +5,7 @@ export const ADD_SMURF = "ADD_SMURF";
 
 export const getSmurfs = () => {
     console.log('Retrieving getSmurfs()');
-    const smurfsEndpoint = 'http://localhost:5000/smurfs';
+    const smurfsEndpoint = 'http://localhost:3333/smurfs';
     const smurfRequest = axios.get(smurfsEndpoint);
 
     return {
@@ -16,7 +16,7 @@ export const getSmurfs = () => {
 
 export const addSmurf = (smurf) => { 
     console.log(`adding Smurfs ${smurf}`)
-    const addSmurfEndpoint = "http://localhost:5000/new-smurf";
+    const addSmurfEndpoint = "http://localhost:3333/smurfs";
     const addSmurfRequest = axios.get(addSmurfEndpoint, smurf);
 
     return {
