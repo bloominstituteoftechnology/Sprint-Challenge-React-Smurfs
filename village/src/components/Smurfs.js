@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-
 import Smurf from './Smurf';
 
 class Smurfs extends Component {
@@ -12,11 +11,9 @@ class Smurfs extends Component {
 
   componentDidMount() {
     const smurfs = this.props.getSmurfs();
-    console.log(smurfs)
     this.setState({
       smurfs
     })
-    console.log(this.state)
   }
 
   render() {
@@ -25,7 +22,8 @@ class Smurfs extends Component {
         <h1>Smurf Village</h1>
         <ul>
           { this.props.smurfs.map((smurf, i) => {
-            return <Smurf name={smurf.name} age={smurf.age} height={smurf.height} key={i} />;
+            return <Smurf name={smurf.name} age={smurf.age} height={smurf.height} key={i} 
+                    index={i} updateSmurf={ this.props.updateSmurf } deleteSmurf={ this.props.deleteSmurf } />;
           })}
         </ul>
       </div>
