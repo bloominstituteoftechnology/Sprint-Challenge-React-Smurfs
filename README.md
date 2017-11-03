@@ -20,6 +20,7 @@
 * _LOOK_ at your `village` directory and notice it's just a plain ol' React App that we've built and included redux.
 * _cd_ into `village` and run `npm install` to retreive the client side dependancies.
 * _RUN_ `npm start` to fire up your React Server. 
+* _Notice_ your app is built out, but you don't have any actions or reducers!! You're goal is to solve that problem! 
 * You can begin working on your Redux application now. Start with either the actions or reduces. Have fun!
 
 ## Project Description 
