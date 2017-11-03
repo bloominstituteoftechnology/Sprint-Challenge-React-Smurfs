@@ -1,14 +1,19 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { getSmurfs } from '../actions';
+import { getSmurfs, deleteSmurf, updateSmurf } from '../actions';
 
 import Smurfs from './Smurfs';
 
-const SmurfsContainer = () => {
-  return (
-    <Smurfs />
-  );
+class SmurfsContainer extends Component {
+  componentDidMount() {
+    this.props.getSmurfs();
+  }
+  render() {
+    return (
+      <Smurfs smurfs={this.props.smurfs} remove={this.props.deleteSmurf} update={this.props.updateSmurf}/>
+    );
+  }
 }
 
 const mapStateToProps = (state) => {
@@ -17,4 +22,12 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, { getSmurfs })(Smurfs);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    getSmurfs: () => dispatch(getSmurfs()),
+    deleteSmurf: (id) => dispatch(deleteSmurf(id)),
+    updateSmurf: (smurf) => dispatch(updateSmurf(smurf))
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(SmurfsContainer);

@@ -1,57 +1,48 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { addSmurf } from '../actions';
 
-class SmurfForm extends Component {
+
+class SmurfEditForm extends Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      name: '',
-      age: '',
-      height: ''
+      name: this.props.name,
+      age: this.props.age,
+      height: this.props.height,
     };
-    this.addSmurf = this.addSmurf.bind(this);
-    this.updateName = this.updateName.bind(this);
-    this.updateAge = this.updateAge.bind(this);
-    this.updateHeight = this.updateHeight.bind(this);
   }
-
-  addSmurf(event) {
+ 
+  handleSubmit = (event) => {
     event.preventDefault();
     const {name, age, height} = this.state;
     if(name && age && height) {
-      this.props.addSmurf(this.state);
-      this.setState({
-        name: '',
-        age: '',
-        height: ''
-      });
+      this.props.onSubmit({...this.state, id: this.props.id});
     }
   }
 
-  updateName(event) {
+  updateName = (event) => {
     this.setState({
       name: event.target.value
     });
   }
 
-  updateAge(event) {
+  updateAge = (event) => {
     this.setState({
       age: event.target.value
     });
   }
 
-  updateHeight(event) {
+  updateHeight = (event) => {
     this.setState({
       height: event.target.value
     });
   }
 
   render() {
+
     return (
       <div className="SmurfForm">
-        <form onSubmit={this.addSmurf}>
+        <form onSubmit={this.handleSubmit}>
           <input
             onChange={this.updateName}
             placeholder="name"
@@ -70,17 +61,13 @@ class SmurfForm extends Component {
             value={this.state.height}
             required={true}
           />
-          <button type="submit">Add to the village</button>
+          <button type="submit" disabled={(this.props.name === this.state.name && this.props.age === this.state.age && this.props.height === this.state.height)}>Update Smurf</button>
+          <button type="button" onClick={this.props.cancel}>cancel</button>
         </form>
       </div>
     );
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    smurfs: state.smurfs
-  };
-};
 
-export default connect(mapStateToProps, { addSmurf })(SmurfForm);
+export default SmurfEditForm;
