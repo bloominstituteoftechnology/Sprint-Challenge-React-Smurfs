@@ -6,7 +6,6 @@ export default (smurfs = [], action) => {
     case ADD_SMURF: // array
       return action.payload.data;
     case UPDATE_SMURF: // smurf
-      console.log('reducer updated smurf', action.payload.data)
       const newSmurfs = smurfs.slice(0)
       const found = newSmurfs.filter(smurf => {
         return smurf.id === action.payload.data.id;
@@ -19,7 +18,6 @@ export default (smurfs = [], action) => {
       return newSmurfs
 
     case DELETE_SMURF: // object { SmurfRemoved: foundSMurf }
-      console.log('reducer deleted action', action)
       return smurfs.slice(0).filter(smurf => {
         return smurf.id !== action.payload.data.SmurfRemoved.id;
       });

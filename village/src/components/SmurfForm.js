@@ -72,12 +72,11 @@ class SmurfForm extends Component {
             this.setState({
               id: found.id
             }, () => {
-            console.log('form update state:', this.state)
             this.props.updateSmurf(this.state)})
           }}>Update Smurf</button>
           <button onClick={() => {
             const found = this.props.smurfs.filter(smurf => smurf.name === this.state.name)[0]
-            console.log('smurfs length', this.props.smurfs.length,'   found:',found)
+            //console.log('found:',found)
             this.props.deleteSmurf(found.id)
           }}>Delete Smurf</button>
         </form>
