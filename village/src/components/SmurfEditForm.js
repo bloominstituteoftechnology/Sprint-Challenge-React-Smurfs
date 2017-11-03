@@ -39,6 +39,7 @@ class SmurfEditForm extends Component {
   }
 
   render() {
+
     return (
       <div className="SmurfForm">
         <form onSubmit={this.handleSubmit}>
@@ -60,7 +61,7 @@ class SmurfEditForm extends Component {
             value={this.state.height}
             required={true}
           />
-          <button type="submit">Update Smurf</button>
+          <button type="submit" disabled={(this.props.name === this.state.name && this.props.age === this.state.age && this.props.height === this.state.height)}>Update Smurf</button>
           <button type="button" onClick={this.props.cancel}>cancel</button>
         </form>
       </div>

@@ -9,9 +9,12 @@ class Smurf extends Component {
     };
   }
   componentWillReceiveProps(props) {
+    const {name, height, age } = props;
+    if(this.state.editing && (name !== this.props.name || height !== this.props.height || age !== this.props.age)) {
       this.setState({
         editing: false
       })
+    }
   }
   toggleEdit = () => {
     this.setState({
