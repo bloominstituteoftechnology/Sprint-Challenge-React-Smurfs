@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { addSmurf } from '../actions';
+import { addSmurf, updateSmurf, deleteSmurf } from '../actions';
 
 class SmurfForm extends Component {
 
@@ -9,12 +9,14 @@ class SmurfForm extends Component {
     this.state = {
       name: '',
       age: '',
-      height: ''
+      height: '',
+      id: ''
     };
     this.addSmurf = this.addSmurf.bind(this);
     this.updateName = this.updateName.bind(this);
     this.updateAge = this.updateAge.bind(this);
     this.updateHeight = this.updateHeight.bind(this);
+    this.updateId = this.updateId.bind(this);
   }
 
   addSmurf(event) {
@@ -23,7 +25,8 @@ class SmurfForm extends Component {
     this.setState({
       name: '',
       age: '',
-      height: ''
+      height: '',
+      id: ''
     });
   }
 
@@ -45,6 +48,36 @@ class SmurfForm extends Component {
     });
   }
 
+  updateId(event) {
+    this.setState({
+      id: event.target.value
+    });
+  }
+
+  updateSmurf = (event) => {
+    event.preventDefault();
+    if (!this.state.id) return;
+    this.props.updateSmurf(this.state.id);
+    this.setState({
+        name: '',
+        age: '',
+        height: '',
+        id: ''
+    }); 
+  };
+
+  deleteSmurf = (event) => {
+    event.preventDefault();
+    if (!this.state.id) return;
+    this.props.deleteSmurf(this.state.id);
+    this.setState({
+        name: '',
+        age: '',
+        height: '',
+        id: ''
+    });
+  };
+
   render() {
     return (
       <div className="SmurfForm">
@@ -64,7 +97,15 @@ class SmurfForm extends Component {
             placeholder="height"
             value={this.state.height}
           />
+          <input
+            onChange={this.updateId}
+            placeholder="id"
+            value={this.state.id}
+          />
+
           <button type="submit">Add to the village</button>
+          <button onClick={this.updateSmurf}>Update</button>
+          <button onClick={this.deleteSmurf}>Delete</button>
         </form>
       </div>
     );
