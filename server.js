@@ -14,6 +14,7 @@ const sendUserError = (msg, res) => {
 };
 
 const smurfs = [];
+
 server.get('/smurfs', (req, res) => {
   res.json(smurfs);
 });
