@@ -4,7 +4,7 @@ import {
 } from '../actions';
 
 
-export default (smurfs = [], action) => {
+function idkWhatImDoing(smurfs = [], action) {
   switch (action.type) {
     case GET_SMURFS:
       return;
@@ -14,3 +14,5 @@ export default (smurfs = [], action) => {
       return;
   }
 }
+
+export default idkWhatImDoing;
