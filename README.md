@@ -20,10 +20,12 @@
 * _LOOK_ at your `village` directory and notice it's just a plain ol' React App that we've built and included redux.
 * _cd_ into `village` and run `npm install` to retreive the client side dependancies.
 * _RUN_ `npm start` to fire up your React Server. 
+* You can begin working on your Redux application now. Start with either the actions or reduces. Have fun!
 
 ## Project Description 
-* Hello students! Welcome to your Redux/Axios Sprint Challenge. For this challenge you're going to be implementing a few HTTP Request from within a Redux Application.
-
+* Hello students! Welcome to your Redux/Axios Sprint Challenge. For this challenge you're going to be implementing a few HTTP Requests from within a Redux Application.
+* The requirements for completion are that you are using AXIOS to `GET` a list of Smurfs that exist on the server && a `POST` to create a new Smurf and save it to the Smurf DB. 
+* If you get both of those two requirements finished early. Proceed to the **STRETCH PROBLEM** to try and implement a `PUT` and a `DELETE`.
 
 ## API Design - This is how you'll interface with the API and what is required from every endpoint.
 
