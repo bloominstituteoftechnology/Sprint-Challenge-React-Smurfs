@@ -1,8 +1,6 @@
 import React from 'react';
+import { getSmurfs, addSmurf, updateSmurf, deleteSmurf } from '../actions';
 import { connect } from 'react-redux';
-
-import { getSmurfs } from '../actions';
-
 import Smurfs from './Smurfs';
 
 const SmurfsContainer = () => {
@@ -17,4 +15,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, { getSmurfs })(Smurfs);
+export default connect(mapStateToProps,  { getSmurfs, addSmurf, updateSmurf, deleteSmurf })(Smurfs);
