@@ -16,7 +16,10 @@ class Smurfs extends Component {
     this.setState({
       smurfs
     })
-    console.log(this.state)
+  }
+
+  deleteSmurf = (e) => {
+    this.props.deleteSmurf(e.target.dataset.index);
   }
 
   render() {
@@ -25,7 +28,13 @@ class Smurfs extends Component {
         <h1>Smurf Village</h1>
         <ul>
           { this.props.smurfs.map((smurf, i) => {
-            return <Smurf name={smurf.name} age={smurf.age} height={smurf.height} key={i} />;
+            return <Smurf 
+                    name={smurf.name} 
+                    age={smurf.age} 
+                    height={smurf.height} 
+                    key={i}
+                    index={i}
+                    deleteSmurf={this.deleteSmurf} />;
           })}
         </ul>
       </div>
