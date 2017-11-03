@@ -15,9 +15,9 @@ export const getSmurfs = () => {
 }
 
 export const addSmurf = (smurf) => { 
-    console.log(`adding Smurfs ${smurf}`)
+    console.log('Adding Smurfs');
     const addSmurfEndpoint = "http://localhost:3333/smurfs";
-    const addSmurfRequest = axios.get(addSmurfEndpoint, smurf);
+    const addSmurfRequest = axios.post(addSmurfEndpoint, smurf);
 
     return {
         type: ADD_SMURF,

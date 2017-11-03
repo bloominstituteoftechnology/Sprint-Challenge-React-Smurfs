@@ -15,8 +15,7 @@ class Smurfs extends Component {
     console.log(smurfs)
     this.setState({
       smurfs
-    })
-    console.log(this.state)
+    });
   }
 
   render() {
