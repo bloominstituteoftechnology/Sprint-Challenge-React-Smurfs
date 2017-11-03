@@ -13,7 +13,7 @@ import Smurfs from './Smurfs';
 
 const mapStateToProps = (state) => {
   return {
-    smurfs: state.smurfs
+    smurfs: state.smurfs,
   }
 }
 

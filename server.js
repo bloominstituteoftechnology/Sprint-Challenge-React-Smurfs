@@ -47,7 +47,7 @@ server.post('/smurfs', (req, res) => {
 server.put('/smurfs', (req, res) => {
   const { id, name, age, height } = req.body;
   const findSmurfById = smurf => {
-    return smurf.id === id;
+    return smurf.name === name;
   };
   const foundSmurf = smurfs.find(findSmurfById);
   if (!foundSmurf) {
@@ -61,7 +61,6 @@ server.put('/smurfs', (req, res) => {
 });
 
 server.delete('/smurfs', (req, res) => {
-  console.log(req.body);
   const { id } = req.body;
   let foundSMurf;
   const findSmurfById = smurf => {

@@ -16,8 +16,13 @@ export const getSmurfs = () => {
 }
 
 export const addSmurf = (smurf) => {
-  return axios.post(endpoint, smurf)
-    .then(getSmurfs);
+  const retValue = axios.post(endpoint, smurf)
+    .catch((e) => axios.put(endpoint, smurf));
+    
+  return {
+    type: ADD_SMURF,
+    payload: retValue,
+  }
 }
 
 export const deleteSmurf = (id) => {
