@@ -3,6 +3,7 @@ import axios from 'axios';
 export const GET_SMURFS = "GET_SMURFS";
 export const ADD_SMURF = "ADD_SMURF";
 export const DELETE_SMURF = "DELETE_SMURF";
+export const UPDATE_SMURF = "UPDATE_SMURF";
 
 export const baseURL = 'http://localhost:3333';
 
@@ -29,6 +30,14 @@ export const deleteSmurf = (id) => {
     })
     return {
         type: DELETE_SMURF,
+        payload
+    }
+}
+
+export const updateSmurf = (smurf) => {
+    const payload = axios.put(`${baseURL}/smurfs`, smurf);
+    return {
+        type: UPDATE_SMURF,
         payload
     }
 }

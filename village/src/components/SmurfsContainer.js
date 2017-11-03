@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { getSmurfs, deleteSmurf } from '../actions';
+import { getSmurfs, deleteSmurf, updateSmurf } from '../actions';
 
 import Smurfs from './Smurfs';
 
@@ -11,7 +11,7 @@ class SmurfsContainer extends Component {
   }
   render() {
     return (
-      <Smurfs smurfs={this.props.smurfs} remove={this.props.deleteSmurf}/>
+      <Smurfs smurfs={this.props.smurfs} remove={this.props.deleteSmurf} update={this.props.updateSmurf}/>
     );
   }
 }
@@ -25,7 +25,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     getSmurfs: () => dispatch(getSmurfs()),
-    deleteSmurf: (id) => dispatch(deleteSmurf(id))
+    deleteSmurf: (id) => dispatch(deleteSmurf(id)),
+    updateSmurf: (smurf) => dispatch(updateSmurf(smurf))
   }
 }
 
