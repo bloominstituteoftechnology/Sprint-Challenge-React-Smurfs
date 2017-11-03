@@ -1,6 +1,7 @@
 import {
   GET_SMURFS,
-  ADD_SMURF
+  ADD_SMURF,
+  ALTER_SMURF
 } from '../actions';
 
 
@@ -10,6 +11,8 @@ export default (smurfs = [], action) => {
       return action.payload.data;
     case ADD_SMURF:
       return action.payload.data;
+    case ALTER_SMURF:
+      return action.payload.data
     default:
       return smurfs
   }

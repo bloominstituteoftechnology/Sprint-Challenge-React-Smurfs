@@ -13,11 +13,11 @@ class Smurfs extends Component {
 
   componentDidMount() {
     const smurfs = this.props.getSmurfs();
-    // console.log(smurfs)
+    console.log(smurfs)
     this.setState({
       smurfs
     })
-    // console.log(this.state)
+    console.log(this.state)
   }
 
   render() {
@@ -26,12 +26,10 @@ class Smurfs extends Component {
         <h1>Smurf Village</h1>
         <ul>
           { this.props.smurfs.map((smurf, i) => {
-            return 
-            <Smurf name={smurf.name} 
+            return <Smurf name={smurf.name} 
             age={smurf.age} 
-            height={smurf.height} 
+            height={smurf.height}
             key={i} />
-
           })}
         </ul>
       </div>
