@@ -61,16 +61,16 @@ server.put('/smurfs', (req, res) => {
 
 server.delete('/smurfs', (req, res) => {
   const { id } = req.body;
-  let foundSMurf;
+  let foundSmurf;
   const findSmurfById = smurf => {
-    foundSMurf = smurf;
+    foundSmurf = smurf;
     return smurf.id === id;
   };
   if (smurfs.find(findSmurfById)) {
     smurfs.forEach((smurf, i) => {
       if (smurf.id === id) {
         smurfs.splice(i, 1);
-        return res.status(200).json({ SmurfRemoved: foundSMurf });
+        return res.status(200).json(smurfs);
       }
     });
   } else {

@@ -5,7 +5,7 @@ import { getSmurfs } from '../actions';
 
 import Smurfs from './Smurfs';
 
-const SmurfsContainer = () => {
+export const SmurfsContainer = () => {
   return (
     <Smurfs />
   );
