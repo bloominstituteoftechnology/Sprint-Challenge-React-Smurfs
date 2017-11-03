@@ -56,7 +56,7 @@ server.put('/smurfs', (req, res) => {
     if (name) foundSmurf.name = name;
     if (age) foundSmurf.age = age;
     if (height) foundSmurf.height = height;
-    res.json(foundSmurf);
+    res.json(smurfs);
   }
 });
 
@@ -71,7 +71,7 @@ server.delete('/smurfs', (req, res) => {
     smurfs.forEach((smurf, i) => {
       if (smurf.id === id) {
         smurfs.splice(i, 1);
-        return res.status(200).json({ SmurfRemoved: foundSMurf });
+        return res.status(200).json( smurfs );
       }
     });
   } else {
