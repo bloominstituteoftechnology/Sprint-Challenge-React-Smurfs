@@ -5,9 +5,9 @@ import { getSmurfs } from '../actions';
 
 import Smurfs from './Smurfs';
 
-const SmurfsContainer = () => {
+const SmurfsContainer = (props) => {
   return (
-    <Smurfs />
+    <Smurfs getSmurfs={props.getSmurfs} smurfs={props.smurfs}/>
   );
 }
 
@@ -17,4 +17,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, { getSmurfs })(Smurfs);
+export default connect(mapStateToProps, { getSmurfs })(SmurfsContainer);

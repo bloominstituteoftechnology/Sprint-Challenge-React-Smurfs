@@ -19,12 +19,15 @@ class SmurfForm extends Component {
 
   addSmurf(event) {
     event.preventDefault();
-    this.props.addSmurf(this.state);
-    this.setState({
-      name: '',
-      age: '',
-      height: ''
-    });
+    const {name, age, height} = this.state;
+    if(name && age && height) {
+      this.props.addSmurf(this.state);
+      this.setState({
+        name: '',
+        age: '',
+        height: ''
+      });
+    }
   }
 
   updateName(event) {
@@ -53,16 +56,19 @@ class SmurfForm extends Component {
             onChange={this.updateName}
             placeholder="name"
             value={this.state.name}
+            required={true}
           />
           <input
             onChange={this.updateAge}
             placeholder="age"
             value={this.state.age}
+            required={true}
           />
           <input
             onChange={this.updateHeight}
             placeholder="height"
             value={this.state.height}
+            required={true}
           />
           <button type="submit">Add to the village</button>
         </form>
