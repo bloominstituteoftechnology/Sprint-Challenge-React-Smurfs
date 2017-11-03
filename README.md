@@ -35,11 +35,11 @@
 ## API Design - This is how you'll interface with the API and what is required from every endpoint.
 
 ### GET '/smurfs'
-  * to retreive an array all the smurfs in the Smurf DB simply write a get to the endpoint `'/smurfs'`
+  * To retreive an array all the smurfs in the Smurf DB simply write a get to the endpoint `'/smurfs'`
 
 ### POST '/smurfs'
-* to add a smurf to the Smurf DB you'll need all three fields
-* example
+* To add a smurf to the Smurf DB you'll need all three fields.
+* Example:
 ```
 {
   name: 'Brainey',
