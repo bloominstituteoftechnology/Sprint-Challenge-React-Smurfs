@@ -6,6 +6,7 @@ const Smurf = (props) => {
       <h3>{props.name}</h3>
       <strong>{props.height} tall</strong>
       <p>{props.age} old</p>
+      <span onClick={() => {props.deletesmurf(props.id)}} style={{color:'red'}}>delete</span>
     </div>
   );
 }

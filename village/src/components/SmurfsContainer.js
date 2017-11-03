@@ -1,15 +1,15 @@
-import React from 'react';
+//import React from 'react';
 import { connect } from 'react-redux';
 
-import { getSmurfs } from '../actions';
+import { getSmurfs, deleteSmurf, } from '../actions';
 
 import Smurfs from './Smurfs';
 
-const SmurfsContainer = () => {
+/*const SmurfsContainer = () => {
   return (
     <Smurfs />
   );
-}
+}*/
 
 const mapStateToProps = (state) => {
   return {
@@ -17,4 +17,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, { getSmurfs })(Smurfs);
+export default connect(mapStateToProps, { getSmurfs, deleteSmurf, })(Smurfs);
