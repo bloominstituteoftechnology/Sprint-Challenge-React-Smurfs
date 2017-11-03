@@ -5,7 +5,7 @@ import { getSmurfs } from '../actions';
 
 import Smurfs from './Smurfs';
 
-const SmurfsContainer = () => {
+const SmurfsContainer = (props) => {
   return (
     <Smurfs />
   );
