@@ -7,7 +7,7 @@ class SmurfDelete extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      id: ''
+      id: 0
     }
     this.deleteSmurf = this.deleteSmurf.bind(this);
     this.updateID = this.updateID.bind(this);
@@ -15,9 +15,10 @@ class SmurfDelete extends Component {
 
   deleteSmurf(event) {
     event.preventDefault();
-    this.props.deleteSmurf(this.state);
+    console.log(this.state);
+    this.props.deleteSmurf(this.state.id);
     this.setState({
-      id: ''
+      id: 0
     });
   }
 
@@ -32,6 +33,7 @@ class SmurfDelete extends Component {
       <div className='SmurfForm'>
         <form onSubmit={this.deleteSmurf}>
           <input
+            type='number'
             onChange={this.updateID}
             placeholder="ID of Smurf to Delete"
             value={this.state.id}

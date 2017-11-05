@@ -5,28 +5,28 @@ export const ADD_SMURF = "ADD_SMURF";
 export const DELETE_SMURF = "DELETE_SMURF";
 
 export const getSmurfs = () => {
-  const smurfs = axios.get('http://localhost:3333/smurfs');
+  const promise = axios.get('http://localhost:3333/smurfs');
   return {
     type: GET_SMURFS,
-    payload: smurfs
+    payload: promise
   }
 };
 
 export const addSmurf = (smurf) => {
-  const smurfs = axios.post('http://localhost:3333/smurfs', smurf);
+  const promise = axios.post('http://localhost:3333/smurfs', smurf);
 
   return {
     type: ADD_SMURF,
-    payload: smurfs
+    payload: promise
   }
 };
 
 export const deleteSmurf = (id) => {
   console.log(id);
-  const smurfs = axios.delete('http://localhost:3333/smurfs', {data: {id}});
+  const promise = axios.delete('http://localhost:3333/smurfs', {data: {id}}).then(getSmurfs).catch(value => console.log(value.request.status));
 
   return {
     type: DELETE_SMURF,
-    payload: smurfs
+    payload: promise
   }
 };

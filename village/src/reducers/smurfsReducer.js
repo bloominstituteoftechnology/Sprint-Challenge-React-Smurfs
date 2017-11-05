@@ -1,4 +1,5 @@
 import {
+  getSmurfs,
   GET_SMURFS,
   ADD_SMURF,
   DELETE_SMURF
@@ -12,7 +13,7 @@ export default (smurfs = [], action) => {
     case ADD_SMURF:
       return action.payload.data;
     case DELETE_SMURF:
-      return action.payload.data;
+      return getSmurfs();
     default:
       return smurfs;
   }
