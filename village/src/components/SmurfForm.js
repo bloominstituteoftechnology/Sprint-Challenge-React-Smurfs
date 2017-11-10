@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { addSmurf } from '../actions';
+import { addSmurf, alterSmurf } from '../actions';
 
 class SmurfForm extends Component {
 
@@ -9,12 +9,14 @@ class SmurfForm extends Component {
     this.state = {
       name: '',
       age: '',
-      height: ''
+      height: '',
+      index: ''
     };
     this.addSmurf = this.addSmurf.bind(this);
     this.updateName = this.updateName.bind(this);
     this.updateAge = this.updateAge.bind(this);
     this.updateHeight = this.updateHeight.bind(this);
+    this.updateIndex = this.updateIndex.bind(this);
   }
 
   addSmurf(event) {
@@ -23,7 +25,8 @@ class SmurfForm extends Component {
     this.setState({
       name: '',
       age: '',
-      height: ''
+      height: '',
+      index: ''
     });
   }
 
@@ -44,6 +47,36 @@ class SmurfForm extends Component {
       height: event.target.value
     });
   }
+  
+  updateIndex(event) {
+    this.setState({
+      index: event.target.value
+    });
+  }
+
+  alterSmurf = (event) => {
+    event.preventDefault();
+    if (!this.state.index) {
+      return;
+    }
+    const smurf = {
+      index: this.state.index,
+      update: {
+        name: this.state.name,
+        age: this.state.age,
+        height: this.state.height
+      }
+    };
+    this.props.alterSmurf(smurf);
+    this.setState({
+      name: '',
+      age: '',
+      height: '',
+      index: ''
+    });
+  }
+
+  
 
   render() {
     return (
@@ -60,12 +93,19 @@ class SmurfForm extends Component {
             value={this.state.age}
           />
           <input
-            onChange={this.updateHeight}
+            onChange={this.updateIndex}
             placeholder="height"
+            value={this.state.index}
+          />
+          <input
+            onChange={this.updateHeight}
+            placeholder="index"
             value={this.state.height}
           />
           <button type="submit">Add to the village</button>
+          <button type="submit"> Alter the Smurf </button>
         </form>
+        
       </div>
     );
   }

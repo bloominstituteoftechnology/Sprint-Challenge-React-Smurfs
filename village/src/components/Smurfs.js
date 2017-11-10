@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import Smurf from './Smurf';
+import { getSmurfs } from '../actions';
 
 class Smurfs extends Component {
   constructor(props) {
@@ -25,12 +26,17 @@ class Smurfs extends Component {
         <h1>Smurf Village</h1>
         <ul>
           { this.props.smurfs.map((smurf, i) => {
-            return <Smurf name={smurf.name} age={smurf.age} height={smurf.height} key={i} />;
+            return <Smurf name={smurf.name} 
+            age={smurf.age} 
+            height={smurf.height}
+            key={i} />
           })}
         </ul>
       </div>
     );
   }
 }
+
+
 
 export default Smurfs;
