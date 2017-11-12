@@ -6,7 +6,6 @@ export default (smurfs = [], action) => {
     case GET_SMURFS:
       return action.payload.data;
     case ADD_SMURF:
-      console.log(action.payload);
       return action.payload.data;
     default:
       return smurfs;

@@ -2,7 +2,6 @@
 import { connect } from 'react-redux';
 
 import { getSmurfs, deleteSmurf, } from '../actions';
-
 import Smurfs from './Smurfs';
 
 /*const SmurfsContainer = () => {

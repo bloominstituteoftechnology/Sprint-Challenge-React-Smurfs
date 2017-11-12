@@ -17,7 +17,7 @@ export const getSmurfs = () => {
 export const addSmurf = (smurf) => {
   const retValue = axios.post(endpoint, smurf)
     .catch(value => {
-      console.log(value.request.status);
+      console.log(value.request.statusText);
       return axios.put(endpoint, smurf);
     });
     console.log(retValue);
