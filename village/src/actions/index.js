@@ -2,6 +2,8 @@ import axios from 'axios';
 
 export const GET_SMURFS = "GET_SMURFS";
 export const ADD_SMURF = "ADD_SMURF";
+export const UPDATE_SMURF = "UPDATE_SMURF";
+export const DELETE_SMURF = "DELETE_SMURF";
 
 const URL = 'http://localhost:3333/smurfs';
 export const getSmurfs = () => {
@@ -19,3 +21,20 @@ export const addSmurf = (smurf) => {
     payload: promise
   };
 }
+
+export const updateSmurf = (smurf) => {
+  const promise = axios.put(URL, smurf);
+  return {
+    type: UPDATE_SMURF,
+    payload: promise
+  };
+}
+
+export const deleteSmurf = (id) => {
+  const promise = axios.delete(URL, {data: { id }});
+  return {
+    type: DELETE_SMURF,
+    payload: promise
+  };
+}
+

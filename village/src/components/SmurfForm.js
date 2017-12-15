@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { addSmurf } from '../actions';
+import { addSmurf, updateSmurf } from '../actions';
 
 class SmurfForm extends Component {
 
@@ -9,39 +9,65 @@ class SmurfForm extends Component {
     this.state = {
       name: '',
       age: '',
-      height: ''
+      height: '',
+      id: ''
     };
-    this.addSmurf = this.addSmurf.bind(this);
-    this.updateName = this.updateName.bind(this);
-    this.updateAge = this.updateAge.bind(this);
-    this.updateHeight = this.updateHeight.bind(this);
   }
 
-  addSmurf(event) {
+  addSmurf = (event) => {
     event.preventDefault();
-    this.props.addSmurf(this.state);
+    const smurf = {
+      name: this.state.name,
+      age: this.state.age,
+      height: this.state.height
+    }
+    this.props.addSmurf(smurf);
     this.setState({
       name: '',
       age: '',
-      height: ''
+      height: '',
+      id: ''
     });
   }
 
-  updateName(event) {
+  updateName = (event) => {
     this.setState({
       name: event.target.value
     });
   }
 
-  updateAge(event) {
+  updateAge = (event) => {
     this.setState({
       age: event.target.value
     });
   }
 
-  updateHeight(event) {
+  updateHeight = (event) => {
     this.setState({
       height: event.target.value
+    });
+  }
+
+  updateId = (event) => {
+    this.setState({
+      id: event.target.value
+    });
+  }
+
+  handleUpdateSmurf = (event) => {
+    event.preventDefault();
+    const smurf = {
+      name: this.state.name,
+      age: this.state.age,
+      height: this.state.height,
+      id: this.state.id
+    }
+    this.props.updateSmurf(smurf);
+    this.setState({
+      age: '',
+      name: '',
+      height: '',
+      id: ''
     });
   }
 
@@ -64,7 +90,13 @@ class SmurfForm extends Component {
             placeholder="height"
             value={this.state.height}
           />
+          <input
+            onChange={this.updateId}
+            placeholder="id"
+            value={this.state.id}
+          />
           <button type="submit">Add to the village</button>
+          <button onClick={this.handleUpdateSmurf}>Update to the village</button>
         </form>
       </div>
     );
@@ -77,4 +109,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, { addSmurf })(SmurfForm);
+export default connect(mapStateToProps, { addSmurf, updateSmurf })(SmurfForm);
