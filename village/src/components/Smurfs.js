@@ -24,7 +24,7 @@ class Smurfs extends Component {
         <h1>Smurf Village</h1>
         <ul>
           { this.props.smurfs.map((smurf, i) => {
-            return <Smurf name={smurf.name} age={smurf.age} height={smurf.height} key={i} />;
+            return <Smurf name={smurf.name} age={smurf.age} height={smurf.height} key={i} index = {i} />;
           })}
         </ul>
       </div>
