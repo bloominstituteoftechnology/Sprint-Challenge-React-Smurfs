@@ -31,9 +31,9 @@ class SmurfForm extends Component {
   }
 
   editSmurf = (event) => {
-    event.preventDefault();
+    let numberedId = Number(this.state.id)
     this.props.putSmurf({
-      id: Number(this.state.id),
+      id: numberedId,
       name: this.state.name,
       age: this.state.age,
       height: this.state.height,
@@ -48,7 +48,6 @@ class SmurfForm extends Component {
   }
 
   deleteSmurf = event => {
-    event.preventDefault();
     this.props.delSmurf({
       id: Number(this.state.id)
     });
@@ -81,7 +80,7 @@ class SmurfForm extends Component {
 
   updateId = (event) => {
     this.setState({
-      id: Number(event.target.value)
+      id: event.target.value
     });
   }
 

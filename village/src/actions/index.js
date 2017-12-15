@@ -32,9 +32,9 @@ export const putSmurf = (smurf) => {
     };
 };
 
-export const delSmurf = (smurf) => {
+export const delSmurf = (smurfId) => {
     const smurfs = axios.get(serverUrl);
-    const smurfDel = axios.delete(serverUrl, smurf);
+    const smurfDel = axios.delete(serverUrl, { data: smurfId });
     return {
         type: DEL_SMURF,
         payload: smurfs
