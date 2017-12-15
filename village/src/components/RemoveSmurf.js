@@ -3,23 +3,15 @@ import { connect } from 'react-redux';
 import { deleteSmurf } from '../actions';
 
 class RemoveSmurf extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            index : props.index,
-        };
-        //this.deleteSmurf = this.deleteSmurf.bind(this);
-    }
 
     deleteSmurf = (event) => {
-        event.preventDefault();
-        this.props.deleteSmurf(this.props.index);
+        this.props.deleteSmurf(event.target.value);
     }
 
     render() {
         return (
             <div>
-                <a onClick = {this.deleteSmurf}>Remove this smurf #{this.state.index + 1}</a>
+                <a onClick = {this.deleteSmurf} value = {this.props.index}>Remove this smurf #{this.props.index + 1}</a>
             </div>
         );
     };
