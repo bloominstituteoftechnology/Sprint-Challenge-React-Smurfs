@@ -18,12 +18,10 @@ export default (smurfs = [], action) => {
     case UPDATE_SMURF:
       return action.payload.data;
 
-    case DELETE_SMURF:
-console.log(action.payload);      
+    case DELETE_SMURF:  
       return smurfs.filter((smurf) => {
         return (smurf.id !== action.payload.data.SmurfRemoved.id);
       });
-      // return action.payload.data;
 
     default:
       return smurfs;
