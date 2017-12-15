@@ -20,6 +20,7 @@ class Smurfs extends Component {
   }
 
   render() {
+    console.log('from render ', this.props)
     return (
       <div className="Smurfs">
         <h1>Smurf Village</h1>
