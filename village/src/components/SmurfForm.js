@@ -11,13 +11,13 @@ class SmurfForm extends Component {
       age: '',
       height: ''
     };
-    this.addSmurf = this.addSmurf.bind(this);
+    this.addOrEditSmurf = this.addOrEditSmurf.bind(this);
     this.updateName = this.updateName.bind(this);
     this.updateAge = this.updateAge.bind(this);
     this.updateHeight = this.updateHeight.bind(this);
   }
 
-  addSmurf(event) {
+  addOrEditSmurf(event) {
     event.preventDefault();
     this.props.addSmurf(this.state);
     this.setState({
@@ -48,7 +48,7 @@ class SmurfForm extends Component {
   render() {
     return (
       <div className="SmurfForm">
-        <form onSubmit={this.addSmurf}>
+        <form onSubmit={this.addOrEditSmurf}>
           <input
             onChange={this.updateName}
             placeholder="name"
@@ -64,7 +64,7 @@ class SmurfForm extends Component {
             placeholder="height"
             value={this.state.height}
           />
-          <button type="submit">Add to the village</button>
+          <button type="submit">Add/edit smurf</button>
         </form>
       </div>
     );

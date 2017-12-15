@@ -31,8 +31,8 @@ export const modifySmurf = (smurf) => {
   }
 };
 
-export const deleteSmurf = (smurf) => {
-  const deleteSmurf = axios.delete(api, {data: smurf.id});
+export const deleteSmurf = (id) => {
+  const deleteSmurf = axios.delete(api, {data: {id}});
   return {
     type: DELETE_SMURF,
     payload: deleteSmurf
