@@ -12,8 +12,8 @@ Answer: Reducer returns the new state by the instructions set by the actions. Th
 
 ### 4. What does HTTP stand for? What does CRUD stand for? Describe four HTTP methods that can be mapped to the CRUD acronym that we use to interface with APIs/Servers.
 Answer:
-  HTTP - HyperText Transfer Protocol
-  CRUD - Create, Read, Update & Delete
+  - HTTP - HyperText Transfer Protocol
+  - CRUD - Create, Read, Update & Delete
 
   Four HTTP Methods are 
   1. GET - to get resource from the server
