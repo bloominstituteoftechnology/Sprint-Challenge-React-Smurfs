@@ -1,8 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-
 import { getSmurfs } from '../actions';
-
 import Smurfs from './Smurfs';
 
 const SmurfsContainer = () => {
@@ -20,7 +18,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return  {
     fetchSmurfs: () => dispatch(getSmurfs())
-  }
+  };
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Smurfs);
