@@ -7,7 +7,7 @@ const Smurf = (props) => {
       <h3>{props.name} #{(props.index)+1}</h3>
       <strong>{props.height} tall</strong>
       <p>{props.age} old</p>
-      < RemoveSmurf index={props.index}/>
+      <RemoveSmurf index={props.index} />
     </div>
   );
 }

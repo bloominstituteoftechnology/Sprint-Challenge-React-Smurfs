@@ -1,39 +1,28 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { getSmurfs, deleteSmurf } from '../actions';
+import { deleteSmurf } from '../actions';
 
 class RemoveSmurf extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            index : this.props.index,
+            index : props.index,
         };
-        this.removeSmurf = this.removeSmurf.bind(this);
+        //this.deleteSmurf = this.deleteSmurf.bind(this);
     }
 
-    removeSmurf() {
-        this.props.deleteSmurf([this.state.index]);
+    deleteSmurf = (event) => {
+        event.preventDefault();
+        this.props.deleteSmurf(this.props.index);
     }
 
     render() {
         return (
             <div>
-                <a onClick = {this.removeSmurf} >Remove this smurf #{this.state.index}</a>
+                <a onClick = {this.deleteSmurf}>Remove this smurf #{this.state.index + 1}</a>
             </div>
         );
     };
 };
 
-const mapStateToProps = (state) => {
-    return {
-      smurfs: state.smurfs
-    }
-  }
-  
-  const mapDispatchToProps = (dispatch) => {
-    return  {
-      fetchSmurfs: () => dispatch(getSmurfs())
-    };
-  }
-  
-  export default connect(mapStateToProps, mapDispatchToProps)(RemoveSmurf);
+export default connect(null, { deleteSmurf })(RemoveSmurf);
