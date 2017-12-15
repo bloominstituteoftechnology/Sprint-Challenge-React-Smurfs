@@ -15,9 +15,9 @@ Answer: Reducers specify how the application's state change in response. All the
 
 Answer: HTTP stands for hyper text transfer protocol. CRUD stands for the types of data manipulation which are create, read, update, and delete. 
 
-    | HTTP | CRUD |
-    |------|------|
-    | GET  | READ |
-    | POST |CREATE|
-    | PUT  |UPDATE|
+    |  HTTP  |  CRUD  |
+    | ------ | ------ |
+    |  GET   |  READ  |
+    |  POST  | CREATE |
+    |  PUT   | UPDATE |
     
