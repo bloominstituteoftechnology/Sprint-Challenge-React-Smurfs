@@ -1,6 +1,7 @@
 import {
   GET_SMURFS,
-  ADD_SMURF
+  ADD_SMURF,
+  UPDATE_SMURF
 } from '../actions';
 
 
@@ -11,6 +12,8 @@ export default (smurfs = [], action) => {
     case ADD_SMURF:
       const smurfsData = smurfs.concat(action.payload);
       return smurfsData;
+    case UPDATE_SMURF:
+      return action.payload.data;
     default:
       return smurfs;
   }
