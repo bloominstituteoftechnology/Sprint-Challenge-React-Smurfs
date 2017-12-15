@@ -1,15 +1,14 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { addSmurf } from '../actions';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { addSmurf } from "../actions";
 
 class SmurfForm extends Component {
-
   constructor(props) {
     super(props);
     this.state = {
-      name: '',
-      age: '',
-      height: ''
+      name: "",
+      age: "",
+      height: ""
     };
     this.addSmurf = this.addSmurf.bind(this);
     this.updateName = this.updateName.bind(this);
@@ -19,11 +18,16 @@ class SmurfForm extends Component {
 
   addSmurf(event) {
     event.preventDefault();
-    this.props.addSmurf(this.state);
+    const newSmurf = {
+      name: this.state.name,
+      age: this.state.age,
+      height: this.state.height
+    };
+    this.props.addSmurf(newSmurf);
     this.setState({
-      name: '',
-      age: '',
-      height: ''
+      name: "",
+      age: "",
+      height: ""
     });
   }
 
@@ -71,7 +75,7 @@ class SmurfForm extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return {
     smurfs: state.smurfs
   };
