@@ -6,9 +6,18 @@
 ## Start by forking and cloning this repository.
 ## Questions - Self Study - You can exercise your Google-Fu for this and any other _Sprint Challenge_ in the future.
 1. Describe the concept of a "Single Source of Truth" in Redux. Ex. What is the difference between Redux/Application _State_ vs. React/Component _State_?
+    * Redux's single source of truth is one giant state tree. The state tree is not directly modified allowing for easier debugging, easy retrieval of data, and undo/redo functionality.
 2. Describe what an _Action_ is/does.
+   * An action sends data to a reducer based on what type of action has been dispatched.
 3. Describe what a _Reducer_ is/does.
+   * A reducer takes a dispatched action and the current state and returns a new version of the state.
 4. What does HTTP stand for? What does CRUD stand for? Describe four HTTP methods that can be mapped to the CRUD acronym that we use to interface with APIs/Servers.
+    * HTTP - Hypertext Transfer Protocol
+    * CRUD - Create Read Update Delete
+        * Get - Retrieve data
+        * Post - Send data, create something with the data
+        * Put - Send data, create/update something with the data
+        * Delete - Send data, remove something relating to the data
 
 ## Initializing Project - READ THIS CAREFULLY, you have two apps here. A server, and a client.
 * Start by Forking and Cloning this Repo.
