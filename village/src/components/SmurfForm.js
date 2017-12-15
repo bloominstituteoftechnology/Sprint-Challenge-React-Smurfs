@@ -56,12 +56,12 @@ class SmurfForm extends Component {
           />
           <input
             onChange={this.updateAge}
-            placeholder="age"
+            placeholder="age in years"
             value={this.state.age}
           />
           <input
             onChange={this.updateHeight}
-            placeholder="height"
+            placeholder="height in inches"
             value={this.state.height}
           />
           <button type="submit">Add to the village</button>

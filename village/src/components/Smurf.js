@@ -10,4 +10,5 @@ const Smurf = (props) => {
   );
 }
 
+
 export default Smurf;
