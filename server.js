@@ -60,22 +60,28 @@ server.put('/smurfs', (req, res) => {
 });
 
 server.delete('/smurfs', (req, res) => {
+  
   const { id } = req.body;
+  console.log(id);
   let foundSMurf;
   const findSmurfById = smurf => {
     foundSMurf = smurf;
     return smurf.id === id;
   };
+  console.log(smurfs)
   if (smurfs.find(findSmurfById)) {
     smurfs.forEach((smurf, i) => {
       if (smurf.id === id) {
         smurfs.splice(i, 1);
-        return res.status(200).json({ SmurfRemoved: foundSMurf });
+        console.log(smurfs);
+        return res.status(200).json({ SmurfRemoved: foundSMurf,
+        smurfs:smurfs });
       }
     });
   } else {
     return sendUserError('No smurf by that ID exists in the smurf DB', res);
   }
+  // res.json(smurfs)
 });
 
 server.listen(port, err => {
