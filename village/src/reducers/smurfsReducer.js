@@ -1,7 +1,8 @@
 import {
   GET_SMURFS,
   ADD_SMURF
-} from '../actions';
+} from '../'.actions';
+
 
 
 export default (smurfs = [], action) => {

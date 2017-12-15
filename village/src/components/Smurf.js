@@ -1,4 +1,7 @@
 import React from 'react';
+import { connect } from 'react-redux'; 
+import { getSmurf } from' ../actions';
+
 
 const Smurf = (props) => {
   return (
@@ -11,3 +14,5 @@ const Smurf = (props) => {
 }
 
 export default Smurf;
+
+
