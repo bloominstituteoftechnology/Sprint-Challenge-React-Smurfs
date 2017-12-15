@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-
-import { getSmurfs } from '../actions';
+import { bindActionCreators } from 'redux';
+import { getSmurfs, addSmurf } from '../actions';
 
 import Smurfs from './Smurfs';
 
@@ -9,18 +9,19 @@ const SmurfsContainer = () => {
   return (
     <Smurfs />
   );
-}
+};
 
 const mapStateToProps = (state) => {
   return {
     smurfs: state.smurfs
-  }
-}
+  };
+};
 
 const mapDispatchToProps = (dispatch) => {
-  return  {
-    fetchSmurfs: () => dispatch(getSmurfs())
-  }
-}
+  return bindActionCreators({
+    fetchSmurfs: getSmurfs,
+    addSmurf
+  }, dispatch);
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(Smurfs);
