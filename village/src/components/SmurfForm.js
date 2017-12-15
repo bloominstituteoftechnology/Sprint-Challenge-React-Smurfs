@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { addSmurf } from '../actions';
+import { addSmurf, addUpdatedSmurf } from '../actions';
 
 class SmurfForm extends Component {
 
@@ -9,7 +9,8 @@ class SmurfForm extends Component {
     this.state = {
       name: '',
       age: '',
-      height: ''
+      height: '',
+      index: null
     };
     this.addSmurf = this.addSmurf.bind(this);
     this.updateName = this.updateName.bind(this);
@@ -23,7 +24,16 @@ class SmurfForm extends Component {
     this.setState({
       name: '',
       age: '',
-      height: ''
+      height: '',
+    });
+  }
+  addUpdatedSmurf(event) {
+    event.preventDefault();
+    this.props.addUpdatedSmurf(this.state);
+    this.setState({
+      name: '',
+      age: '',
+      height: '',
     });
   }
 
@@ -43,6 +53,11 @@ class SmurfForm extends Component {
     this.setState({
       height: event.target.value
     });
+  }
+  updateSmurf(event) {
+    this.setState({
+      index: event.target.value
+    })
   }
 
   render() {
@@ -66,6 +81,29 @@ class SmurfForm extends Component {
           />
           <button type="submit">Add to the village</button>
         </form>
+        <form onSubmit={this.addUpdateSmurf}>
+          <input
+            onChange={this.updateName}
+            placeholder="name"
+            value={this.state.name}
+          />
+          <input
+            onChange={this.updateAge}
+            placeholder="age"
+            value={this.state.age}
+          />
+          <input
+            onChange={this.updateHeight}
+            placeholder="height"
+            value={this.state.height}
+          />
+          <input
+            onChange={this.updateSmurf}
+            placeHolder="index"
+            value={this.state.index}
+          />
+          <button type="submit">Update Smurf</button>
+        </form>
       </div>
     );
   }
@@ -77,4 +115,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, { addSmurf })(SmurfForm);
+export default connect(mapStateToProps, { addSmurf, addUpdatedSmurf})(SmurfForm);
