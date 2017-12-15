@@ -27,7 +27,7 @@ export const addSmurf = (smurf) => {
 export const deleteSmurf = ({ id }) => {
     const promise = axios.delete('http://localhost:3333/smurfs', {
         data: {
-            id
+            index: [id]
         }
     });
     return{

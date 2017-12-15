@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-//import { deleteSmurf } from '../actions';
+import { connect } from 'react-redux';
+import { getSmurfs, deleteSmurf } from '../actions';
 
 class RemoveSmurf extends Component {
     constructor(props) {
@@ -11,7 +12,7 @@ class RemoveSmurf extends Component {
     }
 
     removeSmurf() {
-        this.props.deleteSmurf(this.state);
+        this.props.deleteSmurf([this.state.index]);
     }
 
     render() {
@@ -22,4 +23,17 @@ class RemoveSmurf extends Component {
         );
     };
 };
-export default RemoveSmurf;
+
+const mapStateToProps = (state) => {
+    return {
+      smurfs: state.smurfs
+    }
+  }
+  
+  const mapDispatchToProps = (dispatch) => {
+    return  {
+      fetchSmurfs: () => dispatch(getSmurfs())
+    };
+  }
+  
+  export default connect(mapStateToProps, mapDispatchToProps)(RemoveSmurf);
