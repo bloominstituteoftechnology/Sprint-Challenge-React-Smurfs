@@ -45,6 +45,7 @@ server.post('/smurfs', (req, res) => {
 
 server.put('/smurfs', (req, res) => {
   const { id, name, age, height } = req.body;
+  console.log({id,name,age,height})
   const findSmurfById = smurf => {
     return smurf.id === id;
   };
@@ -75,7 +76,7 @@ server.delete('/smurfs', (req, res) => {
         smurfs.splice(i, 1);
         console.log(smurfs);
         return res.status(200).json({ SmurfRemoved: foundSMurf,
-        smurfs:smurfs });
+        });
       }
     });
   } else {

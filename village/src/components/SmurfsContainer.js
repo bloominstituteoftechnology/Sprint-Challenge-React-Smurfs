@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { getSmurfs, deleteSmurf } from '../actions';
+import { getSmurfs, deleteSmurf,updateSmurf } from '../actions';
 
 import Smurfs from './Smurfs';
 
@@ -20,7 +20,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return  {
     fetchSmurfs: () => dispatch(getSmurfs()),
-    deleteSmurf: (i) => dispatch(deleteSmurf(i))
+    deleteSmurf: (i) => dispatch(deleteSmurf(i)),
+    updateSmurf: (i) => dispatch(updateSmurf(i))
   }
 }
 

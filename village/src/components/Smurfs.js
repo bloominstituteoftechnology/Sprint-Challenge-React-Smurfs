@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import SmurfUpdate from './SmurfUpdate';
 import Smurf from './Smurf';
 
 class Smurfs extends Component {
@@ -28,6 +28,7 @@ class Smurfs extends Component {
             return <div>
             <Smurf  name={smurf.name} age={smurf.age} height={smurf.height} key={i}/>
             <button onClick={()=>{this.props.deleteSmurf(i)}}>Delete</button>
+            <SmurfUpdate id ={i}/>
             </div>
           })}
         </ul>

@@ -16,6 +16,7 @@ export const getSmurfs = () => {
 }
 
 export const addSmurf = (smurf) => {
+    // console.log(smurf)
     const apiUrl = 'http://localhost:3333/smurfs'
     const addsmurfrequest = axios.post(apiUrl,smurf)
     // console.log(addsmurfrequest);
@@ -26,8 +27,8 @@ export const addSmurf = (smurf) => {
 }
 
 export const deleteSmurf = (id) => {
-    console.log('im triggered')
-    console.log(id);
+    // console.log('im triggered')
+    // console.log(id);
     const apiUrl = 'http://localhost:3333/smurfs'
     const deletesmurfrequest = axios.delete(apiUrl,
         {
@@ -36,9 +37,21 @@ export const deleteSmurf = (id) => {
             }
         }
     )
-    console.log(deletesmurfrequest);
+    // console.log(deletesmurfrequest);
     return {
         type:DELETE_SMURF,
         payload:deletesmurfrequest
+    }
+}
+
+export const updateSmurf = (smurf) => {
+    // console.log('im triggered')
+    // console.log(smurf)
+    const apiUrl = 'http://localhost:3333/smurfs'
+    const updatesmurfrequest = axios.put(apiUrl,smurf)
+    console.log(updatesmurfrequest);
+    return {
+        type:UPDATE_SMURF,
+        payload:updatesmurfrequest
     }
 }
