@@ -23,7 +23,8 @@ export const addSmurf = (smurf) => {
 }
 
 export const updateSmurf = (smurf) => {
-  const promise = axios.put(URL, smurf);
+  axios.put(URL, smurf);
+  const promise = axios.get(URL);
   return {
     type: UPDATE_SMURF,
     payload: promise
@@ -31,7 +32,7 @@ export const updateSmurf = (smurf) => {
 }
 
 export const deleteSmurf = (id) => {
-  const promise = axios.delete(URL, {data: { id }});
+  const promise = axios.delete(URL, { data: { id }});
   return {
     type: DELETE_SMURF,
     payload: promise

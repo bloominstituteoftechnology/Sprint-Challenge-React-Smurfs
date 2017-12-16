@@ -12,9 +12,14 @@ export default (smurfs = [], action) => {
     case ADD_SMURF:
       return action.payload.data;
     case UPDATE_SMURF:
-      return action.payload.data;
+      return smurfs.map(smurf => {
+        if (smurf.id === action.payload.data.id) return action.payload.data;
+        return smurf;
+      });
     case DELETE_SMURF:
-      return action.payload.data;
+    return smurfs.filter((smurf) => {
+      return (smurf.id !== action.payload.data.SmurfRemoved.id);
+      });
     default:
       return smurfs;
   }

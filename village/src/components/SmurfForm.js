@@ -56,6 +56,7 @@ class SmurfForm extends Component {
 
   handleUpdateSmurf = (event) => {
     event.preventDefault();
+    if (!this.state.id) return undefined;
     const smurf = {
       name: this.state.name,
       age: this.state.age,

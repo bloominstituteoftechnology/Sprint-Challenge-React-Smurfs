@@ -3,10 +3,6 @@ import { deleteSmurf } from '../actions';
 import { connect } from 'react-redux';
 
 class Smurf extends Component {
-  handleDelete = (event) => {
-    event.preventDefault();
-    this.props.deleteSmurf(this.props.id);
-  }
 
   render() {
     return (
@@ -15,7 +11,7 @@ class Smurf extends Component {
         <strong>{this.props.height} tall</strong>
         <p>{this.props.age} old</p>
         <p>{`ID: ${this.props.id}`}</p>
-        <button onClick={this.handleDelete}>Delete</button>
+        <button onClick={() => (this.props.deleteSmurf(this.props.id))}>Delete</button>
       </div>
     );
   }
