@@ -22,7 +22,7 @@ const smurfReducer = (smurfs=[],action) => {
         }
         return smurf;
       })
-      // console.log(newArr)
+      console.log(newArr,smurfs)
       return newArr;  
 
 
