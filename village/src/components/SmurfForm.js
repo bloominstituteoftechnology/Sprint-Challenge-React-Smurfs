@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { addSmurf } from '../actions';
 
 class SmurfForm extends Component {
 
@@ -71,10 +69,4 @@ class SmurfForm extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    smurfs: state.smurfs
-  };
-};
-
-export default connect(mapStateToProps, { addSmurf })(SmurfForm);
+export default SmurfForm;
