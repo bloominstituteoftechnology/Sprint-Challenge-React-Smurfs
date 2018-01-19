@@ -1,22 +1,32 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { NavLink } from 'react-router-dom';
+
+import './Smurfs.css';
 
 import Smurf from './Smurf';
 
-class Smurfs extends Component {
-  // add any needed code to ensure that the smurfs collection exists on state and it has data coming from the server
+const Smurfs = props => {
+  const smurfs = props.smurfs;
 
-  render() {
-    return (
-      <div className="Smurfs">
-        <h1>Smurf Village</h1>
-        <ul>
-          { this.state.smurfs.map((smurf) => {
-            return <Smurf name={smurf.name} age={smurf.age} height={smurf.height} key={smurf.id} />;
-          })}
-        </ul>
-      </div>
-    );
-  }
-}
+  return (
+    <div className="Smurfs">
+      <h1>Smurf Village</h1>
+      <ul className="SmurfsGrid">
+        {smurfs.map(smurf => {
+          return (
+            <NavLink
+              to={`/smurfs/${smurf.id}/${smurf.name}/${smurf.age}/${
+                smurf.height
+              }`}
+              key={smurf.id}
+            >
+              <Smurf name={smurf.name} age={smurf.age} height={smurf.height} />
+            </NavLink>
+          );
+        })}
+      </ul>
+    </div>
+  );
+};
 
 export default Smurfs;

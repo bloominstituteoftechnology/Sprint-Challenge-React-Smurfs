@@ -1,0 +1,10 @@
+.Smurfs {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.SmurfsGrid {
+	margin: 0;
+	padding: 0;
+}
