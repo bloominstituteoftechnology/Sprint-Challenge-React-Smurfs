@@ -24,11 +24,11 @@
 * After your API is up and running, you can open chrome and type in `http://localhost:3333/smurfs`. You should see an empty Array `[]` returned to you. This is an array that your **API** will be using to store our Smurf Data.
 * _LOOK_ at your `village` directory and notice it's just a plain ol' React App that we've built using `create-react-app`.
 * _cd_ into `village` and run `npm install` to retreive the client side dependencies.
-* _RUN_ `npm start` to fire up your React application.
+* _RUN_ `npm start` to fire up your React application, you should see an error that reads: `TypeError: Cannot read property 'smurfs' of null`.
 
 ## Project Description
 
-* For this challenge you're going to be implementing a few HTTP Requests from within a React Application.
+* For this challenge you're going to fix all errors and finish the application.
 * The requirements for completion are that you are using AXIOS to `GET` a list of Smurfs that exist on the server && a `POST` to create a new Smurf and save it to the Smurf DB.
 * If you get both of those two requirements finished early. Proceed to the **STRETCH PROBLEM** to try and implement a `PUT` and a `DELETE`.
 
@@ -102,10 +102,6 @@ output:
 * Example:
 
 ```
-input:
-{
-  id: 1
-}
 output:
 {
     "SmurfRemoved": {
