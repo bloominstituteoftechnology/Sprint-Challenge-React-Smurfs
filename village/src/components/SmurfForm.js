@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 
 class SmurfForm extends Component {
 
@@ -7,7 +8,8 @@ class SmurfForm extends Component {
     this.state = {
       name: '',
       age: '',
-      height: ''
+      height: '',
+
     };
     this.addSmurf = this.addSmurf.bind(this);
     this.updateName = this.updateName.bind(this);
@@ -16,12 +18,15 @@ class SmurfForm extends Component {
   }
 
   addSmurf(event) {
-    event.preventDefault();
-    this.props.addSmurf(this.state);
-    this.setState({
-      name: '',
-      age: '',
-      height: ''
+    var smurfURL = 'http://localhost:3333/smurfs';
+    axios
+    .post(smurfURL, this.state)
+    .then(response => {
+      this.props.refresh();
+      this.setState({ name: '', age: '', height: ''});
+    })
+    .catch((error) => {
+      console.log('Could not create the smurf', error);
     });
   }
 
@@ -46,7 +51,7 @@ class SmurfForm extends Component {
   render() {
     return (
       <div className="SmurfForm">
-        <form onSubmit={this.addSmurf}>
+        <form onSubmit={this.addSmurf} >
           <input
             onChange={this.updateName}
             placeholder="name"

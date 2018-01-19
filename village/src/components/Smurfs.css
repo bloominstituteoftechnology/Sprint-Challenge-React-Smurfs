@@ -1,0 +1,4 @@
+.smurf__list {
+    display: flex;
+    flex-flow: wrap;
+}
