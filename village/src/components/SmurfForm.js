@@ -15,8 +15,12 @@ class SmurfForm extends Component {
     this.updateHeight = this.updateHeight.bind(this);
   }
 
+  componentDidMount() {
+    this.props.loadSmurf;
+  }
   addSmurf(event) {
     event.preventDefault();
+    //add code to create the smurf using the api 
     this.props.addSmurf(this.state);
     this.setState({
       name: '',
