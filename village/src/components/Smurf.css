@@ -1,0 +1,12 @@
+.Smurf {
+  min-width: 16rem;
+  border: 2px solid gray;
+  border-radius: 15px;
+  margin: 5px;
+  padding: 7px;
+  background-color: lightskyblue;
+}
+
+button {
+  margin: 2px 5px;
+}

@@ -10,28 +10,41 @@ class App extends Component {
     smurfs: [],
   }
 
+  
   loadSmurfs = () => {
     const endpoint = 'http://localhost:3333/smurfs';
-  
+    
     axios
-      .get(endpoint)
-      .then(response => {
-        this.setState({ smurfs: response.data });
-      })
-      .catch(error => {
-        console.log('Error: ', error);
-      })
+    .get(endpoint)
+    .then(response => {
+      this.setState({ smurfs: response.data });
+    })
+    .catch(error => {
+      console.log('Error: ', error);
+    })
   }
-
+  
+  deleteSmurf = (id) => {
+    const endpoint = `http://localhost:3333/smurfs/${id}`;
+    axios
+    .delete(endpoint)
+    .then(response => {
+      this.loadSmurfs();
+    })
+    .catch(error => {
+      console.log('Error: ', error);
+    })
+  }
+  
   componentDidMount() {
     this.loadSmurfs();
   }
-
+  
   render() {
     return (
       <div className="App">
         <SmurfForm updateSmurfs={this.loadSmurfs} />
-        <Smurfs smurfs={this.state.smurfs} />
+        <Smurfs smurfs={this.state.smurfs} delete={this.deleteSmurf} />
       </div>
     );
   }

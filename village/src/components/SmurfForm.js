@@ -23,7 +23,6 @@ class SmurfForm extends Component {
     axios
       .post(endpoint, this.state)
       .then(response => {
-        // this.setState();
         this.props.updateSmurfs();
         this.setState({ name: '', age: '', height: '' });
       })
