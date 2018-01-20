@@ -3,3 +3,11 @@
     width: 300px;
     margin: 10px;
 }
+
+.smurf--update__none {
+    display: none;
+}
+
+.smurf--update {
+    display: inherit
+}

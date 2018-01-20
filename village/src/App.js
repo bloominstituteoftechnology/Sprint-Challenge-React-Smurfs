@@ -60,7 +60,7 @@ class App extends Component {
         <h1>Smurf Village</h1>
         <ul className="Smurfs">
         { this.state.smurfs.map((smurf) => {
-          return <Smurfs name={smurf.name} age={smurf.age} height={smurf.height} key={smurf.id}  id={smurf.id} delete={this.deleteSmurf} />;
+          return <Smurfs name={smurf.name} age={smurf.age} height={smurf.height} key={smurf.id}  id={smurf.id} delete={this.deleteSmurf} update={this.updateSmurf} />;
         })}
       </ul>
       </div>
