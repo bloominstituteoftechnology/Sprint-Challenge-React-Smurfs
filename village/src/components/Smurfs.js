@@ -41,7 +41,7 @@ class Smurfs extends Component {
   updateHeight = (event) => {
     this.setState({
       updateSmurf: {
-        event: event.target.value
+        height: event.target.value
       }
     })
   }
@@ -62,7 +62,7 @@ class Smurfs extends Component {
         <p>{this.props.age} old</p>
         <button onClick={() => this.props.delete(this.props.id) }>Delete</button> {'  '}
         <button onClick={this.toggleUpdate}>Update</button>
-        <form className={this.state.update ? ".smurf--update" : "smurf--update__none"} onSubmit={this.updateSmurf}>
+        <form className={this.state.update ? "smurf--update" : "smurf--update__none"} onSubmit={this.updateSmurf}>
           <input value={this.state.updateSmurf.name} onChange={this.updateName} placeholder="name" />
           <input value={this.state.updateSmurf.age} onChange={this.updateAge} placeholder="age" />
           <input value={this.state.updateSmurf.height} onChange={this.updateHeight} placeholder="height" />
