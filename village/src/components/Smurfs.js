@@ -9,7 +9,7 @@ const Smurfs = (props) => {
       <h1>Smurf Village</h1>
       <ul className="Smurfs">
         { props.smurfs.map((smurf) => {
-          return <Smurf name={smurf.name} age={smurf.age} height={smurf.height} id={smurf.id} delete={props.delete} key={smurf.id} />;
+          return <Smurf name={smurf.name} age={smurf.age} height={smurf.height} id={smurf.id} delete={props.delete} edit={props.edit} key={smurf.id} />;
         })}
       </ul>
     </div>

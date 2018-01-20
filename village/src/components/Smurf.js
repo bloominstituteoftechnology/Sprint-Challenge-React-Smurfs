@@ -8,7 +8,10 @@ const Smurf = (props) => {
       <strong>{props.height} tall</strong>
       <p>{props.age} old</p>
       <div>
-        <button>Edit</button>
+        <button onClick={() => {
+          props.edit(props.id);
+          }}
+        >Edit</button>
         <button onClick={() => {
           props.delete(props.id);
           }}
