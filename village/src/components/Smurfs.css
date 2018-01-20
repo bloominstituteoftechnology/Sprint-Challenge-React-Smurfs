@@ -8,3 +8,15 @@
 	margin: 0;
 	padding: 0;
 }
+
+.SmurfGrid__smurf {
+	margin: 25px;
+}
+
+.EditButton {
+	margin-right: 10px;
+}
+
+.DeleteButton {
+	margin-left: 10px;
+}

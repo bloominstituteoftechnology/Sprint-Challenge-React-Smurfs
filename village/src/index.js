@@ -10,9 +10,10 @@ ReactDOM.render(
 	<Router>
 		<div>
 			<Switch>
-				<Route path="/smurfs/:id/:name/:age/:height" component={Smurf} />
-				<Route path="/smurfs/:id/:name/:age" component={Smurf} />
-				<Route path="/smurfs/:id/:name" component={Smurf} />
+				<Route exact path="/smurfs/:id/:name/:age/:height" component={Smurf} />
+				<Route exact path="/smurfs/:id/:name/:age" component={Smurf} />
+				<Route exact path="/smurfs/:id/:name" component={Smurf} />
+				<Route exact path="/smurfs/:id" component={Smurf} />
 				<Route exact path="/" component={App} />
 			</Switch>
 		</div>

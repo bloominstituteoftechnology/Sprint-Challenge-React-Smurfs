@@ -24,3 +24,10 @@
 	font-size: 0.8rem;
 	padding-top: 8px;
 }
+
+.SmurfToVillage {
+	display: flex;
+	justify-content: center;
+	text-decoration: none;
+}
+

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-class SmurfForm extends Component {
+class EditSmurf extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -9,21 +9,24 @@ class SmurfForm extends Component {
       age: '',
       height: '',
     };
-    this.addSmurf = this.addSmurf.bind(this);
+    this.editSmurf = this.editSmurf.bind(this);
     this.updateName = this.updateName.bind(this);
     this.updateAge = this.updateAge.bind(this);
     this.updateHeight = this.updateHeight.bind(this);
   }
 
-  addSmurf(event) {
+  editSmurf(event) {
     event.preventDefault();
+    // console.log(this.props);
 
-    const stream = 'http://localhost:3333/smurfs';
+    const stream = `http://localhost:3333/smurfs/${this.props.id}`;
+    // console.log(this.state);
 
     axios
-      .post(stream, this.state)
+      .put(stream, this.state)
       .then(response => {
         // this.setState({ smurfs: response.data });
+        this.props.cancelEditSmurf();
         this.props.loadVillage();
       })
       .catch(error => {
@@ -58,7 +61,7 @@ class SmurfForm extends Component {
   render() {
     return (
       <div className="SmurfForm">
-        <form onSubmit={this.addSmurf}>
+        <form onSubmit={this.editSmurf}>
           <input
             onChange={this.updateName}
             placeholder="name"
@@ -74,11 +77,11 @@ class SmurfForm extends Component {
             placeholder="height"
             value={this.state.height}
           />
-          <button type="submit">Add to the village</button>
+          <button type="submit">Finish editing smurf</button>
         </form>
       </div>
     );
   }
 }
 
-export default SmurfForm;
+export default EditSmurf;
