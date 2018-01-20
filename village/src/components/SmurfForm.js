@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import axios from 'axios';
+
 class SmurfForm extends Component {
 
   constructor(props) {
@@ -18,12 +20,18 @@ class SmurfForm extends Component {
   addSmurf(event) {
     event.preventDefault();
     // add code to create the smurf using the api
+
+    axios.post('http://localhost:3333/smurfs', this.state).then(response => {
+      this.setState({name: '', age: '', height: ''})
+    }).catch(() => {
+      console.error('Could not create the friend');
+    })
     
-    this.setState({
-      name: '',
-      age: '',
-      height: ''
-    });
+    // this.setState({
+    //   name: '',
+    //   age: '',
+    //   height: ''
+    // });
   }
 
   updateName(event) {
@@ -63,7 +71,7 @@ class SmurfForm extends Component {
             placeholder="height"
             value={this.state.height}
           />
-          <button type="submit">Add to the village</button>
+          <button type="submit" onClick={this.addSmurf}>Add to the village</button>
         </form>
       </div>
     );
