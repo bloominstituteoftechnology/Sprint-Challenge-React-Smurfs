@@ -47,7 +47,7 @@ server.put('/smurfs/:id', (req, res) => {
   const { id } = req.params;
   const { name, age, height } = req.body;
   const findSmurfById = smurf => {
-    return smurf.id === id;
+    return smurf.id == id;
   };
   const foundSmurf = smurfs.find(findSmurfById);
   if (!foundSmurf) {
