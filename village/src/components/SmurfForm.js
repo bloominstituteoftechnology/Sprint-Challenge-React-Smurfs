@@ -27,6 +27,8 @@ class SmurfForm extends Component {
           age: '',
           height: ''
         });
+        // this.props.refresh();
+        console.log('this.props', this.props);
       })
       .catch(() => {
         console.error('Could not find smurf');

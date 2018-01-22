@@ -8,7 +8,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <SmurfForm />
+        <SmurfForm refresh={this.loadSmurf} />
         <Smurfs/>
       </div>
     );
