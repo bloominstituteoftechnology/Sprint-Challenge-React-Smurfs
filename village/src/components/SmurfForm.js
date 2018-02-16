@@ -1,53 +1,55 @@
-import React, { Component } from 'react';
-import axios from 'axios';
+import React, { Component } from "react";
+import axios from "axios";
 
 class SmurfForm extends Component {
-    state = {
-      name: '',
-      age: '',
-      height: ''
-    }
+  state = {
+    name: "",
+    age: "",
+    height: ""
+  };
 
-    addSmurf = (event) => {
-      event.preventDefault();
-      if (!this.state.name || !this.state.height || !this.state.age) alert("All Fields Must Be Filled Out!")
-      else {
-      axios.post('http://localhost:3333/smurfs', {
-        name: this.state.name,
-        age: this.state.age,
-        height: this.state.height,
-      })
-      .then(response => {
-        this.setState({
-          name: '',
-          age: '',
-          height: '',
+  addSmurf = event => {
+    event.preventDefault();
+    if (!this.state.name || !this.state.height || !this.state.age)
+      alert("All Fields Must Be Filled Out!");
+    else {
+      axios
+        .post("http://localhost:3333/smurfs", {
+          name: this.state.name,
+          age: this.state.age,
+          height: this.state.height
         })
-        this.props.onCreate();
-      })
-      .catch(error => {
-        console.error("Error Adding Smurf: ", error);
-      });
+        .then(response => {
+          this.setState({
+            name: "",
+            age: "",
+            height: ""
+          });
+          this.props.onCreate();
+        })
+        .catch(error => {
+          console.error("Error Adding Smurf: ", error);
+        });
     }
-    }
+  };
 
-  updateName = (event) => {
+  updateName = event => {
     this.setState({
       name: event.target.value
     });
-  }
+  };
 
-  updateAge = (event) => {
+  updateAge = event => {
     this.setState({
       age: event.target.value
     });
-  }
+  };
 
-  updateHeight = (event) => {
+  updateHeight = event => {
     this.setState({
       height: event.target.value
     });
-  }
+  };
 
   render() {
     return (
