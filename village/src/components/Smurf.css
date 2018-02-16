@@ -15,4 +15,17 @@
 .format {
     display:flex;
     flex-flow: column;
+    
+}
+
+.update-form {
+    width: 245px;
+    height: 170px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+input {
+    width: 200px;
 }

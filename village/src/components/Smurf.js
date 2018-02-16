@@ -19,9 +19,9 @@ class Smurf extends React.Component {
       id: this.state.id
     };
     return (
-      <div className="card">
+      <div>
         {!this.state.display ? (
-          <div>
+          <div className="card"> 
           <h3>{this.props.name}</h3>
           <p>Age: {this.props.age}</p>
           <p>Height: {this.props.height}</p>
@@ -38,7 +38,7 @@ class Smurf extends React.Component {
           </div>
         ) : null}
         {!this.state.display ? null : (
-          <div>
+          <div className="update-form">
             <form className="format">
               <input
                 onChange={this.updateName}
