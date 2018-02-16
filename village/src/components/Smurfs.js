@@ -14,6 +14,7 @@ const Smurfs = props => {
               smurf={smurf}
               key={smurf.id}
               delete={props.delete}
+              edit={props.edit}
             />
           );
         })}
