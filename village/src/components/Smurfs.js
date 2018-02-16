@@ -1,22 +1,28 @@
-import React, { Component } from 'react';
-
+import React from 'react';
 import Smurf from './Smurf';
+import SmurfEdit from './SmurfEdit';
 
-class Smurfs extends Component {
-  // add any needed code to ensure that the smurfs collection exists on state and it has data coming from the server
-
-  render() {
-    return (
-      <div className="Smurfs">
-        <h1>Smurf Village</h1>
-        <ul>
-          { this.state.smurfs.map((smurf) => {
-            return <Smurf name={smurf.name} age={smurf.age} height={smurf.height} key={smurf.id} />;
-          })}
-        </ul>
-      </div>
-    );
-  }
+const Smurfs = (props) => {
+  return (
+    <div className="Smurfs">
+      <h1>Smurf Village</h1>
+      <ul>
+        {props.smurfs.map((smurf, i) => {
+          return (
+            <div key={i}>
+              <Smurf
+                name={smurf.name}
+                age={smurf.age}
+                height={smurf.height}
+                key={smurf.id}
+              />
+              <SmurfEdit getSmurfs={props.getSmurfs} smurf={smurf}  />
+            </div>
+          );
+        })}
+      </ul>
+    </div>
+  );
 }
 
 export default Smurfs;

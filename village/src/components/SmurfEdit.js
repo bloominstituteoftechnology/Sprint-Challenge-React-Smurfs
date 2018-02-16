@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-class SmurfForm extends Component {
+class SmurfEdit extends Component {
   state = {
     name: '',
     age: '',
@@ -10,10 +10,11 @@ class SmurfForm extends Component {
 
   addSmurf = event => {
     event.preventDefault();
-    const endpoint = 'http://localhost:3333/smurfs';
+    const id = this.props.smurf.id;
+    const endpoint = `http://localhost:3333/smurfs/${id}`;
 
     axios
-      .post(endpoint, this.state)
+      .put(endpoint, this.state)
       .then(response => {
         this.props.getSmurfs();
       })
@@ -66,11 +67,11 @@ class SmurfForm extends Component {
             placeholder="height"
             value={this.state.height}
           />
-          <button type="submit">Add to the village</button>
+          <button type="submit">Edit Smurf</button>
         </form>
       </div>
     );
   }
 }
 
-export default SmurfForm;
+export default SmurfEdit;
