@@ -14,7 +14,7 @@ class Smurfs extends Component {
       this.setState({ smurfs: response });
     })
     .catch((err) => {
-      console.error(err);
+      console.error('Error', err);
     })
   }
 
