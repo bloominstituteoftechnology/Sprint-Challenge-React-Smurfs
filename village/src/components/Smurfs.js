@@ -13,6 +13,7 @@ class Smurfs extends Component {
           { this.state.smurfs.map((smurf) => {
             return <Smurf name={smurf.name} age={smurf.age} height={smurf.height} key={smurf.id} />;
           })}
+          <SmurfForm />
         </ul>
       </div>
     );
