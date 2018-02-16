@@ -13,7 +13,7 @@ class App extends Component {
     return (
       <div className="App">
         <div className="forms">
-        <SmurfForm onCreate={this.loadSmurfs} />
+          <SmurfForm onCreate={this.loadSmurfs} />
         </div>
         <Smurfs
           smurfs={this.state.smurfs}
@@ -34,7 +34,7 @@ class App extends Component {
         this.setState({ smurfs: response.data });
       })
       .catch(error => {
-        console.log("there was error", error);
+        console.error("Error Loading Smurfs", error);
       });
   };
 
@@ -45,23 +45,24 @@ class App extends Component {
       .then(response => {
         this.loadSmurfs();
       })
-      .catch(() => {
-        console.error("Error Deleting Smurf");
+      .catch(error => {
+        console.error("Error Deleting Smurf: ", error);
       });
   };
 
   updateSmurf = smurf => {
+    console.log("Update: ", smurf)
     if (!smurf.name || !smurf.height || !smurf.age)
       alert("All Fields Must Be Filled Out!");
     else {
       const endpoint = `http://localhost:3333/smurfs/${smurf.id}`;
-      return axios
+      axios
         .put(endpoint, smurf)
         .then(response => {
           this.loadSmurfs();
         })
-        .catch(() => {
-          console.error("Error Updating Smurf");
+        .catch(error => {
+          console.error("Error Updating Smurf: ", error);
         });
     }
   };

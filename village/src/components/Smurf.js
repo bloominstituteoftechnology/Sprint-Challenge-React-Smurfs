@@ -1,45 +1,39 @@
 import React from "react";
 
-import './Smurf.css'
+import "./Smurf.css";
 
 class Smurf extends React.Component {
   state = {
-    name: "",
-    age: "",
-    height: "",
+    name: this.props.name,
+    age: this.props.age,
+    height: this.props.height,
     id: this.props.id,
     display: false
   };
 
   render() {
-    const smurf = {
-      name: this.state.name,
-      age: this.state.age,
-      height: this.state.height,
-      id: this.state.id
-    };
     return (
       <div>
         {!this.state.display ? (
-          <div className="card"> 
-          <h3>{this.props.name}</h3>
-          <p>Age: {this.props.age}</p>
-          <p>Height: {this.props.height}</p>
-          <button onClick={this.displayForm}>update</button>
-          {!this.state.display ? (
-          <button
-            onClick={() => {
-              this.props.onDelete(this.props);
-            }}
-          >
-            Delete
-          </button>
-        ) : null}
+          <div className="card">
+            <h3>{this.props.name}</h3>
+            <p>Age: {this.props.age}</p>
+            <p>Height: {this.props.height}</p>
+            <button onClick={this.displayForm}>update</button>
+            {!this.state.display ? (
+              <button
+                onClick={() => {
+                  this.props.onDelete(this.props);
+                }}
+              >
+                Delete
+              </button>
+            ) : null}
           </div>
         ) : null}
         {!this.state.display ? null : (
           <div className="update-form">
-            <form className="format">
+            <form onSubmit={this.submitHandler} className="format">
               <input
                 onChange={this.updateName}
                 placeholder="name"
@@ -55,19 +49,24 @@ class Smurf extends React.Component {
                 placeholder="height"
                 value={this.state.height}
               />
-              <button
-                onClick={() => {
-                  this.props.onUpdate(smurf);
-                }}
-              >
-                Update
-              </button>
+              <button type="submit" >Update</button>
             </form>
           </div>
         )}
       </div>
     );
   }
+
+  submitHandler = event => {
+    event.preventDefault();
+    const { name, age, height, id } = this.state;
+    const smurf = { name, age, height, id };
+    console.log(smurf);
+    this.props.onUpdate(smurf);
+    this.setState((previous) => {
+      return {display: !previous.display}
+    })
+  };
 
   displayForm = event => {
     this.setState({ display: !this.state.display });
