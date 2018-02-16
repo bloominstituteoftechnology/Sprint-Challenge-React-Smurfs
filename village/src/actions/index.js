@@ -1,5 +1,4 @@
 import axios from "axios";
-import axios from "axios";
 
 export const GET_SMURFS = "GET_SMURFS";
 export const ADD_SMURF = "ADD_SMURF";
