@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-class SmurfForm extends Component {
 
+class SmurfForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -30,11 +30,12 @@ class SmurfForm extends Component {
     axios.post('http://localhost:3333/smurfs', newSmurf)
     .then((response) => {
       console.log('Response', response);
+      this.props.loadSmurfs();
     })
     .catch((err) => {
       console.error('Error', err)
     })
-
+    
     this.setState({
       name: '',
       age: '',
@@ -90,7 +91,6 @@ class SmurfForm extends Component {
           <h3>UPDATE SMURF</h3>
           <input 
             placeholder="name"
-            value={this.state.name}
           />
           <button type="submit">Update smurf</button>
         </form>
