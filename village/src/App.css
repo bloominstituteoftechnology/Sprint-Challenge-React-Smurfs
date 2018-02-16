@@ -1,3 +1,23 @@
 .App {
   text-align: center;
 }
+
+.App ul {
+  list-style-type: none;
+  padding: 0;
+  margin: auto;
+}
+
+.App ul li {
+  font-size: 30px;
+  color: white;
+  background-color: rgba(0,0,0,0.3)
+}
+
+.App ul li button {
+  width: 150px;
+  height: 30px;
+  background-color: #e87;
+  border: none;
+  margin-bottom: 10px;
+}
