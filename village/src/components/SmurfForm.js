@@ -22,7 +22,7 @@ class SmurfForm extends Component {
     axios
     .post('http://localhost:3333/smurfs', this.state)
     .then(response => {
-    console.log(response)})
+    this.props.onCreate()})
     .catch(error => {
       console.error('Server Error', error)
     });
@@ -30,7 +30,6 @@ class SmurfForm extends Component {
       name: '',
       age: '',
       height: '',
-      id: (this.id) ++,
     });
   }
 
