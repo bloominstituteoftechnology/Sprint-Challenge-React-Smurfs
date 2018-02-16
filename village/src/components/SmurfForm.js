@@ -21,11 +21,11 @@ class SmurfForm extends Component {
     // add code to create the smurf using the api
     this.setState({value: event.target.value});
     axios
-    //.get('http://localhost:3333/smurfs')
+    .get('http://localhost:3333/smurfs')
     .post('http://localhost:3333/smurfs', {
-      name: this.props.name,
-      age: this.props.age,
-      height: this.props.height
+      name: this.state.name,
+      age: this.state.age,
+      height: this.state.height
     })
       .then(response => {
         this.setState({ smurfs: response.data });
@@ -53,17 +53,17 @@ class SmurfForm extends Component {
     });
   }
 
-  componentDidMount() {
-    axios
-      .get('http://localhost:3333/smurfs')
-      .then(response => {
-        console.log(response.data);
-        this.setState({ smurfs: response.data });
-      })
-      .catch(error => {
-        console.log('there was error', error);
-      })
-  }
+   componentDidMount() {
+     axios
+       .get('http://localhost:3333/smurfs')
+       .then(response => {
+         console.log(response.data);
+         this.setState({ smurfs: response.data });
+       })
+       .catch(error => {
+         console.log('there was error', error);
+       })
+   }
 
  
   render() {

@@ -1,20 +1,24 @@
 import React, { Component } from 'react';
 import Smurf from './Smurf';
 import SmurfForm from './SmurfForm';
-import axios from 'axios';
+// import axios from 'axios';
 
 class Smurfs extends Component {
   // add any needed code to ensure that the smurfs collection exists on state and it has data coming from the server
-  state = {
-    smurfs: [],
+  constructor(props) {
+    super();
+    this.state = {
+      smurfs: []
+    }
   }
-    
+
+
   render() {
     return (
       <div className="Smurfs">
         <h1>Smurf Village</h1>
         <ul>
-          { this.state.smurfs.map((smurf) => {
+          {this.state.smurfs.map((smurf) => {
             return <Smurf name={smurf.name} age={smurf.age} height={smurf.height} key={smurf.id} />;
           })}
           <SmurfForm />
@@ -23,25 +27,19 @@ class Smurfs extends Component {
     );
   }
 
-  handleName = (event) => {
-    event.preventDefault();
-    this.setState({
-        name: event.target.name });
-  }
-
-  handleAge = (event) => {
-    event.preventDefault();
-    this.setState({
-        age: event.target.age });
-  }
-
-  handleHeight = (event) => {
-    event.preventDefault();
-    this.setState({
-        height: event.target.height });
-  }
-
-
+  // componentDidMount() {
+  //   this.setState({ loading: true });
+  //   axios
+  //     .get('http://localhost:3333/smurfs')
+  //     .then(response => {
+  //       console.log(response.data);
+  //       this.setState({ smurfs: response.data, loading: false });
+  //     })
+  //     .catch(error => {
+  //       this.setState({ loading: false });
+  //       console.log('there was error', error);
+  //     })
+  // }
 }
 
 export default Smurfs;
