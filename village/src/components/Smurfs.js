@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Smurf from './Smurf';
 
-function SmurfList(props) {
+function smurfs(props) {
   return (
     <ul>
-      {props.smurfList.map(smurf => {
+      {props.smurfs.map(smurf => {
         return (
           <Smurf
             key={smurf.id}
@@ -33,7 +33,7 @@ class Smurfs extends Component {
       <div className="Smurfs">
         <h1>Smurf Village</h1>
         <ul>
-          { this.smurfList.map((smurf) => {
+          { this.smurfs.map((smurf) => {
             return 
               <Smurf 
               key={smurf.id}

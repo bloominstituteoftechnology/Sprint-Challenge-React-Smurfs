@@ -16,17 +16,33 @@ class SmurfForm extends Component {
     this.updateHeight = this.updateHeight.bind(this);
   }
 
-  addSmurf(event) {
+  // given functions: add/update (Create/Update)
+  // missing functions: Read/Delete
+
+  /* ADD(CREATE) FUNCTION */
+  addSmurf(event) {  // equivalent to submitHandler in FriendForm.js
     event.preventDefault();
     // add code to create the smurf using the api
     
-    this.setState({
-      name: '',
-      age: '',
-      height: ''
-    });
+  
+    axios
+      .post('http://localhost:3333/smurfs', this.state)
+      .then(response => {
+        console.log('response from post', response);
+        this.setState({
+          name: '',
+          age: '',
+          height: ''
+        });
+        this.props.onCreate();
+      })
+      .catch(error => {
+        console.error('error saving the data');
+      });
+
   }
 
+  /* UPDATE FUNCTIONS*/
   updateName(event) {
     this.setState({
       name: event.target.value
