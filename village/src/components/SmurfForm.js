@@ -17,10 +17,10 @@ class SmurfForm extends Component {
 
   addSmurf(event) {
     event.preventDefault();
-    const newSmurf = this.state;
     axios
-      .post("http://localhost:3333/smurfs/", newSmurf)
+      .post("http://localhost:3333/smurfs/", this.state)
       .then(res => {
+        this.props.onCreate();
         this.setState({
           name: "",
           age: "",
