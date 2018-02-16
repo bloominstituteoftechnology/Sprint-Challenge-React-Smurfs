@@ -13,7 +13,7 @@ const sendUserError = (msg, res) => {
   return;
 };
 
-let smurfs = [];
+const smurfs = [];
 server.get('/smurfs', (req, res) => {
   res.json(smurfs);
 });
@@ -73,7 +73,10 @@ server.delete('/smurfs/:id', (req, res) => {
   }
 });
 
-server.listen(port, err => {
-  if (err) console.log(err);
-  console.log(`server is listening on port ${port}`);
+server.listen(port, () => {
+  console.log(`server listening on http://localhost:${port}`);
 });
+// server.listen(port, err => {
+//   if (err) console.log(err);
+//   console.log(`server is listening on port ${port}`);
+// });
