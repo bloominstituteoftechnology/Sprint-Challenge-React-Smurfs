@@ -13,7 +13,7 @@ class App extends Component {
     return (
       <div className="App">
         <SmurfForm onCreate={this.loadSmurfs}/>
-        <Smurfs smurfs={this.state.smurfs}/>
+        <Smurfs smurfs={this.state.smurfs} onDelete={this.removeSmurf}/>
       </div>
     );
   }
@@ -32,6 +32,19 @@ class App extends Component {
       })
       .catch(() => {
         console.error('error getting data');
+      });
+  };
+
+  removeSmurf = id => {
+    const endpoint = `http://localhost:3333/smurfs/${id}`;
+    axios
+      .delete(endpoint)
+      .then(response => {
+        console.log('response from delete', response);
+        this.setState({ smurfs: response.data });
+      })
+      .catch(() => {
+        console.error('error deleting');
       });
   };
 

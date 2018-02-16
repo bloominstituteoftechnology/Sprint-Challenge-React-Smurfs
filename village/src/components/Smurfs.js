@@ -7,12 +7,13 @@ class Smurfs extends Component {
 
   render() {
     const smurfs = this.props.smurfs;
+    const onDelete = this.props.onDelete;
     return (
       <div className="Smurfs">
         <h1>Smurf Village</h1>
         <ul>
           { smurfs.map((smurf) => {
-            return <Smurf name={smurf.name} age={smurf.age} height={smurf.height} key={smurf.id} />;
+            return <Smurf name={smurf.name} age={smurf.age} height={smurf.height} id={smurf.id} key={smurf.id} onDelete={onDelete}/>;
           })}
         </ul>
       </div>
