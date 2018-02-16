@@ -18,6 +18,19 @@ class App extends Component {
     );
   }
 
+  deleteSmurf = (id) => {
+    const endpoint = `http://localhost:3333/smurfs/${id}`;
+    axios
+    .delete(endpoint)
+    .then(response => {
+      console.log(response);
+      this.loadSmurfs();
+    })
+    .catch(error => {
+      console.log(error)
+    })
+  }
+
   loadSmurfs = () => {
     axios.get('http://localhost:3333/smurfs')
     .then((response) => {
