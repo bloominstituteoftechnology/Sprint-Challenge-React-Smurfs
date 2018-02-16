@@ -20,7 +20,7 @@ class Smurfs extends Component {
             return (
               <div key={smurf.id}>
                 <button onClick={() => {this.props.onDelete(smurf.id)}}>nuke</button>
-                <Smurf name={smurf.name} age={smurf.age} height={smurf.height} key={smurf.id} deleted={this.props.deleted}/>
+                <Smurf name={smurf.name} age={smurf.age} height={smurf.height}/>
               </div>
             )
           })}

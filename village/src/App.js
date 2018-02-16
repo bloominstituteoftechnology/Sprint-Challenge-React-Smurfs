@@ -42,12 +42,18 @@ class App extends Component {
   };
   nukeSmurfs = (id) => {
     const endpoint = (`http://localhost:3333/smurfs/${id}`)
+    let smurfs = this.state.smurfs
     axios
       .delete(endpoint)
       .then(response => {
         console.log('response from delete', response);
-        this.setState({ deleted: true })
+        console.log('deleted smurf: ', response.data.SmurfRemoved)
+        this.setState({ smurfs: smurfs.filter(smurf => smurf.id !== response.data.SmurfRemoved.id) })
       })
+      .then(response => {
+        console.log('state once smurf nuked: ', this.state);
+      }
+      )
       .catch(error => {
         console.error('error deleting')
       });
