@@ -8,6 +8,7 @@ import Smurfs from './components/Smurfs';
 class App extends Component {
   state = {
     smurfs: [],
+    deleted: false
   }
   render() {
     return (
@@ -16,7 +17,10 @@ class App extends Component {
           onCreate={this.gatherSmurfs}
         />
         <Smurfs
-         smurfs={this.state.smurfs} 
+         smurfs={this.state.smurfs}
+         onDelete={this.nukeSmurfs}
+         deleted={this.state.deleted}
+         toggleDelete={this.toggleDeleted}
         />
       </div>
     );
@@ -36,6 +40,25 @@ class App extends Component {
         console.log('error getting data')
       });
   };
+  nukeSmurfs = (id) => {
+    const endpoint = (`http://localhost:3333/smurfs/${id}`)
+    axios
+      .delete(endpoint)
+      .then(response => {
+        console.log('response from delete', response);
+        this.setState({ deleted: true })
+      })
+      .catch(error => {
+        console.error('error deleting')
+      });
+  };
+  toggleDeleted = () => {
+    this.setState(prevState => {
+      return {
+        deleted: !prevState.deleted,
+      };
+  });
+  }
 }
 
 export default App;
