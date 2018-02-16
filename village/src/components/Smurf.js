@@ -8,7 +8,6 @@ class Smurf extends Component {
         <h3>{this.props.name}</h3>
         <strong>{this.props.height} tall</strong>
         <p>{this.props.age} old</p>
-        <h6>{this.props.id}</h6>
         <button onClick={ this.deleteSmurf }>Delete</button>
       </div>
     );
