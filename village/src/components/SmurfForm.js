@@ -1,64 +1,67 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 
 class SmurfForm extends Component {
+  state = {
+    name: '',
+    age: '',
+    height: '',
+  };
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      name: '',
-      age: '',
-      height: ''
-    };
-    this.addSmurf = this.addSmurf.bind(this);
-    this.updateName = this.updateName.bind(this);
-    this.updateAge = this.updateAge.bind(this);
-    this.updateHeight = this.updateHeight.bind(this);
-  }
-
-  addSmurf(event) {
+  addSmurf = event => {
     event.preventDefault();
-    // add code to create the smurf using the api
-    
+    const endpoint = 'http://localhost:3333/smurfs';
+
+    axios
+      .post(endpoint, this.state)
+      .then(response => {
+        this.props.getSmurfs();
+      })
+      .catch(error => console.log('there was an error', error));
+
     this.setState({
       name: '',
       age: '',
-      height: ''
+      height: '',
     });
-  }
+  };
 
-  updateName(event) {
+  updateName = event => {
     this.setState({
-      name: event.target.value
+      name: event.target.value,
     });
-  }
+  };
 
-  updateAge(event) {
+  updateAge = event => {
     this.setState({
-      age: event.target.value
+      age: event.target.value,
     });
-  }
+  };
 
-  updateHeight(event) {
+  updateHeight = event => {
     this.setState({
-      height: event.target.value
+      height: event.target.value,
     });
-  }
+  };
 
   render() {
     return (
       <div className="SmurfForm">
         <form onSubmit={this.addSmurf}>
           <input
+            type="text"
             onChange={this.updateName}
             placeholder="name"
             value={this.state.name}
           />
           <input
+            type="number"
             onChange={this.updateAge}
             placeholder="age"
             value={this.state.age}
           />
           <input
+            type="number"
             onChange={this.updateHeight}
             placeholder="height"
             value={this.state.height}
