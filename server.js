@@ -13,14 +13,34 @@ const sendUserError = (msg, res) => {
   return;
 };
 
-let smurfs = [];
+let smurfs = [
+  {
+      id: 1,
+      name: 'Smurfette',
+      age: 111,
+      height: 11,
+  },
+  {
+      id: 2,
+      name: 'Smurfer',
+      age: 222,
+      height: 22,
+  },
+  {
+      id: 3,
+      name: 'Smerf',
+      age: 333,
+      height: 33,
+  },
+
+];
 server.get('/smurfs', (req, res) => {
   res.json(smurfs);
 });
 let smurfId = 0;
 
 server.post('/smurfs', (req, res) => {
-  const { name, age, height } = req.body;
+  const { id, name, age, height } = req.body;
   const newSmurf = { name, age, height, id: smurfId };
   if (!name || !age || !height) {
     return sendUserError(
