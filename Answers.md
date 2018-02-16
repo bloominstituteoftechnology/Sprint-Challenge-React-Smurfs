@@ -14,4 +14,4 @@
 * Update == PUT/PATCH
 * Create == DELETE
 
-**5.** Three tools that we can use to make AJAX requests are REST, XMLHttpRequest, and Axios.
+**5.** Some tools that we can use to make AJAX requests are Fetch API, XMLHttpRequest, jQuery and Axios.
