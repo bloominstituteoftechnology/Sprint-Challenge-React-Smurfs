@@ -16,8 +16,8 @@ class Smurf extends React.Component {
         {editing === true ? (
           <div>
             <input type="text" name="smurfName" value={this.state.smurfName} onChange={this.handleChange} />
-            <input type="text" name="smurfAge" value={this.state.smurfAge} onChange={this.handleChange} />
             <input type="text" name="smurfHeight" value={this.state.smurfHeight} onChange={this.handleChange} />
+            <input type="text" name="smurfAge" value={this.state.smurfAge} onChange={this.handleChange} />
             <button onClick={() => this.updateSmurf()}>Save</button>
           </div>
         ) : (
