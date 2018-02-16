@@ -33,7 +33,7 @@ class Smurfs extends Component {
       <div className="Smurfs">
         <h1>Smurf Village</h1>
         <ul>
-          { this.smurfs.map((smurf) => {
+          {this.smurfs.map((smurf) => {
             return <Smurf 
               key={smurf.id}
               name={smurf.name} 
