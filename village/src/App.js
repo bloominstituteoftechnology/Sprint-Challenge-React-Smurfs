@@ -22,7 +22,7 @@ class App extends Component {
    	return (
       <div className="App">
         <SmurfForm name={this.state.name} age={this.state.age} height={this.state.height}handleInput={this.handleInput} addSmurf={this.addSmurf}/>
-        <Smurfs smurfs={this.state.smurfs}/>
+        <Smurfs smurfs={this.state.smurfs} deleteSmurf={this.deleteSmurf}/>
       </div>
     );
   }
@@ -44,6 +44,18 @@ class App extends Component {
       name: '',
       age: '',
       height: ''
+    });
+  }
+
+  deleteSmurf = (id)=>{
+
+    axios.delete(`http://localhost:3333/smurfs/${id}`)
+    .then((res)=>{
+    	console.log(res);
+      this.setState({smurfs: res.data.smurfs});
+    })
+    .catch((err)=>{
+      console.log(err);
     });
   }
 

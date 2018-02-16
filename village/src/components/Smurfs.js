@@ -7,7 +7,12 @@ function Smurfs (props){
       <h1>Smurf Village</h1>
       <ul>
         { props.smurfs.map((smurf) => {
-          return <Smurf name={smurf.name} age={smurf.age} height={smurf.height} key={smurf.id} />;
+          return (
+            <div key={smurf.id} >
+            <Smurf name={smurf.name} age={smurf.age} height={smurf.height}/>
+            <button onClick={()=>{props.deleteSmurf(smurf.id)}}>Delete</button>
+            </div>
+          );
         })}
       </ul>
     </div>
