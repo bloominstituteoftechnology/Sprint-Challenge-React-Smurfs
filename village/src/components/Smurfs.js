@@ -8,7 +8,7 @@ const Smurfs = (props) => {
       <h1>Smurf Village</h1>
       <ul>
         { props.smurfList.map((smurf) => {
-          return <Smurf name={smurf.name} age={smurf.age} height={smurf.height} key={smurf.id} onDelete={props.onDelete} id={smurf.id} />;
+          return <Smurf name={smurf.name} age={smurf.age} height={smurf.height} key={smurf.id} onDelete={props.onDelete} onUpdate={props.onUpdate} id={smurf.id} />;
         })}
       </ul>
     </div>

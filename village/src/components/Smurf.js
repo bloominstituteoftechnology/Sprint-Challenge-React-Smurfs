@@ -18,7 +18,7 @@ class Smurf extends React.Component {
             <input type="text" name="smurfName" value={this.state.smurfName} onChange={this.handleChange} />
             <input type="text" name="smurfAge" value={this.state.smurfAge} onChange={this.handleChange} />
             <input type="text" name="smurfHeight" value={this.state.smurfHeight} onChange={this.handleChange} />
-            {/* <button onClick={}>Save</button> */}
+            <button onClick={() => this.updateSmurf()}>Save</button>
           </div>
         ) : (
           <div>
@@ -51,6 +51,21 @@ class Smurf extends React.Component {
         editing: !prevState.editing,
       };
     });
+  };
+
+  updateSmurf = () => {
+    const updatedSmurf = {
+      name: this.state.smurfName,
+      age: this.state.smurfAge,
+      height: this.state.smurfHeight,
+      id: this.props.id
+    };
+    this.props.onUpdate(updatedSmurf)
+      .then(() => {
+        this.setState({ editing: false });
+      })
+      .catch((error) => console.error('update failed', error))
+
   };
 
 }

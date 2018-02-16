@@ -13,7 +13,7 @@ class App extends Component {
     return (
       <div className="App">
         <SmurfForm onSubmission={this.loadSmurfs} />
-        <Smurfs smurfList={this.state.smurfList} onDelete={this.deleteSmurf} />
+        <Smurfs smurfList={this.state.smurfList} onDelete={this.deleteSmurf} onUpdate={this.updateSmurf} />
       </div>
     );
   }
@@ -37,6 +37,16 @@ class App extends Component {
         this.loadSmurfs();
       })
       .catch(error => console.error('error:', error));
+  }
+
+  updateSmurf = smurf => {
+    return (
+      axios
+        .put(`http://localhost:3333/smurfs/${smurf.id}`, smurf)
+        .then(() => {
+          this.loadSmurfs();
+        })
+    );
   }
 
 }
