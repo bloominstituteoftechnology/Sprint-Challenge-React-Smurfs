@@ -6,7 +6,7 @@ import Smurfs from './components/Smurfs';
 import axios from 'axios';
 
 class App extends Component {
-	state = {smurfs: [], name: '', age: '', height: ''};
+	state = {smurfs: [], name: '', age: '', height: '', editSmurf: {}};
 
   componentDidMount(){
   	axios.get('http://localhost:3333/smurfs')
@@ -22,7 +22,7 @@ class App extends Component {
    	return (
       <div className="App">
         <SmurfForm name={this.state.name} age={this.state.age} height={this.state.height}handleInput={this.handleInput} addSmurf={this.addSmurf}/>
-        <Smurfs smurfs={this.state.smurfs} deleteSmurf={this.deleteSmurf}/>
+        <Smurfs smurfs={this.state.smurfs} deleteSmurf={this.deleteSmurf} modifySmurf={this.modifySmurf} />
       </div>
     );
   }
@@ -48,14 +48,35 @@ class App extends Component {
   }
 
   deleteSmurf = (id)=>{
-
     axios.delete(`http://localhost:3333/smurfs/${id}`)
     .then((res)=>{
-    	console.log(res);
-      this.setState({smurfs: res.data.smurfs});
+    	let updatedSmurfy = this.state.smurfs.filter((smurf)=>{
+    		return smurf.id !== res.data.SmurfRemoved.id;
+    	});
+      this.setState({smurfs: updatedSmurfy});
     })
     .catch((err)=>{
       console.log(err);
+    });
+  }
+
+  modifySmurf = (id)=>{
+    
+    let {name, age, height} = this.state;
+    let smurf = {name, age, height}
+
+    axios.post('http://localhost:3333/smurfs/id', smurf)
+    .then((res)=>{
+      this.setState({smurfs: res.data});
+    })
+    .catch((err)=>{
+      console.log(err);
+    });
+      
+    this.setState({
+      name: '',
+      age: '',
+      height: ''
     });
   }
 
