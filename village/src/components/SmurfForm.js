@@ -9,7 +9,35 @@ class SmurfForm extends Component {
       height: ''
     };
   }
-
+  
+  render() {
+    return (
+      <div className="SmurfForm">
+        <form onSubmit={this.addSmurf.bind(this)}>
+          <input
+            onChange={this.handleInputChange}
+            name="name"
+            placeholder="name"
+            value={this.state.name}
+          />
+          <input
+            onChange={this.handleInputChange}
+            name="age"
+            placeholder="age"
+            value={this.state.age}
+          />
+          <input
+            onChange={this.handleInputChange}
+            name="height"
+            placeholder="height"
+            value={this.state.height}
+          />
+          <button type="submit">Add to the village</button>
+        </form>
+      </div>
+    );
+  }
+  
   addSmurf(event) {
     event.preventDefault();
     Axios.post('http://localhost:3333/smurfs', this.state)
@@ -26,48 +54,10 @@ class SmurfForm extends Component {
         console.log('error posting the data');
       });  
   };
-
-  updateName(event) {
-    this.setState({
-      name: event.target.value
-    });
-  }
-
-  updateAge(event) {
-    this.setState({
-      age: event.target.value
-    });
-  }
-
-  updateHeight(event) {
-    this.setState({
-      height: event.target.value
-    });
-  }
-
-  render() {
-    return (
-      <div className="SmurfForm">
-        <form onSubmit={this.addSmurf.bind(this)}>
-          <input
-            onChange={this.updateName.bind(this)}
-            placeholder="name"
-            value={this.state.name}
-          />
-          <input
-            onChange={this.updateAge.bind(this)}
-            placeholder="age"
-            value={this.state.age}
-          />
-          <input
-            onChange={this.updateHeight.bind(this)}
-            placeholder="height"
-            value={this.state.height}
-          />
-          <button type="submit">Add to the village</button>
-        </form>
-      </div>
-    );
+  
+  handleInputChange = event => {
+    const { name, value} = event.target;
+    this.setState({ [name]: value });
   }
 }
 
