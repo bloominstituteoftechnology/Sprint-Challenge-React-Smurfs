@@ -6,11 +6,14 @@ import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
 
 class App extends Component {
+  state = {
+    smurfs: [],
+  }
   render() {
     return (
       <div className="App">
         <SmurfForm onCreate={this.loadSmurfs}/>
-        <Smurfs />
+        <Smurfs smurfs={this.state.smurfs}/>
       </div>
     );
   }
