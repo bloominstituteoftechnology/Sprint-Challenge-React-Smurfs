@@ -21,7 +21,11 @@ class App extends Component {
       .catch(error => {
         console.log('error', error);
       })
-  }
+  }  
+    componentDidMount() {
+      this.catchSmurfs();
+    }
+  
 
   render() {
     return (
