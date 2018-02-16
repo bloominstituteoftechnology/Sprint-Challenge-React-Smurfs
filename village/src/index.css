@@ -3,3 +3,7 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+
+.Smurf {
+  border: 1px solid grey;
+}

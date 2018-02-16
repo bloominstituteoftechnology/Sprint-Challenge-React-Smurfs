@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Axios from 'axios';
 class SmurfForm extends Component {
-
   constructor(props) {
     super(props);
     this.state = {
@@ -9,10 +8,6 @@ class SmurfForm extends Component {
       age: '',
       height: ''
     };
-    this.addSmurf = this.addSmurf.bind(this);
-    this.updateName = this.updateName.bind(this);
-    this.updateAge = this.updateAge.bind(this);
-    this.updateHeight = this.updateHeight.bind(this);
   }
 
   addSmurf(event) {
@@ -53,19 +48,19 @@ class SmurfForm extends Component {
   render() {
     return (
       <div className="SmurfForm">
-        <form onSubmit={this.addSmurf}>
+        <form onSubmit={this.addSmurf.bind(this)}>
           <input
-            onChange={this.updateName}
+            onChange={this.updateName.bind(this)}
             placeholder="name"
             value={this.state.name}
           />
           <input
-            onChange={this.updateAge}
+            onChange={this.updateAge.bind(this)}
             placeholder="age"
             value={this.state.age}
           />
           <input
-            onChange={this.updateHeight}
+            onChange={this.updateHeight.bind(this)}
             placeholder="height"
             value={this.state.height}
           />
