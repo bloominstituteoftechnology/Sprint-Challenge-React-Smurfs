@@ -15,10 +15,14 @@ class Smurfs extends Component {
     this.doGet();
   }
 
+  componentWillReceiveProps() {
+    this.doGet();
+  }
+
   doGet() {
-    let smurfs = [];
     axios.get('http://localhost:3333/smurfs')
       .then((response) => {
+        console.log(this.enqueueSetState);
         this.setState({
           smurfs: response.data,
         });
