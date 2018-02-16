@@ -5,15 +5,10 @@ import axios from 'axios';
 
 class Smurfs extends Component {
   // add any needed code to ensure that the smurfs collection exists on state and it has data coming from the server
-  constructor(props) {
-    super(props);
-    this.state = {
-      smurfs: [],
-      loading: false,
-      noData: true
-    };
+  state = {
+    smurfs: [],
   }
-
+    
   render() {
     return (
       <div className="Smurfs">
@@ -28,18 +23,24 @@ class Smurfs extends Component {
     );
   }
 
-  componentDidMount() {
-    this.setState({ loading: true });
-     axios
-      .get('http://localhost:3333/smurfs')
-      .then(response => {
-      this.setState({smurfs: response.data, loading: false});
-      })
-      .catch(error => {
-        this.setState({ loading: false});
-        console.log('there was error', error)
-      });
+  handleName = (event) => {
+    event.preventDefault();
+    this.setState({
+        name: event.target.name });
   }
+
+  handleAge = (event) => {
+    event.preventDefault();
+    this.setState({
+        age: event.target.age });
+  }
+
+  handleHeight = (event) => {
+    event.preventDefault();
+    this.setState({
+        height: event.target.height });
+  }
+
 
 }
 
