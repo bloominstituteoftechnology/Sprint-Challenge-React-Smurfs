@@ -10,6 +10,7 @@ class Smurfs extends Component {
   }
 
   render() {
+    console.log('render in smurf', this.props.smurf);
     if (!this.props.smurfs) {
       return <div>Loading smurf information...</div>;
     }
@@ -19,12 +20,21 @@ class Smurfs extends Component {
         <ul>
           {this.props.smurfs.map(smurf => {
             return (
-              <Smurf
-                name={smurf.name}
-                age={smurf.age}
-                height={smurf.height}
-                key={smurf.id}
-              />
+              <div>
+                <Smurf
+                  name={smurf.name}
+                  age={smurf.age}
+                  height={smurf.height}
+                  key={smurf.id}
+                />
+                <button
+                  onClick={() => {
+                    this.props.deleteSmurf(smurf.id);
+                  }}
+                >
+                  Delete
+                </button>
+              </div>
             );
           })}
         </ul>

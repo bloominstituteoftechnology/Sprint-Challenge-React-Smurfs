@@ -13,13 +13,29 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <SmurfForm loadingUp={this.loadFriends} />
-        <Smurfs loadingUp={this.loadFriends} smurfs={this.state.smurfs} />
+        <SmurfForm loadingUp={this.loadSmurfs} />
+        <Smurfs
+          loadingUp={this.loadSmurfs}
+          smurfs={this.state.smurfs}
+          deleteSmurf={this.deleteSmurf}
+        />
       </div>
     );
   }
 
-  loadFriends = () => {
+  deleteSmurf = id => {
+    axios
+      .delete(`http://localhost:3333/smurfs/${id}`)
+      .then(response => {
+        console.log('response on delete is', response);
+        this.setState({ smurfs: response.data[0] });
+      })
+      .catch(error => {
+        console.error("error deleting", error);
+      });
+  };
+
+  loadSmurfs = () => {
     axios
       .get("http://localhost:3333/smurfs")
       .then(response => {
