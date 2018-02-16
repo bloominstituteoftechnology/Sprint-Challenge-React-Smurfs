@@ -5,7 +5,6 @@ import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
 
 class App extends Component {
-
   state = {
     updated: false,
   }
@@ -18,7 +17,7 @@ class App extends Component {
     return (
       <div className="App">
         <SmurfForm update={this.update}/>
-        <Smurfs updated={this.state.updated}/>
+        <Smurfs update={this.update} updated={this.state.updated}/>
       </div>
     );
   }
