@@ -1,13 +1,13 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
+import axios from "axios";
 
 class SmurfForm extends Component {
-
   constructor(props) {
     super(props);
     this.state = {
-      name: '',
-      age: '',
-      height: ''
+      name: "",
+      age: "",
+      height: ""
     };
     this.addSmurf = this.addSmurf.bind(this);
     this.updateName = this.updateName.bind(this);
@@ -15,37 +15,44 @@ class SmurfForm extends Component {
     this.updateHeight = this.updateHeight.bind(this);
   }
 
-  addSmurf(event) {
+  addSmurf = event => {
     event.preventDefault();
-    this.props.addSmurf(this.state);
-    this.setState({
-      name: '',
-      age: '',
-      height: ''
-    });
-  }
 
-  updateName(event) {
+    axios
+      .post("http://localhost:3333/smurfs", this.state)
+      .then(response => {
+        this.setState({
+          name: "",
+          age: "",
+          height: ""
+        });
+        this.props.addSmurf(this.state);
+    })
+      .catch(() => console.error('error'))
+  };
+
+  updateName = event => {
     this.setState({
       name: event.target.value
     });
-  }
+  };
 
-  updateAge(event) {
+  updateAge = event => {
     this.setState({
       age: event.target.value
     });
-  }
+  };
 
-  updateHeight(event) {
+  updateHeight = event => {
     this.setState({
       height: event.target.value
     });
-  }
+  };
 
   render() {
     return (
       <div className="SmurfForm">
+        <p>please submit your smurf data to the village</p>
         <form onSubmit={this.addSmurf}>
           <input
             onChange={this.updateName}
