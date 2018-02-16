@@ -1,14 +1,30 @@
 import React, { Component } from 'react';
-
 import Smurf from './Smurf';
+import axios from 'axios';
 
 class Smurfs extends Component {
-  // add any needed code to ensure that the smurfs collection exists on state and it has data coming from the server
+  constructor(props) {
+    super(props)
+    this.state = {
+      smurfs: [],
+    };
+  }
+
+  getData = () => {
+    axios
+    .get('http://localhost:3333/smurfs')
+    .then(res => {
+      this.setState({ smurfs: res.data });
+    })
+    .catch(error => {
+      alert('There was an error:', error);
+    });
+  }
 
   render() {
     return (
       <div className="Smurfs">
-        <h1>Smurf Village</h1>
+        <h1>Patrick's Smurf Village</h1>
         <ul>
           { this.state.smurfs.map((smurf) => {
             return <Smurf name={smurf.name} age={smurf.age} height={smurf.height} key={smurf.id} />;
@@ -16,6 +32,9 @@ class Smurfs extends Component {
         </ul>
       </div>
     );
+  }
+  componentDidMount() {
+    this.getData();
   }
 }
 
