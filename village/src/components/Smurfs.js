@@ -9,6 +9,15 @@ class Smurfs extends Component {
     smurfs: [],
   };
 
+  componentDidMount() {
+    axios
+      .get('http://localhost:3333/smurfs')
+      .then(response => {
+        this.setState( {smurfs: response.data,} );
+      })
+      .catch(() => { console.error('error getting data'); });
+  }
+
   render() {
     return (
       <div className="Smurfs">
@@ -20,15 +29,6 @@ class Smurfs extends Component {
         </ul>
       </div>
     );
-  }
-
-  componentDidMount() {
-    axios
-      .get('http://localhost:3333/smurfs')
-      .then(response => {
-        this.setState( {smurfs: response.data,} );
-      })
-      .catch(() => { console.error('error getting data'); });
   }
 }
 
