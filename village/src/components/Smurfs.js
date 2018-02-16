@@ -6,7 +6,6 @@ class Smurfs extends Component {
   state = {
     smurfs: [],
   };
-  // add any needed code to ensure that the smurfs collection exists on state and it has data coming from the server
 
   componentDidMount() {
     this.loadSmurfs();
@@ -20,10 +19,19 @@ class Smurfs extends Component {
         smurfs: response.data,
       });
     })
-    .catch(() => {
-      console.error('Error nabbing up smurfs');
+    .catch((error) => {
+      console.error(`Error nabbing up smurfs: ${error}`);
     });
   };
+
+  killSmurf = id => {
+    axios
+    .delete(`http://localhost:3333/smurfs/${id}`)
+    .then(response => {this.loadSmurfs()})
+    .catch((error) => {
+      console.error(`Couldn't execute smurf due to error: ${error}`)
+    });
+  }
 
   render() {
     return (
@@ -31,7 +39,12 @@ class Smurfs extends Component {
         <h1>Smurf Village</h1>
         <ul>
           { this.state.smurfs.map((smurf) => {
-            return <Smurf name={smurf.name} age={smurf.age} height={smurf.height} key={smurf.id} />;
+            return (
+              <li key={smurf.id}>
+                <Smurf name={smurf.name} age={smurf.age} height={smurf.height} />
+                <button onClick={() => {this.killSmurf(smurf.id);}}>Execute smurf</button>
+              </li>
+            )
           })}
         </ul>
       </div>
