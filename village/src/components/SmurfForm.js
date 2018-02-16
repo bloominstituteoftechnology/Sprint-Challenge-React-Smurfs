@@ -23,6 +23,7 @@ class SmurfForm extends Component {
       .post('http://localhost:3333/smurfs', this.state)
       .then((response) => {
         console.log('response from post',response);
+        this.props.onCreate();
       })
       .catch((error) => {
         console.error('error saving the data');
