@@ -40,12 +40,11 @@ class App extends Component {
     axios
       .delete(endpoint)
       .then(response => {
-        console.log('response from delete', response);
-        this.setState({ smurfs: response.data });
+        console.log(response);
+        let smurfs = this.state.smurfs;
+        smurfs = smurfs.filter(smurf => smurf.id !== response.data.SmurfRemoved.id);
+        this.setState({ smurfs: smurfs});
       })
-      .catch(() => {
-        console.error('error deleting');
-      });
   };
 
 }
