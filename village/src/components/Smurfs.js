@@ -23,7 +23,6 @@ class Smurfs extends Component {
     }
 
   render() {
-  // const Smurfs = (props) => {
     return (
       <div className="Smurfs">
         <h1>Smurf Village</h1>
