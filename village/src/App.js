@@ -10,27 +10,28 @@ class App extends Component {
   }
 
 
+
+
+  getRequest = () => {
+    const data =
+      axios
+        .get('http://localhost:3333/smurfs')
+        .then((response) => {
+          console.log('data', response.data);
+          this.setState({ smurfs: response.data });
+        })
+        .catch((error) => {
+          console.log("Error", error.response)
+        });
+  }
   componentDidMount() {
     this.getRequest();
 
   }
-
-  getRequest = () => {
-
-    axios
-      .get('http://localhost:3000/smurfs')
-      .then(response => {
-        this.setState({ smurfs: response });
-      })
-      .catch(error =>
-      {console.log("Error", error.response)
-    });
-  }
-
   render() {
     return (
       <div className="App">
-        <SmurfForm onCreate={this.getRequest} />
+        <SmurfForm onUpdate={this.getRequest} />
         <Smurfs smurfs={this.state.smurfs} />
       </div>
     );

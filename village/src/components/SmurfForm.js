@@ -9,7 +9,7 @@ class SmurfForm extends Component {
     this.state = {
       name: '',
       age: '',
-      height: ''
+      height: '',
     };
     this.addSmurf = this.addSmurf.bind(this);
     this.updateName = this.updateName.bind(this);
@@ -23,34 +23,31 @@ class SmurfForm extends Component {
     axios
       .post('http://localhost:3333/smurfs', this.state)
       .then(response => {
-        this.setState({
-          name: '',
-          age: '',
-          height: '',
-        });
-        this.props.onCreate();
-
-      }).catch(error => {
-        console.error('Error', error);
-      }
-      )
-
+        this.props.onUpdate();
+      })
+      .catch(error => console.log
+        ('Error', error));
+    this.setState({
+      name: '',
+      age: '',
+      height: '',
+    });
   }
   updateName(event) {
     this.setState({
-      name: event.target.value
+      name: event.target.value,
     });
   }
 
   updateAge(event) {
     this.setState({
-      age: event.target.value
+      age: event.target.value,
     });
   }
 
   updateHeight(event) {
     this.setState({
-      height: event.target.value
+      height: event.target.value,
     });
   }
 
