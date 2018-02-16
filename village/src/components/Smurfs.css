@@ -1,0 +1,21 @@
+.block {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.header {
+    background: lightblue;
+    border: 2px solid pink;
+    font-size: 30px;
+    padding: 5px;
+    width: 75%;
+    min-width: 200px;
+}
+
+.center {
+    display:flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}

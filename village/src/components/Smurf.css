@@ -1,0 +1,31 @@
+.card {
+    background: lightblue;
+    opacity: .7;
+    width: 200px;
+    height: 125px;
+    margin: 20px;
+    border-radius: 50%;
+    border: 2px solid pink;
+}
+
+.card:hover {
+    opacity: 1;
+}
+
+.format {
+    display:flex;
+    flex-flow: column;
+    
+}
+
+.update-form {
+    width: 245px;
+    height: 170px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+input {
+    width: 200px;
+}

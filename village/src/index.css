@@ -2,4 +2,19 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+  background-image: url('https://mpnforum.files.wordpress.com/2012/02/smurf-village.jpg');
+  background-size: cover;
+  color: purple;
+}
+
+button {
+  background: orange;
+  font-weight: bold;
+  border: 1px solid pink;
+  color: purple;
+}
+
+input {
+  background: pink;
+  border: 1px solid purple;
 }
