@@ -40,7 +40,7 @@ server.get('/smurfs', (req, res) => {
 let smurfId = 0;
 
 server.post('/smurfs', (req, res) => {
-  const { name, age, height } = req.body;
+  const { id, name, age, height } = req.body;
   const newSmurf = { name, age, height, id: smurfId };
   if (!name || !age || !height) {
     return sendUserError(
