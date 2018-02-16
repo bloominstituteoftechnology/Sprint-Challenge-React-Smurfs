@@ -10,9 +10,9 @@ class Smurfs extends Component {
       <div className="Smurfs">
         <h1>Smurf Village</h1>
         <ul>
-          { this.state.smurfs.map((smurf) => {
+          {/* { this.state.smurfs.map((smurf) => {
             return <Smurf name={smurf.name} age={smurf.age} height={smurf.height} key={smurf.id} />;
-          })}
+          })} */}
           <SmurfForm />
         </ul>
       </div>
