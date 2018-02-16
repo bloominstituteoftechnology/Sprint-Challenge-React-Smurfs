@@ -1,24 +1,25 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { addSmurf } from "../actions";
+import { updateSmurf } from "../actions";
 
-class SmurfForm extends Component {
+class SmurfUpdate extends Component {
   constructor(props) {
     super(props);
     this.state = {
       name: "",
       age: "",
-      height: ""
+      height: "",
+      id: props.id
     };
-    this.addSmurf = this.addSmurf.bind(this);
+    this.updateSmurf = this.updateSmurf.bind(this);
     this.updateName = this.updateName.bind(this);
     this.updateAge = this.updateAge.bind(this);
     this.updateHeight = this.updateHeight.bind(this);
   }
 
-  addSmurf(event) {
+  updateSmurf(event) {
     event.preventDefault();
-    this.props.addSmurf(this.state);
+    this.props.updateSmurf(this.state);
     this.setState({
       name: "",
       age: "",
@@ -47,7 +48,7 @@ class SmurfForm extends Component {
   render() {
     return (
       <div className="SmurfForm">
-        <form onSubmit={this.addSmurf}>
+        <form onSubmit={this.updateSmurf}>
           <input
             onChange={this.updateName}
             placeholder="name"
@@ -63,7 +64,7 @@ class SmurfForm extends Component {
             placeholder="height"
             value={this.state.height}
           />
-          <button type="submit">Add to the village</button>
+          <button type="submit">update</button>
         </form>
       </div>
     );
@@ -76,4 +77,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, { addSmurf })(SmurfForm);
+export default connect(mapStateToProps, { updateSmurf })(SmurfUpdate);
