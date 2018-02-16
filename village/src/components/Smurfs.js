@@ -24,15 +24,6 @@ class Smurfs extends Component {
     });
   };
 
-  killSmurf = id => {
-    axios
-    .delete(`http://localhost:3333/smurfs/${id}`)
-    .then(response => {this.loadSmurfs()})
-    .catch((error) => {
-      console.error(`Couldn't execute smurf due to error: ${error}`)
-    });
-  }
-
   render() {
     return (
       <div className="Smurfs">
@@ -40,10 +31,7 @@ class Smurfs extends Component {
         <ul>
           { this.state.smurfs.map((smurf) => {
             return (
-              <li key={smurf.id}>
-                <Smurf name={smurf.name} age={smurf.age} height={smurf.height} />
-                <button onClick={() => {this.killSmurf(smurf.id);}}>Execute smurf</button>
-              </li>
+              <Smurf key={smurf.id} id={smurf.id} name={smurf.name} age={smurf.age} height={smurf.height} loadSmurfs={this.loadSmurfs}/>
             )
           })}
         </ul>
