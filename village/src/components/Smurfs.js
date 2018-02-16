@@ -1,19 +1,34 @@
 import React, { Component } from 'react';
-
+// import axios from 'axios';
 import Smurf from './Smurf';
 
 class Smurfs extends Component {
-  // add any needed code to ensure that the smurfs collection exists on state and it has data coming from the server
+  state = {
+    deleteId: ''
+  }
 
   render() {
     return (
       <div className="Smurfs">
         <h1>Smurf Village</h1>
-        <ul>
-          { this.state.smurfs.map((smurf) => {
-            return <Smurf name={smurf.name} age={smurf.age} height={smurf.height} key={smurf.id} />;
-          })}
-        </ul>
+        {this.props.loading && <div>Loading...</div>}
+
+        {!this.props.loading && (
+          <ul>
+            { this.props.smurfs.map((smurf, i) => {
+              return (
+                <Smurf 
+                  name={smurf.name} 
+                  age={smurf.age} 
+                  height={smurf.height} 
+                  key={smurf.id}
+                  id={smurf.id}
+                  deleteSmurf={this.deleteSmurf}
+                  loadSmurfs={this.props.loadSmurfs}
+                />)
+            })}
+          </ul>
+        )}
       </div>
     );
   }
