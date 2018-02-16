@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+
 class SmurfForm extends Component {
 
   constructor(props) {
@@ -21,7 +22,7 @@ class SmurfForm extends Component {
     const endpoint = 'http://localhost:3333/smurfs';
 
     axios
-    .post(endpoint.state)
+    .post(endpoint, this.state)
     .then(response => {
       this.props.updateSmurfs();
       this.setState({
