@@ -10,7 +10,7 @@ class Smurf extends React.Component {
 
   render() {
     const editing = this.state.editing;
-    
+
     return (
       <div className="Smurf">
         {editing === true ? (
@@ -18,6 +18,7 @@ class Smurf extends React.Component {
             <input type="text" name="smurfName" value={this.state.smurfName} onChange={this.handleChange} />
             <input type="text" name="smurfAge" value={this.state.smurfAge} onChange={this.handleChange} />
             <input type="text" name="smurfHeight" value={this.state.smurfHeight} onChange={this.handleChange} />
+            {/* <button onClick={}>Save</button> */}
           </div>
         ) : (
           <div>
@@ -30,6 +31,14 @@ class Smurf extends React.Component {
         <button onClick={() => this.props.onDelete(this.props.id)}>Delete {this.props.name}</button>
       </div>
     );
+  }
+
+  componentDidMount() {
+    this.setState({
+      smurfName: this.props.name,
+      smurfAge: this.props.age,
+      smurfHeight: this.props.height,
+    });
   }
 
   handleChange = event => {
