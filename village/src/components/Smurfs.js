@@ -4,14 +4,15 @@ import Smurf from './Smurf';
 
 class Smurfs extends Component {
   state = {
-   smurfs : [],
+   smurfs: [],
+   
   }
   // add any needed code to ensure that the smurfs collection exists on state and it has data coming from the server
   componentDidMount() {
     axios
-      .get('http://localhost:3333/api/smurfs')
+      .get('http://localhost:3333/smurfs')
       .then(response => {
-        this.setState(() => {smurfs: response.date });
+        this.setState(() => ({ smurfs: response.data }));
       })
   }
   render() {
