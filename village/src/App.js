@@ -17,7 +17,7 @@ componentDidMount() {
       .get('http://localhost:3333/smurfs')
       .then(response => {
         this.setState({
-          smurfs: response,
+          smurfs: response.data,
         });
       })
       .catch(() => {
@@ -28,10 +28,8 @@ componentDidMount() {
   render() {
     return (
       <div className="App">
-        <SmurfForm onCreate={this.loadSmurfs}/>
-        <Smurfs
-            smurfs={this.state.smurfs}   
-        />
+      <SmurfForm />
+        <Smurfs smurfs={this.state.smurfs} />
       </div>
     );
   }
