@@ -11,6 +11,7 @@ class SmurfForm extends Component {
       height: ''
     };
     this.addSmurf = this.addSmurf.bind(this);
+    this.removeSmurf = this.removeSmurf.bind(this);
     this.updateName = this.updateName.bind(this);
     this.updateAge = this.updateAge.bind(this);
     this.updateHeight = this.updateHeight.bind(this);
@@ -30,6 +31,7 @@ class SmurfForm extends Component {
       .then(response => {
         console.log('response from post', response);
         this.setState({
+          key: '',
           name: '',
           age: '',
           height: ''
@@ -60,6 +62,14 @@ class SmurfForm extends Component {
       height: event.target.value
     });
   }
+
+/* DELETE FUNCTION */
+deleteSmurf(event) {
+  this.setState({
+    // age: event.target.value
+    //?? method to delete entire object
+  });
+}
 
   render() {
     return (
