@@ -1,36 +1,45 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import axios from 'axios';
 import Smurf from './Smurf';
 
 class Smurfs extends Component {
   // add any needed code to ensure that the smurfs collection exists on state and it has data coming from the server
   state = {
-    smurfs:[{x:1}],
+    smurfName:'',
   }
-  componentDidMount() {
-    axios 
-    .get('http://localhost:3333')
-    .then(res => {
-      console.log(res);
-      this.setState(() => {smurfs: res});
-    })
-    .catch(error => {
-        console.error(error);
-    });
-    console.log();
-  }
+  
   render() {
+    console.log(this.props.smurfs);
+    const smurfs =this.props.smurfs;
     return (
       <div className="Smurfs">
         <h1>Smurf Village</h1>
         <ul>
-          { this.state.smurfs.map((smurf) => {
-            return <Smurf key={smurf.id} name={smurf.name} age={smurf.age} height={smurf.height}  />;
+          { smurfs.map(smurf => {
+            return (
+            <Smurf 
+              key={smurf.id} 
+              name={smurf.name} 
+              age={smurf.age} 
+              height={smurf.height}  
+            />
+            )
           })}
         </ul>
       </div>
     );
   }
+  componentDidMount() {
+    this.setState({smurfName: this.props.smurfs});
+  }
+}
+Smurfs.propTypes = {
+  smurfs: PropTypes.array.isRequired,
+};
+
+Smurfs.defaultProps = {
+  smurfs:[],
 }
 
 export default Smurfs;

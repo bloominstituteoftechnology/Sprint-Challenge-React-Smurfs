@@ -17,7 +17,7 @@ componentDidMount() {
       .get('http://localhost:3333/smurfs')
       .then(response => {
         this.setState({
-          snurfs: response,
+          smurfs: response,
         });
       })
       .catch(() => {
