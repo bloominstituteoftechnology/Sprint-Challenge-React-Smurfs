@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import axios from "axios";
 
+import './SmurfForm.css'
+
 class SmurfForm extends Component {
   state = {
     name: "",
@@ -53,8 +55,9 @@ class SmurfForm extends Component {
 
   render() {
     return (
-      <div className="SmurfForm">
+      <div className="form">
         <form onSubmit={this.addSmurf}>
+        <div className="form-header">Add a Smurf</div>
           <input
             onChange={this.updateName}
             placeholder="name"

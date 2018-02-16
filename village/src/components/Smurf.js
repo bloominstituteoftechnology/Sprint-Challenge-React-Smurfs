@@ -1,5 +1,7 @@
 import React from "react";
 
+import './Smurf.css'
+
 class Smurf extends React.Component {
   state = {
     name: "",
@@ -17,11 +19,14 @@ class Smurf extends React.Component {
       id: this.state.id
     };
     return (
-      <div className="Smurf">
-        <h3>{this.props.name}</h3>
-        <strong>{this.props.height} tall</strong>
-        <p>{this.props.age} old</p>
+      <div className="card">
         {!this.state.display ? (
+          <div>
+          <h3>{this.props.name}</h3>
+          <p>Age: {this.props.age}</p>
+          <p>Height: {this.props.height}</p>
+          <button onClick={this.displayForm}>update</button>
+          {!this.state.display ? (
           <button
             onClick={() => {
               this.props.onDelete(this.props);
@@ -30,12 +35,11 @@ class Smurf extends React.Component {
             Delete
           </button>
         ) : null}
-        {!this.state.display ? (
-          <button onClick={this.displayForm}>update</button>
+          </div>
         ) : null}
         {!this.state.display ? null : (
-          <div className="SmurfForm">
-            <form>
+          <div>
+            <form className="format">
               <input
                 onChange={this.updateName}
                 placeholder="name"

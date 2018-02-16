@@ -12,7 +12,9 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <div className="forms">
         <SmurfForm onCreate={this.loadSmurfs} />
+        </div>
         <Smurfs
           smurfs={this.state.smurfs}
           onDelete={this.deleteSmurf}

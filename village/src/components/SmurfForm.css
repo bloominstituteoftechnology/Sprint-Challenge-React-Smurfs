@@ -1,0 +1,12 @@
+.form {
+    width: 50%;
+    min-width: 620px;
+    background: lightblue;
+    border: 2px solid pink;
+    padding: 10px;
+    margin: 10px;
+}
+
+.form-header {
+    font-size: 25px;
+}
