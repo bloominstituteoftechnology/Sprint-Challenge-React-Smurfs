@@ -4,7 +4,9 @@ import Smurf from './Smurf';
 
 class Smurfs extends Component {
   // add any needed code to ensure that the smurfs collection exists on state and it has data coming from the server
-
+  state = {
+    smurfs: []
+  }
   render() {
     return (
       <div className="Smurfs">
