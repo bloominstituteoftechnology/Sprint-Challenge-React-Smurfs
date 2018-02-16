@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-
 import Smurf from './Smurf';
+import SmurfForm from './SmurfForm';
 
 class Smurfs extends Component {
   // add any needed code to ensure that the smurfs collection exists on state and it has data coming from the server
@@ -17,6 +17,7 @@ class Smurfs extends Component {
       </div>
     );
   }
+
 }
 
 export default Smurfs;
