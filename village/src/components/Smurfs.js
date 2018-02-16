@@ -13,15 +13,23 @@ class Smurfs extends Component {
     this.fetchData();
   }
 
+  updateData = (response) => {
+    this.setState({ smurfs: response.data });
+  }
+
   fetchData = () => {
     axios.get('http://localhost:3333/smurfs/')
     .then(response => {
       console.log(response);
-      this.setState({ smurfs: response.data });
+      this.updateData(response);
     })
     .catch(err => {
       console.error(err);
     })
+  }
+
+  componentWillReceiveProps() {
+    this.fetchData();
   }
 
   render() {
@@ -31,7 +39,7 @@ class Smurfs extends Component {
         <ul>
           { this.state.smurfs.map((smurf) => {
             return <Smurf name={smurf.name} age={smurf.age} height={smurf.height} key={smurf.id} />;
-          })}
+          }) }
         </ul>
       </div>
     );
