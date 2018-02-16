@@ -9,8 +9,7 @@ function Smurfs (props){
         { props.smurfs.map((smurf) => {
           return (
             <div key={smurf.id} >
-            <Smurf name={smurf.name} age={smurf.age} height={smurf.height}/>
-            <button onClick={()=>{props.deleteSmurf(smurf.id)}}>Delete</button>
+            <Smurf toggleEdit={props.toggleEdit} edit={smurf.edit} name={smurf.name} age={smurf.age} height={smurf.height} id={smurf.id} delete={props.deleteSmurf} modify={props.modifySmurf} handleInput={props.handleInput} />
             </div>
           );
         })}
