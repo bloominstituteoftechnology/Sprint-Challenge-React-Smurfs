@@ -1,26 +1,25 @@
-import React from "react";
-import Smurf from "./Smurf";
+import React from 'react';
+import Smurf from './Smurf';
 
-const Smurfs = props => {
+function Smurfs (props){
   return (
     <div className="Smurfs">
       <h1>Smurf Village</h1>
       <ul>
-        {props.smurfs.map(smurf => {
+        { props.smurfs.map((smurf) => {
           return (
-            <Smurf
-              name={smurf.name}
-              age={smurf.age}
-              height={smurf.height}
-              id={smurf.id}
-              key={smurf.id}
-            />
+            <div key={smurf.id} >
+            <Smurf name={smurf.name} age={smurf.age} height={smurf.height}/>
+            <button onClick={()=>{props.onDelete(smurf.id)}}>Delete</button>
+            </div>
           );
         })}
       </ul>
     </div>
   );
-};
-// add any needed code to ensure that the smurfs collection exists on state and it has data coming from the server
+}
 
 export default Smurfs;
+// add any needed code to ensure that the smurfs collection exists on state and it has data coming from the server
+
+

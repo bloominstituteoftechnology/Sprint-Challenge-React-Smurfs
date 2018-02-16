@@ -3,7 +3,6 @@ import Axios from "axios";
 import "./App.css";
 import SmurfForm from "./components/SmurfForm";
 import Smurfs from "./components/Smurfs";
-import Smurf from "./components/Smurf";
 
 class App extends Component {
   state = {
@@ -13,8 +12,7 @@ class App extends Component {
     return (
       <div className="App">
         <SmurfForm onCreate={this.loadFriends} />
-        <Smurfs smurfs={this.state.smurfs} />
-        <Smurf onDelete={this.removeFriend} />
+        <Smurfs smurfs={this.state.smurfs} onDelete={this.removeFriend} />
       </div>
     );
   }
@@ -40,10 +38,10 @@ class App extends Component {
   Axios
     .delete(endpoint)
     .then(response => {
-      console.log(response)
+       this.setState({smurfs: response.data.smurfs});
     })
-    .catch(() => {
-      console.error('error deleting');
+    .catch((err) => {
+      console.error(err);
     });
   };
 }
