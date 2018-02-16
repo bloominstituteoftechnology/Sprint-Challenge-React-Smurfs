@@ -11,10 +11,9 @@ const Smurfs = props => {
         {props.smurfs.map(smurf => {
           return (
             <Smurf
-              name={smurf.name}
-              age={smurf.age}
-              height={smurf.height}
+              smurf={smurf}
               key={smurf.id}
+              delete={props.delete}
             />
           );
         })}
