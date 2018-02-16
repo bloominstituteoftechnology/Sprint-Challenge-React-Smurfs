@@ -14,7 +14,7 @@ class SmurfForm extends Component {
     this.updateAge = this.updateAge.bind(this);
     this.updateHeight = this.updateHeight.bind(this);
   }
-
+ 
   addSmurf(event) {
     event.preventDefault();
     // add code to create the smurf using the api
