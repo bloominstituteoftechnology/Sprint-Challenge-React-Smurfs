@@ -1,18 +1,41 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 
 import './App.css';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
 
 class App extends Component {
+  state = {
+    smurfs: [],
+  }
   render() {
     return (
       <div className="App">
-        <SmurfForm />
-        <Smurfs/>
+        <SmurfForm 
+          onCreate={this.gatherSmurfs}
+        />
+        <Smurfs
+         smurfs={this.state.smurfs} 
+        />
       </div>
     );
   }
+  compononentDidMount() {
+    this.gatherSmurfs();
+  }
+  gatherSmurfs = () => {
+    axios
+      .get('http://localhost:3333/smurfs')
+      .then(response => {
+        this.setState({
+          smurfs: response.data,
+        })
+      })
+      .catch(() => {
+        console.log('error getting data')
+      });
+  };
 }
 
 export default App;
