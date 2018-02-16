@@ -19,18 +19,14 @@ class SmurfForm extends Component {
   addSmurf(event) {
     event.preventDefault();
     axios
-      .post('http://localhost:5000/friends', {
+      .post('http://localhost:3333/smurfs', {
         name: this.state.name,
         age: this.state.age,
-        position: this.state.position,
-        email: this.state.email,
+        height: this.state.height,
       })
       .then(res => {
-        this.setState({ 
-          name: '', 
-          age: '',
-          height: '',
-        });
+        console.log(res);
+        this.props.getData();
       })
       .catch(error => {
         alert('There was an error: ', error);
@@ -77,7 +73,7 @@ class SmurfForm extends Component {
             required
             type='text'
             onChange={this.updateHeight}
-            placeholder="height"
+            placeholder="height (inches)"
             value={this.state.height}
           />
           <button type="submit">Add to the village</button>
