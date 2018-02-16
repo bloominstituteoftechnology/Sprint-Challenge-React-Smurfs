@@ -10,4 +10,4 @@
    Update - Post
    Delete - Delete
 
-5. Three tools we use to make AJAX requests are 
+5. Three tools we use to make AJAX requests Axios, Fetch, or jQuery.
