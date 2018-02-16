@@ -14,7 +14,7 @@
   * DESTROY
 
 4. **Which HTTP methods can be mapped to the CRUD acronym that we use when interfacing with APIs/Servers.**
-  * PUSH    (create)
+  * POST    (create)
   * GET     (read)
   * PUT     (update)
   * DELETE  (destory)
