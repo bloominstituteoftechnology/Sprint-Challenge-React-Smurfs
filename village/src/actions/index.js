@@ -24,8 +24,21 @@ export const addSmurf = smurf => {
   };
 };
 
-export const deleteSmurf = smurf => {
-  const apiUrl = "localhost:3333/smurfs";
+export const deleteSmurf = id => {
+  const apiUrl = "http://localhost:3333/smurfs";
+  const deletesmurfrequest = axios.delete(apiUrl, {
+    data: {
+      id: id
+    }
+  });
+  return {
+    type: DELETE_SMURF,
+    payload: deletesmurfrequest
+  };
+};
+
+export const updateSmurf = smurf => {
+  const apiUrl = "http://localhost:3333/smurfs";
   const updatesmurfrequest = axios.put(apiUrl, smurf);
   return {
     type: UPDATE_SMURF,
