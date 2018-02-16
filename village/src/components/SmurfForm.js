@@ -10,6 +10,8 @@ class SmurfForm extends Component {
 
     addSmurf = (event) => {
       event.preventDefault();
+      if (!this.state.name || !this.state.height || !this.state.age) alert("All Fields Must Be Filled Out!")
+      else {
       axios.post('http://localhost:3333/smurfs', {
         name: this.state.name,
         age: this.state.age,
@@ -26,6 +28,7 @@ class SmurfForm extends Component {
       .catch(error => {
         console.error("Error Adding Smurf: ", error);
       });
+    }
     }
 
   updateName = (event) => {

@@ -44,7 +44,8 @@ class App extends Component {
   };
 
   updateSmurf = smurf => {
-    const endpoint = `http://localhost:3333/smurfs/${smurf.id}`;
+    if (!smurf.name || !smurf.height || !smurf.age) alert("All Fields Must Be Filled Out!")
+    else {const endpoint = `http://localhost:3333/smurfs/${smurf.id}`;
     return axios
       .put(endpoint, smurf)
       .then(response => {
@@ -54,6 +55,7 @@ class App extends Component {
         console.error('Error Updating Smurf');
       });
   };
+  }
 }
 
 export default App;
