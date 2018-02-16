@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-
+import axios from 'axios';
 import './App.css';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
+
 
 class App extends Component {
   render() {
@@ -12,6 +13,16 @@ class App extends Component {
         <Smurfs/>
       </div>
     );
+  }
+  componentDidMount() {
+    axios.get('http://localhost:3333/smurfs').then((response)=> {
+        this.setState({
+            smurfs: response.data
+        })
+        
+    } ).catch(() => {
+        console.error('error getting data');
+    });
   }
 }
 
