@@ -26,7 +26,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <SmurfForm onCreate={this.loadSmurfs} />
+        <SmurfForm className='form' onCreate={this.loadSmurfs} />
         <Smurfs smurfs={this.state.smurfs}/>
       </div>
     );
