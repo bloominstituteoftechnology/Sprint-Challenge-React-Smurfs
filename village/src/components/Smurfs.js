@@ -11,6 +11,7 @@ class Smurfs extends Component {
     axios 
     .get('http://localhost:3333')
     .then(res => {
+      console.log(res);
       this.setState(() => {smurfs: res});
     })
     .catch(error => {
@@ -24,7 +25,7 @@ class Smurfs extends Component {
         <h1>Smurf Village</h1>
         <ul>
           { this.state.smurfs.map((smurf) => {
-            return <Smurf name={smurf.name} age={smurf.age} height={smurf.height} key={smurf.id} />;
+            return <Smurf key={smurf.id} name={smurf.name} age={smurf.age} height={smurf.height}  />;
           })}
         </ul>
       </div>
