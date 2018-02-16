@@ -5,7 +5,7 @@ class SmurfForm extends Component {
   state = {
     name: '',
     age: '',
-    height: ''
+    height: '',
   }
 
   addSmurf = (event) => {
@@ -34,10 +34,6 @@ class SmurfForm extends Component {
       age: '',
       height: ''
     });
-  }
-
-  updateSmurf(event) {
-
   }
 
   updateName = (event) => {
@@ -79,13 +75,6 @@ class SmurfForm extends Component {
             value={this.height}
           />
           <button type="submit">Add to the village</button>
-        </form>
-        <form onSubmit={this.updateSmurf}>
-          <h3>UPDATE SMURF</h3>
-          <input 
-            placeholder="name"
-          />
-          <button type="submit">Update smurf</button>
         </form>
       </div>
     );

@@ -13,8 +13,16 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <SmurfForm smurfs={this.state.smurfs} loading={this.state.loading} loadSmurfs={this.loadSmurfs}/>
-        <Smurfs smurfs={this.state.smurfs} loading={this.state.loading} />
+        <SmurfForm 
+          smurfs={this.state.smurfs} 
+          loading={this.state.loading} 
+          loadSmurfs={this.loadSmurfs} 
+        />
+        <Smurfs 
+          smurfs={this.state.smurfs} 
+          loading={this.state.loading} 
+          loadSmurfs={this.loadSmurfs} 
+        />
       </div>
     );
   }

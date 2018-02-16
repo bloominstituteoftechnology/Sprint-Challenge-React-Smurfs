@@ -3,6 +3,10 @@ import React, { Component } from 'react';
 import Smurf from './Smurf';
 
 class Smurfs extends Component {
+  state = {
+    deleteId: ''
+  }
+
   render() {
     return (
       <div className="Smurfs">
@@ -12,7 +16,16 @@ class Smurfs extends Component {
         {!this.props.loading && (
           <ul>
             { this.props.smurfs.map((smurf, i) => {
-              return <Smurf name={smurf.name} age={smurf.age} height={smurf.height} key={i} />
+              return (
+                <Smurf 
+                  name={smurf.name} 
+                  age={smurf.age} 
+                  height={smurf.height} 
+                  key={smurf.id}
+                  id={smurf.id}
+                  deleteSmurf={this.deleteSmurf}
+                  loadSmurfs={this.props.loadSmurfs}
+                />)
             })}
           </ul>
         )}
