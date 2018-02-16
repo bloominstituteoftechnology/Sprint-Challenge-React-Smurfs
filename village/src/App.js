@@ -5,20 +5,46 @@ import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
 
 class App extends Component {
-  state = {
-    smurfs: []
-  };
-
+  constructor(props) {
+    super(props);
+    this.state = {
+      smurfs: [],
+      name: '',
+      age: '',
+      height: ''
+    };
+    this.addSmurf = this.addSmurf.bind(this);
+    this.updateName = this.updateName.bind(this);
+    this.updateAge = this.updateAge.bind(this);
+    this.updateHeight = this.updateHeight.bind(this);
+    
+  }
+  
   render() {
     return (
       <div className="App">
-        <SmurfForm onCreate={this.loadSmurfs}/>
-        <Smurfs smurfs={this.state.smurfs}/>
+        <SmurfForm age={this.state.age} height={this.state.height} name={this.state.name} updateName={this.updateName} 
+        updateAge={this.updateAge} updateHeight={this.updateHeight} addSmurf={this.addSmurf}/>
+        <Smurfs smurfs={this.state.smurfs} deleteSmurf={this.deleteSmurf}/>
       </div>
     );
   }
+  componentDidMount() {
+    this.loadSmurfs();
+  }
 
-  deleteSmurf = (id) => {
+  loadSmurfs() {
+    axios
+      .get('http://localhost:3333/smurfs')
+      .then(response => {
+        this.setState({ smurfs: response.data});
+      })
+      .catch(error => {
+        console.log(error);
+      })
+  }
+
+   deleteSmurf = (id) => {
     const endpoint = `http://localhost:3333/smurfs/${id}`;
     axios
     .delete(endpoint)
@@ -31,25 +57,44 @@ class App extends Component {
     })
   }
 
-  loadSmurfs = () => {
-    axios.get('http://localhost:3333/smurfs')
-    .then((response) => {
-      this.setState({smurfs: response.data});
-    })
+  addSmurf(event) {
+    event.preventDefault();
+    // add code to create the smurf using the api
+    axios
+    .post('http://localhost:3333/smurfs', this.state)
+    .then(response => {
+    console.log(response);
+    this.loadSmurfs();
+  })
     .catch(error => {
-      console.log('There was an error');
+      console.error('Server Error', error)
+    });
+    console.log('smurf was added')
+    this.setState({
+      name: '',
+      age: '',
+      height: '',
+    })
+  }
+
+  updateName(event) {
+    this.setState({
+      name: event.target.value
     });
   }
 
-  componentDidMount() {
-    axios.get('http://localhost:3333/smurfs')
-    .then((response) => {
-      this.setState({smurfs: response.data});
-    })
-    .catch(error => {
-      console.log('There was an error');
+  updateAge(event) {
+    this.setState({
+      age: event.target.value
     });
   }
+
+  updateHeight(event) {
+    this.setState({
+      height: event.target.value
+    });
+  }
+
 }
 
 export default App;
