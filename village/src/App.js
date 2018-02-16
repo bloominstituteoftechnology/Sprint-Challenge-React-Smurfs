@@ -13,8 +13,8 @@ class App extends Component {
 
 
   getRequest = () => {
-    const data =
-      axios
+    const data = axios
+      
         .get('http://localhost:3333/smurfs')
         .then((response) => {
           console.log('data', response.data);

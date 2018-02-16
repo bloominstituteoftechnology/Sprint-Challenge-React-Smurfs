@@ -25,8 +25,7 @@ class SmurfForm extends Component {
       .then(response => {
         this.props.onUpdate();
       })
-      .catch(error => console.log
-        ('Error', error));
+      .catch(error => console.log('Error', error));
     this.setState({
       name: '',
       age: '',

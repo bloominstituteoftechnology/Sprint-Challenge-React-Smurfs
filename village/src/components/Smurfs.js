@@ -1,24 +1,5 @@
-import React, { Component } from 'react';
-import axios from 'axios';
+import React from 'react';
 import Smurf from './Smurf';
-
-
-
-
-  /*  state = {
-     smurfs: [0],
-   }
-   componentDidMount() {
-     axios.get('http://localhost:3333')
-       .then(response => {
-         console.log(response);
-         this.setState(() => { smurfs: response });
-       })
-       .catch(error => {
-         console.error(error);
-       });
-     console.log();
-   } */
 
   const Smurfs = props => {
     return (
