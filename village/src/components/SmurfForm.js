@@ -11,7 +11,7 @@ class SmurfForm extends Component {
       height: ''
     };
     this.addSmurf = this.addSmurf.bind(this);
-    this.removeSmurf = this.removeSmurf.bind(this);
+    // this.removeSmurf = this.removeSmurf.bind(this);
     this.updateName = this.updateName.bind(this);
     this.updateAge = this.updateAge.bind(this);
     this.updateHeight = this.updateHeight.bind(this);

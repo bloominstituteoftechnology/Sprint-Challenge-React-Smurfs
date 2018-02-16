@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 
 import './App.css';
 import SmurfForm from './components/SmurfForm';
@@ -24,36 +25,67 @@ class App extends Component {
     );
   }
 
-componentDidMount() {
-  this.loadSmurfs();
-}
-//Get the 411 on smurfs
-loadSmurfs = () => {
-  axios
-  .get('http://localhost:3333/smurfs')
-  .then(response => {
-    this.setState({
-      smurfs: response.data,
-    });
-  })
-  .catch(error => {
-    console.error('error getting data');
-  });
-}
+  componentDidMount() {
+    this.loadSmurfs();
+  }
 
-removeSmurfs = id => {
-  const endpoint = `http://localhost:5000/friends/${id}`;
-  axios
-    .delete(endpoint)
+  //Get the 411 on smurfs
+  loadSmurfs = () => {
+    axios
+    .get('http://localhost:3333/smurfs')
     .then(response => {
-      console.log('response from delete', response);
-      this.setState({ friends: response.data });
+      this.setState({
+        smurfs: response.data,
+      });
     })
-    .catch(() => {
-      console.error('error deleting');
+    .catch(error => {
+      console.error('error getting data');
     });
-};
+  }
 
+  //nuke the smurf
+  removeSmurf = id => {
+    const endpoint = `http://localhost:3333/smurfs/${id}`;
+    axios
+      .delete(endpoint)
+      .then(response => {
+        console.log('response from delete', response);
+        this.setState({ smurfs: response.data });
+      })
+      .catch(() => {
+        console.error('error deleting');
+      });
+  };
+
+//update the smurf's dossier
+  updateName = smurf => {
+    const endpoint = `http://localhost:3333/smurfs/${smurf.id}`;
+    return axios
+      .put(endpoint, smurf.name)
+      .then(response => {
+        console.log('response from update', response);
+        this.setState({ smurfs: response.data });
+      });    
+  };
+
+  updateAge = smurf => {
+    const endpoint = `http://localhost:3333/smurfs/${smurf.id}`;
+    return axios
+      .put(endpoint, smurf.age)
+      .then(response => {
+        console.log('response from update', response);
+        this.setState({ smurfs: response.data });
+      });    
+  };
+  updateHeight = smurf => {
+    const endpoint = `http://localhost:3333/smurfs/${smurf.id}`;
+    return axios
+      .put(endpoint, smurf.height)
+      .then(response => {
+        console.log('response from update', response);
+        this.setState({ smurfs: response.data });
+      });    
+  };
 }
 
 export default App;

@@ -34,8 +34,7 @@ class Smurfs extends Component {
         <h1>Smurf Village</h1>
         <ul>
           { this.smurfs.map((smurf) => {
-            return 
-              <Smurf 
+            return <Smurf 
               key={smurf.id}
               name={smurf.name} 
               age={smurf.age} 
@@ -49,11 +48,11 @@ class Smurfs extends Component {
 }
 
 
-// Smurfs.propTypes = {
-//   smurfs: propTypes.array.isRequired,
-// }
+smurfs.propTypes = {
+  smurfs: PropTypes.array.isRequired,
+}
 
-Smurfs.defaultProps = {
+smurfs.defaultProps = {
   smurfs: [],
 };
 export default Smurfs;
