@@ -26,9 +26,11 @@ class Smurfs extends Component {
     axios
       .get('http://localhost:3333/smurfs')
       .then(response => {
-        
+        this.setState({ friends: response.data  });
       })
-      .catch(console.log('error'));
+      .catch(error => {
+        console.log('there was an error', error);
+      });
   }
 }
 
