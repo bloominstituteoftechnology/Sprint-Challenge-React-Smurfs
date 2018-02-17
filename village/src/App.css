@@ -1,3 +1,20 @@
 .App {
   text-align: center;
 }
+
+.form{
+  padding: 1%;
+  margin: 1%;
+}
+
+.Smurfs{
+  display: flex;
+  flex-wrap: wrap;
+  border: solid;
+}
+
+.indiSmurf{
+  padding :1%;
+  margin: 1%;
+  border: solid;
+}
