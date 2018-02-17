@@ -34,8 +34,12 @@ const Smurfs = props =>  {
     <div className="Smurfs">
       <h1>Smurf Village</h1>
         <ul>
-          { props.smurfs.map((smurf) => {
-            return <Smurf name={smurf.name} age={smurf.age} height={smurf.height} key={smurf.id} />;
+          { props.smurfs.map(smurf => {
+            // return <Smurf name={smurf.name} age={smurf.age} height={smurf.height} key={smurf.id} />;
+            return (
+              <Smurf smurf={smurf} name={smurf.name} age={smurf.age} height={smurf.height}
+              delete={props.delete} edit={props.edit}/>
+            );
           })}
         </ul>
     </div>

@@ -9,6 +9,15 @@ class App extends Component {
   state = {
     smurfs: [],
   };
+  
+  render() {
+    return (
+      <div className="App">
+        <SmurfForm onUpdate={this.updateSmurfs} add={this.addSmurf}/>
+        <Smurfs smurfs={this.state.smurfs} delete={this.deleteSmurf} edit={this.editSmurf}/>
+      </div>
+    );
+  }
 
   updateSmurfs = () => {
     axios
@@ -23,14 +32,27 @@ class App extends Component {
     this.updateSmurfs();
   }
 
-  render() {
-    return (
-      <div className="App">
-        <SmurfForm onUpdate={this.updateSmurfs}/>
-        <Smurfs smurfs={this.state.smurfs}/>
-      </div>
-    );
-  }
+  addSmurf = smurf => {
+    axios
+    .post("http://localhost:3333/smurfs/", smurf)
+    .then(response => this.updateSmurfs())
+    .catch(error => console.log("error:", error));
+  };
+  
+  editSmurf = smurf => {
+    const endpoint = `http://localhost:3333/smurfs/${smurf.id}`;
+    axios
+    .put(endpoint, smurf)
+    .then(response => this.updateSmurfs());
+  };
+  
+  deleteSmurf = id => {
+    const endpoint = `http://localhost:3333/smurfs/${id}`;
+    axios
+    .delete(endpoint)
+    .then(response => this.updateSmurfs())
+    .catch(error => console.log("error:", error));
+  };
 }
 
 export default App;
