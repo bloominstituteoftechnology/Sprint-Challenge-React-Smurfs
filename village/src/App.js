@@ -21,8 +21,14 @@ class App extends Component {
 	render() {
    	return (
       <div className="App">
-        <SmurfForm name={this.state.name} age={this.state.age} height={this.state.height}handleInput={this.handleInput} addSmurf={this.addSmurf} />
-        <Smurfs toggleEdit={this.toggleEdit} edit={this.state.edit} smurfs={this.state.smurfs} deleteSmurf={this.deleteSmurf} modifySmurf={this.modifySmurf} name={this.state.name} age={this.state.age} height={this.state.height} handleInput={this.handleInput}/>
+        <div className="container">
+        <div class="form">
+          <SmurfForm name={this.state.name} age={this.state.age} height={this.state.height}handleInput={this.handleInput} addSmurf={this.addSmurf} />
+        </div>
+        <div class="list">  
+          <Smurfs toggleEdit={this.toggleEdit} edit={this.state.edit} smurfs={this.state.smurfs} deleteSmurf={this.deleteSmurf} modifySmurf={this.modifySmurf} name={this.state.name} age={this.state.age} height={this.state.height} handleInput={this.handleInput}/>
+        </div>
+        </div>
       </div>
     );
   }
@@ -30,11 +36,13 @@ class App extends Component {
   addSmurf = (event)=>{
     event.preventDefault();
     let {name, age, height} = this.state;
+    let img = this.getSmurfImg(age);
     let smurf = {
     	name: this.state.name, 
     	age: this.state.age,
     	height: this.state.height,
-    	edit: false
+    	edit: false,
+      img: img
     	}
 
     axios.post('http://localhost:3333/smurfs', smurf)
@@ -67,6 +75,8 @@ class App extends Component {
   }
 
   modifySmurf = (modified)=>{
+    let img = this.getSmurfImg(modified.age);
+    modified.img = img;
     axios.put(`http://localhost:3333/smurfs/${modified.id}`, modified)
     .then((res)=>{
     	let copySmurfs = this.state.smurfs;
@@ -101,7 +111,24 @@ class App extends Component {
 		this.setState({smurf: copySmurfs});
 	}
 
+  getSmurfImg = (age)=>{
+      if(age < 5){
+      return 'http://bluebuddies.com/stories/bsfw/jpg/BSFW6.jpg';
+    }else if(age < 16){
+      return 'https://orig00.deviantart.net/53b5/f/2013/236/b/4/young_papa_smurf_by_tairusuku-d6jkvgq.png';
+    }else if(age < 30){
+      return 'https://vignette.wikia.nocookie.net/smurfs/images/a/a2/Male_Smurf_Comic_Book.jpg';
+    }else if(age < 50){
+      return 'https://vignette.wikia.nocookie.net/smurfs/images/7/70/Papa_Smurf_Cartoon.jpg';
+    }else if(age < 75){
+      return 'https://vignette.wikia.nocookie.net/smurfs/images/b/bd/Papa_Smurf123.png';
+    }else if(age < 100){
+      return 'https://vignette.wikia.nocookie.net/smurfsfanon/images/b/bd/Grandpa_Smurf_Hero_Stories.jpg';
+    }else if(age > 100){
+      return 'https://vignette.wikia.nocookie.net/smurfs/images/a/ae/Grandpa_Smurf_Comic_Book.jpg';
+    }else{
+      return 'http://moziru.com/images/grave-clipart-blank-7.jpg';
+    }
+  }
 }
-
-	
 export default App;

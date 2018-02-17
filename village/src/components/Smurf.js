@@ -25,6 +25,7 @@ class Smurf extends React.Component {
 		}else{
 			return (
 				<div>
+				<img src={this.props.img} />
 				<h3>{this.props.name}</h3>
 		    	<strong>{this.props.height} tall</strong>
 		    	<p>{this.props.age} old</p>

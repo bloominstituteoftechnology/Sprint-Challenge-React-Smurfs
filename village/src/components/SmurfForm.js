@@ -23,6 +23,7 @@ function SmurfForm (props) {
             placeholder="height"
             value={props.height}
           />
+          <br/>
           <button type="submit">Add to the village</button>
         </form>
       </div>
