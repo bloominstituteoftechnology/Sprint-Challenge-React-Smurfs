@@ -2,4 +2,27 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+  background: lightskyblue;
+  color: darkblue;;
+
+}
+
+.Smurfs{
+ align-self: auto;
+ 
+ padding: 1em;
+ margin: 2em; 
+ 
+ box-shadow: 2px 2px 2px 1px rgba(50, 0, 0, 0.2);
+background: cornflowerblue;
+}
+
+.SmurfForm{
+  margin: 10em;
+  padding: 1em;
+  align-self: auto;
+  display: flex;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+  background: cornflowerblue;
+
 }
