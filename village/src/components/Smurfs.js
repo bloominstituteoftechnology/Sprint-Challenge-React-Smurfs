@@ -14,7 +14,6 @@ class Smurfs extends Component {
 
 
   render() {
-   
     return (
       <div className="Smurfs">
         <h1>Smurf Village</h1>
