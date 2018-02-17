@@ -29,7 +29,7 @@ class App extends Component {
         this.setState({ smurfs: res.data });
       })
       .catch(error => {
-        console.log('LOADING ERROR :', error);
+        console.log("LOADING ERROR :", error);
       });
   };
 
@@ -41,7 +41,7 @@ class App extends Component {
         this.loadSmurfs();
       })
       .catch(error => {
-        console.log('Delete ERROR :', error);
+        console.log("Delete ERROR :", error);
       });
   };
 }
