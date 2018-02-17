@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Smurf from './Smurf';
 import SmurfForm from './SmurfForm';
-// import axios from 'axios';
+import axios from 'axios';
 
 class Smurfs extends Component {
   // add any needed code to ensure that the smurfs collection exists on state and it has data coming from the server
@@ -14,11 +14,12 @@ class Smurfs extends Component {
 
 
   render() {
+   
     return (
       <div className="Smurfs">
         <h1>Smurf Village</h1>
         <ul>
-          {this.state.smurfs.map((smurf) => {
+          {this.state.smurfs.map(smurf => {
             return <Smurf name={smurf.name} age={smurf.age} height={smurf.height} key={smurf.id} />;
           })}
           <SmurfForm />
@@ -27,19 +28,17 @@ class Smurfs extends Component {
     );
   }
 
-  // componentDidMount() {
-  //   this.setState({ loading: true });
-  //   axios
-  //     .get('http://localhost:3333/smurfs')
-  //     .then(response => {
-  //       console.log(response.data);
-  //       this.setState({ smurfs: response.data, loading: false });
-  //     })
-  //     .catch(error => {
-  //       this.setState({ loading: false });
-  //       console.log('there was error', error);
-  //     })
-  // }
+  componentDidMount() {
+    
+     axios
+      .get('http://localhost:3333/smurfs')
+      .then(response => {
+      this.setState({smurfs: response.data});
+      })
+      .catch(error => {
+        console.log('there was error', error)
+      });
+  }
 }
 
 export default Smurfs;

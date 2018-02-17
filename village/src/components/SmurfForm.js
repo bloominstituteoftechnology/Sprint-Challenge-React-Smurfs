@@ -18,8 +18,8 @@ class SmurfForm extends Component {
 
   addSmurf(event) {
     event.preventDefault();
-    // add code to create the smurf using the api
-    this.setState({value: event.target.value});
+ // add code to create the smurf using the api
+   
     axios
     .get('http://localhost:3333/smurfs')
     .post('http://localhost:3333/smurfs', {
