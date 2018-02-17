@@ -52,7 +52,8 @@ class Smurf extends React.Component {
     });
   }
 
-  updateSmurf = () => {
+  updateSmurf = (event) => {
+    event.preventDefault();
     const { name, age, height } = this.state;
     axios
     .put(`http://localhost:3333/smurfs/${this.props.id}`, { name, age, height })
