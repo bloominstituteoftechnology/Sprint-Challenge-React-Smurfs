@@ -7,7 +7,7 @@ const Smurf = props => {
       <h3>Name: {props.name}</h3>
       <strong>Height: {props.height} tall</strong>
       <p>Age: {props.age} old</p>
-      <button>Delete</button>
+      <button onClick={() => {props.badSmurf(props.id)}}>Delete</button>
       <button>Update</button>
     </div>
   );

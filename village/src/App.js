@@ -29,7 +29,7 @@ class App extends Component {
         this.setState({ smurfs: res.data });
       })
       .catch(error => {
-        console.log(error);
+        console.log('LOADING ERROR :', error);
       });
   };
 
@@ -37,11 +37,11 @@ class App extends Component {
     const smurf = `http://localhost:3333/smurfs/${id}`;
     axios
       .delete(smurf)
-      .the(res => {
-        this.setState({ smurfs: res.data });
+      .then(res => {
+        this.loadSmurfs();
       })
       .catch(error => {
-        console.log("Come on...ERROR!");
+        console.log('Delete ERROR :', error);
       });
   };
 }
