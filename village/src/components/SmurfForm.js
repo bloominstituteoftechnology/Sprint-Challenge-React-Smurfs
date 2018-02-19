@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import axios from 'axios';
+import styled from 'styled-components';
 
 class SmurfForm extends Component {
 
@@ -7,9 +8,9 @@ class SmurfForm extends Component {
         super(props);
         this.state = {
             id: 0,
-            name: 'german',
-            age: 23,
-            height: 1,
+            name: 'German',
+            age: '22',
+            height: '12',
 
         };
         this.addSmurf = this.addSmurf.bind(this);
@@ -53,31 +54,46 @@ class SmurfForm extends Component {
 
     render() {
         return (
-            <div className="SmurfForm">
+            <SmurtForm className="SmurfForm">
                 <h1>Add New Smurf </h1>
                 <form onSubmit={this.addSmurf}>
-                    <input
-                        onChange={this.updateName}
-                        placeholder="name"
-                        value={this.state.name}
-                    />
-                    <input
-                        onChange={this.updateAge}
-                        placeholder="age"
-                        value={this.state.age}
-                    />
-                    <input
-                        onChange={this.updateHeight}
-                        placeholder="height"
-                        value={this.state.height}
-                    />
+                    <div class="form-group">
+                        <input
+                            onChange={this.updateName}
+                            placeholder="name"
+                            value={this.state.name}
+                        />
+                    </div>
+                    <div class="form-group">
+                        <input
+                            onChange={this.updateAge}
+                            placeholder="age"
+                            value={this.state.age}
+                        />
+                    </div>
+                    <div class="form-group">
+                        <input
+                            onChange={this.updateHeight}
+                            placeholder="height"
+                            value={this.state.height}
+                        />
+                     </div>
 
-
-                    <button type="submit">Add to the village</button>
+                    <button className="btn btn-success btn-lg" type="submit">Add +</button>
                 </form>
-            </div>
+            </SmurtForm>
         );
     }
 }
+
+const SmurtForm = styled.div`
+    border:1px solid grey;
+    text-align: center;
+    margin:0px auto;
+    margin-top: 15%;
+    padding: 20px
+
+    
+`;
 
 export default SmurfForm;

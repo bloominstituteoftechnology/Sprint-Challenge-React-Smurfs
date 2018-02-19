@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import styled from 'styled-components';
 
 class UpdateForm extends React.Component {
 
@@ -76,36 +77,53 @@ class UpdateForm extends React.Component {
 
     render() {
         return (
-            <div>
+            <UpdateContainer>
                 <h1>Update {this.props.updateThisSmurf.name}</h1>
 
                 <form onSubmit={this.updateSmurf}>
-                    <input
-                        onChange={this.updateName}
-                        placeholder="name"
-                        value={this.state.name}
-                    />
-                    <input
-                        onChange={this.updateAge}
-                        placeholder="age"
-                        value={this.state.age}
-                    />
-                    <input
-                        onChange={this.updateHeight}
-                        placeholder="height"
-                        value={this.state.height}
-                    />
-                    <input
-                        name="id"
-                        value={this.state.id}
-                        type="hidden"
-                    />
+                    <div class="form-group">
+                        <input
+                            onChange={this.updateName}
+                            placeholder="name"
+                            value={this.state.name}
+                        />
+                    </div>
+                    <div class="form-group">
+                        <input
+                            onChange={this.updateAge}
+                            placeholder="age"
+                            value={this.state.age}
+                        />
+                    </div>
+                    <div class="form-group">
+                        <input
+                            onChange={this.updateHeight}
+                            placeholder="height"
+                            value={this.state.height}
+                        />
+                    </div>
+                    <div class="form-group">
+                        <input
+                            name="id"
+                            value={this.state.id}
+                            type="hidden"
+                        />
+                    </div>
                     <button type="submit">Update</button>
                 </form>
-            </div>
+            </UpdateContainer>
         );
     }
 
 }
+
+const UpdateContainer = styled.div`
+    border:1px solid grey;
+    text-align: center;
+    margin:0px auto;
+    margin-top: 15%;
+    padding: 20px
+
+`;
 
 export default UpdateForm;
