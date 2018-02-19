@@ -57,21 +57,21 @@ class SmurfForm extends Component {
             <SmurtForm className="SmurfForm">
                 <h1 className="display-4">Add New Smurf </h1>
                 <form onSubmit={this.addSmurf}>
-                    <div class="form-group">
+                    <div className="form-group">
                         <input
                             onChange={this.updateName}
                             placeholder="name"
                             value={this.state.name}
                         />
                     </div>
-                    <div class="form-group">
+                    <div className="form-group">
                         <input
                             onChange={this.updateAge}
                             placeholder="age"
                             value={this.state.age}
                         />
                     </div>
-                    <div class="form-group">
+                    <div className="form-group">
                         <input
                             onChange={this.updateHeight}
                             placeholder="height"

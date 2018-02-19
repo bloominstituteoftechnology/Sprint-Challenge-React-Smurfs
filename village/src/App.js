@@ -69,7 +69,7 @@ class App extends Component {
         return (
             <AppContainer className="container">
 
-                <div class="row">
+                <div className="row">
 
                     {this.state.showSideBar
                         ? <Sidebar smurfs={this.state.smurfs} showUpdateFormObl={this.showUpdateFormObl} />

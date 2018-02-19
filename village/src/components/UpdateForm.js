@@ -70,28 +70,28 @@ class UpdateForm extends React.Component {
                 </h1>
 
                 <form onSubmit={this.updateSmurf}>
-                    <div class="form-group">
+                    <div className="form-group">
                         <input
                             onChange={this.updateName}
                             placeholder="name"
                             value={this.state.name}
                         />
                     </div>
-                    <div class="form-group">
+                    <div className="form-group">
                         <input
                             onChange={this.updateAge}
                             placeholder="age"
                             value={this.state.age}
                         />
                     </div>
-                    <div class="form-group">
+                    <div className="form-group">
                         <input
                             onChange={this.updateHeight}
                             placeholder="height"
                             value={this.state.height}
                         />
                     </div>
-                    <div class="form-group">
+                    <div className="form-group">
                         <input
                             name="id"
                             value={this.state.id}

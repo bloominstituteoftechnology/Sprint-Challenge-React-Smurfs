@@ -12,7 +12,7 @@ class StartApp extends React.Component {
             <StartAppContainer>
                 <div className="display-4">Welcome To Smurf Village</div>
                 <br/> <br/>
-                <h2>You Don't have Smurfs To Show</h2>
+                <h2>You Do Not have Smurfs To Show</h2>
                 <button className="btn btn-primary btn-lg" onClick={ () => {this.handleOnClick()} }> Start Adding Smurfs </button>
             </StartAppContainer>
         );
