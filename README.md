@@ -9,8 +9,8 @@
 ## Questions - Self Study - You can exercise your Google-Fu for this and any other _Sprint Challenge_ in the future.
 
 1. Explain the differences between `client-side routing` and `server-side routing`.
-1. What does HTTP stand for? 
-1. What does CRUD stand for? 
+1. What does HTTP stand for?
+1. What does CRUD stand for?
 1. Which HTTP methods can be mapped to the CRUD acronym that we use when interfacing with APIs/Servers.
 1. Mention three tools we can use to make AJAX requests.
 
@@ -33,6 +33,7 @@
 * If you get both of those two requirements finished early. Proceed to the **STRETCH PROBLEM** to try and implement a `PUT` and a `DELETE`.
 
 ## API Design - This is how you'll interface with the API and what is required from every endpoint.
+
 
 ### GET '/smurfs'
 

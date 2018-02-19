@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-
+import Axios from 'axios';
 class SmurfForm extends Component {
-
   constructor(props) {
     super(props);
     this.state = {
@@ -9,57 +8,27 @@ class SmurfForm extends Component {
       age: '',
       height: ''
     };
-    this.addSmurf = this.addSmurf.bind(this);
-    this.updateName = this.updateName.bind(this);
-    this.updateAge = this.updateAge.bind(this);
-    this.updateHeight = this.updateHeight.bind(this);
   }
-
-  addSmurf(event) {
-    event.preventDefault();
-    // add code to create the smurf using the api
-    
-    this.setState({
-      name: '',
-      age: '',
-      height: ''
-    });
-  }
-
-  updateName(event) {
-    this.setState({
-      name: event.target.value
-    });
-  }
-
-  updateAge(event) {
-    this.setState({
-      age: event.target.value
-    });
-  }
-
-  updateHeight(event) {
-    this.setState({
-      height: event.target.value
-    });
-  }
-
+  
   render() {
     return (
       <div className="SmurfForm">
-        <form onSubmit={this.addSmurf}>
+        <form onSubmit={this.addSmurf.bind(this)}>
           <input
-            onChange={this.updateName}
+            onChange={this.handleInputChange}
+            name="name"
             placeholder="name"
             value={this.state.name}
           />
           <input
-            onChange={this.updateAge}
+            onChange={this.handleInputChange}
+            name="age"
             placeholder="age"
             value={this.state.age}
           />
           <input
-            onChange={this.updateHeight}
+            onChange={this.handleInputChange}
+            name="height"
             placeholder="height"
             value={this.state.height}
           />
@@ -67,6 +36,28 @@ class SmurfForm extends Component {
         </form>
       </div>
     );
+  }
+  
+  addSmurf(event) {
+    event.preventDefault();
+    Axios.post('http://localhost:3333/smurfs', this.state)
+      .then(response => {
+        console.log('response from post', response);
+        this.setState({
+          name: '',
+          age: '',
+          height: ''
+        });
+        this.props.onCreate();
+      })
+      .catch(error => {
+        console.log('error posting the data');
+      });  
+  };
+  
+  handleInputChange = event => {
+    const { name, value} = event.target;
+    this.setState({ [name]: value });
   }
 }
 
