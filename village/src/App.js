@@ -5,6 +5,7 @@ import Sidebar from './components/Sidebar';
 import UpdateForm from './components/UpdateForm';
 import StartApp from './components/StartApp';
 import axios from 'axios';
+import styled from 'styled-components';
 
 class App extends Component {
     state = {
@@ -77,11 +78,14 @@ class App extends Component {
                     : (this.state.showUpdateForm) ? <UpdateForm updateThisSmurf={this.state.SmurfToUpdate} runLoadSmurf={this.runLoadSmurf}/>
                         : <StartApp startApp={this.showSmurfsObl} />
                 }
-                
 
             </div>
         );
     }
 }
+
+
+
+
 
 export default App;
