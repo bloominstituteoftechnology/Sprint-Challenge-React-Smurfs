@@ -7,6 +7,7 @@ import StartApp from './components/StartApp';
 import axios from 'axios';
 import styled from 'styled-components';
 
+
 class App extends Component {
     state = {
         smurfs: [],
@@ -64,28 +65,38 @@ class App extends Component {
         // this.loadSmurf();
     };
 
-
     render() {
         return (
-            <div className="App">
-                {this.state.showSideBar
-                    ? <Sidebar smurfs={this.state.smurfs} showUpdateFormObl={this.showUpdateFormObl} />
-                    : ''
-                }
+            <AppContainer className="container">
 
-                {(this.state.showAddNewForm)
-                    ? <SmurfForm onCreation={this.handleOnCreate}/>
-                    : (this.state.showUpdateForm) ? <UpdateForm updateThisSmurf={this.state.SmurfToUpdate} runLoadSmurf={this.runLoadSmurf}/>
-                        : <StartApp startApp={this.showSmurfsObl} />
-                }
+                <div class="row">
 
-            </div>
+                    {this.state.showSideBar
+                        ? <Sidebar smurfs={this.state.smurfs} showUpdateFormObl={this.showUpdateFormObl} />
+                        : ''
+                    }
+
+                    {(this.state.showAddNewForm)
+                        ? <SmurfForm onCreation={this.handleOnCreate}/>
+                        : (this.state.showUpdateForm) ? <UpdateForm updateThisSmurf={this.state.SmurfToUpdate} runLoadSmurf={this.runLoadSmurf}/>
+                            : <StartApp startApp={this.showSmurfsObl} />
+                    }
+
+                </div>
+
+
+            </AppContainer>
         );
     }
 }
 
 
+const AppContainer = styled.div`
+    border:1px solid grey;
+    background-color:rgb(235, 235, 235);
+    height:800px;
 
+`;
 
 
 export default App;

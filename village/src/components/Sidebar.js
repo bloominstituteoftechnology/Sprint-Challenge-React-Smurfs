@@ -27,8 +27,8 @@ class Sidebar extends React.Component {
 }
 
 const SideBar = styled.div`
-    border:1px solid black;
-    position:absolute;
+    border:1px dotted blue;
+    position:relative;
     width: 200px;
     max-width: 500px;
     left:0px;
