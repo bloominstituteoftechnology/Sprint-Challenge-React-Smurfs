@@ -1,38 +1,48 @@
-import React, {Component} from 'react';
+import React from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
 
-class SmurfForm extends Component {
+class UpdateForm extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = {
-            id: 0,
-            name: '',
-            age: '',
-            height: '',
 
+        this.state = {
+            id: this.props.updateThisSmurf.myId,
+            name: this.props.updateThisSmurf.name,
+            age: this.props.updateThisSmurf.age,
+            height: this.props.updateThisSmurf.height,
+            smurfs: this.props.updateThisSmurf,
         };
-        this.addSmurf = this.addSmurf.bind(this);
+
+        this.updateSmurf = this.updateSmurf.bind(this);
         this.updateName = this.updateName.bind(this);
         this.updateAge = this.updateAge.bind(this);
         this.updateHeight = this.updateHeight.bind(this);
     }
 
-    addSmurf(event) {
+
+    componentWillReceiveProps(nextProps) {
+
+        this.setState({ id: nextProps.updateThisSmurf.myId });
+        this.setState({ name: nextProps.updateThisSmurf.name });
+        this.setState({ age: nextProps.updateThisSmurf.age });
+        this.setState({ height: nextProps.updateThisSmurf.height });
+
+    }
+
+    updateSmurf = (event) => {
         event.preventDefault();
 
         axios
-            .post('http://localhost:3333/smurfs', this.state)
+            .put(`http://localhost:3333/smurfs/${this.state.id}`, this.state)
             .then(response => {
-                console.log('response from post', response);
-                // console.log('check prosp to see if has onCreation', response.data);
-                this.props.onCreation(response.data);
+                this.props.runLoadSmurf();
             })
             .catch(error => {
                 console.error('error saving the data');
             });
-    }
+    };
 
     updateName(event) {
         this.setState({
@@ -54,9 +64,12 @@ class SmurfForm extends Component {
 
     render() {
         return (
-            <SmurtForm className="SmurfForm">
-                <h1 className="display-4">Add New Smurf </h1>
-                <form onSubmit={this.addSmurf}>
+            <UpdateContainer className="UpdateContainer">
+                <h1 className="display-4">Update <br/>
+                    <span >{this.props.updateThisSmurf.name} </span>
+                </h1>
+
+                <form onSubmit={this.updateSmurf}>
                     <div className="form-group">
                         <input
                             onChange={this.updateName}
@@ -77,16 +90,22 @@ class SmurfForm extends Component {
                             placeholder="height"
                             value={this.state.height}
                         />
-                     </div>
-
-                    <button className="btn btn-success btn-lg" type="submit">Add +</button>
+                    </div>
+                    <div className="form-group">
+                        <input
+                            name="id"
+                            value={this.state.id}
+                            type="hidden"
+                        />
+                    </div>
+                    <button className="btn btn-success btn-lg" type="submit"> - Update - </button>
                 </form>
-            </SmurtForm>
+            </UpdateContainer>
         );
     }
 }
 
-const SmurtForm = styled.div`
+const UpdateContainer = styled.div`
     border:1px solid grey;
     text-align: center;
     margin:0px auto;
@@ -94,9 +113,9 @@ const SmurtForm = styled.div`
     padding: 20px;
     
     h1 {
-        font-size:40px;
+        font-size:40px !important;
     }
-    
+
 `;
 
-export default SmurfForm;
+export default UpdateForm;
