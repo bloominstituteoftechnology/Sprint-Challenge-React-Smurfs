@@ -8,9 +8,9 @@ class SmurfForm extends Component {
         super(props);
         this.state = {
             id: 0,
-            name: 'German',
-            age: '22',
-            height: '12',
+            name: '',
+            age: '',
+            height: '',
 
         };
         this.addSmurf = this.addSmurf.bind(this);
@@ -55,7 +55,7 @@ class SmurfForm extends Component {
     render() {
         return (
             <SmurtForm className="SmurfForm">
-                <h1>Add New Smurf </h1>
+                <h1 className="display-4">Add New Smurf </h1>
                 <form onSubmit={this.addSmurf}>
                     <div class="form-group">
                         <input
@@ -91,7 +91,11 @@ const SmurtForm = styled.div`
     text-align: center;
     margin:0px auto;
     margin-top: 15%;
-    padding: 20px
+    padding: 20px;
+    
+    h1 {
+        font-size:40px;
+    }
 
     
 `;

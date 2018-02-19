@@ -77,8 +77,10 @@ class UpdateForm extends React.Component {
 
     render() {
         return (
-            <UpdateContainer>
-                <h1>Update {this.props.updateThisSmurf.name}</h1>
+            <UpdateContainer className="UpdateContainer">
+                <h1 className="display-4">Update <br/>
+                    <span >{this.props.updateThisSmurf.name} </span>
+                </h1>
 
                 <form onSubmit={this.updateSmurf}>
                     <div class="form-group">
@@ -109,12 +111,11 @@ class UpdateForm extends React.Component {
                             type="hidden"
                         />
                     </div>
-                    <button type="submit">Update</button>
+                    <button className="btn btn-success btn-lg" type="submit"> - Update - </button>
                 </form>
             </UpdateContainer>
         );
     }
-
 }
 
 const UpdateContainer = styled.div`
@@ -122,7 +123,11 @@ const UpdateContainer = styled.div`
     text-align: center;
     margin:0px auto;
     margin-top: 15%;
-    padding: 20px
+    padding: 20px;
+    
+    h1 {
+        font-size:40px !important;
+    }
 
 `;
 

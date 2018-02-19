@@ -1,5 +1,5 @@
 import React from 'react';
-
+import styled from 'styled-components';
 
 class Smurf extends React.Component {
     state = {
@@ -12,14 +12,25 @@ class Smurf extends React.Component {
 
     render() {
         return (
-            <div className="Smurf">
+            <ItemBox>
                 <h3><a onClick={() => {this.handleOnClick(this.props)}}>{this.props.name}</a></h3>
-                <strong>{this.props.height} tall</strong>
-                <p>{this.props.age} old</p>
-            </div>
+                {/*<strong>{this.props.height} tall</strong>*/}
+                {/*<p>{this.props.age} old</p>*/}
+            </ItemBox>
         );
     }
 
 }
 
+const ItemBox = styled.div`
+    border:0px solid white;
+    margin:0px auto;
+    padding:10px;
+    position:relative;
+    left:-20px;
+    
+    &:hover {
+        color:white;
+    }
+`;
 export default Smurf;

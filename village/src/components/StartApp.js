@@ -10,7 +10,7 @@ class StartApp extends React.Component {
     render() {
         return (
             <StartAppContainer>
-                <h1>Welcome To Smurf Village</h1>
+                <div className="display-4">Welcome To Smurf Village</div>
                 <br/> <br/>
                 <h2>You Don't have Smurfs To Show</h2>
                 <button className="btn btn-primary btn-lg" onClick={ () => {this.handleOnClick()} }> Start Adding Smurfs </button>
@@ -26,6 +26,7 @@ const StartAppContainer = styled.div`
     margin:0px auto;
     margin-top: 15%;
     padding: 20px
+
 `;
 
 export default StartApp;

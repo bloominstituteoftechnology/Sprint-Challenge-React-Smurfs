@@ -27,12 +27,10 @@ class Sidebar extends React.Component {
 }
 
 const SideBar = styled.div`
-    border:0px solid black;
+    border:0px solid yellow;
     width: 300px;
     height:500px;
-    max-width: 500px;
-    left:0px;
-    top:0px;
+    max-width: 300px;
     background-color:#001529;
     color:#788195;
     
