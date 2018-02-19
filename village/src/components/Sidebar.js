@@ -44,7 +44,6 @@ const SideBar = styled.div`
             padding-top:12%;
             font-size: 2em;
         }
-    
 `;
 
 

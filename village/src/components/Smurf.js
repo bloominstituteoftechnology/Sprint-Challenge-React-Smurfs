@@ -14,8 +14,6 @@ class Smurf extends React.Component {
         return (
             <ItemBox>
                 <h3><a onClick={() => {this.handleOnClick(this.props)}}>{this.props.name}</a></h3>
-                {/*<strong>{this.props.height} tall</strong>*/}
-                {/*<p>{this.props.age} old</p>*/}
             </ItemBox>
         );
     }
@@ -33,4 +31,5 @@ const ItemBox = styled.div`
         color:white;
     }
 `;
+
 export default Smurf;

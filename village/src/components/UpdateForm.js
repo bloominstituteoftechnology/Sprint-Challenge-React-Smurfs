@@ -19,25 +19,15 @@ class UpdateForm extends React.Component {
         this.updateName = this.updateName.bind(this);
         this.updateAge = this.updateAge.bind(this);
         this.updateHeight = this.updateHeight.bind(this);
-
-        console.log('----SOLO PASA UNA VEZ CONTRUCTOR', this.props, this.state);
     }
 
 
     componentWillReceiveProps(nextProps) {
 
-        this.forceUpdate();
-
         this.setState({ id: nextProps.updateThisSmurf.myId });
         this.setState({ name: nextProps.updateThisSmurf.name });
         this.setState({ age: nextProps.updateThisSmurf.age });
         this.setState({ height: nextProps.updateThisSmurf.height });
-
-        // this.loadSmurfInForm();
-
-        console.log('------------------------------', nextProps);
-        console.log('passing smurf obl ', nextProps.updateThisSmurf);
-        console.log('passing smurf obk ', this.state);
 
     }
 
@@ -47,10 +37,7 @@ class UpdateForm extends React.Component {
         axios
             .put(`http://localhost:3333/smurfs/${this.state.id}`, this.state)
             .then(response => {
-                
-                console.log(response.data);
                 this.props.runLoadSmurf();
-
             })
             .catch(error => {
                 console.error('error saving the data');

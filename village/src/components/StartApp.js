@@ -25,8 +25,7 @@ const StartAppContainer = styled.div`
     text-align: center;
     margin:0px auto;
     margin-top: 15%;
-    padding: 20px
-
+    padding: 20px;
 `;
 
 export default StartApp;
