@@ -1,13 +1,25 @@
 import React from 'react';
 
-const Smurf = (props) => {
-  return (
-    <div className="Smurf">
-      <h3>{props.name}</h3>
-      <strong>{props.height} tall</strong>
-      <p>{props.age} old</p>
-    </div>
-  );
+
+class Smurf extends React.Component {
+    state = {
+        showUpdateFormObl: this.props.showUpdateFormObl,
+    };
+
+    handleOnClick = (smurf) => {
+        this.props.showUpdateFormObl(true, smurf);
+    };
+
+    render() {
+        return (
+            <div className="Smurf">
+                <h3><a onClick={() => {this.handleOnClick(this.props)}}>{this.props.name}</a></h3>
+                <strong>{this.props.height} tall</strong>
+                <p>{this.props.age} old</p>
+            </div>
+        );
+    }
+
 }
 
 export default Smurf;
