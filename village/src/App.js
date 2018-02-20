@@ -23,13 +23,28 @@ componentDidMount() {
       .catch(() => {
         console.error('error getting data');
       });
+      console.log(this.state.smurfs);
 };
+
+removeSmurf = id => {
+    const endpoint = `http://localhost:3333/smurfs/${id}`;
+    axios
+        .delete(endpoint)
+        .then(response => {
+            console.log(response);
+            this.setState({smurfs: response.data });
+        })
+        .catch(() => {
+            console.error('error deleting');
+        });
+};
+
 
   render() {
     return (
       <div className="App">
-      <SmurfForm />
-        <Smurfs smurfs={this.state.smurfs} />
+      <SmurfForm onCreate={this.loadSmurfs} />
+        <Smurfs smurfs={this.state.smurfs} onDelete={this.removeSmurf} />
       </div>
     );
   }
