@@ -1,25 +1,55 @@
 import React, { Component } from 'react';
-
+import axios from 'axios';
 
 class SmurfForm extends Component {
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      name: '',
-      age: '',
-      height: ''
-    };
-    this.addSmurf = this.addSmurf.bind(this);
-    // this.removeSmurf = this.removeSmurf.bind(this);
-    this.updateName = this.updateName.bind(this);
-    this.updateAge = this.updateAge.bind(this);
-    this.updateHeight = this.updateHeight.bind(this);
-  }
-
+  // constructor(props) {
+  //   super(props);
+  //   this.state = {
+  //     name: '',
+  //     age: '',
+  //     height: ''
+  //   };
+  //   this.addSmurf = this.addSmurf.bind(this);
+  //   // this.removeSmurf = this.removeSmurf.bind(this);
+  //   this.updateName = this.updateName.bind(this);
+  //   this.updateAge = this.updateAge.bind(this);
+  //   this.updateHeight = this.updateHeight.bind(this);
+  // }
+state = {
+  name: '',
+  age: '',
+  height: ''
+}
   // given functions: add/update (Create/Update)
   // missing functions: Read/Delete
 
+  
+
+  render() {
+    return (
+      <div className="SmurfForm">
+        <form onSubmit={this.addSmurf}>
+          <input
+            onChange={this.updateName}
+            placeholder="name"
+            value={this.state.name}
+          />
+          <input
+            onChange={this.updateAge}
+            placeholder="age"
+            value={this.state.age}
+          />
+          <input
+            onChange={this.updateHeight}
+            placeholder="height"
+            value={this.state.height}
+          />
+          <button type="submit">Add to the village</button>
+        </form>
+      </div>
+    );
+  }
   /* ADD(CREATE) FUNCTION */
   addSmurf(event) {  // equivalent to submitHandler in FriendForm.js
     event.preventDefault();
@@ -70,31 +100,6 @@ deleteSmurf(event) {
     //?? method to delete entire object
   });
 }
-
-  render() {
-    return (
-      <div className="SmurfForm">
-        <form onSubmit={this.addSmurf}>
-          <input
-            onChange={this.updateName}
-            placeholder="name"
-            value={this.state.name}
-          />
-          <input
-            onChange={this.updateAge}
-            placeholder="age"
-            value={this.state.age}
-          />
-          <input
-            onChange={this.updateHeight}
-            placeholder="height"
-            value={this.state.height}
-          />
-          <button type="submit">Add to the village</button>
-        </form>
-      </div>
-    );
-  }
 }
 
 export default SmurfForm;
