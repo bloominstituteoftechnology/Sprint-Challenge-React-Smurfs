@@ -21,12 +21,13 @@ function smurfs(props) {
 
 class Smurfs extends Component {
   // add any needed code to ensure that the smurfs collection exists on state and it has data coming from the server
-  state = {
-    // editing: false,
+  state = [
+    {
     name: '',
     age: '',
     height: ''
-  };
+  }
+];
   
   render() {
     return (
