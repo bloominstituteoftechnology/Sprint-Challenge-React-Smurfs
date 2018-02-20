@@ -9,10 +9,10 @@
 ## Questions - Self Study - You can exercise your Google-Fu for this and any other _Sprint Challenge_ in the future.
 
 1. Explain the differences between `client-side routing` and `server-side routing`.
-1. What does HTTP stand for? 
-1. What does CRUD stand for? 
-1. Which HTTP methods can be mapped to the CRUD acronym that we use when interfacing with APIs/Servers.
-1. Mention three tools we can use to make AJAX requests.
+2. What does HTTP stand for? 
+3. What does CRUD stand for? 
+4. Which HTTP methods can be mapped to the CRUD acronym that we use when interfacing with APIs/Servers.
+5. Mention three tools we can use to make AJAX requests.
 
 ## Initializing Project - READ THIS CAREFULLY, you have two apps here. A server, and a client.
 
@@ -29,7 +29,7 @@
 ## Project Description
 
 * For this challenge you're going to fix all errors and finish the application.
-* The requirements for completion are that you are using AXIOS to `GET` a list of Smurfs that exist on the server && a `POST` to create a new Smurf and save it to the Smurf DB.
+* The requirements for completion are that you are using AXIOS to `axios.GET` a list of Smurfs that exist on the server && a `axios.POST` to create a new Smurf and save it to the Smurf DB.
 * If you get both of those two requirements finished early. Proceed to the **STRETCH PROBLEM** to try and implement a `PUT` and a `DELETE`.
 
 ## API Design - This is how you'll interface with the API and what is required from every endpoint.
