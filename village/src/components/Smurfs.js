@@ -10,8 +10,15 @@ class Smurfs extends Component {
       <div className="Smurfs">
         <h1>Smurf Village</h1>
         <ul>
-          { this.state.smurfs.map((smurf) => {
-            return <Smurf name={smurf.name} age={smurf.age} height={smurf.height} key={smurf.id} />;
+          { this.props.smurfs.map((smurf) => {
+            return <div><Smurf 
+            onChange={this.props.onChange} 
+            name={smurf.name} 
+            age={smurf.age} 
+            height={smurf.height} 
+            key={smurf.id} 
+            id={smurf.id}
+          /> </div>;
           })}
         </ul>
       </div>
