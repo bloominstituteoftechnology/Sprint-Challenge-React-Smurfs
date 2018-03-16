@@ -14,8 +14,25 @@ const sendUserError = (msg, res) => {
 };
 
 let smurfs = [];
+//hardcoded data to make sure data is coming in
+smurfs = [
+  {
+    "name": "Brainey",
+    "age": 200,
+    "height": "5cm",
+    "id": 0
+  },
+  {
+    "name": "Sleepy",
+    "age": 200,
+    "height": "5cm",
+    "id": 1
+  },
+];
+
 server.get('/smurfs', (req, res) => {
   res.json(smurfs);
+  console.log(`inside server get: ${smurfs}`)
 });
 let smurfId = 0;
 
