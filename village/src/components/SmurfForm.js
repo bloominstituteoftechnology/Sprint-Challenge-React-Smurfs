@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 
 class SmurfForm extends Component {
-
   constructor(props) {
     super(props);
     this.state = {
@@ -13,18 +13,54 @@ class SmurfForm extends Component {
     this.updateName = this.updateName.bind(this);
     this.updateAge = this.updateAge.bind(this);
     this.updateHeight = this.updateHeight.bind(this);
+    // this.getSmurf = this.getSmurf.bind(this);
+  }
+
+  componentDidMount() {
+    axios
+      .get('http://localhost:3333/smurfs')
+      .then(response => {
+        this.setState({ smurfs: response.data });
+      })
+      .catch(error => {
+        console.log(`There was an error getting smurfs: ${error}`);
+      });
   }
 
   addSmurf(event) {
     event.preventDefault();
     // add code to create the smurf using the api
-    
+    axios
+      .post('http://localhost:3333/smurfs', {
+        name: this.state.name,
+        age: this.state.name,
+        height: this.state.name
+      })
+
+      .then(response => {
+        this.setState({ smurfs: response.data });
+      })
+      .catch(error => {
+        console.log(`There was an error getting smurfs: ${error}`);
+      });
+
     this.setState({
       name: '',
       age: '',
       height: ''
     });
   }
+
+  // getSmurf(event) {
+  //   axios
+  //     .get('http://localhost:3333/smurfs')
+  //     .then(response => {
+  //       this.setState({ smurfs: response.data });
+  //     })
+  //     .catch(error => {
+  //       console.log(`There was an error getting smurfs: ${error}`);
+  //     });
+  // }
 
   updateName(event) {
     this.setState({
