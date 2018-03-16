@@ -13,7 +13,22 @@ class SmurfForm extends Component {
     this.updateName = this.updateName.bind(this);
     this.updateAge = this.updateAge.bind(this);
     this.updateHeight = this.updateHeight.bind(this);
+    this.deleteSmurf = this.deleteSmurf.bind(this);
   }
+
+  deleteSmurf= id => {
+    const deleteId = `http://localhost:3333/smurfs/:${id}`;
+    console.log("Delete",deleteId)
+    axios.delete(deleteId)
+    .then(response=> {
+      this.setState({sumrfs:response.data});
+      console.log(response)
+    })
+    .catch(()=> {
+      console.error('error deleting');
+    });
+  };
+
 
   addSmurf(event) {
     event.preventDefault();
@@ -75,6 +90,7 @@ class SmurfForm extends Component {
             value={this.state.height}
           />
           <button type="submit">Add to the village</button>
+          <button onClick={this.deleteSmurf} type="submit">Delete smurf</button>
         </form>
       </div>
     );
