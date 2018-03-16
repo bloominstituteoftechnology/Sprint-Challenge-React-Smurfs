@@ -3,6 +3,15 @@ import React, { Component } from 'react';
 import Smurf from './Smurf';
 
 class Smurfs extends Component {
+  state = {
+    smurfs:[],
+  }
+
+  getSmurfs = this.getSmurfs.bind(this);
+
+  componentDidMount(){
+    this.getSmurfs();
+  };
   // add any needed code to ensure that the smurfs collection exists on state and it has data coming from the server
 
   render() {
@@ -18,5 +27,15 @@ class Smurfs extends Component {
     );
   }
 }
+
+getSmurfs() {
+  axios.get('http://localhost:3333/smurfs')
+  .then(response => response.pre.data)
+  console.log(response)
+    this.setState({
+          smurfs: pre.data
+    })
+  }
+
 
 export default Smurfs;
