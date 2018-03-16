@@ -1,0 +1,6 @@
+1.  Explain the differences between `client-side routing` and `server-side routing`.
+    Server-side-routing is navigation that occurs on the server side. Clicking on a link or navigating the page will cause the server to serve up an entirely new page. Client-sound-routing is when all of the information from the server is loaded once, but the navigation and page setup occurs on the client side. Clicking a link will cause different components/information to render, but the information isn't new from the server. It is just displayed or moved.
+1.  What does HTTP stand for? HTTP stands for hypertext transfer protocol. It is a protocol that controls the transfer of data between web servers and web browsers. HTTP uses a client-server model whereby the client requests from the server and then waits for the server to respond.
+1.  What does CRUD stand for? CRUD stands for create, read, update, delete.
+1.  Which HTTP methods can be mapped to the CRUD acronym that we use when interfacing with APIs/Servers. Create: POST, Read: GET, Update: PUT, Delete:DELETE
+1.  Mention three tools we can use to make AJAX requests. There are a lot of tools for making AJAX requests. We used axios, but we could also have used Fetch, Superagent, or Request.
