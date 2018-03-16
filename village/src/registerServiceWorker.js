@@ -93,7 +93,7 @@ function checkValidServiceWorker(swUrl) {
       }
     })
     .catch(() => {
-      //consloe.log(
+      consloe.log(
         'No internet connection found. App is running in offline mode.'
       );
     });
