@@ -15,6 +15,7 @@ const sendUserError = (msg, res) => {
 
 let smurfs = [];
 server.get('/smurfs', (req, res) => {
+  console.log('Request',req,'response', res);
   res.json(smurfs);
 });
 let smurfId = 0;
