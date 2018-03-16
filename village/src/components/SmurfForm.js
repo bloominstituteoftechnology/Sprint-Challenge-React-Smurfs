@@ -1,14 +1,9 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
 class SmurfForm extends Component {
-
   constructor(props) {
     super(props);
-    this.state = {
-      name: '',
-      age: '',
-      height: ''
-    };
+    this.state = { ...this.state };
     this.addSmurf = this.addSmurf.bind(this);
     this.updateName = this.updateName.bind(this);
     this.updateAge = this.updateAge.bind(this);
@@ -18,7 +13,7 @@ class SmurfForm extends Component {
   addSmurf(event) {
     event.preventDefault();
     // add code to create the smurf using the api
-    
+    this.props.add(this.state);
     this.setState({
       name: '',
       age: '',
