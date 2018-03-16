@@ -2,7 +2,7 @@
 
 In server-side routing, the server processes the request made when a user clicks a link, and sends a whole new HTML document back as a response, discarding the old page entirely. This has been the traditional model for the web.
 
-In client-side routing, the event is caught, and instead of a get request being made, the transition to the new URL is made manually (using the HTML5 history API). The state of the app is then changed by the routing library, which is then followed by the library the app is written in (like React, as an example).
+In client-side routing, the event is caught, and instead of a get request being made, the transition to the new URL is made manually on the client (using the HTML5 history API). The state of the app is then changed by the routing library, which is then followed by the library the app is written in (like React, as an example).
 
 Despite being more complicated due to the lack of a clear distinction that client/server typically has, client-side routing has the advantage of saving on the data being downloaded, and allowing you to reuse DOM elements.
 
