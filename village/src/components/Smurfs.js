@@ -4,34 +4,26 @@ import Smurf from './Smurf';
 
 class Smurfs extends Component {
   state = {
-    smurfs: []
+    smurfList: []
   }
 
   componentDidMount() {
     axios.get('http://localhost:3333/smurfs')
-      .then(response => console.log(response.data))
-      // .then(response => {
-      //   return response.map(smurf => {
-      //     return { smurf };
-      //   });
-      // })
-      .then(response => {
-        this.setState({
-          smurfs: response.data
-        });
+      .then((response) => {
+        console.log(response.data);
+        this.setState({ smurfList: response.data })
       })
-      .then(() => console.log(this.state.smurfs))
-      .catch(error => {
-        console.log('All the smurfs died in cyberspace :[', error);
+      .catch((error) => {
+        console.log(error);
       });
   }
 
   render() {
     return (
-      <div className="Smurfs">
+      <div className="Smurfs" >
         <h1>Smurf Village</h1>
         <ul>
-          {this.state.smurfs.map((smurf) => {
+          {this.state.smurfList.map((smurf) => {
             return <Smurf name={smurf.name} age={smurf.age} height={smurf.height} key={smurf.id} />;
           })}
         </ul>
