@@ -77,7 +77,7 @@ class SmurfForm extends Component {
       const updateSmurf = {
         name: this.state.name,
         age: this.state.age,
-        height: `${this.state.height} cm`,
+        height: this.state.height,
         id: this.state.id
       }
       axios.put(`http://localhost:3333/smurfs/${updateSmurf.id}`, updateSmurf)
