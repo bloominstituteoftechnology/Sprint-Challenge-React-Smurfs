@@ -13,7 +13,6 @@ class SmurfForm extends Component {
     this.updateName = this.updateName.bind(this);
     this.updateAge = this.updateAge.bind(this);
     this.updateHeight = this.updateHeight.bind(this);
-    // this.getSmurf = this.getSmurf.bind(this);
   }
 
   componentDidMount() {
@@ -33,12 +32,13 @@ class SmurfForm extends Component {
     axios
       .post('http://localhost:3333/smurfs', {
         name: this.state.name,
-        age: this.state.name,
-        height: this.state.name
+        age: this.state.age,
+        height: this.state.height
       })
 
       .then(response => {
         this.setState({ smurfs: response.data });
+        this.props.parentFunc();
       })
       .catch(error => {
         console.log(`There was an error getting smurfs: ${error}`);
@@ -49,18 +49,9 @@ class SmurfForm extends Component {
       age: '',
       height: ''
     });
-  }
 
-  // getSmurf(event) {
-  //   axios
-  //     .get('http://localhost:3333/smurfs')
-  //     .then(response => {
-  //       this.setState({ smurfs: response.data });
-  //     })
-  //     .catch(error => {
-  //       console.log(`There was an error getting smurfs: ${error}`);
-  //     });
-  // }
+    console.log(this.props.myForm);
+  }
 
   updateName(event) {
     this.setState({

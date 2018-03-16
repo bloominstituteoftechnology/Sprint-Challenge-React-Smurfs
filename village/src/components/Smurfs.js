@@ -21,22 +21,23 @@ class Smurfs extends Component {
       });
   }
 
-  // getSmurf() {
-  //   console.log('get a smurf!');
-  //   axios
-  //     .get('http://localhost:3333/smurfs')
-  //     .then(response => {
-  //       this.setState({ smurfs: response.data });
-  //     })
-  //     .catch(error => {
-  //       console.log(`There was an error getting smurfs: ${error}`);
-  //     });
-  // }
+  getSmurf() {
+    console.log('get a smurf!');
+    axios
+      .get('http://localhost:3333/smurfs')
+      .then(response => {
+        this.setState({ smurfs: response.data });
+      })
+      .catch(error => {
+        console.log(`There was an error getting smurfs: ${error}`);
+      });
+  }
 
   render() {
+    const self = this;
     return (
       <div className="Smurfs">
-        <SmurfForm />
+        <SmurfForm parentFunc={this.getSmurf.bind(self)} />
         <h1>Smurf Village</h1>
         <ul>
           {this.state.smurfs.map(smurf => {
