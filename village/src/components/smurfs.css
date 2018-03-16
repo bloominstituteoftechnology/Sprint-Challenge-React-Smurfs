@@ -1,0 +1,12 @@
+.container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+  margin: 30px;
+}
+
+
+.Smurf {
+  border: solid skyblue 1px;
+  padding: 20px;
+}
