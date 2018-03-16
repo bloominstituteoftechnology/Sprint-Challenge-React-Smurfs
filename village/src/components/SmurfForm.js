@@ -23,7 +23,9 @@ export default class SmurfForm extends Component {
       name: this.state.name,
       age: this.state.age,
       height: this.state.height
-    });
+    })
+    .then(response => {console.log('added')})
+    .catch(error => {console.log('add failed')})
     
     this.setState({
       name: '',
