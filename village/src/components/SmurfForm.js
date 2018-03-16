@@ -11,7 +11,8 @@ class SmurfForm extends Component {
       smurfs: [],
       name: '',
       age: '',
-      height: ''
+      height: '',
+      id: ''
     };
     this.addSmurf = this.addSmurf.bind(this);
     this.updateName = this.updateName.bind(this);
@@ -19,6 +20,18 @@ class SmurfForm extends Component {
     this.updateHeight = this.updateHeight.bind(this);
     this.getSmurfs = this.getSmurfs.bind(this);
     this.deleteSmurf = this.deleteSmurf.bind(this);
+    this.updateSmurf = this.updateSmurf.bind(this);
+  }
+
+  updateSmurf(event) {
+    const update = this.state.smurfs.filter(smurf => smurf.id === event.target.id)
+    this.setState({
+      name: update.name,
+      age: update.age,
+      height: update.height,
+      id: update.id
+    })
+
   }
 
   getSmurfs() {
@@ -37,26 +50,49 @@ class SmurfForm extends Component {
   addSmurf(event) {
     event.preventDefault();
     // add code to create the smurf using the api
-    const newSmurf = {
-      name: this.state.name,
-      age: this.state.age,
-      height: `${this.state.height} cm`
+    if (this.state.id === '') {
+      const newSmurf = {
+        name: this.state.name,
+        age: this.state.age,
+        height: `${this.state.height} cm`
+      }
+      axios.post("http://localhost:3333/smurfs", newSmurf)
+        .then(response => {
+          console.log('Request to add was successful!', response)
+          this.setState({
+            smurfs: response.data,
+            name: '',
+            age: '',
+            height: ''
+          });
+          
+        })
+        .catch(err => {
+          console.log(`The request to add failed: ${err}`)
+        })
+    } else {
+      const updateSmurf = {
+        name: this.state.name,
+        age: this.state.age,
+        height: `${this.state.height} cm`,
+        id: this.state.id
+      }
+      axios.put(`http://localhost:3333/smurfs/${updateSmurf.id}`, updateSmurf)
+        .then(response => {
+          console.log('Request to add was successful!', response)
+          this.setState({
+            smurfs: response.data,
+            name: '',
+            age: '',
+            height: '',
+            id: ''
+          });
+          
+        })
+        .catch(err => {
+          console.log(`The request to add failed: ${err}`)
+        })
     }
-    axios.post("http://localhost:3333/smurfs", newSmurf)
-      .then(response => {
-        console.log('Request to add was successful!', response)
-        this.setState({
-          smurfs: response.data,
-          name: '',
-          age: '',
-          height: ''
-        });
-        
-      })
-      .catch(err => {
-        console.log(`The request to add failed: ${err}`)
-      })
-    
     
   }
 
