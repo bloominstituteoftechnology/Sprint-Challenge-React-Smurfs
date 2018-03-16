@@ -8,8 +8,12 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <SmurfForm />
-        <Smurfs/>
+        <div className="smurfFormDiv">
+        <SmurfForm updateMasterSmurf={this.updateMasterSmurf} addSmurf={this.addSmurf} getSmurfs={this.getSmurfs} />
+        </div>
+        <div className="smurfsDiv">
+        <Smurfs addSmurf={this.addSmurf} getSmurfs={this.getSmurfs} />
+        </div>
       </div>
     );
   }

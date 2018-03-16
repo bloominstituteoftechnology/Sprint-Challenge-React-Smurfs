@@ -1,11 +1,14 @@
 import React from 'react';
+import { Form, FormGroup } from 'reactstrap';
 
 const Smurf = (props) => {
   return (
     <div className="Smurf">
-      <h3>{props.name}</h3>
-      <strong>{props.height} tall</strong>
-      <p>{props.age} old</p>
+    <Form>
+      <FormGroup><h3>{props.name}</h3></FormGroup>
+      <FormGroup><strong>{props.height} tall</strong></FormGroup>
+      <FormGroup><p>{props.age} old</p></FormGroup>
+      </Form>
     </div>
   );
 }
