@@ -31,6 +31,10 @@ class Smurfs extends Component {
 getSmurfs() {
   axios.get('http://localhost:3333/smurfs')
   .then(response => response.pre.data)
+  console.log(response)
+    this.setState({
+          smurfs: pre.data
+    })
   }
 
 // getSmurfs() {
