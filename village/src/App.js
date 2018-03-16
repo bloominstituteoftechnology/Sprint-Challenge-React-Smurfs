@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import './App.css';
 import SmurfForm from './components/SmurfForm';
+import smurfs from './components/Smurfs';
 import Smurfs from './components/Smurfs';
 
 class App extends Component {
@@ -9,7 +10,8 @@ class App extends Component {
     return (
       <div className="App">
         <SmurfForm />
-        <Smurfs/>
+        <smurfs />
+        <Smurfs /> 
       </div>
     );
   }
