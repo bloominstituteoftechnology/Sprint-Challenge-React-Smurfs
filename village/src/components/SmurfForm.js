@@ -7,8 +7,7 @@ class SmurfForm extends Component {
     this.state = {
       name: '',
       age: '',
-      height: '',
-      isAlreadyAuthenticated: false
+      height: ''
     };
     this.addSmurf = this.addSmurf.bind(this);
     this.updateName = this.updateName.bind(this);
@@ -17,13 +16,12 @@ class SmurfForm extends Component {
   }
 
   addSmurf(event) {
-    // event.preventDefault();
+    event.preventDefault();
     // add code to create the smurf using the api
     const newSmurf = {
       name: this.state.name,
       age: this.state.age,
-      height: this.state.height,
-      isAlreadyAuthenticated: true
+      height: this.state.height
     };
 
     axios
@@ -38,12 +36,9 @@ class SmurfForm extends Component {
     this.setState({
       name: '',
       age: '',
-      height: '',
-      isAlreadyAuthenticated: false
+      height: ''
     });
   }
-
-  componentDidUpdate(prevProps, prevState) {}
 
   updateName(event) {
     this.setState({
