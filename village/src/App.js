@@ -72,10 +72,16 @@ class App extends Component {
   }
 
   deleteSmurf(event) {
-    const id = this.state.id;
+    console.log(`in deleteSmurf`);
+    console.log(`event is: ${event}`)
+    console.log(`event.target.value ${event.target.value}`)
+    const id = event.target.value;
+    const endpoint = `http://localhost:3333/smurfs/${id}`
+    console.log(`endpoint ${endpoint}`);
     axios
-    .delete(`http:localhost:3333/smurfs/${id}`)
+    .delete(endpoint)
     .then(res => {
+      console.log('res.data: ',res.data)
       this.setState({ smurfs: res.data });
     })
     .catch(error => console.error(error))

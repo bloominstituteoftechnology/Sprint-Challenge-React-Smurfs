@@ -79,13 +79,15 @@ server.put('/smurfs/:id', (req, res) => {
 });
 
 server.delete('/smurfs/:id', (req, res) => {
+  console.log('in server.delete')
   const { id } = req.params;
   const foundSmurf = smurfs.find(smurf => smurf.id == id);
 
   if (foundSmurf) {
     const SmurfRemoved = { ...foundSmurf };
     smurfs = smurfs.filter(smurf => smurf.id != id);
-    res.status(200).json({ SmurfRemoved });
+    // changed response to be smurfs minus deletedSmurf
+    res.status(200).json(smurfs);
   } else {
     sendUserError('No smurf by that ID exists in the smurf DB', res);
   }
