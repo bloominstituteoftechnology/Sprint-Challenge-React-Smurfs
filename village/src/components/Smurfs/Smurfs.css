@@ -1,0 +1,23 @@
+.smurfsGrid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.smurfsTitle {
+  color: rgba(0, 0, 0, 0.7);
+  padding: 1rem;
+  font-weight: 300;
+  font-size: 2rem;
+}
+
+.smurfSmurf {
+  background-color: blue;
+  color: white;
+  box-shadow: 0 -1px 0 #e0e0e0, 0 0 2px rgba(0, 0, 0, 0.12),
+    0 5px 4px rgba(0, 0, 0, 0.24);
+  margin: 1rem;
+  padding: 1rem;
+  min-width: 200px;
+  max-width: 300px;
+}
