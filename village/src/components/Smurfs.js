@@ -1,17 +1,8 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 
 import Smurf from './Smurf';
 
 class Smurfs extends Component {
-  // add any needed code to ensure that the smurfs collection exists on state and it has data coming from the server
-  constructor(props) {
-    super(props);
-    this.state = {
-      smurfs: [],
-    };
-    console.log(`constructing in Smurfs`)
-  }
 
   render(props) {
     return (

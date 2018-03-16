@@ -15,29 +15,24 @@ class App extends Component {
       height: '',
       id: '',
     };
-
-    console.log(`constructing ... in App`)
     this.addSmurf = this.addSmurf.bind(this);
     this.updateName = this.updateName.bind(this);
     this.updateAge = this.updateAge.bind(this);
     this.updateHeight = this.updateHeight.bind(this);
   }
-  
+
   componentDidMount() {
     console.log(`didMounting in Smurfs ...`)
     axios
     .get('http://localhost:3333/smurfs')
     .then( res => {
-      console.log(`res.data: ${res.data}`);
       this.setState({ smurfs: res.data });
-      console.log(`smurfs: ${this.state.smurfs}`);
     })
     .catch( error => console.error(error))
   }
 
   addSmurf(event) {
     event.preventDefault();
-    // add code to create the smurf using the api
     const smurf = {};
     smurf.name = this.state.name;
     smurf.age = this.state.age;

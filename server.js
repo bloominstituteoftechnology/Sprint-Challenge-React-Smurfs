@@ -14,7 +14,7 @@ const sendUserError = (msg, res) => {
 };
 
 let smurfs = [];
-//hardcoded data to make sure data is coming in
+//hardcoded initial data because a blank page isn't sexy
 smurfs = [
   {
     "name": "Brainey",
@@ -30,23 +30,22 @@ smurfs = [
   },
 ];
 
-console.log(`smurfs is: ${smurfs}`);
-
 server.get('/smurfs', (req, res) => {
   res.json(smurfs);
-  console.log(`inside server get: ${smurfs}`)
 });
 let smurfId = 2;
 
 server.post('/smurfs', (req, res) => {
   const { name, age, height } = req.body;
   const newSmurf = { name, age, height, id: smurfId };
-  if (!name || !age || !height) {
-    return sendUserError(
-      'Ya gone did smurfed! Name/Age/Height are all required to create a smurf in the smurf DB.',
-      res
-    );
-  }
+  // This server check is archaic. Implemented client check
+  // with required attribute on input tags (ES6 Form Validation)
+  // if (!name || !age || !height) {
+  //   return sendUserError(
+  //     'Ya gone did smurfed! Name/Age/Height are all required to create a smurf in the smurf DB.',
+  //     res
+  //   );
+  // }
   const findSmurfByName = smurf => {
     return smurf.name === name;
   };

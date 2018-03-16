@@ -2,16 +2,6 @@ import React, { Component } from 'react';
 
 class SmurfForm extends Component {
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      name: '',
-      age: '',
-      height: '',
-      id: '',
-    };
-  }
-
   render(props) {
     return (
       <div className="SmurfForm">
