@@ -17,9 +17,11 @@ class SmurfForm extends Component {
   }
 
   deleteSmurf= id => {
+    // event.preventDefault();
     const deleteId = `http://localhost:3333/smurfs/:${id}`;
-    console.log("Delete",deleteId)
-    axios.delete(deleteId)
+    // const deleteId= this.props.match.params.id;
+    console.log("Delete",deleteId) //Returns Object 
+    axios.delete(`http://localhost:3333/smurfs/:${deleteId}`)
     .then(response=> {
       this.setState({sumrfs:response.data});
       console.log(response)
