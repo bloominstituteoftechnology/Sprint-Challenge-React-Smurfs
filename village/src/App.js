@@ -9,8 +9,8 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        < SmurfForm />
-        < Route path='/' component={Smurfs} />
+        < Route path='/' component={SmurfForm} />
+        < Route path='/smurfs' component={Smurfs} />
       </div>
     );
   }

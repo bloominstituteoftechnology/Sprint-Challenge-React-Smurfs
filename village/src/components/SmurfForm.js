@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import axios from "axios";
 import { Link, Redirect } from 'react-router-dom';
+import { Form, Button, Input } from 'reactstrap';
+import './SmurfForm.css';
 
 class SmurfForm extends Component {
 
@@ -10,6 +12,7 @@ class SmurfForm extends Component {
       name: '',
       age: '',
       height: '',
+      redirect: false,
     };
     this.addSmurf = this.addSmurf.bind(this);
     this.updateName = this.updateName.bind(this);
@@ -18,7 +21,7 @@ class SmurfForm extends Component {
   }
 
   addSmurf(event) {
-    event.preventDefault();
+    // event.preventDefault();
     // add code to create the smurf using the api
     
     const newSmurf = {
@@ -27,12 +30,14 @@ class SmurfForm extends Component {
       height: this.state.height
     }
     
+    
     axios.post("http://localhost:3333/smurfs", newSmurf)
     .then(response => {
       this.setState({
         name: '',
         age: '',
         height: '',
+        redirect: true,
       })
       // this.getData();
       console.log(response, 'post');
@@ -40,9 +45,6 @@ class SmurfForm extends Component {
     .catch(error => {
       console.log(error);
     });
-    
-    console.log('submitted');
-
   }
 
 
@@ -66,34 +68,35 @@ class SmurfForm extends Component {
 
   render() {
     if (this.state.redirect) {
-      return <Redirect push to="/" />
+      return <Redirect push to="/smurfs" />
     }
     return (
+      
       <div className="SmurfForm">
-        <form onSubmit={this.addSmurf}>
-          <input
+        <Form className="d-flex w-50" onSubmit={this.addSmurf}>
+          <Input
             onChange={this.updateName}
             placeholder="name"
             value={this.state.name}
             // type="text"
           />
-          <input
+          <Input
             onChange={this.updateAge}
             placeholder="age"
             value={this.state.age}
             // type="number"
           />
-          <input
+          <Input
             onChange={this.updateHeight}
             placeholder="height"
             value={this.state.height}
             // type="number"
           />
-          <button type="submit">
-              Add to the village
+          <Button color="danger" type="submit">
+              Add Smurf!
               <Link to="/"></Link>
-          </button>
-        </form>
+          </Button>
+        </Form>
       </div>
     );
   }
