@@ -19,10 +19,10 @@ class App extends Component {
     this.updateName = this.updateName.bind(this);
     this.updateAge = this.updateAge.bind(this);
     this.updateHeight = this.updateHeight.bind(this);
+    this.deleteSmurf = this.deleteSmurf.bind(this);
   }
 
   componentDidMount() {
-    console.log(`didMounting in Smurfs ...`)
     axios
     .get('http://localhost:3333/smurfs')
     .then( res => {
@@ -39,9 +39,9 @@ class App extends Component {
     smurf.height = this.state.height;
     console.log('adding a smurf')
 
-    axios.post('http://localhost:3333/smurfs', smurf)
+    axios
+      .post('http://localhost:3333/smurfs', smurf)
       .then(res => {
-        console.log(`res.data: ${res.data}`);
         this.setState({ smurfs: res.data });
         this.setState({
           name: '',
@@ -71,6 +71,16 @@ class App extends Component {
     });
   }
 
+  deleteSmurf(event) {
+    const id = this.state.id;
+    axios
+    .delete(`http:localhost:3333/smurfs/${id}`)
+    .then(res => {
+      this.setState({ smurfs: res.data });
+    })
+    .catch(error => console.error(error))
+  }
+
   render() {
     return (
       <div className="App">
@@ -85,6 +95,7 @@ class App extends Component {
         />
         <Smurfs 
           smurfs={this.state.smurfs}
+          deleteSmurf={this.deleteSmurf}
         />
       </div>
     );
