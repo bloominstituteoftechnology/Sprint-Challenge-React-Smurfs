@@ -20,21 +20,23 @@ smurfs = [
     "name": "Brainey",
     "age": 200,
     "height": "5cm",
-    "id": 0
+    "id": 0,
   },
   {
     "name": "Sleepy",
     "age": 200,
     "height": "5cm",
-    "id": 1
+    "id": 1,
   },
 ];
+
+console.log(`smurfs is: ${smurfs}`);
 
 server.get('/smurfs', (req, res) => {
   res.json(smurfs);
   console.log(`inside server get: ${smurfs}`)
 });
-let smurfId = 0;
+let smurfId = 2;
 
 server.post('/smurfs', (req, res) => {
   const { name, age, height } = req.body;
