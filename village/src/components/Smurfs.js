@@ -1,36 +1,14 @@
-import React, { Component } from "react";
-import axios from "axios";
+import React from "react";
 
 import Smurf from "./Smurf";
 
-class Smurfs extends Component {
-  state = {
-    smurfs: []
-  };
+const Smurfs = props => {
 
-  componentDidMount() {
-    this.loadSmurfs();
-  }
-
-  loadSmurfs = () => {
-    axios
-    .get('http://localhost:3333/smurfs')
-    .then(response => {
-      this.setState({
-        smurfs: response.data,
-      });
-    })
-    .catch((error) => {
-      console.error(`Error nabbing up smurfs: ${error}`);
-    });
-  };
-
-  render() {
     return (
       <div className="Smurfs">
         <h1>Smurf Village</h1>
         <ul>
-          {this.state.smurfs.map(smurf => {
+          {props.smurfs.map(smurf => {
             return (
               <Smurf
                 name={smurf.name}
@@ -43,7 +21,6 @@ class Smurfs extends Component {
         </ul>
       </div>
     );
-  }
 }
 
 export default Smurfs;
