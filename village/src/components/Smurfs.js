@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import Smurf from './Smurf';
+import axios from 'axios';
 
 class Smurfs extends Component {
   constructor(props) {
@@ -11,12 +12,13 @@ class Smurfs extends Component {
   }
 
   componentDidMount() {
-    const smurfs = this.props.match.params.smurfs;
     axios
-      .get(http://localhost:3333/smurfs)
-    this.setState({
-      smurfs
-    })
+      .get('http://localhost:3333/smurfs')
+        .then(response => {this.setState({smurfs: response.data})})
+        .catch(error => {
+          console.error('No smurfs found', error)
+        })
+   
   }
 
   render() {
