@@ -25,7 +25,7 @@ class SmurfForm extends Component {
 
   updateSmurf(event) {
     const update = this.state.smurfs.filter(smurf => smurf.id === event.target.id)
-    //consloe.log(event.target)
+    //console.log(event.target)
     this.setState({
       name: update.name,
       age: update.age,
@@ -41,7 +41,7 @@ class SmurfForm extends Component {
         this.setState({ smurfs: response.data })
       })
       .catch(err => {
-        //consloe.log(err)
+        console.log(err)
       })
   }
   componentDidMount() {
@@ -59,7 +59,7 @@ class SmurfForm extends Component {
       }
       axios.post("http://localhost:3333/smurfs", newSmurf)
         .then(response => {
-          //consloe.log('Request to add was successful!', response)
+          console.log('Request to add was successful!', response)
           this.setState({
             smurfs: response.data,
             name: '',
@@ -69,7 +69,7 @@ class SmurfForm extends Component {
           
         })
         .catch(err => {
-          //consloe.log(`The request to add failed: ${err}`)
+          console.log(`The request to add failed: ${err}`)
         })
     } else {
       const updateSmurf = {
@@ -80,7 +80,7 @@ class SmurfForm extends Component {
       }
       axios.put(`http://localhost:3333/smurfs/${updateSmurf.id}`, updateSmurf)
         .then(response => {
-          //consloe.log('Request to add was successful!', response)
+          console.log('Request to add was successful!', response)
           this.setState({
             smurfs: response.data,
             name: '',
@@ -91,7 +91,7 @@ class SmurfForm extends Component {
           
         })
         .catch(err => {
-          //consloe.log(`The request to add failed: ${err}`)
+          console.log(`The request to add failed: ${err}`)
         })
     }
     
@@ -116,14 +116,14 @@ class SmurfForm extends Component {
   }
 
   deleteSmurf(event) {
-    //consloe.log(event.target.id)
+    //console.log(event.target.id)
     axios.delete(`http://localhost:3333/smurfs/${event.target.id}`)
       .then(response => {
         this.getSmurfs()
         alert(`${response.data.SmurfRemoved.name} exiled successfully!`)
       })
       .catch(err => {
-        //consloe.log(`Error exiling smurf: ${err}`)
+        console.log(`Error exiling smurf: ${err}`)
       })
       
   }

@@ -634,7 +634,7 @@ Here is an example:
 import React from 'react';
 import logo from './logo.png'; // Tell Webpack this JS file uses this image
 
-//consloe.log(logo); // /logo.84287d09.png
+//console.log(logo); // /logo.84287d09.png
 
 function Header() {
   // Import result is the URL of your image
