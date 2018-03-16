@@ -8,25 +8,57 @@ class SmurfForm extends Component {
     this.state = {
       name: '',
       age: '',
-      height: ''
+      height: '',
+      id: ''
     };
     this.addSmurf = this.addSmurf.bind(this);
+    this.updateSmurf = this.updateSmurf.bind(this);
+    this.deleteSmurf = this.deleteSmurf.bind(this);
     this.updateName = this.updateName.bind(this);
     this.updateAge = this.updateAge.bind(this);
     this.updateHeight = this.updateHeight.bind(this);
+    this.updateID = this.updateID.bind(this);
   }
 
   addSmurf(event) {
     event.preventDefault();
     // add code to create the smurf using the api
     const { name, age, height } = this.state;
-    axios.post('http://localhost:3333/smurfs', { name, age, height })
+    axios.post('http://localhost:3333/smurfs', { name, age, height });
 
     this.setState({
       name: '',
       age: '',
-      height: ''
+      height: '',
+      id: ''
     });
+  }
+
+  updateSmurf(event) {
+    event.preventDefault();
+    const { name, age, height, id } = this.state;
+    axios.put(`http://localhost:3333/smurfs/${id}`, { name, age, height, id });
+
+    this.setState({
+      name: '',
+      age: '',
+      height: '',
+      id: ''
+    });
+  }
+
+  deleteSmurf(event) {
+    event.preventDefault();
+    const id = this.state.id;
+    axios.delete(`http://localhost:3333/smurfs/${id}`, { id });
+
+    this.setState({
+      name: '',
+      age: '',
+      height: '',
+      id: ''
+    });
+
   }
 
   updateName(event) {
@@ -44,6 +76,12 @@ class SmurfForm extends Component {
   updateHeight(event) {
     this.setState({
       height: event.target.value
+    });
+  }
+
+  updateID(event) {
+    this.setState({
+      id: event.target.value
     });
   }
 
@@ -66,7 +104,14 @@ class SmurfForm extends Component {
             placeholder="height"
             value={this.state.height}
           />
+          <input
+            onChange={this.updateID}
+            placeholder="id"
+            value={this.state.id}
+          />
           <button type="submit" onClick={this.addSmurf}>Add to the village</button>
+          <button type="submit" onClick={this.updateSmurf}>Update Smurf</button>
+          <button type="submit" onClick={this.deleteSmurf}>Delete Smurf</button>
         </form>
       </div>
     );
