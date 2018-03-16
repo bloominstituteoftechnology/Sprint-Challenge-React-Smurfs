@@ -14,6 +14,7 @@ class App extends Component {
     };
 
     this.getSmurfs = this.getSmurfs.bind(this);
+    this.delete = this.delete.bind(this);
   }
   getSmurfs() {
     axios.get("http://localhost:3333/smurfs").then(response => {
@@ -22,11 +23,21 @@ class App extends Component {
       this.setState({ smurfs: response.data });
     });
   }
+  delete(id) {
+    axios.delete(`http://localhost:3333/smurfs/${id}`).then(response => {
+      console.log("Delete: ", response);
+      this.getSmurfs();
+    });
+  }
+  componentDidMount() {
+    this.getSmurfs();
+  }
+
   render() {
     return (
       <Container className="App my-5">
         <SmurfForm get={this.getSmurfs} />
-        <Smurfs smurfs={this.state.smurfs} />
+        <Smurfs smurfs={this.state.smurfs} delete={this.delete} />
       </Container>
     );
   }

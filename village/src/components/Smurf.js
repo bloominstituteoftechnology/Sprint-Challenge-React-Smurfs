@@ -1,13 +1,17 @@
-import React from 'react';
+import React from "react";
+import { Card, CardBody, CardTitle, CardText } from "reactstrap";
 
-const Smurf = (props) => {
+const Smurf = props => {
   return (
-    <div className="Smurf">
-      <h3>{props.name}</h3>
-      <strong>{props.height} tall</strong>
-      <p>{props.age} old</p>
-    </div>
+    <Card className="Smurf">
+      <CardBody>
+        <CardTitle>{props.name}</CardTitle>
+        <CardText>{props.height} feet tall</CardText>
+        <CardText>{props.age} years old</CardText>
+        {props.button}
+      </CardBody>
+    </Card>
   );
-}
+};
 
 export default Smurf;
