@@ -1,24 +1,29 @@
-import React from 'react';
-import axios from 'axios';
-import Smurfs from './Smurfs';
+import React, { Component } from 'react';
+import SmurfUpdate from './SmurfUpdate';
 
-const Smurf = (props) => {
-  const deleteSmurf = () => {
-    axios
-      .delete(`http://localhost:3333/smurfs/${props.id}`, {
-        id: props.id
-      }).then();
+class Smurf extends Component {
+  state = {
+  };
+
+  componentDidMount() {
+    this.setState({
+      id: this.props.id,
+      name: this.props.name,
+      age: this.props.age,
+      height: this.props.height
+    });
   }
 
-  return (
-    <div className="Smurf">
-      <h3>{props.name}</h3>
-      <strong>{props.height} tall</strong>
-      <p>{props.age} old</p>
-      <button onClick={deleteSmurf}>Delete</button>
-      <button>Update</button>
-    </div>
-  );
+  render() {
+    return (
+      <div className="Smurf">
+        <h3>{this.state.name}</h3>
+        <strong>{this.state.height} tall</strong>
+        <p>{this.state.age} old</p>
+        <SmurfUpdate key={this.state.id} id={this.state.id}/>
+      </div>
+    );
+  }
 }
 
 export default Smurf;

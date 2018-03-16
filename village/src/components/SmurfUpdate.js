@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-class SmurfForm extends Component {
+class SmurfUpdate extends Component {
 
   constructor(props) {
     super(props);
@@ -18,12 +18,13 @@ class SmurfForm extends Component {
 
   addSmurf(event) {
     // add code to create the smurf using the api
-    axios.post('http://localhost:3333/smurfs', {
-      name: this.state.name,
-      age: this.state.age,
-      height: this.state.height
-    }).then(console.log('Smurf added!'))
-    .catch(console.log('Smurf add failed!'));
+    axios.put(`http://localhost:3333/smurfs/${this.props.id}`, {
+        id: this.props.id,
+        name: this.state.name,
+        age: this.state.age,
+        height: this.state.height
+    }).then(console.log('Smurf changed!'))
+    .catch(console.log('Smurf change failed!'));
 
     this.setState({
       name: '',
@@ -49,7 +50,14 @@ class SmurfForm extends Component {
       height: event.target.value
     });
   }
-  
+
+  deleteSmurf() {
+    console.log('deleting');
+    axios
+      .delete(`http://localhost:3333/smurfs/${this.props.id}`, {
+        id: this.props.id
+      }).then(console.log('Deleted!'));
+  }
 
   render() {
     return (
@@ -70,11 +78,12 @@ class SmurfForm extends Component {
             placeholder="height"
             value={this.state.height}
           />
-          <button type="submit">Add to the village</button>
+          <button type="submit">Update</button>
+          <button onClick={() => this.deleteSmurf()}>Delete</button>
         </form>
       </div>
     );
   }
 }
 
-export default SmurfForm;
+export default SmurfUpdate;
