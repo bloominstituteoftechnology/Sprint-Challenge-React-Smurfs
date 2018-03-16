@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+
 import Smurf from './Smurf';
 
 class Smurfs extends Component {
@@ -13,13 +13,18 @@ class Smurfs extends Component {
       <div className="Smurfs">
         <h1>Smurf Village</h1>
         <ul>
-          
+          {console.log(this.props, 'thisprops')}
           { this.props.smurfs.map((smurf) => {
-            return <Smurf 
-              name={smurf.name} 
-              age={smurf.age} 
-              height={smurf.height} 
-              key={smurf.id} />;
+            return (
+              <div key={smurf.id} >
+                <Smurf 
+                id={smurf.id}
+                name={smurf.name} 
+                age={smurf.age} 
+                height={smurf.height} 
+                />
+                <button id={smurf.id} onClick={this.props.delete}> Exile Smurf from the village </button>
+            </div> )
           })}
         </ul>
       </div>

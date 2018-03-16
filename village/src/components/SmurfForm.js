@@ -17,9 +17,11 @@ class SmurfForm extends Component {
     this.updateName = this.updateName.bind(this);
     this.updateAge = this.updateAge.bind(this);
     this.updateHeight = this.updateHeight.bind(this);
+    this.getSmurfs = this.getSmurfs.bind(this);
+    this.deleteSmurf = this.deleteSmurf.bind(this);
   }
 
-  componentDidMount() {
+  getSmurfs() {
     axios.get("http://localhost:3333/smurfs")
       .then(response => {
         this.setState({ smurfs: response.data })
@@ -27,6 +29,9 @@ class SmurfForm extends Component {
       .catch(err => {
         console.log(err)
       })
+  }
+  componentDidMount() {
+    this.getSmurfs()
   }
 
   addSmurf(event) {
@@ -73,6 +78,19 @@ class SmurfForm extends Component {
     });
   }
 
+  deleteSmurf(event) {
+    console.log(event.target.id)
+    axios.delete(`http://localhost:3333/smurfs/${event.target.id}`)
+      .then(response => {
+        this.getSmurfs()
+        alert(`${response.data.SmurfRemoved.name} exiled successfully!`)
+      })
+      .catch(err => {
+        console.log(`Error exiling smurf: ${err}`)
+      })
+      
+  }
+
   render() {
     return (
       <div className="SmurfForm">
@@ -95,7 +113,7 @@ class SmurfForm extends Component {
           />
           <button type="submit">Add to the village</button>
         </form>
-        <Smurfs smurfs={this.state.smurfs}/>
+        <Smurfs smurfs={this.state.smurfs} delete={this.deleteSmurf} />
       </div>
     );
   }
