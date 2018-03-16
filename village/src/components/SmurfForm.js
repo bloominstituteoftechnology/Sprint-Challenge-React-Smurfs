@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import axios from "axios";
 import { Form, FormGroup, Label, Input, Button, Row, Col } from "reactstrap";
 
 class SmurfForm extends Component {
@@ -10,32 +9,17 @@ class SmurfForm extends Component {
       age: "",
       height: ""
     };
-    this.addSmurf = this.addSmurf.bind(this);
     this.updateName = this.updateName.bind(this);
     this.updateAge = this.updateAge.bind(this);
     this.updateHeight = this.updateHeight.bind(this);
   }
-
-  addSmurf(event) {
-    event.preventDefault();
-    // add code to create the smurf using the api
-    axios
-      .post("http://localhost:3333/smurfs", {
-        name: this.state.name,
-        age: this.state.age,
-        height: this.state.height
-      })
-      .then(response => {
-        console.log("Post: ", response);
-        this.setState({
-          name: "",
-          age: "",
-          height: ""
-        });
-        this.props.get();
-      });
+  clearState() {
+    this.setState({
+      name: "",
+      age: "",
+      height: ""
+    });
   }
-
   updateName(event) {
     this.setState({
       name: event.target.value
@@ -55,9 +39,22 @@ class SmurfForm extends Component {
   }
 
   render() {
+    console.log(this.props.test);
     return (
       <div className="SmurfForm">
-        <Form onSubmit={this.addSmurf}>
+        <Form
+          onSubmit={event => {
+            this.props.submit(
+              {
+                name: this.state.name,
+                height: this.state.height,
+                age: this.state.age
+              },
+              this.props.id
+            );
+            this.clearState();
+          }}
+        >
           <FormGroup>
             <Row>
               <Col sm={3}>
@@ -104,7 +101,7 @@ class SmurfForm extends Component {
           <FormGroup>
             <Row className="d-flex justify-content-center">
               <Button className="mt-3" type="submit">
-                Add to the village
+                Submit
               </Button>
             </Row>
           </FormGroup>

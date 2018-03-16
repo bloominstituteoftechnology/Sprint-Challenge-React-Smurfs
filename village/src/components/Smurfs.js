@@ -20,6 +20,7 @@ class Smurfs extends Component {
                     age={smurf.age}
                     height={smurf.height}
                     key={smurf.id}
+                    id={smurf.id}
                     button={
                       <Button
                         onClick={() => {
@@ -29,6 +30,8 @@ class Smurfs extends Component {
                         X
                       </Button>
                     }
+                    submit={this.props.submit}
+                    get={this.props.get}
                   />
                 </Col>
               );
