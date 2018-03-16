@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import Smurf from './Smurf';
+import axios from 'axios';
 
 class Smurfs extends Component {
   state = {
@@ -26,17 +27,13 @@ class Smurfs extends Component {
       </div>
     );
   }
-}
+
 
 getSmurfs() {
   axios.get('http://localhost:3333/smurfs')
   .then(response => response.pre.data)
-  console.log(response)
-    this.setState({
-          smurfs: pre.data
-    })
-  }
-
+}
+}
 // getSmurfs() {
 //   axios.get('http://localhost:3333/smurfs')
 //   .then(response => response.pre.data)
