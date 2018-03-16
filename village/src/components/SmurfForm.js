@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 
 class SmurfForm extends Component {
-
   constructor(props) {
     super(props);
     this.state = {
@@ -15,15 +15,42 @@ class SmurfForm extends Component {
     this.updateHeight = this.updateHeight.bind(this);
   }
 
+  componentDidMount() {
+    axios
+      .get('http://localhost:3333/smurfs')
+      .then(response => {
+        this.setState({ smurfs: response.data });
+      })
+      .catch(error => {
+        console.log(`There was an error getting smurfs: ${error}`);
+      });
+  }
+
   addSmurf(event) {
     event.preventDefault();
     // add code to create the smurf using the api
-    
+    axios
+      .post('http://localhost:3333/smurfs', {
+        name: this.state.name,
+        age: this.state.age,
+        height: this.state.height
+      })
+
+      .then(response => {
+        this.setState({ smurfs: response.data });
+        this.props.parentFunc();
+      })
+      .catch(error => {
+        console.log(`There was an error getting smurfs: ${error}`);
+      });
+
     this.setState({
       name: '',
       age: '',
       height: ''
     });
+
+    console.log(this.props.myForm);
   }
 
   updateName(event) {
