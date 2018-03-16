@@ -54,33 +54,17 @@ class SmurfForm extends Component {
     });
   }
 
-  getSmurfs = this.getSmurfs.bind(this);
-
   componentDidMount() {
-    this.getSmurfs();
+    axios.get('http://localhost:3333/smurfs')
+    .then(response => {
+      this.setState({ smurfs: response.data }) 
+      console.log(this.state.smurfs)
+    })
+    .catch(error => { console.error('Server Error', error) })
   }
+  
 
-  getSmurfs() {
-    return new Promise((resolve, reject) => {
-      axios.get("http://localhost3333/smurfs")
-        .then(response => response.data.message)
-        .then(this.filtersmurfs)
-        .then(smurfs => {
-          return smurfs.map(smurf => {
-            return {
-              label: smurf,
-              path: `/smurfs/${smurf}`
-            }
-          });
-        })
-        .then(smurf => {
-          this.setState({
-            smurf
-          });
-          resolve(smurf);
-        });
-    });
-  }
+  
 
   render() {
     return (
