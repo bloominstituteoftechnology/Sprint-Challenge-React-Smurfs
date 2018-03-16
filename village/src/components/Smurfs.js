@@ -1,29 +1,44 @@
-import React, { Component } from 'react';
-import axios from 'axios';
+import React, { Component } from "react";
+import axios from "axios";
 
-import Smurf from './Smurf';
+import Smurf from "./Smurf";
 
 class Smurfs extends Component {
   state = {
-    smurfs: [],
+    smurfs: []
   };
 
   componentDidMount() {
-    axios
-      .get("http://localhost:3333/smurfs")
-      .then(response => {
-        this.setState({ smurfs: response.data });
-      })
-      .catch(error => console.log("there was an error", error));
+    this.loadSmurfs();
   }
+
+  loadSmurfs = () => {
+    axios
+    .get('http://localhost:3333/smurfs')
+    .then(response => {
+      this.setState({
+        smurfs: response.data,
+      });
+    })
+    .catch((error) => {
+      console.error(`Error nabbing up smurfs: ${error}`);
+    });
+  };
 
   render() {
     return (
       <div className="Smurfs">
         <h1>Smurf Village</h1>
         <ul>
-          { this.state.smurfs.map((smurf) => {
-            return <Smurf name={smurf.name} age={smurf.age} height={smurf.height} key={smurf.id} />;
+          {this.state.smurfs.map(smurf => {
+            return (
+              <Smurf
+                name={smurf.name}
+                age={smurf.age}
+                height={smurf.height}
+                key={smurf.id}
+              />
+            );
           })}
         </ul>
       </div>

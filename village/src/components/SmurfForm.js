@@ -18,14 +18,12 @@ class SmurfForm extends Component {
       .post("http://localhost:3333/smurfs", this.state)
       .then(response => {
         console.log(response);
+        this.props.loadSmurfs();
       })
-      .catch(error => console.log("there was an error", error));
-
-    this.setState({
-      name: "",
-      age: "",
-      height: ""
-    });
+      .catch(error => {
+        console.error(`Error sending smurf: ${error}`);
+      });
+    this.setState({ name: "", age: "", height: "" });
   }
 
   updateName(event) {
