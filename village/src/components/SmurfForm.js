@@ -1,13 +1,13 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
+import axios from "axios";
 
 class SmurfForm extends Component {
-
   constructor(props) {
     super(props);
     this.state = {
-      name: '',
-      age: '',
-      height: ''
+      name: "",
+      age: "",
+      height: ""
     };
     this.addSmurf = this.addSmurf.bind(this);
     this.updateName = this.updateName.bind(this);
@@ -18,11 +18,19 @@ class SmurfForm extends Component {
   addSmurf(event) {
     event.preventDefault();
     // add code to create the smurf using the api
-    
+    axios
+      .post("http://localhost:3333", {
+        name: this.state.name,
+        age: this.state.age,
+        height: this.state.height
+      })
+      .then(response => console.log("Successfully assimilated smurf"));
+
+    // resets the component for aditional smurf action
     this.setState({
-      name: '',
-      age: '',
-      height: ''
+      name: "",
+      age: "",
+      height: ""
     });
   }
 
@@ -34,13 +42,13 @@ class SmurfForm extends Component {
 
   updateAge(event) {
     this.setState({
-      age: event.target.value
+      age: Number(event.target.value)
     });
   }
 
   updateHeight(event) {
     this.setState({
-      height: event.target.value
+      height: `${event.target.value}cm`
     });
   }
 
