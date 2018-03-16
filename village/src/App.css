@@ -1,3 +1,17 @@
 .App {
+  margin: 0 auto;
   text-align: center;
+  background-color: white;
+  width: 100%;
+  max-width: 1000px;
+}
+
+.smurfFormDiv {
+  margin-top: 40px;
+  padding-top: 40px;
+}
+
+.smurfsDiv {
+  margin: 20px;
+  
 }
