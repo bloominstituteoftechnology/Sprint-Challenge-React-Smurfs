@@ -10,10 +10,8 @@ class Smurfs extends Component {
 
   componentDidMount(){
   // add any needed code to ensure that the smurfs collection exists on state and it has data coming from the server
-  
-  console.log(this);
   axios
-    .get(`http://localhost:3333/api/smurfs/`)
+    .get(`http://localhost:3333/smurfs/`)
     .then(result => this.setState(() => ({ smurfs: result.data })))
     .catch(console.log("Failed."));
     console.log(this.smurfs)
