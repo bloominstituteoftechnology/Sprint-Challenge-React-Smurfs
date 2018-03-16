@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 
 import './App.css';
-import SmurfForm from './components/SmurfForm';
-import Smurfs from './components/Smurfs';
-import Navigation from './components/Navigation';
+import SmurfForm from '../SmurfForm/SmurfForm';
+import Smurfs from '../Smurfs/Smurfs';
+import Navigation from '../Navigation/Navigation';
 
 class App extends Component {
   render() {
