@@ -8,9 +8,10 @@ class SmurfForm extends Component {
     this.state = {
       name: '',
       age: '',
-      height: ''
+      height: '',
     };
     this.addSmurf = this.addSmurf.bind(this);
+    this.updateSmurf = this.updateSmurf.bind(this);
     this.updateName = this.updateName.bind(this);
     this.updateAge = this.updateAge.bind(this);
     this.updateHeight = this.updateHeight.bind(this);
@@ -19,18 +20,35 @@ class SmurfForm extends Component {
   addSmurf(event) {
     event.preventDefault();
     const newSmurf = this.state;
-    axios.post('http://localhost:3333/smurfs', newSmurf)
+    axios.post(`http://localhost:3333/smurfs`, newSmurf)
       .then(response => {
         this.props.updateSmurfs();
+        console.log(response)
       })
-      .catch(error => console.log(error))
+      .catch(error => console.log(`Duplicate Smurf! Use Update ${error}`))
     
     this.setState({
       name: '',
       age: '',
       height: ''
     });
-    event.target.reset();
+  }
+
+  updateSmurf(event) {
+    event.preventDefault();
+    const newSmurf = this.state;
+    console.log(newSmurf);
+    axios.put('http://localhost:3333/smurfs', newSmurf)
+      .then(response => {
+        this.props.updateSmurfs();
+      })
+      .catch(error => console.log(error.response))
+    
+    this.setState({
+      name: '',
+      age: '',
+      height: ''
+    });
   }
 
   updateName(event) {
@@ -54,7 +72,7 @@ class SmurfForm extends Component {
   render() {
     return (
       <div className="SmurfForm">
-        <form onSubmit={this.addSmurf}>
+        <form>
           <input
             onChange={this.updateName}
             placeholder="name"
@@ -70,7 +88,8 @@ class SmurfForm extends Component {
             placeholder="height"
             value={this.state.height}
           />
-          <button type="submit">Add to the village</button>
+          <button onClick={this.addSmurf} type="submit">Add to the village</button>
+          <button onClick={this.updateSmurf} type="submit">Update the village</button>
         </form>
       </div>
     );
