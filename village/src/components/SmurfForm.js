@@ -16,19 +16,22 @@ class SmurfForm extends Component {
   }
 
   addSmurf(event) {
-    event.preventDefault();
-    axios.post('http://localhost:3333/smurfs', {
-      name: this.state.name,
-      age: this.state.age,
-      height: this.state.height
-    }).then(console.log('Added'))
-      .catch(console.log('Add failed'));
+    // event.preventDefault();
+    axios.post('http://localhost:3333/smurfs', this.state)
+      .then(console.log('Added'))
+      .catch(error => {
+        console.log('Add failed', error);
+      });
 
     this.setState({
       name: '',
       age: '',
       height: ''
     });
+  }
+
+  componentDidMount() {
+    this.addSmurf();
   }
 
   updateName(event) {
