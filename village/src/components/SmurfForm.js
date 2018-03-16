@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 
 class SmurfForm extends Component {
-
   constructor(props) {
     super(props);
     this.state = {
@@ -18,7 +17,7 @@ class SmurfForm extends Component {
   addSmurf(event) {
     event.preventDefault();
     // add code to create the smurf using the api
-    
+
     this.setState({
       name: '',
       age: '',
