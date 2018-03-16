@@ -31,7 +31,8 @@ class SmurfForm extends Component {
       this.setState({
         name: '',
         age: '',
-        height: ''
+        height: '',
+        smurfs: response.data
       });
     })
     .catch(error => {
