@@ -4,6 +4,7 @@ import "./App.css";
 import SmurfForm from "./components/SmurfForm";
 import Smurfs from "./components/Smurfs";
 import axios from "axios";
+import { Container } from "reactstrap";
 
 class App extends Component {
   constructor() {
@@ -23,10 +24,10 @@ class App extends Component {
   }
   render() {
     return (
-      <div className="App">
+      <Container className="App my-5">
         <SmurfForm get={this.getSmurfs} />
         <Smurfs smurfs={this.state.smurfs} />
-      </div>
+      </Container>
     );
   }
 }

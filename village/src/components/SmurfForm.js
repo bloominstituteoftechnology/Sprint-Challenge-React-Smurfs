@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import { Form, FormGroup, Label, Input, Button, Row, Col } from "reactstrap";
 
 class SmurfForm extends Component {
   constructor(props) {
@@ -56,24 +57,58 @@ class SmurfForm extends Component {
   render() {
     return (
       <div className="SmurfForm">
-        <form onSubmit={this.addSmurf}>
-          <input
-            onChange={this.updateName}
-            placeholder="name"
-            value={this.state.name}
-          />
-          <input
-            onChange={this.updateAge}
-            placeholder="age"
-            value={this.state.age}
-          />
-          <input
-            onChange={this.updateHeight}
-            placeholder="height"
-            value={this.state.height}
-          />
-          <button type="submit">Add to the village</button>
-        </form>
+        <Form onSubmit={this.addSmurf}>
+          <FormGroup>
+            <Row>
+              <Col sm={3}>
+                <Label>Smurf Name: </Label>
+              </Col>
+              <Col sm={9}>
+                <Input
+                  onChange={this.updateName}
+                  placeholder="name"
+                  value={this.state.name}
+                />
+              </Col>
+            </Row>
+          </FormGroup>
+          <FormGroup>
+            <Row>
+              <Col sm={3}>
+                {" "}
+                <Label>Smurf Age: </Label>
+              </Col>
+              <Col sm={9}>
+                <Input
+                  onChange={this.updateAge}
+                  placeholder="age"
+                  value={this.state.age}
+                />
+              </Col>
+            </Row>
+          </FormGroup>
+          <FormGroup>
+            <Row>
+              <Col sm={3}>
+                <Label>Smurf Height: </Label>
+              </Col>
+              <Col sm={9}>
+                <Input
+                  onChange={this.updateHeight}
+                  placeholder="height"
+                  value={this.state.height}
+                />
+              </Col>
+            </Row>
+          </FormGroup>
+          <FormGroup>
+            <Row className="d-flex justify-content-center">
+              <Button className="mt-3" type="submit">
+                Add to the village
+              </Button>
+            </Row>
+          </FormGroup>
+        </Form>
       </div>
     );
   }
