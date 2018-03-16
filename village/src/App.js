@@ -8,8 +8,8 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <SmurfForm />
-        <Smurfs/>
+        <SmurfForm exact path="/" component= { SmurfForm } />
+        <Smurfs exact path="/smurfs/:id" component={ Smurfs } />>
       </div>
     );
   }
