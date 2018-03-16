@@ -20,6 +20,8 @@ class Smurfs extends Component {
         .catch(error => {
           console.error('No smurfs found', error)
         })
+
+  
    
   }
 
