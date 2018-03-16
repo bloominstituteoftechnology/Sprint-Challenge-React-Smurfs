@@ -63,7 +63,6 @@ server.put('/smurfs/:id', (req, res) => {
 server.delete('/smurfs/:id', (req, res) => {
   const { id } = req.params;
   const foundSmurf = smurfs.find(smurf => smurf.id == id);
-
   if (foundSmurf) {
     const SmurfRemoved = { ...foundSmurf };
     smurfs = smurfs.filter(smurf => smurf.id != id);

@@ -12,9 +12,10 @@ class DeleteSmurf extends Component {
         });
       }
 
-    deleteSmurf = () => {
-        axios.delete('http://localhost:3333/smurfs', 
-    {params: {id: this.state.id}})
+    deleteSmurf = (event) => {
+        event.preventDefault();
+        axios.delete(`http://localhost:3333/smurfs/${this.state.id}`)
+        .catch(response => console.log(response))
     }
 
     render () {
