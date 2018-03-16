@@ -13,11 +13,11 @@ class Smurfs extends Component {
       <div className="Smurfs">
         <h1>Smurf Village</h1>
         <ul>
-          {console.log(this.props, 'thisprops')}
           { this.props.smurfs.map((smurf) => {
             return (
-              <div key={smurf.id} >
+              <div key={smurf.id} id={smurf.id}>
                 <Smurf 
+                update={this.props.update}
                 id={smurf.id}
                 name={smurf.name} 
                 age={smurf.age} 
