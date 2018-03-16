@@ -1,0 +1,5 @@
+`Client-side routing` runs in the browser. It is the way you navigate through a site or web-app. When you click the link the URL changes, providing the user with some new data or a new webpage. While `server-side routing` is when you click a link and it will take you to a whole new page from the server. A whole new document is served to the user.
+`HTTP` stands for HyperText Transfer Protocol.
+`CRUD` stands for Create, Retrieve, Update, and Delete. `CRUD` it is an acronym used by programmers, it describes all the functions that can be done to data that is being stored within a database or application. 
+The HTTP methods that can be mapped to the CRUD acronym that we use when interfacing with APIs/Servers is REST. REST is a high level of commands that handle the operations of websites. REST is the superset of CRUD that is used for HTTP resources. It is used for more complex objects identified by an URL.
+Three tools that we can use to make `AJAX` requests are, request data from a server, receive data from a server, and send data to a server. 

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 
 class SmurfForm extends Component {
 
@@ -18,14 +19,23 @@ class SmurfForm extends Component {
   addSmurf(event) {
     event.preventDefault();
     // add code to create the smurf using the api
-    
-    this.setState({
+    axios.post('http://localhost:3333/smurfs', {
+      name: '',
+      age:'',
+      height: ''
+    })
+    .then((response) => {
+      this.setState({
       name: '',
       age: '',
       height: ''
-    });
+    })
+  })
+    .catch((error) => {
+      console.error('Server Error', error)
+    })
   }
-
+  
   updateName(event) {
     this.setState({
       name: event.target.value
@@ -41,6 +51,34 @@ class SmurfForm extends Component {
   updateHeight(event) {
     this.setState({
       height: event.target.value
+    });
+  }
+
+  getSmurfs = this.getSmurfs.bind(this);
+
+  componentDidMount() {
+    this.getSmurfs();
+  }
+
+  getSmurfs() {
+    return new Promise((resolve, reject) => {
+      axios.get("http://localhost3333/smurfs")
+        .then(response => response.data.message)
+        .then(this.filtersmurfs)
+        .then(smurfs => {
+          return smurfs.map(smurf => {
+            return {
+              label: smurf,
+              path: `/smurfs/${smurf}`
+            }
+          });
+        })
+        .then(smurf => {
+          this.setState({
+            smurf
+          });
+          resolve(smurf);
+        });
     });
   }
 
