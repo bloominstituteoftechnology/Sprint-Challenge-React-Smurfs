@@ -19,13 +19,13 @@ smurfs = [
   {
     "name": "Brainey",
     "age": 200,
-    "height": "5cm",
+    "height": 5,
     "id": 0,
   },
   {
     "name": "Sleepy",
     "age": 200,
-    "height": "5cm",
+    "height": 5,
     "id": 1,
   },
 ];

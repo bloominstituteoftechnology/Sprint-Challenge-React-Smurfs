@@ -1,104 +1,41 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 
 class SmurfForm extends Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      smurfs: [],
       name: '',
       age: '',
       height: '',
       id: '',
     };
-
-    console.log(`constructing ... in SmurfForm`)
-    this.addSmurf = this.addSmurf.bind(this);
-    this.updateName = this.updateName.bind(this);
-    this.updateAge = this.updateAge.bind(this);
-    this.updateHeight = this.updateHeight.bind(this);
   }
 
-  // componentDidMount() {
-  //   console.log(`didMounting in SmurfForms ...`)
-  //   axios
-  //   .get('http://localhost:3333/smurfs')
-  //   .then( res => {
-  //     console.log(`res.data: ${res.data}`);
-  //     this.setState({ smurfs: res.data });
-  //     console.log(`smurfs: ${this.state.smurfs}`);
-  //   })
-  //   .catch( error => console.error(error))
-  // }
-
-  addSmurf(event) {
-    // event.preventDefault();
-    // add code to create the smurf using the api
-    const smurf = {};
-    smurf.name = this.state.name;
-    smurf.age = this.state.age;
-    smurf.height = this.state.height;
-    console.log('adding a smurf')
-
-    axios.post('http://localhost:3333/smurfs', smurf)
-    .then(res => {
-      console.log(`res.data: ${res.data}`);
-      this.setState({ smurfs: res.data });
-      this.setState({
-        name: '',
-        age: '',
-        height: ''
-      });
-      console.log(`smurfs: ${this.state.smurfs}`);
-    })
-    // this.setState({
-    //   name: '',
-    //   age: '',
-    //   height: ''
-    // });
-    .catch(error => console.error(error))
-  }
-
-  updateName(event) {
-    this.setState({
-      name: event.target.value
-    });
-  }
-
-  updateAge(event) {
-    this.setState({
-      age: event.target.value
-    });
-  }
-
-  updateHeight(event) {
-    this.setState({
-      height: event.target.value
-    });
-  }
-
-  render() {
+  render(props) {
     return (
       <div className="SmurfForm">
-        <form onSubmit={this.addSmurf}>
+        <form onSubmit={this.props.addSmurf}>
           <input
             required
-            onChange={this.updateName}
-            placeholder="name"
-            value={this.state.name}
+            type="text"
+            onChange={this.props.updateName}
+            placeholder="Enter name"
+            value={this.props.name}
           />
           <input
             required
-            onChange={this.updateAge}
-            placeholder="age"
-            value={this.state.age}
+            type="number"
+            onChange={this.props.updateAge}
+            placeholder="Enter age"
+            value={this.props.age}
           />
           <input
             required
-            onChange={this.updateHeight}
-            placeholder="height"
-            value={this.state.height}
+            type="number"
+            onChange={this.props.updateHeight}
+            placeholder="Enter height in cm"
+            value={this.props.height}
           />
           <button type="submit">Add to the village</button>
         </form>

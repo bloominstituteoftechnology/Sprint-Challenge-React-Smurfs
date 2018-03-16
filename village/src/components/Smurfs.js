@@ -13,24 +13,12 @@ class Smurfs extends Component {
     console.log(`constructing in Smurfs`)
   }
 
-  componentDidMount() {
-    console.log(`didMounting in Smurfs ...`)
-    axios
-    .get('http://localhost:3333/smurfs')
-    .then( res => {
-      console.log(`res.data: ${res.data}`);
-      this.setState({ smurfs: res.data });
-      console.log(`smurfs: ${this.state.smurfs}`);
-    })
-    .catch( error => console.error(error))
-  }
-
-  render() {
+  render(props) {
     return (
       <div className="Smurfs">
         <h1>Smurf Village</h1>
         <ul>
-          { this.state.smurfs.map((smurf) => {
+          { this.props.smurfs.map((smurf) => {
             return <Smurf name={smurf.name} age={smurf.age} height={smurf.height} key={smurf.id} />;
           })}
         </ul>
