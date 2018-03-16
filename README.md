@@ -1,4 +1,4 @@
-# Assessing your Routing/AJAX Fu
+<!-- # Assessing your Routing/AJAX Fu
 
 * The purpose of this exercise is to get you used to being quizzed on _Interview Questions_ commonly asked about Client Side Routing and making AJAX requests from a React application.
 * Answers to your written questions will be recorded in _Answers.md_
@@ -12,7 +12,7 @@
 1. What does HTTP stand for? 
 1. What does CRUD stand for? 
 1. Which HTTP methods can be mapped to the CRUD acronym that we use when interfacing with APIs/Servers.
-1. Mention three tools we can use to make AJAX requests.
+1. Mention three tools we can use to make AJAX requests. -->
 
 ## Initializing Project - READ THIS CAREFULLY, you have two apps here. A server, and a client.
 
@@ -72,7 +72,7 @@
 ]
 ```
 
-## STRETCH PROBLEM - Extra Credit!
+<!-- ## STRETCH PROBLEM - Extra Credit!
 
 * The following two endpoints are here for you if you'd like to push yourselves a little further.
   ### PUT '/smurfs/123', where 123 is the Id of the smurf you want to modify
@@ -111,4 +111,4 @@ output:
         "id": 1
     }
 }
-```
+``` -->
