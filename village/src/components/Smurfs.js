@@ -13,8 +13,8 @@ export default class smurfs extends Component {
   // add any needed code to ensure that the smurfs collection exists on state and it has data coming from the server
   componentDidMount() {
     axios.get("http://localhost:3333/smurfs")
-      .then(response => {
-        this.setState({ smurfs: response.data })
+      .then(result => {
+        this.setState({ smurfs: result.data })
       })
   }
 

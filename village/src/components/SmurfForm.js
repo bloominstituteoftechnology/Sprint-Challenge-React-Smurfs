@@ -17,7 +17,7 @@ export default class SmurfForm extends Component {
   }
 
   addSmurf(event) {
-    event.preventDefault();
+  // removed   event.preventDefault();
     // add code to create the smurf using the api
     axios.post('http://localhost:3333/smurfs', {
       name: this.state.name,
