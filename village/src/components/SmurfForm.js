@@ -24,14 +24,16 @@ class SmurfForm extends Component {
   }
 
   updateSmurf(event) {
-    const update = this.state.smurfs.filter(smurf => smurf.id === event.target.id)
-    //console.log(event.target)
+    this.state.smurfs.forEach(smurf => console.log(smurf.id))
+    const update = this.state.smurfs.filter(smurf => (smurf.id === Number(event.target.id)))
+    console.log(update, 'update')
     this.setState({
-      name: update.name,
-      age: update.age,
-      height: update.height,
-      id: update.id
+      name: update[0].name,
+      age: update[0].age,
+      height: update[0].height,
+      id: update[0].id
     })
+    console.log(this.state)
 
   }
 
@@ -55,7 +57,7 @@ class SmurfForm extends Component {
       const newSmurf = {
         name: this.state.name,
         age: this.state.age,
-        height: `${this.state.height} cm`
+        height: this.state.height
       }
       axios.post("http://localhost:3333/smurfs", newSmurf)
         .then(response => {
@@ -80,14 +82,14 @@ class SmurfForm extends Component {
       }
       axios.put(`http://localhost:3333/smurfs/${updateSmurf.id}`, updateSmurf)
         .then(response => {
-          console.log('Request to add was successful!', response)
+          console.log('Request to change was successful!', response.data)
           this.setState({
-            smurfs: response.data,
             name: '',
             age: '',
             height: '',
             id: ''
           });
+          this.getSmurfs()
           
         })
         .catch(err => {
