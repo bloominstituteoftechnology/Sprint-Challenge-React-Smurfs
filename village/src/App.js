@@ -5,11 +5,18 @@ import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
 
 class App extends Component {
+
+  fireUpdate = () => {
+    if (this.smurfz !== null) {
+      this.smurfz.updateSmurfs();
+    }
+  };
+
   render() {
     return (
       <div className="App">
-        <SmurfForm />
-        <Smurfs/>
+        <SmurfForm updateSmurfs={this.fireUpdate}/>
+        <Smurfs ref={(ref) => this.smurfz = ref}/>
       </div>
     );
   }

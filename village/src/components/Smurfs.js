@@ -7,6 +7,12 @@ class Smurfs extends Component {
     smurfs: []
   }
 
+  updateSmurfs = () => {
+    axios.get('http://localhost:3333/smurfs')
+      .then(response => this.setState({smurfs: response.data}))
+      .catch(error => console.log(error))
+  }
+
   render() {
     return (
       <div className="Smurfs">
@@ -22,7 +28,7 @@ class Smurfs extends Component {
 
   componentWillMount() {
     axios.get('http://localhost:3333/smurfs')
-      .then(response => this.setState({smurfs: [response]}))
+      .then(response => this.setState({smurfs: response.data}))
       .catch(error => console.log(error))
   }
 }
