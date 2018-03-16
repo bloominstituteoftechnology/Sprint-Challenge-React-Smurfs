@@ -8,7 +8,8 @@ class SmurfForm extends Component {
     this.state = {
       name: '',
       age: '',
-      height: ''
+      height: '',
+      id : 0
     };
     this.addSmurf = this.addSmurf.bind(this);
     this.updateName = this.updateName.bind(this);
@@ -23,10 +24,14 @@ class SmurfForm extends Component {
       .post('http://localhost:3333/smurfs', this.state)
       .catch(error => console.error('Server Error:', error))
 
+      let count = this.state.count;
+      count++;
+
     this.setState({
       name: '',
       age: '',
-      height: ''
+      height: '',
+      id: count
     });
   }
 
