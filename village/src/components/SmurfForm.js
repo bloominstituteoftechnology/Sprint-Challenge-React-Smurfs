@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 
 class SmurfForm extends Component {
-
   constructor(props) {
     super(props);
     this.state = {
-      name: '',
-      age: '',
-      height: ''
+        name: '',
+        age: '',
+        height: ''
     };
     this.addSmurf = this.addSmurf.bind(this);
     this.updateName = this.updateName.bind(this);
@@ -15,30 +15,42 @@ class SmurfForm extends Component {
     this.updateHeight = this.updateHeight.bind(this);
   }
 
-  addSmurf(event) {
-    event.preventDefault();
-    // add code to create the smurf using the api
-    
-    this.setState({
-      name: '',
-      age: '',
-      height: ''
-    });
+  componentDidMount() {
+    this.addSmurf();
   }
+    addSmurf(event) {
+      // event.preventDefault();
+      if (this.state.name === undefined || this.state.name.length === 0) return;
+      axios.post('http://localhost:3333/smurfs', this.state)
+        .then(response => {
+          this.setState({ 
+            name: '',
+            age: '',
+            height: ''
+          })
+        })
+        .catch((error) => {
+          console.error('Server Error', error)
+        });
+      }
+  
 
   updateName(event) {
+    // console.log(event.target.value);
     this.setState({
       name: event.target.value
     });
   }
 
   updateAge(event) {
+    // console.log(event.target.value)
     this.setState({
       age: event.target.value
     });
   }
 
   updateHeight(event) {
+    // console.log(event.target.value)
     this.setState({
       height: event.target.value
     });
@@ -52,6 +64,7 @@ class SmurfForm extends Component {
             onChange={this.updateName}
             placeholder="name"
             value={this.state.name}
+           
           />
           <input
             onChange={this.updateAge}
