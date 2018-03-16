@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import axios from "axios";
 
 class SmurfForm extends Component {
   constructor(props) {
@@ -14,18 +13,11 @@ class SmurfForm extends Component {
   addSmurf(event) {
     event.preventDefault();
     // add code to create the smurf using the api
-    const smurfy = this.state;
-    axios
-      .post("http://localhost:3333/smurfs", smurfy)
-      .then(response => {
-        this.props.onUpdate();
-      })
-      .catch(error => console.log("addSmurf", error));
-
+    this.props.add(this.state);
     this.setState({
-      name: "",
-      age: "",
-      height: ""
+      name: '',
+      age: '',
+      height: ''
     });
   }
 
