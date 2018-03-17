@@ -1,0 +1,17 @@
+.smurfs{
+    padding: 3%;
+    width: 90%;
+    margin: 0 auto;
+    text-align: center;
+    color: darkorange;
+    
+}
+
+.smurfs-container{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    justify-content: space-around;
+
+}
