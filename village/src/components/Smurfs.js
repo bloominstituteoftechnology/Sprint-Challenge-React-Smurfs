@@ -3,6 +3,15 @@ import React, { Component } from 'react';
 import Smurf from './Smurf';
 
 class Smurfs extends Component {
+  constructor() {
+    super();
+    this.state = {
+      smurfs: [],
+      name: '',
+      age: '',
+      height: ''
+    }
+  };
   // add any needed code to ensure that the smurfs collection exists on state and it has data coming from the server
 
   render() {
