@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import Smurf from './Smurf';
+// import SmurfForm from './SmurfForm';
 
 class Smurfs extends Component {
   constructor() {
@@ -18,9 +19,9 @@ axios.get('http://localhost:3333/smurfs')
 .then(response => {
   this.setState({ smurfs: response.data });
 })
-.catch(error => {
-  console.log( `There was an error getting smurfs: ${error}`);
-});
+// .catch(error => {
+//   console.log( `There was an error getting smurfs: ${error}`);
+// });
 }
 
   render() {
