@@ -1,10 +1,20 @@
 import React, { Component } from 'react';
-
+import axios from 'axios';
 import Smurf from './Smurf';
 
 class Smurfs extends Component {
-  // add any needed code to ensure that the smurfs collection exists on state and it has data coming from the server
+  constructor() {
+    super();
+    this.state = {
+      smurfs: []
+    }
+  }
 
+componentDidMount() {
+  axios.get(`http://localhost:3333/smurfs`)
+.then((resp) => this.setState({smurfs: [...resp.data]}))
+.catch(err => console.log(err));
+}
   render() {
     return (
       <div className="Smurfs">
