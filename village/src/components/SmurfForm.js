@@ -24,9 +24,9 @@ class SmurfForm extends Component {
       age: this.state.age,
       height: this.state.height
     })
-    .then(function (response) {
-      console.log(response.data);
-    })
+    .then(console.log('New Smurf Added!'))
+    .catch(console.log('Smurf add failed'));
+    
     
     this.setState({
       name: '',

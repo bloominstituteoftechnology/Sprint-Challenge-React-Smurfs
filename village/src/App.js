@@ -3,13 +3,18 @@ import React, { Component } from 'react';
 import './App.css';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
+import Smurf from './components/Smurf';
+import { Route } from 'react-router-dom';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <Smurfs/>
-        <SmurfForm /> 
+
+        <Route exact path="/" component={ Smurfs }/>
+        <Route path="/addSmurf" component={ SmurfForm }/>
+        <Route path="/smurfs/:id" component={ Smurf }/>
+         
       </div>
     );
   }
@@ -17,8 +22,4 @@ class App extends Component {
 
 export default App;
 
-    //    <ul>
-    //      { this.state.smurfs.map((smurf) => {
-    //        return <Smurf name={smurf.name} age={smurf.age} height={smurf.height} key={smurf.id} />;
-    //      })}
-    //    </ul> 
+   
