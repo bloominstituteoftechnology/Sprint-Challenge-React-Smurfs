@@ -10,7 +10,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-
+        <h1> Smurf Village </h1>
         <Route exact path="/" component={ Smurfs }/>
         <Route path="/addSmurf" component={ SmurfForm }/>
         <Route path="/smurfs/:id" component={ Smurf }/>

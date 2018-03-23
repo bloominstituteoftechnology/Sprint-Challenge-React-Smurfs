@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import  axios  from 'axios';
+import { Link } from 'react-router-dom'; 
 
 class SmurfForm extends Component {
 
@@ -25,7 +26,7 @@ class SmurfForm extends Component {
       height: this.state.height
     })
     .then(console.log('New Smurf Added!'))
-    .catch(console.log('Smurf add failed'));
+    .catch(console.error('Smurf add failed'));
     
     
     this.setState({
@@ -74,6 +75,8 @@ class SmurfForm extends Component {
           />
           <button type="submit">Add to the village</button>
         </form>
+        <br></br>
+        <button> <Link to="/"> See The Whole Village </Link> </button>
       </div>
     );
   }
