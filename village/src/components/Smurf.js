@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 
 const removeSmurf = (cb, id) => {
+  cb();
   axios
     .delete(`http://localhost:3333/smurfs/${id}`)
     .then(response => cb());
