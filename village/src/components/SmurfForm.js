@@ -28,6 +28,7 @@ class SmurfForm extends Component {
             name="height"
           />
           <button onClick={this.props.addSmurf}>Add to the village</button>
+          <p class="instruction-info">- To update Smurf please enter info into the form and hit update on the Smurfs card -</p>
       </div>
     );
   }

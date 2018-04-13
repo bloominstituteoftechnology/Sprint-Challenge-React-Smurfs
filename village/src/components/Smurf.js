@@ -11,7 +11,8 @@ class Smurf extends Component {
         <h3>{this.props.name}</h3>
         <strong>{this.props.height} tall</strong>
         <p>{this.props.age} smurf years old</p>
-        <button onClick={() => this.props.updateSmurf(this.props.id)}>Update Smurf</button>
+        <button onClick={id => this.props.deleteSmurf(this.props.id)}>Delete</button>
+        <button onClick={id => this.props.updateSmurf(this.props.id)}>Update</button>
       </div>
     );
   };
