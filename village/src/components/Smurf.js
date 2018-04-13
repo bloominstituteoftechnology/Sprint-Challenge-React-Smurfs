@@ -15,13 +15,15 @@ class Smurf extends React.Component {
 	handleNewInput = event => {
 		this.setState({ [event.target.name]: event.target.value });
 	};
-	// Delete request in progress
+	// Delete request
 	deleteSmurf = id => {
 		axios
 			.delete(`http://localhost:3333/smurfs/${id}`)
 			.then(response => this.props.fetchSmurfs())
 			.catch(error => console.error(error));
 	};
+	// Put Request
+	updateSmurf = id => {};
 
 	render() {
 		console.log(this.props.id);
@@ -57,7 +59,9 @@ class Smurf extends React.Component {
 					<button onClick={() => this.deleteSmurf(this.props.id)}>
 						Delete
 					</button>
-					<button onClick={this.updateSmurf}>Update</button>
+					<button onClick={() => this.updateSmurf(this.props.id)}>
+						Update
+					</button>
 				</form>
 			</div>
 		);
