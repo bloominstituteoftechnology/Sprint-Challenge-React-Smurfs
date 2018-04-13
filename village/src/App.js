@@ -31,10 +31,7 @@ class App extends Component {
     return (
       <div className="App">
         <SmurfForm updateSmurfs={() => this.componentDidMount()}/>
-        <Smurfs smurfs={this.state.smurfs} cb={() => {
-          console.log("Callback Worked!");
-          this.componentDidMount();
-        }}/>
+        <Smurfs smurfs={this.state.smurfs} cb={() => this.componentDidMount()}/>
       </div>
     );
   }

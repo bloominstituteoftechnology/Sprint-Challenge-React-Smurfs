@@ -2,10 +2,9 @@ import React from 'react';
 import axios from 'axios';
 
 const removeSmurf = (cb, id) => {
-  console.log("Delete Called");
   axios
     .delete(`http://localhost:3333/smurfs/${id}`)
-  cb();
+    .then(response => cb());
 }
 
 const Smurf = props => {
@@ -14,7 +13,7 @@ const Smurf = props => {
       <h3>{props.name}</h3>
       <strong>{props.height} tall</strong>
       <p>{props.age} smurf years old</p>
-      <button onClick={(cb) => removeSmurf(props.cb, props.id)}>Delete Smurf</button>
+      <button onClick={(cb) => removeSmurf(props.cb, props.id)}>Exile Smurf</button>
     </div>
   );
 };

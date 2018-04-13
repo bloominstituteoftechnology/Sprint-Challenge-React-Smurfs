@@ -1,3 +1,36 @@
 .App {
   text-align: center;
 }
+
+.SmurfForm {
+  padding-top: 20px;
+}
+
+.button-class {
+  background: lightblue;
+}
+
+.Smurf {
+  border: 2px solid blue;
+  background:  lightblue;
+  padding-Bottom: 20px;
+  border-radius: 50px;
+  margin-bottom: 20px;
+}
+
+.smurf-list {
+  margin: 0 auto;
+  padding-left: 0;
+  width: 400px;
+}
+
+button {
+  background: white;
+  border: 1px solid black;
+  cursor: pointer;
+}
+
+input {
+  border: 1px solid black;
+  text-align: center;
+}
