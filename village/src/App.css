@@ -1,3 +1,8 @@
 .App {
   text-align: center;
 }
+
+.SmurfForm input {
+  text-align: center;
+  margin: 10px 5px 0;
+}
