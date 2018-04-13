@@ -34,7 +34,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Route exact path = '/' component = {Smurfs} />
+        <Route path = '/' component = {Smurfs} />
         <Route path = '/' component = {SmurfForm} />
       </div>
     );
