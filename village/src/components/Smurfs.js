@@ -9,6 +9,16 @@ class Smurfs extends Component {
       smurfs: [],
     }
   }
+  componentDidMount(){
+    axios.get(`http://localhost:3333/smurfs`)
+    .then(response => {
+      this.setState({smurfs: response.data})
+      console.log(response);
+    })
+    .catch(err => {
+      console.log(err);
+    })
+  }
   render() {
     return (
       <div className="Smurfs">
