@@ -95,7 +95,7 @@ output:
 
 ## STRETCH PROBLEMS
 
-* Once you have your app built out the way you'd like, add React Router and declare some routes between your Smurfs, SmurfForm and Smurf components.
+* Once you have your app built out the way you'd like, add React Router and declare some routes between your Smurfs, SmurfForm and Smurf components. //done
 * The following two endpoints are here for you if you'd like to push yourselves a little further.
   ### PUT '/smurfs/123', where 123 is the Id of the smurf you want to modify
 * For this endpoint to work, you'll need an `id` added to the URL, and at least one field to update on the Smurf object. `name` `age` `height`.
