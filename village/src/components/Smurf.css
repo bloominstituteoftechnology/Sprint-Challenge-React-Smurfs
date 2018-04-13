@@ -1,0 +1,18 @@
+.smurf {
+    width: 30%;
+    margin-bottom: 4%;
+    color: gray;
+    background: #FCFBE3;
+    opacity: 0.8;
+    border-radius: 5%;
+    border-bottom: 5px solid lightgray;
+    margin-right: 8%;
+}
+
+.smurfs-container {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    justify-content: space-around;
+}

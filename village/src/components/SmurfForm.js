@@ -1,23 +1,46 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 
 class SmurfForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: '',
-      age: '',
-      height: ''
+      name: "",
+      age: "",
+      height: ""
     };
+
+    this.addSmurf = this.addSmurf.bind(this);
+    this.deleteSmurf = this.deleteSmurf.bind(this);
   }
 
   addSmurf = event => {
     event.preventDefault();
     // add code to create the smurf using the api
+    axios
+      .post("http://localhost:3333/smurfs", {
+        name: this.state.name,
+        age: this.state.age,
+        height: this.state.height
+      })
+      .then(() => {
+        this.props.getSmurfs();
+      });
+
+    this.setState({ id: "", name: "", age: "", height: "" });
+  };
+
+  deleteSmurf(e) {
+    e.preventDefault();
+    axios.delete("http://localhost:3333/smurfs/${this.state.id}").then(() => {
+      this.props.getSmurfs();
+    });
 
     this.setState({
-      name: '',
-      age: '',
-      height: ''
+      id: "",
+      name: "",
+      age: "",
+      height: ""
     });
   }
 
@@ -48,6 +71,7 @@ class SmurfForm extends Component {
             name="height"
           />
           <button type="submit">Add to the village</button>
+           <button type="button"onClick = {this.deleteSmurf}>Delete</button>
         </form>
       </div>
     );
