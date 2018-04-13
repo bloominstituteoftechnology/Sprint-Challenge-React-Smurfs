@@ -7,7 +7,7 @@ const Smurfs = props => {
     console.log(props);
     return (
       <div className="Smurfs">
-        <h1>Smurf Village</h1>
+       <div> <h1 className="smurfsh1-style">Smurf Village</h1></div>
         <ul>
           {props.smurfs.map(smurf => {
             return (

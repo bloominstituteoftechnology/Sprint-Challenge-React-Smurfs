@@ -5,8 +5,7 @@ import {Route} from 'react-router-dom';
 import './App.css';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
-import Smurf from './components/Smurf';
-import Edit from './components/SmurfEdit';
+
 class App extends Component {
   constructor(){
     super()

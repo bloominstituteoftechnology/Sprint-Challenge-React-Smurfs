@@ -41,11 +41,11 @@ setInput = (element)=>{
   return (
     <React.Fragment>
     <div className="Smurf">
-      <h3>{this.props.name}name</h3>
+      <h3>{this.props.name}</h3>
       <strong>{this.props.height} tall</strong>
       <p>{this.props.age} smurf years old</p>
 
-    </div>
+    
     <div class="form-style">
     <input class="input-style" 
         type="text" 
@@ -70,9 +70,10 @@ setInput = (element)=>{
         value={this.state.age}
         />
     </div>
-    <div>
-    <button onClick={() => this.updateSmurf(this.props.id)}>update this mang</button>
-    <button onClick={() => this.props.deleteSmurf(this.props.id)}>Delete this mang</button>
+    <div className="BtnDiv-style">
+    <button className="smurfBtn-style" onClick={() => this.updateSmurf(this.props.id)}>update this smurf</button>
+    <button className="smurfBtn-style" onClick={() => this.props.deleteSmurf(this.props.id)}>Delete this smurf</button>
+    </div>
     </div>
     </React.Fragment>
   );
