@@ -1,0 +1,11 @@
+1: Server side uses a lot of links and stuff, and loads the info from the server when you click that link.
+client side loads all the data upfront and uses Javascript to change the way that data gets displayed to the user,
+client side may load unneeded data for the user, and server side may be slower since it makes a request everytime you click a link.
+
+2: Hypertext Transfer Protocall.
+
+3: Creat Read Update and destroy!.
+
+4: Post get put delete
+
+5: fetch api, axios, and jquery
