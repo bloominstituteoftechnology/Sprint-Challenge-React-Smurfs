@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import Smurf from './Smurf';
 
-class Smurfs extends Component {
+export default class Smurfs extends Component {
   render() {
     return (
       <div className="Smurfs">
@@ -25,4 +25,4 @@ class Smurfs extends Component {
   }
 }
 
-export default Smurfs;
+// export default Smurfs;
