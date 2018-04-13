@@ -28,7 +28,6 @@ class App extends Component {
       <div className="App">
         <SmurfForm getSmurfs={this.getSmurfs} />
         {this.state.smurfs.map(smurf => <Smurf {...{smurf: smurf, getSmurfs: this.getSmurfs}} key={smurf.id} />)}
-
       </div>
     );
   }

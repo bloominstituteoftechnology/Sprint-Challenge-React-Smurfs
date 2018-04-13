@@ -13,10 +13,7 @@ class SmurfForm extends Component {
 
   addSmurf = event => {
     event.preventDefault();
-    const newSmurf = {};
-    if (this.state.name !== '') newSmurf['name'] = this.state.name;
-    if (this.state.age !== '') newSmurf['age'] = this.state.age;
-    if (this.state.height !== '') newSmurf['height'] = this.state.height;
+    const newSmurf = { name: this.state.name, height: this.state.height, age: this.state.age};
 
     axios
       .post('http://localhost:3333/smurfs', newSmurf)
