@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { Switch, Route } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import "./App.css";
 import SmurfForm from "./components/SmurfForm";
 import Smurfs from "./components/Smurfs";
+import Smurf from "./components/Smurf";
 
 // pass down smurfs collection to Smurfs
 class App extends Component {
@@ -32,18 +33,23 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.state.smurfs);
+    // console.log(this.state.smurfs);
     return (
       <div className="App">
         {/* Use Form to create new smurfs and add them to state */}
         <SmurfForm fetchSmurfs={() => this.fetchSmurfs()} />
         {/* Pass down all smurfs to Smurfs */}
-        <Smurfs smurfs={this.state.smurfs} />
+        <Switch>
+          <Route
+            exact
+            path="/"
+            render={props => {
+              return <Smurfs smurfs={this.state.smurfs} {...props} />;
+            }}
+          />
+          <Route path="/smurfs/:id" component={Smurf} />
+        </Switch>
       </div>
-
-      <Route exact path="/" component={App} />
-      <Route path="/smurfs" component={Smurfs} />
-      <Route path="/smurfs/:id component" component={Smurf} />
     );
   }
 }

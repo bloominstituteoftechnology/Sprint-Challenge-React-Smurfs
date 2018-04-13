@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { Switch, Route } from "react-router-dom";
 
 class SmurfForm extends Component {
   constructor(props) {
