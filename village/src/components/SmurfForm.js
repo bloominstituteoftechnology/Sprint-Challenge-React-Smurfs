@@ -10,9 +10,6 @@ class SmurfForm extends Component {
       height: ''
     };
     this.addSmurf = this.addSmurf.bind(this);
-    this.updateName = this.updateName.bind(this);
-    this.updateAge = this.updateAge.bind(this);
-    this.updateHeight = this.updateHeight.bind(this);
   }
 
   addSmurf = event => {
@@ -29,21 +26,6 @@ class SmurfForm extends Component {
       height: ''
     });
   }
-  updateName(event) {
-    this.setState({
-      name: event.target.value
-    });
-  }
-  updateAge(event) {
-    this.setState({
-      age: event.target.value
-    });
-  }
-  updateHeight(event) {
-    this.setState({
-      height: event.target.value
-    });
-  }
 
   handleInputChange = e => {
     this.setState({ [e.target.name]: e.target.value });
@@ -54,19 +36,19 @@ class SmurfForm extends Component {
       <div className="SmurfForm">
         <form onSubmit={this.addSmurf}>
           <input
-            onChange={this.updateName}
+            onChange={this.handleInputChange}
             placeholder="name"
             value={this.state.name}
             name="name"
           />
           <input
-            onChange={this.updateAge}
+            onChange={this.handleInputChange}
             placeholder="age"
             value={this.state.age}
             name="age"
           />
           <input
-            onChange={this.updateHeight}
+            onChange={this.handleInputChange}
             placeholder="height in cm"
             value={this.state.height}
             name="height"

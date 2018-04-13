@@ -15,7 +15,7 @@ class Smurfs extends Component {
       <div className="Smurfs">
         <h1>Smurf Village</h1>
         <SmurfForm getSmurfs={this.getSmurfs} />
-        <SmurfInfo smurfs={this.state.smurfs} deleteSmurf={this.deleteSmurf} />
+        <SmurfInfo smurfs={this.state.smurfs} deleteSmurf={this.deleteSmurf} /> 
       </div>
     );
   }
@@ -24,8 +24,8 @@ class Smurfs extends Component {
   }
 
   getSmurfs() {
-    axios.get('http://localhost:3333/smurfs')
-    .then(response => response.data)
+    axios.get('http://localhost:3333/smurfs') 
+    .then(response => response.data) //retrieves smurf from host
     .then(smurfs => {
       this.setState({
         smurfs
@@ -34,7 +34,7 @@ class Smurfs extends Component {
   }
 
   deleteSmurf(id) {
-    axios.delete(`http://localhost:3333/smurfs/${id}`)
+    axios.delete(`http://localhost:3333/smurfs/${id}`) //removes id of smurf from host
     .then(() => {
       this.getSmurfs();
     });

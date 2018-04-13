@@ -12,5 +12,5 @@ function SmurfInfo(props) {
         </div>
     );
 }
-
+//moved into new file to have Dry code
 export default SmurfInfo;
