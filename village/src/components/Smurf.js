@@ -6,10 +6,7 @@ class Smurf extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      updateSmurf: false,
-      name: '',
-      height: '',
-      age: ''
+      updateSmurf: false
     };
   }
 
@@ -33,11 +30,9 @@ class Smurf extends Component {
         <button onClick={() => this.deleteSmurf(this.props.smurf.id)}>Delete</button>
         <button onClick={() => this.toggleState()}>Update</button>
         {this.state.updateSmurf ? (
-          <UpdateSmurf {...{
-            updateSmurf: this.state.updateSmurf,
-            toggleState: this.toggleState,
-            getSmurfs: this.props.getSmurfs,
-            smurfID: this.props.smurf.id }} 
+          <UpdateSmurf
+            {...this.props}
+            {...{ updateSmurf: this.state.updateSmurf, toggleState: this.toggleState }}
           />
         ) : null}
       </div>

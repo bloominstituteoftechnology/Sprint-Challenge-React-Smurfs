@@ -51,7 +51,7 @@ class UpdateSmurf extends Component {
           name="age"
           placeholder="Age"
         />
-        <button onClick={() => this.updateSmurf(this.props.smurfID)}>Submit</button>
+        <button onClick={() => this.updateSmurf(this.props.smurf.id)}>Submit</button>
       </div>
     )
   }
