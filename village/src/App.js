@@ -35,7 +35,7 @@ class App extends Component {
   saveSmurfData() {
     const smurfs = { name: this.state.name, height: this.state.height, age: this.state.age };
     axios
-    .post(`htttp://localhost:3333/smurfs`, smurfs)
+    .post(`http://localhost:3333/smurfs`, smurfs)
     .then(saveSmurfs => {
       console.log(saveSmurfs);
     }) 
@@ -50,7 +50,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <SmurfForm />
+        <SmurfForm smurfs = {this.state.smurfs}/>
         <Smurfs smurfs = {this.state.smurfs}/>
       </div>
     );
