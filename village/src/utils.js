@@ -1,6 +1,9 @@
 import Axios, { get, post } from 'axios'
 
-const makeFetch = pathBase => async pathEnd => get(`${pathBase}${pathEnd}`)
+const makeGet = pathBase => async pathEnd =>
+  get(`${pathBase}${pathEnd}`)
+    .then(data => data)
+    .then(({ data }) => data)
 
 const makePost = pathBase => async (pathEnd, body) =>
   post(`${pathBase}${pathEnd}`, body)
@@ -8,4 +11,4 @@ const makePost = pathBase => async (pathEnd, body) =>
 const makeDelete = pathBase => async (pathEnd, body) =>
   Axios.delete(`${pathBase}${pathEnd}/${body}`)
 
-export { makeFetch, makePost, makeDelete }
+export { makeGet, makePost, makeDelete }
