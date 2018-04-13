@@ -18,6 +18,7 @@ class App extends Component {
   }
   
   fetchSmurfs = () => {
+    this.setState({ currentSmurfId: -1 })
     axios.get('http://localhost:3333/smurfs')
       .then(response => this.setState({ smurfs: response.data }))
       .catch(error => console.log(`Error fetching smurfs: ${error}`))
@@ -29,11 +30,15 @@ class App extends Component {
       .catch(error => console.log(`Error deleting smurf: ${error}`))
   }
 
+  selectSmurf = (e) => {
+    this.setState({ currentSmurfId: e.target.id })
+  }
+
   render() {
     return (
       <div className="App">
-        <SmurfForm refreshParent={this.fetchSmurfs}/>
-        <Smurfs smurfs={this.state.smurfs} deleteSmurf={this.deleteSmurf} />
+        <SmurfForm refreshParent={this.fetchSmurfs} currentSmurfId={this.state.currentSmurfId} clearSelection={this.clearSelection} />
+        <Smurfs smurfs={this.state.smurfs} deleteSmurf={this.deleteSmurf} selectSmurf={this.selectSmurf} />
       </div>
     )
   }

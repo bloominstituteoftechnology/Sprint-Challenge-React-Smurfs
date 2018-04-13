@@ -26,6 +26,16 @@ server.get('/smurfs', (req, res) => {
 });
 let smurfId = 1;
 
+server.get('/smurfs/:id', (req, res) => {
+  const { id } = req.params;
+  const smurf = smurfs.find(smurf => smurf.id = id)
+  if (smurf) {
+    res.json(smurf)
+  } else {
+    sendUserError(`No smurf found with id ${id}`, res)
+  }
+})
+
 server.post('/smurfs', (req, res) => {
   const { name, age, height } = req.body;
   const newSmurf = { name, age, height, id: smurfId };

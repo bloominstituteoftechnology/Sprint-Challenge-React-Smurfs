@@ -17,6 +17,7 @@ class Smurfs extends Component {
                 height={smurf.height}
                 key={smurf.id}
                 deleteSelf={this.props.deleteSmurf}
+                selectSelf={this.props.selectSmurf}
               />
             );
           })}
