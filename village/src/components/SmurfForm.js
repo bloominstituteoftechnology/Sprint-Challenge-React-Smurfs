@@ -12,18 +12,6 @@ class SmurfForm extends Component {
     };
   }
 
-  makeObject = () => {
-    const { name, age, height } = this.state;
-    const newObj = {
-      id: this.props.id,
-      name: name,
-      age: age,
-      height: height
-    }
-    this.setState({ name: '', age: '', height: '' });
-    return newObj;
-  }
-
   addSmurf = event => {
     event.preventDefault();
 

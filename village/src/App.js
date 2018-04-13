@@ -29,29 +29,29 @@ class App extends Component {
       });
   }
 
-  addInput = obj => {
+  addSmurf = obj => {
     const { smurfs } = this.state;
     smurfs.push(obj);
-    this.saveInput(obj);
+    this.saveSmurf(obj);
     this.setState({ smurfs });
   };
 
-  saveInput = obj => {
+  saveSmurf = obj => {
     axios
       .post('http://localhost:3333/smurfs', obj)
       .then(() => {
-        this.getFriends();
+        this.getSmurfs();
       })
       .catch(err => {
         console.err(err);
       });
   };
 
-  deleteInput = id => {
+  deleteSmurf = id => {
     axios
       .delete(`http://localhost:3333/smurfs/${id}`)
       .then(() => {
-        this.getFriends();
+        this.getSmurfs();
       })
       .catch(err => {
         console.err(err);
@@ -66,10 +66,10 @@ class App extends Component {
       <div className="App">
         <Switch>
           <Route exact path="/"
-            render={(props) => <Smurfs {...props} saveInput={this.saveInput} deleteInput={this.deleteInput} friends={this.state.friends} newFriend={this.state.newFriend} onClick={this.addInput} />
+            render={(props) => <Smurfs {...props} saveSmurf={this.saveSmurf} deleteSmurf={this.deleteSmurf} />
             } />
           <Route path="/addSmurf"
-            render={(props) => <SmurfForm addInput={this.addInput} id={this.state.id + 1} updateInput={this.updateInput} />
+            render={(props) => <SmurfForm addSmurf={this.addSmurf} updateInput={this.updateInput} />
             } />
         </Switch>
       </div>
