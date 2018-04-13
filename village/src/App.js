@@ -5,7 +5,7 @@ import "./App.css";
 import SmurfForm from "./components/SmurfForm";
 import Smurfs from "./components/Smurfs";
 import Smurf from "./components/Smurf";
-// import SmurfCard from "./components/SmurfCard";
+import SmurfCard from "./components/SmurfCard";
 
 class App extends Component {
   constructor() {
@@ -44,7 +44,7 @@ class App extends Component {
               return <Smurfs smurfs={this.state.smurfs} {...props} />;
             }}
           />
-          {/* <Route path="/smurfs/:id" component={SmurfCard} /> */}
+          <Route path="/smurfs/:id" component={SmurfCard} />
           <Route
             component={() => {
               return <h1>Nothing to see here!</h1>;
