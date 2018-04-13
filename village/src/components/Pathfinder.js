@@ -41,8 +41,9 @@ class Pathfinder extends Component {
 
   deleteSmurf = id => {
     axios
-      .delete(`http//localhost:3333/smurfs/${id}`)
+      .delete(`http://localhost:3333/smurfs/${id}`)
       .then(response => {
+        console.log(response);
         this.getSmurfs();
       })
       .catch(err => {
