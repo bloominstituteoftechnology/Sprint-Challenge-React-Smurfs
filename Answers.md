@@ -15,4 +15,4 @@
     Put requests to change data on the server
     Delete requests to remove data from the server
 
-5.  
+5.  react, postman  (browser, this one i got from lecture)
