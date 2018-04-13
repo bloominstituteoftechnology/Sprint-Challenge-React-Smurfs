@@ -34,18 +34,21 @@ class Smurf extends React.Component {
 						name="name"
 						value={this.state.name}
 						onChange={this.handleNewInput}
+						placeholder="Name"
 					/>
 					<input
 						type="text"
 						name="height"
 						value={this.state.height}
 						onChange={this.handleNewInput}
+						placeholder="Height"
 					/>
 					<input
 						type="text"
 						name="age"
 						value={this.state.age}
 						onChange={this.handleNewInput}
+						placeholder="Age"
 					/>
 				</form>
 			</div>
