@@ -52,7 +52,7 @@ class App extends Component {
       <div className="App">
         {/* <Switch> */}
           <SmurfForm addSmurfsOnCreate={this.addSmurfsOnCreate} />
-          <Smurfs deleteSmurfs={this.deleteSmurf} smurfs={smurfs} />
+          <Smurfs deleteSmurf={this.deleteSmurf} smurfs={smurfs} />
           {/* <Route exact path='/' components={SmurfForm} />
           <Route path='/village/' components={Smurfs} /> */}
         {/* </Switch> */}
