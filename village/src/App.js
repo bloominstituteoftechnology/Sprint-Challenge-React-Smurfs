@@ -31,11 +31,11 @@ class App extends Component {
   }
 
   render() {
-    // console.log(this.state.smurfs);
+    console.log(this.state.smurfs);
     return (
       <div className="App">
         {/* Use Form to create new smurfs and add them to state */}
-        <SmurfForm fetchSmurfs={this.fetchSmurfs} />
+        <SmurfForm />
         {/* Pass down all smurfs to Smurfs */}
         <Smurfs smurfs={this.state.smurfs} />
       </div>
