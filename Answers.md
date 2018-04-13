@@ -24,5 +24,5 @@
 
 <h1>Mention three tools we can use to make AJAX requests.</h1>
 <p>
-    
+    AJAX requests can be made with: Postman, Axios, and JavaScript.
 </p>
