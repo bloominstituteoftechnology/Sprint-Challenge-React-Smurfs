@@ -1,0 +1,23 @@
+.innerInput {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+}
+
+.innerInput input {
+  font-size: 1rem;
+  width: 100%;
+}
+
+.name,
+.age,
+.email {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  font-size: 1.4rem;
+}
+
+.name {
+  font-weight: bold;
+  font-size: 1.6rem;
+}

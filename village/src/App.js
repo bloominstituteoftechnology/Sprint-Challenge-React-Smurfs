@@ -1,8 +1,9 @@
-import React, { Component } from 'react';
-
-import './App.css';
-import SmurfForm from './components/SmurfForm';
-import Smurfs from './components/Smurfs';
+import React, { Component } from "react";
+import { Route, Switch } from "react-router-dom";
+import "./App.css";
+import Smurf from "./components/Smurf";
+import Smurfs from "./components/Smurfs";
+import SingleSmurf from "./components/SingleSmurf";
 
 class App extends Component {
   // add any needed code to ensure that the smurfs collection exists on state and it has data coming from the server
@@ -10,10 +11,10 @@ class App extends Component {
   // You'll need to make sure you have the right properties on state and pass them down to props.
   render() {
     return (
-      <div className="App">
-        <SmurfForm />
-        <Smurfs />
-      </div>
+      <Switch>
+        <Route exact path="/" component={Smurfs} />
+        <Route path="/smurf/:id" component={SingleSmurf} />
+      </Switch>
     );
   }
 }
