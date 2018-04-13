@@ -11,13 +11,14 @@ class Smurfs extends Component {
       name: '',
       age: '',
       height: ''
+  };
   }
-
   componentDidMount() 
   {
     this.getSmurfs();
   }
-    axios.get('http://localhost:3333/smurfs')
+  getSmurfs = () => {
+  axios.get('http://localhost:3333/smurfs')
     .then(response => {
       this.setState({ smurfs: response.data });
     })
