@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Smurfs from './Smurfs';
 
 class SmurfForm extends Component {
   constructor(props) {
