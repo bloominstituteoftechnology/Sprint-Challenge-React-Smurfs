@@ -1,9 +1,16 @@
 import React, { Component } from 'react';
-
+import axios from 'axios';
 import Smurf from './Smurf';
 
 class Smurfs extends Component {
-  render() {
+  constructor(props){
+  super(props)
+
+  }
+
+  
+  
+render() {
     return (
       <div className="Smurfs">
         <h1>Smurf Village</h1>
@@ -15,7 +22,9 @@ class Smurfs extends Component {
                 id={smurf.id}
                 age={smurf.age}
                 height={smurf.height}
-                key={smurf.id}
+                id={smurf.id}
+                getSmurfs={this.props.getSmurfs}
+                smurf={smurf}
               />
             );
           })}
