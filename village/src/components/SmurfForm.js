@@ -33,6 +33,30 @@ class SmurfForm extends Component {
     });
   }
 
+  updateId = event => {
+    this.setState({
+      id: event.target.value
+    });
+  }
+
+  updateName = event => {
+    this.setState({
+      name: event.target.value
+    });
+  }
+
+  updateAge = event => {
+    this.setState({
+      age: event.target.value
+    });
+  }
+
+  updateHeight = event => {
+    this.setState({
+      height: event.target.value
+    });
+  }
+
   // handleInputChange = e => {
   //   this.setState({ [e.target.name]: e.target.value });
   // };
@@ -42,19 +66,19 @@ class SmurfForm extends Component {
       <div className="SmurfForm">
         <form onSubmit={this.addSmurf}>
           <input
-            onChange={this.handleInputChange}
+            onChange={this.updateName}
             placeholder="name"
             value={this.state.name}
             name="name"
           />
           <input
-            onChange={this.handleInputChange}
+            onChange={this.updateAge}
             placeholder="age"
             value={this.state.age}
             name="age"
           />
           <input
-            onChange={this.handleInputChange}
+            onChange={this.updateHeight}
             placeholder="height"
             value={this.state.height}
             name="height"
