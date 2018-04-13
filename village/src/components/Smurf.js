@@ -36,12 +36,33 @@ class Smurf extends React.Component {
         console.log(err);
       });
   };
+
+  removeSmurf = smurf_id => {
+    const id = smurf_id;
+    axios
+      .delete(`http://localhost:3333/smurfs/${id}`)
+      .then(response => {
+        this.props.getSmurfs();
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  };
   render() {
     return (
       <div className="Smurf">
         <h3>{this.props.name}</h3>
         <strong>{this.props.height} tall</strong>
         <p>{this.props.age} smurf years old</p>
+        <button
+          onClick={() => {
+            if (window.confirm("Remove Smurf - Are You Sure?")) {
+              this.removeSmurf(this.props.id);
+            }
+          }}
+        >
+          Remove Smurf
+        </button>
         <button onClick={this.toggleUpdateInput}> Update Smurf </button>
 
         {this.state.toggleForm ? (
