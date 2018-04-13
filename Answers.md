@@ -19,7 +19,7 @@
 
 <h1>Which HTTP methods can be mapped to the CRUD acronym that we use when interfacing with APIs/Servers.</h1>
 <p>
-    
+    The Get, Post, Put, and Delete methods can be mapped to CRUD operations.
 </p>
 
 <h1>Mention three tools we can use to make AJAX requests.</h1>
