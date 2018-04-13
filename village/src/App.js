@@ -30,12 +30,21 @@ class App extends Component {
     .catch(error => console.log(error))
   }
 
+
+
+deleteSmruf = (id) => {
+  axios.delete(`http://localhost:3333/smurfs/${id}`)
+  .then(res => this.updateSmurfs())
+  .catch(err => console.log(err))
+}
+
+
   render() {
       console.log(this.state.smurfs);
     return (
       <div className="App">
         <SmurfForm update={this.updateSmurfs}/>
-        <Smurfs smurfs={this.state.smurfs} />
+        <Smurfs smurfs={this.state.smurfs} deleteSmurf={this.deleteSmruf}/>
       </div>
     );
   }
