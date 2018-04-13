@@ -4,5 +4,17 @@
 
 .SmurfForm input {
   text-align: center;
-  margin: 10px 5px 0;
+  margin: 15px 5px 0;
+}
+
+.Smurf button {
+  border-radius: 5px;
+  height: 30px;
+  margin: 0 5px;
+}
+
+.instruction-info {
+  font-size: 14px;
+  margin-top: 3px;
+  opacity: .5;
 }
