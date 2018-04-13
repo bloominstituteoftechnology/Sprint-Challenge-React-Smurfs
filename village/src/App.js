@@ -18,13 +18,12 @@ class App extends Component {
     console.log('i mounted')
     this.updateGet()
     }
-    updateGet(){
+    updateGet =() =>{
      axios
       .get('http://localhost:3333/smurfs')
       
       .then(response => {
-    
-         this.setState({smurfs: response.data})
+        this.setState({smurfs: response.data})
       
       })
       .catch(err =>{
@@ -38,8 +37,10 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <SmurfForm updateGet={this.updateGet}{...this.state}/>
-        <Smurfs {...this.state} />
+       <SmurfForm smurf={this.state.smurfs} updateGet={this.updateGet}{...this.state}/>
+    
+        <Smurfs  {...this.state} />
+       
       </div>
     );
   }
