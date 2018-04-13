@@ -9,7 +9,7 @@ class Smurfs extends Component {
         <h1>Smurf Village</h1>
         <ul>
           <Consumer>
-            {({ smurfs }) =>
+            {({ smurfs, handleDelete }) =>
               smurfs.map(smurf => {
                 return (
                   <Smurf
@@ -18,6 +18,7 @@ class Smurfs extends Component {
                     age={+smurf.age}
                     height={smurf.height}
                     key={smurf.id}
+                    onDelete={id => handleDelete(id)}
                   />
                 )
               })

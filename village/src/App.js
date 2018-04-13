@@ -31,12 +31,18 @@ class App extends Component {
     this.updateState()
   }
 
+  async updateStateAfterDelete (idForDeletion) {
+    await Data.deleteData(idForDeletion)
+    this.updateState()
+  }
+
   render () {
     return (
       <div className='App'>
         <Provider
           value={{
-            smurfs: [...this.state.smurfs]
+            smurfs: [...this.state.smurfs],
+            handleDelete: id => this.updateStateAfterDelete(id)
           }}
         >
           <SmurfForm addSmurf={async d => this.updateStateAfterPost(d)} />
