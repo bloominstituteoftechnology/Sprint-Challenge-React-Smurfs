@@ -10,6 +10,7 @@ function DeleteSmurf (props) {
     .catch(error => {
       console.error(error);
     });
+    // this.setState = this.state;
 }
 
 const Smurf = props => {
@@ -18,7 +19,7 @@ const Smurf = props => {
       <h3>{props.name}</h3>
       <strong>{props.height} tall</strong>
       <p>{props.age} smurf years old</p>
-      <button onClick={DeleteSmurf(props)}>X</button>
+      <button onClick={(cb) => DeleteSmurf(props)}>X</button>
     </div>
   );
 };
