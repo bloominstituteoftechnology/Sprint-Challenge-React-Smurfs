@@ -1,29 +1,53 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 
 class SmurfForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: '',
-      age: '',
-      height: ''
+      smurfs: [],
+      name: "",
+      age: "",
+      height: "",
     };
   }
 
-  addSmurf = event => {
-    event.preventDefault();
-    // add code to create the smurf using the api
-
-    this.setState({
-      name: '',
-      age: '',
-      height: ''
-    });
+  componentDidMount() {
+    this.getSmurfs();
   }
 
-  handleInputChange = e => {
-    this.setState({ [e.target.name]: e.target.value });
-  };
+  getSmurfs = () => {
+    axios
+      .get("http://localhost:3333/smurfs")
+      .then(response => {
+        this.setState({smurfs: response.data})
+      console.log(response);
+    })
+    .catch(error => {
+      console.log(`Error fetching Smurfs: ${error}`);
+  });
+};
+
+handleInputChange = e => {
+  this.setState({ [e.target.name]: e.target.value });
+};
+
+  addSmurf = event => {
+    
+    const smurfAdd = { name: this.state.name, 
+                       age: this.state.age, 
+                       height: this.state.height 
+                      };
+    axios
+      .post(`http://localhost:3333/smurfs`, smurfAdd)
+      .then(response => {
+        this.getSmurfs();
+    })
+    .catch(err => {
+      console.log(err);
+    });
+  this.setState({ name: "", age: "", height: ""});
+}; 
 
   render() {
     return (
@@ -47,7 +71,7 @@ class SmurfForm extends Component {
             value={this.state.height}
             name="height"
           />
-          <button type="submit">Add to the village</button>
+          <button type="submit" onClick={this.addSmurf}>Add to the village</button>
         </form>
       </div>
     );

@@ -1,5 +1,7 @@
 import React from 'react';
 
+import SmurfForm from './SmurfForm';
+
 const Smurf = props => {
   return (
     <div className="Smurf">
