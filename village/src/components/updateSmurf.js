@@ -38,6 +38,7 @@ let smurf={};
          .catch(err=>{
              console.log(err)
          })
+     this.setState({ name:'', age:'', height:''})
 }
 
 componentDidMount(){
@@ -63,9 +64,10 @@ return (
                                     value={this.state.age}
                                     onChange={this.addUpDatedHandler}
                                 />
-                                <input type="text"
-                                    placeholder="update height"
-                                    name="height "
+                                <input 
+                                    type="text"
+                                    placeholder="update  height"
+                                    name="height"
                                     value={this.state.height}
                                     onChange={this.addUpDatedHandler}
                                 />
