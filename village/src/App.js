@@ -52,8 +52,32 @@ class App extends Component {
   };
 
   updateSmurf = id => {
-    
+    const smurf = {};
+    if (this.state.formText.name !== "") smurf.name = this.state.formText.name;
+    if (this.state.formText.age !== "") smurf.age = this.state.formText.age;
+    if (this.state.formText.height !== "") smurf.height = this.state.formText.height;
+    axios
+      .put(`http://localhost:3333/smurfs/${id}`, smurf)
+      .then(response => {
+        this.resetFormText();
+        this.getSmurfs();
+      })
+      .catch(err => {
+        console.log(err);
+      });
   };
+
+  deleteSmurf = id => {
+    axios
+      .delete(`http://localhost:3333/smurfs/${id}`)
+      .then(response => {
+        this.resetFormText();
+        this.getSmurfs();
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  }
   
   handleInputChange = e => {
     const { formText } = this.state;
@@ -71,10 +95,13 @@ class App extends Component {
         <SmurfForm 
           addSmurf={() => this.addSmurf()}
           formText={this.state.formText}
-          handleInputChange={(e) => this.handleInputChange(e)}
+          handleInputChange={e => this.handleInputChange(e)}
           resetFormText={() => this.resetFormText()}
         />
-        <Smurfs smurfs={this.state.smurfs} updateSmurf={() => this.updateSmurf()}/>
+        <Smurfs smurfs={this.state.smurfs}
+          updateSmurf={this.updateSmurf}
+          deleteSmurf={this.deleteSmurf}
+        />
       </div>
     );
   }
