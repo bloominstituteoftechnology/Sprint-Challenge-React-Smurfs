@@ -8,6 +8,7 @@ class Smurfs extends Component {
       <div className="Smurfs">
         <h1>Smurf Village</h1>
         <ul>
+         { console.log(this.props.smurfs) }
           {this.props.smurfs.map(smurf => {
             return (
               <Smurf
