@@ -25,7 +25,7 @@ class SmurfForm extends Component {
     axios
       .post("http://localhost:3333/smurfs", smurf)
       .then(response => {
-        this.props.fetchSmurfs(smurf);
+        this.props.fetchSmurfs();
       })
       .catch(error => console.error(error));
     // reset state after creating a new smurf
@@ -62,7 +62,7 @@ class SmurfForm extends Component {
             value={this.state.height}
             name="height"
           />
-          <button type="button" onClick={this.addSmurf}>
+          <button type="submit" onClick={this.addSmurf}>
             Add to the village
           </button>
         </form>

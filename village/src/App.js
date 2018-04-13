@@ -35,7 +35,7 @@ class App extends Component {
     return (
       <div className="App">
         {/* Use Form to create new smurfs and add them to state */}
-        <SmurfForm />
+        <SmurfForm fetchSmurfs={() => this.fetchSmurfs()} />
         {/* Pass down all smurfs to Smurfs */}
         <Smurfs smurfs={this.state.smurfs} />
       </div>
