@@ -13,9 +13,6 @@ class App extends Component {
     super();
     this.state = {
       smurfs: [],
-      name: "",
-      age: "",
-      height: ""
     };
   }
   componentDidMount() {
@@ -29,13 +26,29 @@ class App extends Component {
       });
   }
   
+  addSmurfsOnCreate = smurfs => {
+    this.setState({ smurfs });
+  }
+
+  deleteSmurf = id => {
+    axios
+    .delete(`http://localhost:3333/smurfs/${id}`)
+    .then(response => {
+      this.getSmurfs();
+    })
+    .catch(err => {
+      console.log(err);
+    });
+  };
+
+
   render() {
     const { smurfs } = this.state;
     return (
       <div className="App">
         {/* <Switch> */}
-          <SmurfForm />
-          <Smurfs smurfs={smurfs} />
+          <SmurfForm addSmurfsOnCreate={this.addSmurfsOnCreate} />
+          <Smurfs deleteSmurfs={this.deleteSmurf} smurfs={smurfs} />
           {/* <Route exact path='/' components={SmurfForm} />
           <Route path='/village/' components={Smurfs} /> */}
         {/* </Switch> */}
