@@ -3,6 +3,11 @@ import React, { Component } from 'react';
 import Smurf from './Smurf';
 
 class Smurfs extends Component {
+  constructor(props) {
+    super(props);
+  }
+
+
   render() {
     return (
       <div className="Smurfs">
