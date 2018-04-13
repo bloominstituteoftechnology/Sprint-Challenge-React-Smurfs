@@ -6,6 +6,6 @@
 
 ### 3. Create, Read, Update, Destroy.
 
-### 4. .delete, .post, .get
+### 4. .delete, .post, .get, .put
  
 ### 5. .get, .put, .post
