@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import { Route } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import "./App.css";
-import SmurfForm from "./components/SmurfForm";
+
 import Smurfs from "./components/Smurfs";
 import axios from "axios";
 
@@ -35,21 +35,21 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Route
-          exact
-          path="/"
-          render={props => <SmurfForm getSmurfList={this.getSmurfList} />}
-        />
-        <Route
-          exact
-          path="/"
-          render={props => (
-            <Smurfs
-              getSmurfList={this.getSmurfList}
-              smurfs={this.state.smurfs}
-            />
-          )}
-        />
+        <Switch>
+          <Route
+            exact
+            path="/"
+            render={props => (
+              <Smurfs
+                getSmurfList={this.getSmurfList}
+                smurfs={this.state.smurfs}
+              />
+            )}
+          />
+          <Route
+            component={() => <h1>There are no Smurfs here, go back!</h1>}
+          />
+        </Switch>
       </div>
     );
   }
