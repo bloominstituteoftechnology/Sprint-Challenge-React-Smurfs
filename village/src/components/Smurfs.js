@@ -12,8 +12,11 @@ class Smurfs extends Component {
   }
 
   componentDidMount() {
-    axios
-      .get('http://localhost:3333/smurfs')
+    axios.get('http://localhost:3333/smurfs').then(response => {
+        console.log('data from smurfs', response); 
+      }) .catch(err => {
+        console.log(err);
+      })
   }
 
   render() {
