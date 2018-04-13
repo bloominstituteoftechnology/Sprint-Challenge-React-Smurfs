@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+// Work in Progress: Link does not link to a single smurf yet..
 const Smurf = props => {
 	return (
 		<div className="Smurf">
