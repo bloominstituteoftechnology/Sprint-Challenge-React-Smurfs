@@ -23,7 +23,7 @@ class SmurfCard extends Component {
         if (id > response.data.length) {
           alert("Smurf not found");
         } else {
-          // console.log("response", response.data[id - 1]);
+          // console.log("response", response.data[id]);
           this.setState({ smurf: response.data[id] });
         }
       })
@@ -32,15 +32,11 @@ class SmurfCard extends Component {
       });
   };
 
-  componentWillReceiveProps(newProps) {
-    if (this.props.match.params.id !== newProps.match.params.id) {
-      this.fetchSmurf(newProps.match.params.id);
-    }
-  }
-
   render() {
     return (
       <div>
+        <h1 style={{ color: "white" }}>Smurf Inspect</h1>
+        <h4 style={{ color: "white" }}>Click Smurf card to return to all smurfs!</h4>
         <Link style={{ color: "white" }} to={`/`}>
           <Smurf smurf={this.state.smurf} />
         </Link>

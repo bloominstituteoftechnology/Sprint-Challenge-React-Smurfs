@@ -30,7 +30,7 @@ class Smurf extends Component {
         <Card inverse color="primary">
           <CardTitle>
             <div>
-              <Link style={{ color: 'white' }} to={`/smurfs/${this.props.id}`}>
+              <Link style={{ color: "white" }} to={`/smurfs/${this.props.id}`}>
                 <h3>{this.props.smurf.name}</h3>
               </Link>
             </div>
@@ -39,12 +39,14 @@ class Smurf extends Component {
             <strong>{this.props.smurf.height} tall</strong>
             <p>{this.props.smurf.age} smurf years old</p>
           </CardText>
-          <Button
-            color="secondary"
-            onClick={() => this.deleteSmurf(this.props.id)}
-          >
-            Delete Smurf
-          </Button>
+          
+            <Button
+              color="secondary"
+              onClick={() => this.deleteSmurf(this.props.id)}
+            >
+              Delete Smurf
+            </Button>
+          
         </Card>
       </Col>
     );

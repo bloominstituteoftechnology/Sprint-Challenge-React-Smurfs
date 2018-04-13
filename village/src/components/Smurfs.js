@@ -17,7 +17,7 @@ class Smurfs extends Component {
     return (
       <div className="Smurfs">
         <SmurfForm getSmurfList={this.props.getSmurfList} />
-        <h1>Smurf Village</h1>
+        <h1 style={{ color: "white" }}>Smurf Village</h1>
         <ul>
           {this.props.smurfs.map(smurf => {
             return (
