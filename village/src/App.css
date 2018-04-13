@@ -8,6 +8,7 @@
 
 .button-class {
   background: lightblue;
+  color: black;
 }
 
 .Smurf {
@@ -21,12 +22,13 @@
 .smurf-list {
   margin: 0 auto;
   padding-left: 0;
-  width: 400px;
+  max-width: 400px;
 }
 
 button {
-  background: white;
+  background: red;
   border: 1px solid black;
+  font-weight: 600;
   cursor: pointer;
 }
 
