@@ -12,14 +12,16 @@ class SmurfForm extends Component {
   }
 
   addSmurf = event => {
-    // alert(event);
-    // event.preventDefault();
+    // alert(JSON.stringify(event));
+    event.preventDefault();
     // add code to create the smurf using the api
     const newSmurf = {
       name: this.state.name,
       age: this.state.age,
       height: this.state.height 
     }
+    // const { name, age, height } = this.state;
+    // const newSmurf = { name, age, height };
 
     axios
     .post('http://localhost:3333/smurfs', newSmurf)
@@ -40,45 +42,42 @@ class SmurfForm extends Component {
   }
 
   handleInputChange = e => {
+    console.log(e.target);
     this.setState({ [e.target.name]: e.target.value });
   };
 
   render() {
-    return(
-      <div>
-        {this.props.smurfs.map((smurf, index) => {
-      return (
-        <div key={smurf.id} className="SmurfForm">
-          <form onSubmit={this.addSmurf}>
-            <input
-              onChange={this.handleInputChange}
-              type="text"
-              placeholder="name"
-              value={this.state.name}
-              name="name"
-            />
-            <input
-              onChange={this.handleInputChange}
-              type="number"
-              placeholder="age"
-              value={this.state.age}
-              name="age"
-            />
-            <input
-              onChange={this.handleInputChange}
-              type="number"
-              placeholder="height"
-              value={this.state.height}
-              name="height"
-            />
-            <button type="submit">Add to the village</button>
-          </form>
-        </div>
-    );
-  })}
-</div>
-    )
+    return (
+      <div className="SmurfForm">
+        <form onSubmit={this.addSmurf}>
+          <input
+            onChange={this.handleInputChange}
+            type="text"
+            placeholder="name"
+            value={this.state.name}
+            name="name"
+          />
+          <input
+            onChange={this.handleInputChange}
+            type="number"
+            placeholder="age"
+            value={this.state.age}
+            name="age"
+          />
+          <input
+            onChange={this.handleInputChange}
+            type="number"
+            placeholder="height"
+            value={this.state.height}
+            name="height"
+          />
+          <button type="submit">Add to the village</button>
 
+    
+        ))}
+        </form>
+      </div>
+    );
   }
 }
 

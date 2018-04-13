@@ -13,10 +13,10 @@ class App extends Component {
   constructor(){
     super();
     this.state = {
-      smurfs: [],
-      name: '',
-      age: '',
-      height: ''
+      smurfs: []
+      // name: '',
+      // age: '',
+      // height: ''
     }
   }
 
@@ -36,10 +36,11 @@ class App extends Component {
   }
 
 
+
   render() {
     return (
       <div className="App">
-        <SmurfForm smurfs={this.state.smurfs} />
+        <SmurfForm  getSmurfs={this.getSmurfs} />
         <Smurfs smurfs={this.state.smurfs} />
         {/* <Smurf smurfs={this.state.smurfs} /> */}
       </div>
