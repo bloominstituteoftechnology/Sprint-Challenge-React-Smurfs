@@ -17,7 +17,7 @@ class SmurfCard extends React.Component {
 	// Get request
 	fetchSmurf = id => {
 		axios
-			.get("http://localhost:3333/smurfs")
+			.get(`http://localhost:3333/smurfs/${id}`)
 			.then(response => this.setState({ smurf: response.data[id] }))
 			.catch(error => console.error(error));
 	};
@@ -29,7 +29,7 @@ class SmurfCard extends React.Component {
 	}
 	// pass a smurf to Smurf component to render
 	render() {
-		console.log("state", this.state.smurf);
+		// console.log("state", this.state.smurf);
 		return <Smurf smurf={this.state.smurf} />;
 	}
 }
