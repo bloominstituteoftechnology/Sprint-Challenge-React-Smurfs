@@ -23,25 +23,32 @@ class Smurf extends React.Component {
 			.catch(error => console.error(error));
 	};
 	// Put Request
-	updateSmurf = id => {};
+	updateSmurf = id => {
+		const smurf = {};
+		if (this.state.height !== "") {
+			smurf.height = this.state.height;
+		}
+		if (this.state.age !== "") {
+			smurf.age = this.state.age;
+		}
+		console.log("update", smurf);
+		axios
+			.put(`http://localhost:3333/smurfs/${id}`, smurf)
+			.then(response => this.props.fetchSmurfs())
+			.catch(error => console.error(error));
+		this.setState({ height: "", age: "" });
+	};
 
 	render() {
-		console.log(this.props.id);
+		// console.log(this.props.id);
 		return (
 			<div className="Smurf">
 				<Link to={`/smurfs/${this.props.id}`}>
 					<h3>{this.props.name}</h3>
 				</Link>
-				<strong>{this.props.height} tall</strong>
+				<strong>{this.props.height} cm tall</strong>
 				<p>{this.props.age} smurf years old</p>
 				<form>
-					<input
-						type="text"
-						name="name"
-						value={this.state.name}
-						onChange={this.handleNewInput}
-						placeholder="Name"
-					/>
 					<input
 						type="text"
 						name="height"
@@ -56,10 +63,10 @@ class Smurf extends React.Component {
 						onChange={this.handleNewInput}
 						placeholder="Age"
 					/>
-					<button onClick={() => this.deleteSmurf(this.props.id)}>
+					<button type="submit" onClick={() => this.deleteSmurf(this.props.id)}>
 						Delete
 					</button>
-					<button onClick={() => this.updateSmurf(this.props.id)}>
+					<button type="submit" onClick={() => this.updateSmurf(this.props.id)}>
 						Update
 					</button>
 				</form>
