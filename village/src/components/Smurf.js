@@ -1,5 +1,12 @@
 import React from 'react';
 
+// const deleteSmurf = smurfID => {
+//     axios
+//       .delete(`http://localhost:3333/smurfs/${smurfID}`)
+//       .then(response => {console.log(response)})
+//
+//   }
+
 const Smurf = props => {
   return (
     <div className="Smurf">
