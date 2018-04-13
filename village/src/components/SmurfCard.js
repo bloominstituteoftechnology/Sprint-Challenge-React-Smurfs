@@ -11,7 +11,12 @@ class SmurfCard extends React.Component {
 			age: ""
 		};
 	}
+	// fetch a smurf by id
+	componentDidMount() {
+		const { id } = this.props.paramds.match;
+	}
 
+	// pass a smurf to Smurf component to render
 	render() {
 		return <h1>Made it to a card</h1>;
 	}
