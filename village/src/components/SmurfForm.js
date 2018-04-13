@@ -12,15 +12,15 @@ class SmurfForm extends Component {
   }
 
   addSmurf = event => {
-    event.preventDefault();
+    // event.preventDefault(); // prevent event from happening; comment it out for now
 
-    const newSmurf = {
+    const addSmurf = {
       name: this.state.name,
       age: this.state.age,
       height: this.state.height
     };
     axios
-      .post(`http://localhost:3333/smurfs`, newSmurf)
+      .post(`http://localhost:3333/smurfs`, addSmurf)
       .then(response => {
         console.log(response);
         this.props.getSmurfs; //use getSmurfs() from App.js 

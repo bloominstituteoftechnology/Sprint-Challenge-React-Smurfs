@@ -40,7 +40,7 @@
 
 * To retreive an array all the smurfs in the Smurf DB simply write a get to the endpoint `'/smurfs'`
 
-### POST '/smurfs' 
+### POST '/smurfs'  //done
 
 * To add a smurf to the Smurf DB you'll need all three fields.
 * Example:
