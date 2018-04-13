@@ -54,7 +54,7 @@
 ```
 
 * If a smurf is created correctly, you should see a response that is an array of smurfs with uniqe id's assigned to each smurf.
-* **HINT** if you are going to be working on Extra Credit, you'll need to use that unique `id`.
+* **HINT** if you are going to be working on Stretch Problem, you'll need to use that unique `id`.
 * Example of object created in Smurf DB:
 
 ```
