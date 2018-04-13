@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 import "./Smurf.css";
 
 class Smurf extends React.Component {
@@ -52,7 +53,18 @@ class Smurf extends React.Component {
   render() {
     return (
       <div className="Smurf">
-        <h3 className="name">{this.props.name}</h3>
+        <Link
+          to={{
+            pathname: `/smurf/${this.props.id}`,
+            state: {
+              name: `${this.props.name}`,
+              age: `${this.props.age}`,
+              height: `${this.props.height}`
+            }
+          }}
+        >
+          <h3 className="name">{this.props.name}</h3>
+        </Link>
         <strong>{this.props.height} tall</strong>
         <p className="age">{this.props.age} smurf years old</p>
         <button
