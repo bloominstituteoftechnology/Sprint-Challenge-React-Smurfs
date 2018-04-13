@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import { Switch, Route } from "react-router-dom";
 import "./App.css";
 import SmurfForm from "./components/SmurfForm";
 import Smurfs from "./components/Smurfs";
@@ -39,6 +40,10 @@ class App extends Component {
         {/* Pass down all smurfs to Smurfs */}
         <Smurfs smurfs={this.state.smurfs} />
       </div>
+
+      <Route exact path="/" component={App} />
+      <Route path="/smurfs" component={Smurfs} />
+      <Route path="/smurfs/:id component" component={Smurf} />
     );
   }
 }
