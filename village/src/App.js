@@ -23,11 +23,17 @@ class App extends Component {
       .catch(error => console.log(`Error fetching smurfs: ${error}`))
   }
 
+  deleteSmurf = (e) => {
+    axios.delete(`http://localhost:3333/smurfs/${e.target.id}`)
+      .then(response => this.fetchSmurfs())
+      .catch(error => console.log(`Error deleting smurf: ${error}`))
+  }
+
   render() {
     return (
       <div className="App">
         <SmurfForm refreshParent={this.fetchSmurfs}/>
-        <Smurfs smurfs={this.state.smurfs} />
+        <Smurfs smurfs={this.state.smurfs} deleteSmurf={this.deleteSmurf} />
       </div>
     )
   }
