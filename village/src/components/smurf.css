@@ -1,0 +1,25 @@
+body {
+    width: 100%;
+    height: 100%;
+    background-image: url("http://hd.wallpaperswide.com/thumbs/the_smurfs_2_2013-t2.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.smurf {
+    color: darkblue;
+    font-size: 15px;
+    /* border: 1px dashed darkslateblue; */
+    margin: 10px 10px 5px 5px;
+    padding: 35px;
+    width: 25%;
+    height: 100%;
+    align-items: center;
+    background-image: url("https://www.customized-invitations.com/wp-content/uploads/2017/06/Smurfs-Free-Printable-Invitation-Card.jpg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center; 
+    justify-content: center;
+    margin-left: 250px;
+}

@@ -1,3 +1,32 @@
 .App {
   text-align: center;
 }
+
+h1 {
+  color: lightskyblue;
+  font-family: 'Luckiest Guy', cursive;
+  font-size: 56px;
+  text-shadow:
+		-1px -1px 0 #000,
+		1px -1px 0 #000,
+		-1px 1px 0 #000,
+		1px 1px 0 #000;
+}
+
+button {
+  background-color: lightblue;
+  color: darkblue;
+  margin-left: 15px;
+  font-family: 'Luckiest Guy', cursive;
+}
+
+form {
+  width: 100%;
+  margin-top: 15px;
+}
+
+input { 
+  box-shadow: 4px 4px 4px lightblue;
+  text-align: center;
+  border-radius: 5%;
+}
