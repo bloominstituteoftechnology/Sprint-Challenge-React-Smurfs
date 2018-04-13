@@ -30,14 +30,13 @@ class App extends Component {
     this.setState({smurfs: newList});
   }
 
+  // Create new smurf
   formSubmitAction = data => {
-    // event.preventDefault();
     axios.post("http://localhost:3333/smurfs", data)
       .then(response => {
         this.updateSmurfList(response.data);
       })
       .catch((error => console.log(error)));
-
   }
 
   render() {

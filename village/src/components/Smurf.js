@@ -6,7 +6,7 @@ class Smurf extends Component {
   constructor() {
     super();
     this.state = {
-      showForm: false,
+      showUpdateForm: false,
     };
 
     this.formAttributes = {
@@ -24,9 +24,10 @@ class Smurf extends Component {
   }
 
   toggleForm = e => {
-    this.setState({showForm: !this.state.showForm});
+    this.setState({showUpdateForm: !this.state.showUpdateForm});
   }
 
+  // Update current smurf
   formSubmitAction = data => {
     this.toggleForm();
     axios.put(`http://localhost:3333/smurfs/${this.props.id}`, data)
@@ -43,9 +44,9 @@ class Smurf extends Component {
         <p>{this.props.age} smurf years old</p>
         <p>{this.props.height} tall</p>
         <button onClick={this.deleteSmurf}>Delete</button>
-        <button onClick={this.toggleForm}>Update</button>
+        <button onClick={this.toggleForm} style={{marginLeft: '10px'}}>Update</button>
         <br />
-        {this.state.showForm ? <SmurfForm formAttributes={this.formAttributes}/> : null }
+        {this.state.showUpdateForm ? <SmurfForm formAttributes={this.formAttributes}/> : null }
       </div>
     );
   }
