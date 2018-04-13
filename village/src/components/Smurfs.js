@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
-
+import SmurfForm from './SmurfForm';
 import Smurf from './Smurf';
 
 
 class Smurfs extends Component { //passing state down as props
 
-render() {
+  render() {
     return (
       <div className="Smurfs">
-        <h1>Smurf Village</h1>
+        <h1 className='Header'>Smurf Village</h1>
+        <SmurfForm />
         <ul>
           {this.props.smurfs.map((smurf) => {
             return (
