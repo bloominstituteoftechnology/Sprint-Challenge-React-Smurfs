@@ -17,6 +17,17 @@ class App extends Component {
       height: '',
     }
   }
+
+  componentDidMount() {
+    axios
+    .get(`http://localhost:3333/smurfs`)
+    .then(response => {
+      this.setState({smurfs: response.data})
+    })
+    .catch(err => {
+      console.error(err);
+    })
+  }
   render() {
     return (
       <div className="App">
