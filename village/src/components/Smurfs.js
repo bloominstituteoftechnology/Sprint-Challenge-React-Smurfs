@@ -36,7 +36,6 @@ class Smurfs extends Component {
     if(this.props.smurfs[smurfId].age !== "") {
       smurf.age= this.state.age
     }
-    
     console.log(this.props.smurfs[smurfId]);
     console.log(smurf)
    }
