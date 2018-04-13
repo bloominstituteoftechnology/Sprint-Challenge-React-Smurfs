@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Route } from "react-router-dom";
 import axios from "axios";
 import "./App.css";
 import SmurfForm from "./components/SmurfForm";
@@ -15,11 +16,10 @@ class App extends Component {
     };
   }
 
-  updateSmurfList() {
+  getSmurfList() {
     axios
       .get("http://localhost:3333/smurfs")
       .then(res => {
-        console.log(res.data);
         this.setState(() => ({
           smurfs: res.data
         }));
@@ -29,15 +29,33 @@ class App extends Component {
       });
   }
 
+  updateSmurfList = arr => this.setState({ smurfs: arr });
+
   componentDidMount() {
-    this.updateSmurfList();
+    this.getSmurfList();
   }
 
   render() {
     return (
       <div className="App">
-        <SmurfForm />
-        <Smurfs smurfs={this.state.smurfs} />
+        <Route
+          exact
+          path="/"
+          render={props => {
+            return (
+              <div>
+                <SmurfForm updateSmurfList={() => this.componentDidMount()} />
+                <Smurfs {...props} smurfs={this.state.smurfs} />
+              </div>
+            );
+          }}
+        />
+        <Route
+          path="/smurfs/:id"
+          render={props => {
+            return <Smurf {...props} smurfs={this.state.smurfs} />;
+          }}
+        />
       </div>
     );
   }
