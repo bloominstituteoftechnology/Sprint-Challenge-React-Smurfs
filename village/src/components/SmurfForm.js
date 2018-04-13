@@ -9,46 +9,41 @@ class SmurfForm extends Component {
       age: '',
       height: ''
     };
+  }
 
-    this.addSmurf = this.addSmurf.bind(this);
-    this.updateName = this.updateName.bind(this);
-    this.updateAge = this.updateAge.bind(this);
-    this.updateHeight = this.updateHeight.bind(this);
+  componentDidMount() {
+    this.getSmurfs();
+  }
+  
+  getSmurfs = () => {
+    axios
+      .get("http://localhost:3333/smurfs")
+      .then(response => {
+        this.setState({smurfs: response.data})
+      console.log(response);
+    })
+    .catch(error => {
+      console.log(`Error fetching Smurfs: ${error}`);
+    });
   }
 
   addSmurf = event => {
     event.preventDefault();
     // add code to create the smurf using the api
-    axios.post('http://localhost:3333/smurfs', {
-      name: this.state.name,
-      age: this.state.age,
-      height: this.state.height
+    const smurfAdd = { name: this.state.name, 
+                       age: this.state.age, 
+                       height: this.state.height 
+                      };
+    axios
+      .post(`http://localhost:3333/smurfs`, smurfAdd)
+      .then(response => {
+        this.getSmurfs();
+    })
+    .catch(err => {
+      console.log(err);
     });
-
-    this.setState({
-      name: '',
-      age: '',
-      height: ''
-    });
-  }
-  
-  updateName(e) {
-    this.setState({
-      name: e.target.value
-    });
-  }
-
-  updateAge(e) {
-    this.setState({
-      age: e.target.value
-    });
-  }
-
-  updateHeight(e) {
-    this.setState({
-      height: e.target.value
-    });
-  }
+  this.setState({ name: "", age: "", height: ""}); 
+  };
 
   handleInputChange = e => {
     this.setState({ [e.target.name]: e.target.value });

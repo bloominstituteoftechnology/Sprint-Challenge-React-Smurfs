@@ -4,24 +4,6 @@ import Smurf from './Smurf';
 import axios from 'axios';
 
 class Smurfs extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      smurf: []
-    }
-  }
-
-  componentDidMount() {
-    axios
-      .get('http://localhost:3333/smurfs')
-      .then(response => {
-        this.setState({smurfs: response.data})
-      })
-      .catch(err => {
-        console.log('no smurfs found')
-      })
-  }
-
   render() {
     return (
       <div className="Smurfs">
