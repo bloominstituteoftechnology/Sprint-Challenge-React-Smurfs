@@ -17,3 +17,22 @@
   justify-content: space-between;
   margin: 0 0 10px;
 }
+
+.SmurfCard {
+  margin: 20px auto;
+}
+
+.SmurfAttr {
+  margin-bottom: 10px;
+}
+
+.SmurfAttr :first-child {
+  margin-bottom: 7px;
+}
+
+.Card__buttons {
+  display: flex;
+  justify-content: space-around;
+  width: 20%;
+  margin: auto;
+}

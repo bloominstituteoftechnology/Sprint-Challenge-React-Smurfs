@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import UpdateSmurf from './UpdateSmurf';
+import { Card, CardBody, CardTitle, CardSubtitle, Button } from 'reactstrap';
+import FaTrash from 'react-icons/lib/fa/trash';
+import FaRefresh from 'react-icons/lib/fa/refresh';
+
 
 class Smurf extends Component {
   constructor(props) {
@@ -24,11 +28,19 @@ class Smurf extends Component {
   render() {
     return (
       <div className="Smurf">
-        <h3>{this.props.smurf.name}</h3>
-        <strong>{this.props.smurf.height} tall</strong>
-        <p>{this.props.smurf.age} smurf years old</p>
-        <button onClick={() => this.deleteSmurf(this.props.smurf.id)}>Delete</button>
-        <button onClick={() => this.toggleState()}>Update</button>
+        <Card className="col-4 SmurfCard">
+          <CardBody>
+            <CardTitle>{this.props.smurf.name}</CardTitle>
+            <div className="SmurfAttr">
+              <CardSubtitle>{this.props.smurf.height} tall</CardSubtitle>
+              <CardSubtitle>{this.props.smurf.age} smurf years old</CardSubtitle>
+            </div>
+            <div className="Card__buttons">
+              <Button onClick={() => this.deleteSmurf(this.props.smurf.id)}><FaTrash /></Button>
+              <Button onClick={() => this.toggleState()}><FaRefresh /></Button>
+            </div>
+          </CardBody>
+        </Card>
         {this.state.updateSmurf ? (
           <UpdateSmurf
             {...this.props}
