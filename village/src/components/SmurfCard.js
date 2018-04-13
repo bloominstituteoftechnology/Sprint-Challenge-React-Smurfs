@@ -6,15 +6,22 @@ class SmurfCard extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			name: "",
-			height: "",
-			age: ""
+			smurf: null
 		};
 	}
 	// fetch a smurf by id
 	componentDidMount() {
-		const { id } = this.props.paramds.match;
+		const { id } = this.props.match.params;
+		this.fetchSmurf(id);
 	}
+	// Get request
+	fetchSmurf = id => {
+		axios
+			.get("http://localhost:3333/smurfs")
+			.then(response => this.setState({ smurf: response.data[id] }))
+			.catch(error => console.error(error));
+	};
+	//
 
 	// pass a smurf to Smurf component to render
 	render() {
