@@ -35,6 +35,20 @@ class App extends Component {
     
       })
     }
+    handleTextInput = element => {
+      this.setState({ [element.target.name]: element.target.value });
+    };
+
+    deleteSmurf = smurfId =>{
+      axios
+      .delete(`http://localhost:3333/smurfs/${smurfId}`)
+      .then(response =>{
+          this.updateGet();
+      })
+      .catch(err =>{
+          console.log(err);
+      });
+    };
     
 
 
@@ -43,15 +57,13 @@ class App extends Component {
     return (
       <div className="App">
       { <Route exact path ="/"
-       render ={props =><SmurfForm smurf={this.state.smurfs} updateGet={this.updateGet}{...props}/>}
+       render ={props =><SmurfForm smurfs={this.state.smurfs} handleTextInput={this.handleTextInput} updateGet={this.updateGet}{...props}/>}
        />}
      { <Route exact path ="/"
-      render ={props=>  <Smurfs smurfs={this.state.smurfs}  {...this.state} />}
+      render ={props=>  <Smurfs smurfs={this.state.smurfs} updateGet={this.updateGet} deleteSmurf={this.deleteSmurf} {...this.state} />} 
       />}
 
-      { <Route path ="/smurf/:id"
-       render ={props => <Smurf  updateGet={this.updateGet} smurfs={this.state.smurfs} {...props}/>}
-       />}
+  
        
       </div>
     );
