@@ -10,33 +10,71 @@ class App extends Component {
     super();
 
     this.state = {
-      smurfs: []
-    }
+      smurfs: [],
+      formText: {
+        name: '',
+        age: '',
+        height: ''
+      }
+    };
   }
 
   componentDidMount() {
     this.getSmurfs();
   }
 
-  // add any needed code to ensure that the smurfs collection exists on state and it has data coming from the server
   getSmurfs() {
     axios
     .get(`http://localhost:3333/smurfs`)
     .then(response => {
-      // You'll need to make sure you have the right properties on state and pass them down to props.
       this.setState({ smurfs: response.data })
     })
     .catch(error => {
       console.error(error);
     });
   }
+
+  addSmurf = () => {
+    const smurf = {
+      name: this.state.formText.name,
+      age: this.state.formText.age,
+      height: this.state.formText.height
+    };
+    axios
+      .post(`http://localhost:3333/smurfs`, smurf)
+      .then(smurf => {
+        this.getSmurfs();
+      })
+      .catch(err => {
+        console.log(err);
+      });
+    this.resetFormText();
+  };
+
+  updateSmurf = id => {
+    
+  };
   
+  handleInputChange = e => {
+    const { formText } = this.state;
+    formText[e.target.name] = e.target.value;
+    this.setState({ formText: formText });
+  };
+
+  resetFormText = () => {
+    this.setState({ formText: { name: '', age: '', height: '' }});
+  };
+
   render() {
     return (
       <div className="App">
-        <SmurfForm updateSmurfs={() => this.getSmurfs()}/>
-        <Smurfs smurfs={this.state.smurfs}/>
-        {/* Notice what your map function is looping over and returning inside of Smurfs. */}
+        <SmurfForm 
+          addSmurf={() => this.addSmurf()}
+          formText={this.state.formText}
+          handleInputChange={(e) => this.handleInputChange(e)}
+          resetFormText={() => this.resetFormText()}
+        />
+        <Smurfs smurfs={this.state.smurfs} updateSmurf={() => this.updateSmurf()}/>
       </div>
     );
   }
