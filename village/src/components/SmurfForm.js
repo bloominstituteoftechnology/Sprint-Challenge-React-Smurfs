@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import axios from 'axios';
+import '../SmurfForm.css';
 
 class SmurfForm extends Component {
   constructor(props) {
@@ -8,11 +10,23 @@ class SmurfForm extends Component {
       age: '',
       height: ''
     };
+    this.addSmurf = this.addSmurf.bind(this);
+    this.updateId = this.updateId.bind(this);
+    this.updateName = this.updateName.bind(this);
+    this.updateAge = this.updateAge.bind(this);
+    this.updateHeight = this.updateHeight.bind(this);
   }
 
   addSmurf = event => {
     event.preventDefault();
-    // add code to create the smurf using the api
+    axios.post('http://localhost:3333/smurfs', {
+      name: this.state.name,
+      age: this.state.age,
+      height: this.state.height,
+    })
+    .then(() => {
+      this.props.getSmurfs();
+    })
 
     this.setState({
       name: '',
@@ -21,28 +35,52 @@ class SmurfForm extends Component {
     });
   }
 
-  handleInputChange = e => {
-    this.setState({ [e.target.name]: e.target.value });
-  };
+  updateId = event => {
+    this.setState({
+      id: event.target.value
+    });
+  }
+
+  updateName = event => {
+    this.setState({
+      name: event.target.value
+    });
+  }
+
+  updateAge = event => {
+    this.setState({
+      age: event.target.value
+    });
+  }
+
+  updateHeight = event => {
+    this.setState({
+      height: event.target.value
+    });
+  }
+
+  // handleInputChange = e => {
+  //   this.setState({ [e.target.name]: e.target.value });
+  // };
 
   render() {
     return (
       <div className="SmurfForm">
         <form onSubmit={this.addSmurf}>
           <input
-            onChange={this.handleInputChange}
+            onChange={this.updateName}
             placeholder="name"
             value={this.state.name}
             name="name"
           />
           <input
-            onChange={this.handleInputChange}
+            onChange={this.updateAge}
             placeholder="age"
             value={this.state.age}
             name="age"
           />
           <input
-            onChange={this.handleInputChange}
+            onChange={this.updateHeight}
             placeholder="height"
             value={this.state.height}
             name="height"
