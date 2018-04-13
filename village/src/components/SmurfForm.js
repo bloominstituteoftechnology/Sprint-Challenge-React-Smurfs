@@ -20,6 +20,7 @@ class SmurfForm extends Component {
       height: this.state.height
     };
 
+    this.props.updateSmurfs();
     axios
       .post(`http://localhost:3333/smurfs`, smurf)
       .then(smurf => {
