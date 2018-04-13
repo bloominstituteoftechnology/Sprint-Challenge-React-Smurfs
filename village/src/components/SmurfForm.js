@@ -5,45 +5,44 @@ class SmurfForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: '',
-      age: '',
-      height: ''
+      name: "",
+      age: "",
+      height: ""
     };
-  }
 
-  componentDidMount() {
-    this.getSmurfs();
-  }
-  
-  getSmurfs = () => {
-    axios
-      .get("http://localhost:3333/smurfs")
-      .then(response => {
-        this.setState({smurfs: response.data})
-      console.log(response);
-    })
-    .catch(error => {
-      console.log(`Error fetching Smurfs: ${error}`);
-    });
+    this.addSmurf = this.addSmurf.bind(this);
+    this.deleteSmurf = this.deleteSmurf.bind(this);
   }
 
   addSmurf = event => {
     event.preventDefault();
     // add code to create the smurf using the api
-    const smurfAdd = { name: this.state.name, 
-                       age: this.state.age, 
-                       height: this.state.height 
-                      };
     axios
-      .post(`http://localhost:3333/smurfs`, smurfAdd)
-      .then(response => {
-        this.getSmurfs();
-    })
-    .catch(err => {
-      console.log(err);
-    });
-  this.setState({ name: "", age: "", height: ""}); 
+      .post("http://localhost:3333/smurfs", {
+        name: this.state.name,
+        age: this.state.age,
+        height: this.state.height
+      })
+      .then(() => {
+        this.props.getSmurfs();
+      });
+
+    this.setState({ id: "", name: "", age: "", height: "" });
   };
+
+  deleteSmurf(e) {
+    e.preventDefault();
+    axios.delete("http://localhost:3333/smurfs/${this.state.id}").then(() => {
+      this.props.getSmurfs();
+    });
+
+    this.setState({
+      id: "",
+      name: "",
+      age: "",
+      height: ""
+    });
+  }
 
   handleInputChange = e => {
     this.setState({ [e.target.name]: e.target.value });
@@ -72,6 +71,7 @@ class SmurfForm extends Component {
             name="height"
           />
           <button type="submit">Add to the village</button>
+           <button type="button"onClick = {this.deleteSmurf}>Delete</button>
         </form>
       </div>
     );

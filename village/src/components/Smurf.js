@@ -3,11 +3,6 @@ import axios from 'axios';
 import Smurfs from './Smurfs';
 
 const Smurf = props => {
-  const deleteSmurf = () => {
-    axios
-      .delete(`http://localhost:3333/smurfs/${props.id}`, { id: props.id })
-      .then();
-  };
   return (
     <div className="Smurf">
       <h3>{props.name}</h3>
