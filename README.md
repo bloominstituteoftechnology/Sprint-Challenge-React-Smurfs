@@ -74,7 +74,7 @@
 ]
 ```
 
-### DELETE '/smurfs/123', where 123 is the Id of the smurf you want to remove
+### DELETE '/smurfs/123', where 123 is the Id of the smurf you want to remove // done
 
 * For this endpoint to work, all you need is an id sent up as part of the request url.
 
