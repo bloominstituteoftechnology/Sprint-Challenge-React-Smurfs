@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import "./Smurf.css";
 
 class Smurf extends React.Component {
   constructor(props) {
@@ -51,9 +52,9 @@ class Smurf extends React.Component {
   render() {
     return (
       <div className="Smurf">
-        <h3>{this.props.name}</h3>
+        <h3 className="name">{this.props.name}</h3>
         <strong>{this.props.height} tall</strong>
-        <p>{this.props.age} smurf years old</p>
+        <p className="age">{this.props.age} smurf years old</p>
         <button
           onClick={() => {
             if (window.confirm("Remove Smurf - Are You Sure?")) {

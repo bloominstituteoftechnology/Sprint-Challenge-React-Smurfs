@@ -1,0 +1,56 @@
+body {
+  margin: 0 auto;
+  height: 100%;
+  width: 100%;
+  background-image: url("../img/background.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  display: flex;
+  max-width: 1000px;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  margin-top: 100px;
+}
+
+.container h1 {
+  color: #8cf;
+  font-size: 2.4rem;
+  text-shadow: 2px 2px 2px #111e6c;
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 10px 40px;
+  box-shadow: 2px 2px 4px #111e6c;
+  border-bottom-right-radius: 40px;
+  border-bottom-left-radius: 40px;
+}
+
+.Smurflist {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+
+.Smurf {
+  color: #8cf;
+  display: flex;
+  flex-direction: column;
+  font-size: 1.5rem;
+  align-items: center;
+  margin: 15px 0;
+  border: 3px solid #ffc4;
+  border-radius: 10px;
+  font-weight: bold;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 2px 2px 2px #8cf;
+  padding: 20px;
+  margin-right: 8%;
+}

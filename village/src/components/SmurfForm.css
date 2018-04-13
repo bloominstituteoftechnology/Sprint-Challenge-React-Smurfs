@@ -1,0 +1,50 @@
+input {
+  width: 600px;
+  height: 50px;
+  text-align: center;
+  font-size: 1.6rem;
+  font-weight: bold;
+  margin-bottom: 25px;
+  border: 3px solid #ffc4;
+  border-radius: 5%;
+  background: rgba(255, 255, 255);
+  color: #111e6c;
+  box-shadow: 2px 2px 2px grey;
+}
+
+.input::placeholder {
+  color: #1116ce;
+  font-weight: bold;
+}
+
+form {
+  text-align: center;
+}
+
+button {
+  text-align: center;
+}
+
+button {
+  color: #fff;
+  font-size: 15px;
+  font-weight: bold;
+  background-color: #111e6c;
+  border-radius: 10%;
+  border: 2px solid #fff;
+  padding: 20px 60px;
+  display: block;
+  margin: 0 auto;
+  box-shadow: 2px 2px 2px black;
+  margin-bottom: 20px;
+}
+
+button:hover {
+  color: #111e6c;
+  background-color: #8cf;
+  border: 1px solid #8cf;
+}
+
+button:hover {
+  cursor: pointer;
+}

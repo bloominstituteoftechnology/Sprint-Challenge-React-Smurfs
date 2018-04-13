@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import SmurfForm from "./SmurfForm";
+import "./Smurfs.css";
 
 import Smurf from "./Smurf";
 
@@ -30,10 +31,10 @@ class Smurfs extends Component {
 
   render() {
     return (
-      <div className="Smurfs">
+      <div className="container">
         <h1>Smurf Village</h1>
         <SmurfForm getSmurfs={this.getSmurfs} />
-        <ul>
+        <ul className="Smurflist">
           {this.state.smurfs.map(smurf => {
             return (
               <Smurf
