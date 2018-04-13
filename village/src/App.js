@@ -15,7 +15,7 @@ class App extends Component {
   // Notice what your map function is looping over and returning inside of Smurfs.
   // You'll need to make sure you have the right properties on state and pass them down to props.
   componentDidMount(){
-    console.log('this is mounting')
+    console.log('i mounted')
     this.updateGet()
     }
     updateGet(){
@@ -24,7 +24,7 @@ class App extends Component {
       
       .then(response => {
     
-         this.setState({smurfs:response.data})
+         this.setState({smurfs: response.data})
       
       })
       .catch(err =>{
@@ -38,7 +38,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <SmurfForm />
+        <SmurfForm updateGet={this.updateGet}{...this.state}/>
         <Smurfs {...this.state} />
       </div>
     );
