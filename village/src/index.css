@@ -2,4 +2,6 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+  background-image: url("http://www.vintagewallpapers.be/wp-content/uploads/2014/08/vintage-kids-wallpaper-1978.jpg");
+  background-size: cover;
 }
