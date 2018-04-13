@@ -25,13 +25,13 @@ export default class App extends Component {
     this.setState({ currentSmurfId: -1 })
     axios.get('http://localhost:3333/smurfs')
       .then(response => this.setState({ smurfs: response.data }))
-      .catch(error => console.log(`Smurf doesn't exist: ${error}`))
+      .catch(error => alert("Smurf doesn't exist"))
   }
 
   deleteSmurf = (e) => {
     axios.delete(`http://localhost:3333/smurfs/${e.target.id}`)
       .then(response => this.fetchSmurfs())
-      .catch(error => console.log(`Error deleting smurf: ${error}`))
+      .catch(error => alert("Sorry, can't remove that smurf"))
   }
 
   selectSmurf = (e) => {
@@ -41,6 +41,7 @@ export default class App extends Component {
   render() {
     return (
       <div className="App">
+        <h1>Meet the Smurfs</h1>
         <SmurfForm refreshParent={this.fetchSmurfs} currentSmurfId={this.state.currentSmurfId} clearSelection={this.clearSelection} />
         <Smurfs smurfs={this.state.smurfs} deleteSmurf={this.deleteSmurf} selectSmurf={this.selectSmurf} />
       </div>

@@ -1,5 +1,14 @@
-body {
+.smurf-card {
   margin: 0;
-  padding: 0;
+  padding: 1%;
   font-family: sans-serif;
+  width: fit-content;
+  border-radius: 5%;
+  background: url(http://cdn.kidscreen.com/wp/wp-content/uploads/2016/03/Smurfs1.jpg?ebbec3);
+}
+
+.smurf-card button {
+  background: red;
+  color: white;
+  cursor: pointer;
 }

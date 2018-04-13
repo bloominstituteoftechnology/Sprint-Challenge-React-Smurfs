@@ -1,0 +1,13 @@
+.SmurfForm button {
+  cursor: pointer;
+}
+
+.Smurf-add {
+  background: green;
+  color: white;
+}
+
+.Smurf-remove {
+  background: red;
+  color: white;
+}

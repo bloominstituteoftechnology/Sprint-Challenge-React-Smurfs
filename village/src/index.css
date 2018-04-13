@@ -1,6 +1,6 @@
-body {
+html {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
-  background: url(https://images-na.ssl-images-amazon.com/images/S/sgp-catalog-images/region_US/sphe-2232372-Full-Image_GalleryBackground-en-US-1496341131956._RI_SX940_.jpg) ;
+  font-family: sans-serif;  
+  background: url(https://images-na.ssl-images-amazon.com/images/S/sgp-catalog-images/region_US/sphe-2232372-Full-Image_GalleryBackground-en-US-1496341131956._RI_SX940_.jpg) no-repeat;
 }
