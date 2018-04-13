@@ -13,7 +13,7 @@ class Pathfinder extends Component {
       smurfs: [],
       name: "",
       age: "",
-      height: ""
+      height: "",
     };
   }
 
@@ -35,9 +35,9 @@ class Pathfinder extends Component {
   };
 
   // recall list from client-side, rather than using Get
-  refreshAfterAddSmurf = (smurfs) => {
+  refreshAfterAddSmurf = smurfs => {
     this.setState({ smurfs });
-  }
+  };
 
   deleteSmurf = id => {
     axios
@@ -55,7 +55,10 @@ class Pathfinder extends Component {
     return (
       <div>
         {/* create(Post) field */}
-        <SmurfForm refreshAfterAddSmurf={this.refreshAfterAddSmurf} getSmurfs={this.getSmurfs} />
+        <SmurfForm
+          refreshAfterAddSmurf={this.refreshAfterAddSmurf}
+          getSmurfs={this.getSmurfs}
+        />
         {/* read(Get) mapping of*/}
         <Smurfs smurfs={this.state.smurfs} deleteSmurf={this.deleteSmurf} />
       </div>

@@ -1,7 +1,10 @@
 import React from "react";
 
+import SmurfEdit from "./SmurfEdit";
+
 const Smurf = props => {
   console.log(props.id); //check what's on props
+
   return (
     <div className="Smurf">
       <h3>{props.name}</h3>
@@ -10,6 +13,7 @@ const Smurf = props => {
       <button onClick={() => props.deleteSmurf(props.id)}>
         Delete this Smurf
       </button>
+      <SmurfEdit />
     </div>
   );
 };
