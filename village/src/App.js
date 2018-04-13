@@ -25,6 +25,17 @@ class App extends Component {
       })
   }
 
+  deleteSmurf = id => {
+    axios.delete(`http://localhost:3333/smurfs/${id}`)
+      .then(response => {
+        this.getSmurfs();
+        console.log(response);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  };
+
   componentDidMount() {
     this.getSmurfs();
   }

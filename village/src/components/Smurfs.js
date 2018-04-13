@@ -15,7 +15,7 @@ class Smurfs extends Component {
   //     .catch(err => {
   //       console.log(err);
   // });
-
+// const Smurfs = props => {
   render() {
     return (
       <div className="Smurfs">
@@ -29,6 +29,7 @@ class Smurfs extends Component {
                 age={smurf.age}
                 height={smurf.height}
                 key={smurf.id}
+                // deleteSmurf={props.deleteSmurf}
               />
             );
           })}
