@@ -12,8 +12,7 @@ class SmurfForm extends Component {
   }
 
   addSmurf = event => {
-    // event.preventDefault(); // prevent event from happening; comment it out for now
-
+    event.preventDefault(); // prevent event from happening
     const addSmurf = {
       name: this.state.name,
       age: this.state.age,
@@ -23,7 +22,7 @@ class SmurfForm extends Component {
       .post(`http://localhost:3333/smurfs`, addSmurf)
       .then(response => {
         console.log(response);
-        this.props.getSmurfs; //use getSmurfs() from App.js 
+        this.props.getSmurfs(); //use getSmurfs() from App.js 
       })
       .catch(err => {
         console.log(err);
