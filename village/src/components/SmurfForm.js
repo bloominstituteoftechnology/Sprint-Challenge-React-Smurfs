@@ -13,16 +13,18 @@ class SmurfForm extends Component {
 
   componentDidUpdate(prevProps, prevState) {
     const blankState = { name: '', age: '', height: '' }
-    if (this.editingSmurf() && this.gotNewSmurf(prevProps)) {
-      axios.get(`http://localhost:3333/smurfs/${this.props.currentSmurfId}`)
-        .then(({ data }) => this.setState({
-          name: data.name,
-          age: data.age,
-          height: data.height,
-        }))
-        .catch(error => console.log(`Error fetching smurf for update: ${error}`))
-    } else if (!this.editingSmurf() && this.gotNewSmurf(prevProps) && this.state != blankState) {
-      this.setState(blankState)
+    if (this.gotNewSmurf(prevProps)) {
+      if(this.editingSmurf()) {
+        axios.get(`http://localhost:3333/smurfs/${this.props.currentSmurfId}`)
+          .then(({ data }) => this.setState({
+            name: data.name,
+            age: data.age,
+            height: data.height,
+          }))
+          .catch(error => console.log(`Error fetching smurf for update: ${error}`))
+      } else if (!this.editingSmurf() && this.state != blankState) {
+        this.setState(blankState)
+      }
     }
   }
 
