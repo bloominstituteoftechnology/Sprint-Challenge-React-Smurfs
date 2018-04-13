@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import './App.css';
 import SmurfForm from './components/SmurfForm';
-import Smurfs from './components/Smurfs';
+import Smurf from './components/Smurf';
 
 class App extends Component {
   constructor(props) {
@@ -27,7 +27,8 @@ class App extends Component {
     return (
       <div className="App">
         <SmurfForm getSmurfs={this.getSmurfs} />
-        <Smurfs smurfs={this.state.smurfs} />
+        {this.state.smurfs.map(smurf => <Smurf {...{smurf: smurf, getSmurfs: this.getSmurfs}} key={smurf.id} />)}
+
       </div>
     );
   }
