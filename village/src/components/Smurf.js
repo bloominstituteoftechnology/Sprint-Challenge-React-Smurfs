@@ -1,7 +1,7 @@
 import React from "react";
+// import axios from "axios";
 import { Link } from "react-router-dom";
 
-// Work in Progress: Link does not link to a single smurf yet..
 class Smurf extends React.Component {
 	constructor(props) {
 		super(props);
@@ -15,12 +15,14 @@ class Smurf extends React.Component {
 	handleNewInput = event => {
 		this.setState({ [event.target.name]: event.target.value });
 	};
+	// Delete request in progress
+	// deleteSmurf = () => {
+	// 	axios
+	// 		.delete(`http://localhost:3333/smurfs/${id}`)
+	// 		.then(response => )
+	// };
 
-	// console.log("props", props);
 	render() {
-		// console.log("name", this.state.name);
-		// console.log("height", this.state.height);
-		// console.log("age", this.state.age);
 		return (
 			<div className="Smurf">
 				<Link to={`/smurfs/${this.props.id}`}>

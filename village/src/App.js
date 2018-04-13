@@ -4,7 +4,6 @@ import { Route, Switch } from "react-router-dom";
 import "./App.css";
 import SmurfForm from "./components/SmurfForm";
 import Smurfs from "./components/Smurfs";
-import Smurf from "./components/Smurf";
 import SmurfCard from "./components/SmurfCard";
 
 class App extends Component {
@@ -28,8 +27,6 @@ class App extends Component {
       })
       .catch(error => console.error(error));
   }
-  // Work in Progress: Route for /smurfs/:id is not fully set up
-  // that path will be routing to a new Component: SmurfCard
   render() {
     return (
       <div className="App">
