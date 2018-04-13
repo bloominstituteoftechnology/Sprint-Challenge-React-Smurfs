@@ -4,9 +4,9 @@ import './SmurfCard.css'
 import Smurf from './Smurf';
 
 class Smurfs extends Component {
-    // constructor(props) {
-    //     super(props);
-    // }
+    constructor(props) {
+        super(props);
+    }
 
     // componentDidMount() {
     //     this.getSmurfs();

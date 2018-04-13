@@ -1,7 +1,16 @@
 import React from 'react';
+import axios from 'axios';
 import {Button, Card, CardHeader, CardTitle, CardText, Col, Row} from 'reactstrap';
 import './SmurfCard.css'
 const Smurf = props => {
+
+
+    const deleteSmurf = (e) => {
+        axios.delete(`http://localhost:3333/smurfs/${e.target.id}`)
+            .then(response => this.getSmurfs())
+            .catch(error => console.log(`Error deleting smurf: ${error}`))
+    };
+
     return (
         <div className="Smurf">
             {/*<h3>{props.name}</h3>*/}
@@ -23,6 +32,7 @@ const Smurf = props => {
                         </Col>
                     </Row>
                 </CardTitle>
+                <Button color='danger' id={props.id} onClick={deleteSmurf}>Delete</Button>
             </Card>
         </div>
     );
