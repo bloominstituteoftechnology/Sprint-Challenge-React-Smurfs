@@ -38,7 +38,13 @@ class App extends Component {
             exact
             path="/"
             render={props => {
-              return <Smurfs smurfs={this.state.smurfs} {...props} />;
+              return (
+                <Smurfs
+                  fetchSmurfs={() => this.fetchSmurfs()}
+                  smurfs={this.state.smurfs}
+                  {...props}
+                />
+              );
             }}
           />
           <Route path="/smurfs/:id" component={SmurfCard} />

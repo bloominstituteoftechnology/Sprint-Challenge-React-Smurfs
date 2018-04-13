@@ -25,7 +25,6 @@ class SmurfForm extends Component {
         this.props.fetchSmurfs();
       })
       .catch(error => console.error(error));
-    // reset state after creating a new smurf
     this.setState({
       name: "",
       age: "",

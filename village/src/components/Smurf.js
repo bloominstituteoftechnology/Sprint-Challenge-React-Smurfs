@@ -1,5 +1,5 @@
 import React from "react";
-// import axios from "axios";
+import axios from "axios";
 import { Link } from "react-router-dom";
 
 class Smurf extends React.Component {
@@ -16,13 +16,15 @@ class Smurf extends React.Component {
 		this.setState({ [event.target.name]: event.target.value });
 	};
 	// Delete request in progress
-	// deleteSmurf = () => {
-	// 	axios
-	// 		.delete(`http://localhost:3333/smurfs/${id}`)
-	// 		.then(response => )
-	// };
+	deleteSmurf = id => {
+		axios
+			.delete(`http://localhost:3333/smurfs/${id}`)
+			.then(response => this.props.fetchSmurfs())
+			.catch(error => console.error(error));
+	};
 
 	render() {
+		console.log(this.props.id);
 		return (
 			<div className="Smurf">
 				<Link to={`/smurfs/${this.props.id}`}>
@@ -52,7 +54,9 @@ class Smurf extends React.Component {
 						onChange={this.handleNewInput}
 						placeholder="Age"
 					/>
-					<button onClick={this.deleteSmurf}>Delete</button>
+					<button onClick={() => this.deleteSmurf(this.props.id)}>
+						Delete
+					</button>
 					<button onClick={this.updateSmurf}>Update</button>
 				</form>
 			</div>
