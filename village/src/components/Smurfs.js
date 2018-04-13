@@ -4,34 +4,31 @@ import axios from 'axios'
 import Smurf from './Smurf';
 
 class Smurfs extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            smurfs: []
-        }
-    }
+    // constructor(props) {
+    //     super(props);
+    // }
 
-    componentDidMount() {
-        this.getSmurfs();
-    }
-
-    getSmurfs() {
-
-        axios.get('http://localhost:3333/smurfs')
-            .then(response => {
-                console.log(response.data);
-                this.setState({smurfs: response.data});
-            })
-            .catch(error =>{
-                console.log(`Error get Smurfs: ${error}`);
-            })
-    }
+    // componentDidMount() {
+    //     this.getSmurfs();
+    // }
+    //
+    // getSmurfs() {
+    //
+    //     axios.get('http://localhost:3333/smurfs')
+    //         .then(response => {
+    //             console.log(response.data);
+    //             this.setState({smurfs: response.data});
+    //         })
+    //         .catch(error =>{
+    //             console.log(`Error get Smurfs: ${error}`);
+    //         })
+    // }
     render() {
         return (
             <div className="Smurfs">
                 <h1>Smurf Village</h1>
                 <ul>
-                    {this.state.smurfs.map(smurf => {
+                    {this.props.smurfs.map(smurf => {
                         return (
                             <Smurf
                                 name={smurf.name}
