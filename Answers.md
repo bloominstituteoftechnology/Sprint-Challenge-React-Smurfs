@@ -14,7 +14,7 @@
 
 <h1>What does CRUD stand for?</h1>>
 <p>
-    
+    Crud stands for Create Read Update Delete.
 </p>
 
 <h1>Which HTTP methods can be mapped to the CRUD acronym that we use when interfacing with APIs/Servers.</h1>
