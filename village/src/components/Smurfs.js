@@ -7,17 +7,25 @@ class Smurfs extends Component {
   constructor(props) {
     super(props);
     this.state= {
-      smurfs: []
+      smurfs: [],
+      currentSmurf: ""
     };
   }
 
-  componentDidMount() {
-    axios.get('http://localhost:3333/smurfs').then(response => {
-        console.log('data from smurfs', response); 
-      }) .catch(err => {
-        console.log(err);
-      })
-  }
+componentDidMount() {
+  axios
+    .get('http://localhost:3333/smurfs')
+    .then(response => {
+      this.setState({ smurfs: response.data }); 
+      }) 
+    .catch(err => {
+      console.log(err);
+  })
+}
+
+getSmurfId = id => {
+  this.setState({ currentSmurf: id });
+}
 
   render() {
     return (
