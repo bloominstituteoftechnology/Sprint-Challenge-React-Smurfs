@@ -10,6 +10,7 @@ class Smurfs extends Component {
   }
   getSmurfs =this.getSmurfs.bind(this);
   deleteSmurf = this.deleteSmurf.bind(this);
+
   render() {
     return (
       <div className="Smurfs">
@@ -34,10 +35,10 @@ class Smurfs extends Component {
   }
 
   deleteSmurf(id) {
-    axios.delete('http://:localhost3333/smurfs/$:{id}')
+    axios.delete(`http://localhost:3333/smurfs/${id}`)
     .then(() => {
       this.getSmurfs();
-    })
+    });
   }
 }
 
