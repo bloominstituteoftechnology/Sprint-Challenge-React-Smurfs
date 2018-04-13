@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import Smurf from './Smurf';
 import SmurfForm from './SmurfForm';
 import SmurfInfo from './SmurfInfo';
 

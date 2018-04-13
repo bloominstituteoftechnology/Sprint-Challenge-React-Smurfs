@@ -1,6 +1,5 @@
 import React from 'react';
 import Smurf from './Smurf';
-import Smurfs from './Smurfs';
 
 function SmurfInfo(props) {
     return (
