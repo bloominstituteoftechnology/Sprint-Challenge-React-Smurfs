@@ -21,8 +21,12 @@ class SmurfCard extends React.Component {
 			.then(response => this.setState({ smurf: response.data[id] }))
 			.catch(error => console.error(error));
 	};
-	//
-
+	// only fetch new smurfs
+	componentWillMount(newProps) {
+		if (this.props.match.params.id !== newProps.match.params.id) {
+			this.fetchSmurf(newProps.match.params.id);
+		}
+	}
 	// pass a smurf to Smurf component to render
 	render() {
 		return <h1>Made it to a card</h1>;
