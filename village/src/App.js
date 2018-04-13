@@ -25,19 +25,20 @@ class App extends Component {
     .get(`http://localhost:3333/smurfs`)
     .then(res => {
       console.log(res);
-      this.setState( {smurfs : res})
+      this.setState( {smurfs : res.data})
     })
     .catch(err => {
       console.log(err);
     });
   }
 
+  
 
   render() {
     return (
       <div className="App">
         <SmurfForm />
-        <Smurfs />
+        <Smurfs smurfs = {this.state.smurfs}/>
       </div>
     );
   }
