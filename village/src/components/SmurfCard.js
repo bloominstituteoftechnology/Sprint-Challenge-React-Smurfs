@@ -11,7 +11,7 @@ class SmurfCard extends React.Component {
 	}
 	// fetch a smurf by id
 	componentDidMount() {
-		const { id } = this.props.match.params;
+		const id = this.props.match.params.id;
 		this.fetchSmurf(id);
 	}
 	// Get request
@@ -22,14 +22,15 @@ class SmurfCard extends React.Component {
 			.catch(error => console.error(error));
 	};
 	// only fetch new smurfs
-	componentWillMount(newProps) {
+	componentWillReceiveNewProps(newProps) {
 		if (this.props.match.params.id !== newProps.match.params.id) {
 			this.fetchSmurf(newProps.match.params.id);
 		}
 	}
 	// pass a smurf to Smurf component to render
 	render() {
-		return <h1>Made it to a card</h1>;
+		console.log("state", this.state.smurf);
+		return <Smurf smurf={this.state.smurf} />;
 	}
 }
 

@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 
 // Work in Progress: Link does not link to a single smurf yet..
 const Smurf = props => {
+	// console.log("props", props);
 	return (
 		<div className="Smurf">
 			<Link to={`/smurfs/${props.id}`}>
