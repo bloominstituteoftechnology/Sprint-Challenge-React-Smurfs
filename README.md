@@ -9,7 +9,7 @@
 
 ## Questions - Self Study - You can exercise your Google-Fu for this and any other _Sprint Challenge_ in the future.
 
-1.  Explain the differences between `client-side routing` and `server-side routing`.
+
 1.  What does HTTP stand for?
 1.  What does CRUD stand for?
 1.  Which HTTP methods can be mapped to the CRUD acronym that we use when interfacing with APIs/Servers.
@@ -108,7 +108,7 @@ input:
   name: Sleepy
 }
 output:
-{
+{/smurfs/
   name: 'Sleepy',
   age: 30,
   height: '3cm,
