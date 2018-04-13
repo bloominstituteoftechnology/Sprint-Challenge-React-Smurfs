@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import { Card, Button, CardTitle, CardText, Col } from "reactstrap";
 import axios from "axios";
 
@@ -28,11 +29,15 @@ class Smurf extends Component {
       <Col sm={{ size: 6, offset: 3 }}>
         <Card inverse color="primary">
           <CardTitle>
-            <h3>{this.props.name}</h3>
+            <div>
+              <Link style={{ color: 'white' }} to={`/smurfs/${this.props.id}`}>
+                <h3>{this.props.smurf.name}</h3>
+              </Link>
+            </div>
           </CardTitle>
           <CardText>
-            <strong>{this.props.height} tall</strong>
-            <p>{this.props.age} smurf years old</p>
+            <strong>{this.props.smurf.height} tall</strong>
+            <p>{this.props.smurf.age} smurf years old</p>
           </CardText>
           <Button
             color="secondary"

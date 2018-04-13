@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { Switch, Route } from "react-router-dom";
 import "./App.css";
-
 import Smurfs from "./components/Smurfs";
+import SmurfCard from './components/SmurfCard';
 import axios from "axios";
 
 class App extends Component {
@@ -46,6 +46,7 @@ class App extends Component {
               />
             )}
           />
+          <Route path="/smurfs/:id" component={SmurfCard} />
           <Route
             component={() => <h1>There are no Smurfs here, go back!</h1>}
           />
