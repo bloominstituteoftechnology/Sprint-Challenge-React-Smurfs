@@ -16,6 +16,10 @@ class App extends Component {
     };
   }
   componentDidMount() {
+    this.getSmurfs();
+  }
+
+  getSmurfs = () => {
     axios
       .get('http://localhost:3333/smurfs')
       .then(res => {
@@ -24,7 +28,7 @@ class App extends Component {
       .catch(error => {
         console.log(`There was an error getting smurfs: ${error}`);
       });
-  }
+  };
   
   addSmurfsOnCreate = smurfs => {
     this.setState({ smurfs });
