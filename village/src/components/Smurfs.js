@@ -3,6 +3,12 @@ import axios from 'axios';
 import Smurf from './Smurf';
 
 class Smurfs extends Component {
+  constructor() {
+    super();
+    this.state = {
+      smurfs: [],
+    }
+  }
   render() {
     return (
       <div className="Smurfs">
