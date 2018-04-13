@@ -11,4 +11,10 @@ class SmurfCard extends React.Component {
 			age: ""
 		};
 	}
+
+	render() {
+		return <h1>Made it to a card</h1>;
+	}
 }
+
+export default SmurfCard;
