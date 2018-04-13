@@ -9,6 +9,7 @@ class App extends Component {
   constructor() {
     super();
 
+    // We are storing all state in App since our components rely on each other
     this.state = {
       smurfs: [],
       formText: {
@@ -24,9 +25,9 @@ class App extends Component {
   }
 
   getSmurfs() {
-    axios
+    axios // Grab data from server
     .get(`http://localhost:3333/smurfs`)
-    .then(response => {
+    .then(response => { // Use data to update state and rerender page
       this.setState({ smurfs: response.data })
     })
     .catch(error => {
@@ -35,12 +36,10 @@ class App extends Component {
   }
 
   addSmurf = () => {
-    const smurf = {
-      name: this.state.formText.name,
-      age: this.state.formText.age,
-      height: this.state.formText.height
-    };
-    axios
+    // Use form data to create new smurf object
+    const { name, age, height } = this.state.formText; 
+    const smurf = { name, age, height };
+    axios // Post new smurf object to server
       .post(`http://localhost:3333/smurfs`, smurf)
       .then(smurf => {
         this.getSmurfs();
@@ -51,12 +50,12 @@ class App extends Component {
     this.resetFormText();
   };
 
-  updateSmurf = id => {
-    const smurf = {};
+  updateSmurf = id => { // Update existing smurf using id as reference
+    const smurf = {}; // Only set data if something was input
     if (this.state.formText.name !== "") smurf.name = this.state.formText.name;
     if (this.state.formText.age !== "") smurf.age = this.state.formText.age;
     if (this.state.formText.height !== "") smurf.height = this.state.formText.height;
-    axios
+    axios // Update data on server
       .put(`http://localhost:3333/smurfs/${id}`, smurf)
       .then(response => {
         this.resetFormText();
@@ -68,7 +67,7 @@ class App extends Component {
   };
 
   deleteSmurf = id => {
-    axios
+    axios // Remove data from server
       .delete(`http://localhost:3333/smurfs/${id}`)
       .then(response => {
         this.resetFormText();
@@ -79,20 +78,20 @@ class App extends Component {
       });
   }
   
-  handleInputChange = e => {
+  handleInputChange = e => { // Use input event target to set state
     const { formText } = this.state;
     formText[e.target.name] = e.target.value;
     this.setState({ formText: formText });
   };
 
-  resetFormText = () => {
+  resetFormText = () => { // Reset state values (used when data is submited)
     this.setState({ formText: { name: '', age: '', height: '' }});
   };
 
   render() {
     return (
       <div className="App">
-        <SmurfForm 
+        <SmurfForm // Pass down function from App.js
           addSmurf={() => this.addSmurf()}
           formText={this.state.formText}
           handleInputChange={e => this.handleInputChange(e)}

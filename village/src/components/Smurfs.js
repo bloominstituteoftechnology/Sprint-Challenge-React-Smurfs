@@ -1,34 +1,28 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 import Smurf from './Smurf';
 
-class Smurfs extends Component {
-  constructor(props) {
-    super(props);
-  }
-
-  render() {
-    return (
-      <div className="Smurfs">
-        <h1>Smurf Village</h1>
-        <ul>
-          {this.props.smurfs.map(smurf => {
-            return (
-              <Smurf
-                name={smurf.name}
-                id={smurf.id}
-                age={smurf.age}
-                height={smurf.height}
-                key={smurf.id}
-                updateSmurf={this.props.updateSmurf}
-                deleteSmurf={this.props.deleteSmurf}
-              />
-            );
-          })}
-        </ul>
-      </div>
-    );
-  }
+const Smurfs = props => {
+  return (
+    <div className="Smurfs">
+      <h1>Smurf Village</h1>
+      <ul>
+        {props.smurfs.map(smurf => { // Map through smurfs object array
+          return (
+            <Smurf // Pass in all values instead of setting state in Smurf component
+              name={smurf.name}
+              id={smurf.id}
+              age={smurf.age}
+              height={smurf.height}
+              key={smurf.id}
+              updateSmurf={props.updateSmurf}
+              deleteSmurf={props.deleteSmurf}
+            />
+          );
+        })}
+      </ul>
+    </div>
+  );
 }
 
 export default Smurfs;
