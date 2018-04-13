@@ -26,12 +26,12 @@ this.getSmurfs();
         console.log(err);
       })
   }
-  deleteSmurf = (smurfId) => {
+  deleteSmurf = (smurfsId) => {
     axios
-    .delete(`http://localhost:3333/smurfs/${smurfId}`)
+    .delete(`http://localhost:3333/smurfs/${smurfsId}`)
     .then(response => {
       this.componentDidMount();
-      console.log(smurfId);
+      console.log(smurfsId);
     })
     .catch(err => {
       console.log(err);
