@@ -63,7 +63,8 @@ server.put('/smurfs/:id', (req, res) => {
     if (name) foundSmurf.name = name;
     if (age) foundSmurf.age = age;
     if (height) foundSmurf.height = height;
-    res.json(foundSmurf);
+    // res.json(foundSmurf);
+    res.json(smurfs);
   }
 });
 

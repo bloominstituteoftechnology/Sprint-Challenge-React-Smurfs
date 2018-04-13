@@ -21,6 +21,11 @@ class SmurfForm extends Component {
 
   }
 
+  handleFormSubmit = (e) => {
+    e.preventDefault();
+    this.props.formAttributes.action(this.state);
+  }
+
   handleInputChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
@@ -47,7 +52,9 @@ class SmurfForm extends Component {
             value={this.state.height}
             name="height"
           />
-          <button type="submit" onClick={this.addSmurf}>Add to the village</button>
+          {/* {this.props.hasOwnProperty('button') ? this.props.button : ''} */}
+          {/* <button type="submit" onClick={this.addSmurf}>Add to the village</button> */}
+          <button type="submit" onClick={this.handleFormSubmit}>{this.props.formAttributes.buttonText}</button>
         </form>
       </div>
     );

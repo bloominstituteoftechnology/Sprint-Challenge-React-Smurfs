@@ -10,7 +10,12 @@ class App extends Component {
     super();
     this.state = {
       smurfs: []
-    }
+    };
+
+    this.formAttributes = {
+      buttonText: "Add a new Smurf!",
+      action: this.formSubmitAction
+    };
   }
 
   componentDidMount() {
@@ -25,10 +30,20 @@ class App extends Component {
     this.setState({smurfs: newList});
   }
 
+  formSubmitAction = data => {
+    // event.preventDefault();
+    axios.post("http://localhost:3333/smurfs", data)
+      .then(response => {
+        this.updateSmurfList(response.data);
+      })
+      .catch((error => console.log(error)));
+
+  }
+
   render() {
     return (
       <div className="App">
-        <SmurfForm updateSmurfList={this.updateSmurfList} />
+        <SmurfForm updateSmurfList={this.updateSmurfList} formAttributes={this.formAttributes} />
         <Smurfs updateSmurfList={this.updateSmurfList} {...this.state}/>
       </div>
     );
