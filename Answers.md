@@ -9,7 +9,7 @@
 
 <h1>What does HTTP stand for?</h1>>
 <p>
-    
+    HTTP stands for Hyper Text Transfer Protocol.
 </p>
 
 <h1>What does CRUD stand for?</h1>>
