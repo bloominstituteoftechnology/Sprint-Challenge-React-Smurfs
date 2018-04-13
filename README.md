@@ -47,8 +47,8 @@
 
 ```
 {
-  name: 'Brainey',
-  age: 200,
+  name: 'Sleepy',
+  age: 323,
   height: '5cm'
 }
 ```
