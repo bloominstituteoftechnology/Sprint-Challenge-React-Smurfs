@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
 class UpdateSmurf extends Component {
   constructor(props) {
@@ -33,25 +34,33 @@ class UpdateSmurf extends Component {
   render() {
     return (
       <div>
-        <input
-          type="text"
-          onChange={this.handleInputChange}
-          name="name"
-          placeholder="Name"
-        />
-        <input
-          type="text"
-          onChange={this.handleInputChange}
-          name="height"
-          placeholder="Height"
-        />
-        <input
-          type="text"
-          onChange={this.handleInputChange}
-          name="age"
-          placeholder="Age"
-        />
-        <button onClick={() => this.updateSmurf(this.props.smurf.id)}>Submit</button>
+        <Modal isOpen={this.props.updateSmurf}>
+          <ModalHeader>Update Information</ModalHeader>
+          <ModalBody className="Module__body">
+            <input
+              type="text"
+              onChange={this.handleInputChange}
+              name="name"
+              placeholder="Name"
+            />
+            <input
+              className="Module__middleInput"
+              type="text"
+              onChange={this.handleInputChange}
+              name="height"
+              placeholder="Height"
+            />
+            <input
+              type="text"
+              onChange={this.handleInputChange}
+              name="age"
+              placeholder="Age"
+            />
+          </ModalBody>
+          <ModalFooter>
+            <Button color="danger" onClick={() => this.updateSmurf(this.props.smurf.id)}>Update</Button>{' '}
+          </ModalFooter>
+        </Modal>
       </div>
     )
   }

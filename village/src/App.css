@@ -36,3 +36,13 @@
   width: 20%;
   margin: auto;
 }
+
+.Module__body {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+}
+
+.Module__middleInput {
+  margin: 5px 0;
+}
