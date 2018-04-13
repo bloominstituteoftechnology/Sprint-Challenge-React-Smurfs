@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import './App.css';
+import Smurf from "./components/Smurf";
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 
 class App extends Component {
   // add any needed code to ensure that the smurfs collection exists on state and it has data coming from the server
@@ -32,8 +33,10 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+      <Switch>
         <Route exact path='/' component={ Smurfs } />
-        <Route path='/' component={ SmurfForm } />
+        <Route path='/smurf/:id' component={ Smurf } />
+        </Switch>
       </div>
     );
   }
