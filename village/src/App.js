@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import { Route } from "react-router-dom";
 
 import "./App.css";
 import SmurfForm from "./components/SmurfForm";
@@ -51,7 +52,7 @@ class App extends Component {
     return (
       <div className="App">
         {/* create(Post) field */}
-        <SmurfForm getSmurfs={this.getSmurfs} />
+        <Route exact path="/" component={SmurfForm} getSmurfs={this.getSmurfs} />
         {/* read(Get) mapping of*/}
         <Smurfs smurfs={this.state.smurfs} deleteSmurf={this.deleteSmurf} />
       </div>
