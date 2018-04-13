@@ -19,6 +19,10 @@ class App extends Component {
     this.getSmurfs();
   }
 
+  addSmurfsOnCreate = smurfs => {
+    this.setState({ smurfs });
+  }
+
   getSmurfs = () => {
     axios.get('http://localhost:3333/smurfs')
     .then(response => {
@@ -34,7 +38,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <SmurfForm getSmurfs={this.getSmurfs} />
+        <SmurfForm addSmurfsOnCreate={this.addSmurfsOnCreate} />
         <Smurfs smurfs={this.state.smurfs} />
       </div>
     );
