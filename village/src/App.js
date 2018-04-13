@@ -38,14 +38,34 @@ class App extends Component {
       console.log(err);
     });
   }
-  // add any needed code to ensure that the smurfs collection exists on state and it has data coming from the server
-  // Notice what your map function is looping over and returning inside of Smurfs.
-  // You'll need to make sure you have the right properties on state and pass them down to props.
+
+  deleteData(id) {
+    axios
+    .delete(`http://localhost:3333/smurfs/${id}`)
+    .then(response => {
+      this.getData();
+    })
+    .catch(err => {
+      console.log(err);
+    });
+  }
+
+  updateData(newObj, id) {
+    axios
+    .put(`http://localhost:3333/smurfs/${id}`, newObj)
+    .then(response => {
+      this.getData();
+    })
+    .catch(err => {
+      console.log(err);
+    });
+  }
+
   render() {
     return (
       <div className="App">
-        <SmurfForm post={this.postData.bind(this)} />
-        <Smurfs {...this.state} />
+        <SmurfForm submit={this.postData.bind(this)} />
+        <Smurfs delete={this.deleteData.bind(this)} update={this.updateData.bind(this)} {...this.state} />
       </div>
     );
   }
