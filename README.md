@@ -7,7 +7,7 @@
 
 ## Start by forking and cloning this repository.
 
-## Questions - Self Study - You can exercise your Google-Fu for this and any other _Sprint Challenge_ in the future.
+## Questions - Self Study - You can exercise your Google-Fu for this and any other _Sprint Challenge_ in the future. //done
 
 1.  Explain the differences between `client-side routing` and `server-side routing`.
 1.  What does HTTP stand for?
@@ -15,7 +15,7 @@
 1.  Which HTTP methods can be mapped to the CRUD acronym that we use when interfacing with APIs/Servers.
 1.  Mention three tools we can use to make AJAX requests.
 
-## Initializing Project - READ THIS CAREFULLY, you have two apps here. A server, and a client.
+## Initializing Project - READ THIS CAREFULLY, you have two apps here. A server, and a client. //done
 
 * Start by Forking and Cloning this Repo.
 * `cd` into the forked copy.
@@ -36,11 +36,11 @@
 
 ## API Design - This is how you'll interface with the API and what is required from every endpoint.
 
-### GET '/smurfs'
+### GET '/smurfs' //done
 
 * To retreive an array all the smurfs in the Smurf DB simply write a get to the endpoint `'/smurfs'`
 
-### POST '/smurfs'
+### POST '/smurfs' 
 
 * To add a smurf to the Smurf DB you'll need all three fields.
 * Example:
