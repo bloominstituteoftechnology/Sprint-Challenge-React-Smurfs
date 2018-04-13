@@ -22,7 +22,7 @@ class SmurfForm extends Component {
       .post(`http://localhost:3333/smurfs`, addSmurf)
       .then(response => {
         console.log(response);
-        this.props.getSmurfs(); //use getSmurfs() from App.js
+        this.props.refreshAfterAddSmurf( response.data ); //use getSmurfs() from App.js
       })
       .catch(err => {
         console.log(err);

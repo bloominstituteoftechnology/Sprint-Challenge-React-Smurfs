@@ -34,11 +34,16 @@ class Pathfinder extends Component {
       });
   };
 
-  deleteSmurf = smurfId => {
+  // recall list from client-side, rather than using Get
+  refreshAfterAddSmurf = (smurfs) => {
+    this.setState({ smurfs });
+  }
+
+  deleteSmurf = id => {
     axios
-      .delete(`http//localhost:3333/smurfs/${smurfId}`)
+      .delete(`http//localhost:3333/smurfs/${id}`)
       .then(response => {
-        this.props.getSmurfs();
+        this.getSmurfs();
       })
       .catch(err => {
         console.log(err);
@@ -49,7 +54,7 @@ class Pathfinder extends Component {
     return (
       <div>
         {/* create(Post) field */}
-        <SmurfForm getSmurfs={this.getSmurfs} />
+        <SmurfForm refreshAfterAddSmurf={this.refreshAfterAddSmurf} getSmurfs={this.getSmurfs} />
         {/* read(Get) mapping of*/}
         <Smurfs smurfs={this.state.smurfs} deleteSmurf={this.deleteSmurf} />
       </div>
