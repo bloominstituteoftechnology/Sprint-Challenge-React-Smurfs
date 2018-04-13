@@ -1,34 +1,72 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
+import axios from 'axios'
 
 class SmurfForm extends Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
       name: '',
       age: '',
       height: ''
-    };
+    }
   }
 
-  addSmurf = event => {
-    event.preventDefault();
-    // add code to create the smurf using the api
+  componentDidUpdate(prevProps, prevState) {
+    const blankState = { name: '', age: '', height: '' }
+    if (this.gotNewSmurf(prevProps)) {
+      if(this.editingSmurf()) {
+        axios.get(`http://localhost:3333/smurfs/${this.props.currentSmurfId}`)
+          .then(({ data }) => this.setState({
+            name: data.name,
+            age: data.age,
+            height: data.height,
+          }))
+          .catch(error => console.log(`Error fetching smurf for update: ${error}`))
+      } else if (!this.editingSmurf() && this.state != blankState) {
+        this.setState(blankState)
+      }
+    }
+  }
 
-    this.setState({
-      name: '',
-      age: '',
-      height: ''
-    });
+  addOrUpdateSmurf = event => {
+    event.preventDefault()
+    if (this.editingSmurf()) {
+      axios.put(`http://localhost:3333/smurfs/${this.props.currentSmurfId}`, this.state)
+        .then(response => this.props.refreshParent())
+        .catch(error => console.log(`Error updating smurf: ${error}`))
+    } else {
+      axios.post('http://localhost:3333/smurfs', this.state)
+        .then(response => {
+          this.setState({
+            name: '',
+            age: '',
+            height: ''
+          })
+          this.props.refreshParent()
+        })
+        .catch(error => console.log(`Error creating smurf: ${error}`))
+    }
   }
 
   handleInputChange = e => {
-    this.setState({ [e.target.name]: e.target.value });
-  };
+    this.setState({ [e.target.name]: e.target.value })
+  }
+
+  gotNewSmurf = (prevProps) => this.props.currentSmurfId != prevProps.currentSmurfId
+  editingSmurf = () => this.props.currentSmurfId >= 0
+
+  submitText() {
+    if (this.editingSmurf()) {
+      return "Edit Smurf"
+    } else {
+      return "Add Smurf"
+    }
+  }
 
   render() {
     return (
       <div className="SmurfForm">
-        <form onSubmit={this.addSmurf}>
+        <form onSubmit={this.addOrUpdateSmurf}>
           <input
             onChange={this.handleInputChange}
             placeholder="name"
@@ -47,11 +85,11 @@ class SmurfForm extends Component {
             value={this.state.height}
             name="height"
           />
-          <button type="submit">Add to the village</button>
+          <button type="submit">{this.submitText()}</button>
         </form>
       </div>
-    );
+    )
   }
 }
 
-export default SmurfForm;
+export default SmurfForm
