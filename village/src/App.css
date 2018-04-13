@@ -1,3 +1,19 @@
 .App {
   text-align: center;
 }
+
+.SmurfForm {
+  margin: 2% auto;
+  display: flex;
+  flex-flow: column;
+}
+
+.SmurfForm--top {
+  margin: 10px 0;
+}
+
+.SmurfForm--mid {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 0 10px;
+}
