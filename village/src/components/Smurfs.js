@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import axios from 'axios'
+import './SmurfCard.css'
 
 import Smurf from './Smurf';
 
@@ -27,7 +27,7 @@ class Smurfs extends Component {
         return (
             <div className="Smurfs">
                 <h1>Smurf Village</h1>
-                <ul>
+                <div className='SmurfCard__list'>
                     {this.props.smurfs.map(smurf => {
                         return (
                             <Smurf
@@ -39,7 +39,7 @@ class Smurfs extends Component {
                             />
                         );
                     })}
-                </ul>
+                </div>
             </div>
         );
     }

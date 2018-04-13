@@ -1,0 +1,13 @@
+.SmurfCard {
+    width: 250px;
+    height: 250px;
+    margin-right: 20px;
+    margin-top: 10px;
+}
+
+.SmurfCard__list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 15px;
+}
