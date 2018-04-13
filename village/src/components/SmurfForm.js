@@ -56,7 +56,7 @@ class SmurfForm extends Component {
           />
           <input
             onChange={this.handleInputChange}
-            placeholder="height"
+            placeholder="height in cm"
             value={this.state.height}
             name="height"
           />

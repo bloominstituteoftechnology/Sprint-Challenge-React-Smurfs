@@ -1,12 +1,28 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 
 import Smurf from './Smurf';
 
-class Smurfs extends Component {
-
-
-
+class Smurfs extends Component { //passing state down as props
+  constructor(props) {
+    super(props);
+    this.state = {
+      smurfs: null
+    };
+  }
   
+  componentDidMount() {
+    axios
+      .get('http://localhost:3333/api/smurfs')
+      .then(response => {
+        this.setState({ smurfs: response.data });
+      })
+      .catch(error => {
+        console.error(error);
+      });
+  }
+
+
   render() {
     return (
       <div className="Smurfs">
