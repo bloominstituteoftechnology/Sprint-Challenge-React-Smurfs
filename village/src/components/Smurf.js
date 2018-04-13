@@ -50,6 +50,8 @@ class Smurf extends React.Component {
 						onChange={this.handleNewInput}
 						placeholder="Age"
 					/>
+					<button onClick={this.deleteSmurf}>Delete</button>
+					<button onClick={this.updateSmurf}>Update</button>
 				</form>
 			</div>
 		);
