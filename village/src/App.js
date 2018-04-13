@@ -4,6 +4,7 @@ import './App.css'
 import SmurfForm from './components/SmurfForm'
 import Smurfs from './components/Smurfs'
 import { Provider, Data } from './Context'
+
 Data.getData()
 
 class App extends Component {
@@ -17,15 +18,28 @@ class App extends Component {
     }
   }
   async componentDidMount () {
+    await this.updateState()
+  }
+
+  async updateState () {
     await Data.getData()
     this.setState(prevState => ({ smurfs: [...Data.store] }))
+  }
+
+  async updateStateAfterPost (dataToPost) {
+    await Data.postData(dataToPost)
+    this.updateState()
   }
 
   render () {
     return (
       <div className='App'>
-        <Provider value={[...this.state.smurfs]}>
-          <SmurfForm />
+        <Provider
+          value={{
+            smurfs: [...this.state.smurfs]
+          }}
+        >
+          <SmurfForm addSmurf={async d => this.updateStateAfterPost(d)} />
           <Smurfs />
         </Provider>
       </div>
