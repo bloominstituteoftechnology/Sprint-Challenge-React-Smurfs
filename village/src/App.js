@@ -34,8 +34,8 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <SmurfForm />
-        <Smurfs getSmurfList={this.getSmurfList} smurfs={this.state.smurfs}/>
+        <SmurfForm getSmurfList={this.getSmurfList} />
+        <Smurfs getSmurfList={this.getSmurfList} smurfs={this.state.smurfs} />
       </div>
     );
   }
