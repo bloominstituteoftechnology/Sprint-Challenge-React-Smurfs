@@ -2,9 +2,9 @@ import React, { Component } from "react";
 import axios from "axios";
 import { Route } from "react-router-dom";
 
+import Pathfinder from "./components/Pathfinder.js";
+import Home from "./components/Home.js";
 import "./App.css";
-import SmurfForm from "./components/SmurfForm";
-import Smurfs from "./components/Smurfs";
 
 class App extends Component {
   // add any needed code to ensure that the smurfs collection exists on state and it has data coming from the server
@@ -51,10 +51,8 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        {/* create(Post) field */}
-        <Route exact path="/" component={SmurfForm} getSmurfs={this.getSmurfs} />
-        {/* read(Get) mapping of*/}
-        <Smurfs smurfs={this.state.smurfs} deleteSmurf={this.deleteSmurf} />
+        <Route path="/" component={Home} />
+        <Route path="/smurfs" component={Pathfinder} />
       </div>
     );
   }
