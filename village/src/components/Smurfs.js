@@ -8,7 +8,7 @@ class Smurfs extends Component {
   // }
 
   render() {
-    // console.log(this.props.smurfs); // check if the props are working
+    // console.log(this.props.deleteSmurf); // check if the props are working
     return (
 
       <div className="Smurfs">
@@ -17,6 +17,7 @@ class Smurfs extends Component {
           {this.props.smurfs.map(smurf => {
             return (
               <Smurf
+                deleteSmurf={this.props.deleteSmurf}
                 name={smurf.name}
                 id={smurf.id}
                 age={smurf.age}

@@ -36,13 +36,24 @@ class App extends Component {
       });
   };
 
+  deleteSmurf = smurfId => {
+    axios
+      .delete(`http//localhost:3333/smurfs/${smurfId}`)
+      .then(response => {
+        this.props.getSmurfs();
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  };
+
   render() {
     return (
       <div className="App">
         {/* create(Post) field */}
         <SmurfForm getSmurfs={this.getSmurfs} />
         {/* read(Get) mapping of*/}
-        <Smurfs smurfs={this.state.smurfs} />
+        <Smurfs smurfs={this.state.smurfs} deleteSmurf={this.deleteSmurf} />
       </div>
     );
   }
