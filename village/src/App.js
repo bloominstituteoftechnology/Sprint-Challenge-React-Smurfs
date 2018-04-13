@@ -19,6 +19,10 @@ class App extends Component {
     this.getSmurfs();
   }
 
+  addSmurfsOnCreate = smurfs => {
+    this.setState({ smurfs });
+  }
+
   getSmurfs = () => {
     axios
       .get('http://localhost:3333/smurfs')
@@ -29,10 +33,6 @@ class App extends Component {
         console.log(`There was an error getting smurfs: ${error}`);
       });
   };
-  
-  addSmurfsOnCreate = smurfs => {
-    this.setState({ smurfs });
-  }
 
   deleteSmurf = id => {
     axios
