@@ -23,17 +23,21 @@ class App extends Component {
   fetchSmurfs() {
     axios
       .get("http://localhost:3333/smurfs")
-      .then(response => console.log(response))
+      // .then(response => console.log(response))
+      .then(response => {
+        this.setState({ smurfs: response.data });
+      })
       .catch(error => console.error(error));
   }
 
   render() {
+    console.log(this.state.smurfs);
     return (
       <div className="App">
         {/* Use Form to create new smurfs and add them to state */}
         <SmurfForm />
         {/* Pass down all smurfs to Smurfs */}
-        <Smurfs />
+        <Smurfs smurfs={this.state.smurfs} />
       </div>
     );
   }
