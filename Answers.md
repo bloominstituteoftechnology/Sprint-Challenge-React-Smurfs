@@ -5,6 +5,6 @@
 
 3. CRUD stands for create, read, update, and delete or destroy.
 
-4. 
+4. Get, Post, Delete, and Put
 
-5. 3 tools used to make an AJAX request are GET, POST, and Delete.
+5. 3 tools used to make an AJAX request are Axios, Fetch Api, Jquery, and postman.
