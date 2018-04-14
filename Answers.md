@@ -13,3 +13,4 @@
    * Update--Put/Post/Patch
    * Delete--Delete
 5. Mention three tools we can use to make AJAX requests.
+   * Fetch API, jQuery, and Axios
