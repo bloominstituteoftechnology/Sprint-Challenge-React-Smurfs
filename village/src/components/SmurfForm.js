@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import './SmurfForm.css'
 
 class SmurfForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      
+      name: '',
+      age: '',
+      height: ''
     }
   }
 
@@ -25,6 +28,7 @@ class SmurfForm extends Component {
   }
 
   handleInputChange = e => {
+    console.log("STATE", this.state)
     this.setState({ [e.target.name]: e.target.value });
   };
 
