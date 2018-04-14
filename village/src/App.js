@@ -17,6 +17,14 @@ class App extends Component {
     this.setState({ smurfs: data });
   }
 
+  deleteFromState = data => {
+    let smurfs = this.state.smurfs;
+
+    this.setState({
+      smurfs: smurfs.filter(smurf => smurf.id !== data.id)
+    });
+  }
+
   componentDidMount() {
     axios.get('http://localhost:3333/smurfs')
       .then(response => this.setState({ smurfs: response.data }))
@@ -26,8 +34,13 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <SmurfForm stateHandler={this.updateState}/>
-        <Smurfs smurfs={this.state.smurfs}/>
+        <SmurfForm 
+          stateHandler={this.updateState}
+        />
+        <Smurfs 
+          smurfs={this.state.smurfs}
+          stateHandler={this.deleteFromState}
+        />
       </div>
     );
   }

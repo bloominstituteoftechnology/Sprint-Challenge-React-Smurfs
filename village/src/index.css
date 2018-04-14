@@ -18,3 +18,15 @@ body {
   list-style-type: none;
   margin: 1% 1%;
 }
+
+.smurf-button:after {
+  display: inline-block;
+  content: "\00d7";
+  color: red;
+  border: 1px solid black;
+  width: 20px;
+}
+
+.smurf-button:hover {
+  background-color: black;
+}
