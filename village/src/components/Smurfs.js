@@ -1,8 +1,28 @@
 import React, { Component } from 'react';
 
-import Smurf from './Smurf';
 
-class Smurfs extends Component {
+import Smurf from './Smurf';
+import axios from 'axios';
+
+export default class Smurfs extends Component {
+  constructor() {
+    super();
+    this.state = {
+      Smurfs:[]
+    }
+  }
+
+  componentDidMount() {
+      this.fetchSmurfs()
+  }
+
+  fetchSmurfs = () => {
+    axios.get('http://localhost:3333/smurfs')
+    .then(response => {
+      this.setState({ Smurfs: response.data })
+    })
+    .catch(err => console.log(err))
+  }
   render() {
     return (
       <div className="Smurfs">
@@ -24,5 +44,3 @@ class Smurfs extends Component {
     );
   }
 }
-
-export default Smurfs;

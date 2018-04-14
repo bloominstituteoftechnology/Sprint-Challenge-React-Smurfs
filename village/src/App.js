@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import './App.css';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
+import Smurf from './components/Smurf';
 
 class App extends Component {
   // add any needed code to ensure that the smurfs collection exists on state and it has data coming from the server
@@ -13,6 +14,7 @@ class App extends Component {
       <div className="App">
         <SmurfForm />
         <Smurfs />
+        <Smurf />
       </div>
     );
   }
