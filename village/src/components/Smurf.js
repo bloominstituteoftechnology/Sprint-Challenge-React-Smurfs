@@ -6,9 +6,7 @@ class Smurf extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			name: "",
-			height: "",
-			age: ""
+			smurf: 0
 		};
 	}
 	componentDidMount() {

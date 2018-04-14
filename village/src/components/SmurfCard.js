@@ -6,7 +6,9 @@ class SmurfCard extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			smurf: 0
+			name: "",
+			height: "",
+			age: ""
 		};
 	}
 	// Event Handlers
