@@ -9,23 +9,33 @@ class SmurfCard extends React.Component {
 			smurf: 0
 		};
 	}
-
-	componentDidMount() {
-		const id = this.props.match.params.id;
-		this.fetchSmurf(id);
-	}
-	// Get request
-	fetchSmurf = id => {
+	// Event Handlers
+	handleNewInput = event => {
+		this.setState({ [event.target.name]: event.target.value });
+	};
+	// Delete request
+	deleteSmurf = id => {
 		axios
-			.get(`http://localhost:3333/smurfs/`)
-			.then(response => this.setState({ smurf: response.data[id] }))
+			.delete(`http://localhost:3333/smurfs/${id}`)
+			.then(response => this.props.fetchSmurfs())
 			.catch(error => console.error(error));
 	};
-	componentWillReceiveNewProps(newProps) {
-		if (this.props.match.params.id !== newProps.match.params.id) {
-			this.fetchSmurf(newProps.match.params.id);
+	// Put Request
+	updateSmurf = id => {
+		const smurf = {};
+		if (this.state.height !== "") {
+			smurf.height = this.state.height;
 		}
-	}
+		if (this.state.age !== "") {
+			smurf.age = this.state.age;
+		}
+		console.log("update", smurf);
+		axios
+			.put(`http://localhost:3333/smurfs/${id}`, smurf)
+			.then(response => this.props.fetchSmurfs())
+			.catch(error => console.error(error));
+		this.setState({ height: "", age: "" });
+	};
 
 	render() {
 		return (
