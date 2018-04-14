@@ -29,13 +29,35 @@ class SmurfCard extends React.Component {
 
 	render() {
 		return (
-			<Smurf
-				name={this.state.smurf.name}
-				id={this.state.smurf.id}
-				age={this.state.smurf.age}
-				height={this.state.smurf.height}
-				key={this.state.smurf.id}
-			/>
+			<div className="Smurf">
+				<Link to={`/smurfs/${this.props.id}`}>
+					<h3>{this.props.name}</h3>
+				</Link>
+				<strong>{this.props.height} cm tall</strong>
+				<p>{this.props.age} smurf years old</p>
+				<form>
+					<input
+						type="text"
+						name="height"
+						value={this.state.height}
+						onChange={this.handleNewInput}
+						placeholder="Height"
+					/>
+					<input
+						type="text"
+						name="age"
+						value={this.state.age}
+						onChange={this.handleNewInput}
+						placeholder="Age"
+					/>
+					<button type="submit" onClick={() => this.deleteSmurf(this.props.id)}>
+						Delete
+					</button>
+					<button type="submit" onClick={() => this.updateSmurf(this.props.id)}>
+						Update
+					</button>
+				</form>
+			</div>
 		);
 	}
 }
