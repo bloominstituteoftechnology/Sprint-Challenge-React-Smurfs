@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-
 import './App.css';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
@@ -36,7 +35,7 @@ class App extends Component {
   handleDelete = id => {
     let smurfsNow = this.state.smurfs;
     axios.delete(`http://localhost:3333/smurfs/${id}`)
-    .then(response => this.setState({smurfs: smurfsNow.filter(smurf => smurf.id !== id)}))
+    .then(this.setState({smurfs: smurfsNow.filter(smurf => smurf.id !== id)}))
     .catch(error => {
       console.error('Server Error', error)
     });
