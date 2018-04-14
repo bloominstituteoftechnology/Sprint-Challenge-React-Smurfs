@@ -7,7 +7,7 @@ class SmurfEdit extends Component {
     this.state = {
       name: "",
       age: "",
-      email: "",
+      height: "",
       showEditSmurf: false
     };
   }
@@ -22,11 +22,28 @@ class SmurfEdit extends Component {
   };
 
   editSmurf = id => {
+    const smurf = {};
+    if (this.state.name !== "") {
+      smurf.name = this.state.name;
+    }
+    if (this.state.age !== "") {
+      smurf.age = this.state.age;
+    }
+    if (this.state.height !== "") {
+      smurf.height = this.state.height;
+    }
     axios
-      .put(`http://localhost:3333/smurfs/${id}`)
+      .put(`http://localhost:3333/smurfs/${id}`, smurf)
       .then(response => {
         console.log(response);
-        this.getSmurfs();
+        this.setState({
+          //reset everything after request has gone thru
+          showUpdateFriend: false,
+          name: "",
+          age: "",
+          email: ""
+        });
+        this.props.getSmurfs();
       })
       .catch(err => {
         console.log(err);
@@ -41,23 +58,24 @@ class SmurfEdit extends Component {
         {this.showEditSmurf ? (
           <div>
             <input
-              type="text"
-              placeholder="Name"
-              onChnage={this.handleInputChange}
+              onChange={this.handleInputChange}
+              placeholder="name"
               value={this.state.name}
+              name="name"
             />
             <input
-              type="text"
+              onChange={this.handleInputChange}
               placeholder="age"
-              onChnage={this.handleInputChange}
               value={this.state.age}
+              name="age"
             />
             <input
-              type="text"
+              onChange={this.handleInputChange}
               placeholder="height"
-              onChnage={this.handleInputChange}
               value={this.state.height}
+              name="height"
             />
+            <button onClick={() => this.editSmurf(this.props.id)}>Save</button>
           </div>
         ) : null}
       </div>

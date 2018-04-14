@@ -13,7 +13,7 @@ class Pathfinder extends Component {
       smurfs: [],
       name: "",
       age: "",
-      height: "",
+      height: ""
     };
   }
 
@@ -60,7 +60,11 @@ class Pathfinder extends Component {
           getSmurfs={this.getSmurfs}
         />
         {/* read(Get) mapping of*/}
-        <Smurfs smurfs={this.state.smurfs} deleteSmurf={this.deleteSmurf} />
+        <Smurfs
+          smurfs={this.state.smurfs}
+          deleteSmurf={this.deleteSmurf}
+          getSmurfs={this.getSmurfs}
+        />
       </div>
     );
   }

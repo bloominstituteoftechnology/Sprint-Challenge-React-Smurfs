@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
-import Smurf from './Smurf';
+import Smurf from "./Smurf";
 
 class Smurfs extends Component {
   // constructor(props) {
@@ -8,15 +8,15 @@ class Smurfs extends Component {
   // }
 
   render() {
-    // console.log(this.props.deleteSmurf); // check if the props are working
+    // console.log(this.props.getSmurfs); // check if the props are working
     return (
-
       <div className="Smurfs">
         <h1>Smurf Village</h1>
         <ul>
           {this.props.smurfs.map(smurf => {
             return (
               <Smurf
+                getSmurfs={this.props.getSmurfs}
                 deleteSmurf={this.props.deleteSmurf}
                 name={smurf.name}
                 id={smurf.id}
