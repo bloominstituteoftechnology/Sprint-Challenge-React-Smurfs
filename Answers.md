@@ -7,5 +7,9 @@
    * Hyper Text Transfer Protocol
 3. What does CRUD stand for?
    * Create, Read, Update, Delete
-4. Which HTTP methods can be mapped to the CRUD acronym that we use when interfacing with APIs/Servers.
+4. Which HTTP methods can be mapped to the CRUD acronym that we use when interfacing with APIs/Servers?
+   * Create--Put/Post
+   * Read--Get
+   * Update--Put/Post/Patch
+   * Delete--Delete
 5. Mention three tools we can use to make AJAX requests.
