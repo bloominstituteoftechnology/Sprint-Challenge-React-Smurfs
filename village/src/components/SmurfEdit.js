@@ -44,6 +44,7 @@ class SmurfEdit extends Component {
           email: ""
         });
         this.props.getSmurfs();
+        this.showEditSmurf();
       })
       .catch(err => {
         console.log(err);
