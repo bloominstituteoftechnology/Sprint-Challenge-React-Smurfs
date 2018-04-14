@@ -85,9 +85,6 @@ class SmurfForm extends Component {
 
         </form>
         <Smurfs smurfs={this.state.lists} getAJAX={this.getAJAX} />      
-        {this.state.lists.map((smurf,i) => (
-          <EditSmurf key={smurf + i} smurf={smurf} getAJAX={this.getAJAX} />
-        ))}
 
       </div>
     );
