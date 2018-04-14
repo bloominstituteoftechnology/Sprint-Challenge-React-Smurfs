@@ -18,6 +18,10 @@ class App extends Component {
   // You'll need to make sure you have the right properties on state and pass them down to props.
 
   componentDidMount() {
+    this.fetchSmurfs();
+  }
+
+  fetchSmurfs() {
     axios.get('http://localhost:3333/smurfs')
     .then(response => this.setState({ smurfs: response.data }))
     .catch(error => {
@@ -29,11 +33,20 @@ class App extends Component {
     this.setState({ smurfs: newSmurfs})
   }
 
+  handleDelete = id => {
+    let smurfsNow = this.state.smurfs;
+    axios.delete(`http://localhost:3333/smurfs/${id}`)
+    .then(this.fetchSmurfs())
+    .catch(error => {
+      console.error('Server Error', error)
+    });
+  }
+
   render() {
     return (
       <div className="App">
         <Route exact path='/' render={ routeProps =>
-        <Smurfs {...routeProps} smurfs={this.state.smurfs}/> } />
+        <Smurfs {...routeProps} smurfs={this.state.smurfs} handleDelete={this.handleDelete}/> } />
         <Route exact path='/' render={ routeProps =>
         <SmurfForm {...routeProps} handleNewSmurf={this.handleNewSmurf}/> } />
       </div>

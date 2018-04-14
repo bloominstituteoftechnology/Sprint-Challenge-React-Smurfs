@@ -1,13 +1,21 @@
-import React from 'react';
+import React, {Component} from 'react';
 
-const Smurf = props => {
-  return (
-    <div className="Smurf">
-      <h3>{props.name}</h3>
-      <strong>{props.height} tall</strong>
-      <p>{props.age} smurf years old</p>
-    </div>
-  );
-};
+class Smurf extends Component {
+
+  handleClick = () => {
+    this.props.handleDelete(this.props.id);
+  };
+
+  render() {
+    return (
+      <div className="Smurf">
+        <h3>{this.props.name}</h3>
+        <strong>{this.props.height} tall</strong>
+        <p>{this.props.age} smurf years old</p>
+        <button onClick={this.handleClick}>Delete {`${this.props.name}`}</button>
+      </div>
+    );
+  };
+  }
 
 export default Smurf;
