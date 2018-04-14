@@ -55,7 +55,7 @@ class SmurfEdit extends Component {
       <div>
         <button onClick={this.showEditSmurf}>Edit Smurf Profile</button>
 
-        {this.showEditSmurf ? (
+        {this.state.showEditSmurf ? (
           <div>
             <input
               onChange={this.handleInputChange}
