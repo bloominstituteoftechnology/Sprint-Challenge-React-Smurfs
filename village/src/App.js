@@ -11,8 +11,8 @@ class App extends Component {
 constructor(props){
   super(props);
   this.state = {
-    smurfs: []
-  }
+    smurfs: null
+  };
 }
 
 componentDidMount = () => {
@@ -28,6 +28,7 @@ componentDidMount = () => {
 }
 
   render() {
+    if (!this.state.smurfs) return <div>Loading Smurfs...</div>
     return (
       <div className="App">
         <SmurfForm />
