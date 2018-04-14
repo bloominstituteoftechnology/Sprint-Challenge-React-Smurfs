@@ -5,6 +5,7 @@ import "./App.css";
 import SmurfForm from "./components/SmurfForm";
 import Smurfs from "./components/Smurfs";
 import SmurfCard from "./components/SmurfCard";
+import Smurf from "./components/Smurf";
 
 class App extends Component {
   constructor() {
