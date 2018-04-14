@@ -4,6 +4,7 @@ import axios from "axios";
 import "./App.css";
 import SmurfForm from "./components/SmurfForm";
 import Smurfs from "./components/Smurfs";
+import Smurf from "./components/Smurf";
 
 class App extends Component {
   // add any needed code to ensure that the smurfs collection exists on state and it has data coming from the server
@@ -29,6 +30,18 @@ class App extends Component {
       });
   }
 
+  deleteSmurf = id => {
+    axios
+      .delete(`http://localhost:3333/smurfs/${id}`)
+      .then(res => {
+        console.log(res);
+        this.getSmurfList();
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  };
+
   updateSmurfList = arr => this.setState({ smurfs: arr });
 
   componentDidMount() {
@@ -36,6 +49,7 @@ class App extends Component {
   }
 
   render() {
+    const { smurfs } = this.state;
     return (
       <div className="App">
         <Route
@@ -45,7 +59,7 @@ class App extends Component {
             return (
               <div>
                 <SmurfForm updateSmurfList={() => this.componentDidMount()} />
-                <Smurfs {...props} smurfs={this.state.smurfs} />
+                <Smurfs deleteSmurf={this.deleteSmurf} smurfs={smurfs} />
               </div>
             );
           }}
@@ -53,7 +67,13 @@ class App extends Component {
         <Route
           path="/smurfs/:id"
           render={props => {
-            return <Smurf {...props} smurfs={this.state.smurfs} />;
+            return (
+              <Smurf
+                {...props}
+                deleteSmurf={this.deleteSmurf}
+                smurfs={this.state.smurfs}
+              />
+            );
           }}
         />
       </div>
