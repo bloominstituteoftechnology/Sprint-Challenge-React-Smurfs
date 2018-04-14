@@ -1,7 +1,6 @@
 import React from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import Smurf from "./Smurf";
 
 class SmurfCard extends React.Component {
 	constructor(props) {
@@ -43,11 +42,11 @@ class SmurfCard extends React.Component {
 	render() {
 		return (
 			<div className="Smurf">
-				<Link to={`/smurfs/${this.props.id}`}>
-					<h3>{this.props.name}</h3>
+				<Link to={`/smurfs/${this.props.smurf.id}`}>
+					<h3>{this.props.smurf.name}</h3>
 				</Link>
-				<strong>{this.props.height} cm tall</strong>
-				<p>{this.props.age} smurf years old</p>
+				<strong>{this.props.smurf.height} cm tall</strong>
+				<p>{this.props.smurf.age} smurf years old</p>
 				<form>
 					<input
 						type="text"
@@ -63,10 +62,16 @@ class SmurfCard extends React.Component {
 						onChange={this.handleNewInput}
 						placeholder="Age"
 					/>
-					<button type="submit" onClick={() => this.deleteSmurf(this.props.id)}>
+					<button
+						type="submit"
+						onClick={() => this.deleteSmurf(this.props.smurf.id)}
+					>
 						Delete
 					</button>
-					<button type="submit" onClick={() => this.updateSmurf(this.props.id)}>
+					<button
+						type="submit"
+						onClick={() => this.updateSmurf(this.props.smurf.id)}
+					>
 						Update
 					</button>
 				</form>

@@ -4,7 +4,6 @@ import { Route, Switch } from "react-router-dom";
 import "./App.css";
 import SmurfForm from "./components/SmurfForm";
 import Smurfs from "./components/Smurfs";
-import SmurfCard from "./components/SmurfCard";
 import Smurf from "./components/Smurf";
 
 class App extends Component {
@@ -22,7 +21,6 @@ class App extends Component {
   fetchSmurfs() {
     axios
       .get("http://localhost:3333/smurfs")
-      // .then(response => console.log(response))
       .then(response => {
         this.setState({ smurfs: response.data });
       })

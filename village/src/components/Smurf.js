@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import SmurfCard from "./SmurfCard";
 
 class Smurf extends React.Component {
 	constructor(props) {
@@ -27,16 +27,7 @@ class Smurf extends React.Component {
 	}
 
 	render() {
-		// console.log(this.props.id);
-		return (
-			<Smurf
-				name={this.state.smurf.name}
-				id={this.state.smurf.id}
-				age={this.state.smurf.age}
-				height={this.state.smurf.height}
-				key={this.state.smurf.id}
-			/>
-		);
+		return <SmurfCard smurf={this.state.smurf} />;
 	}
 }
 
