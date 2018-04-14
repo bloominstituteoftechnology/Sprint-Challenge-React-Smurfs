@@ -4,11 +4,12 @@ import Smurf from './Smurf';
 
 class Smurfs extends Component {
   render() {
+    const { smurfs } = this.props
     return (
       <div className="Smurfs">
         <h1>Smurf Village</h1>
         <ul>
-          {this.props.smurfs.map(smurf => {
+          {smurfs.map(smurf => {
             return (
               <Smurf
                 name={smurf.name}
