@@ -3,6 +3,9 @@ import axios from 'axios';
 import './App.css';
 import SmurfForm from './components/SmurfForm';
 import Smurf from './components/Smurf';
+import VillageHome from './components/Village/Village';
+import { Route } from 'react-router-dom';
+import WelcomePage from './components/WelcomePage/WelcomePage';
 
 class App extends Component {
   constructor(props) {
@@ -26,9 +29,8 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <img src="https://vignette.wikia.nocookie.net/roblox/images/7/72/Smurfs_The_Lost_Village_Logo.png/revision/latest?cb=20180123225720" className="SmurfTitle"/>
-        <SmurfForm getSmurfs={this.getSmurfs} />
-        {this.state.smurfs.map(smurf => <Smurf {...{smurf: smurf, getSmurfs: this.getSmurfs}} key={smurf.id} />)}
+        <Route exact path="/" component={WelcomePage} />
+        <Route path="/village" render={props => <VillageHome {...{smurfs: this.state.smurfs, getSmurfs: this.getSmurfs}}/>} />
       </div>
     );
   }
