@@ -24,10 +24,14 @@ class App extends Component {
     });
   }
 
+  handleNewSmurf = newSmurfs => {
+    this.setState({ smurfs: newSmurfs})
+  }
+
   render() {
     return (
       <div className="App">
-        <SmurfForm />
+        <SmurfForm handleNewSmurf={this.handleNewSmurf} />
         <Smurfs smurfs={this.state.smurfs} />
       </div>
     );
