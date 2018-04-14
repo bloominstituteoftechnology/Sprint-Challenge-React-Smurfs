@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { Container, Row, Col, Button } from 'reactstrap';
+import { Container, Row, Col } from 'reactstrap';
 
 class SmurfForm extends Component {
   constructor(props) {
@@ -32,7 +32,7 @@ class SmurfForm extends Component {
       <Container className="col-3 SmurfForm">
         <Row className="SmurfForm--top">
           <input
-            className="col-12"
+            className="col-12 addSmurfInput"
             onChange={this.handleInputChange}
             placeholder="name"
             value={this.state.name}
@@ -41,21 +41,21 @@ class SmurfForm extends Component {
         </Row>
         <Row className="SmurfForm--mid">
           <input
-            className="col-5"
+            className="col-5 addSmurfInput"
             onChange={this.handleInputChange}
             placeholder="age"
             value={this.state.age}
             name="age"
           />
           <input
-            className="col-5"
+            className="col-5 addSmurfInput"
             onChange={this.handleInputChange}
             placeholder="height"
             value={this.state.height}
             name="height"
           />
         </Row>
-        <Button type="submit" onClick={this.addSmurf}>Add to the village</Button>
+        <button className="Button" type="submit" onClick={this.addSmurf}>Add to the village</button>
       </Container>
     );
   }

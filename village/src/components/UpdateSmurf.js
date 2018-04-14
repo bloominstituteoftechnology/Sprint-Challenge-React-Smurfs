@@ -58,7 +58,7 @@ class UpdateSmurf extends Component {
             />
           </ModalBody>
           <ModalFooter>
-            <Button color="danger" onClick={() => this.updateSmurf(this.props.smurf.id)}>Update</Button>{' '}
+            <Button color="info" onClick={() => this.updateSmurf(this.props.smurf.id)}>Update</Button>{' '}
           </ModalFooter>
         </Modal>
       </div>

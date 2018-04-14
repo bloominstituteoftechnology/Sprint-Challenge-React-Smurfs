@@ -3,7 +3,8 @@
 }
 
 .SmurfForm {
-  margin: 2% auto;
+  margin: 0 auto 2%;
+  padding-top: 2%;
   display: flex;
   flex-flow: column;
 }
@@ -20,6 +21,24 @@
 
 .SmurfCard {
   margin: 20px auto;
+  background-color: #5FC2FF;
+  border: 3px solid #09527F;
+  opacity: 0.85;
+}
+
+.SmurfCard__name {
+  font-weight: 600;
+}
+
+.SmurfButton {
+  opacity: 0.7;
+  background-color: black;
+  border: 2px solid white;
+}
+
+.SmurfButton:hover {
+  background-color: black;
+  filter: invert(100%);
 }
 
 .SmurfAttr {
@@ -32,8 +51,8 @@
 
 .Card__buttons {
   display: flex;
-  justify-content: space-around;
-  width: 20%;
+  justify-content: space-between;
+  width: 30%;
   margin: auto;
 }
 
@@ -45,4 +64,27 @@
 
 .Module__middleInput {
   margin: 5px 0;
+}
+
+.Button {
+  background-color: #5FC2FF;
+  color: black;
+  border: 2px solid lightgray;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 10px;
+  width: 100%;
+  margin: auto;
+  margin-bottom: 3%;
+}
+
+.Button:hover {
+  background-color: lightgray;
+  border: 2px solid #5FC2FF;
+}
+
+.addSmurfInput {
+  background-color: #D6F0FF;
+  font-weight: 600;
+  border-radius: 10px;
 }

@@ -30,14 +30,14 @@ class Smurf extends Component {
       <div className="Smurf">
         <Card className="col-4 SmurfCard">
           <CardBody>
-            <CardTitle>{this.props.smurf.name}</CardTitle>
+            <CardTitle className="SmurfCard__name">{this.props.smurf.name}</CardTitle>
             <div className="SmurfAttr">
               <CardSubtitle>{this.props.smurf.height} tall</CardSubtitle>
               <CardSubtitle>{this.props.smurf.age} smurf years old</CardSubtitle>
             </div>
             <div className="Card__buttons">
-              <Button onClick={() => this.deleteSmurf(this.props.smurf.id)}><FaTrash /></Button>
-              <Button onClick={() => this.toggleState()}><FaRefresh /></Button>
+              <Button className="SmurfButton" onClick={() => this.deleteSmurf(this.props.smurf.id)}><FaTrash /></Button>
+              <Button className="SmurfButton" onClick={() => this.toggleState()}><FaRefresh /></Button>
             </div>
           </CardBody>
         </Card>
