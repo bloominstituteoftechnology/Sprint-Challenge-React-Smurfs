@@ -5,10 +5,9 @@ import axios from 'axios';
 
 class Smurfs extends Component {
 
-  handleButtonClick = id => {
-    axios.delete(`http://localhost:3333/smurfs/${id}`)
-      .then(response => this.props.stateHandler(response.data.SmurfRemoved))
-      .catch(error => console.log(error));
+  handleButtonClick = async id => {
+    const response = await axios.delete(`http://localhost:3333/smurfs/${id}`)
+    this.props.stateHandler(response.data.SmurfRemoved);
   }
 
   render() {

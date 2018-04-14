@@ -11,11 +11,10 @@ class SmurfForm extends Component {
     };
   }
 
-  addSmurf = event => {
+  addSmurf = async event => {
     event.preventDefault();
-    axios.post('http://localhost:3333/smurfs', this.state)
-      .then(response => this.props.stateHandler(response.data))
-      .catch(error => console.log(error));
+    const response = await axios.post('http://localhost:3333/smurfs', this.state)
+    this.props.stateHandler(response.data)
 
     this.setState({
       name: '',

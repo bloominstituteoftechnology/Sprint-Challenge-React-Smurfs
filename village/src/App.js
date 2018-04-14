@@ -19,7 +19,6 @@ class App extends Component {
 
   deleteFromState = data => {
     let smurfs = this.state.smurfs;
-
     this.setState({
       smurfs: smurfs.filter(smurf => smurf.id !== data.id)
     });
@@ -27,7 +26,7 @@ class App extends Component {
 
   componentDidMount() {
     axios.get('http://localhost:3333/smurfs')
-      .then(response => this.setState({ smurfs: response.data }))
+      .then(response => this.updateState(response.data))
       .catch(error => console.log(error));
   }
 
