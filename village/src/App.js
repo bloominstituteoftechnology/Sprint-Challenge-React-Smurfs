@@ -4,7 +4,7 @@ import './App.css';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
 import axios from 'axios';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom'; 
+import { Route } from 'react-router-dom'; 
 
 class App extends Component {
   constructor() {
@@ -34,8 +34,9 @@ class App extends Component {
   }
 
   handleDelete = id => {
+    let smurfsNow = this.state.smurfs;
     axios.delete(`http://localhost:3333/smurfs/${id}`)
-    .then(this.fetchSmurfs())
+    .then(response => this.setState({smurfs: smurfsNow.filter(smurf => smurf.id !== id)}))
     .catch(error => {
       console.error('Server Error', error)
     });
