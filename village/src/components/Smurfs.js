@@ -10,15 +10,7 @@ class Smurfs extends Component {
         <ul>
           {this.props.smurfs.map(smurf => {
             return (
-          {/*render list of SmurfCards*/}
-              <SmurfCard
-                name={smurf.name}
-                id={smurf.id}
-                age={smurf.age}
-                height={smurf.height}
-                key={smurf.id}
-                fetchSmurfs={() => this.fetchSmurfs()}
-              />
+              <SmurfCard smurf={smurf} fetchSmurfs={() => this.fetchSmurfs()} />
             );
           })}
         </ul>

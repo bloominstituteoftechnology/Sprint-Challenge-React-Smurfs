@@ -47,7 +47,7 @@ class App extends Component {
               );
             }}
           />
-          <Route path="/smurfs/:id" component={SmurfCard} />
+          <Route path="/smurfs/:id" component={Smurf} />
           <Route
             component={() => {
               return <h1>Nothing to see here!</h1>;
