@@ -34,7 +34,6 @@ class App extends Component {
   }
 
   handleDelete = id => {
-    let smurfsNow = this.state.smurfs;
     axios.delete(`http://localhost:3333/smurfs/${id}`)
     .then(this.fetchSmurfs())
     .catch(error => {
