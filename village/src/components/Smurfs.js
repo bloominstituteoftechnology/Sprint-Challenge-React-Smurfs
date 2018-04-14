@@ -8,15 +8,20 @@ class Smurfs extends Component {
       <div className="Smurfs">
         <h1>Smurf Village</h1>
         <ul>
-          {this.props.smurfs.map(smurf => {
+          {this.props.smurfs.map((smurf, index) => {
             return (
-              <Smurf
-                name={smurf.name}
-                id={smurf.id}
-                age={smurf.age}
-                height={smurf.height}
-                key={smurf.id}
-              />
+              <div key={index}>
+                <Smurf
+                  name={smurf.name}
+                  id={smurf.id}
+                  age={smurf.age}
+                  height={smurf.height}
+                  key={smurf.id}
+                />
+                <form onSubmit={() => this.props.cb(smurf.id, index)}>
+                  <button type="submit">Remove smurf from village</button>
+                </form>
+              </div>
             );
           })}
         </ul>
