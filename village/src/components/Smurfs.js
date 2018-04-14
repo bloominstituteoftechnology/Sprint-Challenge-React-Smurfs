@@ -23,7 +23,7 @@ function smurfs(props) {
 class Smurfs extends Component {
   // add any needed code to ensure that the smurfs collection exists on state and it has data coming from the server
   state={ 
-    smurfs:[
+    smurf:[
     {
     name: '',
     age: '',
@@ -36,12 +36,12 @@ class Smurfs extends Component {
       <div className="Smurfs">
         <h1>Smurf Village</h1>
         <ul>
-          {this.state.smurfs.map((smurfs) => {
+          {this.state.smurf.map((smurf) => {
             return ( 
-              <li key={smurfs.id}>
-              {smurfs.name} 
-              {smurfs.age} 
-              {smurfs.height} 
+              <li key={smurf.id}>
+              {smurf.name} 
+              {smurf.age} 
+              {smurf.height} 
               </li>
             );
           })}

@@ -3,24 +3,21 @@ import axios from 'axios';
 
 class SmurfForm extends Component {
 
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {
-  //     name: '',
-  //     age: '',
-  //     height: ''
-  //   };
-  //   this.addSmurf = this.addSmurf.bind(this);
-  //   // this.removeSmurf = this.removeSmurf.bind(this);
-  //   this.updateName = this.updateName.bind(this);
-  //   this.updateAge = this.updateAge.bind(this);
-  //   this.updateHeight = this.updateHeight.bind(this);
-  // }
-state = {
-  name: '',
-  age: '',
-  height: ''
-}
+  constructor(props) {
+    super(props);
+    this.state = {
+      key: 0,
+      name: '',
+      age: '',
+      height: ''
+    };
+    this.addSmurf = this.addSmurf.bind(this);
+    // this.removeSmurf = this.removeSmurf.bind(this);
+    this.updateName = this.updateName.bind(this);
+    this.updateAge = this.updateAge.bind(this);
+    this.updateHeight = this.updateHeight.bind(this);
+  }
+
   // given functions: add/update (Create/Update)
   // missing functions: Read/Delete
 
@@ -30,22 +27,22 @@ state = {
     return (
       <div className="SmurfForm">
         <form onSubmit={this.addSmurf}>
-          <input
+          <input className="InputElement"
             onChange={this.updateName}
             placeholder="name"
             value={this.state.name}
           />
-          <input
+          <input  className="InputElement"
             onChange={this.updateAge}
             placeholder="age"
             value={this.state.age}
           />
-          <input
+          <input  className="InputElement"
             onChange={this.updateHeight}
             placeholder="height"
             value={this.state.height}
           />
-          <button type="submit">Add to the village</button>
+          <button className="btn-NavButton" type="submit">Add to the village</button>
         </form>
       </div>
     );
@@ -54,8 +51,6 @@ state = {
   addSmurf(event) {  // equivalent to submitHandler in FriendForm.js
     event.preventDefault();
     // add code to create the smurf using the api
-    
-  
     axios
       .post('http://localhost:3333/smurfs', this.state)
       .then(response => {

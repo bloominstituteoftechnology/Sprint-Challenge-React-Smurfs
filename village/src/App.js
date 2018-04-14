@@ -27,6 +27,11 @@ class App extends Component {
 
   componentDidMount() {
     this.loadSmurfs();
+    this.addSmurf();
+    this.removeSmurf();
+    // this.updateName();
+    // this.updateAge();
+    // this.updateHeight();
   }
 
   //Get the 411 on smurfs
@@ -40,6 +45,20 @@ class App extends Component {
     })
     .catch(error => {
       console.error('error getting data');
+    });
+  }
+
+  //Add a smurf to the village
+  addSmurf = () => {
+    axios
+    .post('http://localhost:3333/smurfForm')
+    .then(response => {
+      this.setState({
+        smurfs: response.data,
+      });
+    })
+    .catch(error => {
+      console.error('ERROR ADDING SMURF (error getting data)');
     });
   }
 
