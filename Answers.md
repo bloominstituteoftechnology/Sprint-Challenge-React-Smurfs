@@ -32,7 +32,7 @@ A: In the context of data management, CRUD (C_reate R_ead U_pdate D_elete) repre
 4. Which HTTP methods can be mapped to the CRUD acronym that we use when interfacing with APIs/Servers.
 * C_reate = POST
 * R_ead = GET
-* U_date = PUT
+* U_pdate = PUT
 * D_elete = DELETE
 
 5. Mention three tools we can use to make AJAX requests.
