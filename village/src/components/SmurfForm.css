@@ -1,4 +1,8 @@
 .SmurfForm {
+    border: 2px solid blue;
+    width: 100%;
+    max-width: 275px;
+    margin: 0 auto;
     padding: 1%;
 }
 input {

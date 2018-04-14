@@ -1,0 +1,13 @@
+.Smurf {
+    border: 1px solid white;
+    width: 100%;
+    max-width: 375px;
+    margin: 0 242px;
+    background: blue;
+    color: white;
+}
+
+h1 {
+    color: blue;
+    font-size: 30px;
+}
