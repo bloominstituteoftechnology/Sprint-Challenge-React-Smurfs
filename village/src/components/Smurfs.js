@@ -1,6 +1,5 @@
-import React, { Component } from 'react';
-
-import Smurf from './Smurf';
+import React, { Component } from "react";
+import SmurfCard from "./SmurfCard";
 
 class Smurfs extends Component {
   render() {
@@ -10,13 +9,7 @@ class Smurfs extends Component {
         <ul>
           {this.props.smurfs.map(smurf => {
             return (
-              <Smurf
-                name={smurf.name}
-                id={smurf.id}
-                age={smurf.age}
-                height={smurf.height}
-                key={smurf.id}
-              />
+              <SmurfCard smurf={smurf} fetchSmurfs={() => this.fetchSmurfs()} />
             );
           })}
         </ul>
