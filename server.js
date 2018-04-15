@@ -1,11 +1,21 @@
 const express = require('express');  // loads Node/Express library
 const bodyParser = require('body-parser'); // loads body-parser 
-const cors = require('cors');  // CORS is a node.js package for providing a Connect/Express middleware that can be used to enable CORS with various options.  See NOTES below  
+
+// ☞ a7d74481-891d-4bd4-945f-f99509fb589c
+const cors = require('cors');  // 'cors'  provides a Connect/Express middleware that can be used to enable CORS with various options.   
 const port = 3333;  // app is running on localhost:3333
 
 const server = express();
-server.use(bodyParser.json());
+let nextId = 1;
+
+function getNewId() {
+  return nextId++;
+}
+
+let smurfs = [];  // creates blank array
+
 server.use(cors());
+server.use(bodyParser.json());
 
 const sendUserError = (msg, res) => {
   res.status(422);
@@ -13,7 +23,6 @@ const sendUserError = (msg, res) => {
   return;
 };
 
-let smurfs = [];  // creates blank array
 
 
 server.get('/smurfs', (req, res) => {
@@ -81,7 +90,3 @@ server.listen(port, err => {
 });
 
 
-/* NOTES
-
-CORS -- Cross-Origin Resource Sharing (CORS) is a W3C spec that allows cross-domain communication from the browser.  CORS is used to get around the browsers same-origin policy. For security purposes, a browser won't load requests for resources to other domains when those requests are initiated by scripts.
-*/
