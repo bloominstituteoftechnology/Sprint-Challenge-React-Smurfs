@@ -6,6 +6,7 @@ const cors = require('cors');  // 'cors'  provides a Connect/Express middleware 
 const port = 3333;  // app is running on localhost:3333
 
 const server = express();
+let smurfId = 0;
 let nextId = 1;
 
 function getNewId() {
@@ -23,12 +24,9 @@ const sendUserError = (msg, res) => {
   return;
 };
 
-
-
 server.get('/smurfs', (req, res) => {
-  res.json(smurfs);
+  res.status(200).json(smurfs);
 });
-let smurfId = 0;
 
 server.post('/smurfs', (req, res) => {
   const { name, age, height } = req.body;
