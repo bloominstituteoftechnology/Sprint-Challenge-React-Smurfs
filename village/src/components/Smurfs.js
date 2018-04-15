@@ -28,7 +28,7 @@ export default class Smurfs extends Component {
       <div className="Smurfs">
         <h1>Smurf Village</h1>
         <ul>
-          {this.props.smurfs.map(smurf => {
+          {this.state.Smurfs.map(smurf => {
             return (
               <Smurf
                 name={smurf.name}
