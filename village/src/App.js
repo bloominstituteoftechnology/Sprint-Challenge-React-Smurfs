@@ -32,7 +32,7 @@ class App extends Component {
   }
 
   deleteSmurf = id => {
-    axios.delete(`http://localhost:3333/smurfs${id}`)
+    axios.delete(`http://localhost:3333/smurfs/${id}`)
       .then(response => {
         this.fetch(); //this call allows for the list to be updated and smurf to be removed upon delete
       })
