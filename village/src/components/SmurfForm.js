@@ -1,25 +1,33 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
+import axios from "axios";
+// import { resolve } from "url";
 
 class SmurfForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: '',
-      age: '',
-      height: ''
+      name: "",
+      age: "",
+      height: ""
     };
   }
 
-  addSmurf = event => {
-    event.preventDefault();
-    // add code to create the smurf using the api
-
-    this.setState({
-      name: '',
-      age: '',
-      height: ''
-    });
-  }
+  addSmurf = e => {
+    e.preventDefault();
+    const { name, age, height } = this.state;
+    const newSmurf = { name, age, height };
+    axios
+      .post("http://localhost:3333/smurfs", newSmurf)
+      .then(res => {
+        console.log(res.data);
+        this.props.updateSmurf(res.data);
+        console.log(`Posted! ${res}`);
+      })
+      .catch(error => {
+        console.log(`You done smurfed up adding your Smurf! ${error}`);
+      });
+    this.setState({ name: "", age: "", height: "" });
+  };
 
   handleInputChange = e => {
     this.setState({ [e.target.name]: e.target.value });
@@ -37,16 +45,17 @@ class SmurfForm extends Component {
           />
           <input
             onChange={this.handleInputChange}
-            placeholder="age"
-            value={this.state.age}
-            name="age"
-          />
-          <input
-            onChange={this.handleInputChange}
             placeholder="height"
             value={this.state.height}
             name="height"
           />
+          <input
+            onChange={this.handleInputChange}
+            placeholder="age"
+            value={this.state.age}
+            name="age"
+          />
+
           <button type="submit">Add to the village</button>
         </form>
       </div>
