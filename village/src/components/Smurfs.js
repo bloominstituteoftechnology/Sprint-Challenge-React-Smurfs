@@ -1,51 +1,26 @@
-import React, { Component } from "react";
-// import axios from "axios";
-
 import Smurf from "./Smurf";
+import React from "react";
 
-class Smurfs extends Component {
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {
-  //     smurfs: []
-  //   };
-  // }
-
-  // componentDidMount() {
-  //   this.getSmurfs();
-  // }
-
-  // getSmurfs() {
-  //   axios
-  //     .get("http://localhost:3333/smurfs")
-  //     .then(response => {
-  //       console.log(response.data);
-  //       this.setState({ smurfs: response.data });
-  //     })
-  //     .catch(error => {
-  //       console.log(`You've been smurfed: ${error}`);
-  //     });
-  // }
-  render() {
-    return (
-      <div className="Smurfs">
-        <h1>Smurf Village</h1>
-        <ul>
-          {this.props.smurfs.map(smurf => {
-            return (
-              <Smurf
-                name={smurf.name}
-                id={smurf.id}
-                age={smurf.age}
-                height={smurf.height}
-                key={smurf.id}
-              />
-            );
-          })}
-        </ul>
-      </div>
-    );
-  }
-}
+const Smurfs = props => {
+  return (
+    <div className="Smurfs">
+      <h1>Smurf Village</h1>
+      <ul>
+        {props.smurfs.map(smurf => {
+          return (
+            <Smurf
+              name={smurf.name}
+              id={smurf.id}
+              age={smurf.age}
+              height={smurf.height}
+              key={smurf.id}
+              deleteSmurf={props.deleteSmurf}
+            />
+          );
+        })}
+      </ul>
+    </div>
+  );
+};
 
 export default Smurfs;

@@ -1,8 +1,10 @@
 import React, { Component } from "react";
+import { Route } from "react-router-dom";
 import axios from "axios";
 import "./App.css";
 import SmurfForm from "./components/SmurfForm";
 import Smurfs from "./components/Smurfs";
+import Smurf from "./components/Smurf";
 
 class App extends Component {
   constructor(props) {
@@ -16,31 +18,66 @@ class App extends Component {
     this.getSmurfs = this.getSmurfs.bind(this);
   }
 
-  componentDidMount() {
-    this.getSmurfs();
-  }
-
   getSmurfs() {
     axios
       .get("http://localhost:3333/smurfs")
       .then(response => {
-        console.log(response.data);
         this.setState({ smurfs: response.data });
-        console.log("Below set state");
+        console.log("Here it is");
       })
       .catch(error => {
-        console.log(`Error get Smurfs: ${error}`);
+        console.log(`Error getting Smurfs: ${error}`);
       });
   }
 
+  deleteSmurf = id => {
+    axios
+      .delete(`http://localhost:3333/smurfs/${id}`)
+      .then(res => {
+        console.log(res);
+        this.getSmurfs();
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  };
+
+  updateSmurf = arr => this.setState({ smurfs: arr });
+
+  componentDidMount() {
+    this.getSmurfs();
+  }
+
   render() {
+    const { smurfs } = this.state;
     return (
       <div className="App">
-        <SmurfForm getSmurfs={this.getSmurfs} />
-        <Smurfs smurfs={this.state.smurfs} />
+        <Route
+          exact
+          path="/"
+          render={props => {
+            return (
+              <div>
+                <SmurfForm updateSmurf={() => this.componentDidMount()} />
+                <Smurfs deleteSmurf={this.deleteSmurf} smurfs={smurfs} />
+              </div>
+            );
+          }}
+        />
+        <Route
+          path="/smurfs/:id"
+          render={props => {
+            return (
+              <Smurf
+                {...props}
+                deleteSmurf={this.deleteSmurf}
+                smurfs={this.state.smurfs}
+              />
+            );
+          }}
+        />
       </div>
     );
   }
 }
-
 export default App;
