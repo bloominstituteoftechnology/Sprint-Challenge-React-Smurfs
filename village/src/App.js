@@ -10,8 +10,7 @@ class App extends Component {
   // You'll need to make sure you have the right properties on state and pass them down to props.
   render() {
     return (
-      <div className="App">
-        <SmurfForm />
+      <div className="App">        
         <Smurfs />
       </div>
     );
