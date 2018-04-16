@@ -1,5 +1,5 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Users\Natalie\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add react-router-dom
+  C:\Program Files\nodejs\node.exe C:\Users\Natalie\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js install react-scripts
 
 PATH: 
   C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\ATI Technologies\ATI.ACE\Core-Static;C:\Program Files (x86)\Skype\Phone\;C:\Program Files\Microsoft SQL Server\110\Tools\Binn\;C:\Program Files\Git\cmd;C:\Program Files\nodejs\;C:\Users\Natalie\AppData\Local\Programs\Python\Python36-32\Scripts\;C:\Users\Natalie\AppData\Local\Programs\Python\Python36-32\;C:\Users\Natalie\AppData\Local\Programs\Python\Python36-32\python.exe;;C:\Program Files\Microsoft VS Code\bin;C:\Users\Natalie\AppData\Local\Microsoft\WindowsApps;C:\Users\Natalie\AppData\Roaming\npm
@@ -2049,4 +2049,10 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/yallist/-/yallist-2.1.2.tgz#1c11f9218f076089a47dd512f93c6699a6a81d52"
 
 Trace: 
-  Error: EPERM: operation not permitted, unlink 'C:\Users\Natalie\Documents\LambdaSchool\Sprint-Challenge-Routing-Axios\node_modules\cross-spawn\node_modules\.bin'
+  Error: `install` has been replaced with `add` to add new dependencies. Run "yarn add react-scripts" instead.
+      at new MessageError (C:\Users\Natalie\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:186:110)
+      at Object.<anonymous> (C:\Users\Natalie\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:21987:13)
+      at Generator.next (<anonymous>)
+      at step (C:\Users\Natalie\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:98:30)
+      at C:\Users\Natalie\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:109:13
+      at <anonymous>
