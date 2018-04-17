@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 class SmurfForm extends Component {
   constructor(props) {
@@ -12,13 +14,20 @@ class SmurfForm extends Component {
 
   addSmurf = event => {
     event.preventDefault();
-    // add code to create the smurf using the api
-
-    this.setState({
-      name: '',
-      age: '',
-      height: ''
-    });
+    const { name, age, height } = this.state;
+    const smurf = { name, age, height };
+    axios
+      .post('http://localhost:3333/smurfs', smurf)
+      .then(() => {
+        this.setState({
+          name: '',
+          age: '',
+          height: ''
+        })
+      })
+      .catch(err => {
+        console.error(err)
+      });
   }
 
   handleInputChange = e => {
@@ -30,25 +39,31 @@ class SmurfForm extends Component {
       <div className="SmurfForm">
         <form onSubmit={this.addSmurf}>
           <input
+            className="input"
             onChange={this.handleInputChange}
             placeholder="name"
             value={this.state.name}
             name="name"
           />
           <input
+            className="input"
             onChange={this.handleInputChange}
             placeholder="age"
             value={this.state.age}
             name="age"
           />
           <input
+            className="input"
             onChange={this.handleInputChange}
             placeholder="height"
             value={this.state.height}
             name="height"
           />
-          <button type="submit">Add to the village</button>
+          <button className="button button-add" type="submit">Add to the village</button>
         </form>
+        <Link to="/" >
+          <button className="button button-return"> Return </button>
+        </Link>
       </div>
     );
   }
