@@ -2,9 +2,10 @@
     border: 1px solid white;
     width: 100%;
     max-width: 375px;
-    margin: 0 242px;
+    margin: 0 auto;
     background: blue;
     color: white;
+    padding: 1%;
 }
 
 h1 {
