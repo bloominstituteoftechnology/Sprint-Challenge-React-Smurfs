@@ -9,7 +9,13 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      smurfs: [],
+      smurfs: [
+        {
+          name: "Tachala",
+          age: 35,
+          height: 156
+        }
+      ],
     };
   }
   render() {

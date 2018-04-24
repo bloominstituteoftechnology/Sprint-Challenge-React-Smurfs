@@ -39,9 +39,9 @@ class Smurfs extends Component {
           {this.state.smurf.map((smurf) => {
             return ( 
               <li key={smurf.id}>
-              {smurf.name} 
-              {smurf.age} 
-              {smurf.height} 
+              {smurf.name}
+              {smurf.age}  
+              {smurf.height}
               </li>
             );
           })}
