@@ -1,3 +1,5 @@
+![alt text](https://github.com/phantomflynn/Sprint-Challenge-Routing-Axios/blob/master/smurfSprint.PNG)
+
 # Assessing your Routing/AJAX Fu
 
 * The purpose of this exercise is to get you used to being quizzed on _Interview Questions_ commonly asked about Client Side Routing and making AJAX requests from a React application.
