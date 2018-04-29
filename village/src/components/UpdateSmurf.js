@@ -19,8 +19,8 @@ class UpdateSmurf extends Component {
   updateSmurf = smurfID => {
     const newSmurfInfo = {};
     if (this.state.name !== '') newSmurfInfo['name'] = this.state.name;
-    if (this.state.age !== '') newSmurfInfo['age'] = this.state.age;
     if (this.state.height !== '') newSmurfInfo['height'] = this.state.height;
+    if (this.state.age !== '') newSmurfInfo['age'] = this.state.age;
 
     axios
       .put(`http://localhost:3333/smurfs/${smurfID}`, newSmurfInfo)
