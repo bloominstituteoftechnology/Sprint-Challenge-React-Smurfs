@@ -2,7 +2,9 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+  background: #f6f3f3;
 }
+
 .smurf-form {
   display: flex;
   justify-content: center;
@@ -17,4 +19,38 @@ body {
 
 button {
   margin-top: 20px;
+}
+
+.btn {
+  margin: 10px 10px;
+}
+
+.delete {
+  background: rgb(141, 38, 38);
+  width: 100px;
+  align-self: center;
+}
+
+.update {
+  background: rgb(136, 204, 136);
+  width: 100px;
+  align-self: center;
+}
+
+.card {
+  width: 300px;
+  background: lightgray;
+  margin: 20px 20px;
+  ;
+}
+
+.Smurf {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+h1 {
+  background: rgb(42, 41, 41);
+  color: white;
 }
