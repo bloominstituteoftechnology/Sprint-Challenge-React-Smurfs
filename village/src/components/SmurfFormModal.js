@@ -25,7 +25,7 @@ class SmurfFormModal extends React.Component {
             <div>
                 <Button color="danger" onClick={this.toggle}>Add a Smurf</Button>
                 <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
-                    <ModalHeader toggle={this.toggle}>Modal title</ModalHeader>
+                    <ModalHeader toggle={this.toggle}>Add a Smurf</ModalHeader>
                     <ModalBody>
                         <div className="smurf-form container-fluid">
                             <form>

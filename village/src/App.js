@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import SmurfFormModal from './components/SmurfFormModal';
 import Smurfs from './components/Smurfs';
+import Smurf from './components/Smurf'
 import axios from 'axios'
 import { Route, Link } from 'react-router-dom'
 
@@ -38,6 +39,11 @@ class App extends Component {
       }))
   }
 
+  deleteSmurf = id => {
+    axios.delete(`http://localhost:3333/friends/${id}`)
+      .then(data => this.setState({ friends: data.data }))
+  }
+
   handleInputChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
@@ -46,9 +52,10 @@ class App extends Component {
     return (
       <div className="App">
         <div className="smurf-list">
-          <Route path="/" render={(props) => <Smurfs {...props} smurfs={this.state.smurfs} />} />
+          <Route path="/" render={(props) => <Smurfs {...props} smurfs={this.state.smurfs} function={this.deleteSmurf} />} />
           <Link className="btn btn-secondary btn-sm" to="/addfriend">Want more Smurfs?!</Link>
         </div>
+        <Route path="/movies/:id" render={(props) => <Smurf {...props} />} />
         <Route exact path="/addfriend" render={(props) => <SmurfFormModal {...props} onChange={this.handleInputChange} onSubmit={this.addSmurf} />} />
 
 

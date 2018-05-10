@@ -16,6 +16,7 @@ const Smurfs = (props) => {
               age={smurf.age}
               height={smurf.height}
               key={smurf.id}
+              function={smurf.function}
             />
           );
         })}
