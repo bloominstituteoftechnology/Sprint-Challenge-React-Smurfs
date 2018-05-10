@@ -1,57 +1,38 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { Link } from 'react-router-dom'
 
-class SmurfForm extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      name: '',
-      age: '',
-      height: ''
-    };
-  }
-
-  addSmurf = event => {
-    event.preventDefault();
-    // add code to create the smurf using the api
-
-    this.setState({
-      name: '',
-      age: '',
-      height: ''
-    });
-  }
-
-  handleInputChange = e => {
-    this.setState({ [e.target.name]: e.target.value });
-  };
-
-  render() {
-    return (
-      <div className="SmurfForm">
-        <form onSubmit={this.addSmurf}>
-          <input
-            onChange={this.handleInputChange}
-            placeholder="name"
-            value={this.state.name}
-            name="name"
-          />
-          <input
-            onChange={this.handleInputChange}
-            placeholder="age"
-            value={this.state.age}
-            name="age"
-          />
-          <input
-            onChange={this.handleInputChange}
-            placeholder="height"
-            value={this.state.height}
-            name="height"
-          />
-          <button type="submit">Add to the village</button>
-        </form>
-      </div>
-    );
-  }
+const SmurfForm = (props) => {
+  return (
+    <div className="smurf-form container-fluid">
+      <form>
+        <input
+          onChange={props.onChange}
+          className="form-control"
+          placeholder="name"
+          value={props.name}
+          name="name"
+          type="name"
+        />
+        <input
+          onChange={props.onChange}
+          className="form-control"
+          placeholder="age"
+          value={props.age}
+          name="age"
+          type="age"
+        />
+        <input
+          onChange={props.onChange}
+          className="form-control"
+          placeholder="height"
+          value={props.height}
+          name="height"
+          type="number"
+        />
+        <Link to="/" className="btn btn-secondary" onClick={props.onSubmit} type="submit">Add to the village</Link>
+      </form>
+    </div>
+  );
 }
 
 export default SmurfForm;
