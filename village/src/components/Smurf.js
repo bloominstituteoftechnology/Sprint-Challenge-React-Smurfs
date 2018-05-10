@@ -12,12 +12,12 @@ const Smurf = props => {
             <h3>{e.name}</h3>
             <strong>{e.height} tall</strong>
             <p>{e.age} smurf years old</p>
-            <button className="btn btn-secondary delete" onClick={() => {
-              props.function(e.id)
-            }}>delete</button>
             <Link to="/" className="btn btn-secondary update" onClick={() => {
               props.function2(e.id)
             }}>Update</Link>
+            <button className="btn btn-secondary delete" onClick={() => {
+              props.function(e.id)
+            }}>delete</button>
           </div>
         );
       })}

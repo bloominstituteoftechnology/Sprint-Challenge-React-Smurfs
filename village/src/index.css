@@ -2,7 +2,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
-  background: #f6f3f3;
+  background: lightgray;
 }
 
 .smurf-form {
@@ -39,9 +39,8 @@ button {
 
 .card {
   width: 300px;
-  background: lightgray;
+  background: #f6f3f3;
   margin: 20px 20px;
-  ;
 }
 
 .Smurf {
