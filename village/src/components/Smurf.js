@@ -8,6 +8,7 @@ const Smurf = props => {
       {props.smurfs.map(e => {
         return (
           <div className="card" key={e.id}>
+            <img src={`https://robohash.org/${e.name}.png?set=set4`} alt="CAT" />
             <h3>{e.name}</h3>
             <strong>{e.height} tall</strong>
             <p>{e.age} smurf years old</p>
