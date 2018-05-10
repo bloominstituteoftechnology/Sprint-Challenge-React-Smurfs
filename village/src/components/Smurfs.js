@@ -8,18 +8,7 @@ const Smurfs = (props) => {
     <div className="Smurfs">
       <h1>Smurf Village</h1>
       <ul>
-        {props.smurfs.map(smurf => {
-          return (
-            <Smurf
-              name={smurf.name}
-              id={smurf.id}
-              age={smurf.age}
-              height={smurf.height}
-              key={smurf.id}
-              function={smurf.function}
-            />
-          );
-        })}
+        <Smurf {...props} />
       </ul>
     </div>
   );

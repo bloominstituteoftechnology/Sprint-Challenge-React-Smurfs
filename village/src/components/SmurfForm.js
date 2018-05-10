@@ -29,7 +29,6 @@ const SmurfForm = (props) => {
           name="height"
           type="number"
         />
-        <Link to="/" className="btn btn-secondary" onClick={props.onSubmit} type="submit">Add to the village</Link>
       </form>
     </div>
   );
