@@ -19,19 +19,12 @@ class App extends Component {
   }
 
   componentDidMount = () => {
-    axios.get('http://localhost:3333/smurfs')
-      .then(data => this.setState({
-        smurfs: data.data,
-        name: '',
-        age: '',
-        height: ''
-      }))
-      .catch(err => console.log(err));
+    this.fetch()
   }
 
   updateSmurf = id => {
     axios.put(`http://localhost:3333/smurfs/${id}`, { name: this.state.name, age: this.state.age, height: this.state.height })
-      .then((data) => this.fetch())
+      .then(() => this.fetch())
       .catch(err => console.log(err));
   }
 
