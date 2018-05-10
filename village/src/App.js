@@ -31,7 +31,7 @@ class App extends Component {
 
   updateSmurf = id => {
     axios.put(`http://localhost:3333/smurfs/${id}`, { name: this.state.name, age: this.state.age, height: this.state.height })
-      .then(this.fetch())
+      .then((data) => this.fetch())
       .catch(err => console.log(err));
   }
 
@@ -49,19 +49,14 @@ class App extends Component {
   addSmurf = event => {
     // add code to create the smurf using the api
     axios.post('http://localhost:3333/smurfs', { name: this.state.name, age: this.state.age, height: this.state.height })
-      .then(data => this.setState({
-        smurfs: data.data,
-        name: '',
-        age: '',
-        height: ''
-      }))
+      .then(() => this.fetch())
       .catch(err => console.log(err));
   }
 
   deleteSmurf = id => {
     console.log(id)
     axios.delete(`http://localhost:3333/smurfs/${id}`)
-      .then(this.fetch())
+      .then((data) => this.fetch())
       .catch(err => console.log(err));
   }
 
