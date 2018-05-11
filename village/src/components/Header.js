@@ -1,19 +1,16 @@
 import React from 'react';
+import { Route, Link } from "react-router-dom";
 import App from '../App';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-
 
 
 const Header = () => {
   return (
-    <div>
-    
-    <h2>Hello! Welcome to the Smurf Village!</h2>
-    <Link to="/smurfs">Village</Link>
-    <Route exact path="/smurfs" component={App} />
-    
+    <div className="header">
+    <h2>Hello! Welcome to our Smurf Village!</h2>
+    <Link className="link" to="/smurfs">Village</Link>
+    <Route path="/smurfs" component={App} />   
     </div>
-  )
+  );
 }
  
 export default Header;

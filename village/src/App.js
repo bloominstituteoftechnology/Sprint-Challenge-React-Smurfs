@@ -1,12 +1,10 @@
-
 import React, { Component } from 'react';
 import axios from 'axios';
 import './App.css';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
-import { Route, Link } from 'react-router-dom';
+import { Route } from "react-router-dom";
 import Header from './components/Header';
-
 
 
 class App extends Component {
@@ -31,19 +29,6 @@ class App extends Component {
       .catch(err => console.log(err))
   }
 
-PostSmurf = id => {
-  axios.post(`http://localhost:3333/smurfs${id}`, { name: this.state.name, age: this.state.age, height: this.state.height, id: this.state.id })
-    .then((response) => this.setState({
-      friends: response.data,
-      name: '',
-      age: '',
-      email: '',
-      id: ''
-    }))
-    .catch(err => console.log(err));
-}
-
-
 
   // add any needed code to ensure that the smurfs collection exists on state and it has data coming from the server
   // Notice what your map function is looping over and returning inside of Smurfs.
@@ -51,10 +36,9 @@ PostSmurf = id => {
   render() {
     return (
       <div className="App">
-        <Link to="/smurfslist">Smurf List</Link>
-        <Link to="/form">Smurf Form</Link>  
-        <Route path="/form" render={() => <SmurfForm />}/>
-        <Route path="/smurfslist" render={() => <Smurfs smurfs={this.state.smurfs} />}/>
+        <Route exact path="/" component={Header} />  
+        <Smurfs smurfs={this.state.smurfs} />
+        <SmurfForm />
       </div>
     );
   }
