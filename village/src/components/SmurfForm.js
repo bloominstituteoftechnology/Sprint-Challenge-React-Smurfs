@@ -1,12 +1,9 @@
 import React, { Component } from 'react';
-import axios from 'axios';
-
 
 class SmurfForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      smurfs:[],
       name: '',
       age: '',
       height: ''
@@ -14,13 +11,15 @@ class SmurfForm extends Component {
   }
 
   addSmurf = event => {
-    event.preventDefault();
-    const {name, height, age} = this.state
-     axios.post('http://localhost:3333/smurfs', {name, height, age})
-     .then(response => {
-       return this.setState({smurfs: response.data})
-     })
-     .catch(err => console.log(err));
+    event.preventDefault(); //prevents html from reloading
+    const {name, age, height} = this.state; //object destructuring - this pulls all stuff off of state
+    const smurfData = {name, age, height}; //goes to handler on props
+    this.props.addSmurf(smurfData);
+    this.setState({
+      name: '',
+      age: '',
+      height: ''
+    })
   }
 
   handleInputChange = e => {
@@ -30,7 +29,7 @@ class SmurfForm extends Component {
   render() {
     return (
       <div className="SmurfForm">
-        <form onSubmit={this.handleInputChange}>
+        <form onSubmit={this.addSmurf}>
           <input
             onChange={this.handleInputChange}
             placeholder="name"
@@ -49,7 +48,7 @@ class SmurfForm extends Component {
             value={this.state.height}
             name="height"
           />
-          <button onSubmit = {this.addSmurf} type="submit">Add to the village</button>
+          <button type="submit">Add to the village</button>
         </form>
       </div>
     );
