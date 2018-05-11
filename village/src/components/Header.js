@@ -1,14 +1,12 @@
 import React from 'react';
-import { Route, Link } from "react-router-dom";
-import App from '../App';
+import { Link } from "react-router-dom";
+
 
 
 const Header = () => {
   return (
     <div className="header">
-    <h2>Hello! Welcome to our Smurf Village!</h2>
-    <Link className="link" to="/smurfs">Village</Link>
-    <Route path="/smurfs" component={App} />   
+    <Link to="/smurfs"> Welcome to our Smurf Village! </Link>
     </div>
   );
 }
