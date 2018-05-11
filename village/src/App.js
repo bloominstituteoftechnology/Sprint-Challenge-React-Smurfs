@@ -20,12 +20,12 @@ class App extends Component {
   // You'll need to make sure you have the right properties on state and pass them down to props.
 
   componentDidMount() {
-    axios.get('http://localhost:5000/smurfs')
+    axios.get('http://localhost:3333/smurfs')
       .then(response => this.setState({smurfs: response.data}))
   }
 
   gatherData() {
-    axios.get('http://localhost:5000/smurfs')
+    axios.get('http://localhost:3333/smurfs')
       .then(response => this.setState({smurfs: response.data}))
   }
 
@@ -44,7 +44,7 @@ class App extends Component {
       age: this.state.age,
       height: this.state.height
     }
-    axios.post('http://localhost:5000/smurfs', newSmurf)
+    axios.post('http://localhost:3333/smurfs', newSmurf)
       .then(response => {
         let newSmurfArray = response.data.slice();
         this.setState({
@@ -60,12 +60,11 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Header /> 
-        <SmurfForm />
+        {/* <Header /> 
+        <SmurfForm /> */}
         <Smurfs smurfs={this.state.smurfs} />
-        {/* <Route exact path="/Header" component={Header} />
+        <Route exact path="/Header" component={Header} />
         <Route path="/SmurfForm" component={SmurfForm} />
-        <Route path="/Smurfs" component={Smurfs} /> */}
       </div>
     );
   }
