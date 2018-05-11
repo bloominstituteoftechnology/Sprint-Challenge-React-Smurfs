@@ -57,7 +57,7 @@ class App extends Component {
 
         <Route path="/update/:id" render={(props) => (
           <div>
-            <UpdateForm handleSmurfsUpdate={this.handleSmurfsUpdate.bind(this)} />
+            <UpdateForm {...props} smurfs={this.state.smurfs} handleSmurfsUpdate={this.handleSmurfsUpdate.bind(this)} />
           </div>
         )} />
 

@@ -4,10 +4,23 @@ import axios from 'axios';
 class UpdateForm extends Component {
   constructor(props) {
     super(props);
+    //Find the smurf we're modifying by id
+    let smurf;
+
+    for (let i = 0; i < props.smurfs.length; i++) {
+      //Had to use loosey-goosey comparison for this to work
+      //I think the one in smurfs is a number and the one in match is a string
+      if (props.smurfs[i].id == props.match.params.id) {
+        smurf = props.smurfs[i]
+        i = props.smurfs.length;
+      }
+    }
+
     this.state = {
-      name: props.name,
-      age: props.age,
-      height: props.height,
+      smurf: smurf,
+      name: smurf.name,
+      age: smurf.age,
+      height: smurf.height,
       handleSmurfsUpdate: props.handleSmurfsUpdate
     };
   }
