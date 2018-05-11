@@ -64,7 +64,6 @@ class SmurfForm extends Component {
           />
           <button onClick={this.addSmurf} type="submit">Add to the village</button>
         </form>
-        <Link to="/smurfs">See all Smurfs</Link>
       </div>
     );
   }
