@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
-
+import { Link } from 'react-router-dom';
 import Smurf from './Smurf';
 
 class Smurfs extends Component {
+  constructor(props){
+    super(props);
+  }
   render() {
     return (
       <div className="Smurfs">
@@ -10,13 +13,9 @@ class Smurfs extends Component {
         <ul>
           {this.props.smurfs.map(smurf => {
             return (
-              <Smurf
-                name={smurf.name}
-                id={smurf.id}
-                age={smurf.age}
-                height={smurf.height}
-                key={smurf.id}
-              />
+              <Link to={`./smurf/${smurf.id}`} key={smurf.id}>{smurf.name}</Link>
+              
+              
             );
           })}
         </ul>

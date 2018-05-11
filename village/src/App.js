@@ -5,6 +5,7 @@ import './App.css';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
 import Header from './components/Header';
+import Smurf from './components/Smurf';
 
 class App extends Component {
   constructor(props) {
@@ -33,6 +34,7 @@ class App extends Component {
     return (
       <div className="App">
         <Route exact path="/" component={Header}/>
+        <Route  path="/smurf/:id" component={Smurf} smurfs={this.state} />
         <Route path="/smurfs" render={props => 
         <div>
           <SmurfForm />

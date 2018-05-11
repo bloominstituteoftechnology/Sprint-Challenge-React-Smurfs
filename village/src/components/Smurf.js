@@ -1,6 +1,7 @@
 import React from 'react';
 
 const Smurf = props => {
+  const { name, age, height, id} = props.smurfs;
   return (
     <div className="Smurf">
       <h3>{props.name}</h3>
