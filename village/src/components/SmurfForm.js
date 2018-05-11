@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import {NavLink, Route} from 'react-router-dom';
+import {Container, Row, Col} from 'reactstrap';
 
 class SmurfForm extends Component {
   constructor(props) {
@@ -16,7 +18,7 @@ class SmurfForm extends Component {
     event.preventDefault();
     // add code to create the smurf using the api
     axios.post('http://localhost:3333/smurfs', this.state)
-    .then( res => console.log(res.status, res.data) )
+    .then( res => console.log("POST",res.status, res.data) )
     .then( this.props.getSmurfs )
     .catch( e => console.log(e) );
 
@@ -27,61 +29,35 @@ class SmurfForm extends Component {
     });
   }
 
+  modifySmurf = () => {
+    axios.put(`http://localhost:3333/smurfs/${this.props.id}`)
+    .then( res => console.log("PUT",res.status) )
+    .then( this.props.getSmurfs )
+    .catch( e => console.log(e) );
+  }
+
   handleInputChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
   
-  render() {
-    // console.log( this.props.match.url );
-    if( this.props.match.url !== '/' && this.props.smurfs.length > 0 ) { 
-      console.log("this.props.smurfs.length > 0",this.props.smurfs.length > 0)
-      console.log("this.props.smurfs",this.props.smurfs)
-      const smurfs = this.props.smurfs;
-      console.log(typeof smurfs);
-      console.log(Array.isArray(smurfs));
-
-      const idToModify = this.props.match.params.id;
-      let toModify = this.props.smurfs.filter( smurf => smurf.id == idToModify );
-      toModify = toModify[0];
-      console.log(toModify);
-
+  componentDidMount() {
+    console.log(this.props);
+    const {name, age, height} = this.props;
+    // if( this.props.match.path === `/:id/modify` ) { // DO NOT WORKS
+    if( this.props.match.path === `/${this.props.id}/modify` ) {
+      console.log("ok");
       this.setState({
-        name: toModify.name,
-        age: toModify.age,
-        height: toModify.height,
-        id: idToModify      
+        name: name,
+        age: age,
+        height: height
       });
-      return (
-        <div
-        onChange={this.handleInputChange}
-        className="SmurfForm">
-        <form onSubmit={this.addSmurf}>
-          <input
-            placeholder="name"
-            value={this.state.name}
-            name="name"
-          />
-          <input
-            placeholder="age"
-            value={this.state.age}
-            name="age"
-          />
-          <input
-            placeholder="height"
-            value={this.state.height}
-            name="height"
-          />
-          <button
-            onClick={this.addSmurf}
-            type="submit">Modify</button>
-        </form>
-      </div>
-      )
     }
+    
+  }
 
-
+  render() {
     return (
-      <div
+      <Container
         onChange={this.handleInputChange}
         className="SmurfForm">
         <form onSubmit={this.addSmurf}>
@@ -100,11 +76,24 @@ class SmurfForm extends Component {
             value={this.state.height}
             name="height"
           />
-          <button
-            onClick={this.addSmurf}
-            type="submit">Add to the village</button>
+          <NavLink to="/">Hide</NavLink> 
+          <Route exact path="/"                       render={ props => <button
+                                                                            onClick={ this.addSmurf}
+                                                                            type="submit">Add to the village
+                                                                          </button> }
+          />
+          <Route exact path={`/${this.props.id}/modify`} render={ props => <button
+                                                                            onClick={ this.modifySmurf }
+                                                                            type="submit">
+                                                                              Modify smurf
+                                                                            </button> }
+          />
+          {/* <button
+            onClick={ this.props.match.path === `/${this.props.id}/modify` ? this.modifySmurf : this.addSmurf}
+            type="submit">{ this.props.match.path === `/${this.props.id}/modify` ? "Modify smurf" : "Add to the village"}
+          </button> */}
         </form>
-      </div>
+      </Container>
     );
   }
 }

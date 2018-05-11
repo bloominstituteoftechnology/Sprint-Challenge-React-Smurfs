@@ -50,8 +50,8 @@ class App extends Component {
       <div className="App">
         <Route path="/" component={Header} />
         <Switch>
-          <Route exact path="/:id/modify" render={ props => <SmurfForm {...props} smurfs={this.state.smurfs}  /> } />
-          <Route exact path="/"           render={ props => <SmurfForm {...props} /> } />
+          {/* <Route exact path="/:id/modify" render={ props => <SmurfForm {...props} getSmurfs={this.getSmurfs} smurfs={this.state.smurfs}  /> } /> */}
+          <Route exact path="/"           render={ props => <SmurfForm {...props} getSmurfs={this.getSmurfs} /> } />
         </Switch>
         {/* <Smurfs smurfs={this.state.smurfs} /> */}
         <Route path="/" render={ props => <Smurfs {...props} smurfs={this.state.smurfs}  deleteSmurf={this.deleteSmurf} /> } />
