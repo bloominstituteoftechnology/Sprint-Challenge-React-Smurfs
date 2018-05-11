@@ -3,9 +3,7 @@ import './App.css';
 // import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
 import axios from 'axios';
-import { Route, Link, Switch } from 'react-router-dom';
-import Home from './components/Home';
-import Smurfs from './components/Smurfs';
+import Header from './components/Header';
 
 class App extends Component {
   constructor(props) {
@@ -45,20 +43,8 @@ class App extends Component {
 
   render() {
     return (
-
-      <div>
-        <div className="App-navigation-top">
-          <Link to="/">Home</Link>
-          <Link to="/Smurfs">Smurfs</Link>
-        </div>
-        <div className="App-navigation-bottom">  
-          {/* <Route path="/Mac" render={(props) => <Mac {...props} mac={this.state.forMac}> } /> */}
-          <Route exact path="/" component={Home} />
-          <Route path="/Smurfs" component={Smurfs} />
-        </div>
-      </div>      
-
       <div className="App">
+        <Header />
         <br />
         <form onSubmit={this.addSmurf}>
           <input

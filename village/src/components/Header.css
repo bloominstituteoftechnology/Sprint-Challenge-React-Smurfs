@@ -1,0 +1,6 @@
+.App-navigation-top {
+    display: flex;
+    justify-content: space-around;
+    background-color: orange;
+    padding: 30px;
+}
