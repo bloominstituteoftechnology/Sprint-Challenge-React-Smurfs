@@ -2,4 +2,16 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+  background-image : linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+  url("https://london.ac.uk/sites/default/files/styles/promo_large/public/2017-08/Study%20in%20london.png?itok=GqrD62Mc");
+  height: 30em;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  margin-bottom: 3em;
 }
