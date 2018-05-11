@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { Redirect } from 'react-router-dom';
 
 class SmurfForm extends Component {
   constructor(props) {
@@ -7,27 +8,39 @@ class SmurfForm extends Component {
     this.state = {
       name: '',
       age: '',
-      height: ''
+      height: '',
+      go: 'NO',
     };
   }
 
   addSmurf = event => {
     event.preventDefault();
-    const newSmurf = {
+    const smurf = {
       name: this.state.name,
       age: this.state.age,
       height: this.state.height,
     };
-    // add code to create the smurf using the api
-    axios.post('http://localhost:3333/smurfs/', newSmurf)
-      .then(response => this.props.update(response.data))
-      .catch(error => console.log(error));
 
-    this.setState({
+    const resetObj = {
       name: '',
       age: '',
-      height: ''
-    });
+      height: '',
+      go: 'NO',
+    }
+    
+    if (this.props.op === "edit") {
+      axios.put(`http://localhost:3333/smurfs/${this.props.id}`, smurf)
+        .then(response => this.props.update(response.data))
+        .catch(error => console.log(error));
+      resetObj.go = 'GO';
+    } else {
+      axios.post('http://localhost:3333/smurfs/', smurf)
+        .then(response => this.props.update(response.data))
+        .catch(error => console.log(error));
+    }
+    // add code to create the smurf using the api
+
+    this.setState(resetObj);
   }
 
   handleInputChange = e => {
@@ -35,6 +48,9 @@ class SmurfForm extends Component {
   };
 
   render() {
+    if (this.state.go === "GO") {
+      return <Redirect to="/smurfs" />;
+    }
     return (
       <div className="SmurfForm">
         <form onSubmit={this.addSmurf}>
@@ -56,7 +72,7 @@ class SmurfForm extends Component {
             value={this.state.height}
             name="height"
           />
-          <button type="submit">Add to the village</button>
+          <button type="submit">Let's go!!!</button>
         </form>
       </div>
     );

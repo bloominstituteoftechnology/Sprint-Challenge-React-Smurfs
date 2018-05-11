@@ -1,5 +1,7 @@
 import React from 'react';
 import axios from 'axios';
+import { Link, Route } from 'react-router-dom';
+import SmurfForm from './SmurfForm';
 
 const Smurf = props => {
 
@@ -15,7 +17,9 @@ const Smurf = props => {
       <h3>{props.name}</h3>
       <strong>{props.height} tall</strong>
       <p>{props.age} smurf years old</p>
+      <Link to={`/smurfs/update/${props.id}`}><button>Transform...WITH MAGIC!</button></Link>
       <button onClick={sendtoSHADOWREALM}>Send {props.name} on a journey...</button>
+      <Route path={`/smurfs/update/${props.id}`} render={() => <SmurfForm id={props.id} op="edit" update={props.update} />} />
     </div>
   );
 };
