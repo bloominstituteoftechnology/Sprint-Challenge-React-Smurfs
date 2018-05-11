@@ -6,6 +6,7 @@ const Smurf = props => {
       <h3>{props.name}</h3>
       <strong>{props.height} tall</strong>
       <p>{props.age} smurf years old</p>
+      <button type="submit" value={props.id} onClick={this.deleteSmurf}>Exile {props.name} from Smurf Village</button>
     </div>
   );
 };
