@@ -7,6 +7,8 @@ const Smurf = props => {
       <h3>{props.name}</h3>
       <strong>{props.height} tall</strong>
       <p>{props.age} smurf years old</p>
+      <button onClick={()=>this.removeSmurf(props.id)}>Remove {props.name} from the list</button>
+      <button onClick={()=>this.updateSmurf(props.id)}>Remove {props.name} from the list</button>
     </div>
   );
 };

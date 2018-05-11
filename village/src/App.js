@@ -37,7 +37,30 @@ class App extends Component {
         console.log("error:", err);
       });  
   }
-   
+
+  removeSmurf = (id) => {
+    axios
+     .delete(`http://localhost:3333/smurfs/${id}`)
+     .then( (response) => {
+       this.setState({ smurfs: response.data })
+     })
+     .catch(err => {
+       console.log("error:", err);
+     });
+  }
+  
+  updateSmurf = (id) => {
+    const updatedSmurf = { name:this.state.name, age:this.state.age, height:this.state.height }
+    axios
+      .put(`http://localhost:3333/smurfs/${id}`, updatedSmurf)
+      .then( (response) => {
+        this.setState({ smurfs: response.data })
+      })
+      .catch(err => {
+        console.log("error:", err);
+      });
+  }
+
   render() {
     return (
       <div className="App">
@@ -46,7 +69,7 @@ class App extends Component {
           return (
             <div>
               <SmurfForm {...props} addSmurf={this.addSmurf}/>
-              <Smurfs {...props} smurfs={this.state.smurfs} />
+              <Smurfs {...props} smurfs={this.state.smurfs} removeSmurf={this.removeSmurf} updateSmurf={this.updateSmurf} />
             </div>
             )
         }} />
