@@ -12,7 +12,6 @@ const SmurfView = (props) => {
       i = props.smurfs.length;
     }
   }
-  console.log(smurf);
   return (
     <div>
     <Smurf
