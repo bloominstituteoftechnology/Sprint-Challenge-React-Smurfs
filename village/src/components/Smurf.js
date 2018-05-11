@@ -53,7 +53,7 @@ class Smurf extends Component {
           />
           <div className="update-delete">
             <h2>Update Smurf information</h2>
-            <button onClick={this.deleteSmurf}>Delete</button>
+            <button onClick={this.deleteSmurf} className="delete btn">Delete</button>
           </div>
         </div>
       )

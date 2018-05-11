@@ -12,7 +12,7 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
-        <Route exact path="/" render={() => <h1>Welcome to the Smurf Village!</h1>}/>
+        <Route exact path="/" render={() => <h1 className="welcome">Welcome to the Smurf Village!</h1>}/>
         <Route exact path="/smurfs" component={Smurfs}/>
         <Route path="/addsmurf" component={SmurfForm}/>
         <Route path="/smurfs/:id" component={Smurf}/>
