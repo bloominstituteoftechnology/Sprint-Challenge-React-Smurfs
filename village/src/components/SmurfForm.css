@@ -1,0 +1,33 @@
+.SmurfForm {
+    background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRz4pV9rID8peVHjszASjOdiijEhvX2F4sonlp226gbXaiCFgQB6A');
+}
+
+.input-styles {
+    margin: 40px;
+    width: 150px;
+    height: 30px;
+    border-radius: 10px;
+    border: 2px solid #d115db;
+}
+
+input::placeholder {
+    text-align: center;
+    font-size: 15px;
+}
+
+.submitBtn {
+    font-size: 18px;
+    border-radius: 20px;
+    background-color: purple;
+    color: white;
+    height: 50px;
+    width: 150px;
+}
+
+button:hover {
+    cursor: pointer;
+    background-color: white;
+    color: purple;
+}
+
+

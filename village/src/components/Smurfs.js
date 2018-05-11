@@ -9,8 +9,8 @@ class Smurfs extends Component {
     return (
       <div className="Smurfs">
         {/* <Link to="/form">Let's add a new smurf!</Link> */}
-        <h1>Smurf Village</h1>
-        <ul>
+        <h1 style={smurfsHeader}>Smurf Village</h1>
+        <ul style={listStyles}>
           {this.props.smurfs.map(smurf => {
             return (
               <Smurf
@@ -32,6 +32,14 @@ class Smurfs extends Component {
   }
 }
 
+const smurfsHeader ={
+  textAlign: "center",
+  fontSize: "50px",
+}
+
+const listStyles = {
+  marginRight: "40px"
+}
 
 
 Smurf.defaultProps = {

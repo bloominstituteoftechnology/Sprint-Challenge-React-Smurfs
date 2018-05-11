@@ -18,10 +18,19 @@ const Smurf = props => {
       <Link to={"/"}><h3>{props.name}</h3></Link>
       <strong>{props.height} tall</strong>
       <p>{props.age} smurf years old</p>
-      <button onClick={() => {deleteSmurf(props.id)}}>delete</button>
+      <button style={deleteBtn} onClick={() => {deleteSmurf(props.id)}}>delete</button>
     </div>
   );
 };
+
+const deleteBtn = {
+  fontSize: "20px",
+  borderRadius: "10px",
+  backgroundColor: "purple",
+  color: "white",
+  height: "30px",
+  width: "100px",
+}
 
 Smurf.defaultProps = {
   name: '',
