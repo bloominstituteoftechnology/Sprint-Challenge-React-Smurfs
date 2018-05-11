@@ -17,7 +17,7 @@
 - Create, Read, Update, Delete
 1.  Which HTTP methods can be mapped to the CRUD acronym that we use when interfacing with APIs/Servers.
 1.  Mention three tools we can use to make AJAX requests.
-- fetch, axios
+- fetch, axios and curl
 
 ## Initializing Project - READ THIS CAREFULLY, you have two apps here. A server, and a client.
 
@@ -136,7 +136,7 @@
 - [X] Look at your `village` directory and notice that it's just a regular react app. Move into that folder and run `yarn install` to retrieve client code dependencies. Then run `yarn start` to start your React app.
 
 ### Project Steps
-- [ ] Use Axios to GET a list of Smurfs from the server
+- [X] Use Axios to GET a list of Smurfs from the server
 - [X] Implement a POST request to create a new smurf and save it to the database
 - [ ] Add React Router to this application
 

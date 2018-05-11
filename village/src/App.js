@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { Route, Link } from 'react-router-dom';
+//import { Route, Link } from 'react-router-dom';
 
 import './App.css';
 import SmurfForm from './components/SmurfForm';
@@ -20,7 +20,7 @@ class App extends Component {
   // You'll need to make sure you have the right properties on state and pass them down to props.
 
   componentDidMount(){
-      axios(`http://localhost:3333/smurfs`)
+      axios.get(`http://localhost:3333/smurfs`)
         .then(response => {
           console.log(response.data)
           this.setState({ smurfs: response.data})
@@ -28,12 +28,23 @@ class App extends Component {
         .catch(error => console.log(error));
   }
 
+  addSmurf = smurf => {
+    // add code to create the smurf using the api
+    const { name, age, height } = this.state;
+    axios.post(`http://localhost:3333/smurfs`, smurf)
+      .then(response => {
+        console.log(response.data)
+        this.setState({ smurfs: response.data })
+      })
+      .catch(error => console.log(error));
+  }
+
   
   render() {
     return (
       <div className="App">
-        <SmurfForm />
-        <Route path=""><Smurfs smurfs={this.state.smurfs} get={this.getRequest}/></Route>
+        <SmurfForm addSmurf={this.addSmurf}/>
+        <Smurfs smurfs={this.state.smurfs} get={this.getRequest}/>
       </div>
     );
   }
