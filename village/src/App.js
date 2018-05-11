@@ -16,9 +16,14 @@ class App extends Component {
     };
   }
   
+  // handeInputChange
+  handleInputChange = e => {
+    this.setState({ [e.target.name]: e.target.value });
+  };
+
+  // addSmurf
   addSmurf = event => {
     event.preventDefault();
-    // add code to create the smurf using the api
 
     axios.post('http://localhost:3333/smurfs', {
       name: this.state.name,
@@ -33,11 +38,31 @@ class App extends Component {
           height: ''
         })
       })
-  }
-
-  handleInputChange = e => {
-    this.setState({ [e.target.name]: e.target.value });
+      .catch(err => alert(`${ err }\nAll inputs need a value`));
   };
+
+  // deleteSmurf
+  deleteSmurf = id => {
+    axios.delete(`http://localhost:3333/smurfs/${ id }`)
+      .then(({ data }) => {
+        this.setState({ smurfs: [ ...data ] });
+      })
+      .catch(err => alert(`${ err }\nWhat the smurf is going on?!`));
+  };
+
+  // saveEditSmurf
+  saveEditSmurf = (id, name, age, height) => {
+    axios.put(`http://localhost:3333/smurfs/${ id }`, {
+      name,
+      age,
+      height
+    })
+      .then((res) => {
+        console.log(res)
+        this.setState({ smurfs: [ ...res.data ] })
+      })
+      .catch(err => console.log(`${ err }\nSomething went wrong with the smurfing edit!`));
+  }
   
   // componentDidMount
   componentDidMount() {
@@ -56,7 +81,11 @@ class App extends Component {
           handleInputChange={ this.handleInputChange }
         />
         
-        <Smurfs smurfs={this.state.smurfs} />
+        <Smurfs
+          smurfs={this.state.smurfs}
+          deleteSmurf={ this.deleteSmurf }
+          saveEditSmurf={ this.saveEditSmurf }
+        />
       </div>
     );
   }

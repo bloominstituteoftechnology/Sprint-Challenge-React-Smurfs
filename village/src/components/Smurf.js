@@ -51,7 +51,7 @@ class Smurf extends Component {
   }
 
   // saveEditSmurf
-  saveEditSmurf = e => {
+  saveEditSmurfPresentation = e => {
     const siblings =  [ ...e.target.parentNode.children ];
     const editButton = siblings.find(el => el.classList.contains('edit-smurf'));
     const saveButton = e.target;
@@ -87,6 +87,12 @@ class Smurf extends Component {
     ageInput.style.display = 'none';
     ageInput.style.margin = '0 auto';
   }
+
+  // runSaveEditFunctions
+  runSaveEditFunctions = e => {
+    this.props.saveEditSmurf(this.props.id, this.state.name, this.state.age, this.state.height);
+    this.saveEditSmurfPresentation(e);
+  }
   
   // render
   render() {
@@ -96,46 +102,66 @@ class Smurf extends Component {
         <h3 className='smurf__name'>{this.props.name}</h3>
         <input
           className='smurf__smurf-name-input'
-          hidden
           name='name'
           onChange={ this.setInputVal }
           placeholder={ this.props.name }
           type='text'
           value={ this.state.name }
+          hidden
         />
         
         {/* HEIGHT */}
         <strong className='smurf__height'>{this.props.height} tall</strong>
         <input
           className='smurf__smurf-height-input'
-          hidden
           name='height'
           onChange={ this.setInputVal }
           placeholder={ this.props.height }
           type='text'
           value={ this.state.height }
+          hidden
         />
         
         {/* AGE */}
         <p className='smurf__age'>{this.props.age} smurf years old</p>
         <input
           className='smurf__smurf-age-input'
-          hidden
           name='age'
           onChange={ this.setInputVal }
           placeholder={ this.props.age }
           type='text'
           value={ this.state.age }
+          hidden
         />
 
         {/* BUTTONS */}
-        <button className='edit-smurf' onClick={ this.editSmurf }>Edit Smurf</button>
-        <button className='save-edit-smurf' onClick={ this.saveEditSmurf } hidden>Save Edit</button>
-        <button className='delete-smurf' onClick={ this.props.deleteSmurf } >Delete Smurf</button>
+        {/* editSmurf */}
+        <button
+          className='edit-smurf'
+          onClick={ this.editSmurf }
+        >
+          Edit Smurf
+        </button>
+
+        {/* saveEditSmurf */}
+        <button
+          className='save-edit-smurf'
+          onClick={ this.runSaveEditFunctions }
+          hidden
+        >
+          Save Edit
+        </button>
+        
+        {/* deleteSmurf */}
+        <button
+          className='delete-smurf'
+          onClick={ () => this.props.deleteSmurf(this.props.id) }
+        >
+          Delete Smurf
+        </button>
       </div>
     );
   }
 };
 
 export default Smurf;
-
