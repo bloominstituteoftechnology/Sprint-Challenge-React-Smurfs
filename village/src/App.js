@@ -6,6 +6,7 @@ import Smurfs from './components/Smurfs';
 import Header from './components/Header.js';
 import { Route } from 'react-router-dom';
 import UpdateForm from './components/UpdateForm.js';
+import SmurfView from './components/SmurfView.js';
 
 class App extends Component {
   constructor(props) {
@@ -58,6 +59,12 @@ class App extends Component {
         <Route path="/update/:id" render={(props) => (
           <div>
             <UpdateForm {...props} smurfs={this.state.smurfs} handleSmurfsUpdate={this.handleSmurfsUpdate.bind(this)} />
+          </div>
+        )} />
+
+        <Route path="/view/:id" render={(props) => (
+          <div>
+            <SmurfView {...props} smurfs={this.state.smurfs} handleSmurfDelete={this.handleSmurfDelete.bind(this)} />
           </div>
         )} />
 
