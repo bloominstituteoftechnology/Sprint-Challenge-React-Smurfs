@@ -17,4 +17,8 @@
 *** Oh. I need to separate out my axios GET thing into another method.
 *** OMG I FORGOT THE ONCLICK. What is wrong with me???
 *** But it works now. The user can add new data into the input boxes and it appears below Brainy Smurf after you click "add to the village". So 2 down, 1 to go.
-** Step 4: 
+** Step 4: Router stuff
+*** So I had to go back to the README to see exactly what they want me to do with the router. I wish they wrote these things in English.
+*** Wrapping my App in Router seems like something I could basically copy for every app I do that needs a router, from now until the end of time.
+*** What are my Routes?? I'm going to assume they want us to route the {Smurfs} and {SmurfForm} components in the App.js file. That's what we did yesterday with the {FriendsList}. I hope that's right.
+*** So my routes didn't break anything but now everything is all over the place so I'm going to have to make links somewhere.
