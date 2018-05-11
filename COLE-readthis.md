@@ -9,5 +9,12 @@
 *** I added an axios request in a componentDidMount thing because in class Dan said that you should always put it in componentDidMount. I am not 100% clear on why but anything in componentDidMount runs as soon as the component is mounted and I guess if it somehow ran before then there would be nothing to set state to, and if it ran afterwards the user would get impatient or something. I don't know. I just know it's a good practice to put it in here.
 *** I pointed the Axios request to the site containing our data (which is only one smurf), said then give me data, and made sure it was set to state. When I put the smurfs part in, everything worked. I now have one Brainy Smurf in my list. So one down, two to go. Yay!
 **Step 3: implement a post request to create a new smurf and save it to the database
-***After looking at all the files, this looks like it should go in SmurfForm.js since there is a comment in there saying I should add code to create the smurf under addSmurf. But first, I will do a git because that's just how I roll. Otherwise, I will break something and have to go all the way back to the beginning and then forget how I did everything in the first place.
-	 
+*** After looking at all the files, this looks like it should go in SmurfForm.js since there is a comment in there saying I should add code to create the smurf under addSmurf. But first, I will do a git because that's just how I roll. Otherwise, I will break something and have to go all the way back to the beginning and then forget how I did everything in the first place.
+*** What is this event.preventDefault() thing that is already written in this file? I've seen it before but I have no idea what it does so I'm just going to leave it alone.
+*** Made a variable to hold my new smurfs because it seemed like the right thing to do. Otherwise, where is this app going to hold what the user inputs until it can be displayed?
+*** I just realized that this looks EXACTLY like what I agonized over all day yesterday, so I kind of used the same code here. Sorry.
+*** Of course it doesn't work for the same reason it didn't work yesterday - I need to make a new function/method/whatever and call for the props or whatever. Since we are importing SmurfForm into App.js I'm going to try that there.
+*** Oh. I need to separate out my axios GET thing into another method.
+*** OMG I FORGOT THE ONCLICK. What is wrong with me???
+*** But it works now. The user can add new data into the input boxes and it appears below Brainy Smurf after you click "add to the village". So 2 down, 1 to go.
+** Step 4: 
