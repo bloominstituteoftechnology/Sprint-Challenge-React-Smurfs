@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import SmurfCard from './SmurfCard';
+import { Link } from 'react-router-dom';
 
 class Smurfs extends Component {
   constructor(props) {
@@ -32,13 +33,14 @@ class Smurfs extends Component {
         <ul>
           {this.state.smurfs.map(smurf => {
             return (
-              <SmurfCard
-                name={smurf.name}
-                id={smurf.id}
-                age={smurf.age}
-                height={smurf.height}
-                key={smurf.id}
-              />
+              <Link to={`/smurfs/${smurf.id}`} key={smurf.id}>
+                <SmurfCard
+                  name={smurf.name}
+                  id={smurf.id}
+                  age={smurf.age}
+                  height={smurf.height}
+                />
+              </Link>
             );
           })}
         </ul>
