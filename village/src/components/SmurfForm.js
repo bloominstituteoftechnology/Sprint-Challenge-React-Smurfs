@@ -35,6 +35,7 @@ class SmurfForm extends Component {
   }
 
   modifySmurf = () => {
+    console.log(this.props);
     axios.put(`http://localhost:3333/smurfs/${this.props.id}`, this.state)
     .then( res => console.log("PUT",res.status) )
     .then( this.props.getSmurfs )
