@@ -62,9 +62,9 @@ class App extends Component {
       <div className="App">
         {/* <Header /> 
         <SmurfForm /> */}
-        <Smurfs smurfs={this.state.smurfs} />
-        <Route exact path="/Header" component={Header} />
+        <Route exact path="/" component={Header}  />
         <Route path="/SmurfForm" component={SmurfForm} />
+        <Smurfs smurfs={this.state.smurfs} />
       </div>
     );
   }
