@@ -9,7 +9,7 @@
 - [x] Look at your `village` directory and notice that it's just a regular react app. Move into that folder and run `yarn install` to retrieve client code dependencies. Then run `yarn start` to start your React app. You should see an error when you first start.
 
 ### Project Steps
-- [ ] Use Axios to GET a list of Smurfs from the server
+- [x] Use Axios to GET a list of Smurfs from the server
 - [ ] Implement a POST request to create a new smurf and save it to the database
 - [ ] Add React Router to this application
 

@@ -3,6 +3,7 @@ import axios from 'axios';
 import './App.css';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
+import {Route} from 'react-router-dom';
 
 class App extends Component {
   constructor(props) {
@@ -22,6 +23,24 @@ class App extends Component {
           .then(response => this.setState({ smurfs: response.data }));
       }
   
+  //     handleSubmit(e) {
+  //   e.preventDefault();
+  //   let newSmurf = {
+  //     name: this.state.name,
+  //     age: this.state.age,
+  //     height: this.state.height
+  //   }
+  //   axios.post("http://localhost:3333/smurfs", newSmurf)
+  //     .then(response => {
+  //       let newSmurfArray = response.data.slice();
+  //       this.setState({
+  //         smurfs: newSmurfArray,
+  //         name: "",
+  //         age: 0,
+  //         height: "",
+  //       });
+  //     });
+  // }
   
   
   
