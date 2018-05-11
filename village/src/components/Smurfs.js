@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Route, Link } from 'react-router-dom';
 
 import Smurf from './Smurf';
 
@@ -19,7 +19,11 @@ class Smurfs extends Component {
                 age={smurf.age}
                 height={smurf.height}
                 key={smurf.id}
+                updateInfo={this.props.updateInfo}
               />
+              // <Route path="/smurfs/:id" render={(props) => (
+              //   <Smurf {...props} name={smurf.name} id={smurf.id} age={smurf.age} height={smurf.height} key={smurf.id} />
+              // )}  />
             );
           })}
         </ul>
@@ -27,6 +31,8 @@ class Smurfs extends Component {
     );
   }
 }
+
+
 
 Smurf.defaultProps = {
  smurfs: [],
