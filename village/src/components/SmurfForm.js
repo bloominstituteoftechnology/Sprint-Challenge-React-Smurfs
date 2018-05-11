@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 
 class SmurfForm extends Component {
   constructor(props) {
@@ -11,20 +12,29 @@ class SmurfForm extends Component {
   }
 
   addSmurf = event => {
-    event.preventDefault(); //prevents html from reloading
-    const {name, age, height} = this.state; //object destructuring - this pulls all stuff off of state
-    const smurfData = {name, age, height}; //goes to handler on props
-    this.props.addSmurf(smurfData);
-    this.setState({
-      name: '',
-      age: '',
-      height: ''
-    })
-  }
+    event.preventDefault(); 
+    const {name, age, height} = this.state; 
+    const smurfData = {name, age, height}; 
+    const postSmurfs = axios.post('http://localhost:3333/smurfs', smurfData);
+        postSmurfs
+          .then(response =>{
+              this.setState(() => ({smurfs:response.data}));
+              window.location.reload(true);
+
+          })
+          .catch(err =>{
+            console.log(err);
+          });
+      
+    }
+
+   
+  
 
   handleInputChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
+  
 
   render() {
     return (
