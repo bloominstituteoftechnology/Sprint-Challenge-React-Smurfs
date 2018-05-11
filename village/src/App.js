@@ -27,9 +27,9 @@ class App extends Component {
       .then(response => this.setState({smurfs: response.data}))
   }
 
-  // updtaeData() {
-  //   this.setState({ smurfs: smurfs }) 
-  // }
+  updtaeData() {
+    this.setState({ smurfs: smurfs }) 
+  }
 
   handleInput(e) {
     this.setState({ [e.target.name]: e.target.value }, { [e.target.age]: e.target.value }, { [e.target.height]: e.target.value })
