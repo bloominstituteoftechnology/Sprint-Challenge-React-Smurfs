@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios'; 
+import { Header } from 'village-src-components';
+import { Route , Link, NavLink } from 'react-router-dom';
 
 import './App.css';
 import SmurfForm from './components/SmurfForm';
@@ -28,6 +30,11 @@ class App extends Component {
       <div className="App">
         <SmurfForm />
         <Smurfs smurfs={this.state.smurfs} />
+        {/* <Navigation /> */}
+          <Link to="/">Welcome!</Link>
+          <Link to="/smurfs">Smurf Village</Link>
+          <Route exact path = "/" component={Header}>Welcome</Route>
+          <Route path = "/smurfs" component={App}>Smurf Village</Route>
       </div>
     );
   }
