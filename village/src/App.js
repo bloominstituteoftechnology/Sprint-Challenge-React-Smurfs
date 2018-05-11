@@ -62,7 +62,7 @@ class App extends Component {
           </div>
         )} />
 
-        <Route path="/view/:id" render={(props) => (
+        <Route path="/smurf/:id" render={(props) => (
           <div>
             <SmurfView {...props} smurfs={this.state.smurfs} handleSmurfDelete={this.handleSmurfDelete.bind(this)} />
           </div>
