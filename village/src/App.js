@@ -23,6 +23,10 @@ class App extends Component {
         this.setState({smurfs: response.data})
       })
       .catch(err => console.log(err))
+
+  
+
+  
   }
   render() {
     return (
