@@ -5,7 +5,9 @@ import styled from 'styled-components';
 import SmurfForm from './SmurfForm';
 
 const DiscreteSmurf = styled.div`
-  border: 2px dotted black;
+  width: 30%;
+  border: 2px dotted white;
+  margin: 1rem;
   padding: 0 1rem 1rem 1rem;
 `;
 

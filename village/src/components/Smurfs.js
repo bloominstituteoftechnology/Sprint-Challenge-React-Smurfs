@@ -30,21 +30,9 @@ class Smurfs extends Component {
       <div className="Smurfs">
         <h1>Smurf Village</h1>
         {this.props.children}
-        <ul>
+        <div className="flex flex-wrap justify-center">
           {this.displaySmurfs()}
-          {/* {this.props.smurfs.map(smurf => {
-            return (
-              <Smurf
-                name={smurf.name}
-                id={smurf.id}
-                age={smurf.age}
-                height={smurf.height}
-                key={smurf.id}
-                update={this.props.update}
-              />
-            );
-          })} */}
-        </ul>
+        </div>
       </div>
     );
   }
