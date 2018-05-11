@@ -13,31 +13,21 @@ class App extends Component {
       smurfs: [],
     };
   }
-
-  componentDidMount() {
-    axios.get('http://localhost:3333/smurfs')
-    .then(response => {
-      this.setState({notes: response.data});
-    })
-    .catch(err => {
-      console.log(err);
-    });
-  }
-
-  saveNoteData = () => {
-    const note = { age: this.state.age, email: this.state.email, name: this.state.name };
-    axios.post('http://localhost:3333/smurfs', note)
-    .then(savedNote => {
-      console.log(savedNote);
-    })
-    .catch(err => {
-      console.log(err);
-    });
-    this.setState({age: '', email: '', name: ''});
-  };
   // add any needed code to ensure that the smurfs collection exists on state and it has data coming from the server
   // Notice what your map function is looping over and returning inside of Smurfs.
   // You'll need to make sure you have the right properties on state and pass them down to props.
+  componentDidMount() {
+    const myPromise = axios.get('http://localhost:3333/smurfs');
+    // pending state - we're getting the data..
+    // resolved state - we have the data or a success..
+    // rejected state - something went wrong with the data.
+    myPromise.then(response => {
+      console.log(response);
+    })
+    .catch(err => {
+      console.log(err);
+    })
+  }
   render() {
     return (
       <div className="App">
