@@ -26,7 +26,10 @@ class App extends Component {
 
   //Use a delete request to delete smurfs.  Gets passed all the way down to the Smurf component
   handleSmurfDelete(id) {
-    console.log(`DELETE ${id}`);
+    axios.delete(`http://localhost:3333/smurfs/${id}`)
+      .then((response) => this.handleSmurfsUpdate(response.data))
+      .catch((err) => console.log(err));
+
   }
 
 
