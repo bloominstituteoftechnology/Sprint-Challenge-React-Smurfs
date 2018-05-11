@@ -27,12 +27,30 @@ class App extends Component {
     console.log(error);
   })
   }
+
+  addSmurf = event => {
+    const {name, age, height} = this.state;
+   event.preventDefault();
+   // add code to create the smurf using the api
+   axios.post('http://localhost:3333/smurfs',{name, age, height})
+   .then((response) => { 
+    console.log(response);
+     this.setState({smurfs: response.data, name: ' ', age: ' ', height: ' '});      
+   })
+   .catch((error) => {
+     console.log("Error posting", error);
+   })
+ }  
+
+  handleInputChange = e => {
+    this.setState({ [e.target.name]: e.target.value });
+  };
  
   render() {
     return (
       <div className="App">
-        <SmurfForm name={this.state.name} age={this.state.age} height={this.state.height} />
         <Smurfs smurfs={this.state.smurfs} />
+        <SmurfForm addSmurf={this.addSmurf} handleInputChange={this.handleInputChange} name={this.state.name} age={this.state.age} height={this.state.height}   />
       </div>
     );
   }
