@@ -18,7 +18,6 @@ class App extends Component {
   }
 
   refresh() {
-    console.log("test");
     axios.get("http://localhost:3333/smurfs")
     .then(response => {
       this.setState({smurfs: response.data});
@@ -41,8 +40,8 @@ componentDidMount() {
     return (
       <div className="App">
         <Route path="/" component={Header} />
-        <Route path="/smurfs" render={() => <SmurfForm refresh={this.refresh}/>} />
-        <Route path="/smurfs" render={() => <Smurfs smurfs={this.state.smurfs} updateAge={this.state.updateAge} updateHeight={this.state.updateHeight} updateName={this.state.updateName} />} />
+        <Route path="/smurfs" render={() => <SmurfForm refresh={this.refresh.bind(this)}/>} />
+        <Route path="/smurfs" render={() => <Smurfs smurfs={this.state.smurfs} updateAge={this.state.updateAge} updateHeight={this.state.updateHeight} updateName={this.state.updateName} refresh={this.refresh.bind(this)} />} />
       </div>
     );
   }

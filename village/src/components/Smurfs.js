@@ -10,7 +10,9 @@ class Smurfs extends Component {
 
   handleDelete(id) {
     axios.delete("http://localhost:3333/smurfs/" + id)
-      .then(response => this.setState({smurfs: response.data}))
+      .then(response => {
+        this.props.refresh();
+        this.setState({smurfs: response.data})})
       .catch(err => console.log(err));
   }
 
