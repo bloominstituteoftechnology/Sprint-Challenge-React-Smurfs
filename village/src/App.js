@@ -24,6 +24,12 @@ class App extends Component {
     this.setState({smurfs: smurfs});
   }
 
+  //Use a delete request to delete smurfs.  Gets passed all the way down to the Smurf component
+  handleSmurfDelete(id) {
+    console.log(`DELETE ${id}`);
+  }
+
+
   componentDidMount() {
     //get the smurf data from the server
     //then put it on the state
@@ -41,7 +47,7 @@ class App extends Component {
         <Route path="/smurfs" render={(props) => (
           <div>
             <SmurfForm handleSmurfsUpdate={this.handleSmurfsUpdate.bind(this)} />
-            <Smurfs smurfs={this.state.smurfs} />
+            <Smurfs smurfs={this.state.smurfs} handleSmurfDelete={this.handleSmurfDelete.bind(this)} />
           </div>
         )} />
         <Route exact path="/" render={() => (
