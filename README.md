@@ -5,29 +5,6 @@
 * This is to be worked on alone but you can use outside resources. You can _reference_ any old code you may have, and the React Documentation, however, please refrain from copying and pasting any of your answers. Try and understand the question and put your responses in your own words. Be as thorough as possible when explaining something.
 * **Just a friendly Reminder** Don't fret or get anxious about this, this is a no-pressure assessment that is only going to help guide you here in the near future. This is NOT a pass/fail situation.
 
-## Start by forking and cloning this repository.
-
-## Questions - Self Study - You can exercise your Google-Fu for this and any other _Sprint Challenge_ in the future.
-
-1.  Explain the differences between `client-side routing` and `server-side routing`.
-1.  What does HTTP stand for?
-1.  What does CRUD stand for?
-1.  Which HTTP methods can be mapped to the CRUD acronym that we use when interfacing with APIs/Servers.
-1.  Mention three tools we can use to make AJAX requests.
-
-## Initializing Project - READ THIS CAREFULLY, you have two apps here. A server, and a client.
-
-* Start by Forking and Cloning this Repo.
-* `cd` into the forked copy.
-* **RUN** `yarn install or npm install` at the root to retrieve all the dependencies for the node server. You will not need to create any react apps here nor will you need to install any other dependencies. You should have all you need in this repo.
-* **LOOK** at all the files you've been given for this project. One important file to note is `server.js`. This file contains an **API** that you are going to be interfacing with. Below is documentation on how to interact with the **API**.
-* **RUN** `yarn start or npm start` to get your API up and running on `http://localhost:3333`. This is the **URL** you're going to need to use within your React app in order to make AJAX requests for data.
-* After your API is up and running, you can open chrome and type in `http://localhost:3333/smurfs`. You should see an Array `[]` with a smurf returned to you. This is an array that your **API** will be using to store our Smurf Data.
-* **LOOK** at your `village` directory and notice it's just a plain ol' React App that we've built using `create-react-app`.
-* **cd** into `village` and run `yarn install or npm install` to retrieve the client side dependencies.
-* **Install** `React Router` and `axios` through yarn. **React Router** is a stretch problem for this challenge. We want you to focus on building out a UI that interfaces with an API.
-* **RUN** `yarn start or npm start` to fire up your React application, you should see an error that reads: `TypeError: Cannot read property 'smurfs' of null`.
-
 ## Project Description
 
 * The requirements for completion are that you are using AXIOS to `GET` a list of Smurfs that exist on the server && a `POST` to create a new Smurf and save it to the Smurf DB.
