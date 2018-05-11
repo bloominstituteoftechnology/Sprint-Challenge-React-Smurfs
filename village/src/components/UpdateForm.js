@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 class UpdateForm extends Component {
@@ -29,10 +30,23 @@ class UpdateForm extends Component {
     this.setState({ [e.target.name]: e.target.value });
   };
 
+  handleSmurfUpdate() {
+    //using axios post to update a smurf from the state of the form
+    axios.put(`http://localhost:3333/smurfs/${this.state.smurf.id}`, {name: this.state.name, age: this.state.age, height: this.state.height})
+      .then((result) => this.state.handleSmurfsUpdate(result.data))
+      .catch((err) => console.log(err));
+
+    this.setState({
+      name: '',
+      age: '',
+      height: ''
+    });
+  }
+
   render() {
     return (
       <div className="SmurfForm">
-        <form onSubmit={this.addSmurf}>
+        <form >
           <input
             onChange={this.handleInputChange}
             placeholder="name"
@@ -51,7 +65,7 @@ class UpdateForm extends Component {
             value={this.state.height}
             name="height"
           />
-          <button type="submit">Modify Smurf</button>
+          <Link to="/smurfs"><button onClick={this.handleSmurfUpdate.bind(this)}>Modify Smurf</button></Link>
         </form>
       </div>
     );
