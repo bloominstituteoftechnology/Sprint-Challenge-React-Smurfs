@@ -3,6 +3,9 @@ import axios from 'axios';
 import './App.css';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
+import { Route, Link } from 'react-router-dom';
+import Smurf from './components/Smurf';
+
 
 class App extends Component {
   constructor(props) {
@@ -11,9 +14,7 @@ class App extends Component {
       smurfs: [],
     };
   }
-  // add any needed code to ensure that the smurfs collection exists on state and it has data coming from the server
-  // Notice what your map function is looping over and returning inside of Smurfs.
-  // You'll need to make sure you have the right properties on state and pass them down to props.
+  
   componentDidMount() {
     this.updateSmurf();
   }
@@ -30,9 +31,11 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <SmurfForm />
-        <SmurfForm updateSmurf={this.updateSmurf} />
-        <Smurfs smurfs={this.state.smurfs} />
+        <Route exact path="/" render={(props) => (
+          <SmurfForm  {...props} updateSmurf={this.updateSmurf} /> )} />
+        <Route exact path="/smurfs" render={(props) => (
+          <Smurfs {...props} updateSmurf={this.updateSmurf} smurfs={this.state.smurfs}/>)} />
+        <Link to="/form"> <button>form</button> </Link>
       </div>
     );
   }
