@@ -1,6 +1,7 @@
 /**
  * STEPS:
  * Add: GET, POST and PUT request.
+ * MONT: Header.js
  * Lookup: for an API that delivers a JSON list with snurfs.
  * SETUP: Router, Routes and Links.
  */
@@ -10,7 +11,9 @@ import React, { Component } from 'react';
 import './App.css';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
+import Header from './components/Header';
 import axios from 'axios';
+import {Route} from 'react-router-dom';
 
 class App extends Component {
   constructor(props) {
@@ -39,6 +42,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <Route path="/" component={Header} />
         <SmurfForm getSmurfs={this.getSmurfs} />
         <Smurfs smurfs={this.state.smurfs} />
       </div>

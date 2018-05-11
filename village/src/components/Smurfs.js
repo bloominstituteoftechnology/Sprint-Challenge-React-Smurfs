@@ -6,7 +6,7 @@ class Smurfs extends Component {
   render() {
     return (
       <div className="Smurfs">
-        <h1>Smurf Village</h1>
+        <h2>Our lovely cottage's neighbours</h2>
         <ul>
           {this.props.smurfs.map(smurf => {
             return (
@@ -30,3 +30,4 @@ Smurf.defaultProps = {
 };
 
 export default Smurfs;
+ 
