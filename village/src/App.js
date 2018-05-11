@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { Route, Link } from 'react-router-dom';
 
 import './App.css';
 import SmurfForm from './components/SmurfForm';
@@ -19,7 +20,7 @@ class App extends Component {
   // You'll need to make sure you have the right properties on state and pass them down to props.
 
   componentDidMount(){
-      const myPromise = axios(`http://localhost:3333/smurfs`)
+      axios(`http://localhost:3333/smurfs`)
         .then(response => {
           console.log(response.data)
           this.setState({ smurfs: response.data})
@@ -32,7 +33,7 @@ class App extends Component {
     return (
       <div className="App">
         <SmurfForm />
-        <Smurfs smurfs={this.state.smurfs} get={this.getRequest}/>
+        <Route path=""><Smurfs smurfs={this.state.smurfs} get={this.getRequest}/></Route>
       </div>
     );
   }
