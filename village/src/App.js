@@ -21,6 +21,17 @@ class App extends Component {
       .catch(err => console.log(err))
   }
 
+  componentDidUpdate(prevState) {
+    if (this.state !== prevState){
+    axios.get("http://localhost:3333/smurfs")
+      .then(res => {
+        const smurfs = res.data;
+        this.setState({ smurfs });
+      })
+      .catch(err => console.log(err))
+    };
+  }
+
   handleUpdateSmurf = (id, updatedSmurf) => {
     axios.put(`http://localhost:3333/smurfs/${id}`, updatedSmurf)
     .then(res => {

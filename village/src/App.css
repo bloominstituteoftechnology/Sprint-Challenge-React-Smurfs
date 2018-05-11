@@ -148,11 +148,13 @@
   outline: none;
 }
 
-.addsmurf-form button {
+.addsmurf-form-button {
+  display: inline-flex;
   width: 50%;
-  max-width: 120px;
+  max-width: 110px;
   padding: 10px 5px;
-  margin: 10px 0;
+  margin: 5px 0;
+  text-decoration: none;
   font-size: 14px;
   color: rgb(17, 80, 109);
   background: white;
@@ -161,7 +163,7 @@
   box-shadow: 2px 2px rgba(98, 205, 253, 1);
 }
 
-.addsmurf-form button:hover {
+.addsmurf-form-button:hover {
   cursor: pointer;
   background: rgb(243, 43, 210);
   color: white;

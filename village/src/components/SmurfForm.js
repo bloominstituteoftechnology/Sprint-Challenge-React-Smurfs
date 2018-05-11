@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import axios from "axios";
+import { Link, Redirect } from "react-router-dom";
 
 class SmurfForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      smurfs: {}
+      smurfs: {},
+      result: true
     };
   }
 
@@ -15,12 +17,13 @@ class SmurfForm extends Component {
     axios.post("http://localhost:3333/smurfs", newSmurf)
     .then(res => {
       const smurfs = res.data;
-      this.setState({ smurfs });
     })
     .catch(err => console.log(err))
     this.setState({
-      smurfs: {}
+      smurfs: {},
+      result: false
     });
+
   }
 
   handleInputChange = e => {
@@ -30,6 +33,11 @@ class SmurfForm extends Component {
   };
 
   render() {
+    if(!this.state.result) {
+      return (
+      <Redirect push to="/village"/>
+      );
+    }
     return (
       <div className="addsmurf">
         <h1>Become a Smurf Village&reg; Citizen</h1>
@@ -53,7 +61,7 @@ class SmurfForm extends Component {
               value={this.state.height}
               name="height"
             />
-            <button type="submit" onSubmit={e => this.addSmurf(e)}>Add to the village</button>
+            <Link to="/village" className="addsmurf-form-button" onClick={e => this.addSmurf(e)}>Add to the village</Link>
           </form>
         </div>
       </div>
