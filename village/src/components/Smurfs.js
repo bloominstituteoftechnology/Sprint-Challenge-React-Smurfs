@@ -30,11 +30,7 @@ class Smurfs extends Component {
         <ul>
           {this.state.smurfs.map(smurf => {
             return (
-              <Smurf
-                name={smurf.name}
-                id={smurf.id}
-                age={smurf.age}
-                height={smurf.height}
+              <Smurf smurf={smurf}
                 key={smurf.id}
               />
             );

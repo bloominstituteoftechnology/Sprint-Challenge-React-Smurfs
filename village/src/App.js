@@ -33,9 +33,7 @@ class App extends Component {
         <Route path="/" render={ (props) => <NavWrapper {...props} menuData={this.state.menu}/> } />
 
         <Route exact path="/" component={Smurfs} />
-
-        {/* <SmurfForm /> */}
-        {/* <Smurfs smurfs={this.state.smurfs} /> */}
+        <Route exact path="/add-smurf" component={SmurfForm} />
       </div>
     );
   }
