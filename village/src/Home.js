@@ -1,15 +1,13 @@
 import React from 'react';
-import { Route, Link } from 'react-router-dom';
-import App from './App';
+import { Link } from 'react-router-dom';
 import './Home.css';
 
 const Home = () => {
     return (
         <div className="home-container">
-        <h1 style={homeStyles}>Welcome to Smurf Village</h1>
-        {/* <button style={homeBtn}><Link style={homeBtn} to="/smurfs">Enter Village</Link></button> */}
-        <Link to="/smurfs" ><button style={homeBtn}>Enter Village</button></Link>
-        <img className="homeImage" src="http://www.liketotally80s.com/wp-content/uploads/2014/08/smurfs-characters.png" alt="The Smurfs"/>
+            <h1 style={homeStyles}>Welcome to Smurf Village</h1>
+            <Link to="/smurfs" ><button style={homeBtn}>Enter Village</button></Link>
+            <img className="homeImage" src="http://www.liketotally80s.com/wp-content/uploads/2014/08/smurfs-characters.png" alt="The Smurfs"/>
         </div>
     )
 }

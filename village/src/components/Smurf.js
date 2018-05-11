@@ -11,7 +11,6 @@ const Smurf = props => {
       .catch(err => console.log(err))
   }
   
-  
   return (
     <div className="Smurf">
       {/* <Link to={`/smurfs/${props.match.params.id}`}>{props.name}</Link> */}
