@@ -10,4 +10,11 @@ const Smurf = props => {
   );
 };
 
+Smurf.defaultProps = {
+  name: '',
+  height: '',
+  age: ''
+};
+
 export default Smurf;
+
