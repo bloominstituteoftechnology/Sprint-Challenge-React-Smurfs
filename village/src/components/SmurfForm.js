@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+
 
 class SmurfForm extends Component {
   constructor(props) {
@@ -11,8 +11,6 @@ class SmurfForm extends Component {
       height: ''
     };
   }
-
-
 
   addSmurf = event => {
     event.preventDefault();
@@ -43,8 +41,10 @@ class SmurfForm extends Component {
 
   render() {
     return (
+     
       <div className="SmurfForm">
-        <form onSubmit={this.addSmurf}>
+    
+      <form onSubmit={this.addSmurf}>
           <input
             onChange={this.handleInputChange}
             placeholder="name"

@@ -4,7 +4,7 @@ import axios from 'axios';
 import './App.css';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { Route, Link } from 'react-router-dom';
 import Header from './components/Header';
 
 
@@ -51,8 +51,10 @@ PostSmurf = id => {
   render() {
     return (
       <div className="App">
-        <SmurfForm />
-        <Smurfs smurfs={this.state.smurfs} />
+        <Link to="/smurfslist">Smurf List</Link>
+        <Link to="/form">Smurf Form</Link>  
+        <Route path="/form" render={() => <SmurfForm />}/>
+        <Route path="/smurfslist" render={() => <Smurfs smurfs={this.state.smurfs} />}/>
       </div>
     );
   }
