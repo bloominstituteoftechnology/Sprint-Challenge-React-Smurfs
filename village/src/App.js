@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
-import { SmurfList, SmurfForm } from "./components";
+import { SmurfList, SmurfForm, Navigation, Header } from "./components";
 import axios from "axios";
-import { Route, Link } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 
 class App extends Component {
   constructor(props) {
@@ -41,10 +41,13 @@ class App extends Component {
   // Notice what your map function is looping over and returning inside of Smurfs.
   // You'll need to make sure you have the right properties on state and pass them down to props.
   render() {
+    const smurfs = this.state.smurfs;
     return (
       <div className="App">
-        <SmurfForm />
-        <SmurfList smurfs={this.state.smurfs} />
+        <Navigation />
+        <Route exact path="/" component={Header}/>
+        <Route path="/village" render={props => <SmurfList smurfs={smurfs}/>}/>
+        <Route path="/addsmurf" render={props => <SmurfForm smurfs={smurfs}/>}/>
       </div>
     );
   }
