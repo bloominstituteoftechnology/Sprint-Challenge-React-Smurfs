@@ -1,6 +1,7 @@
 import React from 'react';
 
 const Smurf = props => {
+  console.log("Smurf props:", props)
   return (
     <div className="Smurf">
       <h3>{props.name}</h3>
