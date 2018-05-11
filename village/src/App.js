@@ -13,7 +13,8 @@ class App extends Component {
   }
 
   componentDidMount = () => {
-    axios.get("http://localhost:3333/smurfs")
+    axios
+      .get("http://localhost:3333/smurfs")
       .then(res => {
         const smurfs = res.data;
         this.setState({ smurfs });
