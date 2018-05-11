@@ -35,14 +35,6 @@ class App extends Component {
     this.setState({ [e.target.name]: e.target.value }, { [e.target.age]: e.target.value }, { [e.target.height]: e.target.value })
   }
 
-  // handleInput(e) {
-  //   this.setState({ [e.target.age]: e.target.value })
-  // }
-
-  // handleInput(e) {
-  //   this.setState({ [e.target.height]: e.target.value })
-  // }
-
   handleSubmit(e) {
     e.preventDefault();
     let newSmurf = {
