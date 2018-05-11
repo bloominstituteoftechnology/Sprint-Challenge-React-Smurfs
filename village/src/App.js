@@ -24,19 +24,22 @@ class App extends Component {
   // You'll need to make sure you have the right properties on state and pass them down to props.
 
   componentDidMount() {
+    this.getSmurfs();
+  }
+  
+  getSmurfs = () => {
     axios.get('http://localhost:3333/smurfs')
     .then( res => {console.log(res.data); return res.data} )
     .then( data => {
-      this.setState({ smurfs: data });
+      this.setState({ smurfs: data.reverse() });
     } )
     .catch( e => console.log(e) );
   }
-  
 
   render() {
     return (
       <div className="App">
-        <SmurfForm />
+        <SmurfForm getSmurfs={this.getSmurfs} />
         <Smurfs smurfs={this.state.smurfs} />
       </div>
     );
