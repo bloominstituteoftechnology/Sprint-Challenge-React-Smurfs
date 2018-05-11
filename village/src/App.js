@@ -4,6 +4,7 @@ import './App.css';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
 import Header from './components/Header';
+import {Route} from "react-router-dom";
 
 class App extends Component {
   constructor(props) {
@@ -25,9 +26,10 @@ componentDidMount() {
   render() {
     return (
       <div className="App">
-        <Header />
-        <SmurfForm />
-        <Smurfs smurfs={this.state.smurfs} />
+        <Route path="/" component={Header} />
+        <Route path="/new" component={SmurfForm} />
+        <Route path="/smurfs" render={() => <Smurfs smurfs={this.state.smurfs} />} />
+
       </div>
     );
   }
