@@ -18,7 +18,7 @@ class App extends Component {
     this.setState({ smurfs: newSmurfs });
   }
   deleteSmurf = (event) => {
-    const smurfId = event.target.id;
+    const smurfId = event.target.dataset.id;
     axios.delete(`http://localhost:3333/smurfs/${smurfId}`)
       .then(response => this.setState({ smurfs: response.data }))
       .catch(err => console.error(err));

@@ -7,7 +7,7 @@ const Smurf = props => {
       <strong>{props.height} tall</strong>
       <p>{props.age} smurf years old</p>
       <div className="actions">
-        <button id={props.id} onClick={props.deleteSmurf}>Delete</button>
+        <button data-id={props.id} onClick={props.deleteSmurf}>Delete</button>
       </div>
     </div>
   );
