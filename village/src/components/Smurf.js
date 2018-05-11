@@ -17,7 +17,6 @@ class Smurf extends Component {
 
   componentDidMount() {
     const id = this.props.match.params.id
-    console.log(id);
     this.fetchSmurf(id);
   }
 
@@ -26,14 +25,12 @@ class Smurf extends Component {
   }
 
   fetchSmurf = (id) => {
-    console.log(`fetching smurf with id=${id}`)
     axios
       .get(`http://localhost:3333/smurfs/${id}`)
       .then((res) => {
         this.setState(() => ({smurf: res.data, name:res.data.name, age:res.data.age, height:res.data.height}))
       })
-      .catch(err => console.log(err.name))
-    console.log(this.state)
+      .catch(err => console.log(err))
   }
 
   updateSmurf = () => {
