@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import {NavLink, Route} from 'react-router-dom';
+import {NavLink, Link, Route} from 'react-router-dom';
 import {Container, Row, Col} from 'reactstrap';
 
 class SmurfForm extends Component {
@@ -89,11 +89,11 @@ class SmurfForm extends Component {
                                                                             type="submit">Add to the village
                                                                           </button> }
           />
-          <Route exact path={`/${this.props.id}/modify`} render={ props => <button
+          <Route exact path={`/${this.props.id}/modify`} render={ props => <Link to={`/${this.props.id}/modify`}><button
                                                                             onClick={ this.modifySmurf }
                                                                             type="submit">
                                                                               Modify smurf
-                                                                            </button> }
+                                                                            </button></Link> }
           />
           {/* <button
             onClick={ this.props.match.path === `/${this.props.id}/modify` ? this.modifySmurf : this.addSmurf}

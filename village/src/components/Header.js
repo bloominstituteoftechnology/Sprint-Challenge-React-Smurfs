@@ -10,12 +10,12 @@ const Header = () => {
           <Link to="/" ><h1>Smurf Village</h1></Link>
           </Col>
         </Row>
-        <Row>
+        {/* <Row>
           <Col>
           </Col>
           <Col>
           </Col>
-        </Row>
+        </Row> */}
       </Container>
   )
 

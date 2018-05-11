@@ -31,6 +31,8 @@ class Smurf extends Component {
     return (
       <div className="custom-card" >
         <Switch>
+
+
           <Route exact path={`/${this.props.id}/modify`}
             render={ props => 
               <Link to={`/${this.props.id}/modify`} className="Smurf">
@@ -39,9 +41,11 @@ class Smurf extends Component {
                     <strong>{height} tall</strong>
                     <p>{age} smurf years old</p>
                   </div>
-                  <Button onClick={this.delete} className="btn-danger" >Delete</Button>
+                  <Link to="/"><Button onClick={this.delete} className="btn-danger" >Delete</Button></Link>
               </Link>
              } />
+          
+          
           <Route exact path="/"
             render={ props => 
               <Link to={`/${this.props.id}/modify`} className="Smurf">
@@ -52,6 +56,8 @@ class Smurf extends Component {
                   </div>
               </Link>
              } />
+
+
         </Switch>
       </div>
     );

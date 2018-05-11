@@ -13,7 +13,7 @@ import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
 import Header from './components/Header';
 import axios from 'axios';
-import {Route, Switch} from 'react-router-dom';
+import {Route} from 'react-router-dom';
 
 class App extends Component {
   constructor(props) {
@@ -49,10 +49,10 @@ class App extends Component {
     return (
       <div className="App">
         <Route path="/" component={Header} />
-        <Switch>
+        {/* <Switch> */}
           {/* <Route exact path="/:id/modify" render={ props => <SmurfForm {...props} getSmurfs={this.getSmurfs} smurfs={this.state.smurfs}  /> } /> */}
-          <Route exact path="/"           render={ props => <SmurfForm {...props} getSmurfs={this.getSmurfs} /> } />
-        </Switch>
+          <Route exact path="/" render={ props => <SmurfForm {...props} getSmurfs={this.getSmurfs} /> } />
+        {/* </Switch> */}
         {/* <Smurfs smurfs={this.state.smurfs} /> */}
         <Route path="/" render={ props => <Smurfs {...props} smurfs={this.state.smurfs} getSmurfs={this.getSmurfs} deleteSmurf={this.deleteSmurf} /> } />
       </div>
