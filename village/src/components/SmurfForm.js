@@ -11,22 +11,25 @@ class SmurfForm extends Component {
     };
   }
 
-  addSmurf = props => {
+  addSmurf(){
     // event.preventDefault();
     // // add code to create the smurf using the api
 
-    const smurfs = props.smurfs;
     const info = {name: this.state.name, age: this.state.age, height: this.state.height}
-    smurfs.push(info);
 
     axios.post('http://localhost:3333/smurfs', info)
     .then(response => {
-      console.log(response)
-      this.setState({name: '', age: '', height: ''});
+      this.setState({smurfs: response.data});
     })
     .catch(err => {
       console.log(err);
     })
+
+    this.setState({
+      name: '',
+      age: '',
+      height: '',
+    });
   }
 
   handleInputChange = e => {

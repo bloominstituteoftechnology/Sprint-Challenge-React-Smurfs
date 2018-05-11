@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Route} from 'react-router-dom';
+import {Route, Link} from 'react-router-dom';
 import axios from 'axios';
 import './App.css';
 import Header from './components/Header';
@@ -30,12 +30,16 @@ class App extends Component {
     return (
       <div className="App">
         <Route exact path="/" component={Header}/>
-        <Route path="/smurfs" render={(props)=> (
-          <SmurfForm {...props}/>
-        )}/>
-        <Route path="/smurfs" render={(props)=> (
-          <Smurfs {...props}/>
-        )}/>
+        <Route path="/smurfs" render={(props)=> {
+          return (
+            <div>
+              <Link to="/">Home</Link>
+              <Smurfs smurfs={this.state.smurfs}/>
+              <SmurfForm smurfs={this.state.smurfs}/>
+            </div>
+          )
+        }
+        }/>
       </div>
     );
   }
