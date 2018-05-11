@@ -7,3 +7,8 @@ button:hover {
     margin-top: 50px;
     margin-left: 280px;
 }
+
+.home-container {
+    background-Color: white;
+    height: 100%;
+}
