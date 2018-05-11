@@ -8,7 +8,7 @@ const Smurf = props => {
       <strong>{props.height} tall</strong>
       <p>{props.age} smurf years old</p>
       <Link to={`/view/${props.id}`} ><button>View</button></Link>
-      <button onClick={() => props.handleSmurfDelete(props.id)} >Delete</button>
+      <Link to="/smurfs" ><button onClick={() => props.handleSmurfDelete(props.id)} >Delete</button></Link>
       <Link to={`/update/${props.id}`} ><button>Modify</button></Link>
     </div>
   );
