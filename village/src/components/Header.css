@@ -1,6 +1,8 @@
 .App-navigation-top {
-    display: flex;
-    justify-content: space-around;
-    background-color: orange;
+    /* display: flex; */
+    /* justify-content: space-around; */
+    text-align: center;
+    background-color: #00ADF1;
+    color: white;
     padding: 30px;
 }

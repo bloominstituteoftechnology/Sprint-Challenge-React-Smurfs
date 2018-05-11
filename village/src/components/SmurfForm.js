@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-// import SmurfForm from './components/SmurfForm';
-import Smurfs from './components/Smurfs';
-import Header from './components/Header';
+import Smurfs from './Smurfs';
+// import Header from './components/Header';
 import axios from 'axios';
-import './SmurfForm.css';
+// import './SmurfForm.css';
 
 
 class SmurfForm extends Component {
@@ -35,26 +34,19 @@ class SmurfForm extends Component {
   handleInputChange = (event) => { this.setState({[event.target.name]: event.target.value}) }
 
   buttonSubmit = () => {
-    const { id, name, age, height } = this.state
-    axios.post('http://localhost:3333/smurfs', { id, name, age, height })
+    const { name, age, height, id } = this.state
+    axios.post('http://localhost:3333/smurfs', { name, age, height, id })
       .then( (response) => {
-        this.setState({ smurfs: response.data, id: '', name: '', age: '', height: '' })
+        this.setState({ smurfs: response.data, name: '', age: '', height: '', id: '' })
       })
   }
 
   render() {
     return (
       <div className="App">
-        <Header />
+        {/* <Header /> */}
         <br />
         <form onSubmit={this.addSmurf}>
-          <input
-            type="number"
-            onChange={this.handleInputChange}
-            placeholder="Enter id"
-            value={this.state.id}
-            name="id"
-          />
           <input
             type="text"
             onChange={this.handleInputChange}
@@ -75,6 +67,13 @@ class SmurfForm extends Component {
             placeholder="Enter height"
             value={this.state.height}
             name="height"
+          />
+          <input
+            type="number"
+            onChange={this.handleInputChange}
+            placeholder="Enter id"
+            value={this.state.id}
+            name="id"
           />
           <button type="submit" onClick={this.buttonSubmit}>Add to the village</button>
         </form>
