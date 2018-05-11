@@ -7,10 +7,10 @@ class Smurfs extends Component {
     return (
       <div className="Smurfs">
         <h1>Smurf Village</h1>
+        <Link to="/">Head Home!</Link> 
         <ul>
           {this.props.smurfs.map(smurf => {
             return (
-              <div>
               <Smurf
                 removeSmurf={this.props.removeSmurf}
                 updateSmurf={this.props.updateSmurf}
@@ -20,8 +20,6 @@ class Smurfs extends Component {
                 height={smurf.height}
                 key={smurf.id}
               />
-              <Link to="/">Head Home!</Link>
-              </div>
             );
           })}
         </ul>
