@@ -20,6 +20,7 @@ class App extends Component {
     //then put it on the state
     axios.get('http://localhost:3333/smurfs')
       .then((response) => this.setState({smurfs: response.data}))
+      .catch((err) => console.log(err));
   }
 
   render() {
