@@ -83,7 +83,7 @@ class SmurfForm extends Component {
             value={this.state.height}
             name="height"
           />
-          <NavLink to="/">Hide</NavLink> 
+          {/* <NavLink to="/">Hide</NavLink>  */}
           <Route exact path="/"                       render={ props => <button
                                                                             onClick={ this.addSmurf}
                                                                             type="submit">Add to the village

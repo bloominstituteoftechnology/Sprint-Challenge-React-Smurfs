@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Link} from 'react-router-dom';
+import {Link, Switch, Route} from 'react-router-dom';
 import { Button} from 'reactstrap';
 
 /**
@@ -29,15 +29,31 @@ class Smurf extends Component {
     console.log(this.porps)
     const {name, height, age} = this.props;
     return (
-      <div className="Smurf clearfix">
-        <div id="Popover1" onClick={this.toggle}>
-          <h3>{name}</h3>
-          <strong>{height} tall</strong>
-          <p>{age} smurf years old</p>
-        </div>
-        <Link to={`/${this.props.id}/modify`} ><Button className="btn-secondary float-left" >Modify</Button></Link>
-        <Button onClick={this.delete} className="btn-danger float-right" >Delete</Button>
-    </div>
+      <div className="custom-card" >
+        <Switch>
+          <Route exact path={`/${this.props.id}/modify`}
+            render={ props => 
+              <Link to={`/${this.props.id}/modify`} className="Smurf">
+                  <div {...props} id="Popover1" onClick={this.toggle}>
+                    <h3>{name}</h3>
+                    <strong>{height} tall</strong>
+                    <p>{age} smurf years old</p>
+                  </div>
+                  <Button onClick={this.delete} className="btn-danger" >Delete</Button>
+              </Link>
+             } />
+          <Route exact path="/"
+            render={ props => 
+              <Link to={`/${this.props.id}/modify`} className="Smurf">
+                  <div {...props} id="Popover1" onClick={this.toggle}>
+                    <h3>{name}</h3>
+                    <strong>{height} tall</strong>
+                    <p>{age} smurf years old</p>
+                  </div>
+              </Link>
+             } />
+        </Switch>
+      </div>
     );
   }
 }
