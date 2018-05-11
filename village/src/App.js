@@ -5,7 +5,7 @@ import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
 import { Route, Link } from 'react-router-dom';
 import Smurf from './components/Smurf';
-
+import Header from './components/Header';
 
 class App extends Component {
   constructor(props) {
@@ -31,6 +31,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <Route exact path="/" component={Header}/>
         <Route exact path="/" render={(props) => (
           <SmurfForm  {...props} updateSmurf={this.updateSmurf} /> )} />
         <Route  path="/smurfs" render={(props) => (
