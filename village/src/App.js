@@ -27,7 +27,7 @@ componentDidMount() {
     return (
       <div className="App">
         <Route path="/" component={Header} />
-        <Route path="/new" component={SmurfForm} />
+        <Route path="/smurfs" component={SmurfForm} />
         <Route path="/smurfs" render={() => <Smurfs smurfs={this.state.smurfs} />} />
 
       </div>
