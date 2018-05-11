@@ -9,7 +9,8 @@ class SmurfForm extends Component {
     this.state = {
       name: '',
       age: '',
-      height: ''
+      height: '',
+      id: ''
     };
   }
 
@@ -17,8 +18,8 @@ class SmurfForm extends Component {
     event.preventDefault();
     // add code to create the smurf using the api
       const newSmurf = this.state;
-      axios.
-      post("http://localhost:3333/smurfs", newSmurf)
+      axios
+      .post("http://localhost:3333/smurfs", newSmurf)
         .then(res => {
           const smurfs = res.data;
           this.setState({ smurfs });
@@ -34,6 +35,44 @@ class SmurfForm extends Component {
       window.location.reload();
   }
 
+
+  deleteSmurf = (id) => {
+    id = this.state.id;
+    axios
+      .delete(`http://localhost:3333/smurfs/${id}`)
+      .then(response => {
+          console.log(response);
+      })
+      .catch(err => {
+          console.log(err);
+      })
+
+      this.setState({
+        id: '',
+        name: '',
+        age: '',
+        height: ''
+      });
+      window.location.reload();
+  }
+
+
+  updateSmurf = (id, smurfData) => {
+    id = this.state.id
+    smurfData = this.state;
+    axios
+    .put(`http://loclahost:3333/smurfs/${id}`, smurfData)
+    .then(res => {
+      const smurf = res.data;
+      this.setState({smurf});
+    })
+    .catch(err => console.log(err));
+
+    window.location.reload();
+  }
+
+
+
   handleInputChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
@@ -41,7 +80,12 @@ class SmurfForm extends Component {
   render() {
     return (
       <div className="SmurfForm">
-        <form onSubmit={this.addSmurf}>
+          <input
+          onChange={this.handleInputChange}
+          placeholder="id"
+          value={this.state.id}
+          name="id"
+          />
           <input
             onChange={this.handleInputChange}
             placeholder="name"
@@ -61,7 +105,9 @@ class SmurfForm extends Component {
             name="height"
           />
           <button type="submit" onClick={this.addSmurf}>Add to the village</button>
-        </form>
+          <button type="submit" onClick={this.deleteSmurf}>Delete Smurf</button>
+          <button type="submit" onClick={this.updateSmurf}>Update Smurf</button>
+      
       </div>
     );
   }
