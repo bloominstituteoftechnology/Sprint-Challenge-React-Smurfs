@@ -17,6 +17,7 @@ function deleteSmurf(smurfID){
     .catch(err => {
       console.error(err);
     })
+  window.location.reload();
 }
 
 const Smurf = props => {
