@@ -14,15 +14,17 @@ const SmurfView = (props) => {
   }
   return (
     <div>
-    <Smurf
-      name={smurf.name}
-      id={smurf.id}
-      age={smurf.age}
-      height={smurf.height}
-      key={smurf.id}
-      handleSmurfDelete={props.handleSmurfDelete}
-    />
+      <Smurf
+        name={smurf.name}
+        id={smurf.id}
+        age={smurf.age}
+        height={smurf.height}
+        key={smurf.id}
+        handleSmurfDelete={props.handleSmurfDelete}
+      />
+      <Link to="/smurfs"><button>Back</button></Link>
     </div>
+
   )
 }
 

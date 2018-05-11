@@ -67,6 +67,7 @@ class UpdateForm extends Component {
           />
           <Link to="/smurfs"><button onClick={this.handleSmurfUpdate.bind(this)}>Modify Smurf</button></Link>
         </form>
+        <Link to="/smurfs"><button>Back</button></Link>
       </div>
     );
   }
