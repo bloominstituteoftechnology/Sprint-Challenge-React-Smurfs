@@ -1,7 +1,8 @@
 import React from 'react';
 
 const Header = () => {
-  return <h2>Welcome to Smurf Village!</h2>
+  return <h1 className="header">Welcome to Smurf Village!</h1>
+  
 }
  
 export default Header;
