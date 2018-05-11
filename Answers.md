@@ -14,7 +14,7 @@
 
 > **Read**: GET  
 
-> **Update**: PATCH  
+> **Update**: PUT  
 
 > **Delete**: DELETE
 
