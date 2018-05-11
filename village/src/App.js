@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios'; 
 import './App.css';
-import { Route, Link } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 // import SmurfForm from './components/SmurfForm';
 // import Smurfs from './components/Smurfs';
 import { Header, SmurfForm, Smurfs } from './components';
@@ -37,14 +37,19 @@ class App extends Component {
         console.log("error:", err);
       });  
   }
+   
   render() {
     return (
       <div className="App">
-        {/* <Route exact path ="/" component={Header}></Route>
-        <Link to="/SmurfForm">Smurf Form</Link>
-        <Route path="/SmurfForm" component={SmurfForm}></Route> */}
-        <SmurfForm addSmurf={this.addSmurf}/>
-        <Smurfs smurfs={this.state.smurfs} />
+        <Route exact path ="/" component={Header}></Route>
+        <Route path="/smurfs" render={props =>{
+          return (
+            <div>
+              <SmurfForm {...props} addSmurf={this.addSmurf}/>
+              <Smurfs {...props} smurfs={this.state.smurfs} />
+            </div>
+            )
+        }} />
       </div>
     );
   }
