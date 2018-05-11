@@ -3,7 +3,7 @@ import axios from 'axios';
 import './App.css';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
-import { Route } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import Header from './components/Header';
 
 
@@ -32,11 +32,11 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+
       <Switch>
         <Route exact path="/" component={Header} />
-        <Route path="/smurfs" render={props => <div> <SmurfForm /> <Smurfs smurfs={this.state.smurfs}/> </div>}/>
-      </Switch>
-        <SmurfForm />
+        <Route path="/smurfs" render={props => <div> <Smurfs smurfs={this.state.smurfs} /> <SmurfForm /></div>}/>
+      </Switch> 
       </div>
     );
   }

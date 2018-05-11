@@ -6,7 +6,8 @@ import { Link } from "react-router-dom";
 const Header = () => {
   return (
     <div className="header">
-    <Link to="/smurfs"> Welcome to our Smurf Village! </Link>
+    {/* No idea why this link won't show up  */}
+    <Link to="/smurfs">Welcome to our Smurf Village!</Link>
     </div>
   );
 }
