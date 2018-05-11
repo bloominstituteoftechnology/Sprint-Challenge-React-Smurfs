@@ -44,10 +44,10 @@ class App extends Component {
     const smurfs = this.state.smurfs;
     return (
       <div className="App">
-        <Navigation />
         <Route exact path="/" component={Header}/>
-        <Route path="/village" render={props => <SmurfList smurfs={smurfs}/>}/>
-        <Route path="/addsmurf" render={props => <SmurfForm smurfs={smurfs}/>}/>
+        <Route path="/smurfs" render={props => <div className="whole-app"><Navigation/> <SmurfList smurfs={smurfs}/> <SmurfForm smurfs={smurfs}/></div>}/>
+        <Route path="/village" render={props => <div className="whole-app"><Navigation/> <SmurfList smurfs={smurfs}/></div>}/>
+        <Route path="/addsmurf" render={props => <div className="whole-app"><Navigation/> <SmurfForm smurfs={smurfs}/></div>}/>
       </div>
     );
   }
