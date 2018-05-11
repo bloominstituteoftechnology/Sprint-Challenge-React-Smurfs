@@ -13,7 +13,7 @@ import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
 import Header from './components/Header';
 import axios from 'axios';
-import {Route} from 'react-router-dom';
+import {Route, Switch} from 'react-router-dom';
 
 class App extends Component {
   constructor(props) {
@@ -32,7 +32,7 @@ class App extends Component {
   
   getSmurfs = () => {
     axios.get('http://localhost:3333/smurfs')
-    .then( res => {console.log(res.data); return res.data} )
+    .then( res => {console.log("GET successful"); return res.data} )
     .then( data => {
       this.setState({ smurfs: data.reverse() });
     } )
@@ -49,8 +49,10 @@ class App extends Component {
     return (
       <div className="App">
         <Route path="/" component={Header} />
-        <Route exact path="/" render={ props => <SmurfForm {...props} /> } />
-        
+        <Switch>
+          <Route exact path="/:id/modify" render={ props => <SmurfForm {...props} smurfs={this.state.smurfs}  /> } />
+          <Route exact path="/"           render={ props => <SmurfForm {...props} /> } />
+        </Switch>
         {/* <Smurfs smurfs={this.state.smurfs} /> */}
         <Route path="/" render={ props => <Smurfs {...props} smurfs={this.state.smurfs}  deleteSmurf={this.deleteSmurf} /> } />
       </div>

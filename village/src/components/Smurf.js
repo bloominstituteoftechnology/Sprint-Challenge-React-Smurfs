@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
-import { Container, Row, Col, Button, Popover, PopoverHeader, PopoverBody } from 'reactstrap';
+import { Button} from 'reactstrap';
 
 /**
  * REFACTOR: from a stateless to a stetfull one component
@@ -35,7 +35,7 @@ class Smurf extends Component {
           <strong>{height} tall</strong>
           <p>{age} smurf years old</p>
         </div>
-        <Link to="/modify" ><Button className="btn-secondary float-left" >Modify</Button></Link>
+        <Link to={`/${this.props.id}/modify`} ><Button className="btn-secondary float-left" >Modify</Button></Link>
         <Button onClick={this.delete} className="btn-danger float-right" >Delete</Button>
     </div>
     );
