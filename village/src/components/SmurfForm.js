@@ -11,20 +11,6 @@ class SmurfForm extends Component {
     };
   }
 
-  // updateAll = () => {
-  //   axios
-  //     .get("http://localhost:3333/smurfs")
-  //     .then(response => {
-  //       this.setState({ smurf: response.data });
-  //     })
-  //     .catch(err => {
-  //       console.log(err);
-  //     });
-  // }
-
-  // componentDidMount() {
-  //   this.updateAll();
-  // }
 
   addSmurf = event => {
     event.preventDefault();
