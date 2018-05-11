@@ -54,8 +54,6 @@ class SmurfForm extends Component {
           />
           <button type="submit">Add to the village</button>
         </form>
-      
-       <Smurfs smurfs={this.state} />
        </div>     
     );
   }

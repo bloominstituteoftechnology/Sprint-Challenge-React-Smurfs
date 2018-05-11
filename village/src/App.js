@@ -31,12 +31,12 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Link to="/">GO to Village</Link>
-        <Link to="/Smurfs">Leave Village</Link>
+        <Link to="/">Leave Village</Link>
+        <Link to="/Smurfs">Go to Village</Link>
         <Route exact path="/" component={Header}></Route>
-        <Route path="/Smurfs" component={Smurfs}></Route>
-        <SmurfForm />
-        <Smurfs smurfs={this.state.smurfs} />
+        <Route path="/Smurfs"component={SmurfForm} />
+        <Route path="/Smurfs" render={(props) => <Smurfs
+        {...props} smurfs={this.state.smurfs} />} />
       </div>
     );
   }
