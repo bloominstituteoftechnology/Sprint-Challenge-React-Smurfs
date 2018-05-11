@@ -21,13 +21,13 @@ class SmurfForm extends Component {
     };
     axios.post("http://localhost:3333/smurfs", newSmurf)
       .then(response => {
-        let newArray = response.data.slice();
-        this.setState({
-          smurfs: newArray,
+        console.log(this.props);
+        this.props.refresh();
+      {/* this.setState({
           name: "",
           age: "",
-          height: ""
-        }); })
+          height: ""*/}
+        })
       .catch(err => console.log(err));
   }
 
