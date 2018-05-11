@@ -1,7 +1,13 @@
 import React from 'react';
 import axios from 'axios';
 import { Link, Route } from 'react-router-dom';
+import styled from 'styled-components';
 import SmurfForm from './SmurfForm';
+
+const DiscreteSmurf = styled.div`
+  border: 2px dotted black;
+  padding: 0 1rem 1rem 1rem;
+`;
 
 const Smurf = props => {
 
@@ -13,14 +19,16 @@ const Smurf = props => {
   }
 
   return (
-    <div className="Smurf">
-      <h3>{props.name}</h3>
-      <strong>{props.height} tall</strong>
-      <p>{props.age} smurf years old</p>
+    <DiscreteSmurf className="Smurf">
+      <Link to={`/smurfs/${props.id}`}>
+        <h3>{props.name}</h3>
+        <strong>{props.height} tall</strong>
+        <p>{props.age} smurf years old</p>
+      </Link>
       <Link to={`/smurfs/update/${props.id}`}><button>Transform...WITH MAGIC!</button></Link>
       <button onClick={sendtoSHADOWREALM}>Send {props.name} on a journey...</button>
       <Route path={`/smurfs/update/${props.id}`} render={() => <SmurfForm id={props.id} op="edit" update={props.update} />} />
-    </div>
+    </DiscreteSmurf>
   );
 };
 

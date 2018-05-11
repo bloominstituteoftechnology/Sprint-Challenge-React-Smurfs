@@ -32,7 +32,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Smurfs update={this.updateState} smurfs={this.state.smurfs}>
+        <Smurfs query="all" update={this.updateState} smurfs={this.state.smurfs}>
           <SmurfForm update={this.updateState} />
         </Smurfs>
       </div>
