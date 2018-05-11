@@ -3,6 +3,7 @@ import axios from 'axios';
 import './App.css';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
+// import Smurf from './components/Smurf';
 import Header from './components/Header';
 import { Route } from 'react-router-dom';
 
@@ -36,7 +37,8 @@ class App extends Component {
       <div className="App">
         <Route exact path="/"component={Header}/>
         <Route path="/smurfs" render={() => <SmurfForm updateSmurfsState={this.updateSmurfsState}/> }/> 
-        <Route path="/smurfs" render={() => <Smurfs smurfs={this.state.smurfs} updateSmurfsState={this.updateSmurfsState}/> }/>
+        <Route exact path="/smurfs" render={() => <Smurfs smurfs={this.state.smurfs} updateSmurfsState={this.updateSmurfsState}/> }/>
+        {/* <Route path="/smurfs/:id" render={(props) => <Smurfs {...props} props={this.state.smurfs}/>} /> */}
       </div>
     );
   }
