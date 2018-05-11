@@ -1,8 +1,13 @@
-.App-navigation-top {
-    /* display: flex; */
-    /* justify-content: space-around; */
+.app-navigation-top {
+    display: flex;
+    justify-content: space-around;
+    text-decoration: none;
     text-align: center;
     background-color: #00ADF1;
     color: white;
-    padding: 30px;
+    padding: 50px;
+}
+.navigation-image {
+    width: auto;
+    height: auto;
 }
