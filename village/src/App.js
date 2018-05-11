@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
-
+import Header from "./components/Header"
 import './App.css';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
 import axios from 'axios';
+import { Route } from 'react-router-dom';
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      smurfs: [],
+      smurfs: []
     };
   }
   // add any needed code to ensure that the smurfs collection exists on state and it has data coming from the server
@@ -24,12 +25,33 @@ class App extends Component {
       .catch(error => {
         console.error('Server Error', error);
       });
-}
+  }
+
+  addSmurf = smurf => {
+    axios
+      .post('http://localhost:3333/smurfs', smurf)
+      .then(response => {
+      this.setState({ smurfs: response.data });
+      })
+      .catch(error => {
+        console.error('Server Error', error);
+      });
+  }
+
   render() {
     return (
       <div className="App">
-        <SmurfForm />
-        <Smurfs smurfs={this.state.smurfs} />
+        <Route exact path="/" component={Header}/>
+        <Route path="/smurfs" render = {props => {
+          return (
+            <div>
+              <SmurfForm {...props} addSmurf={this.addSmurf}/>
+              <Smurfs {...props} smurfs = {this.state.smurfs}/>
+            </div>
+          )
+        }} />
+        {/*<SmurfForm addSmurf={this.addSmurf}/>
+        <Smurfs smurfs={this.state.smurfs} />*/}
       </div>
     );
   }
