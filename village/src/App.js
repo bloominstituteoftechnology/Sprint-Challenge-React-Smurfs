@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { Route } from 'react-router-dom';
 import './App.css';
+import Header from './components/Header';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
 
@@ -30,8 +32,9 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <SmurfForm update={this.updateState} />
-        <Smurfs smurfs={this.state.smurfs} />
+        <Smurfs update={this.updateState} smurfs={this.state.smurfs}>
+          <SmurfForm update={this.updateState} />
+        </Smurfs>
       </div>
     );
   }

@@ -7,6 +7,7 @@ class Smurfs extends Component {
     return (
       <div className="Smurfs">
         <h1>Smurf Village</h1>
+        {this.props.children}
         <ul>
           {this.props.smurfs.map(smurf => {
             return (
@@ -16,6 +17,7 @@ class Smurfs extends Component {
                 age={smurf.age}
                 height={smurf.height}
                 key={smurf.id}
+                update={this.props.update}
               />
             );
           })}
