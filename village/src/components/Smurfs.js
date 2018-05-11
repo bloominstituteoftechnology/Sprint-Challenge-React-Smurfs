@@ -2,31 +2,28 @@ import React, { Component } from 'react';
 
 import Smurf from './Smurf';
 
-class Smurfs extends Component {
-  render() {
+const Smurfs = ({ smurfs, handleDelete }) => {
     return (
       <div className="Smurfs">
         <h1>Smurf Village</h1>
         <ul>
-          {this.props.smurfs.map(smurf => {
+          { smurfs.map(smurf => {
             return (
-              <Smurf
-                name={smurf.name}
-                id={smurf.id}
-                age={smurf.age}
-                height={smurf.height}
-                key={smurf.id}
-              />
+              <div key={smurf.id}>
+               <button onClick={() => handleDelete(smurf.id)}>Remove</button>
+                <div>{smurf.name}</div>
+                <div>{smurf.id}</div>
+                <div>{smurf.age}</div>
+                <div>{smurf.height}</div>
+              </div>
             );
           })}
         </ul>
       </div>
     );
-  }
 }
 
-Smurf.defaultProps = {
- smurfs: [],
-};
+
+
 
 export default Smurfs;
