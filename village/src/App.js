@@ -3,12 +3,16 @@ import React, { Component } from 'react';
 import './App.css';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
+import axios from 'axios';
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
       smurfs: [],
+      name: '',
+      age: '',
+      height: ''
     };
   }
   // add any needed code to ensure that the smurfs collection exists on state and it has data coming from the server

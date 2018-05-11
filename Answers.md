@@ -9,6 +9,8 @@ Hypertext Transfer Protocol.
 Create,Read,Update& Destroy.
 
 1.  Which HTTP methods can be mapped to the CRUD acronym that we use when interfacing with APIs/Servers.
+GET,HEAD,POST,PUT, DELETE & TRACE. 
 
 
 1.  Mention three tools we can use to make AJAX requests
+Promises,then,catch,fetch.
