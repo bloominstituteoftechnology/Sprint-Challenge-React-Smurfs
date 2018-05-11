@@ -40,7 +40,7 @@ class App extends Component {
           <div>
             <Link to='/'>Home</Link>
             <SmurfForm refreshSmurf={this.refreshSmurf}/>
-            <Smurfs smurfs={this.state.smurfs} />
+            <Smurfs refreshSmurf={this.refreshSmurf} smurfs={this.state.smurfs} />
           </div>
         )}}/>        
       </div>
