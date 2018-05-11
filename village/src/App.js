@@ -3,6 +3,8 @@ import axios from 'axios';
 import './App.css';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
+import Header from './components/Header.js';
+import { Route } from 'react-router-dom';
 
 class App extends Component {
   constructor(props) {
@@ -15,6 +17,9 @@ class App extends Component {
   // Notice what your map function is looping over and returning inside of Smurfs.
   // You'll need to make sure you have the right properties on state and pass them down to props.
 
+
+  //I made this to hand down to the SmurfForm component, which will allow it to update the app state
+  //Needs explicit binding to work
   handleSmurfsUpdate(smurfs) {
     this.setState({smurfs: smurfs});
   }
@@ -31,9 +36,18 @@ class App extends Component {
 
   render() {
     return (
+
       <div className="App">
-        <SmurfForm handleSmurfsUpdate={this.handleSmurfsUpdate.bind(this)} />
-        <Smurfs smurfs={this.state.smurfs} />
+        <Route path="/smurfs" render={(props) => (
+          <div>
+            <SmurfForm handleSmurfsUpdate={this.handleSmurfsUpdate.bind(this)} />
+            <Smurfs smurfs={this.state.smurfs} />
+          </div>
+        )} />
+        <Route exact path="/" render={() => (
+          <Header />
+        )} />
+
       </div>
     );
   }
