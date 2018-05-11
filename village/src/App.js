@@ -34,14 +34,9 @@ class App extends Component {
   // You'll need to make sure you have the right properties on state and pass them down to props.
   render() {
     return <div className="App">
-        {/* <Route exact path="/" render={(props) => (
-          <SmurfForm {...props} updateData={this.updateData} /> 
-        )} /> */}
-
-        <Route exact path='/' component={Header}/>
-        <Route path="/smurfs" render={(props) => (<Smurfs {...props} smurfs={this.state.smurfs} />)} />
-        {/* <SmurfForm updateData={this.updateData}/> 
-        <Smurfs smurfs={this.state.smurfs} />  */}
+        <Route exact path="/" component={Header} />
+        <Route path="/smurfs" render={props => <SmurfForm {...props} updateData={this.updateData} />} />
+        <Route path="/smurfs" render={props => <Smurfs {...props} updateData={this.updateData} smurfs={this.state.smurfs} />} />
       </div>;
   }
 }
