@@ -68,7 +68,7 @@ class Smurf extends Component {
             id={this.state.smurf.id}
           />
           <div className="update-delete">
-            <h2>Update Smurf information</h2>
+            <h2>Update Smurf Information</h2>
             <form className="smurf-form">
               <input
                 onChange={this.handleInputChange}
@@ -88,9 +88,12 @@ class Smurf extends Component {
                 value={this.state.height}
                 name="height"
               />
-              <button onClick={this.updateSmurf} className="update btn">Update</button>
+              
             </form>
-            <button onClick={this.deleteSmurf} className="delete btn">Delete</button>
+            <div className="btns">
+              <button onClick={this.updateSmurf} className="update btn">Update</button>
+              <button onClick={this.deleteSmurf} className="delete btn">Delete</button>
+            </div>
           </div>
         </div>
       )

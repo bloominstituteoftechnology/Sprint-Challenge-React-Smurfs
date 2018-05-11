@@ -89,11 +89,10 @@
 
 .delete {
   background-color: tomato;
-  width: 25%;
 }
 
 .update-delete {
-  margin-top: 30px;
+  margin-top: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -105,4 +104,11 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.btns {
+  display: flex;
+  flex-direction: row;
+  align-items: space-around;
+  width: 50%;
 }
