@@ -10,10 +10,14 @@
 ## Questions - Self Study - You can exercise your Google-Fu for this and any other _Sprint Challenge_ in the future.
 
 1.  Explain the differences between `client-side routing` and `server-side routing`.
+- Server side routing is when clicking on a link makes a call to a server, which gives you new data. Client-side routing is routing handled by th browser locally.
 1.  What does HTTP stand for?
+- Hypertext Transfer Protocol
 1.  What does CRUD stand for?
+- Create, Read, Update, Delete
 1.  Which HTTP methods can be mapped to the CRUD acronym that we use when interfacing with APIs/Servers.
 1.  Mention three tools we can use to make AJAX requests.
+- fetch, axios
 
 ## Initializing Project - READ THIS CAREFULLY, you have two apps here. A server, and a client.
 
