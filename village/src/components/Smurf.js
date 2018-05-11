@@ -1,20 +1,21 @@
+
 import React from 'react';
+import axios from 'axios';
 
 const Smurf = props => {
+
+  const handleClick = () => {
+    props.handleButton(props.id);
+  }
+
   return (
-    <div className="Smurf">
+    <div>
       <h3>{props.name}</h3>
-      <strong>{props.height} tall</strong>
+      <strong>{props.height} Tall</strong>
       <p>{props.age} smurf years old</p>
-    </div>
+      <span onClick={handleClick} className="smurf-button"></span>
+    </div>     
   );
 };
 
-Smurf.defaultProps = {
-  name: '',
-  height: '',
-  age: ''
-};
-
 export default Smurf;
-
