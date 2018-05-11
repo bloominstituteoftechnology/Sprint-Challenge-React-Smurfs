@@ -3,6 +3,7 @@ import { Route } from "react-router-dom";
 import './App.css';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
+import Header from "./components/Header";
 import axios from "axios";
 
 
@@ -32,12 +33,16 @@ class App extends Component {
   // Notice what your map function is looping over and returning inside of Smurfs.
   // You'll need to make sure you have the right properties on state and pass them down to props.
   render() {
-    return (
-      <div className="App">
-        <SmurfForm updateData={this.updateData}/>
-        <Smurfs smurfs={this.state.smurfs} />
-      </div>
-    );
+    return <div className="App">
+        {/* <Route exact path="/" render={(props) => (
+          <SmurfForm {...props} updateData={this.updateData} /> 
+        )} /> */}
+
+        <Route exact path='/' component={Header}/>
+        <Route path="/smurfs" render={(props) => (<Smurfs {...props} smurfs={this.state.smurfs} />)} />
+        {/* <SmurfForm updateData={this.updateData}/> 
+        <Smurfs smurfs={this.state.smurfs} />  */}
+      </div>;
   }
 }
 
