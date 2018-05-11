@@ -25,7 +25,7 @@
 * After your API is up and running, you can open chrome and type in `http://localhost:3333/smurfs`. You should see an Array `[]` with a smurf returned to you. This is an array that your **API** will be using to store our Smurf Data.
 * **LOOK** at your `village` directory and notice it's just a plain ol' React App that we've built using `create-react-app`.
 * **cd** into `village` and run `yarn install or npm install` to retrieve the client side dependencies.
-* **RUN** `yarn start or npm start` to fire up your React application, you should see an error that reads: `TypeError: Cannot read property 'smurfs' of null`.
+* **RUN** `yarn start or npm start` to fire up your React application, 
 
 ## Project Description
 
