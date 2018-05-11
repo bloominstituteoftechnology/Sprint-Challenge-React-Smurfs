@@ -1,20 +1,52 @@
-import React from 'react';
+import React, { Component } from 'react';
+import axios from 'axios';
+import SmurfCard from './SmurfCard';
+import { Redirect } from 'react-router-dom';
 
-const Smurf = props => {
-  return (
-    <div className="Smurf">
-      <h3>{props.smurf.name}</h3>
-      <strong>{props.smurf.height} tall</strong>
-      <p>{props.smurf.age} smurf years old</p>
-    </div>
-  );
-};
+class Smurf extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            smurf: {},
+            deleted: false
+        }
+    }
 
-Smurf.defaultProps = {
-  name: '',
-  height: '',
-  age: ''
-};
+    componentDidMount() {
+        const id = this.props.match.params.id;
+        this.fetchSmurf(id)
+    }
+
+    deleteSmurf = () => {
+        const id = this.state.smurf.id;
+        axios
+            .delete(`http://localhost:3333/smurfs/${id}`)
+            .then(resp => this.setState({deleted: true}))
+            .catch(err => console.log(err))
+    }
+
+    fetchSmurf = (id) => {
+        axios
+            .get(`http://localhost:3333/smurfs/${id}`)
+            .then(resp => {
+                this.setState(() => ({smurf: resp.data}))
+                console.log(this.state)
+            })
+            .catch(err => console.log(err))
+    }
+
+    render() { 
+        return this.state.deleted ? (
+            <Redirect to="/"/>
+        ) : (
+            <div className="card">
+                <SmurfCard smurf={this.state.smurf}/>
+                <button className="delete" 
+                    onClick={this.deleteSmurf}>Delete from Smurfs
+                </button>
+            </div>
+        )
+    }
+}
 
 export default Smurf;
-

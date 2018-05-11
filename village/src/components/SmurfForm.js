@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-
+import { Redirect } from 'react-router-dom';
 
 class SmurfForm extends Component {
   constructor(props) {
@@ -8,7 +8,9 @@ class SmurfForm extends Component {
     this.state = {
       name: '',
       age: '',
-      height: ''
+      height: '',
+      new: false,
+      id: ''
     };
   }
 
@@ -17,7 +19,7 @@ class SmurfForm extends Component {
     // add code to create the smurf using the api
     axios.post('http://localhost:3333/smurfs', this.state)
     .then( (response) => {
-      console.log(response);
+      this.setState({new: true, id: response.data[response.data.length-1].id})
     })
     .catch( (error) => {
       console.log(error);
@@ -35,7 +37,10 @@ class SmurfForm extends Component {
   };
 
   render() {
-    return (
+    {console.log(this.state.id)}
+    return this.state.new ? (
+      <Redirect to={`/smurf/${this.state.id}`}/>
+    ) : (
       <div className="SmurfForm">
         <h1>Add New Smurf</h1>
         <form onSubmit={this.addSmurf}>

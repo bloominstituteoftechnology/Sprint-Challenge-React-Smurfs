@@ -1,7 +1,7 @@
 const data = [
     {
         name: "",
-        src: "https://www.shareicon.net/data/100x100/2015/10/26/139798_smurfhouse_128x128.png",
+        src: "https://www.shareicon.net/data/150x150/2015/10/26/139798_smurfhouse_128x128.png",
         subNavs: []
     },
     {

@@ -2,7 +2,7 @@ Arguments:
   D:\Program Files\nodejs\node.exe D:\Program Files (x86)\Yarn\bin\yarn.js start
 
 PATH: 
-  C:\Users\wladi\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\local\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\wladi\bin;C:\Program Files (x86)\Common Files\Intel\Shared Libraries\redist\intel64\compiler;C:\Python27;C:\Python27\Scripts;C:\ProgramData\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files (x86)\Skype\Phone;C:\Program Files (x86)\GtkSharp\2.12\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0;C:\Program Files (x86)\Common Files\Seagate\SnapAPI;C:\Program Files\Git\cmd;D:\Program Files (x86)\Yarn\bin;D:\Program Files\nodejs;C:\Users\wladi\AppData\Local\Microsoft\WindowsApps;D:\Program Files\Docker Toolbox;C:\Program Files\Microsoft VS Code\bin;C:\Users\wladi\AppData\Local\Yarn\bin;C:\Users\wladi\AppData\Roaming\npm;C:\Program Files\Git\usr\bin\vendor_perl;C:\Program Files\Git\usr\bin\core_perl
+  C:\Program Files (x86)\Common Files\Intel\Shared Libraries\redist\intel64\compiler;C:\Python27\;C:\Python27\Scripts;C:\ProgramData\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files (x86)\Skype\Phone\;C:\Program Files (x86)\GtkSharp\2.12\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Common Files\Seagate\SnapAPI\;C:\Program Files\Git\cmd;D:\Program Files (x86)\Yarn\bin\;D:\Program Files\nodejs\;C:\Users\wladi\AppData\Local\Microsoft\WindowsApps;;d:\Program Files\Docker Toolbox;C:\Program Files\Microsoft VS Code\bin;C:\Users\wladi\AppData\Local\Yarn\bin;C:\Users\wladi\AppData\Roaming\npm
 
 Yarn version: 
   1.5.1
@@ -2053,7 +2053,7 @@ Trace:
   Exit code: 1
   Command: C:\WINDOWS\system32\cmd.exe
   Arguments: /d /s /c node server.js
-  Directory: D:\lambdaschool\Sprint-Challenge-Routing-Axios
+  Directory: D:\LambdaSchool\Sprint-Challenge-Routing-Axios
   Output:
   
       at ProcessTermError.MessageError (D:\Program Files (x86)\Yarn\lib\cli.js:186:110)

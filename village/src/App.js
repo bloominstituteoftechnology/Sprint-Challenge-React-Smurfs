@@ -4,6 +4,8 @@ import {Route} from 'react-router-dom';
 import './App.css';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
+import Smurf from './components/Smurf';
+
 
 
 import './components/Nav/Nav.css'
@@ -15,7 +17,6 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      smurfs: [],
       menu: []
     };
   }
@@ -30,10 +31,15 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+      {/* Menu */}
         <Route path="/" render={ (props) => <NavWrapper {...props} menuData={this.state.menu}/> } />
 
+      {/* Village */}
         <Route exact path="/" component={Smurfs} />
+
         <Route exact path="/add-smurf" component={SmurfForm} />
+
+        <Route path="/smurf/:id" component={Smurf}/>
       </div>
     );
   }

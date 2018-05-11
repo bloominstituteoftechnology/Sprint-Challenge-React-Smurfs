@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 
-
-import Smurf from './Smurf';
+import SmurfCard from './SmurfCard';
 
 class Smurfs extends Component {
   constructor(props) {
@@ -30,9 +30,9 @@ class Smurfs extends Component {
         <ul>
           {this.state.smurfs.map(smurf => {
             return (
-              <Smurf smurf={smurf}
-                key={smurf.id}
-              />
+              <Link to={`/smurf/${smurf.id}`} key={smurf.id}>
+                <SmurfCard smurf={smurf}/>
+              </Link>
             );
           })}
         </ul>
@@ -41,8 +41,9 @@ class Smurfs extends Component {
   }
 }
 
-Smurf.defaultProps = {
+SmurfCard.defaultProps = {
  smurfs: [],
 };
 
 export default Smurfs;
+
