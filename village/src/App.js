@@ -28,7 +28,7 @@ class App extends Component {
   }
 
   updtaeData() {
-    this.setState({ smurfs: smurfs }) 
+    this.setState({ Smurfs: Smurfs }) 
   }
 
   handleInput(e) {
