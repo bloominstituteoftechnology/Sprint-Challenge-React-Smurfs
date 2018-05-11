@@ -5,6 +5,9 @@ WHAT needs to get done?
 ###First: I need to use Axios to (GET) a list of 'Smurf'(s) that exist on the server 
         (To retreive an array all the smurfs in the Smurf DB simply write a get to the endpoint `'/smurfs'`)
 
+//I dont have Axios here yet do I? Let's go ahead and fix that.
+
+
 ###Second: then make a (POST) with Axios to add said 'Smurf' to the Smurf DB.
         (* To add a smurf to the Smurf DB you'll need all three fields.
             * Example:
