@@ -89,8 +89,20 @@
 
 .delete {
   background-color: tomato;
+  width: 25%;
 }
 
 .update-delete {
   margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 50%;
+}
+
+.single-smurf {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
