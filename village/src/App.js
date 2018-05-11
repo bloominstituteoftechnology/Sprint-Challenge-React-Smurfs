@@ -3,6 +3,9 @@ import React, { Component } from 'react';
 import './App.css';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
+import Header from './components/Header';
+import { Route, Link } from 'react-router-dom';
+import axios from 'axios';
 
 class App extends Component {
   constructor(props) {
@@ -17,6 +20,10 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <Link to="/">GO to Village</Link>
+        <Link to="/Smurfs">Leave Village</Link>
+        <Route exact path="/" component={Header}></Route>
+        <Route path="/Smurfs" component={Smurfs}></Route>
         <SmurfForm />
         <Smurfs smurfs={this.state.smurfs} />
       </div>
