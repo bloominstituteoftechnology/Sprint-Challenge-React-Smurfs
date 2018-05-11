@@ -38,13 +38,21 @@ class App extends Component {
     } )
     .catch( e => console.log(e) );
   }
+  deleteSmurf = (id) => {
+    axios.delete(`http://localhost:3333/smurfs/${id}`)
+    .then( res => console.log(res) )
+    .then( this.getSmurfs )
+    .catch( e => console.log(e) );
+  }
 
   render() {
     return (
       <div className="App">
         <Route path="/" component={Header} />
-        <SmurfForm getSmurfs={this.getSmurfs} />
-        <Smurfs smurfs={this.state.smurfs} />
+        <Route exact path="/" render={ props => <SmurfForm {...props} /> } />
+        
+        {/* <Smurfs smurfs={this.state.smurfs} /> */}
+        <Route path="/" render={ props => <Smurfs {...props} smurfs={this.state.smurfs}  deleteSmurf={this.deleteSmurf} /> } />
       </div>
     );
   }
