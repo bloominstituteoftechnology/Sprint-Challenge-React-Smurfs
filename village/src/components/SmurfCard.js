@@ -1,8 +1,8 @@
 import React from 'react';
 
-const Smurf = (props) => {
+const SmurfCard = (props) => {
   return (
-    <div className="Smurf">
+    <div className="SmurfCard">
       <h3>{props.name}</h3>
       <strong>{props.height} tall</strong>
       <p>{props.age} smurf years old</p>
@@ -10,5 +10,4 @@ const Smurf = (props) => {
   );
 };
 
-export default Smurf;
-
+export default SmurfCard;
