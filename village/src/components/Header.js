@@ -12,13 +12,12 @@ class Header extends Component {
     }
   }
 
-
   render() {
     return (
     <div>
       <div className="app-navigation-top">
         {/* <h2>Welcome to Smurf's Village!</h2> */}
-        <img className="navigation-image" src="https://raw.githubusercontent.com/danteocualesjr/Sprint-Challenge-Routing-Axios/master/Images/smurf-logo.png" alt="smurf-logo"/>
+        <img src="https://raw.githubusercontent.com/danteocualesjr/Sprint-Challenge-Routing-Axios/master/Images/smurfs_logo.png" alt="smurf-logo"/>
         <Link to="/Home">Home</Link>
         <Link to="/SmurfForm">Enter the Smurf Village</Link>
       </div>
