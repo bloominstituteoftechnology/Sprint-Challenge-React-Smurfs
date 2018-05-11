@@ -23,13 +23,11 @@ class SmurfForm extends Component {
     axios
       .post("http://localhost:3333/smurfs", newSmurf)
       .then(newSmurf => {
-	    this.props.updateSmurfs();
-	   })
+	this.setState({ name:"", age:"", height:""});
+      })
     .catch(error => {
       console.log(error);
     });
-  
-    this.setState({ name: '', age: '', height: '' });
   }
 
   handleInputChange = e => {
