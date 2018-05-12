@@ -1,13 +1,22 @@
-.link-home:visited {
+.link-home {
     color: inherit;
+    text-decoration: none;
 }
 .link-home:visited {
     color: white;
 }
-.link-village:visited {
+.link-village {
     color: inherit;
+    text-decoration: none;
 }
 .link-village:visited {
+    color: white;
+}
+.link-goodbye {
+    color: inherit;
+    text-decoration: none;
+}
+.link-goodbye:visited {
     color: white;
 }
 .app-navigation-top {

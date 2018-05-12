@@ -5,7 +5,7 @@ const Goodbye = () => {
     return( 
     <div className="home-div">
         <h1 className="welcome-text">So long, farewell!</h1>
-        <img src="https://raw.githubusercontent.com/danteocualesjr/Sprint-Challenge-Routing-Axios/master/Images/smurf.png" alt="welcome-smurf"/>
+        <img src="https://raw.githubusercontent.com/danteocualesjr/Sprint-Challenge-Routing-Axios/master/Images/smurf2.png" alt="goodbye-smurf"/>
     </div>
     ) 
 }
