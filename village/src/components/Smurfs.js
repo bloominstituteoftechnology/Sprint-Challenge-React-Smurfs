@@ -11,15 +11,17 @@ class Smurfs extends Component {
         <ul>
           {this.props.smurfs.map(smurf => {
             return (
-              <li key = {smurf.id}><Link to = {`/smurfs/${smurf.id}`}>
+              <div>
+              <li key = {smurf.id}></li>
                 <Smurf 
+                  removeSmurfs = {this.removeSmurfs}
                   name={smurf.name}
                   id={smurf.id}
                   age={smurf.age}
                   height={smurf.height}
                   key={smurf.id}
-                /></Link>
-                </li>
+                />
+                </div>
             );
           })}
         </ul>
@@ -27,7 +29,7 @@ class Smurfs extends Component {
     );
   }
 }
-<Route path = {`/smurfs/:id`} component = {Smurf}/>
+
 Smurf.defaultProps = {
  smurfs: [],
 };

@@ -32,6 +32,8 @@ class App extends Component {
         });
   }
 
+    
+
 
     
   
@@ -45,13 +47,13 @@ class App extends Component {
       <div className="App">
         <Switch>
           <Route exact path = '/' component = {Header} />
-           <Route path = {`/smurfs/:id`} component = {Smurf}/>
+           <Route path = {`/smurfs/profile/:id`} component = {Smurf}/>
           <Route path = '/smurfs' render = {props => {
             return (
             <div>
               <br/><br/>
             <SmurfForm {...props} addSmurf = {this.state.addSmurf} /> 
-              <Smurfs {...props} smurfs={this.state.smurfs}/>
+              <Smurfs {...props} smurfs={this.state.smurfs} removeSmurfs = {this.removeSmurfs}/>
               
             </div>
             
@@ -73,4 +75,15 @@ const FourOhFour = () => {
     </div>
   )
 }
+
+const removeSmurfs = id => {
+  axios
+    .delete(`http://localhost:3333/smurfs/${id}`)
+        .then(response =>{
+          this.setState({smurfs:response.data});
+        })
+        .catch(err =>{
+          console.log(err);
+        });
+  }
 export default App;
