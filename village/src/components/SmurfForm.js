@@ -22,6 +22,9 @@ class SmurfForm extends Component {
       height: ''
     })
   })
+  .then(response => {
+    this.props.refreshSmurfs()
+  })
 }
 
   handleInputChange = e => {
