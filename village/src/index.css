@@ -3,3 +3,21 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+
+.home-button{
+  display: flex;
+  text-decoration: none;
+  background-color: skyblue;
+  color: whitesmoke;
+  
+}
+
+.add-button{
+  background-color: white;
+  color: skyblue;
+  font-weight: bolder;
+}
+
+li{
+  list-style: none;
+}
