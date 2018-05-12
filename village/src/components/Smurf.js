@@ -25,7 +25,7 @@ class Smurf extends Component {
   render() {
     return (
       <div className="Smurf">
-        <h3>{this.props.name}</h3>
+      <NavLink to={`/smurfs/${this.props.id}`}><h3> {this.props.name}</h3></NavLink>
         <strong>{this.props.height} tall</strong>
         <p>{this.props.age} smurf years old</p>
         <NavLink to={`/smurfs/${this.props.id}`} className="col-4"> <button type="submit" value={this.props.id}> Change {this.props.name}'s base stats </button> </NavLink>
