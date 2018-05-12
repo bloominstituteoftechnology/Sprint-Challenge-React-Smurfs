@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import {Route} from 'react-router-dom';
+import YoutubeEmbedVideo from "youtube-embed-video";
+
 
 import './App.css';
 import SmurfForm from './components/SmurfForm';
@@ -37,9 +39,13 @@ class App extends Component {
       {/* Village */}
         <Route exact path="/" component={Smurfs} />
 
-        <Route exact path="/add-smurf" component={SmurfForm} />
+        <Route path="/add-smurf/" component={SmurfForm}  />
+        <Route path="/update-smurf/:id" component={SmurfForm}  />
 
         <Route path="/smurf/:id" component={Smurf}/>
+        
+      <Route path="/lost-village/" render={ (props) => <YoutubeEmbedVideo videoId="QS2KUVV2RVA" size="large" autoplay={true} suggestions={false} /> } />
+
       </div>
     );
   }

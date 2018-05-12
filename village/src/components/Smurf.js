@@ -8,7 +8,8 @@ class Smurf extends Component {
         super(props);
         this.state = {
             smurf: {},
-            deleted: false
+            deleted: false,
+            update: false
         }
     }
 
@@ -25,6 +26,10 @@ class Smurf extends Component {
             .catch(err => console.log(err))
     }
 
+    updateSmurf = () => {
+        this.setState({update: true});
+    }
+
     fetchSmurf = (id) => {
         axios
             .get(`http://localhost:3333/smurfs/${id}`)
@@ -35,14 +40,19 @@ class Smurf extends Component {
             .catch(err => console.log(err))
     }
 
-    render() { 
+    render() {
+        if (this.state.update)
+            return <Redirect to={`/update-smurf/${this.state.smurf.id}`}/>
         return this.state.deleted ? (
             <Redirect to="/"/>
         ) : (
             <div className="card">
                 <SmurfCard smurf={this.state.smurf}/>
                 <button className="delete" 
-                    onClick={this.deleteSmurf}>Delete from Smurfs
+                    onClick={this.deleteSmurf}>Delete
+                </button>
+                <button className="update" 
+                    onClick={this.updateSmurf}>Edit
                 </button>
             </div>
         )

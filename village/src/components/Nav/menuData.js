@@ -24,7 +24,7 @@ const data = [
         ]
     },
     {
-        name: "Contact",
+        name: "Lost Village",
         src: "https://www.shareicon.net/data/64x64/2015/10/27/140554_cartoon_256x256.png",
         subNavs: [
             {
