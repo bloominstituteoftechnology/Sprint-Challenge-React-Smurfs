@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Smurfs from './Smurfs';
 // import Header from './components/Header';
 import axios from 'axios';
-// import './SmurfForm.css';
+import './SmurfForm.css';
 
 
 class SmurfForm extends Component {
@@ -77,7 +77,6 @@ class SmurfForm extends Component {
           />
           <button type="submit" onClick={this.buttonSubmit}>Add to the village</button>
         </form>
-
         <Smurfs smurfs={this.state.smurfs} />
       </div>
     );

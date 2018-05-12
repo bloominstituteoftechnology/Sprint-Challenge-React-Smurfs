@@ -1,9 +1,21 @@
+.link-home:visited {
+    color: inherit;
+}
+.link-home:visited {
+    color: white;
+}
+.link-village:visited {
+    color: inherit;
+}
+.link-village:visited {
+    color: white;
+}
 .app-navigation-top {
     display: flex;
     justify-content: space-around;
     text-decoration: none;
     text-align: center;
     background-color: #00ADF1;
-    color: white;
+    color: inherit;
     padding: 30px;
 }
