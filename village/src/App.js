@@ -25,8 +25,12 @@ class App extends Component {
   // Notice what your map function is looping over and returning inside of Smurfs.
   // You'll need to make sure you have the right properties on state and pass them down to props.
   render() {
+  axios
+    .get(`http://localhost:3333/smurfs`)
+    .then(response => {
+      this.setState({ smurfs: response.data })
+    })
     return (       
-
       <div className="App">
       <Switch>            
         <Route exact path="/" component={Header} />
