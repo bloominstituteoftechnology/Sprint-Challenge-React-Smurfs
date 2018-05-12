@@ -1,20 +1,41 @@
 import React from 'react';
+import axios from 'axios';
+import SmurfCard from './SmurfCard';
 
-const Smurf = props => {
-  return (
-    <div className="Smurf">
-      <h3>{props.name}</h3>
-      <strong>{props.height} tall</strong>
-      <p>{props.age} smurf years old</p>
-    </div>
-  );
-};
+export default class Smurf extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            smurf: null
+        };
+    }
 
-Smurf.defaultProps = {
-  name: '',
-  height: '',
-  age: ''
-};
+    componentDidMount() {
+        this.fetchSmurf(this.props.match.params.id);
+    }
 
-export default Smurf;
+    componentWillReceiveProps(newProps) {
+        if (this.props.match.params.id !== newProps.match.params.id) {
+            this.fetchSmurf(newProps.match.params.id);
+        }
+    }
 
+    fetchSmurf = id => {
+        axios.get(`http://localhost:3333/smurfs`)
+            .then(response => this.setState({ smurf: response.data[id] }))
+            .catch(err => { console.log(err) })
+    };
+
+    render() {
+        console.log('Smurf.js', this.state.smurf);
+        if (!this.state.smurf) {
+            return <div>Loading smurf information...</div>;
+        }
+
+        return (
+            <div>
+                <SmurfCard smurf={this.state.smurf} />
+            </div>
+        );
+    }
+}
