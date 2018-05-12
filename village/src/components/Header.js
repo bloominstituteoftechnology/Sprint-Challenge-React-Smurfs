@@ -3,6 +3,7 @@ import Home from './Home';
 import SmurfForm from './SmurfForm';
 import { Route, Link } from 'react-router-dom';
 import './Header.css';
+import Goodbye from './Goodbye';
 
 class Header extends Component {
   constructor() { 
@@ -16,15 +17,15 @@ class Header extends Component {
     return (
     <div>
       <div className="app-navigation-top">
-        {/* <h2>Welcome to Smurf's Village!</h2> */}
-        <img src="https://raw.githubusercontent.com/danteocualesjr/Sprint-Challenge-Routing-Axios/master/Images/smurfs_logo.png" alt="smurf-logo"/>
         <Link className="link-home" to="/Home">Home</Link>
-        <Link className="link-village" to="/SmurfForm">Enter the Smurf Village</Link>
+        <Link className="link-village" to="/SmurfForm">Enter the Village</Link>
+        <Link className="link-goodbye" to="/Goodbye">Goodbye</Link>
       </div>
       <div className="app-navigation-bottom">  
         {/* <Route path="/Mac" render={(props) => <Mac {...props} mac={this.state.forMac}> } /> */}
         <Route exact path="/Home" component={Home} />
         <Route path="/SmurfForm" component={SmurfForm} />
+        <Route path="/Goodbye" component={Goodbye} />
       </div>
     </div>
     )      
