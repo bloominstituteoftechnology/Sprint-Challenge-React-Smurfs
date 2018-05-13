@@ -9,10 +9,10 @@ const Smurf = props => {
           <h3>{props.name}</h3>
           <strong>{props.height} tall</strong>
           <p>{props.age} smurf years old</p>
-          <button className="remove-button" onClick={() => props.removeSmurf(props.id)}>Remove From Village</button>
         </div>
         <div className="back smurf-card">
-          <img src="http://www.impulsegamer.com/articles/wp-content/uploads/2015/07/smurfs-620x350.jpg" />
+          <img src={`${props.image}`} />
+          <button className="remove-button" onClick={() => props.removeSmurf(props.id)}>Remove From Village</button>
         </div>
       </div>
     </div>
@@ -33,7 +33,8 @@ const Smurf = props => {
 Smurf.defaultProps = {
   name: '',
   height: '',
-  age: ''
+  age: '',
+  image: ''
 };
 
 export default Smurf;
