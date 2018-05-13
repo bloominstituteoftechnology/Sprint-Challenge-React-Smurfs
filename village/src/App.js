@@ -65,6 +65,7 @@ class App extends Component {
         <Route exact path="/" component={Header}  />
         <Route path="/SmurfForm" component={SmurfForm} />
         <Smurfs smurfs={this.state.smurfs} />
+        {/* <button onClick={() => { this.deleteSmurf(Smurfs.id) }}>X</button> */}
       </div>
     );
   }
