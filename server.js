@@ -19,12 +19,48 @@ let smurfs = [
     name: 'Brainey Smurf',
     age: 200,
     height: '8cm'
+  },
+  {
+    id: 1,
+    name: 'Smurfette',
+    age: 40,
+    height: '6cm'
+  },
+  {
+    id: 2,
+    name: 'Hefty Smurf',
+    age: 53,
+    height: '7cm'
+  },
+  {
+    id: 3,
+    name: 'Sassette Smurfling',
+    age: 17,
+    height: '5cm'
+  },
+  {
+    id: 4,
+    name: 'Blacksmith Smurf',
+    age: 76,
+    height: '9cm'
+  },
+  {
+    id: 5,
+    name: 'Brainy Smurf',
+    age: 44,
+    height: '6cm'
+  },
+  {
+    id: 6,
+    name: 'Clumsy Smurf',
+    age: 32,
+    height: '7cm'
   }
 ];
 server.get('/smurfs', (req, res) => {
   res.json(smurfs);
 });
-let smurfId = 1;
+let smurfId = 7;
 
 server.post('/smurfs', (req, res) => {
   const { name, age, height } = req.body;

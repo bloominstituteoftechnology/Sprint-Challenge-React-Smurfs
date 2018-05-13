@@ -9,3 +9,10 @@
   border-radius: 20px;
   background-color: lightblue;
 }
+
+.remove-button {
+  align-self: center;
+  width: 90%;
+  border-radius: 20px;
+  margin-bottom: 5px;
+}
