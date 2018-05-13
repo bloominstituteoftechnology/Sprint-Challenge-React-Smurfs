@@ -1,3 +1,4 @@
-.smurfs {
-    text-align: center;
+.smurfs1 {
+    display: flex;
+    justify-content: center;
 }
