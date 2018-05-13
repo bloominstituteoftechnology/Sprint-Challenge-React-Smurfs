@@ -15,6 +15,7 @@ ul {
 /* entire container, keeps perspective */
 .flip-container {
   width: 20%;
+  min-width: 220px;
   height: 150px;
   margin: 20px;
 }
