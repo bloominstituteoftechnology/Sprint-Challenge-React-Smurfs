@@ -2,6 +2,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+  background-color: lightblue;
 }
 
 ul {
@@ -10,6 +11,17 @@ ul {
   justify-content: space-around;
   margin: 0;
   padding: 0;
+}
+
+.SmurfForm {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.Smurfs {
+  background-color: rgb(190, 190, 190);
+  padding-top: 10px;
+  padding-bottom: 20px;
 }
 
 /* entire container, keeps perspective */
