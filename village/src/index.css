@@ -37,9 +37,6 @@ ul {
 	transform: rotateY(180deg);
 }
 
-.flip-container, .front, .back {
-}
-
 /* flip speed goes here */
 .flipper {
 	transition: 2s;
