@@ -27,9 +27,9 @@ class SmurfForm extends Component {
           name: '',
           age: '',
           height: ''
-    });
-  })
-      .catch(err => console.log(err));
+        });
+      })
+    .catch(err => console.log(err));
   }
 
   handleInputChange = e => {
