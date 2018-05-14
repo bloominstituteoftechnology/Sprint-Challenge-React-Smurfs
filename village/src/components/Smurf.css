@@ -1,7 +1,6 @@
 .Smurf {
     display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
+    justify-content: center;   
     border: 1px solid darkgray;
     border-radius: 5px;
     width: 200px;

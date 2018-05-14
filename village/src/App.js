@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import {Route} from 'react-router-dom';
+
 import './App.css';
+import Header from './components/Header';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
 
@@ -8,10 +11,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      smurfs: [],
-      name: '',
-      age: '',
-      height: ''
+      smurfs: []      
     };
   }
   // add any needed code to ensure that the smurfs collection exists on state and it has data coming from the server
@@ -27,31 +27,30 @@ class App extends Component {
     console.log(error);
   })
   }
+  addSmurf = smurf => {
+    axios.post('http://localhost:3333/smurfs', smurf)
+    .then((response) => {
+    this.setState({smurfs: response.date});
+  })
+  .catch((err) => {
+    console.error(err);
+    })
+  } 
 
-  addSmurf = event => {
-    const {name, age, height} = this.state;
-   event.preventDefault();
-   // add code to create the smurf using the api
-   axios.post('http://localhost:3333/smurfs',{name, age, height})
-   .then((response) => { 
-    console.log(response);
-     this.setState({smurfs: response.data, name: ' ', age: ' ', height: ' '});      
-   })
-   .catch((error) => {
-     console.log("Error posting", error);
-   })
- }  
-
-  handleInputChange = e => {
-    this.setState({ [e.target.name]: e.target.value });
-  };
- 
   render() {
     return (
-      <div className="App">
-        <Smurfs smurfs={this.state.smurfs} />
-        <SmurfForm addSmurf={this.addSmurf} handleInputChange={this.handleInputChange} name={this.state.name} age={this.state.age} height={this.state.height}   />
-      </div>
+      <div className="App">       
+      <Route exact path="/" component={Header} />
+      <Route path="/smurfs" render={props => {        
+        return( 
+        <div>
+          <Smurfs {...props} smurfs={this.state.smurfs} />
+          <SmurfForm {...props} addSmurf={this.addSmurf}  />
+         </div>
+         )
+         }} />
+       
+         </div>
     );
   }
 }
