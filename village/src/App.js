@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import axios from 'axios'; 
 import './App.css';
 import { Route } from 'react-router-dom';
-// import SmurfForm from './components/SmurfForm';
-// import Smurfs from './components/Smurfs';
 import { Header, SmurfForm, Smurfs } from './components';
 
 class App extends Component {
@@ -49,7 +47,7 @@ class App extends Component {
      });
   }
   
-  updateSmurf = (id) => {
+  updateSmurf = id => {
     const updatedSmurf = { name:this.state.name, age:this.state.age, height:this.state.height }
     axios
       .put(`http://localhost:3333/smurfs/${id}`, updatedSmurf)
@@ -68,7 +66,7 @@ class App extends Component {
         <Route path="/smurfs" render={props =>{
           return (
             <div>
-              <SmurfForm {...props} addSmurf={this.addSmurf}/>
+              <SmurfForm {...props} addSmurf={this.addSmurf} updateSmurf={this.updateSmurf}/>
               <Smurfs {...props} smurfs={this.state.smurfs} removeSmurf={this.removeSmurf} updateSmurf={this.updateSmurf} />
             </div>
             )
