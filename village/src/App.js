@@ -13,9 +13,7 @@ class App extends Component {
       <div className="App">
         <SmurfForm />
         <Header />
-        <div>
-          <Route exact path="/" component={Smurfs} />
-        </div>
+        <Route exact path="/" component={Smurfs} />
         <Route path="/:id" render={(props) => {
           return <Smurf {...props} />
         }} />
