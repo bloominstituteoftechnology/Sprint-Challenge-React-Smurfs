@@ -4,7 +4,6 @@ import Smurfs from './Smurfs';
 import axios from 'axios';
 import './SmurfForm.css';
 
-
 class SmurfForm extends Component {
   constructor(props) {
     super(props);

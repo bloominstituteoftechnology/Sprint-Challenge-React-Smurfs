@@ -3,6 +3,7 @@ import { Card, Button, CardTitle, CardText } from 'reactstrap';
 import './Smurf.css';
 
 const Smurf = props => {
+  console.log(props);
   return (
     <div className="smurf">
       <Card body inverse color="primary">
@@ -10,7 +11,7 @@ const Smurf = props => {
         <CardText>{props.age} smurf years old</CardText>
         <CardText>{props.height} tall</CardText>
         <CardText>{props.id}</CardText>
-        <Button color="secondary">Click here</Button>
+        <Button color="secondary">Delete Smurf</Button>
       </Card>
     </div>
   );
