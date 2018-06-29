@@ -1,12 +1,23 @@
 import React, { Component } from 'react';
-import { Route, Link } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import axios from 'axios';
 
-import './App.css';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
 import Header from './components/Header';
+import Smurf from './components/Smurf';
 
+import styled from 'styled-components';
+import background from './images/background.jpg';
+
+const APP = styled.div`
+  height: 100vh;
+  background: url(${background});
+  background-size: cover;
+  text-align: center;
+  color: white;
+  text-shadow: 2px 2px 5px #0a1f42;
+`
 
 class App extends Component {
   constructor(props) {
@@ -24,13 +35,18 @@ class App extends Component {
       .catch(error => console.log(error))
   }
 
+  updateState = newSmurfs => {
+    this.setState({ smurfs: newSmurfs});
+  }
+
   render() {
     return (
-      <div className="App">
+      <APP>
         <Route exact path="/" component={Header} />
         <Route path="/smurfs" component={SmurfForm} />
-        <Route path="/smurfs" render={props => <Smurfs {...props} smurfs={this.state.smurfs} />} />
-      </div>
+        <Route path="/smurfs" render={props => <Smurfs {...props} smurfs={this.state.smurfs} updateState={this.updateState}/>} />
+        
+      </APP>
     );
   }
 }

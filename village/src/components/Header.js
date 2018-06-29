@@ -2,22 +2,19 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import logo from '../images/smurfenter.png';
-import background from '../images/background.jpg';
 
 const H2 = styled.h2`
   color: white;
   font-family: "Comic Sans MS", "Comic Sans", cursive;
   font-size: 50px;
   text-shadow: 3px 3px 5px #0a1f42;
-  margin-top: 100px;
+  margin-top: 30%px;
 `
 const StyledLink = styled(Link)`
   text-decoration: none;
 `
 const Home = styled.div`
-  height: 100vh;
-  background: url(${background});
-  background-size: cover;
+  text-align: center;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -25,7 +22,7 @@ const Home = styled.div`
 `
 const StyledImg = styled.img`
   width: 40%;
-  margin-top: 50px;
+  margin-top: 10%px;
 `
 
 const Header = () => {

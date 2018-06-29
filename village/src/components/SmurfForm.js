@@ -19,7 +19,8 @@ class SmurfForm extends Component {
       name: '',
       age: '',
       height: ''
-    }));
+    }))
+    .then(window.location.reload());
   }
 
   handleInputChange = e => {
