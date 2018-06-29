@@ -5,6 +5,7 @@ import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
 import {BrowserRouter as Router}  from 'react-router-dom'
 import {Link,Route}  from 'react-router-dom'
+import Home from './components/Home'
 
 class App extends Component {
   constructor(props) {
@@ -35,16 +36,12 @@ class App extends Component {
 
   render() {
     return (
-      <Router>
-        {/* <Route path='/' component={<Home/>}/> */}
-        {/* <Route 
-          path='/smurfs' 
-          render={ (props) => { */}
-            <div className="App">
-                <SmurfForm updateState={this.updateState}/>
-                <Smurfs smurfs={this.state.smurfs} />
-            </div>        
-          {/* }}/> */}
+      <Router>          
+        <div className="App">
+          <Route exact path ='/' component={Home}/>            
+          <Route path ='/smurfs' render={() => <SmurfForm updateState={this.updateState}/> }/>
+          <Route path ='/smurfs' render={() => <Smurfs smurfs={this.state.smurfs} />}/>  
+        </div>        
       </Router>
     );
   }
