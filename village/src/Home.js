@@ -3,7 +3,7 @@ import {Route} from 'react-router-dom';
 import Header from './components/Header';
 import App from './App';
 import Navigation from './components/Navigation';
-import Smurf from './components/Smurf';
+// import Smurf from './components/Smurf';
 
 const Home = () => {
     return (

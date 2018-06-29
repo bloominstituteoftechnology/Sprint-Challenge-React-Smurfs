@@ -6,10 +6,10 @@ const Navigation = () => {
     <div className="nav">
       <div className="App">
         <div>
-          <Link to="/">Home</Link>
+          <Link to="/"><i class="fas fa-home fa-lg"></i></Link>
         </div>
         <div>
-          <Link to="/smurfs">Smurfs</Link>
+          <Link to="/smurfs"><i class="far fa-user fa-lg"></i></Link>
         </div>
       </div>
     </div>

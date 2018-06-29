@@ -4,10 +4,17 @@ body {
   font-family: sans-serif;
 }
 
+.nav {
+  width: 800px;
+  border: 1px solid blue;
+  margin-bottom: 20px;
+  background: lightblue;
+}
+
 .nav .App {
   display: flex;
   width: 200px;
-  margin: 10px auto;
+  margin: 20px auto;
   /* border: 1px solid red; */
 }
 
