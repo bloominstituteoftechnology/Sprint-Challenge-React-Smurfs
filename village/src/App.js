@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import {Route} from 'react-router-dom';
 
 import './App.css';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
+import Header from './components/Header';
 
 class App extends Component {
   constructor(props) {
@@ -31,8 +33,13 @@ componentDidMount() {
   render() {
     return (
       <div className="App">
-        <SmurfForm handleSetData={this.handleSetData} />
-        <Smurfs smurfs={this.state.smurfs} handleSetData={this.handleSetData} />
+      <Route exact path="/" component={Header} />
+      
+      <Route path="/smurfs" render={(props) =>
+      <div>
+      <SmurfForm handleSetData={this.handleSetData} />
+      <Smurfs smurfs={this.state.smurfs} handleSetData={this.handleSetData} /></div>}  /> 
+        
       </div>
     );
   }
