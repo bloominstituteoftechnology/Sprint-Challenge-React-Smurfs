@@ -17,8 +17,8 @@ class App extends Component {
   // Notice what your map function is looping over and returning inside of Smurfs.
   // You'll need to make sure you have the right properties on state and pass them down to props.
 
-  handleChange = (e) => {
-    this.setState({newSmurf: {...this.state.newSmurf, [e.target.name]: e.target.value}});
+  handleData = (data) => {
+    this.setState({smurfs: data})
   }
 
   componentDidMount() {
@@ -36,7 +36,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <SmurfForm />
+        <SmurfForm submitSmurf={this.submitSmurf} handleData={this.handleData}/>
         <Smurfs smurfs={this.state.smurfs} />
       </div>
     );
