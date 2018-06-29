@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import './Components.css';
 
 class SmurfForm extends Component {
   constructor(props) {

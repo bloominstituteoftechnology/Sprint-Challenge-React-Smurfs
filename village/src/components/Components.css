@@ -1,0 +1,13 @@
+.SmurfForm {
+    background: #0077FF;
+    padding: 10px 0;
+}
+
+.Smurfs {
+    background: #88CCFF;
+}
+
+.Smurf {
+    border: 1px solid black;
+    border-radius: 5px;
+}
