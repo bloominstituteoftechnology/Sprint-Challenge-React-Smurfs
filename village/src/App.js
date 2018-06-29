@@ -24,7 +24,7 @@ class App extends Component {
           this.setState({ smurfs: response.data })
         })
         .catch(error => {
-          alert('server error! (see console)') ;
+          alert('server .get error! (see console)') ;
           console.log("MY-GET-ERROR: ", error) ;
         });
   }
@@ -39,7 +39,7 @@ class App extends Component {
           render={props => 
             <Smurfs {...props}
               smurfs={this.state.smurfs}
-               
+
             />
           } 
         />

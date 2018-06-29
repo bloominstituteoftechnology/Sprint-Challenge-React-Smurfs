@@ -14,17 +14,3 @@ const Header = () => {
 
 export default Header;
 
-{/* <Route exact path='/village' render={ (routeProps) => 
-  
-  <SmurfForm {...routeProps} saveSmurf={this.addSmurf} name='' height='' age='' id={undefined}/> 
-  } 
-/>
-        <Route path='/village' render={ (routeProps) =>   
-        <Smurfs {...routeProps} smurfs={this.state.smurfs} makeDelete={this.makeDelete} makeEdit={this.makeEdit} />} 
-        />
-      </div>
-    );
-  }
-}
-
-export default App; */}
