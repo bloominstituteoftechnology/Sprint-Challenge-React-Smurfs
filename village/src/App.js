@@ -43,6 +43,16 @@ class App extends Component {
       });
   }
 
+  makeDelete = (id) => {
+    return () => {
+      const context = this;
+      axios
+        .delete(`${context.url}/${id}`)
+        .then((response) => {context.setState({smurfs: response.data})})
+        .catch((response) => {console.log('Failed ', response.data)});
+    }
+  }
+
   // add any needed code to ensure that the smurfs collection exists on state and it has data coming from the server
   // Notice what your map function is looping over and returning inside of Smurfs.
   // You'll need to make sure you have the right properties on state and pass them down to props.
@@ -51,7 +61,7 @@ class App extends Component {
       <div className="App">
         <Route exact path='/' component={Header} />
         <Route exact path='/village' render={ (routeProps) => <SmurfForm {...routeProps} addSmurf={this.addSmurf} /> } />
-        <Route exact path='/village' render={ (routeProps) => <Smurfs {...routeProps} smurfs={this.state.smurfs} /> } />
+        <Route exact path='/village' render={ (routeProps) => <Smurfs {...routeProps} smurfs={this.state.smurfs} makeDelete={this.makeDelete}/> } />
       </div>
     );
   }
