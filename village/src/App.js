@@ -44,22 +44,12 @@ class App extends Component {
         <Route
           path='/smurfs/:id'
           render={(props) => (
-            <Smurf
-              {...props}
-              smurfs={this.state.smurfs}
-              getSmurfs={this.getSmurfs}
-            />
-          )}
-        />
-        {/* <Route
-          path='/smurfs/:id'
-          render={(props) => (
             <SmurfDetails
               {...props}
               findSmurf={() => this.findSmurf(props.match.params.id)}
             />
           )}
-        /> */}
+        />
       </div>
     )
   }
