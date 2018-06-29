@@ -10,7 +10,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      smurfs: [],
+      smurfs: []
     };
   }
   // add any needed code to ensure that the smurfs collection exists on state and it has data coming from the server
@@ -21,9 +21,13 @@ class App extends Component {
     axios.get(URL)
       .then(res => {
         console.log("GET RES");
-        this.setState({smurfs: res.data});
+        this.setData(res.data);
     }).catch(err => console.log(err));
   }
+
+  setData = data => {
+    this.setState({smurfs: data});
+  };
 
   render() {
     return (
