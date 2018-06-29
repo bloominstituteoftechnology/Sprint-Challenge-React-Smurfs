@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import {Route} from 'react-router-dom';
-import Header from './components/Header';
 import './App.css';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
+
 import Axios from 'axios';
 
 class App extends Component {
@@ -22,6 +21,18 @@ class App extends Component {
     this.setState({smurfs: data})
   }
 
+  deleteSmurf = id => {
+    Axios
+    .delete(`http://localhost:3333/smurfs/${id}`)
+    .then(response => {
+      console.log(response);
+      this.setState({smurfs: response.data})
+    })
+    .catch(err => {
+      console.log(err);
+    })
+  }
+
   componentDidMount() {
     Axios
     .get('http://localhost:3333/smurfs')
@@ -37,9 +48,8 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-      <Route path='/' component={Header}/>
-        <Route path='form' render={props=> <SmurfForm {...props} submitSmurf={this.submitSmurf} handleData={this.handleData}/>} />
-        <Route path='smurf' render={props => <Smurfs {...props} smurfs={this.state.smurfs} />} />
+      <SmurfForm submitSmurf={this.submitSmurf} handleData={this.handleData} />
+      <Smurfs smurfs={this.state.smurfs} deleteSmurf={this.deleteSmurf}/>
       </div>
     );
   }
