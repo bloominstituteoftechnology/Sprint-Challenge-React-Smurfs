@@ -53,16 +53,17 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Route path ='/' component={Header} />
+        <Route exact path ='/' component={Header} />
         
-        <SmurfForm 
+        <Route exact path = '/smurfs'
+        render = {props => <SmurfForm 
         addSmurfHandler = {this.addSmurf} 
         handleInputChange = {this.inputChange}
         name = {this.state.name}
         age = {this.state.age}
-        height = {this.state.height}/>
+        height = {this.state.height}/>} />
 
-        <Route path = '/smurfs' render = {props => <Smurfs {...props} 
+        <Route exact path = '/smurfs' render = {props => <Smurfs {...props} 
         smurfs={this.state.smurfs} />} />
       </div>
     );
