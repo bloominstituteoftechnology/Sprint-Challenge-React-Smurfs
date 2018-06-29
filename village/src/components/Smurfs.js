@@ -4,23 +4,12 @@ import axios from 'axios';
 import Smurf from './Smurf';
 
 class Smurfs extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      smurfs: []
-    };
-  }
+    
 
-    componentDidMount() {
-      axios 
-        .get("http://localhost:3333/smurfs")
-        .then(response => {
-          this.setState({ smurfs: response.data });
-        })
-        .catch(err => {
-          console.log(err);
-        });
-    }
+
+
+
+
   render() {
     return (
       
@@ -29,9 +18,13 @@ class Smurfs extends Component {
         
         
         <ul>
-          {this.state.smurfs.map(smurf => {
+        
+          {this.props.smurfs.map(smurf => {
+            console.log(this.props.smurfs);
             return (
-              <Link to={`/smurfs/${this.state.smurfs.id}`}>
+             <div>
+              <Link to={`/smurfs/${smurf.id}`}>
+              
               
               <Smurf
                 name={smurf.name}
@@ -39,11 +32,15 @@ class Smurfs extends Component {
                 age={smurf.age}
                 height={smurf.height}
                 key={smurf.id}
+                handleDelete={this.props.handleDelete}
               />
-              </Link>
               
-            );
+              </Link>
+              </div>
+             
+              );
           })}
+          
         </ul>
         
       </div>
@@ -57,4 +54,4 @@ Smurf.defaultProps = {
  smurfs: [],
 };
 
-export default Smurfs;
+export default Smurfs

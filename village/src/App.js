@@ -14,20 +14,35 @@ class App extends Component {
     };
   }
 
+  componentDidMount() {
+    axios 
+      .get("http://localhost:3333/smurfs")
+      .then(response => {
+        this.setState({ smurfs: response.data });
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  }
+
   handleSetData = data => {
     this.setState({ smurfs: data});
   }
 
-  // componentDidMount() {
-  //   axios 
-  //     .get("http://localhost:3333/smurfs")
-  //     .then(response => {
-  //       this.setState({ smurfs: response.data });
-  //     })
-  //     .catch(err => {
-  //       console.log(err);
-  //     });
-  // }
+
+
+  handleDelete = id => {
+    axios.delete(`http://localhost:3333/smurfs/${id}`)
+      .then(response => {
+        console.log('get: ', response)
+        this.setState({ smurfs: response.data })
+      })
+      .catch(err => {
+        console.log(err);
+      })
+  }
+
+
   // add any needed code to ensure that the smurfs collection exists on state and it has data coming from the server
   // Notice what your map function is looping over and returning inside of Smurfs.
   // You'll need to make sure you have the right properties on state and pass them down to props.
@@ -35,9 +50,9 @@ class App extends Component {
     return (
       <div className="App">
       <Route exact path='/' component={Header} />
-      <Route path='/smurfs/' render={(props) => <SmurfForm {...props} handleSetData={this.handleSetData} />}/>
-        {/* <SmurfForm handleSetData={this.handleSetData}/> */}
-      <Route path='/smurfs/' render={(props) => <Smurfs {...props}  smurfs={this.state.smurfs} handleSetData={this.handleSetData}/>}/>
+      {/* <Route path='/smurfs/' render={(props) => <SmurfForm {...props} handleSetData={this.handleSetData} />}/> */}
+        <SmurfForm handleSetData={this.handleSetData}/>
+      <Route path='/smurfs/' render={(props) => <Smurfs {...props}  smurfs={this.state.smurfs} handleSetData={this.handleSetData} handleDelete={this.handleDelete} />}/>
       
         {/* <Smurfs smurfs={this.state.smurfs} /> */}
       </div>

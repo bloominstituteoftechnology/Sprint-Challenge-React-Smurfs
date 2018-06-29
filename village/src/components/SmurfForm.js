@@ -18,8 +18,8 @@ class SmurfForm extends Component {
     axios 
       .post("http://localhost:3333/smurfs", addone)
       .then(response => {
-        this.handleInputChange(response.data);
         this.setState({ name: '', age:'', height: ''});
+        this.props.handleSetData(response.data )
       })
 
       .catch(error => console.log(error));
