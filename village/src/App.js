@@ -25,8 +25,14 @@ class App extends Component {
       .catch(err => console.log(err));
   }
 
-  updateSmurfs = smurfs => {
-    this.setState({ smurfs });
+  updateSmurfs = () => {
+    axios
+      .get('http://localhost:3333/smurfs')
+      .then(res => {
+        console.log(res.data);
+        this.setState({ smurfs: res.data });
+      })
+      .catch(err => console.log(err));
   };
 
   render() {
@@ -36,7 +42,7 @@ class App extends Component {
     return (
       <div className="App">
         <SmurfForm updateSmurfs={this.updateSmurfs} />
-        <Smurfs smurfs={this.state.smurfs} />
+        <Smurfs updateSmurfs={this.updateSmurfs} smurfs={this.state.smurfs} />
       </div>
     );
   }

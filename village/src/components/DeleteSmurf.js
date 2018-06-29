@@ -1,9 +1,11 @@
 import React from 'react';
 import axios from 'axios';
 
-const DeleteSmurf = ({ id }) => {
+const DeleteSmurf = ({ id, updateSmurfs }) => {
   const deleteSmurf = id => {
-    axios.delete(`http://localhost:3333/smurfs/${id}`);
+    axios.delete(`http://localhost:3333/smurfs/${id}`).then(() => {
+      updateSmurfs();
+    });
   };
   return (
     <div>
