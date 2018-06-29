@@ -16,15 +16,19 @@ class SmurfForm extends Component {
     const name = this.state.name;
     const age = this.state.age;
     const height = this.state.height;
+    const smurfs = {
+      name: name,
+      age: age,
+      height: height
+    }
     axios
-    .post("http://localhost:3333/smurfs")
+    .post("http://localhost:3333/smurfs", smurfs)
     .then(response => {
       this.props.handleSetData(response.data);
-      this.setState({ name: name, age: age, height: height})
+      this.setState({ name: '', age: '', height: ''})
     })
     // add code to create the smurf using the api
     axios
-
     this.setState({
       name: '',
       age: '',
