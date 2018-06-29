@@ -5,6 +5,12 @@ import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
 import axios from 'axios';
 
+const Home = () => (
+  <div>
+    <p>Welcome to smurf-ville!</p>
+  </div>
+)
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -33,7 +39,19 @@ axios
     return (
       <div className="App">
         <SmurfForm />
-        <Smurfs smurfs={this.state.smurfs} />
+		<Router>
+		<div>
+		<ul>
+		<li><Link to="/">Home</Link></li>
+		<li><Link to="/smurfs">smurfs</Link></li>
+		</ul>
+		<Route exact path="/" component={Home} />
+		<Route path="/smurfs" render={props => (
+		<Smurfs {...props} smurfs={this.state.smurfs}/>
+		)}/>
+		</div>
+		</Router>
+        
       </div>
     );
   }

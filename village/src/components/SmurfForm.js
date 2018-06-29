@@ -12,7 +12,10 @@ class SmurfForm extends Component {
   }
 
   addSmurf = event => {
-    event.preventDefault();
+   // event.preventDefault();
+   //couldn't figure out componentWillUpdate in time, so I
+   //just allowed the default reload lol
+   
     // add code to create the smurf using the api
 const name = this.state.name;
 const age = this.state.age;
