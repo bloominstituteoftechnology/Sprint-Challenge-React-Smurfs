@@ -23,7 +23,6 @@ class SmurfForm extends Component {
       .then(response => {
         console.log("Post Response", response);
         this.setState({
-          friendsData: response.data,
           name: "",
           age: "",
           height: ""
