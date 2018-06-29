@@ -4,6 +4,11 @@ const cors = require('cors');
 const port = 3333;
 
 const server = express();
+let nextId = 4;
+
+function getNewID() {
+  return nextId++;
+}
 server.use(bodyParser.json());
 server.use(cors());
 
@@ -19,12 +24,30 @@ let smurfs = [
     name: 'Brainey Smurf',
     age: 200,
     height: '8cm'
+  },
+  {
+    id: 1,
+    name: 'Papa Smurf',
+    age: 8000,
+    height: '12cm'
+  },
+  {
+    id: 2,
+    name: 'MainMan Smurf',
+    age: 205,
+    height: '10cm'
+  },
+  {
+    id: 3,
+    name: 'Mama Smurf',
+    age: 8100,
+    height: '9cm'
   }
 ];
 server.get('/smurfs', (req, res) => {
   res.json(smurfs);
 });
-let smurfId = 1;
+let smurfId = getNewID();
 
 server.post('/smurfs', (req, res) => {
   const { name, age, height } = req.body;
