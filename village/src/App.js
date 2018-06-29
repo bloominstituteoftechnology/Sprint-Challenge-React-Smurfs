@@ -34,7 +34,7 @@ class App extends Component {
       <Switch>
         <Route exact path='/' component={Header} />
         <Route path='/addSmurf' render={(props) => <SmurfForm {...props} handleSetData={this.handleSetData} /> } />
-        <Route path='/smurfs' render={(props) => <Smurfs {...props} smurfs={this.state.smurfs} /> } />
+        <Route path='/smurfs' render={(props) => <Smurfs {...props} handleSetData={this.handleSetData}  smurfs={this.state.smurfs} /> } />
       </Switch>
       </div>
     );
