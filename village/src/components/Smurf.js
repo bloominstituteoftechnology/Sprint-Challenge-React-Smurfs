@@ -1,9 +1,11 @@
 import React from 'react';
 
 const Smurf = props => {
+  
   const deleteSmurf = id => {
     props.deleteSmurf(id);
   };
+
   return (
     <div className="Smurf">
       <h3>{props.name}</h3>

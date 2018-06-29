@@ -10,7 +10,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      smurfs: [],
+      smurfs: []
     };
   }
 
@@ -45,17 +45,18 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+
         <Route exact path="/" component={Header} />
 
         <Route path="/smurfs" render={ (props) =>
           <div>
             <SmurfForm {...props} updateSmurfs={this.updateSmurfs} />
             <Smurfs {...props} smurfs={this.state.smurfs}
-                               deleteSmurf={this.deleteSmurf}
-            />
+                               deleteSmurf={this.deleteSmurf} />
           </div>
           }
         />
+
       </div>
     );
   }
