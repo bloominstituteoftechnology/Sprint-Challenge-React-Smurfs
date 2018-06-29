@@ -40,6 +40,7 @@ class App extends Component {
   };
 
   handleSetData = data => {
+    console.log(data, "data");
     this.setState({ smurfs: data });
   };
 

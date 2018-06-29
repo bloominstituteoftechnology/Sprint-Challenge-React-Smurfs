@@ -18,9 +18,7 @@ class Smurf extends React.Component {
         <h3>{this.props.name}</h3>
         <strong>{this.props.height} tall</strong>
         <p>{this.props.age} smurf years old</p>
-        <button onClick={() => this.handleDelete(this.props.smurf.id)}>
-          Delete
-        </button>
+        <button onClick={() => this.handleDelete(this.props.id)}>Delete</button>
       </div>
     );
 
