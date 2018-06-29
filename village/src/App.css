@@ -1,3 +1,13 @@
 .App {
   text-align: center;
 }
+
+.Smurf {
+  width: 33vw;
+  height: 22vh;
+  margin: 0 auto;
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}

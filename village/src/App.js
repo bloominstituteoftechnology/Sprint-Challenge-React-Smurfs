@@ -26,8 +26,14 @@ class App extends Component {
     axios.get('http://localhost:3333/smurfs')
     .then(response => this.setState({ smurfs: response.data}))
     .catch(error => console.log(error));
-}
+  }
 
+  deleteSmurf = id => {
+    axios
+      .delete(`http://localhost:5000/smurfs/${id}`)
+      .then(response => this.setState({ smurfs: response.data }))
+      .catch(error => console.log('ERROR deleting:', error));
+  };
 
   render() {
     return (
@@ -38,7 +44,7 @@ class App extends Component {
         <Route path="/smurfs" render={() => (
           <SmurfForm updateSmurfs={this.updateSmurfs}/> )} />
         <Route path ="/smurfs" render ={() => 
-          <Smurfs smurfs={this.state.smurfs} /> } />
+          <Smurfs smurfs={this.state.smurfs} deleteHandler={this.deleteSmurf} /> } />
       </div>
     );
   }
