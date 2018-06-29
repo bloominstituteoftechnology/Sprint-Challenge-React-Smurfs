@@ -14,3 +14,18 @@
 	background: blue;
 	color: lightskyblue;
 }
+
+.delete-button {
+	display: flex;
+	width: 50px;
+	height: 25px;
+	background: lightsalmon;
+	color: white;
+	margin-left: 370px;
+}
+
+.Smurfs {
+	display: flex;
+	justify-content: center
+
+}
