@@ -1,12 +1,14 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import {Route, Link} from 'react-router-dom';
+import App from '../App';
 
 const Header = () => {
-  return 
+  return (
   <div>
   <h2>Welcome to Smurfy Village!</h2>
-  <Link to='/smurfs'><button>Enter Village</button></Link>
-  </div>
+  <Link to='/smurfs/'><button>Enter Village</button></Link>
+  <Route path='/smurfs/' component={App} />
+  </div>)
 }
  
 export default Header;

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-
+import {Route} from 'react-router-dom';
+import Header from './components/Header';
 import './App.css';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
@@ -36,8 +37,9 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <SmurfForm submitSmurf={this.submitSmurf} handleData={this.handleData}/>
-        <Smurfs smurfs={this.state.smurfs} />
+      <Route path='/' component={Header}/>
+        <Route path='form' render={props=> <SmurfForm {...props} submitSmurf={this.submitSmurf} handleData={this.handleData}/>} />
+        <Route path='smurf' render={props => <Smurfs {...props} smurfs={this.state.smurfs} />} />
       </div>
     );
   }
