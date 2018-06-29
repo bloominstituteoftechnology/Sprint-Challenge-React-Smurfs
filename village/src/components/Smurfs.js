@@ -6,13 +6,12 @@ class Smurfs extends Component {
   render() {
     return (
       <div className="Smurfs">
-        <h1>
+        <h1 key="1">
           Thanks for joining! Meet your new neighbors :)
         </h1>
         <ul>
           {this.props.smurfs.map(smurf => {
             return (
-              <div>
                 <Smurf
                   name={smurf.name}
                   id={smurf.id}
@@ -20,7 +19,6 @@ class Smurfs extends Component {
                   height={smurf.height}
                   key={smurf.id}
                 />
-              </div>
             );
           })}
         </ul>
