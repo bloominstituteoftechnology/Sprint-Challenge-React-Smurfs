@@ -44,8 +44,8 @@ class App extends Component {
       <Route exact path='/' component={Header} />
       <Route path='/smurfs' render={(props) => {return (
         <div>
-          <Link to='/'>Back to Home</Link>
-          <SmurfForm refreshSmurf={this.refreshSmurf}/>
+          <Link to='/'><button>Back to Home</button></Link>
+          <SmurfForm />
           <Smurfs smurfs={this.state.smurfs} />
         </div>
       )}}/>
