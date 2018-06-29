@@ -1,14 +1,16 @@
-import React, { Component } from 'react';
-
+import React from 'react';
 import Smurf from './Smurf';
+import SmurfForm from './SmurfForm';
 
-class Smurfs extends Component {
-  render() {
-    return (
+const Smurfs = props => {
+  return (
+    <div>
+      <SmurfForm {...props} handleSetData={props.handleSetData} />
+
       <div className="Smurfs">
         <h1>Smurf Village</h1>
         <ul>
-          {this.props.smurfs.map(smurf => {
+          {props.smurfs.map(smurf => {
             return (
               <Smurf
                 name={smurf.name}
@@ -21,12 +23,12 @@ class Smurfs extends Component {
           })}
         </ul>
       </div>
-    );
-  }
+    </div>
+  );
 }
 
 Smurf.defaultProps = {
- smurfs: [],
+  smurfs: [],
 };
 
 export default Smurfs;
