@@ -4,16 +4,16 @@ class SmurfForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: '',
-      age: '',
-      height: ''
+      name: props.name,
+      age: props.age,
+      height: props.height,
     };
+    this.saveSmurf = this.saveSmurf.bind(this);
   }
 
-  addSmurf = event => {
+  saveSmurf = event => {
     event.preventDefault();
-    this.props.addSmurf(this.state);
-
+    this.props.saveSmurf(this.state);
     this.setState({
       name: '',
       age: '',
@@ -28,7 +28,7 @@ class SmurfForm extends Component {
   render() {
     return (
       <div className="SmurfForm">
-        <form onSubmit={this.addSmurf}>
+        <form onSubmit={this.saveSmurf}>
           <input
             onChange={this.handleInputChange}
             placeholder="name"
@@ -47,7 +47,7 @@ class SmurfForm extends Component {
             value={this.state.height}
             name="height"
           />
-          <button type="submit">Add to the village</button>
+          <button type="submit">Save Smurf!</button>
         </form>
       </div>
     );

@@ -53,6 +53,15 @@ class App extends Component {
     }
   }
 
+  makeEdit = (id, smurf) => {
+    return () => {
+      const context = this;
+      return axios
+        .put(`${context.url}/${id}`, smurf)
+        .then((response) => {context.setState({smurfs: response.data})})
+    }
+  }
+
   // add any needed code to ensure that the smurfs collection exists on state and it has data coming from the server
   // Notice what your map function is looping over and returning inside of Smurfs.
   // You'll need to make sure you have the right properties on state and pass them down to props.
@@ -60,8 +69,8 @@ class App extends Component {
     return (
       <div className="App">
         <Route exact path='/' component={Header} />
-        <Route exact path='/village' render={ (routeProps) => <SmurfForm {...routeProps} addSmurf={this.addSmurf} /> } />
-        <Route exact path='/village' render={ (routeProps) => <Smurfs {...routeProps} smurfs={this.state.smurfs} makeDelete={this.makeDelete}/> } />
+        <Route exact path='/village' render={ (routeProps) => <SmurfForm {...routeProps} saveSmurf={this.addSmurf} name='' height='' age='' id={undefined}/> } />
+        <Route path='/village' render={ (routeProps) => <Smurfs {...routeProps} smurfs={this.state.smurfs} makeDelete={this.makeDelete} makeEdit={this.makeEdit} />} />
       </div>
     );
   }

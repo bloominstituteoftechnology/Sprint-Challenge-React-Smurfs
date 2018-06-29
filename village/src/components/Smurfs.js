@@ -15,6 +15,9 @@ function Smurfs(props) {
               height={smurf.height}
               key={smurf.id}
               makeDelete={props.makeDelete}
+              makeEdit={props.makeEdit}
+              match = {props.match}
+              history = {props.history}
             />
         ))}
       </ul>
