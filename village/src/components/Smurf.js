@@ -1,4 +1,5 @@
 import React from 'react';
+import EditForm from './EditSmurf';
 
 const Smurf = props => {
   return (
@@ -6,7 +7,10 @@ const Smurf = props => {
       <h3>{props.name}</h3>
       <strong>{props.height} tall</strong>
       <p>{props.age} smurf years old</p>
-      <button>Edit</button>
+      <button onClick={props.toggleEdit}>Edit</button>
+      {props.showEdit ? (
+        <EditForm id={props.id}/>
+      ) : null}
       <button onClick={(e) => props.deleteSmurf(props.id)}>Delete</button>
     </div>
   );
