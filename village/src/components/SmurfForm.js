@@ -53,6 +53,7 @@ class SmurfForm extends Component {
             name="height"
           />
           <button type="submit">Add to the village</button>
+          <button onClick={() => this.props.history.push('/')} >Back to home!</button>
         </form>
       </div>
     );
