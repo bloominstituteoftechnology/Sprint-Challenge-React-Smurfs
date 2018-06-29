@@ -1,8 +1,9 @@
 import React from 'react';
 /* prettier-ignore */
-import { Card, CardText, CardBody, CardTitle, CardLink } from 'reactstrap';
+import { Card, CardText, CardBody, CardTitle } from 'reactstrap';
 
 const Smurf = props => {
+  const { name, height, age } = props;
   return (
     <div className="Smurf">
       <Card style={{ width: '40%' }}>
@@ -12,11 +13,11 @@ const Smurf = props => {
             alt="Smurf"
             style={{ width: '25%', float: 'left' }}
           />
-          <CardTitle>{props.name}</CardTitle>
+          <CardTitle>{name}</CardTitle>
           <CardText>
-            <strong>{props.height} tall</strong>
+            <strong>{height} tall</strong>
             <br />
-            {props.age} smurf years old
+            {age} smurf years old
           </CardText>
         </CardBody>
       </Card>

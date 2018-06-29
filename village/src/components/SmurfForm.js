@@ -21,6 +21,7 @@ class SmurfForm extends Component {
       age,
       height,
     };
+    newSmurf.height = newSmurf.height + 'cm';
     axios
       .post('http://localhost:3333/smurfs', newSmurf)
       .then(response => {
