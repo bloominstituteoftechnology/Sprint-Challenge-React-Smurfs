@@ -46,7 +46,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Route path ='/' component={Header} />>
+        <Route path ='/' component={Header} />
         <SmurfForm />
         <Smurfs smurfs={this.state.smurfs} />
       </div>
