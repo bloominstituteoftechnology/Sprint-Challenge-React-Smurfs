@@ -33,6 +33,7 @@ class App extends Component {
         <SmurfForm handleSetData={this.handleSetData} />
         <Smurfs smurfs={this.state.smurfs} handleSetData={this.handleSetData} />
       </div>
+      
     );
   }
 }
