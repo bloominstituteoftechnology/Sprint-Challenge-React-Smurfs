@@ -19,6 +19,7 @@ const Smurfs = props => {
                 height={smurf.height}
                 key={smurf.id}
                 deleteSmurf={props.deleteSmurf}
+                handleSetData={props.handleSetData}
               />
             );
           })}
