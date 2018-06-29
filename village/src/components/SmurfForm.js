@@ -46,9 +46,8 @@ class SmurfForm extends Component {
     let smurf = this.props.smurfs.find(s => s.name === selectedSmurf);
     axios
       .delete(`http://localhost:3333/smurfs/${smurf.id}`)
-      .then(response => console.log(response))
+      .then(response => this.props.handleUpdate(response.data))
       .catch(err => console.log('ERR deleting', err));
-    window.location.reload();
   };
 
   render() {
