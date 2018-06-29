@@ -1,15 +1,33 @@
 import React from "react";
 
-const Smurf = props => {
-  return (
-    <div className="Smurf">
-      <h3>{props.name}</h3>
-      <strong>{props.height} tall</strong>
-      <p>{props.age} smurf years old</p>
-      <button onClick={() => props.deleteSmurf(props.id)}>Delete Smurf</button>
-    </div>
-  );
-};
+class Smurf extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      editedName: "",
+      editedHeight: "",
+      editedAge: ""
+    };
+  }
+
+  render() {
+    return (
+      <div className="Smurf">
+        <h3>{this.props.name}</h3>
+        <strong>{this.props.height} tall</strong>
+        <p>{this.props.age} smurf years old</p>
+        <button onClick={() => this.props.deleteSmurf(this.props.id)}>
+          Delete Smurf
+        </button>
+        <form>
+          <input placeholder="edit name" />
+          <input placeholder="edit height" />
+          <input placeholder="edit age" />
+        </form>
+      </div>
+    );
+  }
+}
 
 Smurf.defaultProps = {
   name: "",
