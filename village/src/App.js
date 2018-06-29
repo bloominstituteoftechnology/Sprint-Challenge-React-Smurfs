@@ -13,7 +13,6 @@ class App extends Component {
     this.state = {
       smurfs: [],
       newSmurf: {},
-      showEditForm: false
     };
   }
   // add any needed code to ensure that the smurfs collection exists on state and it has data coming from the server
@@ -36,9 +35,6 @@ class App extends Component {
     })
   }
 
-  toggleEdit = () => {
-    this.setState({showEditForm: !this.state.showEditForm});
-  }
 
   componentDidMount() {
     Axios

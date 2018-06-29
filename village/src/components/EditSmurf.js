@@ -13,7 +13,7 @@ class EditForm extends Component {
   }
 
   editSmurf = event => {
-    event.preventDefault();
+    //event.preventDefault();
     const editedSmurf = this.state;
     Axios
     .put(`http://localhost:3333/smurfs/${this.props.id}`, editedSmurf)
