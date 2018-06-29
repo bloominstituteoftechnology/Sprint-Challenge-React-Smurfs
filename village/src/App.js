@@ -13,6 +13,16 @@ class App extends Component {
     };
   }
 
+  onAddSmurf = smurf => {
+    axios
+    .post(API_URL, smurf)
+    .then(response => {
+      console.log('posted', response);
+      this.setState({ smurfs: response.data});
+    })
+    .catch(error => console.log(error));    
+  }
+
   componentDidMount() {
     axios.get(API_URL)
     .then(response => {
@@ -26,7 +36,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <SmurfForm />
+        <SmurfForm onAddSmurf={this.onAddSmurf} />
         <Smurfs smurfs={this.state.smurfs} />
       </div>
     );
