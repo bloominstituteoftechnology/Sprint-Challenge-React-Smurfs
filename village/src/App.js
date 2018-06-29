@@ -25,6 +25,16 @@ class App extends Component {
     .catch(error => console.log(error));    
   }
 
+  onDeleteSmurf = id => {
+    axios
+    .delete(`${API_URL}/${id}`)
+    .then(response => {
+      console.log('posted', response);
+      this.setState({ smurfs: response.data});
+    })
+    .catch(error => console.log(error));
+  }
+
   componentDidMount() {
     axios.get(API_URL)
     .then(response => {
@@ -40,7 +50,7 @@ class App extends Component {
       <div className="App">
         <Route path="/" render={(props) => <Header {...props} />} />
         <Route exact path="/smurfs" render={(props) => <SmurfForm {...props} onAddSmurf={this.onAddSmurf} />} />
-        <Route exact path="/smurfs" render={(props) => <Smurfs {...props} smurfs={this.state.smurfs} />} />
+        <Route exact path="/smurfs" render={(props) => <Smurfs {...props} smurfs={this.state.smurfs} onDeleteSmurf={this.onDeleteSmurf} />} />
       </div>
     );
   }
