@@ -32,6 +32,17 @@ class App extends Component {
         })
   }
 
+  deleteSmurf = id => {
+    axios
+        .delete(this.state.URL + `/${id}`, id)
+        .then(response => {
+          console.log(response);
+          this.setState({smurfs: response.data})
+        })
+        .catch(err => {
+          console.log(err);
+        })
+  }
   
   
   // add any needed code to ensure that the smurfs collection exists on state and it has data coming from the server
@@ -42,7 +53,8 @@ class App extends Component {
       <div className="App">
         <Route exact path='/' component={Header} />
         <Route path='/smurfs' render={props => <SmurfForm {...props} getData={this.getData} /> } />
-        <Route path='/smurfs' render={props => <Smurfs {...props} smurfs={this.state.smurfs} />} />
+        <Route path='/smurfs' render={props => <Smurfs {...props} smurfs={this.state.smurfs}
+                                                                  deleteSmurf={this.deleteSmurf} />} />
       </div>
     );
   }

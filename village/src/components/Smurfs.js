@@ -4,6 +4,12 @@ import { Link } from 'react-router-dom';
 import Smurf from './Smurf';
 
 class Smurfs extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      deleteSmurf: props.deleteSmurf,
+    }
+  }
   render() {
     return (
       <div className="Smurfs">
@@ -17,6 +23,7 @@ class Smurfs extends Component {
                 age={smurf.age}
                 height={smurf.height}
                 key={smurf.id}
+                deleteSmurf={this.state.deleteSmurf}
               />
             );
           })}
