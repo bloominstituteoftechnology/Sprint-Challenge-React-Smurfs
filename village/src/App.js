@@ -6,6 +6,8 @@ import Navigation from './components/Navigation';
 import Home from './components/Home';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
+import Delete from './components/Delete';
+
 
 class App extends Component {
   constructor(props) {
@@ -25,13 +27,16 @@ class App extends Component {
       })
   }
 
+  handleSetData = data => this.setState({ smurfs: data });
+
   render() {
     return (
       <div className="App">
         <Route path='/' component={Navigation}/>
         <Route exact path='/' component={Home}/>
         <Route path='/add' component={SmurfForm}/>
-        <Route path='/smurfs' render={props => (<Smurfs {...props} smurfs={this.state.smurfs} />)} />
+        <Route path='/smurfs' render={props => (<Smurfs {...props} smurfs={this.state.smurfs} handleSetData={this.handleSetData}/>)} />
+        <Route path='/delete' render={props => (<Delete {...props} smurfs={this.state.smurfs} handleSetData={this.handleSetData}/>)} />
       </div>
     );
   }

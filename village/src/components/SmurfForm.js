@@ -20,7 +20,7 @@ class SmurfForm extends Component {
     }
     axios
     .post('http://localhost:3333/smurfs', smurf)
-    .then(response => console.log(response))
+    .then(response => this.props.handleSetData(response.data))
     .catch(error => console.log(error));
 
     this.setState({
@@ -56,7 +56,7 @@ class SmurfForm extends Component {
             value={this.state.height}
             name="height"
           />
-          <button type="submit">Add to the village</button>
+        <button type="submit" onClick={this.addSmurf}>Add to the village</button>
         </form>
       </div>
     );
