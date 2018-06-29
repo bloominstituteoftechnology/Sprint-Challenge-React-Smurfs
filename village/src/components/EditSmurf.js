@@ -41,7 +41,7 @@ class EditForm extends Component {
         <form onSubmit={this.addSmurf}>
           <input
             onChange={this.handleInputChange}
-            placeholder="name"
+            placeholder={"name"}
             value={this.state.name}
             name="name"
           />

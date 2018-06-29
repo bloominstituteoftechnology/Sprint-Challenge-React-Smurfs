@@ -9,7 +9,9 @@ const Smurf = props => {
       <p>{props.age} smurf years old</p>
       <button onClick={props.toggleEdit}>Edit</button>
       {props.showEdit ? (
-        <EditForm id={props.id}/>
+        <EditForm 
+        id={props.id}
+        handleData={props.handleData}/>
       ) : null}
       <button onClick={(e) => props.deleteSmurf(props.id)}>Delete</button>
     </div>
