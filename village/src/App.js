@@ -4,6 +4,8 @@ import './App.css';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
 import Header from './components/Header';
+
+import bulma from 'bulma/css/bulma.css';
 import axios from 'axios';
 import { Route } from 'react-router-dom';
 const URL = 'http://localhost:3333/smurfs';
