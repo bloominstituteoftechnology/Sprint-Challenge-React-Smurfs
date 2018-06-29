@@ -5,6 +5,8 @@ import "./App.css";
 import SmurfForm from "./components/SmurfForm";
 import Smurfs from "./components/Smurfs";
 
+import Header from "./components/Header";
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -31,6 +33,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <Header />
         <SmurfForm />
         <Smurfs smurfs={this.state.smurfs} />
       </div>
