@@ -3,6 +3,8 @@ import axios from "axios";
 import './App.css';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
+import Header from './components/Header';
+import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
 
 class App extends Component {
   constructor(props) {
@@ -30,6 +32,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <Route exact path="/" component={Header} />
         <SmurfForm handleSetData={this.handleSetData} />
         <Smurfs smurfs={this.state.smurfs} handleSetData={this.handleSetData} />
       </div>
