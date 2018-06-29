@@ -8,6 +8,10 @@ class SmurfForm extends Component {
       name: '',
       age: '',
       height: '',
+      nameEdit: '',
+      ageEdit: '',
+      heightEdit: '',
+      idEdit: '',
       URL: "http://localhost:3333/smurfs",
       getData: props.getData,
     };
@@ -36,6 +40,30 @@ class SmurfForm extends Component {
     });
   }
 
+  editSmurf = event => {
+    event.preventDefault();
+    const newSmurf = {name: this.state.nameEdit,
+                      age: this.state.ageEdit,
+                      height: this.state.heightEdit
+                    }
+    axios
+        .put(this.state.URL + `/${this.state.idEdit}`, newSmurf)
+        .then(response => {
+          console.log(response);
+          this.state.getData();
+        })
+        .catch(err => {
+          console.log(err);
+        })
+
+    this.setState({
+      idEdit: '',
+      nameEdit: '',
+      ageEdit: '',
+      heightEdit: ''
+    });
+  }
+
   handleInputChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
@@ -43,6 +71,7 @@ class SmurfForm extends Component {
   render() {
     return (
       <div className="SmurfForm">
+      <h4>Add Smurf</h4>
         <form onSubmit={this.addSmurf}>
           <input
             onChange={this.handleInputChange}
@@ -63,6 +92,36 @@ class SmurfForm extends Component {
             name="height"
           />
           <button type="submit">Add to the village</button>
+        </form>
+
+
+        <h4>Update Smurf by ID</h4>
+        <form onSubmit={this.editSmurf}>
+        <input
+            onChange={this.handleInputChange}
+            placeholder="Please enter smurf ID"
+            value={this.state.idEdit}
+            name="idEdit"
+          />
+          <input
+            onChange={this.handleInputChange}
+            placeholder="Name"
+            value={this.state.nameEdit}
+            name="nameEdit"
+          />
+          <input
+            onChange={this.handleInputChange}
+            placeholder="Age"
+            value={this.state.ageEdit}
+            name="ageEdit"
+          />
+          <input
+            onChange={this.handleInputChange}
+            placeholder="Height"
+            value={this.state.heightEdit}
+            name="heightEdit"
+          />
+          <button type="submit">Edit Smurf</button>
         </form>
       </div>
     );
