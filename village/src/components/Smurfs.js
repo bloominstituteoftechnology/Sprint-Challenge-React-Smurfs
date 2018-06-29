@@ -1,14 +1,14 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 
-import Smurf from './Smurf';
+import Smurf from './Smurf'
 
 class Smurfs extends Component {
-  render() {
+  render () {
     return (
-      <div className="Smurfs">
+      <div className='Smurfs'>
         <h1>Smurf Village</h1>
         <ul>
-          {this.props.smurfs.map(smurf => {
+          {this.props.smurfs.map((smurf) => {
             return (
               <Smurf
                 name={smurf.name}
@@ -17,16 +17,16 @@ class Smurfs extends Component {
                 height={smurf.height}
                 key={smurf.id}
               />
-            );
+            )
           })}
         </ul>
       </div>
-    );
+    )
   }
 }
 
 Smurf.defaultProps = {
- smurfs: [],
-};
+  smurfs: []
+}
 
-export default Smurfs;
+export default Smurfs
