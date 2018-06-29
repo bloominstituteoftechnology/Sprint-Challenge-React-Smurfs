@@ -37,7 +37,7 @@ class Village extends Component {
   updateSmurf = id => {
     const smurf = {
       name: this.state.name,
-      age: this.state.age,
+      age: Number(this.state.age),
       height: this.state.height,
     }
     axios
