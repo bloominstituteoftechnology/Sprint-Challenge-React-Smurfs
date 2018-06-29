@@ -5,7 +5,7 @@ const Header = () => {
   return (
       <div>
       	<h1>Welcome to SMURF Village</h1>
-      	<Link to= '/smurfs'><button>Check it Out</button></Link>
+      	<Link to= '/smurfs'><button className="check-button">Enter</button></Link>
       </div>
     )
 }
