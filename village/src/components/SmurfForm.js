@@ -9,7 +9,7 @@ const SmurfForm = (props) => {
           <input
             onChange={props.handleInputChange}
             placeholder="name"
-            value={props.name}
+            value={props.name}            
             name="name"
           />
           <input
