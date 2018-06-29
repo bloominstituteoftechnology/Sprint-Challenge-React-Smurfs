@@ -34,6 +34,8 @@ class App extends Component {
 
 
 
+
+
   // add any needed code to ensure that the smurfs collection exists on state and it has data coming from the server
   // Notice what your map function is looping over and returning inside of Smurfs.
   // You'll need to make sure you have the right properties on state and pass them down to props.
@@ -46,7 +48,8 @@ class App extends Component {
         <Route exact path="/" component={Header} />
         <Route path="/smurfs" render={props => <SmurfForm {...props}
         setData={this.setData} />} />
-        <Route path="/smurfs" render={props => <Smurfs {...props} smurfs={this.state.smurfs} />} />
+        <Route path="/smurfs" render={props => <Smurfs {...props}
+        smurfs={this.state.smurfs} setData={this.setData} />} />
       </div>
     );
   }
