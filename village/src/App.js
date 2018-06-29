@@ -12,6 +12,8 @@ class App extends Component {
     };
   }
 
+  handleSetData = data => this.setState({ smurfs: data});
+
   componentDidMount() {
     axios
     .get("http://localhost:3333/smurfs")
@@ -28,8 +30,8 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <SmurfForm />
-        <Smurfs smurfs={this.state.smurfs} />
+        <SmurfForm handleSetData={this.handleSetData} />
+        <Smurfs smurfs={this.state.smurfs} handleSetData={this.handleSetData} />
       </div>
     );
   }
