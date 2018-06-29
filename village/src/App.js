@@ -4,7 +4,7 @@ import './App.css';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
 import axios from 'axios';
-
+import { Route } from 'react-router-dom';
 const URL = 'http://localhost:3333/smurfs';
 class App extends Component {
   constructor(props) {
