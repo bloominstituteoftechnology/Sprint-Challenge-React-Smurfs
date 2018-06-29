@@ -3,7 +3,7 @@
 }
 
 .cardWrapper {
-  max-width: 250px;
+  max-width: 350px;
   border: 1px solid gray;
   border-radius: 5px;
   margin: 1rem auto;
@@ -29,4 +29,7 @@
 .SmurfForm input:hover{
   box-shadow: 
   inset 5px 5px 10px #00000033;
+}
+.backButton {
+  margin-bottom: 2rem;
 }

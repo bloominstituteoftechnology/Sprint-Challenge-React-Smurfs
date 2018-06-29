@@ -15,6 +15,12 @@ class Smurfs extends Component {
 
   updateSmurf = id =>{
     console.log('id updated: ', id)
+    //const updatedObj = {
+
+    // }
+    // axios 
+    // .put(`http://localhost:3333/smurfs/${id}`)
+    // .then(res => this.props.handleSetData(res.data))
   }
 
   render() {
