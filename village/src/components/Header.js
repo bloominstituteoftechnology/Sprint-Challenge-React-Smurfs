@@ -25,6 +25,8 @@ class Header extends Component {
     let newText = 'Hello, forest wanderer!';
     if (this.props.location.pathname === '/smurfs') {
       newText = 'Welcome to the smurf village!';
+    } else if (this.props.location.pathname.includes('/update')) {
+      newText = 'Update your Smurf here';
     }
     this.setState({headerText: newText, location: this.props.location.pathname});
   }
@@ -32,7 +34,9 @@ class Header extends Component {
   render() {
     let navigationButton = '';
     if (this.props.location.pathname === '/') {
-      navigationButton = <Link to="/smurfs"><div>Go Beyond the Trees</div></Link>;
+      navigationButton = <Link to="/smurfs"><div>Go beyond the trees</div></Link>;
+    } else if (this.props.location.pathname.includes('/update')) {
+      navigationButton = <Link to="/smurfs"><div>Go back to the village</div></Link>;
     }
     return (
       <div>

@@ -4,55 +4,102 @@ class SmurfForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: '',
-      age: '',
-      height: ''
+      id: undefined,
+      buttonText: '',
+      smurf: {
+        name: '',
+        age: '',
+        height: ''
+      }
     };
   }
 
-  addSmurf = event => {
+  submitSmurf = event => {
     event.preventDefault();
     const smurf = {
-      name: this.state.name,
-      age: Number(this.state.age),
-      height: this.state.height
+      name: this.state.smurf.name,
+      age: Number(this.state.smurf.age),
+      height: this.state.smurf.height
     }
-    this.props.onAddSmurf(smurf);
 
-    this.setState({
+    if (this.props.location.pathname.includes('/update')) {
+      this.props.onSubmitSmurf(this.state.id, smurf);
+    } else {
+      this.props.onSubmitSmurf(smurf);
+    }
+
+    this.setState({smurf: {
       name: '',
       age: '',
       height: ''
-    });
+    }});
   }
 
   handleInputChange = e => {
-    this.setState({ [e.target.name]: e.target.value });
+    const smurf = this.state.smurf;
+    smurf[e.target.name] = e.target.value;
+    this.setState({ smurf: smurf });
   };
+
+  componentDidUpdate(prevProps) {
+    let id;
+
+    if(prevProps.smurfs !== this.props.smurfs) {
+
+      if (this.props.location.pathname.includes('/update')) {
+        if (this.props.match) {
+          let smurfs = this.props.smurfs.slice();
+          id = Number(this.props.match.params.smurfID);
+          this.setState({id: id});
+          console.log(id, smurfs);
+          smurfs = smurfs.filter(item => item.id === id);
+          console.log(smurfs[0]);
+          if (smurfs[0]) {
+            this.setState({ smurf: {
+              name: smurfs[0].name,
+              age: smurfs[0].age,
+              height: smurfs[0].height
+            }});
+          }
+        }
+      }
+
+    }
+  }
+
+  componentDidMount() {
+    let buttonText = 'Add to the village';
+
+    if (this.props.location.pathname.includes('/update')) {
+      buttonText = 'Update Smurf';
+    }
+
+    this.setState({buttonText: buttonText});
+  }
 
   render() {
     return (
       <div className="SmurfForm">
-        <form onSubmit={this.addSmurf}>
+        <form onSubmit={this.submitSmurf}>
           <input
             onChange={this.handleInputChange}
             placeholder="name"
-            value={this.state.name}
+            value={this.state.smurf.name}
             name="name"
           />
           <input
             onChange={this.handleInputChange}
             placeholder="age"
-            value={this.state.age}
+            value={this.state.smurf.age}
             name="age"
           />
           <input
             onChange={this.handleInputChange}
             placeholder="height"
-            value={this.state.height}
+            value={this.state.smurf.height}
             name="height"
           />
-          <button type="submit">Add to the village</button>
+          <button type="submit">{this.state.buttonText}</button>
         </form>
       </div>
     );
