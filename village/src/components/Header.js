@@ -27,6 +27,8 @@ class Header extends Component {
       newText = 'Welcome to the smurf village!';
     } else if (this.props.location.pathname.includes('/update')) {
       newText = 'Update your Smurf here';
+    } else if (this.props.location.pathname.includes('/smurf/')) {
+      newText = 'Here is your Smurf!';
     }
     this.setState({headerText: newText, location: this.props.location.pathname});
   }

@@ -4,6 +4,7 @@ import { Route } from 'react-router-dom';
 import Header from './components/Header';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
+import SmurfPage from './components/SmurfPage';
 
 const API_URL = 'http://localhost:3333/smurfs';
 
@@ -64,6 +65,7 @@ class App extends Component {
         <Route exact path="/smurfs" render={(props) => <SmurfForm {...props} onSubmitSmurf={this.onAddSmurf} smurfs={this.state.smurfs} />} />
         <Route exact path="/smurfs" render={(props) => <Smurfs {...props} smurfs={this.state.smurfs} onDeleteSmurf={this.onDeleteSmurf} />} />
         <Route path="/update/:smurfID" render={(props) => <SmurfForm {...props} onSubmitSmurf={this.onUpdateSmurf} smurfs={this.state.smurfs} />} />
+        <Route path="/smurf/:smurfID" render={(props) => <SmurfPage {...props} smurfs={this.state.smurfs} onDeleteSmurf={this.onDeleteSmurf} />} />
       </div>
     );
   }
