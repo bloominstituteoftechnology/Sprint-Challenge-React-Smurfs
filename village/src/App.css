@@ -1,3 +1,48 @@
+.App .content {
+  position: relative;
+  bottom: 650px;
+}
+
 .App {
   text-align: center;
+  bottom: 0;
+}
+
+.img {
+  background-image: url('https://vignette.wikia.nocookie.net/smurfs/images/0/07/Smurf_Village_Comic_Books.jpg/revision/latest?cb=20120417231142');
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 700px;
+  bottom: 0;
+
+
+}
+
+.smurfs {
+  background:rgba(255,255,255,0.5);
+  padding-bottom: 20px;
+  width: 90%;
+  margin: auto;
+}
+
+.smurfs ul {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.Smurf {
+  width: 200px;
+}
+
+.SmurfForm {
+  width: 90%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.SmurfForm input {
+  width: 25%;
+  padding-left: 5px;
 }
