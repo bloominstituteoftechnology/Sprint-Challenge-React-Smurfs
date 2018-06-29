@@ -2,6 +2,7 @@ import React from "react";
 import axios from "axios";
 
 class DeleteSmurf extends React.Component {
+  // eslint-disable-next-line
   constructor(props) {
     super(props);
   }
@@ -23,7 +24,16 @@ class DeleteSmurf extends React.Component {
   };
 
   render() {
-    return <button onClick={this.handleDeleteSmurf}>Delete</button>;
+    return (
+      <div className="flex-me">
+        <button
+          className="btn btn-dark delete-smurf-button"
+          onClick={this.handleDeleteSmurf}
+        >
+          Delete
+        </button>
+      </div>
+    );
   }
 }
 

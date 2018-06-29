@@ -35,12 +35,13 @@ class App extends Component {
     return (
       <div className="App">
         <Route path="/" component={Header} />
-        <Route exact path="/smurfs" component={SmurfForm} />
+
         <Route
           exact
           path="/smurfs"
           render={props => <Smurfs {...props} smurfs={this.state.smurfs} />}
         />
+        <Route exact path="/smurfs" component={SmurfForm} />
         {/* <Smurfs smurfs={this.state.smurfs} /> */}
       </div>
     );

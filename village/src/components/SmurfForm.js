@@ -38,27 +38,32 @@ class SmurfForm extends Component {
 
   render() {
     return (
-      <div className="SmurfForm">
+      <div className="SmurfForm form-group container">
         <form onSubmit={this.addSmurf}>
           <input
             onChange={this.handleInputChange}
             placeholder="name"
             value={this.state.name}
             name="name"
+            className="form-control"
           />
           <input
             onChange={this.handleInputChange}
             placeholder="age"
             value={this.state.age}
             name="age"
+            className="form-control"
           />
           <input
             onChange={this.handleInputChange}
             placeholder="height"
             value={this.state.height}
             name="height"
+            className="form-control"
           />
-          <button type="submit">Add to the village</button>
+          <button className="btn btn-dark" type="submit">
+            Add to the village
+          </button>
         </form>
       </div>
     );

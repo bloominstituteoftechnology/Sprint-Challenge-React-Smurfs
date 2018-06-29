@@ -4,8 +4,18 @@ import { Link } from "react-router-dom";
 const Header = () => {
   return (
     <Fragment>
-      <Link to="/">Home</Link>
-      <Link to="/smurfs">Smurfs</Link>
+      <ul className="nav justify-content-center nav-pills sticky-top">
+        <li className="nav-item">
+          <Link className="nav-link" to="/">
+            Home
+          </Link>
+        </li>
+        <li className="nav-item">
+          <Link className="nav-link" to="/smurfs">
+            Smurfs
+          </Link>
+        </li>
+      </ul>
     </Fragment>
   );
 };
