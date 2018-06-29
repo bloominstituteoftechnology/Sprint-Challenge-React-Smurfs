@@ -3,7 +3,16 @@ import React, { Component } from 'react';
 import Smurf from './Smurf';
 
 class Smurfs extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      smurfCopy: []
+    };
+  }
+
+
   render() {
+    console.log(this.state.smurfCopy, 'copy')
     return (
       <div className="Smurfs">
         <h1>Smurf Village</h1>
@@ -26,7 +35,7 @@ class Smurfs extends Component {
 }
 
 Smurf.defaultProps = {
- smurfs: [],
+  smurfs: [],
 };
 
 export default Smurfs;
