@@ -9,37 +9,32 @@ class Smurf extends Component {
     super(props);
     this.state={
       smurf: [],
-      updateSmurf: [],
       update: true
     }
   }
   componentDidMount(){
     this.setState({
-      smurf:  this.props.smurf,
-      updateSmurf: {
-        name: '',
-        age: '',
-        height: ''
-      }
+      smurf:  this.props.smurf
     })
   }
   handleInput= (e) => {
-    this.setState({
-      updateSmurf: {
-        [e.target.name]: e.target.value
-      }
-    });
+    let newObj = Object.assign({}, this.state.smurf)
+    newObj[e.target.name] = e.target.value
+    this.setState({ smurf: newObj })
   }
   updateSmurf = e =>{
-    let newUrl = URL+ '/' +this.state.smurf.id;
+    e.preventDefault();
+    let id = this.state.smurf.id;
+    let newUrl = URL + '/' + id;
     let editSmurf = {
-      name: this.state.updateSmurf.name,
-      age: this.state.updateSmurf.age,
-      height: this.state.updateSmurf.height
+      name: this.state.smurf.name,
+      age: this.state.smurf.age,
+      height: this.state.smurf.height
     }
+    console.log(editSmurf);
     axios
       .put(newUrl, editSmurf)
-      .then(response => this.setState({smurf: response.data, update: !this.state.update}))
+      .then(response => this.setState({smurf: response.data[id], update: !this.state.update}))
       .catch(error => console.log(error));
   }
   showInput = () =>{
@@ -50,9 +45,9 @@ class Smurf extends Component {
   render(){
     const update = 
     <form onSubmit={this.updateSmurf}>
-      <input type="text" name="name" placeholder={this.state.smurf.name} value={this.state.updateSmurf.name} onChange={this.handleInput}/>
-      <input type="text" name="age" placeholder={this.state.smurf.age} value={this.state.updateSmurf.age} onChange={this.handleInput}/>
-      <input type="text" name="height" placeholder={this.state.smurf.height} value={this.state.updateSmurf.height} onChange={this.handleInput}/>
+      <input type="text" name="name" placeholder={this.state.smurf.name} value={this.state.smurf.name} onChange={this.handleInput}/>
+      <input type="text" name="age" placeholder={this.state.smurf.age} value={this.state.smurf.age} onChange={this.handleInput}/>
+      <input type="text" name="height" placeholder={this.state.smurf.height} value={this.state.smurf.height} onChange={this.handleInput}/>
       <input type="submit" value="Save"/>
     </form>;
     return (
