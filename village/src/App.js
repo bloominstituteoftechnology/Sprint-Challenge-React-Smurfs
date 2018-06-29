@@ -4,6 +4,8 @@ import './App.css';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
 import { Route } from 'react-router-dom';
+import Header from './components/Header';
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -26,7 +28,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Route path='/' />
+        <Route exact path='/' component={Header} />
         <Route path='/smurfs' render={props => <SmurfForm {...props} handleSetData={this.handleSetData} />} />
         <Route path='/smurfs' render={props => <Smurfs {...props} smurfs={this.state.smurfs} />} />
       </div>
