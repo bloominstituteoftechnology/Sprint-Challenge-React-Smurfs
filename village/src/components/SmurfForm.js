@@ -24,7 +24,7 @@ class SmurfForm extends Component {
 
     axios.post(URL, smurf)
       .then(res => {
-        console.log("POST RES");
+        console.log('POST RES');
         this.setState({
           name: '',
           age: '',

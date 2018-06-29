@@ -20,7 +20,7 @@ class App extends Component {
   componentDidMount() {
     axios.get(URL)
       .then(res => {
-        console.log("GET RES");
+        console.log('GET RES');
         this.setData(res.data);
     }).catch(err => console.log(err));
   }
@@ -29,11 +29,19 @@ class App extends Component {
     this.setState({smurfs: data});
   };
 
+  handleKick = id => {
+    axios.delete(`${URL}/${id}`)
+      .then(res => {
+        console.log('DELETE RES');
+        this.setData(res.data);
+      }).catch(err => console.log(err));
+  };
+
   render() {
     return (
       <div className="App">
         <SmurfForm />
-        <Smurfs smurfs={this.state.smurfs} />
+        <Smurfs smurfs={this.state.smurfs} handleKick={this.handleKick}/>
       </div>
     );
   }
