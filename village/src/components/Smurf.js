@@ -12,7 +12,7 @@ const Smurf = props => {
         <button onClick = {() => {
           props.captureSmurfInfoHandler(props.id);
 
-          props.showUpdateModalHandler();
+          props.showUpdateModalHandler(props.id);
           }}>Update Smurf</button>
     </div>
   );

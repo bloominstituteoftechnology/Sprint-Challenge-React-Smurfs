@@ -20,6 +20,7 @@ class App extends Component {
       updateName: '',
       updateAge: '',
       updateHeight: '',
+      updateId: 0,
       updateModalActive: false
     };
   }
@@ -62,18 +63,33 @@ class App extends Component {
   }
 
   captureSmurfInfo = (id) => {
-    console.log('capture');
     const smurfInfo = this.state.smurfs.find(smurf => smurf.id === id);
-
+    console.log(smurfInfo);
     this.setState({ updateName: smurfInfo.name, updateAge: smurfInfo.age, updateHeight: smurfInfo.height });
   }
+  updateSmurfInfo = (id) => {
+    const smurf = {
+      name: this.state.updateName,
+      age: Number(this.state.updateAge),
+      height: this.state.updateHeight
+    }
+
+    axios.put(`${URL}/${id}`, smurf)
+    .then(response => {
+      this.setState({ smurfs: response.data})
+    })
+      .catch(err => {
+        console.log(err);
+      });
+    }
+  
 
   inputChange = (e) => {
     console.log(e.target.name);
     this.setState({[e.target.name]: e.target.value});
   }
-  toggleUpdateModal = () => {
-    this.setState({ updateModalActive: !this.state.updateModalActive });
+  toggleUpdateModal = (id) => {
+    this.setState({ updateModalActive: !this.state.updateModalActive, updateId: id });
   }
   // add any needed code to ensure that the smurfs collection exists on state and it has data coming from the server
   // Notice what your map function is looping over and returning inside of Smurfs.
@@ -101,9 +117,11 @@ class App extends Component {
 
         <UpdateModal isUpdateActive = {this.state.updateModalActive}
           hideUpdateModalHandler ={this.toggleUpdateModal}
+          updateSmurfHandler ={this.updateSmurfInfo}
           updateName = {this.state.updateName}
           updateAge = {this.state.updateAge}
           updateHeight = {this.state.updateHeight}
+          updateId = {this.state.updateId}
           handleInputChange = {this.inputChange}
            />
 
