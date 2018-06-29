@@ -14,6 +14,8 @@ class Smurfs extends Component {
             return (
               <Link key={`save-${Math.random()}`} to={`/smurfs/${smurf.id}`}>
                 <Smurf
+                  handleSetData={this.props.handleSetData}
+                  handleDelete={this.props.handleDelete}
                   name={smurf.name}
                   id={smurf.id}
                   age={smurf.age}
