@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 import axios from "axios";
 import './App.css';
+import Header from './components/Header';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
+import EachSmurf from './components/EachSmurf';
+import {Route, Link} from 'react-router-dom';
 
 class App extends Component {
   constructor(props) {
@@ -32,10 +35,10 @@ handleSetData = data => this.setState({ smurfs: data });
 
   render() {
     return (
-      <div className="App">
-        <SmurfForm handleSetData={this.handleSetData} />
-	    
-        <Smurfs smurfs={this.state.smurfs} />
+      <div className="App">   
+	 <Link to="/smurfs"><Header /></Link>   
+	 <Route exact path="/smurfs" render={(props) => <Smurfs {...props} handleSetData={this.handleSetData} smurfs={this.state.smurfs} />} />
+	 <Route  path="/smurfs/:id"  render={(props) => <EachSmurf {...props} />} />  
       </div>
     );
   }
