@@ -3,8 +3,10 @@ import axios from "axios";
 import "./App.css";
 import SmurfForm from "./components/SmurfForm";
 import Smurfs from "./components/Smurfs";
-import { Route, Link } from "react-router-dom";
+import { Route } from "react-router-dom";
 import Header from "./components/Header";
+
+const URL = "http://localhost:3333/smurfs";
 
 class App extends Component {
   constructor(props) {
@@ -16,7 +18,7 @@ class App extends Component {
 
   componentDidMount() {
     axios
-      .get("http://localhost:3333/smurfs")
+      .get(URL)
       .then(response => {
         this.setState({ smurfs: response.data });
       })
@@ -24,6 +26,13 @@ class App extends Component {
         console.log(err);
       });
   }
+
+  deleteSmurf = id => {
+    console.log("Smurf Deleted!");
+    axios.delete(`http://localhost:3333/smurfs/${id}`).then(response => {
+      this.setState({ smurfs: response.data });
+    });
+  };
 
   // add any needed code to ensure that the smurfs collection exists on state and it has data coming from the server
   // Notice what your map function is looping over and returning inside of Smurfs.
@@ -37,7 +46,13 @@ class App extends Component {
         <Route
           exact
           path="/smurfs"
-          render={props => <Smurfs {...props} smurfs={this.state.smurfs} />}
+          render={props => (
+            <Smurfs
+              {...props}
+              smurfs={this.state.smurfs}
+              deleteSmurf={this.deleteSmurf}
+            />
+          )}
         />
       </div>
     );
