@@ -6,8 +6,18 @@
 .Smurfs {
     background: #88CCFF;
 }
+.Smurfs ul {
+    padding-left: 0;
+    max-width: 500px;
+    margin: 0 auto;
+}
 
 .Smurf {
-    border: 1px solid black;
+    background: rgb(114, 170, 212);
+    border: 1px solid #0077FF;
     border-radius: 5px;
+    margin: 10px 0;
+}
+.Smurf .delete-btn {
+    cursor: pointer;
 }
