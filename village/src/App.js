@@ -30,6 +30,16 @@ componentDidMount() {
   });
 }
 
+deleteSmurf = (id) => {
+    axios
+      .delete(`http://localhost:3333/smurfs/${id}`)
+      .then(response => {
+        console.log('DELETE RESPONSE: ', response)
+        this.setState({ smurfs: response.data })
+      })
+      .catch(err => {console.log(err)})
+  }
+
   render() {
     return (
       <div className="App">
@@ -38,7 +48,7 @@ componentDidMount() {
       <Route path="/smurfs" render={(props) =>
       <div>
       <SmurfForm handleSetData={this.handleSetData} />
-      <Smurfs smurfs={this.state.smurfs} handleSetData={this.handleSetData} /></div>}  /> 
+      <Smurfs smurfs={this.state.smurfs} deleteSmurf={this.deleteSmurf} handleSetData={this.handleSetData} /></div>}  /> 
         
       </div>
     );
