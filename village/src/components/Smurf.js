@@ -1,15 +1,11 @@
 import React from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
-import { FormGroup, Button } from 'reactstrap';
 import DeleteSmurf from './DeleteSmurf';
 import SmurfCard from './SmurfCard';
 import logo from '../images/smurfenter.png';
-
-const ButtonGroup = styled(FormGroup)`
-    display:flex;
-    justify-content: space-around;
-`
+import UpdateSmurf from './UpdateSmurf';
+import {Link} from 'react-router-dom';
 
 const DIV = styled.div`
   display: flex;
@@ -43,12 +39,10 @@ class Smurf extends React.Component {
   render() {
     return (
       <DIV>
-        <img src={logo} alt="Title" style={{ 'width': '50%' }} />
+        <Link to='/smurfs'><img src={logo} alt="Title" style={{ 'width': '50%' }} /></Link>
         <SmurfCard {...this.state} />
-        <ButtonGroup>
-          <Button color="success">Edit Smurf</Button>
-          <DeleteSmurf updateState={this.props.updateState} id={this.props.match.params.id} />
-        </ButtonGroup>
+        <DeleteSmurf updateState={this.props.updateState} id={this.props.match.params.id} />
+        <UpdateSmurf updateState={this.props.updateState} id={this.props.match.params.id} />
       </DIV>
     );
   }

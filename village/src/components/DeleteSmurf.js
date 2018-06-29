@@ -15,7 +15,7 @@ class DeleteSmurf extends React.Component {
 
     deleteSmurf = () => {
         axios.delete(`http://localhost:3333/smurfs/${this.props.id}`)
-        .then(res => this.props.updateState(this.state.newSmurfs))
+        // .then(res => this.props.updateState(this.state.newSmurfs))
         .then(window.location.reload())
         .catch(error => console.log(error))
     }

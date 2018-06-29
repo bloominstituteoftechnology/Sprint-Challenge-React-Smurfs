@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import SmurfCard from './SmurfCard';
 import {Link} from 'react-router-dom';
 import styled from 'styled-components';
+import logo from '../images/smurfenter.png';
 
 const StyledDiv = styled.div`
   display: flex;
@@ -14,7 +15,7 @@ class Smurfs extends Component {
   render() {
     return (
       <StyledDiv>
-        <h1>Smurf Village</h1>
+        <img src={logo} alt="Title" style={{ 'width': '50%' }} />
         <ul>
           {this.props.smurfs.map(smurf => {
             return (
