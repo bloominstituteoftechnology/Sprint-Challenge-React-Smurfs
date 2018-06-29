@@ -17,6 +17,8 @@ const APP = styled.div`
   text-align: center;
   color: white;
   text-shadow: 2px 2px 5px #0a1f42;
+  font-family: "Comic Sans MS", "Comic Sans", cursive;
+  text-shadow: 3px 3px 5px #0a1f42;
 `
 
 class App extends Component {
@@ -43,9 +45,9 @@ class App extends Component {
     return (
       <APP>
         <Route exact path="/" component={Header} />
-        <Route path="/smurfs" component={SmurfForm} />
-        <Route path="/smurfs" render={props => <Smurfs {...props} smurfs={this.state.smurfs} updateState={this.updateState}/>} />
-        
+        <Route exact path="/smurfs" component={SmurfForm} />
+        <Route exact path="/smurfs" render={props => <Smurfs {...props} smurfs={this.state.smurfs}/>} />
+        <Route path="/smurfs/:id" render ={props => <Smurf {...props} updateState={this.updateState}/>} />
       </APP>
     );
   }

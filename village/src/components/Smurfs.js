@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Smurf from './Smurf';
+import SmurfCard from './SmurfCard';
 import {Link} from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -13,19 +13,20 @@ const StyledDiv = styled.div`
 class Smurfs extends Component {
   render() {
     return (
-      <StyledDiv className="Smurfs">
+      <StyledDiv>
         <h1>Smurf Village</h1>
         <ul>
           {this.props.smurfs.map(smurf => {
             return (
-                <Smurf
-                  name={smurf.name}
-                  id={smurf.id}
-                  age={smurf.age}
-                  height={smurf.height}
-                  key={smurf.id}
-                  updateState = {this.props.updateState}
-                />
+                <Link key={smurf.name} to={`/smurfs/${smurf.id}`} style={{'textDecoration': 'none', 'color': 'white'}}>
+                  <SmurfCard
+                    name={smurf.name}
+                    id={smurf.id}
+                    age={smurf.age}
+                    height={smurf.height}
+                    key={smurf.id}
+                  />
+                </Link>
             );
           })}
         </ul>
@@ -34,7 +35,7 @@ class Smurfs extends Component {
   }
 }
 
-Smurf.defaultProps = {
+SmurfCard.defaultProps = {
  smurfs: [],
 };
 

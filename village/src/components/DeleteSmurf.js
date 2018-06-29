@@ -1,20 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
-
-const Close = styled.div`
-    position: absolute;
-    right: 0;
-    top: 0;
-    cursor:pointer;
-    color: red;
-    font-size: 31px;
-    font-weight: bold;
-    display: inline-block;
-    line-height: 0px;
-    padding: 11px 3px;
-    font-size: 15px;       
+import {Button} from 'reactstrap';
+import {Link} from 'react-router-dom';
+ 
+const StyleButton = styled(Button)`
+    width: 100px;
 `
+
 class DeleteSmurf extends React.Component {
     constructor(props){
         super(props);
@@ -29,7 +22,7 @@ class DeleteSmurf extends React.Component {
     
     render() {
         return (
-            <Close onClick={this.deleteSmurf}>X</Close>
+            <Link to='/smurfs'><StyleButton color="danger" onClick={this.deleteSmurf}>Delete</StyleButton></Link>
         )
     }
 }
