@@ -1,7 +1,13 @@
-import React from 'react';
+import React, { Fragment } from "react";
+import { Link } from "react-router-dom";
 
 const Header = () => {
-  return <h2>Describe your header here.</h2>
-}
- 
+  return (
+    <Fragment>
+      <Link to="/">Home</Link>
+      <Link to="/smurfs">Smurfs</Link>
+    </Fragment>
+  );
+};
+
 export default Header;
