@@ -23,10 +23,11 @@ class App extends Component {
       })
       .catch(err => {console.log(err)})
   }
+  handleSetData = data => {this.setState({ smurfs: data })}
   render() {
     return (
       <div className="App">
-        <SmurfForm />
+        <SmurfForm handleSetData={this.handleSetData} />
         <Smurfs smurfs={this.state.smurfs} />
       </div>
     );
