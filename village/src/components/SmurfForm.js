@@ -73,7 +73,7 @@ class SmurfForm extends Component {
             name="height"
           />
           <button type="submit">Add to the village</button>
-          <StyledLink to="/">Cancle</StyledLink>
+          <StyledLink to="/smurfs">Cancle</StyledLink>
 
         </form>
       </div>

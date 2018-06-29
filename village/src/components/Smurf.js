@@ -13,8 +13,17 @@ class Smurf extends Component {
       update: true
     }
   }
+  componentDidMount(){
+    this.setState({
+      smurf:  this.props.smurf,
+      updateSmurf: {
+        name: '',
+        age: '',
+        height: ''
+      }
+    })
+  }
   handleInput= (e) => {
-    console.log('can click now');
     this.setState({
       updateSmurf: {
         [e.target.name]: e.target.value
@@ -29,24 +38,13 @@ class Smurf extends Component {
       height: this.state.updateSmurf.height
     }
     axios
-      .PUT(newUrl, editSmurf)
-      .then(response => console.log(response))
+      .put(newUrl, editSmurf)
+      .then(response => this.setState({smurf: response.data, update: !this.state.update}))
       .catch(error => console.log(error));
-    this.setState({update: !this.state.update});
   }
   showInput = () =>{
     this.setState({
       update: !this.state.update
-    })
-  }
-  componentDidMount(){
-    this.setState({
-      smurf:  this.props.smurf,
-      updateSmurf: {
-        name: '',
-        age: '',
-        height: ''
-      }
     })
   }
   render(){
