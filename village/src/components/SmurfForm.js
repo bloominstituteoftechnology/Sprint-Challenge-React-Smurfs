@@ -23,6 +23,7 @@ class SmurfForm extends Component {
     .post('http://localhost:3333/smurfs', newObj)
     .then(res => {
       console.log('add smurf: ', res);
+      console.log('add smurf: ', this.props);
       this.props.handleSetData(res.data);
       this.setState({
           name: '',
@@ -30,6 +31,7 @@ class SmurfForm extends Component {
           height: ''
         })
     })
+    .then(() => this.props.history.push('/smurfs'))
     .catch(err => console.log(err))
   }
 

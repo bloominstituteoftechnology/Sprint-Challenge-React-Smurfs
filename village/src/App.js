@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import Header from './components/Header';
+import { Route, Switch } from 'react-router-dom';
 
 import './App.css';
 import SmurfForm from './components/SmurfForm';
@@ -29,8 +31,11 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <SmurfForm handleSetData={this.handleSetData} />
-        <Smurfs smurfs={this.state.smurfs} />
+      <Switch>
+        <Route exact path='/' component={Header} />
+        <Route path='/addSmurf' render={(props) => <SmurfForm {...props} handleSetData={this.handleSetData} /> } />
+        <Route path='/smurfs' render={(props) => <Smurfs {...props} smurfs={this.state.smurfs} /> } />
+      </Switch>
       </div>
     );
   }
