@@ -42,7 +42,7 @@ class SmurfForm extends Component {
     return (
       <div className="SmurfForm">
       <h2>Add A Smurf!         </h2>
-      <Link to='/'>
+       <Link to='/'>
         <button>Leave Village</button>
         </Link>
         <form onSubmit={this.addSmurf}>
