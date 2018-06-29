@@ -1,6 +1,6 @@
 1.  Explain the differences between `client-side routing` and `server-side routing`.
-    - in client-side routing, a new get request is done for each file, which causes a page refresh and tends to be slow. Better for SEO.
-    - in server-side routing, the entire site is sent to the client, so page changes are handled by the client and much quicker - but the initial page load tends to be slower. Not as good for SEO (currently).
+    - in server-side routing, a new get request is done for each file, which causes a page refresh and tends to be slow. Better for SEO.
+    - in client-side routing, the entire site is sent to the client, so page changes are handled by the client and much quicker - but the initial page load tends to be slower. Not as good for SEO (currently).
 2.  What does HTTP stand for?
     - Hypertext tranfser protocol
 3.  What does CRUD stand for?
