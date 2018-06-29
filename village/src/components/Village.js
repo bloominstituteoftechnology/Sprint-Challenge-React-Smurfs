@@ -27,6 +27,15 @@ class Village extends Component {
       .catch(err => console.log(err)) 
   }
 
+  deleteSmurf = id => {
+    axios
+      .delete(`${URL}/${id}`)
+      .then(response => {
+        this.setState({smurfs: response.data})
+      })
+      .catch(err => console.log(err))
+  }
+
   render() {
     return (
       <div className="App">
@@ -34,7 +43,7 @@ class Village extends Component {
         <Link to="/" onClick={() => window.location.reload()}>Leave the Village</Link>
       </Router>
         <SmurfForm URL={URL} />
-        <Smurfs smurfs={this.state.smurfs} />
+        <Smurfs smurfs={this.state.smurfs} handleDelete={this.deleteSmurf} />
       </div>
     );
   }
