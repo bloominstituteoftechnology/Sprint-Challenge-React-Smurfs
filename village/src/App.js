@@ -4,7 +4,7 @@ import './App.css';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
 import Header from './components/Header';
-
+import UpdateModal from './components/UpdateModal';
 import bulma from 'bulma/css/bulma.css';
 import axios from 'axios';
 import { Route } from 'react-router-dom';
@@ -16,7 +16,8 @@ class App extends Component {
       smurfs: [],
       name: '',
       age: '',
-      height: ''
+      height: '',
+      updateModalActive: false
     };
   }
   componentDidMount() {
@@ -46,6 +47,7 @@ class App extends Component {
     });
   }
 
+ 
   deleteSmurf = (id) => {
     axios.delete(`${URL}/${id}`)
     .then(response => {
@@ -68,7 +70,6 @@ class App extends Component {
     return (
       <div className="App">
         <Route exact path ='/' component={Header} />
-        
         <Route exact path = '/smurfs'
         render = {props => <SmurfForm 
         addSmurfHandler = {this.addSmurf} 
@@ -81,6 +82,8 @@ class App extends Component {
         <Smurfs {...props} 
         smurfs={this.state.smurfs} 
         deleteSmurfHandler = {this.deleteSmurf}/>} />
+
+        <UpdateModal isUpdateActive = {this.state.updateModalActive} />
       </div>
     );
   }
