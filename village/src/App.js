@@ -30,9 +30,9 @@ class App extends Component {
 
   addSmurf = (name, age, height) => {
     const smurf = {
-      name: 'Sleepy',
-      age: 323,
-      height: '5cm'
+      name: name,
+      age: Number(age),
+      height: height + 'cm'
     }
 
     axios.post(URL, smurf)

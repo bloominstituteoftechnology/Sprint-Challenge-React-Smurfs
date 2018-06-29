@@ -24,7 +24,10 @@ const SmurfForm = (props) => {
             value={props.height}
             name="height"
           />
-          <button type="submit">Add to the village</button>
+          <button type="submit" onClick = { () => {
+            props.addSmurfHandler(props.name, props.age, props.height);
+          }
+          }>Add to the village</button>
         </form>
       </div>
     );
