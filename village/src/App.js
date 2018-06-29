@@ -1,9 +1,16 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import styled from 'styled-components';
 
 import './App.css';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
+
+const Container = styled.div`
+  width: 800px;
+  margin: 20px auto;
+  text-align: center;
+`;
 
 class App extends Component {
   constructor(props) {
@@ -40,10 +47,10 @@ class App extends Component {
       return <h2>Loading...</h2>;
     }
     return (
-      <div className="App">
+      <Container>
         <SmurfForm updateSmurfs={this.updateSmurfs} />
         <Smurfs updateSmurfs={this.updateSmurfs} smurfs={this.state.smurfs} />
-      </div>
+      </Container>
     );
   }
 }

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-
+import Input from './elements/Input';
+import Form from './elements/Form';
+import Button from './elements/Button';
 class UpdateSmurf extends Component {
   constructor(props) {
     super(props);
@@ -41,34 +43,34 @@ class UpdateSmurf extends Component {
 
     if (!this.state.update) {
       return (
-        <button onClick={this.toggleUpdateButton}>Update {smurf.name}</button>
+        <Button onClick={this.toggleUpdateButton}>Update {smurf.name}</Button>
       );
     }
 
     return (
       <div>
-        <form onSubmit={this.handleSubmit}>
-          <input
+        <Form onSubmit={this.handleSubmit}>
+          <Input
             value={this.state.name}
             placeholder="Name"
             name="name"
             onChange={this.handleInputchange}
           />
-          <input
+          <Input
             value={this.state.age}
             placeholder="Age"
             name="age"
             onChange={this.handleInputchange}
           />
-          <input
+          <Input
             value={this.state.height}
             placeholder="Height"
             name="height"
             onChange={this.handleInputchange}
           />
-          <button type="submit">Update</button>
-        </form>
-        <button onClick={this.toggleUpdateButton}>Cancel</button>
+          <Button type="submit">Update</Button>
+        </Form>
+        <Button onClick={this.toggleUpdateButton}>Cancel</Button>
       </div>
     );
   }

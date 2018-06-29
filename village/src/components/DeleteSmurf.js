@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import Button from './elements/Button';
 
 const DeleteSmurf = ({ id, updateSmurfs }) => {
   const deleteSmurf = id => {
@@ -9,13 +10,13 @@ const DeleteSmurf = ({ id, updateSmurfs }) => {
   };
   return (
     <div>
-      <button
+      <Button
         onClick={() => {
           deleteSmurf(id);
         }}
       >
         Delete Smurf
-      </button>
+      </Button>
     </div>
   );
 };
