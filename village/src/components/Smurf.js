@@ -9,7 +9,7 @@ const Smurf = props => {
       <h3>{props.name}</h3>
       <strong>{props.height} tall</strong>
       <p>{props.age} smurf years old</p>
-      <span className="delete-btn" onClick={() => deleteSmurf(props.id)}>Delete Smurf</span>
+      <span className="delete-btn" onClick={() => deleteSmurf(props.id)}>Remove Smurf</span>
     </div>
   );
 };
