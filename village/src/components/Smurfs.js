@@ -1,5 +1,5 @@
 import React from 'react';
-import Smurf from './Smurf';
+import SmurfList from './SmurfList';
 import SmurfForm from './SmurfForm';
 
 const Smurfs = props => {
@@ -12,14 +12,12 @@ const Smurfs = props => {
         <ul>
           {props.smurfs.map(smurf => {
             return (
-              <Smurf
+              <SmurfList
                 name={smurf.name}
                 id={smurf.id}
                 age={smurf.age}
                 height={smurf.height}
                 key={smurf.id}
-                deleteSmurf={props.deleteSmurf}
-                handleSetData={props.handleSetData}
               />
             );
           })}
@@ -29,7 +27,7 @@ const Smurfs = props => {
   );
 }
 
-Smurf.defaultProps = {
+SmurfList.defaultProps = {
   smurfs: [],
 };
 

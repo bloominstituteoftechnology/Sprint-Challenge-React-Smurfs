@@ -39,6 +39,7 @@ class SmurfForm extends Component {
       .then(response => {
         this.props.handleSetData(response.data)
         this.props.setEdit(false);
+        this.props.history.push('/smurfs');
       })
       .catch(err => console.log(err));
   }
@@ -85,7 +86,7 @@ class SmurfForm extends Component {
             name="height"
           />
           <button onClick={this.state.edit ? this.editSmurf : this.addSmurf}>{this.state.edit ? 'Save' : 'Add to the village'}</button>
-          <button onClick={() => this.props.history.push('/')} >Back to home!</button>
+          {this.state.edit ? null : <button onClick={() => this.props.history.push('/')} >Back to home!</button>}
         </form>
       </div>
     );
