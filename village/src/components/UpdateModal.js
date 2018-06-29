@@ -12,23 +12,23 @@ const UpdateModal = props => {
         <section className="modal-card-body">
             {/* Name */}
           <div className="field">
-            <label className="label is-pulled-left" htmlFor = 'name'>Name</label>
+            <label className="label is-pulled-left" htmlFor = 'updateName'>Name</label>
             <div className="control">
-              <input className="input" id = 'name' type="text" placeholder="Insert Name" />
+              <input className="input" onClick = {props.handleInputChange} id = 'updateName' type="text" placeholder="Insert Name" value = {props.updateName} />
             </div>
           </div>
           {/* Age */}
           <div className="field">
-            <label className="label is-pulled-left" htmlFor = 'age'>Age</label>
+            <label className="label is-pulled-left" htmlFor = 'updateAge'>Age</label>
             <div className="control">
-              <input className="input" id = 'age' type="text" placeholder="Insert Age" />
+              <input className="input" onClick = {props.handleInputChange} id = 'updateAge' type="text" placeholder="Insert Age" value = {props.updateAge} />
             </div>
           </div>
           {/* Height */}
           <div className="field">
-            <label className="label is-pulled-left" htmlFor = 'height'>Height</label>
+            <label className="label is-pulled-left" htmlFor = 'updateHeight'>Height</label>
             <div className="control">
-              <input className="input" id = 'height' type="text" placeholder="Insert Height" />
+              <input className="input" onClick = {props.handleInputChange} id = 'updateHeight' type="text" placeholder="Insert Height" value = {props.updateHeight} />
             </div>
           </div>
           

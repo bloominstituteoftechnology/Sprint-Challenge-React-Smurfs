@@ -21,6 +21,7 @@ class Smurfs extends Component {
                 key={smurf.id}
                 deleteSmurfHandler = {this.props.deleteSmurfHandler}
                 showUpdateModalHandler = {this.props.showUpdateModalHandler}
+                captureSmurfInfoHandler = {this.props.captureSmurfInfoHandler} 
               />
             );
           })}

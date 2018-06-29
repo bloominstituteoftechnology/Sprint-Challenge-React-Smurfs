@@ -17,6 +17,9 @@ class App extends Component {
       name: '',
       age: '',
       height: '',
+      updateName: '',
+      updateAge: '',
+      updateHeight: '',
       updateModalActive: false
     };
   }
@@ -58,6 +61,13 @@ class App extends Component {
     })
   }
 
+  captureSmurfInfo = (id) => {
+    console.log('capture');
+    const smurfInfo = this.state.smurfs.find(smurf => smurf.id === id);
+
+    this.setState({ updateName: smurfInfo.name, updateAge: smurfInfo.age, updateHeight: smurfInfo.height });
+  }
+
   inputChange = (e) => {
     console.log(e.target.name);
     this.setState({[e.target.name]: e.target.value});
@@ -74,7 +84,7 @@ class App extends Component {
         <Route exact path ='/' component={Header} />
         <Route exact path = '/smurfs'
         render = {props => <SmurfForm 
-        addSmurfHandler = {this.addSmurf} 
+        addSmurfHandler = {this.addSmurf}
         handleInputChange = {this.inputChange}
         name = {this.state.name}
         age = {this.state.age}
@@ -85,11 +95,17 @@ class App extends Component {
         smurfs={this.state.smurfs} 
         deleteSmurfHandler = {this.deleteSmurf}
         showUpdateModalHandler = {this.toggleUpdateModal}
+        captureSmurfInfoHandler = {this.captureSmurfInfo} 
         />
         } />
 
         <UpdateModal isUpdateActive = {this.state.updateModalActive}
-          hideUpdateModalHandler ={this.toggleUpdateModal} />
+          hideUpdateModalHandler ={this.toggleUpdateModal}
+          updateName = {this.state.updateName}
+          updateAge = {this.state.updateAge}
+          updateHeight = {this.state.updateHeight}
+          handleInputChange = {this.inputChange}
+           />
 
       </div>
     );

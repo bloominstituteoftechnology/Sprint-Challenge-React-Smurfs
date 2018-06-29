@@ -10,6 +10,8 @@ const Smurf = props => {
         props.deleteSmurfHandler(props.id);
         }}>Delete me</button>
         <button onClick = {() => {
+          props.captureSmurfInfoHandler(props.id);
+
           props.showUpdateModalHandler();
           }}>Update Smurf</button>
     </div>
