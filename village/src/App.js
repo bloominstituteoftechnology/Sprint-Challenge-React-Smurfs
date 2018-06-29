@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Route, Switch } from 'react-router-dom';
-
 import './App.css';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
+import SmurfEdit from './components/SmurfEdit';
 
 class App extends Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
-      smurfs: [],
+      smurfs: []
     };
   }
 
@@ -29,29 +29,13 @@ class App extends Component {
       });
   }
 
-  addInput = obj => {
-    const { smurfs } = this.state;
-    smurfs.push(obj);
-    this.saveInput(obj);
-    this.setState({ smurfs });
-  };
+  updateSmurf
 
-  saveInput = obj => {
-    axios
-      .post('http://localhost:3333/smurfs', obj)
-      .then(() => {
-        this.getFriends();
-      })
-      .catch(err => {
-        console.err(err);
-      });
-  };
-
-  deleteInput = id => {
+  deleteSmurf = id => {
     axios
       .delete(`http://localhost:3333/smurfs/${id}`)
       .then(() => {
-        this.getFriends();
+        this.getSmurfs();
       })
       .catch(err => {
         console.err(err);
@@ -65,16 +49,19 @@ class App extends Component {
     return (
       <div className="App">
         <Switch>
-          <Route exact path="/" 
-            render={(props) => <Smurfs {...props} saveInput={this.saveInput} deleteInpute={this.deleteInput} friends={this.state.friends} newFriend={this.state.newFriend} onClick={this.addInput} />
-          } />
-          <Route path="/addSmurf"
-            render={(props) => <SmurfForm addInput={this.addInput} id={this.state.id + 1} updateInput={this.updateInput} />
+          <Route exact path="/"
+            render={(props) => <Smurfs {...props} saveSmurf={this.saveSmurf} />
             } />
+            <Route path="/smurf/:id"
+              render={(props) => <SmurfEdit {...props} updateSmurf={this.updateSmurf} deleteSmurf={this.deleteSmurf} />
+              } /> 
+          <Route path="/addSmurf"
+            render={(props) => <SmurfForm />
+            } />         
         </Switch>
       </div>
     );
-  };
-};
+  }
+}
 
 export default App;
