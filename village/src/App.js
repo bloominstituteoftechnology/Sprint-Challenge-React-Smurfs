@@ -45,7 +45,7 @@ class App extends Component {
     </Link>
       <br/><br/>
              <SmurfForm getData = {this.getData.bind(this)}  />
-             <Smurfs smurfs={this.state.smurfs} />
+             <Smurfs getData = {this.getData.bind(this)} smurfs={this.state.smurfs} />
           </div>
           )
         }} />
