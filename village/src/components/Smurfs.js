@@ -6,13 +6,10 @@ class Smurfs extends Component {
   constructor(props){
     super(props);
     this.state = {
-      smurfCopy: []
     };
   }
 
-
   render() {
-    console.log(this.state.smurfCopy, 'copy')
     return (
       <div className="Smurfs">
         <h1>Smurf Village</h1>

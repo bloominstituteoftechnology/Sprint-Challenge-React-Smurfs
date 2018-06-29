@@ -19,22 +19,24 @@ class App extends Component {
   // Notice what your map function is looping over and returning inside of Smurfs.
   // You'll need to make sure you have the right properties on state and pass them down to props.
 
-  componentDidMount() {
+  addData = () => {
     axios
-      .get(URL)
-      .then(response => {
-        this.setState({ smurfs: response.data })
-      })
-      .catch(err => console.log(err))
+    .get(URL)
+    .then(response => {
+      this.setState({ smurfs: response.data })
+    })
+    .catch(err => console.log(err))
   }
 
-
+  componentDidMount() {
+    this.addData();
+  }
 
   render() {
     return (
       <div className="App">
         <Route exact path="/" component={Header} />
-        <Route exact path="/smurfs" render={(props) => <SmurfForm {...props} />} />
+        <Route exact path="/smurfs" render={(props) => <SmurfForm {...props} addData={this.addData} />} />
         <Route exact path="/smurfs" render={(props) => <Smurfs {...props} smurfs={this.state.smurfs} />} />
       </div>
     );

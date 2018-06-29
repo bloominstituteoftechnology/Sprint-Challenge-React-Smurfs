@@ -7,6 +7,7 @@ class SmurfForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      smurfCopy: [],
       name: '',
       age: '',
       height: ''
@@ -24,6 +25,7 @@ class SmurfForm extends Component {
 
     axios
       .post(URL, smurf)
+      .then(response => {this.props.addData()})
 
     this.setState({
       name: '',
