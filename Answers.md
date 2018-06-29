@@ -22,3 +22,8 @@
 	* fetch, 
 	* axios, 
 	* vanilla js
+	
+```diff
++ this will be highlighted in green
+- this will be highlighted in red
+```
