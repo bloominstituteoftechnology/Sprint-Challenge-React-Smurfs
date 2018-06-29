@@ -24,11 +24,18 @@ class App extends Component {
 
   handleSetData = data => this.setState({ smurfs: data });
 
+  deleteSmurf = id => {
+    axios
+      .delete(`http://localhost:3333/smurfs/${id}`)
+      .then(response => this.handleSetData(response.data))
+      .catch(err => console.log(err));
+  }
+
   render() {
     return (
       <div className="App">
         <Route exact path='/' component={Header} />
-        <Route path='/smurfs' render={props => <Smurfs {...props} handleSetData={this.handleSetData} smurfs={this.state.smurfs} />} />
+        <Route path='/smurfs' render={props => <Smurfs {...props} handleSetData={this.handleSetData} deleteSmurf={this.deleteSmurf} smurfs={this.state.smurfs} />} />
       </div>
     );
   }
