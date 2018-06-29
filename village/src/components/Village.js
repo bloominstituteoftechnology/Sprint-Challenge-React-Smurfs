@@ -12,6 +12,9 @@ class Village extends Component {
     super(props);
     this.state = {
       smurfs: [],
+      name: '',
+      age: 0,
+      height: '',
     };
   }
   // add any needed code to ensure that the smurfs collection exists on state and it has data coming from the server
@@ -25,6 +28,24 @@ class Village extends Component {
         this.setState({smurfs: response.data})
       })
       .catch(err => console.log(err)) 
+  }
+
+  handleUpdateField = event => {
+    this.setState ({[event.target.name]: event.target.value});
+  }
+
+  updateSmurf = id => {
+    const smurf = {
+      name: this.state.name,
+      age: this.state.age,
+      height: this.state.height,
+    }
+    axios
+      .put(`${URL}/${id}`, smurf)
+      .then(response => {
+        this.setState({smurfs: response.data})
+      })
+      .catch(err => console.log(err))
   }
 
   deleteSmurf = id => {
@@ -43,7 +64,7 @@ class Village extends Component {
         <Link to="/" onClick={() => window.location.reload()}>Leave the Village</Link>
       </Router>
         <SmurfForm URL={URL} />
-        <Smurfs smurfs={this.state.smurfs} handleDelete={this.deleteSmurf} />
+        <Smurfs smurfs={this.state.smurfs} handleDelete={this.deleteSmurf} formChange={this.handleUpdateField} formSubmit={this.updateSmurf} />
       </div>
     );
   }

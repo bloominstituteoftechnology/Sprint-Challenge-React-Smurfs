@@ -16,7 +16,7 @@ class SmurfForm extends Component {
     // add code to create the smurf using the api
     const smurf = {
       name: this.state.name,
-      age: this.state.age,
+      age: Number(this.state.age),
       height: this.state.height,
     }
     axios
