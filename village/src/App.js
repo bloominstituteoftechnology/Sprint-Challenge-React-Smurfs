@@ -37,7 +37,11 @@ class App extends Component {
           exact
           path="/new"
           render={props => (
-            <SmurfForm {...props} handleUpdate={this.updateSmurfs} />
+            <SmurfForm
+              {...props}
+              handleUpdate={this.updateSmurfs}
+              smurfs={this.state.smurfs}
+            />
           )}
         />
         <Route

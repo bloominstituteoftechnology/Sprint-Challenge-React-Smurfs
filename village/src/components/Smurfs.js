@@ -7,7 +7,7 @@ class Smurfs extends Component {
     return (
       <div className="Smurfs">
         <h1>Smurf Village</h1>
-        <ul>
+        <ul style={{ marginLeft: '35%' }}>
           {this.props.smurfs.map(smurf => {
             return (
               <Smurf
@@ -26,7 +26,7 @@ class Smurfs extends Component {
 }
 
 Smurf.defaultProps = {
- smurfs: [],
+  smurfs: [],
 };
 
 export default Smurfs;

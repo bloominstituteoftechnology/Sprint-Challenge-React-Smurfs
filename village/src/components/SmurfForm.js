@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { Button, Form, FormGroup, Input } from 'reactstrap';
 
 class SmurfForm extends Component {
   constructor(props) {
@@ -8,7 +9,6 @@ class SmurfForm extends Component {
       name: '',
       age: '',
       height: '',
-      done: false,
     };
   }
 
@@ -40,30 +40,64 @@ class SmurfForm extends Component {
     this.setState({ [e.target.name]: e.target.value });
   };
 
+  deleteSmurf = e => {
+    e.preventDefault();
+    let selectedSmurf = document.getElementById('selectSmurf').value;
+    let smurf = this.props.smurfs.find(s => s.name === selectedSmurf);
+    axios
+      .delete(`http://localhost:3333/smurfs/${smurf.id}`)
+      .then(response => console.log(response))
+      .catch(err => console.log('ERR deleting', err));
+    window.location.reload();
+  };
+
   render() {
     return (
-      <div className="SmurfForm">
-        <form onSubmit={this.addSmurf}>
-          <input
-            onChange={this.handleInputChange}
-            placeholder="name"
-            value={this.state.name}
-            name="name"
-          />
-          <input
-            onChange={this.handleInputChange}
-            placeholder="age"
-            value={this.state.age}
-            name="age"
-          />
-          <input
-            onChange={this.handleInputChange}
-            placeholder="height"
-            value={this.state.height}
-            name="height"
-          />
-          <button type="submit">Add to the village</button>
-        </form>
+      <div className="SmurfForm" style={{ marginLeft: '20%' }}>
+        <Form inline onSubmit={this.addSmurf}>
+          <FormGroup>
+            <input
+              onChange={this.handleInputChange}
+              placeholder="name"
+              value={this.state.name}
+              name="name"
+            />
+          </FormGroup>
+          <FormGroup>
+            <input
+              type="number"
+              onChange={this.handleInputChange}
+              placeholder="age"
+              value={this.state.age}
+              name="age"
+            />
+          </FormGroup>
+          <FormGroup>
+            <input
+              type="number"
+              onChange={this.handleInputChange}
+              placeholder="height"
+              value={this.state.height}
+              name="height"
+            />
+          </FormGroup>
+          <Button type="submit">Add to the village</Button>
+        </Form>
+        <br />
+        <Form inline onSubmit={this.deleteSmurf}>
+          <FormGroup>
+            <Input type="select" name="select" id="selectSmurf">
+              {this.props.smurfs.map((e, key) => {
+                return (
+                  <option key={key} value={e.name}>
+                    {e.name}
+                  </option>
+                );
+              })}
+            </Input>
+          </FormGroup>
+          <Button type="submit">Banish from village</Button>
+        </Form>
       </div>
     );
   }

@@ -1,11 +1,25 @@
 import React from 'react';
+/* prettier-ignore */
+import { Card, CardText, CardBody, CardTitle, CardLink } from 'reactstrap';
 
 const Smurf = props => {
   return (
     <div className="Smurf">
-      <h3>{props.name}</h3>
-      <strong>{props.height} tall</strong>
-      <p>{props.age} smurf years old</p>
+      <Card style={{ width: '40%' }}>
+        <CardBody>
+          <img
+            src="/img/Male_Smurf.jpg"
+            alt="Smurf"
+            style={{ width: '25%', float: 'left' }}
+          />
+          <CardTitle>{props.name}</CardTitle>
+          <CardText>
+            <strong>{props.height} tall</strong>
+            <br />
+            {props.age} smurf years old
+          </CardText>
+        </CardBody>
+      </Card>
     </div>
   );
 };
@@ -13,8 +27,7 @@ const Smurf = props => {
 Smurf.defaultProps = {
   name: '',
   height: '',
-  age: ''
+  age: '',
 };
 
 export default Smurf;
-
