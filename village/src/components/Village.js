@@ -60,9 +60,7 @@ class Village extends Component {
   render() {
     return (
       <div className="App">
-      <Router>
-        <Link to="/" onClick={() => window.location.reload()}>Leave the Village</Link>
-      </Router>
+        <Link to="/" >Leave the Village</Link>
         <SmurfForm URL={URL} />
         <Smurfs smurfs={this.state.smurfs} handleDelete={this.deleteSmurf} formChange={this.handleUpdateField} formSubmit={this.updateSmurf} />
       </div>

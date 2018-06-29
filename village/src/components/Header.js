@@ -7,9 +7,7 @@ const Header = () => {
   return (
     <div className="App">
     <h2>Welcome to the Smurf village!</h2>
-    <Router>
-      <Link to="/smurfs" onClick={() => window.location.reload()}>Enter the Village</Link>
-    </Router>
+      <Link to="/smurfs" >Enter the Village</Link>
     </div>
   )
 }
