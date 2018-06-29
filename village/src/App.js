@@ -62,6 +62,8 @@ class App extends Component {
         age = {this.state.age}
         height = {this.state.height}/>
 
+        <Route path = '/smurfs' render = {props => <Smurfs {...props} 
+        smurfs={this.state.smurfs} />} />
       </div>
     );
   }
