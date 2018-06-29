@@ -1,3 +1,19 @@
 .App {
   text-align: center;
 }
+.header{
+  background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3wslh2NYmPerFS1890vv5VRkO4jjn9m9XUxbfgPvdbyS_PAIJ');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+}
+.Smurf{
+  border: 1px solid black;
+  width: 200px;
+  margin: auto;
+  cursor: pointer;
+}
+.Smurf:not(:last-child){
+  margin-bottom: 5px;
+}

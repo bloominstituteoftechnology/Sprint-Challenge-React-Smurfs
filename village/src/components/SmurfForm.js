@@ -37,9 +37,18 @@ class SmurfForm extends Component {
 
   render() {
     const StyledLink = styled(Link)`
-  color: palevioletred;
-  font-weight: bold;
-  display: block
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    display: inline-block;
+    padding: 10px 20px;
+    margin-left: 10px;
+    text-decoration: none;
+    background-color: black;  
+    text-transform: capitalize;
+    &:hover{
+      color: blue;
+    }
 `;
 
     return (

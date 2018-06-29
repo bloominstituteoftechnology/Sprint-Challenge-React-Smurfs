@@ -7,14 +7,18 @@ import Smurf from './Smurf';
 class Smurfs extends Component {
   render() {
     const StyledLink = styled(Link)`
-    color: palevioletred;
-    font-weight: bold;
-    display: block
-    margin: 48px;
-    text-decoration: none;
-    &:hover{
-      color: black;
-    }
+    color: white;
+  font-size: 20px;
+  font-weight: bold;
+  display: inline-block;
+  padding: 10px 20px;
+  margin-left: 10px;
+  text-decoration: none;
+  background-color: black;  
+  text-transform: capitalize;
+  &:hover{
+    color: blue;
+  }
   `;
   
     return (
@@ -26,10 +30,7 @@ class Smurfs extends Component {
           {this.props.smurfs.map(smurf => {
             return (
               <Smurf
-                name={smurf.name}
-                id={smurf.id}
-                age={smurf.age}
-                height={smurf.height}
+                smurf={smurf}
                 key={smurf.id}
               />
             );
