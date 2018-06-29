@@ -30,10 +30,12 @@ class App extends Component {
     if (error) console.log('uh oh', error)
   }
 
+  update = smurfs => this.setState({ smurfs })
+
   render() {
     return (
       <div className="App">
-        <SmurfForm />
+        <SmurfForm updateHandler={this.update} />
         <Smurfs smurfs={this.state.smurfs} />
       </div>
     );
