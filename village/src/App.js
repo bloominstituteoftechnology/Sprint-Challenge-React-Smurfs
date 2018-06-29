@@ -24,12 +24,22 @@ class App extends Component {
       })
       .catch(err => {console.log(err)})
   }
+  deleteSmurf = (id) => {
+    axios
+      .delete(`http://localhost:3333/smurfs/${id}`)
+      .then(response => {
+        console.log('DELETE RESPONSE: ', response)
+        this.setState({ smurfs: response.data })
+      })
+      .catch(err => {console.log(err)})
+  }
+
   handleSetData = data => {this.setState({ smurfs: data })}
   render() {
     return (
       <div className="App">
         <SmurfForm handleSetData={this.handleSetData} />
-        <Smurfs smurfs={this.state.smurfs} />
+        <Smurfs smurfs={this.state.smurfs} deleteSmurf={this.deleteSmurf} />
       </div>
     );
   }
