@@ -51,7 +51,7 @@ class App extends Component {
             />
           )}
         />
-        <Route
+        {/* <Route
           path='/smurfs/:id'
           render={(props) => (
             <SmurfDetails
@@ -59,7 +59,7 @@ class App extends Component {
               findSmurf={() => this.findSmurf(props.match.params.id)}
             />
           )}
-        />
+        /> */}
       </div>
     )
   }
