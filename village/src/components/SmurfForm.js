@@ -1,4 +1,9 @@
 import React, { Component } from 'react';
+import styled from 'styled-components';
+import { Link } from 'react-router-dom'
+
+import axios from 'axios';
+const URL = 'http://localhost:3333/smurfs';
 
 class SmurfForm extends Component {
   constructor(props) {
@@ -13,12 +18,17 @@ class SmurfForm extends Component {
   addSmurf = event => {
     event.preventDefault();
     // add code to create the smurf using the api
-
-    this.setState({
-      name: '',
-      age: '',
-      height: ''
-    });
+    axios
+      .post(URL, {name: this.state.name, age: this.state.age, height: this.state.height})
+      .then(response => { this.props.addSmurf(response.data)}
+      )
+      .catch(error => console.log(error));
+      this.setState({
+        name: '',
+        age: '',
+        height: ''
+      });
+    this.props.history.push('/');
   }
 
   handleInputChange = e => {
@@ -26,6 +36,12 @@ class SmurfForm extends Component {
   };
 
   render() {
+    const StyledLink = styled(Link)`
+  color: palevioletred;
+  font-weight: bold;
+  display: block
+`;
+
     return (
       <div className="SmurfForm">
         <form onSubmit={this.addSmurf}>
@@ -48,6 +64,8 @@ class SmurfForm extends Component {
             name="height"
           />
           <button type="submit">Add to the village</button>
+          <StyledLink to="/">Cancle</StyledLink>
+
         </form>
       </div>
     );
