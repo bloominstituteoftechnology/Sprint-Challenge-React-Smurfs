@@ -2,6 +2,9 @@ import React, { Component } from 'react'
 import './App.css'
 import SmurfForm from './components/SmurfForm'
 import Smurfs from './components/Smurfs'
+import Smurf from './components/Smurf'
+import SmurfDetails from './components/SmurfDetails'
+import { Route } from 'react-router-dom'
 import axios from 'axios'
 
 class App extends Component {
@@ -25,11 +28,38 @@ class App extends Component {
     this.getSmurfs()
   }
 
+  findSmurf = (id) => {
+    this.state.smurfs.find((smurf) => smurf.id === id)
+  }
+
   render () {
     return (
       <div className='App'>
         <SmurfForm getSmurfs={this.getSmurfs} />
-        <Smurfs smurfs={this.state.smurfs} />
+        <Route
+          exact
+          path='/'
+          render={(props) => <Smurfs {...props} smurfs={this.state.smurfs} />}
+        />
+        <Route
+          path='/smurfs/:id'
+          render={(props) => (
+            <Smurf
+              {...props}
+              smurfs={this.state.smurfs}
+              getSmurfs={this.getSmurfs}
+            />
+          )}
+        />
+        <Route
+          path='/smurfs/:id'
+          render={(props) => (
+            <SmurfDetails
+              {...props}
+              findSmurf={() => this.findSmurf(props.match.params.id)}
+            />
+          )}
+        />
       </div>
     )
   }
