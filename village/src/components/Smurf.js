@@ -1,11 +1,15 @@
 import React from 'react';
+import DeleteSmurf from './DeleteSmurf';
+import UpdateSmurf from './UpdateSmurf';
 
-const Smurf = props => {
+const Smurf = ({ smurf, updateSmurfs }) => {
   return (
     <div className="Smurf">
-      <h3>{props.name}</h3>
-      <strong>{props.height} tall</strong>
-      <p>{props.age} smurf years old</p>
+      <h3>{smurf.name}</h3>
+      <strong>{smurf.height} tall</strong>
+      <p>{smurf.age} smurf years old</p>
+      <UpdateSmurf smurf={smurf} updateSmurfs={updateSmurfs} />
+      <DeleteSmurf updateSmurfs={updateSmurfs} id={smurf.id} />
     </div>
   );
 };
@@ -17,4 +21,3 @@ Smurf.defaultProps = {
 };
 
 export default Smurf;
-
