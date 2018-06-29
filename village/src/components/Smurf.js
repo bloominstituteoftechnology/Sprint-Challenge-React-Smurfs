@@ -2,10 +2,10 @@ import React from 'react';
 
 const Smurf = props => {
   return (
-    <div className="Smurf">
-      <h3>{props.name}</h3>
-      <strong>{props.height} tall</strong>
-      <p>{props.age} smurf years old</p>
+    <div className="smurfs">
+      <div className="smurf_name" ><h3>{props.name}</h3></div>
+      <div className="smurf_age" ><strong>{props.height} tall</strong></div>
+      <div className="smurf_email" ><p>{props.age} smurf years old</p></div>
     </div>
   );
 };
@@ -17,4 +17,3 @@ Smurf.defaultProps = {
 };
 
 export default Smurf;
-
