@@ -3,3 +3,16 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+
+.nav .App {
+  display: flex;
+  width: 200px;
+  margin: 10px auto;
+  /* border: 1px solid red; */
+}
+
+.nav .App div {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+}
