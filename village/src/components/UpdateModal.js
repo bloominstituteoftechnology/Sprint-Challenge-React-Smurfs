@@ -7,7 +7,7 @@ const UpdateModal = props => {
       <div className="modal-card">
         <header className="modal-card-head">
           <p className="modal-card-title">Update Smurf</p>
-          <button className="delete" aria-label="close" />
+          <button className="delete" onClick = {props.hideUpdateModalHandler} aria-label="close" />
         </header>
         <section className="modal-card-body">
             {/* Name */}
@@ -35,8 +35,8 @@ const UpdateModal = props => {
         </section>
         
         <footer className="modal-card-foot">
-          <button className="button is-success">Save changes</button>
-          <button className="button">Cancel</button>
+          <button className="button is-success" onClick = {props.hideUpdateModalHandler}>Save changes</button>
+          <button className="button" onClick = {props.hideUpdateModalHandler}>Cancel</button>
         </footer>
       </div>
     </div>
