@@ -6,12 +6,17 @@ import Smurf from './Smurf';
 
 class Smurfs extends Component {
 
-  deleteSmurf =id=>{
-    console.log('id deleted: ', id);
+  deleteSmurf = id =>{
+    // console.log('id deleted: ', id);
     axios 
     .delete(`http://localhost:3333/smurfs/${id}`)
     .then(res => this.props.handleSetData(res.data))
   }
+
+  updateSmurf = id =>{
+    console.log('id updated: ', id)
+  }
+
   render() {
     return (
       <div className="Smurfs">
@@ -20,7 +25,7 @@ class Smurfs extends Component {
         <ul>
           {this.props.smurfs.map(smurf => {
             return (
-              <div key={smurf.id}>
+              <div key={smurf.id} className='cardWrapper'>
                 <Smurf
                   name={smurf.name}
                   id={smurf.id}
@@ -29,6 +34,7 @@ class Smurfs extends Component {
                   
                 />
                 <button onClick={()=> this.deleteSmurf(smurf.id)} >Delete {smurf.name}</button>
+                <button onClick={()=> this.updateSmurf(smurf.id)} >Update {smurf.name}</button>
               </div>
             );
           })}
