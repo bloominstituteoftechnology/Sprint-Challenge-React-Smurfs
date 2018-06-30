@@ -10,6 +10,7 @@ class Smurf extends React.Component {
     this.state = {
       smurf: {},
       singleSmurf: false,
+      edit: false,
     };
   }
 
@@ -30,14 +31,7 @@ class Smurf extends React.Component {
     const { name, height, age } = this.props;
     return (
       <div className="Smurf">
-        <Link
-          style={{ textDecoration: 'none' }}
-          to={{
-            pathname: `/smurf/${this.props.id}`,
-            state: { smurfy: true },
-          }}
-        >
-          {/* <Link style={{ textDecoration: 'none' }} to={`/smurf/${this.props.id}`}> */}
+        <Link style={{ textDecoration: 'none' }} to={`/smurf/${this.props.id}`}>
           <Card style={{ width: '40%' }}>
             <CardBody>
               <img
