@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import Smurfs from './Smurfs';
 class SmurfForm extends Component {
   constructor(props) {
     super(props);
