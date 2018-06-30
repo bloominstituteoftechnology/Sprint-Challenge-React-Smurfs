@@ -19,7 +19,7 @@ class SmurfForm extends Component {
         .post('http://localhost:3333/smurfs', newSmurf)
         .then(response => {
           console.log(response)
-          this.props.smurfs = response.data
+          this.props.updateSmurf(response.data)
         })
         .catch(err => {
             console.log(err)
