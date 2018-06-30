@@ -6,6 +6,7 @@ import './App.css';
 import NavBar from './components/NavBar';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
+import Smurf from './components/Smurf';
 import Header from './components/Header';
 
 class App extends Component {
@@ -47,6 +48,13 @@ class App extends Component {
           exact
           path="/village"
           render={props => <Smurfs {...props} smurfs={this.state.smurfs} />}
+        />
+        <Route
+          exact
+          path="/smurf/:id"
+          render={props => {
+            return <Smurf {...props} />;
+          }}
         />
       </div>
     );
