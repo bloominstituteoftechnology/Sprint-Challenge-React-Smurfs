@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 const StyledForm = styled(Form)`
-    border: 1px solid whitesmoke;
+    // border: 1px solid whitesmoke;
     box-shadow: 2px 2px 5px #0a1f42;
     margin: 30px 0;
     padding: 20px;
