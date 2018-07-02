@@ -19,7 +19,14 @@ class App extends Component {
   getSmurfs = () => {
     axios
       .get('http://localhost:3333/smurfs/')
-      .then((res) => this.setState({ smurfs: res.data }))
+      .then(
+        (res) => this.setState({ smurfs: res.data }),
+        this.setState({
+          name: '',
+          age: '',
+          height: ''
+        })
+      )
       .catch((err) => console.log(err))
   }
 
@@ -41,7 +48,7 @@ class App extends Component {
     axios
       .post('http://localhost:3333/smurfs/', newSmurf)
       .then(
-        (res) => this.props.getSmurfs(res.data),
+        (res) => this.state.getSmurfs(res.data),
         this.setState({
           name: '',
           age: '',
@@ -77,6 +84,10 @@ class App extends Component {
               {...props}
               smurfs={this.state.smurfs}
               getSmurfs={this.getSmurfs}
+              name={this.state.name}
+              age={this.state.age}
+              height={this.state.height}
+              handleInputChange={this.handleInputChange}
             />
           )}
         />

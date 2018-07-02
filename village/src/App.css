@@ -46,3 +46,18 @@ a {
 .submit-btn:hover {
   cursor: pointer;
 }
+
+.village-btn {
+  display: inline-block;
+  background-color: #4dbaf2;
+  color: #854627;
+  border: 1px solid black;
+  padding: 0.3% 1.3% 0.3% 1.3%;
+  position: absolute;
+  top: 0%;
+  left: 13.2%;
+}
+
+.village-btn:hover {
+  cursor: pointer;
+}

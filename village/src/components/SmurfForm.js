@@ -1,5 +1,4 @@
-import React, { Component } from 'react'
-import axios from 'axios'
+import React from 'react'
 
 const SmurfForm = (props) => {
   return (
@@ -9,6 +8,7 @@ const SmurfForm = (props) => {
           onChange={props.handleInputChange}
           placeholder='name'
           value={props.name}
+          type='text'
           name='name'
           required
         />

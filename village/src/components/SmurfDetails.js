@@ -1,5 +1,4 @@
 import React from 'react'
-import Smurf from './Smurf'
 import axios from 'axios'
 
 class SmurfDetails extends React.Component {
@@ -15,16 +14,19 @@ class SmurfDetails extends React.Component {
   }
 
   handleSubmit = () => {
-    const { name, age, height } = this.state
+    console.log('in submit')
+    const { name, age, height } = this.props
     axios
       .put(`http://localhost:3333/smurfs/${this.props.match.params.id}`, {
         name,
         age,
         height
       })
-      .then((res) => this.props.getSmurfs(res))
+      .then(
+        (res) => this.props.getSmurfs(res),
+        this.setState({ editing: false })
+      )
       .catch((err) => console.log(err))
-    this.setState({ editing: false })
   }
 
   handleDelete = () => {
@@ -32,6 +34,10 @@ class SmurfDetails extends React.Component {
       .delete(`http://localhost:3333/smurfs/${this.props.match.params.id}`)
       .then((res) => this.props.getSmurfs())
       .catch((err) => console.log(err))
+    this.props.history.push('/')
+  }
+
+  handleHome = () => {
     this.props.history.push('/')
   }
 
@@ -45,10 +51,31 @@ class SmurfDetails extends React.Component {
         {this.state.editing ? (
           <div>
             <form onSubmit={this.handleSubmit}>
-              <input placeholder={`${foundSmurf.name}`} />
-              <input placeholder={`${foundSmurf.height}`} />
-              <input placeholder={`${foundSmurf.age}`} />
+              <input
+                type='text'
+                placeholder={`${foundSmurf.name}`}
+                value={this.props.name}
+                onChange={this.props.handleInputChange}
+                name='name'
+              />
+              <input
+                type='text'
+                placeholder={`${foundSmurf.height}`}
+                value={this.props.age}
+                onChange={this.props.handleInputChange}
+                name='age'
+              />
+              <input
+                type='text'
+                placeholder={`${foundSmurf.age}`}
+                value={this.props.height}
+                onChange={this.props.handleInputChange}
+                name='height'
+              />
             </form>
+            <div className='delete-btn' onClick={this.handleSubmit}>
+              Submit
+            </div>
           </div>
         ) : (
           <div>
@@ -62,6 +89,9 @@ class SmurfDetails extends React.Component {
             </div>
             <div className='delete-btn' onClick={this.handleDelete}>
               Delete
+            </div>
+            <div className='village-btn' onClick={this.handleHome}>
+              Back to Village
             </div>
           </div>
         )}
