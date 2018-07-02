@@ -14,7 +14,7 @@ const Smurfs = (props) => {
         addSmurf={props.addSmurf}
       />
       <h1>Smurf Village</h1>
-      <ul>
+      <ul className='smurf-card'>
         {props.smurfs.map((smurf) => {
           return (
             <Link key={smurf.id} to={`/smurfs/${smurf.id}`}>

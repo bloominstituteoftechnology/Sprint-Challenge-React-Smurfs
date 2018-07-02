@@ -49,8 +49,9 @@ class SmurfDetails extends React.Component {
     return (
       <div className='detail-container'>
         {this.state.editing ? (
-          <div>
-            <form onSubmit={this.handleSubmit}>
+          <div className='form-container'>
+            <span className='edit-heading'>Editing Mode</span>
+            <form className='edit-form' onSubmit={this.handleSubmit}>
               <input
                 type='text'
                 placeholder={`${foundSmurf.name}`}

@@ -3,7 +3,11 @@
 }
 
 .Smurf {
-  color: #4dbaf2;
+  color: white;
+  font-size: 1.6rem;
+  width: 100%;
+  background: rgba(40, 180, 255, 0.33);
+  border-radius: 15%;
 }
 
 a {
@@ -11,15 +15,20 @@ a {
 }
 
 .smurf-details {
-  color: #4dbaf2;
+  color: white;
 }
 
 .detail-container {
   position: relative;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
 
 .edit-btn {
   display: inline-block;
+  background-color: #30944f;
   border: 1px solid black;
   padding: 0.3% 1.3% 0.3% 1.3%;
   position: absolute;
@@ -36,7 +45,7 @@ a {
   border: 1px solid black;
   padding: 0.3% 1.3% 0.3% 1.3%;
   position: absolute;
-  top: 30%;
+  top: 75%;
   left: 66.2%;
 }
 
@@ -60,4 +69,32 @@ a {
 
 .village-btn:hover {
   cursor: pointer;
+}
+
+.edit-form {
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 195px;
+}
+
+.form-container {
+  margin-top: 5%;
+}
+
+.edit-heading {
+  display: inline-block;
+}
+
+.edit-heading {
+  font-size: 2.1rem;
+  color: #2b2b2a;
+}
+
+.smurf-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
