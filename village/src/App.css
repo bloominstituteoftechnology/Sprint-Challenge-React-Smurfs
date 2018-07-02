@@ -1,3 +1,48 @@
 .App {
   text-align: center;
 }
+
+.Smurf {
+  color: #4dbaf2;
+}
+
+a {
+  text-decoration: none;
+}
+
+.smurf-details {
+  color: #4dbaf2;
+}
+
+.detail-container {
+  position: relative;
+}
+
+.edit-btn {
+  display: inline-block;
+  border: 1px solid black;
+  padding: 0.3% 1.3% 0.3% 1.3%;
+  position: absolute;
+  top: 0%;
+  left: 67%;
+}
+.edit-btn:hover {
+  cursor: pointer;
+}
+
+.delete-btn {
+  display: inline-block;
+  background-color: #cd4141;
+  border: 1px solid black;
+  padding: 0.3% 1.3% 0.3% 1.3%;
+  position: absolute;
+  top: 30%;
+  left: 66.2%;
+}
+
+.delete-btn:hover {
+  cursor: pointer;
+}
+.submit-btn:hover {
+  cursor: pointer;
+}

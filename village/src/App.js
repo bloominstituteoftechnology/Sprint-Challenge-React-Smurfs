@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import './App.css'
-import SmurfForm from './components/SmurfForm'
 import Smurfs from './components/Smurfs'
 import SmurfDetails from './components/SmurfDetails'
 import { Route } from 'react-router-dom'
@@ -10,7 +9,10 @@ class App extends Component {
   constructor (props) {
     super(props)
     this.state = {
-      smurfs: []
+      smurfs: [],
+      name: '',
+      age: '',
+      height: ''
     }
   }
 
@@ -22,30 +24,59 @@ class App extends Component {
   }
 
   componentDidMount () {
-    this.findSmurf()
     this.getSmurfs()
   }
 
-  findSmurf = (id) => {
-    this.state.smurfs.find((smurf) => smurf.id === id)
+  handleInputChange = (e) => {
+    this.setState({ [e.target.name]: e.target.value })
+  }
+
+  addSmurf = (event) => {
+    // add code to create the smurf using the api
+    const newSmurf = {
+      name: this.state.name,
+      age: this.state.age,
+      height: this.state.height
+    }
+    axios
+      .post('http://localhost:3333/smurfs/', newSmurf)
+      .then(
+        (res) => this.props.getSmurfs(res.data),
+        this.setState({
+          name: '',
+          age: '',
+          height: ''
+        })
+      )
+      .catch((err) => console.log(err))
   }
 
   render () {
+    console.log('in app')
     return (
       <div className='App'>
-        <SmurfForm getSmurfs={this.getSmurfs} />
         <Route
           exact
           path='/'
-          render={(props) => <Smurfs {...props} smurfs={this.state.smurfs} />}
+          render={(props) => (
+            <Smurfs
+              {...props}
+              smurfs={this.state.smurfs}
+              name={this.state.name}
+              age={this.state.age}
+              height={this.state.height}
+              handleInputChange={this.handleInputChange}
+              addSmurf={this.addSmurf}
+            />
+          )}
         />
         <Route
           path='/smurfs/:id'
           render={(props) => (
             <SmurfDetails
               {...props}
-              findSmurf={() => this.findSmurf(props.match.params.id)}
               smurfs={this.state.smurfs}
+              getSmurfs={this.getSmurfs}
             />
           )}
         />
