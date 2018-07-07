@@ -25,6 +25,9 @@ class SmurfForm extends Component {
       console.log("POST RESPONSE", response);
       this.props.handleSetData(response.data);
     })
+    .catch(err => {
+      console.log(err);
+    })
     this.setState({
       name: '',
       age: '',
