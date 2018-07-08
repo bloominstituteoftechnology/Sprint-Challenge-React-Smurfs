@@ -1,3 +1,13 @@
-.App {
+* {
+  border: 1px solid black;
+}
+
+.container {
   text-align: center;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
