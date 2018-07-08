@@ -96,12 +96,14 @@ class Smurf extends React.Component {
     }
 
     return (
-      <div>
+      <div className="smurf-page">
         <h3>{this.state.name}</h3>
         <strong>{this.state.height} tall</strong>
         <p>{this.state.age} smurf years old</p>
-        <button onClick={this.toggleEditMode}>Edit</button>
-        <button onClick={this.handleDelete}>Delete</button>
+        <div className="buttons-container">
+          <button onClick={this.toggleEditMode}>Edit</button>
+          <button onClick={this.handleDelete}>Delete</button>
+        </div>  
       </div>
     );
   }

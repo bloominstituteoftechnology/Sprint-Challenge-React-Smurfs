@@ -5,11 +5,11 @@ import { Link } from 'react-router-dom';
 const SmurfList = props => {
   const smurfs = props.smurfs.slice().reverse();
   return (
-    <div>
+    <div className="smurf-list">
       {smurfs.map(smurf => {
         return (
           <Link to={`/smurfs/${smurf.id}`} key={Math.random()}>
-            {smurf.name}
+            <div className="smurf-card">{smurf.name}</div>
           </Link>
         );
       })}
