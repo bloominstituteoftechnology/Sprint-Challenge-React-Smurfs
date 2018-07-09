@@ -12,9 +12,13 @@ class Smurf extends React.Component {
     height: ''
   }
 
+  get id() {
+    return this.props.match.params.id;
+  }
+
   componentWillMount() {
     axios
-      .get(`http://localhost:3333/smurfs/${this.props.match.params.id}`)
+      .get(`http://localhost:3333/smurfs/${this.id}`)
       .then(response => {
         this.setState({ smurf: response.data,
                         name: response.data.name,
@@ -29,7 +33,7 @@ class Smurf extends React.Component {
 
     if (this.state.name === "") {
       axios
-        .get(`http://localhost:3333/smurfs/${this.props.match.params.id}`)
+        .get(`http://localhost:3333/smurfs/${this.id}`)
         .then(response => {
           this.setState({ name: response.data.name,
                           age: response.data.age,
@@ -55,9 +59,9 @@ class Smurf extends React.Component {
     e.preventDefault();
 
     axios
-      .put(`http://localhost:3333/smurfs/${this.props.match.params.id}`)
+      .put(`http://localhost:3333/smurfs/${this.id}`)
       .then(response => {
-        const smurf = response.data.find(smurf => smurf.id === Number(this.props.match.params.id));
+        const smurf = response.data.find(smurf => smurf.id === Number(this.id));
         this.setState({ isEditing: false, smurf });
       })
       .catch(error => console.log(error));
@@ -67,10 +71,10 @@ class Smurf extends React.Component {
     e.preventDefault();
 
     axios
-      .delete(`http://localhost:3333/smurfs/${this.props.match.params.id}`)
+      .delete(`http://localhost:3333/smurfs/${this.id}`)
       .then(response => {
         this.setState({ friend: null });
-        this.props.handleUpdateSmurfs(response.data, Number(this.props.match.params.id));
+        this.props.handleUpdateSmurfs(response.data, Number(this.id));
       })
       .catch(error => {
         console.log(error);
@@ -103,7 +107,7 @@ class Smurf extends React.Component {
         <div className="buttons-container">
           <button onClick={this.toggleEditMode}>Edit</button>
           <button onClick={this.handleDelete}>Delete</button>
-        </div>  
+        </div>
       </div>
     );
   }
