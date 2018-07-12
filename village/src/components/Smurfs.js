@@ -21,7 +21,6 @@ class Smurfs extends Component {
     });
   }
 
-
   render() {
     return (
       <div className="Smurfs">

@@ -13,22 +13,17 @@ class SmurfForm extends Component {
 
   addSmurf = event => {
     event.preventDefault();
-    // add code to create the smurf using the api
-      const smurfs = { name: this.state.name, height: this.state.height, age: this.state.age };
+      const smurf = { name: this.state.name, height: this.state.height, age: this.state.age };
       axios
-      .post(`http://localhost:3333/smurfs`, smurfs)
-      .then(saveSmurfs => {
-        console.log(saveSmurfs);
+      .post(`http://localhost:3333/smurfs`, smurf)
+      .then(saveSmurf => {
+        console.log(saveSmurf);
       }) 
       .catch(err => {
         console.log(err);
       })
-
-    this.setState({
-      name: '',
-      age: '',
-      height: ''
-    });
+    this.setState({ name: '', age: '', height: '' });
+    window.location.reload();
   }
 
   handleInputChange = e => {
@@ -38,26 +33,26 @@ class SmurfForm extends Component {
   render() {
     return (
       <div className="SmurfForm">
-        <form onSubmit={this.addSmurf}>
+        <form onSubmit={ this.addSmurf }>
           <input
-            onChange={this.handleInputChange}
-            placeholder="name"
-            value={this.state.name}
             name="name"
+            placeholder=" name"
+            value={ this.state.name }
+            onChange={ this.handleInputChange }
           />
           <input
-            onChange={this.handleInputChange}
-            placeholder="age"
-            value={this.state.age}
             name="age"
+            placeholder=" age"
+            value={ this.state.age }
+            onChange={ this.handleInputChange }
           />
           <input
-            onChange={this.handleInputChange}
-            placeholder="height"
-            value={this.state.height}
             name="height"
+            placeholder=" height"
+            value={ this.state.height }
+            onChange={ this.handleInputChange }
           />
-          <button type="submit">Add to the village</button>
+          <button onClick={() => { this.addSmurf }}type="submit">Add to the village</button>
         </form>
       </div>
     );
