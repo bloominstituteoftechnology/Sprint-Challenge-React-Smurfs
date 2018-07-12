@@ -1,50 +1,40 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-import Smurf from './Smurf';
-
 class Smurfs extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: '',
-      age: '',
-      height: '',
+      smurfs: []
     }
   }
 
   componentDidMount() {
-    this.smurfsUpdate();
-  }
-
-  smurfsUpdate() {
     axios
     .get(`http://localhost:3333/smurfs`)
     .then(res => {
       console.log(res);
-      this.setState( {smurfs : res.data})
+      this.setState({ smurfs : res.data })
     })
     .catch(err => {
       console.log(err);
     });
   }
+
+
   render() {
     return (
       <div className="Smurfs">
         <h1>Smurf Village</h1>
-        <ul>
-          {this.props.smurfs.map(smurf => {
-            return (
-              <Smurf
-                name={smurf.name}
-                id={smurf.id}
-                age={smurf.age}
-                height={smurf.height}
-                key={smurf.id}
-              />
-            );
-          })}
-        </ul>
+        { this.state.smurfs.map(smurf => {
+          return [
+            <div>
+              <h3>{ smurf.name }</h3>
+              <p>{ smurf.age }</p>
+              <p>{ smurf.height }</p>
+            </div>
+          ]
+        })}
       </div>
     );
   }
