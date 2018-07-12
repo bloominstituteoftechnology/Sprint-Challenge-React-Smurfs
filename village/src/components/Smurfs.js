@@ -29,7 +29,7 @@ class Smurfs extends Component {
             <div className="Smurfs__List">
               <h3 className="Smurfs__text H3">{ smurf.name } -</h3>
               <p className="Smurfs__text P">{ smurf.age } Years Old</p>
-              <p className="Smurfs__text P">{ smurf.height } Tall</p>
+              <p className="Smurfs__text P">{ smurf.height } Feet Tall</p>
             </div>
           ]
         })}
