@@ -13,7 +13,6 @@ class Smurfs extends Component {
     axios
     .get(`http://localhost:3333/smurfs`)
     .then(res => {
-      console.log(res);
       this.setState({ smurfs : res.data })
     })
     .catch(err => {
@@ -21,15 +20,28 @@ class Smurfs extends Component {
     });
   }
 
+  deleteSmurf = (id) => {
+    axios
+      .delete(`http://localhost:3333/smurfs/${id}`)
+      .then(deletedSmurf => {
+        console.log('Deleted');
+      })
+      .catch(err => {
+        console.log(err);
+      });
+    window.location.reload();
+  };
+
   render() {
     return (
       <div className="Smurfs">
-        { this.state.smurfs.map(smurf => {
+        { this.state.smurfs.map((smurf,index) => {
           return [
-            <div className="Smurfs__List">
+            <div key={index }className="Smurfs__List">
               <h3 className="Smurfs__text H3">{ smurf.name } -</h3>
               <p className="Smurfs__text P">{ smurf.age } Years Old</p>
               <p className="Smurfs__text P">{ smurf.height } Feet Tall</p>
+              <button className="Smurfs__Delete" onClick={ () => { this.deleteSmurf(smurf.id) }}>X</button>
             </div>
           ]
         })}
