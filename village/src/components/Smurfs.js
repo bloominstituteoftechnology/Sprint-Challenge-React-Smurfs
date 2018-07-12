@@ -40,7 +40,7 @@ class Smurfs extends Component {
             <div key={index }className="Smurfs__List">
               <h3 className="Smurfs__text H3">{ smurf.name } -</h3>
               <p className="Smurfs__text P">{ smurf.age } Years Old</p>
-              <p className="Smurfs__text P">{ smurf.height } Feet Tall</p>
+              <p className="Smurfs__text P">{ smurf.height } Tall</p>
               <button className="Smurfs__Delete" onClick={ () => { this.deleteSmurf(smurf.id) }}>X</button>
             </div>
           ]
