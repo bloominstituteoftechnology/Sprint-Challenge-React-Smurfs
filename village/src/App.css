@@ -1,3 +1,86 @@
-.App {
-  text-align: center;
+html {
+  background-image: url('https://3dwarehouse.sketchup.com/warehouse/getpubliccontent?contentId=0fdd47d6-7d13-4871-9173-73be9f6732fe');
+  background-size: cover;
+  background-repeat: no-repeat;
+  max-height: 700px;
+  min-height: 700px;
+  max-width: 1436px;
+  min-width: 1436px;
+  width: 100%;
 }
+
+/* App */
+
+.App__h1 {
+  background: white;
+  font-size: 60px;
+  color: blue;
+  padding-left: 500px;
+  opacity: .8;
+  margin-bottom: 10px;
+}
+
+/* SmurfForm */
+
+.SmurfForm__Holder {
+  display: flex;
+  flex-flow: column;
+}
+
+.SmurfForm {
+  border: 4px black solid;
+  margin-left: 450px;
+  padding: 20px;
+  background: grey;
+  opacity: .9;
+  border-radius: 25px;
+  width: 560px;
+}
+
+.SmurfForm__Input {
+  background: lightblue;
+  color: black;
+  width: 160px;
+  font-weight: bold;
+  font-size: 20px;
+  text-align: center;
+  margin: 0 10px;
+}
+
+.SmurfForm__Button {
+  margin: 10px 0 0 70px;
+  width: 400px;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+/* Smurfs */
+
+.Smurfs {
+  background: blue;
+  color: white;
+  margin: 20px 0 0 480px;
+  height: 300px;
+  width: 500px;
+  border: 10px solid black;
+  opacity: .9;
+}
+
+.Smurfs__List {
+  display: flex;
+  padding-left: 20px;
+  height: 30px;
+}
+
+.Smurfs__text {
+  font-size: 25px;
+}
+
+.H3 {
+  margin-top: 25px;
+}
+
+.P {
+  margin-left: 15px;
+}
+

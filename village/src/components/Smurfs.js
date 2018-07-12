@@ -24,13 +24,12 @@ class Smurfs extends Component {
   render() {
     return (
       <div className="Smurfs">
-        <h1>Smurf Village</h1>
         { this.state.smurfs.map(smurf => {
           return [
-            <div>
-              <h3>{ smurf.name }</h3>
-              <p>{ smurf.age }</p>
-              <p>{ smurf.height }</p>
+            <div className="Smurfs__List">
+              <h3 className="Smurfs__text H3">{ smurf.name } -</h3>
+              <p className="Smurfs__text P">{ smurf.age } Years Old</p>
+              <p className="Smurfs__text P">{ smurf.height } Tall</p>
             </div>
           ]
         })}
