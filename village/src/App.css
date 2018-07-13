@@ -1,31 +1,31 @@
 .App {
-  text-align: center;
-}
-
-.Smurf {
-	border: 1px solid black;
-	width: 300px;
-	margin: auto;
-}
-
-.check-button {
-	width: 100px;
-	height: 50px;
-	background: blue;
-	color: lightskyblue;
-}
-
-.delete-button {
-	display: flex;
-	width: 50px;
-	height: 25px;
-	background: lightsalmon;
-	color: white;
-	margin-left: 370px;
-}
-
-.Smurfs {
-	display: flex;
-	justify-content: center
-
-}
+	text-align: center;
+  }
+  
+  .Smurf {
+	  border: 1px solid black;
+	  width: 300px;
+	  margin: auto;
+  }
+  
+  .check-button {
+	  width: 100px;
+	  height: 50px;
+	  background: blue;
+	  color: lightskyblue;
+  }
+  
+  .delete-button {
+	  display: flex;
+	  width: 50px;
+	  height: 25px;
+	  background: lightsalmon;
+	  color: white;
+	  margin-left: 370px;
+  }
+  
+  .Smurfs {
+	  display: flex;
+	  justify-content: center
+  
+  }
