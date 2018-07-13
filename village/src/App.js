@@ -34,7 +34,7 @@ class App extends Component {
     return (
       <div className="App">
         <SmurfForm updateSmurfs={this.updateSmurfs} />
-        <Smurfs smurfs={this.state.smurfs} />
+        <Smurfs updateSmurfs={this.updateSmurfs} smurfs={this.state.smurfs} />
       </div>
     );
   }
