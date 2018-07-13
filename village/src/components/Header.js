@@ -6,7 +6,6 @@ const Header = () => {
     <div>
     <h2>Welcome to Smurfington</h2>
     <Link to="/smurfs">Smurfington</Link>
-  
     </div>
 )
 }
