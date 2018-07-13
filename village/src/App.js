@@ -33,17 +33,17 @@ class App extends Component {
       })
   }
 
-  smurfName = e => {
-    this.setState({ name: e.target.value })
-  }
+  // smurfName = e => {
+  //   this.setState({ name: e.target.value })
+  // }
 
-  smurfAge = e => {
-    this.setState({ age: Number(e.target.value) })
-  }
+  // smurfAge = e => {
+  //   this.setState({ age: Number(e.target.value) })
+  // }
 
-  smurfEmail = e => {
-    this.setState({ height: e.target.value })
-  }
+  // smurfEmail = e => {
+  //   this.setState({ height: e.target.value })
+  // }
 
   newSmurf = () => {
     const smurf = { name: this.state.name, age: this.state.age, height: this.state.height }
@@ -55,8 +55,9 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-      <SmurfForm />
-      <Smurfs smurfs={this.state.smurfs} />
+      <Header />
+        <SmurfForm />
+        <Smurfs smurfs={this.state.smurfs} />
       </div>
     );
   }
