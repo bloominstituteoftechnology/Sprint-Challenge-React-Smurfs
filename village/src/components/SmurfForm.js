@@ -7,19 +7,20 @@ class SmurfForm extends Component {
     this.state = {
       name: '',
       age: '',
-      height: ''
+      height: '',
     };
   }
 
   addSmurf = event => {
     event.preventDefault();
+    const smurf = {name: this.state.name, age: this.state.age, height: this.state.height};
     axios
-      .post('http://localhost:3333/smurfs', {name: this.state.name, age: this.state.age, height: this.state.height})
+      .post('http://localhost:3333/smurfs', smurf)
       .then(response => {
         this.setState({
           name: '',
           age: '',
-          height: ''
+          height: '',
         });
       })
       .catch(error => console.log('error: ', error))
@@ -51,11 +52,12 @@ class SmurfForm extends Component {
             value={this.state.height}
             name="height"
           />
-          <button type="submit">Add to the village</button>
+          <button type="submit" onClick={this.addSmurf}>Add to the village</button>
         </form>
       </div>
     );
   }
 }
+
 
 export default SmurfForm;
