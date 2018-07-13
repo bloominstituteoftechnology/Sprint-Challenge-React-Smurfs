@@ -33,6 +33,15 @@ class App extends Component {
 
   smurfData = data => this.setState({ smurfs: data })
 
+  handleDelete = id => {
+    axios
+      .delete(`${'http://localhost:3333/smurfs'}/${id}`)
+      .then(response => {
+        console.log(response);
+        this.setState({ smurfs: response.data })
+      })
+  }
+
   render() {
     return (
       <div className="App">
