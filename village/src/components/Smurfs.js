@@ -30,3 +30,4 @@ Smurf.defaultProps = {
 };
 
 export default Smurfs;
+
