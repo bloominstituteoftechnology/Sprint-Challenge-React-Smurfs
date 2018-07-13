@@ -10,8 +10,8 @@ class SmurfForm extends Component {
     };
   }
 
-  addSmurf = (event) => {
-    event.preventDefault();
+  addSmurf = () => {
+    // event.preventDefault();
     // add code to create the smurf using the api
     const smurf = { name: this.state.name, age: this.state.age, height: this.state.height };
     axios
@@ -57,7 +57,7 @@ class SmurfForm extends Component {
             value={this.state.height}
             name="height"
           />
-          <button type="submit" onClick={this.addSmurf}>
+          <button type="submit" onSubmit={this.addSmurf}>
             Add to the village
           </button>
         </form>
