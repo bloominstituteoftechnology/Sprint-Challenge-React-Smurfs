@@ -26,15 +26,17 @@ class App extends Component {
   handleSetSmurf = smurf => {
     this.setstate({ smurfs: smurf });
   }
+
+  linkToVillage = () => {
+
+  }
   
   render() {
     return (
       <div className="App">
-        <Route exact path='/' component={Header}/>
+        <Route exact path='/' component={Header} linkToVillage={this.linkToVillage}/>
         <Route path='/smurf-village' component={SmurfForm} setSmurfState={this.handleSetSmurf}/>
         <Route path='/smurf-village' component={Smurfs} smurfs={this.state.smurfs}/>
-        {/* <SmurfForm setSmurfState={this.handleSetSmurf}/>
-        <Smurfs smurfs={this.state.smurfs} /> */}
       </div>
     );
   }
