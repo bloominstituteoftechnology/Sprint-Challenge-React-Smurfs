@@ -3,6 +3,8 @@ import axios from 'axios';
 import './App.css';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
+import Header from './components/Header';
+import { Route } from 'react-router-dom';
 
 const URL = "http://localhost:3333/smurfs"
 
@@ -34,6 +36,8 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <Route path="/" component={Header} />
+        
         <SmurfForm  smurfData={this.smurfData}/>
         <Smurfs smurfs={this.state.smurfs} />
       </div>
