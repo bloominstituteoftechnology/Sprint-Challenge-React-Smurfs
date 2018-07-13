@@ -20,11 +20,15 @@ class App extends Component {
       })
       .catch(error => console.log('error: ', error));
   }
+
+  handleSetSmurf = smurf => {
+    this.setstate({ smurfs: smurf });
+  }
   
   render() {
     return (
       <div className="App">
-        <SmurfForm/>
+        <SmurfForm setSmurfState={this.handleSetSmurf}/>
         <Smurfs smurfs={this.state.smurfs} />
       </div>
     );
