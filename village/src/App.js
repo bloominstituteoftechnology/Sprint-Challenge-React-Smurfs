@@ -30,15 +30,7 @@ class App extends Component {
       height: this.state.height
     
   };
-    axios
-    .post("http://localhost:3333/smurfs",  newSmurf )
-    .then(response => {
-      this.props.smurfData(response.data);
-       this.setState({ smurfs: response.data, name: "", age: "", height: "" });
-    })
-    .catch(err => {
-      console.log(err);
-    });
+   
     
 
   };
@@ -50,7 +42,8 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-      <Route exact path="/" />
+        <Route exact path="/" />
+        <Route path="smurfs" render={props => <Smurfs {...props } smurfs={this.state.smurfs} />} />
         <SmurfForm smurfData={this.smurfData} />
         <Smurfs smurfs={this.state.smurfs} />
       </div>
