@@ -31,9 +31,11 @@ class App extends Component {
   // Notice what your map function is looping over and returning inside of Smurfs.
   // You'll need to make sure you have the right properties on state and pass them down to props
 
-  updateSmurfs(response) {
+  updateSmurfs = (response) => {
     this.setState({ smurfs: response.data });
-  }
+  };
+  // all methods need to be done with arrow functions
+  // to bind "this" to method if you aren't using bind(this)
   // because state is only being affected on app.js
   // so we want reset it wherever the delete function is called
 
