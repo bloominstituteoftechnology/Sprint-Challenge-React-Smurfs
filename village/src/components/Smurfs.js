@@ -3,10 +3,17 @@ import axios from 'axios';
 import Smurf from './Smurf';
 
 class Smurfs extends Component {
+  constructor(props) {
+    super(props);
+  }
   deleteSmurf = (id) => {
     axios
       .delete(`http://localhost:3333/smurfs/${id}`)
-      .then((response) => this.setState({ smurfs: response.data }))
+      .then((response) => {
+        console.log(response);
+        this.props.updateSmurfs(response);
+      })
+      // do this instead of setState cause theres no state here
       .catch((err) => {
         console.log(err);
       });
