@@ -1,4 +1,5 @@
 const express = require('express')
+<<<<<<< HEAD
 const bodyParser = require('body-parser')
 const cors = require('cors')
 const port = 3333
@@ -6,15 +7,32 @@ const port = 3333
 const server = express()
 server.use(bodyParser.json())
 server.use(cors())
+=======
+const cors = require('cors')
+const logger = require('morgan')
+const port = 3333
+
+const server = express()
+server.use(express.json())
+server.use(cors())
+server.use(logger('dev'))
+>>>>>>> fc266e3b2e9518d5053f691d0eb6fa97bb15d294
 
 const sendUserError = (msg, res) => {
   res.status(422)
   res.json({ Error: msg })
+<<<<<<< HEAD
   return
 }
 
 let smurfs = []
 //hardcoded initial data because a blank page isn't sexy
+=======
+}
+
+let smurfs = []
+// hardcoded initial data because a blank page isn't sexy
+>>>>>>> fc266e3b2e9518d5053f691d0eb6fa97bb15d294
 smurfs = [
   {
     name: 'Brainey',
@@ -84,7 +102,10 @@ server.delete('/smurfs/:id', (req, res) => {
   const foundSmurf = smurfs.find((smurf) => smurf.id == id)
 
   if (foundSmurf) {
+<<<<<<< HEAD
     const SmurfRemoved = { ...foundSmurf }
+=======
+>>>>>>> fc266e3b2e9518d5053f691d0eb6fa97bb15d294
     smurfs = smurfs.filter((smurf) => smurf.id != id)
     // changed response to be smurfs minus deletedSmurf
     res.status(200).json(smurfs)
