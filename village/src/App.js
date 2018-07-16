@@ -10,13 +10,13 @@ import Header from './components/Header';
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = {
+      this.state = {
       smurfs: [],
       name: '',
       age: '',
       height: ''
-    };
-  }
+    }
+  };
 
   componentWillMount() {
     axios
