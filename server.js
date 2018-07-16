@@ -1,43 +1,43 @@
-const express = require('express');
-const bodyParser = require('body-parser');
-const cors = require('cors');
-const port = 3333;
+const express = require('express')
+const bodyParser = require('body-parser')
+const cors = require('cors')
+const port = 3333
 
-const server = express();
-server.use(bodyParser.json());
-server.use(cors());
+const server = express()
+server.use(bodyParser.json())
+server.use(cors())
 
 const sendUserError = (msg, res) => {
-  res.status(422);
-  res.json({ Error: msg });
-  return;
-};
+  res.status(422)
+  res.json({ Error: msg })
+  return
+}
 
-let smurfs = [];
+let smurfs = []
 //hardcoded initial data because a blank page isn't sexy
 smurfs = [
   {
-    "name": "Brainey",
-    "age": 200,
-    "height": 5,
-    "id": 0,
+    name: 'Brainey',
+    age: 200,
+    height: 5,
+    id: 0
   },
   {
-    "name": "Sleepy",
-    "age": 200,
-    "height": 5,
-    "id": 1,
-  },
-];
+    name: 'Sleepy',
+    age: 200,
+    height: 5,
+    id: 1
+  }
+]
 
 server.get('/smurfs', (req, res) => {
-  res.json(smurfs);
-});
-let smurfId = 2;
+  res.json(smurfs)
+})
+let smurfId = 2
 
 server.post('/smurfs', (req, res) => {
-  const { name, age, height } = req.body;
-  const newSmurf = { name, age, height, id: smurfId };
+  const { name, age, height } = req.body
+  const newSmurf = { name, age, height, id: smurfId }
   // This server check is archaic. Implemented client check
   // with required attribute on input tags (ES6 Form Validation)
   // if (!name || !age || !height) {
@@ -46,54 +46,54 @@ server.post('/smurfs', (req, res) => {
   //     res
   //   );
   // }
-  const findSmurfByName = smurf => {
-    return smurf.name === name;
-  };
+  const findSmurfByName = (smurf) => {
+    return smurf.name === name
+  }
   if (smurfs.find(findSmurfByName)) {
     return sendUserError(
       `Ya gone did smurfed! ${name} already exists in the smurf DB.`,
       res
-    );
+    )
   }
 
-  smurfs.push(newSmurf);
-  smurfId++;
-  res.json(smurfs);
-});
+  smurfs.push(newSmurf)
+  smurfId++
+  res.json(smurfs)
+})
 
 server.put('/smurfs/:id', (req, res) => {
-  const { id } = req.params;
-  const { name, age, height } = req.body;
-  const findSmurfById = smurf => {
-    return smurf.id == id;
-  };
-  const foundSmurf = smurfs.find(findSmurfById);
-  if (!foundSmurf) {
-    return sendUserError('No Smurf found by that ID', res);
-  } else {
-    if (name) foundSmurf.name = name;
-    if (age) foundSmurf.age = age;
-    if (height) foundSmurf.height = height;
-    res.json(foundSmurf);
+  const { id } = req.params
+  const { name, age, height } = req.body
+  const findSmurfById = (smurf) => {
+    return smurf.id == id
   }
-});
+  const foundSmurf = smurfs.find(findSmurfById)
+  if (!foundSmurf) {
+    return sendUserError('No Smurf found by that ID', res)
+  } else {
+    if (name) foundSmurf.name = name
+    if (age) foundSmurf.age = age
+    if (height) foundSmurf.height = height
+    res.json(foundSmurf)
+  }
+})
 
 server.delete('/smurfs/:id', (req, res) => {
   console.log('in server.delete')
-  const { id } = req.params;
-  const foundSmurf = smurfs.find(smurf => smurf.id == id);
+  const { id } = req.params
+  const foundSmurf = smurfs.find((smurf) => smurf.id == id)
 
   if (foundSmurf) {
-    const SmurfRemoved = { ...foundSmurf };
-    smurfs = smurfs.filter(smurf => smurf.id != id);
+    const SmurfRemoved = { ...foundSmurf }
+    smurfs = smurfs.filter((smurf) => smurf.id != id)
     // changed response to be smurfs minus deletedSmurf
-    res.status(200).json(smurfs);
+    res.status(200).json(smurfs)
   } else {
-    sendUserError('No smurf by that ID exists in the smurf DB', res);
+    sendUserError('No smurf by that ID exists in the smurf DB', res)
   }
-});
+})
 
-server.listen(port, err => {
-  if (err) console.log(err);
-  console.log(`server is listening on port ${port}`);
-});
+server.listen(port, (err) => {
+  if (err) console.log(err)
+  console.log(`server is listening on port ${port}`)
+})
