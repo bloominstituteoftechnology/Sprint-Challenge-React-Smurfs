@@ -81,14 +81,10 @@ class App extends Component {
       .catch((error) => console.error(error))
   }
 
-  updateSmurf = (event) => {
-    event.preventDefault()
-    const id = event.target.value
+  updateSmurf = (smurf, id) => {
+    console.log(id, 'in updateSmurf')
     const endpoint = `http://localhost:3333/smurfs/${id}`
-    const smurf = {}
-    smurf.name = this.state.name
-    smurf.age = Number(this.state.age)
-    smurf.height = Number(this.state.height)
+    console.log(smurf)
     axios
       .put(endpoint, smurf)
       .then((res) => {
@@ -104,23 +100,22 @@ class App extends Component {
   render () {
     return (
       <div className='App'>
-        <SmurfForm
-          addSmurf={this.addSmurf}
-          updateName={this.updateName}
-          updateAge={this.updateAge}
-          updateHeight={this.updateHeight}
-          name={this.state.name}
-          age={this.state.age}
-          height={this.state.height}
-        />
         <Route
           exact
           path='/'
-          render={() => (
+          render={(props) => (
             <Smurfs
+              {...props}
               smurfs={this.state.smurfs}
               deleteSmurf={this.deleteSmurf}
               updateSmurf={this.updateSmurf}
+              addSmurf={this.addSmurf}
+              updateName={this.updateName}
+              updateAge={this.updateAge}
+              updateHeight={this.updateHeight}
+              age={this.state.age}
+              name={this.state.name}
+              height={this.state.height}
             />
           )}
         />
