@@ -4,6 +4,7 @@ import { Route } from 'react-router-dom';
 import './App.css';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
+// import assets from './assets';
 
 class App extends Component {
   constructor(props) {
@@ -28,12 +29,9 @@ class App extends Component {
       name: this.state.name,
       age: this.state.age,
       height: this.state.height
-    
-  };
+    };
    
-    
-
-  };
+    };
 
   smurfData = data => this.setState({ smurfs: data });
   // add any needed code to ensure that the smurfs collection exists on state and it has data coming from the server
