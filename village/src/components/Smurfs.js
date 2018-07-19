@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import Smurf from './Smurf';
-import DeleteSmurff from './DeleteSmurf';
+import DeleteSmurf from './DeleteSmurf';
 
 class Smurfs extends Component {
 
