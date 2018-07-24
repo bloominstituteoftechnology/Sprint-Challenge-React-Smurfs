@@ -1,3 +1,18 @@
 .App {
   text-align: center;
 }
+
+.welcome {
+  color: darkblue;
+  font-size: 24px;
+  text-shadow: 1px 1px black;
+}
+
+.Smurfs {
+  text-decoration: underline;
+  text-shadow: 1px 1px white;
+}
+.Smurfs ul {
+  color: darkblue;
+  border: 2px solid black;
+}
