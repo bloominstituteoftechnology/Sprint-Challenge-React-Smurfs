@@ -1,7 +1,15 @@
 import React from 'react';
+import { Link } from "react-router-dom";
+
+
 
 const Header = () => {
-  return <h2>Describe your header here.</h2>
+  return (
+    <div className="header">
+    {/* No idea why this link won't show up  */}
+    <Link to="/smurfs">Welcome to our Smurf Village!</Link>
+    </div>
+  );
 }
  
 export default Header;
