@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import Axios from 'axios';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-class SmurfForm extends Component {
+class EditForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -11,11 +12,11 @@ class SmurfForm extends Component {
     };
   }
 
-  addSmurf = event => {
-    event.preventDefault();
-    const newSmurf = this.state;
+  editSmurf = event => {
+    //event.preventDefault();
+    const editedSmurf = this.state;
     Axios
-    .post('http://localhost:3333/smurfs', newSmurf)
+    .put(`http://localhost:3333/smurfs/${this.props.id}`, editedSmurf)
     .then(response => {
       console.log(response.data);
       this.props.handleData(response.data);
@@ -40,7 +41,7 @@ class SmurfForm extends Component {
         <form onSubmit={this.addSmurf}>
           <input
             onChange={this.handleInputChange}
-            placeholder="name"
+            placeholder={"name"}
             value={this.state.name}
             name="name"
           />
@@ -56,11 +57,11 @@ class SmurfForm extends Component {
             value={this.state.height}
             name="height"
           />
-          <button type="submit">Add to the village</button>
+         <button type="submit" onClick={this.editSmurf}>Submit changes</button>
         </form>
       </div>
     );
   }
 }
 
-export default SmurfForm;
+export default EditForm;
