@@ -1,3 +1,35 @@
 .App {
   text-align: center;
 }
+
+.cardWrapper {
+  max-width: 350px;
+  border: 1px solid gray;
+  border-radius: 5px;
+  margin: 1rem auto;
+  padding-bottom: 2rem;
+  box-shadow:  3px 3px 5px 6px #ccc;
+}
+.cardWrapper:hover {
+  box-shadow: inset 0 0 10px #00000087;
+}
+ button:hover {
+  box-shadow: 
+  inset 5px 5px 10px #00000033;
+
+}
+
+.SmurfForm {
+  margin: 5rem auto;
+}
+.SmurfForm input, button{
+  margin-right: 1rem;
+  font-size: 1.1rem;
+}
+.SmurfForm input:hover{
+  box-shadow: 
+  inset 5px 5px 10px #00000033;
+}
+.backButton {
+  margin-bottom: 2rem;
+}
