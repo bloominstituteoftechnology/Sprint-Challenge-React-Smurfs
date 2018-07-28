@@ -1,11 +1,17 @@
 import React from 'react';
+ import './Smurf.css';
+ import {Card, CardBody, CardText, CardTitle} from 'reactstrap';
 
 const Smurf = props => {
   return (
     <div className="Smurf">
-      <h3>{props.name}</h3>
-      <strong>{props.height} tall</strong>
-      <p>{props.age} smurf years old</p>
+    <Card> 
+      <CardBody> 
+        <CardTitle>{props.name}</CardTitle>
+      <CardText>{props.height} tall</CardText>
+      <CardText>{props.age} smurf years old</CardText>
+      </CardBody>
+      </Card>
     </div>
   );
 };
