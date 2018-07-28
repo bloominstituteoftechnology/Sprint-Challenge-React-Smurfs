@@ -1,20 +1,26 @@
 import React from 'react';
+import { Card, Button, CardTitle, CardText } from 'reactstrap';
+import './Smurf.css';
 
 const Smurf = props => {
+  console.log(props);
   return (
-    <div className="Smurf">
-      <h3>{props.name}</h3>
-      <strong>{props.height} tall</strong>
-      <p>{props.age} smurf years old</p>
+    <div className="smurf">
+      <Card body inverse color="primary">
+        <CardTitle>{props.name}</CardTitle>
+        <CardText>{props.age} smurf years old</CardText>
+        <CardText>{props.height} tall</CardText>
+        <CardText>{props.id}</CardText>
+        <Button color="secondary">Delete Smurf</Button>
+      </Card>
     </div>
   );
 };
 
 Smurf.defaultProps = {
   name: '',
-  height: '',
-  age: ''
+  age: '',
+  height: ''
 };
 
 export default Smurf;
-

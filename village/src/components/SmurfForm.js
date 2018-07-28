@@ -1,54 +1,82 @@
 import React, { Component } from 'react';
+import Smurfs from './Smurfs';
+// import Header from './components/Header';
+import axios from 'axios';
+import './SmurfForm.css';
 
 class SmurfForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      smurfs: [],
       name: '',
       age: '',
-      height: ''
+      height: '',
+      id: ''
     };
   }
 
-  addSmurf = event => {
-    event.preventDefault();
-    // add code to create the smurf using the api
+  // add any needed code to ensure that the smurfs collection exists on state and it has data coming from the server
+  // Notice what your map function is looping over and returning inside of Smurfs.
+  // You'll need to make sure you have the right properties on state and pass them down to props.
 
-    this.setState({
-      name: '',
-      age: '',
-      height: ''
-    });
+  componentDidMount() {
+    this.addSmurfs()
   }
 
-  handleInputChange = e => {
-    this.setState({ [e.target.name]: e.target.value });
-  };
+  addSmurfs = () => {
+   axios.get('http://localhost:3333/smurfs')
+    .then(response => this.setState({ smurfs: response.data }))
+    .catch(err => console.log(err)) 
+  }
+
+  handleInputChange = (event) => { this.setState({[event.target.name]: event.target.value}) }
+
+  buttonSubmit = () => {
+    const { name, age, height, id } = this.state
+    axios.post('http://localhost:3333/smurfs', { name, age, height, id })
+      .then( (response) => {
+        this.setState({ smurfs: response.data, name: '', age: '', height: '', id: '' })
+      })
+  }
 
   render() {
     return (
-      <div className="SmurfForm">
+      <div className="app">
+        {/* <Header /> */}
+        <br />
         <form onSubmit={this.addSmurf}>
           <input
+            type="text"
             onChange={this.handleInputChange}
-            placeholder="name"
+            placeholder="Enter name"
             value={this.state.name}
             name="name"
           />
           <input
+            type="number"
             onChange={this.handleInputChange}
-            placeholder="age"
+            placeholder="Enter age"
             value={this.state.age}
             name="age"
           />
           <input
+            type="number"
             onChange={this.handleInputChange}
-            placeholder="height"
+            placeholder="Enter height"
             value={this.state.height}
             name="height"
           />
-          <button type="submit">Add to the village</button>
+          <input
+            type="number"
+            onChange={this.handleInputChange}
+            placeholder="Enter id"
+            value={this.state.id}
+            name="id"
+          />
+          <button type="submit" onClick={this.buttonSubmit}>Add to the village</button>
         </form>
+        <Smurfs smurfs={this.state.smurfs} />
       </div>
     );
   }
