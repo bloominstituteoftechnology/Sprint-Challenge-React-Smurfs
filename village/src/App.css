@@ -1,3 +1,21 @@
 .App {
   text-align: center;
 }
+
+.links {
+  background: lightblue; 
+}
+
+.header {
+  color: lightsalmon; 
+}
+
+.home {
+  justify-content: space-between; 
+  margin: 50px; 
+}
+
+.village {  
+  justify-content: space-between; 
+  margin: 50px; 
+}
