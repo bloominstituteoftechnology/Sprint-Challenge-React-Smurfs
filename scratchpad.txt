@@ -1,0 +1,14 @@
+Potentially useful information will be stored here:
+
+I have a hunch that the api given is not correct, because it is a list of ALL the characters.
+We're making a SMURF Village. That obviously means we need to exclude a lot of additional "side"
+characters and only add actual SMURFs to it. So, I have looked on the site and have come up with
+the following site to potentially use instead of the one given.
+
+<ORIGINAL>
+http://smurfs.wikia.com/wiki/Category:Smurfs_Characters
+</ORIGINAL>
+
+<REPLACEMENT>
+http://smurfs.wikia.com/wiki/Category:Smurfs
+</REPLACEMENT>
