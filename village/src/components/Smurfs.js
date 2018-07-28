@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
-
+import {Link} from 'react-router-dom';
 import Smurf from './Smurf';
+import SmurfForm from './SmurfForm';
 
 class Smurfs extends Component {
   render() {
     return (
       <div className="Smurfs">
-        <h1>Smurf Village</h1>
+        <h1>Smurfington Citizens</h1>
+        <Link to="/">Home</Link>
+        <SmurfForm setSmurf={this.props.setSmurf} setErrorHandler={this.props.setErrorHandler}/>
         <ul>
           {this.props.smurfs.map(smurf => {
             return (
