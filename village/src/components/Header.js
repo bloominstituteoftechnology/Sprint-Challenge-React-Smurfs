@@ -1,7 +1,16 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-const Header = () => {
-  return <h2>Describe your header here.</h2>
+class Header extends Component {
+  constructor() {
+    super();
+    this.state = {
+      smurfListLength: [],
+    }
+  }
+
+  render() {
+    return <h2>Welcome Guests To The Smurf Village</h2>
+  }
 }
- 
-export default Header;
+
+export default Header; 
