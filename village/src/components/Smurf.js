@@ -1,3 +1,4 @@
+
 import React from 'react';
 
 const Smurf = props => {
@@ -17,4 +18,3 @@ Smurf.defaultProps = {
 };
 
 export default Smurf;
-
