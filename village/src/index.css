@@ -3,3 +3,12 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+
+.Smurf{
+color: black;
+text-decoration: none;
+}
+
+.Smurf:hover{
+	color: chocolate;
+}

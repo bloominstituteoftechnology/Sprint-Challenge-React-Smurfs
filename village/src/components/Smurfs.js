@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-
 import Smurf from './Smurf';
+import SmurfForm from './SmurfForm';
 
 class Smurfs extends Component {
   render() {
     return (
       <div className="Smurfs">
+	 <SmurfForm handleSetData={this.props.handleSetData} />   
         <h1>Smurf Village</h1>
         <ul>
           {this.props.smurfs.map(smurf => {

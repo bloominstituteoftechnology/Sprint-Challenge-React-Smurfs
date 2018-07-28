@@ -26,6 +26,12 @@ server.get('/smurfs', (req, res) => {
 });
 let smurfId = 1;
 
+server.get('/smurfs/:id', (req, res) => {
+        let smurf = smurfs.filter(smurf => smurf.id.toString() === req.params.id)[0];
+        res.json(smurf);
+});
+
+
 server.post('/smurfs', (req, res) => {
   const { name, age, height } = req.body;
   const newSmurf = { name, age, height, id: smurfId };
