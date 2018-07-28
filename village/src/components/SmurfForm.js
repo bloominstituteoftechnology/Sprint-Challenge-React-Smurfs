@@ -13,12 +13,15 @@ class SmurfForm extends Component {
   addSmurf = event => {
     event.preventDefault();
     // add code to create the smurf using the api
-
-    this.setState({
+    const { name, age, height } = this.state;
+    const smurfData = { name, age, height};
+    this.props.addSmurf(smurfData);
+    this.setState({ 
       name: '',
       age: '',
       height: ''
-    });
+    })
+   
   }
 
   handleInputChange = e => {
@@ -47,7 +50,7 @@ class SmurfForm extends Component {
             value={this.state.height}
             name="height"
           />
-          <button type="submit">Add to the village</button>
+          <button type="submit" >Add to the village</button>
         </form>
       </div>
     );
