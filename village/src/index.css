@@ -3,3 +3,27 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+
+
+.header {
+  margin: 0 auto;
+  padding: 10px 10px 10px 10px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.link {
+  margin: 20px;
+  
+}
+
+.SmurfForm {
+  margin: 0 auto;
+  padding: 10px 10px 10px 10px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
