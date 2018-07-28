@@ -61,7 +61,7 @@
     * You'll start by wrapping your `root` component in the `Router` component.
     * Then declare your routes with `Route`.
     * Then make it so you can navigate to your routes using `Link`.
-* Create a home `/` route that mounts a Header component describing to a user that they are welcomed guests in the smurf village. 
+* Create a home `/` route that mounts a Header component describing to a user that they are welcomed guests in the smurf village.
     * This header component should have a button/link that can take a user to a new page.
 * Create a link that navigates a user into the village. This route `/smurfs` should mount the `App` component that will fetch your data, and display your Smurfs as well as your Smurf Form.
 
@@ -111,11 +111,11 @@
 [{
   name: 'Sleepy',
   age: 30,
-  height: '3cm,
+  height: '3cm',
   id: 1
 }]
 ```
 
 ### Router Stretch Problem
 * If a user clicks on a smurf, they should be routed to `/smurf/:id` and a single smurf should be displayed on the page.
-* I know this seems like a small task, but you'll have to get crafty with your data and your logic here. 
+* I know this seems like a small task, but you'll have to get crafty with your data and your logic here.
