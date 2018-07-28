@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Header = () => {
-  return <h2>Describe your header here.</h2>
+  return <h2>Description of a correct header in the correct position.</h2>
 }
  
 export default Header;
