@@ -1,3 +1,50 @@
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
+  background-color: #63b0fb;
+}
+
 .App {
   text-align: center;
+}
+
+.nav {
+  background-color: #666;
+}
+
+.nav-link {
+  color: white;
+}
+
+.Smurf {
+  margin: 0 auto;
+  margin-top: 3rem 0;
+  max-width: 50vw;
+}
+
+.smurf-margin-top {
+  margin-top: 3rem;
+}
+
+.form-group {
+  margin-top: 3rem;
+  max-width: 50vw;
+}
+
+.form-group button {
+  margin-top: 2rem;
+}
+
+.Smurfs h1 {
+  color: white;
+  margin-top: 3rem;
+  font-family: "Titan One", cursive;
+  font-size: 7rem;
+}
+
+.delete-smurf-button {
+  max-width: 10rem;
 }
