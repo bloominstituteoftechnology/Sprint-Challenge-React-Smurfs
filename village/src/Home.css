@@ -1,0 +1,14 @@
+button:hover {
+    cursor: pointer;
+}
+
+.homeImage {
+    display: block;
+    margin-top: 50px;
+    margin-left: 280px;
+}
+
+.home-container {
+    background-Color: white;
+    height: 100%;
+}
