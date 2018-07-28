@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 
 class SmurfForm extends Component {
   constructor(props) {
@@ -6,19 +7,56 @@ class SmurfForm extends Component {
     this.state = {
       name: '',
       age: '',
-      height: ''
+      height: '',
+      edit: false
     };
+  }
+
+  componentDidMount() {
+    if (this.props.name && this.props.age && this.props.height) {
+      this.getSmurfData(this.props.id);
+    }
+  }
+
+  getSmurfData = id => {
+    axios
+      .get(`http://localhost:3333/smurfs/${id}`)
+      .then(response => this.setState({
+        name: response.data.name,
+        age: response.data.age,
+        height: response.data.height,
+        edit: true
+      }))
+      .catch(err => console.log(err));
+  }
+
+  editSmurf = () => {
+    const { name, age, height } = this.state;
+    const newSmurf = { name, age, height }
+
+    axios
+      .put(`http://localhost:3333/smurfs/${this.props.id}`, newSmurf)
+      .then(response => {
+        this.props.handleSetData(response.data)
+        this.props.setEdit(false);
+        this.props.history.push('/smurfs');
+      })
+      .catch(err => console.log(err));
   }
 
   addSmurf = event => {
     event.preventDefault();
     // add code to create the smurf using the api
+    const { name, age, height } = this.state;
+    const newSmurf = { name, age, height }
+    axios
+      .post('http://localhost:3333/smurfs', newSmurf)
+      .then(response => {
+        this.props.handleSetData(response.data);
+        this.setState({ name: '', age: '', height: '' });
+      })
+      .catch(err => console.log(err));
 
-    this.setState({
-      name: '',
-      age: '',
-      height: ''
-    });
   }
 
   handleInputChange = e => {
@@ -28,7 +66,7 @@ class SmurfForm extends Component {
   render() {
     return (
       <div className="SmurfForm">
-        <form onSubmit={this.addSmurf}>
+        <form onSubmit={event => event.preventDefault()}>
           <input
             onChange={this.handleInputChange}
             placeholder="name"
@@ -47,7 +85,8 @@ class SmurfForm extends Component {
             value={this.state.height}
             name="height"
           />
-          <button type="submit">Add to the village</button>
+          <button onClick={this.state.edit ? this.editSmurf : this.addSmurf}>{this.state.edit ? 'Save' : 'Add to the village'}</button>
+          {this.state.edit ? null : <button onClick={() => this.props.history.push('/')} >Back to home!</button>}
         </form>
       </div>
     );

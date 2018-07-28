@@ -1,7 +1,12 @@
 import React from 'react';
 
-const Header = () => {
-  return <h2>Describe your header here.</h2>
+const Header = props => {
+  return (
+    <div>
+      <h2>Welcome to the smurf village!</h2>
+      <button onClick={() => props.history.push('/smurfs')}>Enter the village!</button>
+    </div>
+  )
 }
- 
+
 export default Header;
