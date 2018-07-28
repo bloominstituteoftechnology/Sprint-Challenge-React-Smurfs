@@ -1,3 +1,25 @@
 .App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
+  background: dodgerblue;
+  padding: 5%;
+}
+
+
+.Smurf {
+  border: 1px solid black;
+  border-radius: 5%;
+  width: 450px;
+  height: 200px;
+  margin: 10px 0;
+  background: lightblue;
+}
+
+.delete-btn {
+  border: 1px solid black;
+  background: dodgerblue;
+  color: aliceblue;
+  padding: 5px 5px;
 }
