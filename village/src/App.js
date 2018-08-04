@@ -32,16 +32,16 @@ class App extends Component {
   }
   render() {
     return (
-      <div className="App">
-        <Route exact path="/" component={Header} />
+      <div className='App'>
+        <Route exact path='/' component={Header} />
         <Route
-          path="/smurfs"
+          path='/smurfs'
           render={props => (
             <SmurfForm {...props} updateSmurfs={this.updateSmurfs} />
           )}
         />
         <Route
-          path="/smurfs"
+          path='/smurfs'
           render={props => (
             <Smurfs
               {...props}
