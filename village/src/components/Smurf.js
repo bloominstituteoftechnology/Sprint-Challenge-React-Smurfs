@@ -1,17 +1,39 @@
-import React from 'react';
+import React, { Component } from 'react';
+import axios from 'axios';
 
-const Smurf = props => {
-  return (
-    <div className="Smurf">
-      <h3>{props.name}</h3>
-      <strong>{props.height} tall</strong>
-      <p>{props.age} smurf years old</p>
-      <div className="actions">
-        <button data-id={props.id} onClick={props.deleteSmurf}>Delete</button>
+class Smurf extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      smurf: this.props.smurf ? this.props.smurf : null
+    };
+  }
+  componentWillReceiveProps(newProps) {
+    if (this.props.match.params.id !== newProps.match.params.id) {
+      axios
+        .get(`http://localhost:3333/smurf/${this.props.match.params.id}`)
+        .then(response => this.setState({ smurf: response.data }))
+        .catch(err => console.error(err));
+    }
+  }
+  render() {
+    return (
+      <div className="Smurf">
+        <h3>{this.state.smurf.name}</h3>
+        <strong>{this.state.smurf.height} tall</strong>
+        <p>{this.state.smurf.age} smurf years old</p>
+        <div className="actions">
+          <button
+            data-id={this.state.smurf.id}
+            onClick={this.props.deleteSmurf}
+          >
+            Delete
+          </button>
+        </div>
       </div>
-    </div>
-  );
-};
+    );
+  }
+}
 
 Smurf.defaultProps = {
   name: '',
@@ -20,4 +42,3 @@ Smurf.defaultProps = {
 };
 
 export default Smurf;
-
