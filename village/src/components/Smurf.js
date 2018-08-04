@@ -8,8 +8,8 @@ class Smurf extends Component {
       smurf: this.props.smurf ? this.props.smurf : null
     };
   }
-  componentWillReceiveProps(newProps) {
-    if (this.props.match.params.id !== newProps.match.params.id) {
+  componentDidMount() {
+    if (typeof this.props.match !== 'undefined') {
       axios
         .get(`http://localhost:3333/smurf/${this.props.match.params.id}`)
         .then(response => this.setState({ smurf: response.data }))
@@ -17,21 +17,25 @@ class Smurf extends Component {
     }
   }
   render() {
-    return (
-      <div className="Smurf">
-        <h3>{this.state.smurf.name}</h3>
-        <strong>{this.state.smurf.height} tall</strong>
-        <p>{this.state.smurf.age} smurf years old</p>
-        <div className="actions">
-          <button
-            data-id={this.state.smurf.id}
-            onClick={this.props.deleteSmurf}
-          >
-            Delete
+    if (this.state.smurf){
+      return (
+        <div className='Smurf'>
+          <h3>{this.state.smurf.name}</h3>
+          <strong>{this.state.smurf.height} tall</strong>
+          <p>{this.state.smurf.age} smurf years old</p>
+          <div className='actions'>
+            <button
+              data-id={this.state.smurf.id}
+              onClick={this.props.deleteSmurf}
+            >
+              Delete
           </button>
+          </div>
         </div>
-      </div>
-    );
+      );
+    }
+
+    return null
   }
 }
 
