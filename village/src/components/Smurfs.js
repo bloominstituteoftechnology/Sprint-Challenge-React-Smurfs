@@ -13,10 +13,7 @@ class Smurfs extends Component {
             return (
               <Link to={`/smurf/${smurf.id}`} key={smurf.id}>
                 <Smurf
-                  name={smurf.name}
-                  id={smurf.id}
-                  age={smurf.age}
-                  height={smurf.height}
+                  smurf={smurf}
                   deleteSmurf={this.props.deleteSmurf}
                 />
               </Link>
