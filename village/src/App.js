@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { Route } from 'react-router-dom';
+import { Route, withRouter } from 'react-router-dom';
 
 import './App.css';
 import SmurfForm from './components/SmurfForm';
@@ -22,7 +22,10 @@ class App extends Component {
     const smurfId = event.target.dataset.id;
     axios
       .delete(`http://localhost:3333/smurfs/${smurfId}`)
-      .then(response => this.setState({ smurfs: response.data }))
+      .then(response => {
+        this.setState({ smurfs: response.data });
+        this.props.history.push('/smurfs');
+      })
       .catch(err => console.error(err));
   };
   componentDidMount() {
@@ -53,16 +56,11 @@ class App extends Component {
         />
         <Route
           path='/smurf/:id'
-          render={props => (
-            <Smurf
-              {...props}
-              deleteSmurf={this.deleteSmurf}
-            />
-          )}
+          render={props => <Smurf {...props} deleteSmurf={this.deleteSmurf} />}
         />
       </div>
     );
   }
 }
 
-export default App;
+export default withRouter(App);
