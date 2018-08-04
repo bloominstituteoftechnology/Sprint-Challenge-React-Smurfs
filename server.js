@@ -21,10 +21,24 @@ let smurfs = [
     height: '8cm'
   }
 ];
+let smurfId = 1;
+
 server.get('/smurfs', (req, res) => {
   res.json(smurfs);
 });
-let smurfId = 1;
+
+server.get('/smurf/:id', (req, res) => {
+  const { id } = req.params;
+  const findSmurfById = smurf => {
+    return smurf.id == id;
+  };
+  const foundSmurf = smurfs.find(findSmurfById);
+  if (foundSmurf) {
+    res.json(foundSmurf);
+  } else {
+    sendUserError('No smurf by that ID exists in the smurf DB', res);
+  }
+});
 
 server.post('/smurfs', (req, res) => {
   const { name, age, height } = req.body;
