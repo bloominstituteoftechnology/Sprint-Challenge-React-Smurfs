@@ -5,6 +5,7 @@ import { Route } from 'react-router-dom';
 import './App.css';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
+import Smurf from './components/Smurf';
 import Header from './components/Header';
 
 class App extends Component {
@@ -46,6 +47,15 @@ class App extends Component {
             <Smurfs
               {...props}
               smurfs={this.state.smurfs}
+              deleteSmurf={this.deleteSmurf}
+            />
+          )}
+        />
+        <Route
+          path='/smurf/:id'
+          render={props => (
+            <Smurf
+              {...props}
               deleteSmurf={this.deleteSmurf}
             />
           )}
