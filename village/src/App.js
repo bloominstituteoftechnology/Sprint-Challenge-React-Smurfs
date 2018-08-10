@@ -39,7 +39,7 @@ handleSubmit = data => this.setState({smurfs: data});
       <div className="App">
     <Route exact path = "/" component = {Header}/>
 
-      <Route path='/smurfs'
+      <Route path='/smurfs' 
         render = {props =>
             <SmurfForm {...props} 
             handleSubmit = {this.handleSubmit} 
