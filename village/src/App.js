@@ -5,6 +5,7 @@ import Smurfs from "./components/Smurfs";
 import Header from "./components/Header";
 import axios from "axios";
 import { Route,Link } from "react-router-dom";
+import VillageBurner from "./components/VillageBurner";
 
 class App extends Component {
   constructor(props) {
@@ -58,6 +59,7 @@ class App extends Component {
                 updateParentState={this.updateParentState}
               />
               <Smurfs {...props} smurfs={this.state.smurfs} />
+              <VillageBurner {...props} updateParentState={this.updateParentState} />
             </div>
           )}
         />
