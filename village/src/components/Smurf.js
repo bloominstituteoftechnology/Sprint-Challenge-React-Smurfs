@@ -1,14 +1,18 @@
 import React from 'react';
 
-const Smurf = props => {
-  return (
-    <div className="Smurf">
-      <h3>{props.name}</h3>
-      <strong>{props.height} tall</strong>
-      <p>{props.age} smurf years old</p>
-    </div>
-  );
-};
+const Smurf=(props)=> {
+  const smurf = props.smurfs.find(s => s.id.toString() === props.match.params.id);
+  if (smurf){
+    return (
+      <div className="Smurf">
+        <h3>{smurf.name}</h3>
+        <strong>{smurf.height} tall</strong>
+        <p>{smurf.age} smurf years old</p>
+      </div>)
+  } else {
+    return null;
+  }
+}
 
 Smurf.defaultProps = {
   name: '',
