@@ -6,7 +6,13 @@ import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
 import Header from './components/Header';
 
-
+const Home = () => {
+  return(
+    <div className = "home">
+    <Header />
+  </div>
+  )
+}
 
 const url = "http://localhost:3333/smurfs";
 class App extends Component {
@@ -45,13 +51,7 @@ class App extends Component {
   }
 }
 
-const Home = () => {
-  return(
-    <div className = "home">
-    <Header />
-  </div>
-  )
-}
+
 
 
 export default App;

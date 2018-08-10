@@ -4,6 +4,7 @@ import Smurf from './Smurf';
 import { ListGroup } from 'reactstrap';
 import { Jumbotron } from 'reactstrap';
 
+
 class Smurfs extends Component {
   render() {
     return (
