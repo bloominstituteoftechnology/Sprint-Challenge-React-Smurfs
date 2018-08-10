@@ -42,6 +42,13 @@ class App extends Component {
          this.setState({smurfs:response.data})
        })
   }
+  updateSmurf =(id, smurf) => {
+    axios.put(`http://localhost:3333/smurfs/${id}`, smurf)
+      .then(response => {
+        console.log(response)
+        this.setState({smurfs:response.data})
+      })
+  }
 
   render() {
       console.log(this.state.smurfs); 
@@ -53,9 +60,7 @@ class App extends Component {
           <Switch>
               <Route exact path = "/" component={Header} />
               <Route path = '/smurfvillage' render = {(props) =>  <div><SmurfForm {...props} addSmurf = {this.addingSmurf} /> <Smurfs {...props} smurfs ={this.state.smurfs}  /></div>} />
-              <Route path = '/:id' render ={ (props) =><SmurfPage {...props} delete = {this.deleteSmurf} />} />
-             
-              
+              <Route path = '/:id' render ={ (props) =><SmurfPage {...props} delete = {this.deleteSmurf} update = {this.updateSmurf} />} />
               
           </Switch>
         </div>
