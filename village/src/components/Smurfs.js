@@ -8,6 +8,7 @@ class Smurfs extends Component {
   render() {
     return (
       <div className="Smurfs">
+      <Link to="/">Home</Link>
         <h1>Smurf Village</h1>
         <ul>
           {this.props.smurfs.map(smurf => {
@@ -23,7 +24,6 @@ class Smurfs extends Component {
             );
           })}
         </ul>
-        <Link to="/">Home</Link>
       </div>
     );
   }

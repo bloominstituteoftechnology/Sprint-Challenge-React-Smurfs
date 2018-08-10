@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {Link} from 'react-router-dom';
 import axios from 'axios';
 
 
@@ -8,7 +9,7 @@ const url = 'http://localhost:3333/smurfs';
 class SmurfUpdate extends Component {
     constructor(props) {
         super(props);
-        this.state = { 
+        this.state = {
             name: '',
             age: '',
             email:'',
@@ -41,11 +42,12 @@ handleChange = event => {
 
 update = (event) => {
     event.preventDefault();
-    axios.put(`${url}/${this.state.id}`, {
+    const updatedSmurf ={
         name: this.state.name,
         age: this.state.age,
         height: this.state.height
-    })
+    }
+    axios.put(`${url}/${this.state.id}`, updatedSmurf)
     .then(response => {
         console.log(response);
         console.log(response.data);
@@ -62,27 +64,25 @@ update = (event) => {
             <div>
                 <form>
                     <input
-                        type="text"
                         placeholder='Name'
                         name='name' 
                         value={this.state.name} 
                         onChange={this.handleChange}/>
                     <input
-                        type="number"
                         name="age"
-                        placeholder="Age"
+                        placeholder="age"
                         value={this.state.age}
                         onChange={this.handleChange}
                     />
                     <input
-                        type="number"
                         name="height"
-                        placeholder="Height"
+                        placeholder="height"
                         value={this.state.height}
                         onChange={this.handleChange}
                     />
                     <button type="submit">Update</button>
                 </form>
+                <Link to="/">Home</Link>
             </div>
          );
     }

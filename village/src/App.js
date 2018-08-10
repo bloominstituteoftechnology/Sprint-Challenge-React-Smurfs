@@ -5,6 +5,7 @@ import './App.css';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
 import SmurfUpdate from './components/SmurfUpdate';
+import SmurfView from './components/SmurfView';
 
 const url = 'http://localhost:3333/smurfs';
 
@@ -49,10 +50,13 @@ class App extends Component {
     return (
       <div className="App">
         <Route exact path='/' component={Home} />
-        <Route path='/smurfs/add' component={SmurfForm} />
+        <Route path='/add' component={SmurfForm} />
         <Route exact path='/smurfs' render={(props) => (
-          <Smurfs {...props} smurfs={this.state.smurfs} delete={this.delete}/>)} />
-        <Route path='smurfs/:id' component={SmurfUpdate} />
+          <Smurfs {...props} smurfs={this.state.smurfs} delete={this.delete} />)} />
+        <Route path='/smurfs/:id' render={(props) => (
+          <SmurfUpdate {...props} smurfs={this.state.smurfs} delete={this.delete} />)} />
+        <Route path='/smurf/:id' render={(props) => (
+          <SmurfView {...props}  smurfs={this.state.smurfs} delete={this.delete} />)} />
       </div>
     );
   }
@@ -62,7 +66,7 @@ const Home = () => {
   return (
     <div className="home">
       <Link to='/smurfs'>The List of Smurfs</Link>
-      <Link to='/smurfs/add'>Add New Smurf</Link>
+      <Link to='/add'>Add New Smurf</Link>
     </div>
   )
 }

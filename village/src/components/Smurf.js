@@ -9,6 +9,7 @@ const Smurf = props => {
       <p>{props.age} smurf years old</p>
       <button onClick={() => {props.delete(props.id)}}>Delete</button>
       <Link to={`/smurfs/${props.id}`}><button>Edit</button></Link>
+      <Link to={`/smurf/${props.id}`}><button> View Smurf's Info</button></Link>
     </div>
   );
 };
