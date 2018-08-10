@@ -54,7 +54,7 @@ class App extends Component {
 					render={() => (
 						<div>
 							<SmurfForm 
-							onActualAddSmurf={ this.actualAddSmurf }/>
+							onSubmit={ this.actualAddSmurf }/>
 							<Smurfs
 								onGeneticallyAlterSmurf={
 									this.geneticallyAlterSmurf

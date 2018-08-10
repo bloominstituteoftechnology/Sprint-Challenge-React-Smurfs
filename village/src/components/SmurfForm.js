@@ -34,7 +34,7 @@ class SmurfForm extends Component {
       <div className="SmurfForm">
         <form onSubmit={ e => {
           e.preventDefault();
-          this.props.onActualAddSmurf(this.state);
+          this.props.onSubmit(this.state);
           this.setState({name: '', age: '', height: ''});
         }}>
           <input
