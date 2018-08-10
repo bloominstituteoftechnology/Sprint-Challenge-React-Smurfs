@@ -37,13 +37,13 @@ class SmurfForm extends Component {
 }
     
 
-  handleChange = e => {
-    this.setState({ [e.target.name]: e.target.value });
+  handleChange = event => {
+    this.setState({ [event.target.name]: event.target.value });
   };
 
   render() {
     return (
-      <div className="SmurfForm">
+      <div>
       <Link to='/'>Home</Link>
         <form onSubmit={this.addSmurf}>
           <input

@@ -62,6 +62,7 @@ update = (event) => {
         return ( 
             
             <div>
+            <Link to="/">Home</Link>
                 <form>
                     <input
                         placeholder='Name'
@@ -82,7 +83,7 @@ update = (event) => {
                     />
                     <button type="submit">Update</button>
                 </form>
-                <Link to="/">Home</Link>
+                
             </div>
          );
     }
