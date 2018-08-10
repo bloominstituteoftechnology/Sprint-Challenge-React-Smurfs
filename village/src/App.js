@@ -86,11 +86,11 @@ class App extends Component {
       <div className="App">
         <Route exact path="/" component={Header} />
         <Route
+          exact
           path="/smurfs"
           render={props => (
             <div>
               <SmurfForm
-                {...props}
                 name={this.state.name}
                 age={this.state.age}
                 height={this.state.height}
@@ -98,13 +98,23 @@ class App extends Component {
                 addSmurf={this.addSmurf}
               />
               <Smurfs
-                {...props}
                 smurfs={this.state.smurfs}
                 deleteSmurf={this.deleteSmurf}
                 updateSmurf={this.updateSmurf}
               />
               <Link to="/">Home</Link>
             </div>
+          )}
+        />
+        <Route
+          path="/smurfs/:id"
+          render={props => (
+            <Smurfs
+              {...props}
+              smurfs={this.state.smurfs}
+              deleteSmurf={this.deleteSmurf}
+              updateSmurf={this.updateSmurf}
+            />
           )}
         />
       </div>
