@@ -1,3 +1,11 @@
 .App {
   text-align: center;
 }
+
+.update-show {
+  display: block;
+}
+
+.update-hidden {
+  display: none;
+}
