@@ -12,7 +12,8 @@ class SmurfForm extends Component {
     };
   }
 
-  addSmurf = () => {
+  addSmurf = (e) => {
+   e.preventDefault();
     const newSmurf = {
       name: this.state.name,
       age: this.state.age,
