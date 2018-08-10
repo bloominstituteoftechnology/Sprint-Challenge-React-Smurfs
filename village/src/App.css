@@ -1,3 +1,54 @@
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
 .App {
   text-align: center;
+  background-image: url('https://i.pinimg.com/originals/3d/07/2f/3d072f2c0bbd449647428a87faebbf26.jpg');
+  background-size: cover;
+  background-attachment: fixed;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.SmurfForm {
+  margin: 10px;
+}
+
+.SmurfForm h2 {
+  margin: 0;
+}
+
+.Smurfs {
+  background-color: white;
+  border: 1px solid black;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.Smurfs h1 {
+  border-bottom: 1px solid lightgrey;
+  padding-bottom: 5px;
+  margin: 15px 35px;
+}
+
+.Smurf {
+  border-bottom: 1px solid grey;
+}
+
+.burned-village {
+  background-image: url('https://i.pinimg.com/originals/60/1a/7c/601a7ca29ce333316c5032dc958e1aa2.jpg');
+  background-size: cover;
+  background-attachment: fixed;
+  height: 100vh;
+}
+
+.burned-village h1 {
+  background-color: crimson;
+  border: 1px dashed black;
+  margin: 30px;
+  padding: 20px;
 }
