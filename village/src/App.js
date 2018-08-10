@@ -9,6 +9,8 @@ class App extends Component {
     super(props);
     this.state = {
       smurfs: [],
+      isEditing: false,
+      editingID: null,
     };
   }
 
@@ -18,15 +20,28 @@ class App extends Component {
             .catch(err => console.log(err));
   }
 
-  updateSmurfs = newSmurfs => {
-    this.setState({smurfs: newSmurfs});
+  updateState = newState => {
+    this.setState(newState);
+  }
+
+  deleteASmurf = id => {
+    axios.delete(`http://localhost:3333/smurfs/${id}`)
+          .then(res => this.setState({smurfs: res.data}))
+          .catch(err => console.log(err));
+  }
+
+  getSmurf = id => {
+    let smurf = this.state.smurfs.filter(smurf => smurf.id === id);
+    return smurf[0];
   }
 
   render() {
     return (
       <div className="App">
-        <SmurfForm update={this.updateSmurfs} />
-        <Smurfs smurfs={this.state.smurfs} />
+        {this.state.isEditing ?
+          <SmurfForm update={this.updateState} isEditing={true} editingID={this.state.editingID} trigger={this.state.triggerEditing} getSmurf={this.getSmurf} /> :
+          <SmurfForm update={this.updateState} isEditing={false} />}
+        <Smurfs smurfs={this.state.smurfs} deleteASmurf={this.deleteASmurf} edit={this.updateState} />
       </div>
     );
   }

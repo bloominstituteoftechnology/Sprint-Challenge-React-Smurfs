@@ -6,6 +6,8 @@ const Smurf = props => {
       <h3>{props.name}</h3>
       <strong>{props.height} tall</strong>
       <p>{props.age} smurf years old</p>
+      <button onClick={()=>props.edit({isEditing: true, editingID: props.id})}>Edit Smurf</button>
+      <button onClick={()=>props.deleteASmurf(props.id)}>Delete Smurf</button>
     </div>
   );
 };
@@ -17,4 +19,3 @@ Smurf.defaultProps = {
 };
 
 export default Smurf;
-
