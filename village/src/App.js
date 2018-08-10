@@ -67,8 +67,8 @@ class App extends Component {
         render ={props =>
         <SmurfForm 
           {...props}
-           handleAddSmurf={this.state.addSmurf}
-           handleInputChange={this.state.handleInputChange}
+           handleAddSmurf={this.addSmurf}
+           handleInputChange={this.handleInputChange}
            value={this.state.smurfs}
            />
         }/>
