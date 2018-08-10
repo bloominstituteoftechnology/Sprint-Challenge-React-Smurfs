@@ -12,24 +12,22 @@ class SmurfForm extends Component {
     };
   }
 
-  addSmurf = () => {
+  addSmurf = event => {
+    event.preventDefault();
 
-
-    axios.post(`http://localhost:3333/smurfs`, {
-      name: this.state.name,
-      age: this.state.age,
-      height: this.state.height
-    })
-      .then(() => {
-        this.setState({
-          name: '',
-          age: '',
-          height: '',
-        });
+    const { name, age, height } = this.state;
+    const newSmurf = { name, age, height };
+    axios.post(`http://localhost:3333/smurfs`, newSmurf)
+      .then(response => {
+        this.props.setSmurfData(response.data);
       })
-      .catch(error => {
-        console.error('Server Error', error);
-      });
+      .catch(error => this.props.setErrorHandler('Error Creating Smurf!'));
+
+    this.setState({
+      name: '',
+      age: '',
+      height: '',
+    });
   }
 
 
