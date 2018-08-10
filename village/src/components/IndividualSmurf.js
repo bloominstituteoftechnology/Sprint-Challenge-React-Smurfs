@@ -26,7 +26,7 @@ class IndividualSmurf extends React.Component {
     deleteSmurf=()=>{
         axios
         .delete(`http://localhost:3333/smurfs/${this.state.id}`)
-        .then(res=>{console.log(res)})
+        .then(res=>{{console.log(res); this.props.history.push('/smurfs')}})
         .catch(err=>console.log(err));
     }
     handleInputChange=(e)=>{
@@ -40,7 +40,7 @@ class IndividualSmurf extends React.Component {
         }
         axios
         .put(`http://localhost:3333/smurfs/${this.state.id}`,updatedSmurfInfo)
-        .then(res=>console.log(res))
+        .then(res=>{console.log(res); this.props.history.push('/smurfs')})
         .catch(err=>console.log(err));
     }
     render() {
