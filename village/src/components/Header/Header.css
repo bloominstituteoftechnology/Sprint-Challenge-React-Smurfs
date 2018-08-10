@@ -1,11 +1,30 @@
 .navlink-container {
-    background: #c4001a
+    background: #c4001a;
+    padding: 20px 15px;
 }
 
-.nav-links {
+.navlink-container .nav-links {
     display: flex;
     justify-content: center;
     list-style: none;
     width: 1000px;
     margin: 0 auto;
+}
+
+.navlink-container .nav-links li {
+    border: 1px solid rgb(255, 0, 0);
+    border-radius: 5px;
+    margin: 0 20px;
+    padding: 10px 15px;
+}
+
+.navlink-container .nav-links li:hover {
+    background-color: rgb(255, 0, 0);
+}
+
+.navlink-container .nav-links li .nav-text {
+    color: white;
+    text-decoration: none;
+    font-weight: lighter;
+    letter-spacing: .5px;
 }
