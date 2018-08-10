@@ -25,6 +25,16 @@ class App extends Component {
         console.error('Server Error', error);
       });
   }
+  componentDidUpdate(){
+    axios
+    .get('http://localhost:3333/smurfs')
+    .then(response => {
+      this.setState(() => ({ smurfs: response.data }));
+    })
+    .catch(error => {
+      console.error('Server Error', error);
+    });
+  }
   render() {
     return (
       <div className="App">
