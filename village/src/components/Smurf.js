@@ -12,6 +12,7 @@ class Smurf extends React.Component {
 		}));
 
 	render() {
+		console.log(this.props);
     const decoratedOnSubmit = data => {
       this.props.onGeneticallyAlterSmurf(data);
       this.setState({

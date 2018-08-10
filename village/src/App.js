@@ -17,6 +17,12 @@ class App extends Component {
 		};
 	}
 
+	actualAddSmurf = data => {
+		axios
+			.post(`${API_URL}`, data)
+			.then(response => this.setState({ smurfs: response.data }));
+	};
+
 	killSmurf = id => {
 		axios
 			.delete(`${API_URL}/${id}`)
@@ -47,7 +53,8 @@ class App extends Component {
 					path="/smurfs"
 					render={() => (
 						<div>
-							<SmurfForm />
+							<SmurfForm 
+							onActualAddSmurf={ this.actualAddSmurf }/>
 							<Smurfs
 								onGeneticallyAlterSmurf={
 									this.geneticallyAlterSmurf
