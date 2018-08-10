@@ -4,11 +4,12 @@
 }
 
 .navlink-container .nav-links {
+    width: 1000px;
     display: flex;
     justify-content: center;
     list-style: none;
-    width: 1000px;
     margin: 0 auto;
+    padding: 0;
 }
 
 .navlink-container .nav-links li {
