@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom'
-import Smurf from './Smurf';
+
 
 class SmurfPage extends Component {
     constructor(){
@@ -20,6 +20,21 @@ class SmurfPage extends Component {
 
     handleInputChange = event => {
         this.setState({[event.target.name]: event.target.value})
+    }
+
+    
+    edit = event => {
+        event.preventDefault();
+        // add code to create the smurf using the api
+        const smurf = {name: this.state.name, age: Number(this.state.age), height: this.state.height }
+        this.props.update(this.props.location.state.id, smurf)
+        
+        this.setState({
+            name: this.props.location.state.name,
+            age: this.props.location.state.age,
+            height: this.props.location.state.height
+        });
+              
     }
 
 
@@ -65,7 +80,7 @@ class SmurfPage extends Component {
                         value={this.state.height}
                         name="height"
                     />
-                    <button type="submit" onClick={this.add}>Update Smurf</button>
+                    <button type="submit" onClick={this.edit}><Link to = "/smurfvillage">Update Smurf</Link></button>
                     </form>
                 </div>
             </div>
