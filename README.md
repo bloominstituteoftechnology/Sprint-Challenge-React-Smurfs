@@ -1,4 +1,4 @@
-# Assessing your Routing/AJAX Fu 
+<!-- # Assessing your Routing/AJAX Fu
 
 * The purpose of this exercise is to get you used to being quizzed on _Interview Questions_ commonly asked about Client Side Routing and making AJAX requests from a React application.
 * Answers to your written questions will be recorded in _Answers.md_
@@ -12,9 +12,9 @@
 1.  What does HTTP stand for?
 1.  What does CRUD stand for?
 1.  Which HTTP methods can be mapped to the CRUD acronym that we use when interfacing with APIs/Servers.
-1.  Mention three tools we can use to make AJAX requests.
+1.  Mention three tools we can use to make AJAX requests. -->
 
-## Initializing Project - READ THIS CAREFULLY, you have two apps here. A server, and a client.
+<!-- ## Initializing Project - READ THIS CAREFULLY, you have two apps here. A server, and a client.
 
 * Start by Forking and Cloning this Repo.
 * `cd` into the forked copy.
@@ -24,7 +24,7 @@
 * After your API is up and running, you can open chrome and type in `http://localhost:3333/smurfs`. You should see an Array `[]` with a smurf returned to you. This is an array that your **API** will be using to store our Smurf Data.
 * **LOOK** at your `village` directory and notice it's just a plain ol' React App that we've built using `create-react-app`.
 * **cd** into `village` and run `yarn install or npm install` to retrieve the client side dependencies.
-* **RUN** `yarn start or npm start` to fire up your React application.
+* **RUN** `yarn start or npm start` to fire up your React application. -->
 
 ## Project Description
 
