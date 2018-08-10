@@ -11,7 +11,8 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      smurfs: []
+      smurfs: [],
+      URL :"http://localhost:3333/smurfs"
    
     };
   }
@@ -20,32 +21,28 @@ class App extends Component {
   // You'll need to make sure you have the right properties on state and pass them down to props.
 
   componentDidMount() {
+    this.getData();
+  }
+   getData = () => {
     axios
-      .get("http://localhost:3000/smurfs")
-      .then(response => {
-        this.setState(() => ({ smurfs: response.data }));
-      })
-      .catch(error => {
-        console.error("Server Error", error);
-      });
+        .get(this.state.URL)
+        .then(response => {
+          console.log(response);
+          this.setState({smurfs: response.data})
+        })
+        .catch(err => {
+          console.log(err);
+        })
   }
 
-  handleSetData = data => {
-    this.setState({smurfs: data});
-  };
   
   
   render() {
     return (
       <div className="App">
       <Route exact path="/" component={Header} />
-        <SmurfForm 
-        handleSetData={this.handleSetData}
-        />
-        <Smurfs 
-        smurfs={this.state.smurfs} 
-        handleSetData={this.handleSetData}
-        />
+      <Route path='/smurfs' render={props => <SmurfForm {...props} getData={this.getData} /> } />
+       <Route path='/smurfs' render={props => <Smurfs {...props} smurfs={this.state.smurfs} /> } />
       </div>
     );
   }
