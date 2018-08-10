@@ -3,11 +3,18 @@ import axios from 'axios';
 
 
 class SmurfForm extends Component {
-    state = {
+  constructor(props){
+    super(props);
+    this.state = {
       name: '',
       age: '',
-      height: ''
-    }
+      height: '',
+      URL: "http://localhost:3333/smurfs",
+      getData: props.getData
+
+    };
+  }
+
 
  
   
@@ -22,7 +29,7 @@ class SmurfForm extends Component {
     axios
     .post(this.state.URL, newSmurf)
     .then(response => {
-    this.this.state.getData();
+    this.state.getData();
     })
     .catch((err) => console.log(err))
 
