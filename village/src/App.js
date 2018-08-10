@@ -31,13 +31,8 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        {/* <SmurfForm /> */}
-        {/* <Smurfs smurfs={this.state.smurfs} /> */}
-        {this.state.smurfs.map(smurf => {
-          return <li key={smurf.id} className="smurf">
-              <div className="smurf-name">{`Name: ${smurf.name}`}</div>
-          </li>
-        })}
+        <SmurfForm />
+        <Smurfs smurfs={this.state.smurfs} />
       </div>
     )
   }
