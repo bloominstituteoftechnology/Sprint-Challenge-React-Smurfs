@@ -37,7 +37,7 @@ class SmurfForm extends Component {
 }
     
 
-  handleInputChange = e => {
+  handleChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
 
@@ -47,27 +47,27 @@ class SmurfForm extends Component {
       <Link to='/'>Home</Link>
         <form onSubmit={this.addSmurf}>
           <input
-            onChange={this.handleInputChange}
-            placeholder="name"
+            onChange={this.handleChange}
+            placeholder="Name"
             value={this.state.name}
             name="name"
             
           />
           <input
-            onChange={this.handleInputChange}
-            placeholder="age"
+            onChange={this.handleChange}
+            placeholder="Age"
             value={this.state.age}
             name="age"
            
           />
           <input
-            onChange={this.handleInputChange}
-            placeholder="height"
+            onChange={this.handleChange}
+            placeholder="Height"
             value={this.state.height}
             name="height"
             
           />
-          <button type="submit">Add to the village</button>
+          <button type="submit">Add new smurf</button>
         </form>
       </div>
     );
