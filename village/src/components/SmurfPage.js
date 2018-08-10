@@ -14,11 +14,11 @@ class SmurfPage extends Component {
         console.log(this.props)
         return (
             <div>
-                <Link to = '/smurfvillage'>Back to Smurf Villiage</Link>
-                <br/>
-                <br/>
-                <br/>
                 <Link to = '/'>Back to Home Page</Link>
+                <br/>
+                <br/>
+                <br/>
+                <Link to = '/smurfvillage'>Back to Smurf Villiage</Link>
                 <br/>
                 <br/>
                 <br/>
@@ -27,7 +27,7 @@ class SmurfPage extends Component {
                     <strong>{this.props.location.state.height} tall</strong>
                     <p>{this.props.location.state.age} smurf years old</p>
                 </div>
-                <button onClick ={ () => this.props.delete(this.props.location.state.id)}>Delete {this.props.location.state.name}</button>
+                <button onClick ={ () => this.props.delete(this.props.location.state.id)}><Link to ="/smurfvillage">Delete{this.props.location.state.name}</Link></button>
             </div>
         );
 
