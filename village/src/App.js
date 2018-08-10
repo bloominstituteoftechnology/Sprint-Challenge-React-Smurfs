@@ -5,6 +5,7 @@ import { Route } from 'react-router-dom';
 import './App.css';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
+import SmurfPage from './components/SmurfPage';
 import Header from './components/Header';
 
 class App extends Component {
@@ -30,6 +31,7 @@ class App extends Component {
         <Route exact path="/" component={Header} />
         <Route path="/smurfs" render={props => (<SmurfForm didMount={this.componentDidMount} {...props} />)} />
         <Route path="/smurfs" render={props => (<Smurfs smurfs={this.state.smurfs} didMount={this.componentDidMount} {...props} />)} />
+        <Route path="/smurf/:id" render={props => (<SmurfPage smurfs={this.state.smurfs} didMount={this.componentDidMount} {...props} />)} />
       </div>
     );
   }
