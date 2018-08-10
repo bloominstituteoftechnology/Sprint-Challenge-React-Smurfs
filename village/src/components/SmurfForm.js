@@ -13,11 +13,8 @@ class SmurfForm extends Component {
   }
 
   updateVillage(props){
-    console.log('hi')
-    console.log(props)
     props.updateVillage(this.state.smurfs)
   }
-
 
   addSmurf = (event, props) => {
     event.preventDefault();
@@ -28,10 +25,6 @@ class SmurfForm extends Component {
     }).then(res => {
       axios.get('http://localhost:3333/smurfs')
       .then(res => {
-        // this.setState({
-        //   smurfs: res.data,
-        // })
-        console.log(this)
         this.props.updateVillage(res.data);
       })
       .catch(err => console.log(err))
