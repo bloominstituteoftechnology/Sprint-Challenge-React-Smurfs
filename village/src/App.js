@@ -14,7 +14,10 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      smurfs: []
+      smurfs: [],
+      name: "",
+      age: "",
+      height: ""
     };
   }
   // add any needed code to ensure that the smurfs collection exists on state and it has data coming from the server
@@ -30,6 +33,18 @@ class App extends Component {
         console.log(err);
       });
   }
+
+  // delSmurf = id => {
+  //   axios
+  //     .delete(`http://localhost:3333/smurfs/${id}`)
+  //     .then(response => {
+  //       this.setState({ smurfs: response.smurfs });
+  //     })
+  //     .catch(err => {
+  //       console.log(err);
+  //     });
+  // };
+
   render() {
     console.log(this.state.smurfs);
     return (
@@ -38,7 +53,13 @@ class App extends Component {
         <Route
           exact
           path={"/smurfList"}
-          render={props => <SmurfForm {...props} dataUrl={dataUrl} />}
+          render={props => (
+            <SmurfForm
+              {...props}
+              dataUrl={dataUrl}
+              smurfs={this.state.smurfs}
+            />
+          )}
         />
         <Route
           exact
@@ -48,12 +69,21 @@ class App extends Component {
         <Route
           path={`/smurfList/:id`}
           render={props => (
-            <IndSmurfCard {...props} smurfs={this.state.smurfs} />
+            <IndSmurfCard
+              {...props}
+              smurfs={this.state.smurfs}
+              deleteHandler={this.delSmurf}
+            />
           )}
         />
       </div>
     );
   }
 }
+IndSmurfCard.defaultProps = {
+  name: "",
+  age: "",
+  height: ""
+};
 
 export default App;
