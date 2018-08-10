@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import axios from 'axios';
 
 import Smurf from './Smurf';
+import './Smurfs.css';
+
+import smurfsImg from  './Home/img/smurfs_img.jpg';
 
 class Smurfs extends Component {
   constructor(props) {
@@ -27,7 +30,9 @@ class Smurfs extends Component {
   render() {
     return (
       <div className="Smurfs">
-        <h1>Smurf Village</h1>
+        <div className="image-container">
+          <img src={smurfsImg} alt="smurfs jumbotron" className="smurfs-img"/>
+        </div>
         <ul>
           {this.state.smurfs.map(smurf => {
             return (
