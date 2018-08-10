@@ -3,3 +3,7 @@
   margin: 0 auto;
   padding-top: 5%;
 }
+
+.header > a {
+  padding: 5%;
+}
