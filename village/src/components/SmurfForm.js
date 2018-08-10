@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from "axios";
 import { NavLink } from 'react-router-dom';
+import '../App.css';
 
 const smurfData = 'http://localhost:3333/smurfs';
 
@@ -80,9 +81,9 @@ class SmurfForm extends Component {
     return (
       <div>
         <nav>
-          <NavLink to="/">Home</NavLink>
-          <NavLink to="/smurfs">Village</NavLink>
-          <NavLink to="/smurf-counsel">Smurf Counsel</NavLink>
+          <NavLink exact className="nav-item" activeClassName="selected" to="/">Home</NavLink>
+          <NavLink className="nav-item" activeClassName="selected" to="/smurfs">Village</NavLink>
+          <NavLink className="nav-item" activeClassName="selected" to="/smurf-counsel">Smurf Counsel</NavLink>
         </nav>
         <h1>Welcome To Smurf Counsel</h1>
         <h2>Here you have the power</h2>
