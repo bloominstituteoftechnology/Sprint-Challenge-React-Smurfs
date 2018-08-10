@@ -28,7 +28,7 @@ class App extends Component {
 componentDidMount() {
   axios
   .get(url)
-  .then((response) => this.setState({smurfs: response.data }))
+  .then((response) => this.setState({smurfs: response.data}))
   .catch(error => console.error(error))
 }
 

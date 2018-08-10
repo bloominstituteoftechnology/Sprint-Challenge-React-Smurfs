@@ -7,6 +7,8 @@ import {
   NavLink
 } from "react-router-dom";
 
+import './SmurfForm.css'
+
 const url = 'http://localhost:3333/smurfs'
 
 class SmurfForm extends Component {
@@ -22,6 +24,11 @@ class SmurfForm extends Component {
   addSmurf = event => {
     event.preventDefault();
     // add code to create the smurf using the api
+
+    //solution:
+    
+      // const { name, age, height }  = this.state;
+      // const newSmurf = { name, age, height };
 
       const smurf = {
         name: this.state.name,
@@ -72,12 +79,13 @@ class SmurfForm extends Component {
           <button type="submit">Add to the village</button>
         </form>
 
-     <button> 
+      <div className = "nav-button-container">
+      <button> 
        <NavLink exact to = "/" activeClassName = "activeNavBUtton"> 
           Home
         </NavLink>
       </button>
-
+      </div>
       </div>
     );
   }
