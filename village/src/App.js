@@ -12,6 +12,16 @@ class App extends Component {
       smurfs: [],
     };
   }
+
+  updateVillage(newVillage){
+    console.log(newVillage)
+    console.log()
+    {this.setState({
+      smurfs: newVillage
+    })}
+    console.log(this.state.smurfs)
+  }
+
   componentDidMount(){
     axios.get(url).then(res => {
       console.log(res)
@@ -20,14 +30,13 @@ class App extends Component {
       })
     }).catch(err => console.log(err))
   }
-  console.log(this)
 
   updateVillage(newVillage){
     console.log(newVillage)
-    console.log(this, foo)
-    this.setState({
+    console.log()
+    {this.setState({
       smurfs: newVillage
-    })
+    })}
     console.log(this.state.smurfs)
   }
   // add any needed code to ensure that the smurfs collection exists on state and it has data coming from the server
