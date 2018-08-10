@@ -29,13 +29,15 @@ class App extends Component {
       });
   }
 
+  setSmurfData = data => this.setState({ smurfs: data });
+
   render() {
     return (
       <div className="App">
         <Route exact path="/" component={Header} />
         <Route path="/smurfs" render={props =>
           (<div>
-            <SmurfForm {...props} />
+            <SmurfForm {...props} setSmurfData={this.setSmurfData} />
             <Smurfs {...props}
             smurfs={this.state.smurfs} />
           </div>
