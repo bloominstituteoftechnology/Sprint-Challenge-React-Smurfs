@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { Route, Link} from 'react-router-dom';
+import { Route,} from 'react-router-dom';
 import './App.css';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
@@ -34,7 +34,7 @@ class App extends Component {
   // You'll need to make sure you have the right properties on state and pass them down to props.
   render() {
     return (
-      <div className="App">
+      <div className="container App">
         <Route exact path= "/" component={Home}/>
         <Route path = "/add" component = {SmurfForm}/>
         <Route  path = "/smurfs" render ={props =>(
@@ -49,10 +49,9 @@ const Home = () => {
   return(
     <div className = "home">
     <Header />
-    <Link to="/smurfs"> See the village</Link> <br/>
-    <Link to="/add">Add a smurf</Link>
   </div>
   )
 }
+
 
 export default App;

@@ -1,12 +1,13 @@
 import React from 'react';
+import { ListGroupItem } from 'reactstrap';
 
 const Smurf = props => {
   return (
-    <div className="Smurf">
+    <ListGroupItem className="Smurf">
       <h3>{props.name}</h3>
       <strong>{props.height} tall</strong>
       <p>{props.age} smurf years old</p>
-    </div>
+    </ListGroupItem>
   );
 };
 
@@ -17,4 +18,3 @@ Smurf.defaultProps = {
 };
 
 export default Smurf;
-

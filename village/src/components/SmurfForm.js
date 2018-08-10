@@ -65,7 +65,8 @@ class SmurfForm extends Component {
           />
           <button type="submit">Add to the village</button>
         </form>
-        <Link to="/" > Home</Link>
+        <Link to="/" > Home</Link><br/>
+        <Link to="/smurfs"> See the village</Link>
       </div>
     );
   }

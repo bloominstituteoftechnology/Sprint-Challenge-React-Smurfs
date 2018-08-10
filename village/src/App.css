@@ -1,3 +1,14 @@
 .App {
   text-align: center;
 }
+.smurfvillage{
+  background: url('https://i.imgur.com/MF1QN7A.jpg') no-repeat center center;
+  width: 100%;
+  height: auto;
+  z-index: -1;
+}
+.smurfvillage h1 {
+  color: blue;
+  font-size: 100px;
+  text-shadow: 2px 2px red;
+}
