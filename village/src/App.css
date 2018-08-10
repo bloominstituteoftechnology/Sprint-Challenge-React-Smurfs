@@ -1,3 +1,33 @@
 .App {
   text-align: center;
+  padding: 10px;
+}
+
+.nav-item {
+  margin-right: 10px;
+  text-decoration: none;
+  color: #1E5FF3;
+  font-size: 18px;
+}
+
+.selected {
+  color: red;
+}
+
+.counsel-smurf-container, .village-smurf-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Smurf {
+  border: solid 1px #1E5FF3;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  width: 150px;
+  height: 150px;
+  margin: 15px;
 }
