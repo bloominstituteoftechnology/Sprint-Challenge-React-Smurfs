@@ -2,7 +2,7 @@ import React from 'react';
 
 const SmurfForm = props => {
   return (
-    <div className="SmurfForm">
+    <div className="smurf-form">
       <form onSubmit={props.addSmurf}>
         <input
           onChange={props.onChange}
@@ -17,6 +17,7 @@ const SmurfForm = props => {
           value={props.age}
           name="age"
           autoComplete="off"
+          pattern="^[0-9]*$"
         />
         <input
           onChange={props.onChange}

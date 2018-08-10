@@ -13,6 +13,8 @@ class App extends Component {
     };
   }
 
+  /* SmurfForm methods */
+
   addSmurf = e => {
     e.preventDefault();
     axios
@@ -36,6 +38,34 @@ class App extends Component {
 
   handleInputChange = e => {
     this.setState({ [e.target.name]: e.target.value });
+  };
+
+  /* Smurfs methods */
+
+  deleteSmurf = id => {
+    axios
+      .delete(`http://localhost:3333/smurfs/${id}`)
+      .then(res => {
+        this.setState({ smurfs: res.data });
+      })
+      .catch(err => {
+        console.error("Server Delete", err);
+      });
+  };
+
+  updateSmurf = id => {
+    axios
+      .put(`http://localhost:3333/smurfs/${id}`, {
+        name: this.state.name,
+        age: this.state.age,
+        height: this.state.height
+      })
+      .then(res => {
+        this.setState({ smurfs: res.data });
+      })
+      .catch(err => {
+        console.error("Server Put", err);
+      });
   };
 
   /* Lifecycle methods */
@@ -67,7 +97,12 @@ class App extends Component {
                 onChange={this.handleInputChange}
                 addSmurf={this.addSmurf}
               />
-              <Smurfs {...props} smurfs={this.state.smurfs} />
+              <Smurfs
+                {...props}
+                smurfs={this.state.smurfs}
+                deleteSmurf={this.deleteSmurf}
+                updateSmurf={this.updateSmurf}
+              />
               <Link to="/">Home</Link>
             </div>
           )}
