@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
-import axios from 'axios'
+import axios from 'axios';
+import { Route, Link} from 'react-router-dom';
 import './App.css';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
+import Header from './components/Header';
+
 
 
 const url = "http://localhost:3333/smurfs";
@@ -32,11 +35,24 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <SmurfForm add data={this}/>
-        <Smurfs smurfs={this.state.smurfs} />
+        <Route exact path= "/" component={Home}/>
+        <Route path = "/add" component = {SmurfForm}/>
+        <Route  path = "/smurfs" render ={props =>(
+          <Smurfs {...props} smurfs={this.state.smurfs} />
+        )} />
       </div>
     );
   }
+}
+
+const Home = () => {
+  return(
+    <div className = "home">
+    <Header />
+    <Link to="/smurfs"> See the village</Link> <br/>
+    <Link to="/add">Add a smurf</Link>
+  </div>
+  )
 }
 
 export default App;

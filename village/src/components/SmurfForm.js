@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios'
+import { Link} from 'react-router-dom';
 
 
   const url = "http://localhost:3333/smurfs";
@@ -64,6 +65,7 @@ class SmurfForm extends Component {
           />
           <button type="submit">Add to the village</button>
         </form>
+        <Link to="/" > Home</Link>
       </div>
     );
   }
