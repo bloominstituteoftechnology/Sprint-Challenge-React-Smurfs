@@ -5,7 +5,7 @@ import './App.css';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
 import Header from './components/Header';
-
+import SmurfPage from './components/SmurfPage'; 
 
 class App extends Component {
   constructor(props) {
@@ -47,6 +47,7 @@ class App extends Component {
           <Switch>
               <Route exact path = "/" component={Header} />
               <Route path = '/smurfvillage' render = {(props) =>  <div><SmurfForm {...props} addSmurf = {this.addingSmurf} /> <Smurfs {...props} smurfs ={this.state.smurfs}  /></div>} />
+              <Route path = '/:id' component={SmurfPage} />
              
               
               
