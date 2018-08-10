@@ -23,6 +23,12 @@ class App extends Component {
 			.then(response => this.setState({ smurfs: response.data }));
 	};
 
+	geneticallyAlterSmurf = (id, data) => {
+		axios
+			.put(`${API_URL}/${id}`, data)
+			.then(response => this.setState({ smurfs: response.data }));
+	};
+
 	componentDidMount() {
 		axios.get(API_URL).then(response => {
 			this.setState({
@@ -36,13 +42,19 @@ class App extends Component {
 	render() {
 		return (
 			<div className="App">
-				<Route exact path="/" component={ Header } />
+				<Route exact path="/" component={Header} />
 				<Route
 					path="/smurfs"
 					render={() => (
 						<div>
 							<SmurfForm />
-							<Smurfs onKillSmurf={ this.killSmurf } smurfs={ this.state.smurfs } />
+							<Smurfs
+								onGeneticallyAlterSmurf={
+									this.geneticallyAlterSmurf
+								}
+								onKillSmurf={this.killSmurf}
+								smurfs={this.state.smurfs}
+							/>
 						</div>
 					)}
 				/>
