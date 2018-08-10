@@ -24,7 +24,8 @@ class SmurfForm extends Component {
   };
 
   addSmurf = event => {
-    event.preventDefault();
+    //console.log(this.state.smurfs, this.props.smurfs)
+    //event.preventDefault();
     // add code to create the smurf using the api
     axios.post(smurfData, {
       name: this.state.name,
@@ -32,6 +33,9 @@ class SmurfForm extends Component {
       height: this.state.height
     })
     .then(response => {
+      // axios.get(smurfData).then(response => {
+      //   this.setState({smurfs: response.data});
+      // });
       this.setState({smurfs: response.data});
       console.log(response.data)
     })
@@ -42,12 +46,11 @@ class SmurfForm extends Component {
       name: '',
       age: '',
       height: '',
-      smurfs: this.props.smurfs
     });
   }
 
   deleteSmurf = (e) => {
-    e.preventDefault();
+    //e.preventDefault();
     let chooseId = this.state.deleteId;
     axios.delete(`http://localhost:3333/smurfs/${chooseId}`)
     .then(response => {
@@ -62,7 +65,7 @@ class SmurfForm extends Component {
   }
 
   editSmurf = (e) => {
-    e.preventDefault();
+    //e.preventDefault();
     let chooseId = this.state.updateId;
     let updateName = this.state.updateName;
     axios.put(`http://localhost:3333/smurfs/${chooseId}`, {name: updateName})
@@ -102,7 +105,7 @@ class SmurfForm extends Component {
         <hr />
         <section>
           <h3>Add A Smurf to the Village</h3>
-          <form action="submit" onSubmit={this.addSmurf}>
+          <form onSubmit={this.addSmurf}>
             <input
               onChange={this.handleInputChange}
               placeholder="name"
@@ -126,7 +129,7 @@ class SmurfForm extends Component {
         </section>
         <section>
           <h3>Remove A Smurf From the Village</h3>
-          <form action="submit" onSubmit={this.deleteSmurf}>
+          <form onSubmit={this.deleteSmurf}>
             <input
               onChange={this.handleInputChange}
               placeholder="id"
@@ -138,7 +141,7 @@ class SmurfForm extends Component {
         </section>
         <section>
           <h3>Update the Name of A Smurf</h3>
-          <form action="submit" onSubmit={this.editSmurf}>
+          <form onSubmit={this.editSmurf}>
             <input
               onChange={this.handleInputChange}
               placeholder="id"
