@@ -24,10 +24,10 @@ class App extends Component {
   }
 
   addingSmurf = (smurf) => {
-    console.log(smurf);
+    
     axios.post('http://localhost:3333/smurfs', smurf)
       .then(response => {
-        console.log(response)
+        
         this.setState({smurfs: response.data})
       })
       .catch(error => console.log(error))
@@ -38,20 +38,21 @@ class App extends Component {
   deleteSmurf = (id) => {
     axios.delete(`http://localhost:3333/smurfs/${id}`)
        .then(response => {
-         console.log(response)
+         
          this.setState({smurfs:response.data})
        })
   }
   updateSmurf =(id, smurf) => {
     axios.put(`http://localhost:3333/smurfs/${id}`, smurf)
       .then(response => {
-        console.log(response)
+      
         this.setState({smurfs:response.data})
       })
+      .catch(error => console.log(error));
   }
 
   render() {
-      console.log(this.state.smurfs); 
+      
     return (
       
       <Fragment>

@@ -40,7 +40,7 @@ class SmurfPage extends Component {
 
 
     render () {
-        console.log(this.props)
+        
         return (
             <div>
                 <Link to = '/'>Back to Home Page</Link>
@@ -56,7 +56,7 @@ class SmurfPage extends Component {
                     <strong>{this.props.location.state.height} tall</strong>
                     <p>{this.props.location.state.age} smurf years old</p>
                 </div>
-                <button onClick ={ () => this.props.delete(this.props.location.state.id)}><Link to ="/smurfvillage">Delete{this.props.location.state.name}</Link></button>
+                <button id ='color-button' onClick ={ () => this.props.delete(this.props.location.state.id)}><Link to ="/smurfvillage">Delete{this.props.location.state.name}</Link></button>
                 <br/>
                 <br/>
                 <br/>
@@ -80,7 +80,7 @@ class SmurfPage extends Component {
                         value={this.state.height}
                         name="height"
                     />
-                    <button type="submit" onClick={this.edit}><Link to = "/smurfvillage">Update Smurf</Link></button>
+                    <button id ='color-button' type="submit" onClick={this.edit}><Link to = "/smurfvillage">Update Smurf</Link></button>
                     </form>
                 </div>
             </div>
