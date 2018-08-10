@@ -15,6 +15,7 @@ class Smurfs extends Component {
                 id={smurf.id}
                 age={smurf.age}
                 height={smurf.height}
+                killSmurf={() => this.props.killSmurf(smurf.id)}
                 key={smurf.id}
               />
             );
