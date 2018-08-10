@@ -11,7 +11,7 @@ class SmurfPage extends Component {
     }
 
     render () {
-        console.log(this.props.location.state)
+        console.log(this.props)
         return (
             <div>
                 <Link to = '/smurfvillage'>Back to Smurf Villiage</Link>
@@ -27,6 +27,7 @@ class SmurfPage extends Component {
                     <strong>{this.props.location.state.height} tall</strong>
                     <p>{this.props.location.state.age} smurf years old</p>
                 </div>
+                <button onClick ={ () => this.props.delete(this.props.location.state.id)}>Delete {this.props.location.state.name}</button>
             </div>
         );
 
