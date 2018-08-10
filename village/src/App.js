@@ -30,22 +30,12 @@ componentDidMount() {
   .catch(error => console.error(error))
 }
 
-newSmerfHandler = () => {
-  const smurf = {
-    name: this.state.name,
-    age: this.state.age,
-    height: this.state.height
-  }
-  axios
-  .post(url, smurf)
-  .then(response => this.setState({ smurfs: response.data, name: '', age: '', height: '' }))
-  .catch(err => console.log(err));
-}
+handleSubmit = data => this.setState({smurfs: data});
 
   render() {
     return (
       <div className="App">
-        <SmurfForm />
+        <SmurfForm handleSubmit = {this.handleSubmit} />
         <Smurfs smurfs={this.state.smurfs} />
       </div>
     );
