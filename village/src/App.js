@@ -47,6 +47,15 @@ class App extends Component {
     }
   };
 
+  editSmurf = async (smurfId, data) => {
+    try {
+      const response = await axios.put(`${API_URL}/smurfs/${smurfId}`, data);
+      this.setState({ smurfs: response.data });
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   render() {
     return (
       <div className="App">
@@ -79,6 +88,7 @@ class App extends Component {
               {...props}
               smurfs={this.state.smurfs}
               onDelete={this.deleteSmurf}
+              onEdit={this.editSmurf}
             />
           )}
         />
