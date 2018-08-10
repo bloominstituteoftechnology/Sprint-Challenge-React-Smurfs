@@ -1,5 +1,6 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Smurf from './Smurf';
+import { Link } from 'react-router-dom';
 
 const Smurfs= props=> {
   return (
@@ -15,6 +16,7 @@ const Smurfs= props=> {
                 age={smurf.age}
                 height={smurf.height}
               />
+              <Link to={`/${smurf.id}`}><button>more</button></Link>
               <button onClick={()=>props.func(smurf.id)}>Poof!</button>
             </div>
           );

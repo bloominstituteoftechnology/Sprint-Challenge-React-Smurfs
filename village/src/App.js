@@ -4,6 +4,7 @@ import { Route } from 'react-router-dom';
 import './App.css';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
+import Smurf from './components/Smurf';
 import Header from './components/Header';
 
 
@@ -48,7 +49,7 @@ class App extends Component {
         <Smurfs smurfs={this.state.smurfs} func={this.remove}> 
           {this.state.smurfs.map(smurf=><Route key={smurf.id} exact path={`/:id`}
                                                   render={props=>   
-                                                    <smurfCard id={smurf.id}
+                                                    <Smurf id={smurf.id}
                                                     name={smurf.name}
                                                     age={smurf.age} 
                                                     email={smurf.email}
