@@ -33,6 +33,28 @@ class SmurfForm extends Component {
       height: ''
     });
   }
+  modSmurf = event => {
+    event.preventDefault();
+    // add code to create the smurf using the api
+    axios
+    .put(`http://127.0.0.1:3333/smurfs/${this.props.match.params.id}`, {
+        name: this.state.name,
+        age: this.state.age,
+        height: this.state.height
+    })
+    .then(response => {
+      console.log(response)
+      this.props.updateParentState(response.data)
+    })
+    .catch(err => {
+      console.log(err);
+    });
+    this.setState({
+      name: '',
+      age: '',
+      height: ''
+    });
+  }
 
   handleInputChange = e => {
     this.setState({ [e.target.name]: e.target.value });
@@ -41,7 +63,7 @@ class SmurfForm extends Component {
   render() {
     return (
       <div className="SmurfForm">
-        <form onSubmit={this.addSmurf}>
+        <form onSubmit={this.props.match.params.id ? this.modSmurf : this.addSmurf}>
           <input
             onChange={this.handleInputChange}
             placeholder="name"
@@ -60,7 +82,7 @@ class SmurfForm extends Component {
             value={this.state.height}
             name="height"
           />
-          <button type="submit">Add to the village</button>
+          <button type="submit">{this.props.match.params.id ? "Edit Smurf" : "Add to the village"}</button>
         </form>
       </div>
     );
