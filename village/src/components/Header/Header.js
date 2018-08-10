@@ -23,14 +23,14 @@ class Header extends Component {
           <ul className="nav-links">
             <li><NavLink exact to="/" className="nav-text">Home</NavLink></li>
             <li><NavLink to="/village/" className="nav-text">Go to village!</NavLink></li>
-            <li><NavLink to="/add-smurf/" className="nav-text">Create your smurf!</NavLink></li>
+            <li><NavLink to="/createsmurf/" className="nav-text">Create your smurf!</NavLink></li>
           </ul>
         </div>
         
 
         <Route exact path="/" component={Home} />
         <Route exact path="/village/" component={Smurfs} />
-        <Route exact path="/add-smurf/" component={SmurfForm} /> 
+        <Route exact path="/createsmurf/" component={SmurfForm} /> 
       </div>
     ) 
   }

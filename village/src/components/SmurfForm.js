@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from '../../node_modules/axios';
+import './SmurfForm.css';
 
 class SmurfForm extends Component {
   constructor(props) {
@@ -38,7 +39,7 @@ class SmurfForm extends Component {
   render() {
     return (
       <div className="SmurfForm">
-        <form onSubmit={this.addSmurf}>
+        <form onSubmit={this.addSmurf} className="my-form">
           <input
             onChange={this.handleInputChange}
             placeholder="name"
@@ -57,7 +58,7 @@ class SmurfForm extends Component {
             value={this.state.height}
             name="height"
           />
-          <button type="submit">Add to the village</button>
+          <button type="submit">Create Smurf!</button>
         </form>
       </div>
     );
