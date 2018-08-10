@@ -32,13 +32,38 @@ class App extends Component {
       console.log(error)
     });
   }
+
+  editSmurf = (id) => {
+    const updatedSmurf = {
+      name: this.state.name,
+      age: this.state.age,
+      height: this.state.height
+    }
+    axios.put(`http://localhost:3333/smurfs/${id}`, updatedSmurf)
+    .then(response => {
+      this.setState({
+        smurfs: response.data
+      })
+    })
+    .catch((error) => console.log(error))
+  }
+  
+  deleteSmurf = (id) => {
+    axios.delete(`http://localhost:3333/smurfs/${id}`)
+    .then(response => {
+      this.setState({
+        smurfs: response.data
+      })
+    })
+    .catch((error) => console.log(error))
+  }
   
   render() {
     return (
       <div className="App">
         <Route exact path="/" render={props => <Header {...props} />} />
         <Route path="/smurfs/" render={props => <SmurfForm {...props} />} />
-        <Route path="/smurfs/" render={props => <Smurfs smurfs={this.state.smurfs} />} />
+        <Route path="/smurfs/" render={props => <Smurfs smurfs={this.state.smurfs} deleteSmurf={this.deleteSmurf}/>} />
       </div>
     );
   }
