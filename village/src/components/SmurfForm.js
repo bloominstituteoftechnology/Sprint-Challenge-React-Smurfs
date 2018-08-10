@@ -9,12 +9,18 @@ class SmurfForm extends Component {
       name: '',
       age: '',
       height: ''
+
     };
+
+
   }
 
-  updateState(props){
-    props.updateState(this.state.smurfs)
+  updateVillage(props){
+    console.log('hi')
+    console.log(props)
+    props.updateVillage(this.state.smurfs)
   }
+
 
   addSmurf = (event, props) => {
     event.preventDefault();
@@ -23,8 +29,17 @@ class SmurfForm extends Component {
 	     age: this.state.age,
 	     height: this.state.height
     }).then(res => {
-      console.log(res);
-    }).catch(err => {
+      axios.get('http://localhost:3333/smurfs')
+      .then(res => {
+        // this.setState({
+        //   smurfs: res.data,
+        // })
+        console.log(this)
+        this.props.updateVillage(res.data);
+      })
+      .catch(err => console.log(err))
+    })
+    .catch(err => {
       console.log(err);
     })
     this.setState({
