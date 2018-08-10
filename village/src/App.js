@@ -3,6 +3,7 @@ import './App.css';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
 import axios from 'axios'; 
+import {NavLink, Route} from 'react-router-dom'; 
 
 const url = "http://localhost:3333/smurfs"; 
 
@@ -32,11 +33,38 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <SmurfForm />
-        <Smurfs smurfs={this.state.smurfs} />
+      <div className="navbar">
+      <div>
+        <NavLink to="/">
+        Welcome
+        </NavLink>
+        </div>
+        <div>
+        <NavLink to="/village">
+        Village
+        </NavLink>
+        </div>
+        </div>
+        <Route exact path="/" component={Home} />
+        <Route 
+        path="/village"
+        render ={props =><Smurfs {...props} smurfs={this.state.smurfs}/>
+        }/>
+         <Route 
+        path="/village"
+        render ={props =><SmurfForm />
+        }/>
       </div>
     );
   }
+}
+
+function Home() {
+  return(
+    <div>
+      <h1>Welcome to smurf village </h1>
+      </div>
+  )
 }
 
 

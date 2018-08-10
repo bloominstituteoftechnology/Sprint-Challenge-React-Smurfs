@@ -37,6 +37,7 @@ class SmurfForm extends Component {
 
   render() {
     return (
+    <div className="Village-page">
       <div className="SmurfForm">
         <form onSubmit={this.addSmurf}>
           <input
@@ -59,6 +60,7 @@ class SmurfForm extends Component {
           />
           <button onClick={this.state.addSmurf}>Add to the village</button>
         </form>
+      </div>
       </div>
     );
   }
