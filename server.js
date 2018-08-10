@@ -18,13 +18,19 @@ let smurfs = [
     id: 0,
     name: 'Brainey Smurf',
     age: 200,
-    height: '8cm'
+    height: '8'
+  },
+  {
+    id: 1,
+    name: 'Ya',
+    age: 420,
+    height: '10'
   }
 ];
 server.get('/smurfs', (req, res) => {
   res.json(smurfs);
 });
-let smurfId = 1;
+let smurfId = 2;
 
 server.post('/smurfs', (req, res) => {
   const { name, age, height } = req.body;
@@ -78,6 +84,12 @@ server.delete('/smurfs/:id', (req, res) => {
   } else {
     sendUserError('No smurf by that ID exists in the smurf DB', res);
   }
+});
+server.delete('/smurfs/', (req, res) => {
+
+    smurfs = [];
+    res.status(200).json(smurfs);
+
 });
 
 server.listen(port, err => {
