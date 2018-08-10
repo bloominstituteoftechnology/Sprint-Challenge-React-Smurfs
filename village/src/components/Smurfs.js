@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import Smurf from './Smurf';
+import axios from 'axios';
+import { Button } from 'reactstrap';
+import { Link } from 'react-router-dom';
 
 const SmurfsDiv = styled.div `
 background-image: url("http://features.cgsociety.org/newgallerycrits/g30/364330/364330_1362479295_large.jpg");
@@ -24,6 +27,11 @@ const StyledUL = styled.ul `
 `;
 
 class Smurfs extends Component {
+
+  deleteHandler = (e) => {
+
+  }
+
   render() {
     return (
       <SmurfsDiv>
@@ -31,6 +39,7 @@ class Smurfs extends Component {
         <StyledUL>
           {this.props.smurfs.map(smurf => {
             return (
+              <div>
               <Smurf
                 name={smurf.name}
                 id={smurf.id}
@@ -38,6 +47,13 @@ class Smurfs extends Component {
                 height={smurf.height}
                 key={smurf.id}
               />
+              <Link to={`/smurfs/${smurf.id}`}>
+                <Button onClick={() => axios.delete(`http://localhost:3333/smurfs/${smurf.id}`)
+                .then(() => {
+                  this.props.fetchSmurfs();
+                })}>Delete Me?</Button>
+              </Link>
+              </div>
             );
           })}
         </StyledUL>

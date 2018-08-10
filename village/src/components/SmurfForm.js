@@ -77,7 +77,7 @@ class SmurfForm extends Component {
           <FormGroup>
             <Label>Height:</Label>
             <Input
-              type="text"
+              type="number"
               onChange={this.handleInputChange}
               placeholder="height in cm"
               value={this.state.height}
