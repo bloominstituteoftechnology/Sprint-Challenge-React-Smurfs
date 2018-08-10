@@ -38,6 +38,15 @@ class App extends Component {
     }
   };
 
+  deleteSmurf = async smurfId => {
+    try {
+      const response = await axios.delete(`${API_URL}/smurfs/${smurfId}`);
+      this.setState({ smurfs: response.data });
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   render() {
     return (
       <div className="App">
@@ -65,7 +74,13 @@ class App extends Component {
         <Route
           exact
           path="/"
-          render={props => <Smurfs {...props} smurfs={this.state.smurfs} />}
+          render={props => (
+            <Smurfs
+              {...props}
+              smurfs={this.state.smurfs}
+              onDelete={this.deleteSmurf}
+            />
+          )}
         />
       </div>
     );
