@@ -28,6 +28,8 @@ class App extends Component {
     });
   }
 
+  setData = (data) => this.setState({smurfs: data})
+
   render() {
     if (this.state.smurfs.length !== 0) {
       return (
@@ -35,7 +37,7 @@ class App extends Component {
           <Route exact path="/smurfs" render={props => <Smurfs {...props} smurfs={this.state.smurfs} />} />
           <Route path="/smurfs/:id" render={props => <SmurfPage {...props} smurfs={this.state.smurfs} />} />
           <Route exact path="/" component={Header} />
-          <Route path="/smurf-counsel" render={props => <SmurfForm {...props} smurfs={this.state.smurfs} />} />
+          <Route path="/smurf-counsel" render={props => <SmurfForm {...props} smurfs={this.state.smurfs} setData={this.setData} />} />
         </div>
       );
     } else {

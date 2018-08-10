@@ -3,9 +3,7 @@ import { NavLink } from 'react-router-dom';
 import '../App.css';
 
 const SmurfPage = props => {
-  console.log(props)
   const smurf = props.smurfs.find(smurf => smurf.id === parseInt(props.match.params.id, 10));
-  console.log(smurf)
   return (
     <div>
       <nav>

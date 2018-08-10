@@ -24,8 +24,7 @@ class SmurfForm extends Component {
   };
 
   addSmurf = event => {
-    //console.log(this.state.smurfs, this.props.smurfs)
-    //event.preventDefault();
+    event.preventDefault();
     // add code to create the smurf using the api
     axios.post(smurfData, {
       name: this.state.name,
@@ -36,8 +35,8 @@ class SmurfForm extends Component {
       // axios.get(smurfData).then(response => {
       //   this.setState({smurfs: response.data});
       // });
-      this.setState({smurfs: response.data});
-      console.log(response.data)
+      //this.setState({smurfs: response.data});
+      this.props.setData(response.data);
     })
     .catch(error => {
       console.log(error);
@@ -50,12 +49,12 @@ class SmurfForm extends Component {
   }
 
   deleteSmurf = (e) => {
-    //e.preventDefault();
+    e.preventDefault();
     let chooseId = this.state.deleteId;
     axios.delete(`http://localhost:3333/smurfs/${chooseId}`)
     .then(response => {
-      this.setState({smurfs: response.data});
-      console.log(response.data)
+      //this.setState({smurfs: response.data});
+      this.props.setData(response.data);
     })
     .catch(error => {
       console.log(error);
@@ -70,8 +69,8 @@ class SmurfForm extends Component {
     let updateName = this.state.updateName;
     axios.put(`http://localhost:3333/smurfs/${chooseId}`, {name: updateName})
     .then(response => {
-      this.setState({smurfs: response.data});
-      console.log(response.data)
+      //this.setState({smurfs: response.data});
+      this.props.setData(response.data);
     })
     .catch(error => {
       console.log(error);
