@@ -5,6 +5,7 @@ import './App.css';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
 import Header from './components/Header';
+import SmurfUpdate from './components/SmurfUpdate';
 
 class App extends Component {
   constructor(props) {
@@ -27,16 +28,32 @@ class App extends Component {
     axios.delete(`http://localhost:3333/smurfs/${id}`, {
       
     })
-      .then(res => console.log(res))
+      .then(res => {
+        console.log(res)
+        //this.setState({smurfs: res.data})
+      })
       .catch(err => console.log(err))
+  }
+
+  onDelete (event) {
+    const id = event.target.id
+
+    axios.delete(`http://localhost:3333/smurfs/${id}`)
+      .then(res => {
+        this.setState({smurfs: res.data})
+      })
+      .catch(err => {
+        console.log(err);
+      })
   }
 
   render() {
     return (
       <div>
         <Route exact path="/" component={Header} />
-        <Route path="/smurfs" 
-          render = {props => <SmurfsApp {...props} smurfs={this.state.smurfs}  />} />
+        <Route exact path="/smurfs" 
+          render = {props => <SmurfsApp {...props} smurfs={this.state.smurfs} onDelete={this.onDelete.bind(this)}/>} />
+        <Route path="/smurfs/:id" component={SmurfUpdate} />
       </div>
     );
   }
@@ -45,8 +62,8 @@ class App extends Component {
 function SmurfsApp (props){
   return (
     <div className="App">
-        <SmurfForm />
-        <Smurfs smurfs={props.smurfs} />
+        <SmurfForm {...props}/>
+        <Smurfs {...props}/>
     </div>
   )
 }
