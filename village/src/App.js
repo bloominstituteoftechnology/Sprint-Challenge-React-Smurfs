@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import {Route} from 'react-router-dom';
 
 import './App.css';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
+import Header from './components/Header';
 
 const url = 'http://localhost:3333/smurfs'
 
@@ -35,8 +37,23 @@ handleSubmit = data => this.setState({smurfs: data});
   render() {
     return (
       <div className="App">
-        <SmurfForm handleSubmit = {this.handleSubmit} />
-        <Smurfs smurfs={this.state.smurfs} />
+    <Route exact path = "/" component = {Header}/>
+
+      <Route path='/smurfs'
+        render = {props =>
+            <SmurfForm {...props} 
+            handleSubmit = {this.handleSubmit} 
+            />
+          }
+        />
+
+      <Route path = '/smurfs'
+        render = {props =>
+            <Smurfs {...props} 
+            smurfs={this.state.smurfs} 
+            />
+          }
+        />
       </div>
     );
   }
