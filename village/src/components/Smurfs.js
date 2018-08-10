@@ -7,8 +7,6 @@ const Smurfs = props => {
     smurf = props.smurfs.filter(smurf => {
       return +smurf.id === +props.match.params.id;
     })[0];
-  } else {
-    smurf = null;
   }
 
   return (

@@ -46,11 +46,16 @@ class App extends Component {
     axios
       .delete(`http://localhost:3333/smurfs/${id}`)
       .then(res => {
-        this.setState({ smurfs: res.data }, () => window.location="/smurfs");
+        this.setState({ smurfs: res.data });
       })
       .catch(err => {
         console.error("Server Delete", err);
       });
+  };
+
+  deleteSmurfAndRedirect = id => {
+    this.deleteSmurf(id);
+    window.location="/smurfs";
   };
 
   updateSmurf = id => {
@@ -112,7 +117,7 @@ class App extends Component {
             <Smurfs
               {...props}
               smurfs={this.state.smurfs}
-              deleteSmurf={this.deleteSmurf}
+              deleteSmurf={this.deleteSmurfAndRedirect}
               updateSmurf={this.updateSmurf}
             />
           )}
