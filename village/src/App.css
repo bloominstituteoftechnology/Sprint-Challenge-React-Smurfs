@@ -14,7 +14,7 @@
   color: red;
 }
 
-.counsel-smurf-container {
+.counsel-smurf-container, .village-smurf-container {
   display: flex;
   justify-content: center;
   align-items: center;
