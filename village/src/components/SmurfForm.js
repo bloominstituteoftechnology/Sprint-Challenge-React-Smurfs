@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
+
 import axios from "axios";
 
 class SmurfForm extends Component {
@@ -24,7 +26,7 @@ class SmurfForm extends Component {
     console.log("name", addedSmurf);
 
     axios
-      .post("http://localhost:3333/smurfs/", addedSmurf)
+      .post(this.state.url, addedSmurf)
       .then(reponse => {
         this.setState({
           name: "",
@@ -65,6 +67,7 @@ class SmurfForm extends Component {
           />
           <button type="submit">Add to the village</button>
         </form>
+        <Link to={"/"}>Back to greeting</Link>
       </div>
     );
   }
