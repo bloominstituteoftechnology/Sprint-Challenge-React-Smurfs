@@ -30,7 +30,6 @@ class SmurfForm extends Component {
   };
 
   render() {
-    console.log(this.state)
     return (
       <div className="SmurfForm">
         <form onSubmit={this.addSmurf}>

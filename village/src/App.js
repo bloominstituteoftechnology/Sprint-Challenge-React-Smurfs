@@ -9,10 +9,13 @@ const Header = () => {
   return(
     <div>
       <h1>Welcome to the Smurfs Village, guest. You're very welcomed here!</h1>
+      <Link to="/">Village Entrace </Link><br/>
       <Link to="/smurfs">Check out the Smurfs Village!</Link>
     </div>
   )
 };
+
+const url = "http://localhost:3333/smurfs";
 
 class App extends Component {
   constructor(props) {
@@ -21,8 +24,13 @@ class App extends Component {
       smurfs: [],
     };
   }
+  deleteSmurf = id => {
+    axios.delete(`${url}/${id}`)
+         .then(response => this.setState({smurfs: response.data}))
+         .catch(err => console.log(err))
+  }
   componentDidMount(){
-    axios.get('http://localhost:3333/smurfs')
+    axios.get(`${url}`)
         .then(response => this.setState({smurfs: response.data}))
         .catch(err => console.log(err));
   }
@@ -32,7 +40,7 @@ class App extends Component {
         <Route path="/" component={Header} />
         <Route exact path="/smurfs" render={(props) => 
             <div>
-              <Smurfs {...props} smurfs={this.state.smurfs} /> 
+              <Smurfs {...props} smurfs={this.state.smurfs} delete={this.deleteSmurf}/> 
               <SmurfForm /> 
             </div>
           }/>
