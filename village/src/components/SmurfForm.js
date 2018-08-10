@@ -1,5 +1,11 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import {
+  BrowserRouter as Router,
+  Route,
+  Link,
+  NavLink
+} from "react-router-dom";
 
 const url = 'http://localhost:3333/smurfs'
 
@@ -65,6 +71,13 @@ class SmurfForm extends Component {
           />
           <button type="submit">Add to the village</button>
         </form>
+
+     <button> 
+       <NavLink exact to = "/" activeClassName = "activeNavBUtton"> 
+          Home
+        </NavLink>
+      </button>
+
       </div>
     );
   }

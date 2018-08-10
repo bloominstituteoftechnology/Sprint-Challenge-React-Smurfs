@@ -42,7 +42,7 @@ handleSubmit = data => this.setState({smurfs: data});
     <Route exact path = "/" component = {Header}/>
 
 
-
+      <div>
       <Route path = '/smurfs'
         render = {props =>
             <Smurfs {...props} 
@@ -51,29 +51,15 @@ handleSubmit = data => this.setState({smurfs: data});
           }
         />
 
-
-              <Route path='/smurfs' 
+      <Route path='/smurfs' 
         render = {props =>
             <SmurfForm {...props} 
             handleSubmit = {this.handleSubmit} 
             />
-          }
+          } 
         />
 
-     <span className = "navbar">
-     <button> 
-       <NavLink exact to = "/" activeClassName = "activeNavBUtton"> 
-          Home
-        </NavLink>
-      </button>
-      <button>
-        <NavLink exact to = "/smurfs" activeClassName = "activeNavBUtton"> 
-          Enter the Village
-        </NavLink>
-      </button>
-      </span>
-
-
+          </div>
       </div>
     );
   }
