@@ -23,6 +23,7 @@ class SmurfForm extends Component {
       .then(res => {
         console.log(res);
         console.log(res.data);
+        window.location = '/smurfs';
       })
       .catch(error => {
         console.log(error);
