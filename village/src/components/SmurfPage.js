@@ -11,6 +11,12 @@ class SmurfPage extends Component {
             height: ''
         }
     }
+    componentDidMount () {
+        this.setState({name: this.props.location.state.name,
+        age: this.props.location.state.age,
+        height: this.props.location.state.height
+        })
+    }
 
     handleInputChange = event => {
         this.setState({[event.target.name]: event.target.value})
