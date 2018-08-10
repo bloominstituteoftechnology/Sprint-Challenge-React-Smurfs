@@ -1,40 +1,38 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+
+import {
+  BrowserRouter as Router,
+  Route,
+  Link,
+  NavLink
+} from "react-router-dom";
 
 import './App.css';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
+import Header from './components/Header/Header';
+import Home from './components/Home/Home';
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      smurfs: [],
-    };
+  constructor() {
+    super();
   }
 
-  componentDidMount() {
-    const endpoint = 'http://localhost:3333/smurfs';
-
-    axios
-    .get(endpoint)
-    .then(response => {
-      this.setState({ smurfs: response.data });
-    })
-    .catch(error => {
-      console.log('Error: ', error);
-    });
-  }
-  // add any needed code to ensure that the smurfs collection exists on state and it has data coming from the server
-  // Notice what your map function is looping over and returning inside of Smurfs.
-  // You'll need to make sure you have the right properties on state and pass them down to props.
   render() {
     return (
       <div className="App">
-        <SmurfForm />
-        <Smurfs smurfs={this.state.smurfs} />
+        <Header />
+        <ul>
+          <li><NavLink exact to="/" className="nav-text">Home</NavLink></li>
+          <li><NavLink to="/village/" className="nav-text">Go to village!</NavLink></li>
+          <li><NavLink to="/add-smurf/" className="nav-text">Create your smurf!</NavLink></li>
+        </ul>
+
+        <Route exact path="/" component={Home} />
+        <Route exact path="/village/" component={Smurfs} />
+        <Route exact path="/add-smurf/" component={SmurfForm} /> 
       </div>
-    )
+    );
   }
 }
 
