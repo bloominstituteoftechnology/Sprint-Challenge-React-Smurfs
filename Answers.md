@@ -12,4 +12,8 @@ Create, read, update and delete.
 
 4.  Which HTTP methods can be mapped to the CRUD acronym that we use when interfacing with APIs/Servers.
 
+Post, get, put and delete.
+
 5.  Mention three tools we can use to make AJAX requests
+
+Vanilla javascript, jquery and axios.
