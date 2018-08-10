@@ -4,7 +4,7 @@ import SmurfForm from "./components/SmurfForm";
 import Smurfs from "./components/Smurfs";
 import Header from "./components/Header";
 import axios from "axios";
-import { Route } from "react-router-dom";
+import { Route,Link } from "react-router-dom";
 
 class App extends Component {
   constructor(props) {
@@ -41,6 +41,13 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+       <Route
+          exact
+          path="/"
+          render={props => (
+            <Header />
+          )}
+        />
         <Route
           exact
           path="/smurfs"
@@ -51,6 +58,20 @@ class App extends Component {
                 updateParentState={this.updateParentState}
               />
               <Smurfs {...props} smurfs={this.state.smurfs} />
+            </div>
+          )}
+        />
+         <Route
+          exact
+          path="/smurfs/:id"
+          render={props => (
+            <div className="smurfVill">
+            <Link to={`/smurfs`}>Home</Link>
+              <SmurfForm
+                {...props}
+                updateParentState={this.updateParentState}
+              />
+              <Smurfs {...props} updateParentState={this.updateParentState} smurfs={this.state.smurfs} />
             </div>
           )}
         />
