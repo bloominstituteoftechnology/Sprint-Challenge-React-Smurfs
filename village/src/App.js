@@ -5,6 +5,7 @@ import axios from 'axios';
 import './App.css';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
+import Smurf from './components/Smurf';
 
 const API_URL = 'http://localhost:3333';
 class App extends Component {
@@ -91,6 +92,36 @@ class App extends Component {
               onEdit={this.editSmurf}
             />
           )}
+        />
+
+        <Route
+          exact
+          path="/smurfs/:id"
+          render={({
+            match: {
+              params: { id }
+            }
+          }) => {
+            const found = this.state.smurfs.find(smurf => {
+              return smurf.id == id;
+            });
+
+            if (found) {
+              return (
+                <Smurf
+                  name={found.name}
+                  id={found.id}
+                  age={found.age}
+                  height={found.height}
+                  key={found.id}
+                  onDelete={this.deleteSmurf}
+                  onEdit={this.editSmurf}
+                />
+              );
+            } else {
+              return null;
+            }
+          }}
         />
       </div>
     );
