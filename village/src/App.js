@@ -6,6 +6,7 @@ import "./App.css";
 import SmurfForm from "./components/SmurfForm";
 import Smurfs from "./components/Smurfs";
 import Header from "./components/Header";
+import IndSmurfCard from "./components/IndSmurfCard";
 
 const dataUrl = "http://localhost:3333/smurfs/";
 
@@ -35,12 +36,20 @@ class App extends Component {
       <div className="App">
         <Route exact path={"/"} component={Header} />
         <Route
+          exact
           path={"/smurfList"}
           render={props => <SmurfForm {...props} dataUrl={dataUrl} />}
         />
         <Route
+          exact
           path={"/smurfList"}
           render={props => <Smurfs {...props} smurfs={this.state.smurfs} />}
+        />
+        <Route
+          path={`/smurfList/:id`}
+          render={props => (
+            <IndSmurfCard {...props} smurfs={this.state.smurfs} />
+          )}
         />
       </div>
     );
