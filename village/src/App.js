@@ -27,10 +27,20 @@ class App extends Component {
     }
   }
 
+  addSmurf = async smurfData => {
+    try {
+      const response = await axios.post(`${API_URL}/smurfs`, smurfData);
+
+      this.setState({ smurfs: response.data });
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   render() {
     return (
       <div className="App">
-        <SmurfForm />
+        <SmurfForm onSubmit={this.addSmurf} />
         <Smurfs smurfs={this.state.smurfs} />
       </div>
     );
