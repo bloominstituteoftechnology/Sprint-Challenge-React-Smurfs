@@ -52,6 +52,7 @@ class App extends Component {
                   {...props}
                   smurfs={this.state.smurfs}
                   loading={this.state.loading}
+                  remove={this.remove}
                 />
               )}
           />

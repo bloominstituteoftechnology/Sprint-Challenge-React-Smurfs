@@ -4,6 +4,7 @@ import SmurfForm from './SmurfForm';
 import { Link } from 'react-router-dom';
 
 const Smurfs= props=> {
+  console.log(props);
   return (
     <div className="Smurfs">
       <h1>Smurf Village</h1>
@@ -15,12 +16,8 @@ const Smurfs= props=> {
               <h3>{smurf.name}</h3>
               <strong>{smurf.height} tall</strong>
               <p>{smurf.age} smurf years old</p>
-                {/* name={smurf.name}
-                id={smurf.id}
-                age={smurf.age}
-                height={smurf.height} */}
               <Link to={`/smurfs/${smurf.id}`}><button>more</button></Link>
-              <button onClick={()=>props.func(smurf.id)}>Poof!</button>
+              <button onClick={()=>props.remove(smurf.id)}>Poof!</button>
             </div>
           );
         })}
