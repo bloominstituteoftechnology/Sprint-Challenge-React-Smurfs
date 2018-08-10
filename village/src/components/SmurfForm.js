@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import {Link} from 'react-router-dom';
+import axios from 'axios';
 
 class SmurfForm extends Component {
   constructor(props) {
@@ -13,41 +15,59 @@ class SmurfForm extends Component {
   addSmurf = event => {
     event.preventDefault();
     // add code to create the smurf using the api
+    const newSmurf = {
+      name: this.state.name,
+      age: this.state.age,
+      height: this.state.height
+    }
+    axios.post(`http://localhost:3333/smurfs`, newSmurf) 
+      .then(res => {
+        console.log(res);
+        console.log(res.data);
+        window.location = '/smurfs';
+      })
+      .catch(error => {
+        console.log(error);
+      })
+      this.setState({
+        name: '',
+        age: '',
+        height: ''
+      });
+}
+    
 
-    this.setState({
-      name: '',
-      age: '',
-      height: ''
-    });
-  }
-
-  handleInputChange = e => {
-    this.setState({ [e.target.name]: e.target.value });
+  handleChange = event => {
+    this.setState({ [event.target.name]: event.target.value });
   };
 
   render() {
     return (
-      <div className="SmurfForm">
+      <div>
+      <Link to='/'>Home</Link>
         <form onSubmit={this.addSmurf}>
           <input
-            onChange={this.handleInputChange}
-            placeholder="name"
+            onChange={this.handleChange}
+            placeholder="Name"
             value={this.state.name}
             name="name"
+            
           />
           <input
-            onChange={this.handleInputChange}
-            placeholder="age"
+            onChange={this.handleChange}
+            placeholder="Age"
             value={this.state.age}
             name="age"
+           
           />
           <input
-            onChange={this.handleInputChange}
-            placeholder="height"
+            onChange={this.handleChange}
+            placeholder="Height"
             value={this.state.height}
             name="height"
+            
           />
-          <button type="submit">Add to the village</button>
+          <button type="submit">Add new smurf</button>
         </form>
       </div>
     );
