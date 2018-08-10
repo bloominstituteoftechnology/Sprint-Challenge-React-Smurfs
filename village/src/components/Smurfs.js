@@ -11,6 +11,7 @@ class Smurfs extends Component {
         <h1>Smurf Village {this.props.smurfs.length}</h1>
         <ul>
           {this.props.smurfs.map(smurf => {
+
             return (
               <Link key={smurf.id}  to={`/smurfs/${smurf.id}`}>
                 <Smurf
@@ -19,10 +20,8 @@ class Smurfs extends Component {
                   // age={smurf.age}
                   // height={smurf.height}
                   props={smurf}
-
                 />
               </Link>
-
             );
           })}
         </ul>

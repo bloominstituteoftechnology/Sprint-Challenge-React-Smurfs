@@ -4,7 +4,7 @@ import './App.css';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
 import Smurf from './components/Smurf';
-import {Route} from 'react-router-dom';
+import {Route, Link} from 'react-router-dom';
 let url = 'http://localhost:3333/smurfs';
 
 class App extends Component {
@@ -62,9 +62,12 @@ class App extends Component {
             console.log(this.getSmurfData(smurf.match.params.id))
             return (
               <div>
-                <h4>back</h4>
+                <Link to='/smurfs'>
+                  <h4>back</h4>
+                </Link>
+
                 <Smurf
-//???-----------ask about how to know match and params are here ----------------???/////
+//???-----------ask about how to know match and params are here ------i know they are there but is there a way to peek above?----------???/////
                    props={this.getSmurfData(smurf.match.params.id)}/>
               </div>
             )
