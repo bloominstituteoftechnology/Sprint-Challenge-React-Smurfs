@@ -31,7 +31,7 @@ function getNewId() {
 
 server.post('/smurfs', (req, res) => {
   const { name, age, height } = req.body;
-  const newSmurf = { name, age, height, id: getNewId() };
+  const newSmurf = { id: getNewId(), name, age, height };
   if (!name || !age || !height) {
     return sendUserError(
       'Ya gone did smurfed! Name/Age/Height are all required to create a smurf in the smurf DB.',

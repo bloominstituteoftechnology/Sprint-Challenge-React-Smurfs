@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { Route } from 'react-router-dom';
 import './App.css';
-import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
 import Smurf from './components/Smurf';
 import Header from './components/Header';
@@ -33,7 +32,6 @@ class App extends Component {
     });
   }
   remove(id) {
-    console.log(id)
     axios.delete(`${url}/${id}`)
       .then((response) => {
         console.log(response)})
@@ -42,24 +40,37 @@ class App extends Component {
       window.location.reload();
   }
   render() {
-    return (
-      <div className="App">
-        <Header />
-        <SmurfForm />
-        <Smurfs smurfs={this.state.smurfs} func={this.remove}> 
-          {this.state.smurfs.map(smurf=><Route key={smurf.id} exact path={`/:id`}
-                                                  render={props=>   
-                                                    <Smurf id={smurf.id}
-                                                    name={smurf.name}
-                                                    age={smurf.age} 
-                                                    email={smurf.email}
-                                                    {...props}
-                                                    />}
-                                              />)}
-        </Smurfs>
-      </div>
-    );
-  }
+    if (!this.state.loading){
+      return (
+        <div className="App">
+          <Route exact path="/" component={Header} />
+          <Route
+              exact
+              path="/smurfs"
+              render={props => (
+                <Smurfs
+                  {...props}
+                  smurfs={this.state.smurfs}
+                  loading={this.state.loading}
+                />
+              )}
+          />
+          <Route
+              exact path="/smurfs/:id"
+              render={props => (
+                <Smurf
+                  {...props}
+                  smurfs={this.state.smurfs}
+                  loading={this.state.loading}
+                />
+              )}
+            />         
+        </div>
+      );
+    } else{
+      return null;
+   }
+  } 
 }
 
 export default App;
