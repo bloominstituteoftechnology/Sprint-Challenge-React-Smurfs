@@ -6,14 +6,6 @@ const Header = () => {
   <div className = "header-wrapper">
   <h2>You are about to enter the Village of Smurfs
   </h2>
-  <button> 
-    
-  <Link to="/smerfs" 
-  activeClassName="activeNavButton">
-  Enter the village 
-  </Link>
-
-  </button>
   </div>
   )}
  

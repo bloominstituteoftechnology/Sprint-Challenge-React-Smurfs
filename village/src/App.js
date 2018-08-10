@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import {Route} from 'react-router-dom';
+import {Route, NavLink} from 'react-router-dom';
 
 import './App.css';
 import SmurfForm from './components/SmurfForm';
@@ -37,15 +37,11 @@ handleSubmit = data => this.setState({smurfs: data});
   render() {
     return (
       <div className="App">
+
+      
     <Route exact path = "/" component = {Header}/>
 
-      <Route path='/smurfs' 
-        render = {props =>
-            <SmurfForm {...props} 
-            handleSubmit = {this.handleSubmit} 
-            />
-          }
-        />
+
 
       <Route path = '/smurfs'
         render = {props =>
@@ -54,6 +50,30 @@ handleSubmit = data => this.setState({smurfs: data});
             />
           }
         />
+
+
+              <Route path='/smurfs' 
+        render = {props =>
+            <SmurfForm {...props} 
+            handleSubmit = {this.handleSubmit} 
+            />
+          }
+        />
+
+     <span className = "navbar">
+     <button> 
+       <NavLink exact to = "/" activeClassName = "activeNavBUtton"> 
+          Home
+        </NavLink>
+      </button>
+      <button>
+        <NavLink exact to = "/smurfs" activeClassName = "activeNavBUtton"> 
+          Enter the Village
+        </NavLink>
+      </button>
+      </span>
+
+
       </div>
     );
   }
