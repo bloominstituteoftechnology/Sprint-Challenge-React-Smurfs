@@ -8,7 +8,7 @@ class SmurfForm extends Component {
       name: '',
       age: '',
       height: '',
-      smurfs: props.smurfs
+      // smurfs: props.smurfs
     };
   }
 
@@ -30,7 +30,8 @@ class SmurfForm extends Component {
     })
       .then(response => {
         console.log(response.data);
-        this.setState({ smurfs: response.data });
+        // this.setState({ smurfs: response.data });
+        this.props.updateSmurfState(response.data);
       })
       .catch(error => {
         console.log(error);
