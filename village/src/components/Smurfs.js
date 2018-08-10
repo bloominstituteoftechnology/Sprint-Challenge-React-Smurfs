@@ -10,6 +10,7 @@ class Smurfs extends Component {
         <ul>
           {this.props.smurfs.map(smurf => {
             return (
+              <div>
               <Smurf
                 name={smurf.name}
                 id={smurf.id}
@@ -17,6 +18,8 @@ class Smurfs extends Component {
                 height={smurf.height}
                 key={smurf.id}
               />
+              <button onClick={() => this.props.remove(smurf.id)}>Delete Friend</button>
+              </div>
             );
           })}
         </ul>
