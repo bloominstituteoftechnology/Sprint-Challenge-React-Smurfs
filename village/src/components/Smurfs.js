@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Smurf from './Smurf';
+import { Link } from 'react-router-dom';
 
 class Smurfs extends Component {
   render() {
@@ -20,6 +21,7 @@ class Smurfs extends Component {
             );
           })}
         </ul>
+        <Link to="/">Home</Link>
       </div>
     );
   }

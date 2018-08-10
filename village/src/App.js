@@ -5,6 +5,7 @@ import './App.css';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
 import UpdateSmurf from './components/UpdateSmurf';
+import SingleSmurf from './components/SingleSmurf';
 
 class App extends Component {
   constructor(props) {
@@ -43,11 +44,12 @@ class App extends Component {
     return (
       <div className="App">
         <Route exact path="/" component={Home} />
-        <Route path="/smurfs/add" component={SmurfForm} />
+        <Route path="/add" component={SmurfForm} />
         <Route exact path="/smurfs" render={props => (
           <Smurfs {...props} smurfs={this.state.smurfs} handleDelete={this.handleDelete} />
         )} />
         <Route path="/smurfs/:id" component={UpdateSmurf} />
+        <Route path="/smurf/:id" component={SingleSmurf} />
       </div>
     );
   }
@@ -58,7 +60,7 @@ const Home = () => {
     <div className="home">
       <h1> Welcome to Smurf Village! </h1>
       <Link to="/smurfs"> Enter! </Link>
-      <Link to="/smurfs/add"> Join us! </Link>
+      <Link to="/add"> Join us! </Link>
     </div>
   )
 }

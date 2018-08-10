@@ -21,7 +21,7 @@ class SmurfForm extends Component {
       height: this.state.height
     })
       .then(res => {
-        console.log(res);
+        window.location = "/smurfs";
       })
       .catch(err => {
         console.log(err);
