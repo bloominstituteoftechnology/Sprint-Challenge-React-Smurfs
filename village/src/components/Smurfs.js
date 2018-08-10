@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import SmurfForm from './SmurfForm';
+import { NavLink } from 'react-router-dom';
 
 import Smurf from './Smurf';
 
@@ -7,9 +7,13 @@ class Smurfs extends Component {
   render() {
     return (
       <div className="Smurfs">
+        <nav>
+          <NavLink to="/">Home</NavLink>
+          <NavLink to="/smurfs">Village</NavLink>
+          <NavLink to="/smurf-counsel">Smurf Counsel</NavLink>
+        </nav>
         <h1>Smurf Village</h1>
-        <SmurfForm />
-        <ul>
+        <div className="village-smurf-container">
           {this.props.smurfs.map(smurf => {
             return (
               <Smurf
@@ -21,7 +25,7 @@ class Smurfs extends Component {
               />
             );
           })}
-        </ul>
+        </div>
       </div>
     );
   }
