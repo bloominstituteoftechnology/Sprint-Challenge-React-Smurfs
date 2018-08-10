@@ -6,6 +6,7 @@ import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
 import UpdateSmurf from './components/UpdateSmurf';
 import SingleSmurf from './components/SingleSmurf';
+import { Button } from 'react-materialize';
 
 class App extends Component {
   constructor(props) {
@@ -63,8 +64,8 @@ const Home = () => {
   return (
     <div className="home">
       <h1> Welcome to Smurf Village! </h1>
-      <Link to="/smurfs"> Enter! </Link>
-      <Link to="/add"> Join us! </Link>
+      <Link to="/smurfs"><Button> Enter! </Button></Link>
+      <Link to="/add"><Button> Join us! </Button></Link>
     </div>
   )
 }

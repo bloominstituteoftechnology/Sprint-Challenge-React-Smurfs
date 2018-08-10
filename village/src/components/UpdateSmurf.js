@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { Button } from 'react-materialize'; 
 
 class UpdateSmurf extends Component {
     constructor(props){
@@ -14,6 +15,8 @@ class UpdateSmurf extends Component {
 
     componentDidMount() {
         // To prevent too many API calls, it's probably better to utilize the state of the App, so I refactored that.
+        // A flaw of this method is that we need to first mount the API call in our App, so if we have a direct path to
+        // this url, there will be a mount error. In that case, it would be better to utilize an API call here.
         // let url = 'http://localhost:3333/smurfs';
         let id = Number(this.props.match.params.id);
         // axios.get(url)
@@ -61,6 +64,7 @@ class UpdateSmurf extends Component {
     render(){
         return ( 
             <div className="SmurfForm">
+                <h3> Update Smurf! </h3>
                 <form onSubmit={this.handleUpdate}>
                     <input
                         onChange={this.handleInputChange}
@@ -80,7 +84,7 @@ class UpdateSmurf extends Component {
                         value={this.state.height}
                         name="height"
                     />
-                    <button type="submit">Update Smurf!</button>
+                    <Button type="submit">Update Smurf!</Button>
                 </form>
             </div>
         );

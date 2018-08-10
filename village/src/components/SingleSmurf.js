@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
+// import axios from 'axios';
+import { Row, Col, Card, Button } from 'react-materialize';
 
 class SingleSmurf extends Component {
     constructor(props){
@@ -15,6 +16,8 @@ class SingleSmurf extends Component {
 
     componentDidMount() {
         // To prevent too many API calls, it's probably better to utilize the state of the App, so I refactored that.
+        // A flaw of this method is that we need to first mount the API call in our App, so if we have a direct path to
+        // this url, there will be a mount error. In that case, it would be better to utilize an API call here.
         // let url = 'http://localhost:3333/smurfs';
         let id = Number(this.props.match.params.id);
         // axios.get(url)
@@ -43,13 +46,16 @@ class SingleSmurf extends Component {
 
     render(){
         return (
-            <div className="Smurf">
-                <h3>{this.state.name}</h3>
-                <strong>{this.state.height} tall</strong>
-                <p>{this.state.age} smurf years old</p>
-                <Link to={`/smurfs/${this.state.id}`}><button> Update </button></Link>
-                <Link to='/smurfs'><button> Back </button></Link>
-            </div>
+            <Row>
+                <Col m={8} s={12} offset="m2">
+                    <Card className='blue-grey darken-1' textClassName='white-text' title={this.state.name}>
+                        <strong>{this.state.height} tall</strong>
+                        <p>{this.state.age} smurf years old</p>
+                        <Link to={`/smurfs/${this.state.id}`}><Button> Update </Button></Link>
+                        <Link to='/smurfs'><Button> Back </Button></Link>
+                    </Card>
+                </Col>
+            </Row>
         );
     }
 };
