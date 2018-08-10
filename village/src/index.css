@@ -19,7 +19,12 @@ body a:hover {
 
 .Smurf {
   border: 3px inset #0000FF;
+  box-shadow: 5px 10px white;
   
+}
+.Smurf:hover {
+  box-shadow: 10px 10px #0000FF;
+  font-size: 30px;
 }
 
 #color-button a  {
