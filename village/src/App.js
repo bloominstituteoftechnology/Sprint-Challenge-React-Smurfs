@@ -22,12 +22,21 @@ class App extends Component {
       .catch(err => console.log(err))
   }
 
+  onUpdate (event){
+    const id = event.target.id
+    axios.delete(`http://localhost:3333/smurfs/${id}`, {
+      
+    })
+      .then(res => console.log(res))
+      .catch(err => console.log(err))
+  }
+
   render() {
     return (
       <div>
         <Route exact path="/" component={Header} />
         <Route path="/smurfs" 
-          render = {props => <SmurfsApp {...props} smurfs={this.state.smurfs} />} />
+          render = {props => <SmurfsApp {...props} smurfs={this.state.smurfs}  />} />
       </div>
     );
   }
