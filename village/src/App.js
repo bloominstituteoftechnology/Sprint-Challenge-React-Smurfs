@@ -14,11 +14,20 @@ class App extends Component {
   componentDidMount () {
     axios.get('http://localhost:3333/smurfs')
       .then(response => {
-        console.log(response)
         this.setState({smurfs: response.data})
       })
       .catch (error => console.log(error))
 
+  }
+
+  addingSmurf = (smurf) => {
+    console.log(smurf);
+    axios.post('http://localhost:3333/smurfs', smurf)
+      .then(response => {
+        console.log(response)
+        this.setState({smurfs: response.data})
+      })
+      .catch(error => console.log(error))
   }
   // add any needed code to ensure that the smurfs collection exists on state and it has data coming from the server
   // Notice what your map function is looping over and returning inside of Smurfs.
@@ -29,8 +38,8 @@ class App extends Component {
       console.log(this.state.smurfs); 
     return (
       <div className="App">
-        <SmurfForm />
-        <Smurfs smurfs={this.state.smurfs} />
+        <SmurfForm addSmurf = {this.addingSmurf} />
+        <Smurfs smurfs={this.state.smurfs}  />
       </div>
     );
   }
