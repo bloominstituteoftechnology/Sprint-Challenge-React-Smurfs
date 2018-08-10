@@ -10,6 +10,7 @@ class Smurfs extends Component {
         <ul>
           {this.props.smurfs.map(smurf => {
             return (
+              <div>
               <Smurf
                 name={smurf.name}
                 id={smurf.id}
@@ -17,6 +18,21 @@ class Smurfs extends Component {
                 height={smurf.height}
                 key={smurf.id}
               />
+              <input
+                onChange={this.props.handleInputChange}
+                placeholder="edit age"
+                value={this.props.age}
+                name="age"
+              />
+              <input
+                onChange={this.props.handleInputChange}
+                placeholder="edit height"
+                value={this.props.height}
+                name="height"
+              />
+              <button onClick={() => this.props.edit(smurf.id)}>Edit Smurf</button>
+              <button onClick={() => this.props.remove(smurf.id)}>Delete Smurf</button>
+              </div>
             );
           })}
         </ul>
