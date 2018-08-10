@@ -1,8 +1,11 @@
-import React, { Component } from 'react';
+import React, { Fragment, Component } from 'react';
 import axios from 'axios'; 
+import {Route, Switch} from 'react-router-dom'; 
 import './App.css';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
+import Header from './components/Header';
+
 
 class App extends Component {
   constructor(props) {
@@ -37,10 +40,19 @@ class App extends Component {
   render() {
       console.log(this.state.smurfs); 
     return (
-      <div className="App">
-        <SmurfForm addSmurf = {this.addingSmurf} />
-        <Smurfs smurfs={this.state.smurfs}  />
-      </div>
+      
+      <Fragment>
+        
+        <div className="App">
+          <Switch>
+              <Route exact path = "/" component={Header} />
+              <Route path = '/smurfvillage' render = {(props) =>  <div><SmurfForm {...props} addSmurf = {this.addingSmurf} /> <Smurfs {...props} smurfs ={this.state.smurfs}  /></div>} />
+             
+              
+              
+          </Switch>
+        </div>
+      </Fragment>
     );
   }
 }
