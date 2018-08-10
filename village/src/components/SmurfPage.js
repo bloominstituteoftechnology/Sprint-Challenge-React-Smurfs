@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 
-class Smurf extends React.Component {
+class SmurfPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -36,12 +36,15 @@ class Smurf extends React.Component {
   }
 
   render() {
+      let realIndex = this.props.smurfs.findIndex(smurf => smurf.id === Number(this.props.match.params.id));
+      console.log(realIndex);
+    if(this.props.smurfs.length > 0) {
   return (
     <div className="Smurf">
       <Link to={`/smurf/${this.props.id}`}>
-      <h3>{this.props.name}</h3>
-      <strong>{this.props.height} cm tall</strong>
-      <p>{this.props.age} smurf years old</p>
+      <h3>{this.props.smurfs[realIndex].name}</h3>
+      <strong>{this.props.smurfs[realIndex].height} cm tall</strong>
+      <p>{this.props.smurfs[realIndex].age} smurf years old</p>
       </Link>
       <button onClick={props => this.setState({showUpdate: !this.state.showUpdate})}>Update Smurf</button><button onClick={() => this.deleteSmurf(this.props.id, this.props)}>Delete Smurf</button>
 
@@ -53,18 +56,25 @@ class Smurf extends React.Component {
           <button type="submit">Submit</button>
         </form>
       </div>
+      <br/>
+      <Link to="/smurfs">Home</Link>
       <hr/>
     </div>
     
-  );
+    );
+    } else {
+        return (
+            <div>Loading...</div>
+        )
+    }
 }
 };
 
-Smurf.defaultProps = {
+SmurfPage.defaultProps = {
   name: '',
   height: '',
   age: ''
 };
 
-export default Smurf;
+export default SmurfPage;
 
