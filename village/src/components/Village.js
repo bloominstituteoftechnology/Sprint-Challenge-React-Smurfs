@@ -9,6 +9,8 @@ import Smurfs from './Smurfs';
     super(props);
     this.state = {
       smurfs: [],
+      age: "",
+      height: ""
     };
   }
    componentDidMount() {
@@ -36,12 +38,37 @@ import Smurfs from './Smurfs';
       console.log(error);
     });
   }
-  
+
+  handleInputChange = e => {
+    this.setState({ [e.target.name]: e.target.value });
+  }
+
+  editSmurf =(id) => {
+    console.log(id);
+    axios.put(`http://localhost:3333/smurfs/${id}`, {
+      age: this.state.age,
+      height: this.state.height
+  })
+  .then(response => {
+    this.setState(() => ({
+      smurfs: response.data
+    }));
+  })
+    .catch(error => {
+      console.log(error);
+    });
+  }
+
   render() {
     return (
       <div className="App">
         <SmurfForm smurfs={this.state.smurfs} />
-        <Smurfs smurfs={this.state.smurfs} remove={this.deleteSmurf} />
+        <Smurfs
+        smurfs={this.state.smurfs}
+        remove={this.deleteSmurf}
+        edit={this.editSmurf}
+        handleInputChange={this.handleInputChange}
+        />
       </div>
     );
   }
