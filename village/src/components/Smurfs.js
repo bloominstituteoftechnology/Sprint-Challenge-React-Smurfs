@@ -1,7 +1,30 @@
 import React, { Component } from 'react';
 import Smurf from './Smurf';
+import axios from 'axios';
 
 class Smurfs extends Component {
+
+
+
+
+
+  deleteSmurf = id => {
+      axios
+      .delete(`http://localhost:3333/smurfs/${id}`)
+      .then(response => {
+        this.setState({
+          smurfs: response.data
+        });
+      })
+      .catch(error => {
+        console.error("Server Error", error);
+      });
+  };
+
+
+
+
+
   render() {
     return (
       <div className="Smurfs">
@@ -15,6 +38,7 @@ class Smurfs extends Component {
                 age={smurf.age}
                 height={smurf.height}
                 key={smurf.id}
+                deleteSmurf={this.deleteSmurf}
               />
             );
           })}
