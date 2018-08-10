@@ -4,7 +4,6 @@ import { Route } from 'react-router-dom';
 import Header from './components/Header';
 
 import './App.css';
-import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
 
 class App extends Component {
@@ -37,9 +36,11 @@ class App extends Component {
         <Route exact path="/" component={Header} />
         <Route path="/smurfs" render={props =>
           (<div>
-            <SmurfForm {...props} setSmurfData={this.setSmurfData} />
-            <Smurfs {...props}
-            smurfs={this.state.smurfs} />
+            <Smurfs
+            {...props}
+            smurfs={this.state.smurfs} 
+            setSmurfData={this.setSmurfData}
+            />
           </div>
           )}
         />
