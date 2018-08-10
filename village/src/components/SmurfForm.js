@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
+import axios from 'axios'
+import { Link} from 'react-router-dom';
 
+
+  const url = "http://localhost:3333/smurfs";
 class SmurfForm extends Component {
   constructor(props) {
     super(props);
@@ -10,9 +14,21 @@ class SmurfForm extends Component {
     };
   }
 
-  addSmurf = event => {
-    event.preventDefault();
-    // add code to create the smurf using the api
+  addSmurf = a => {
+    a.preventDefault();
+
+  axios
+  .post(url, {
+      name: this.state.name,
+      age: this.state.age,
+      height: this.state.height
+    })
+    .then((response)=>{
+      this.setState({smurfs: response.data})
+    })
+    .catch(err => {
+      console.log(err);
+    })
 
     this.setState({
       name: '',
@@ -49,6 +65,8 @@ class SmurfForm extends Component {
           />
           <button type="submit">Add to the village</button>
         </form>
+        <Link to="/" > Home</Link><br/>
+        <Link to="/smurfs"> See the village</Link>
       </div>
     );
   }

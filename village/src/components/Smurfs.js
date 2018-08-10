@@ -1,13 +1,21 @@
 import React, { Component } from 'react';
-
+import { Link} from 'react-router-dom';
 import Smurf from './Smurf';
+import { ListGroup } from 'reactstrap';
+import { Jumbotron } from 'reactstrap';
+
 
 class Smurfs extends Component {
   render() {
     return (
       <div className="Smurfs">
-        <h1>Smurf Village</h1>
-        <ul>
+        <Link to="/" > Home</Link> <br/>
+          <Link to="/add">Add a smurf</Link>
+          <Jumbotron className = "smurfvillage">
+            <h1>Smurf Village</h1>
+        </Jumbotron>
+
+        <ListGroup>
           {this.props.smurfs.map(smurf => {
             return (
               <Smurf
@@ -19,7 +27,7 @@ class Smurfs extends Component {
               />
             );
           })}
-        </ul>
+        </ListGroup>
       </div>
     );
   }
