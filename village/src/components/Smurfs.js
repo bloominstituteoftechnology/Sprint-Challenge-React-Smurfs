@@ -15,10 +15,6 @@ class Smurfs extends Component {
             return (
               <Link key={smurf.id}  to={`/smurfs/${smurf.id}`}>
                 <Smurf
-                  // name={smurf.name}
-                  // id={smurf.id}
-                  // age={smurf.age}
-                  // height={smurf.height}
                   props={smurf}
                 />
               </Link>
