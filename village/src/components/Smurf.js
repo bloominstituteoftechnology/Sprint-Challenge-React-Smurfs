@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Smurf = props => {
-  console.log(props)
+  // console.log(props)
   return (<div className="Smurf">
     <h3>{props.props.name}</h3>
     <strong>{props.props.height}tall</strong>

@@ -12,7 +12,7 @@ class SmurfForm extends Component {
     };
   }
 
-  updateVillage(props){
+  updateVillage = (props) => {
     props.updateVillage(this.state.smurfs)
   }
 
