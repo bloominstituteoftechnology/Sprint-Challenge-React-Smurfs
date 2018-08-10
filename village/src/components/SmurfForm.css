@@ -1,0 +1,24 @@
+
+.SmurfForm form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.SmurfForm form input{
+    width: 40%;
+    margin: 12px 30%;
+    text-align: center;
+    font-size: 15px;
+}
+
+.SmurfForm form button{
+    width: 20%;
+    margin: 12px 40%;
+    text-align: center;
+    font-size: 15px;
+    border: 1px solid gray;
+
+}
+
+

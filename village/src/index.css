@@ -1,5 +1,22 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: 'Warnes', cursive;
+  font-weight: 100;
+  color: blue;
+}
+
+button{ 
+  font-family: 'Warnes', cursive;
+  font-size: 15px;
+  color: blue;
+  border: 1px solid white;
+  background: white;
+  text-decoration: none;
+}
+
+
+input{
+  font-family: 'Warnes', cursive;
+  color: blue;
 }

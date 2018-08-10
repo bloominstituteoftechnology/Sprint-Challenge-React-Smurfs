@@ -1,4 +1,15 @@
 import React, { Component } from 'react';
+import axios from 'axios';
+import {
+  BrowserRouter as Router,
+  Route,
+  Link,
+  NavLink
+} from "react-router-dom";
+
+import './SmurfForm.css'
+
+const url = 'http://localhost:3333/smurfs'
 
 class SmurfForm extends Component {
   constructor(props) {
@@ -13,6 +24,24 @@ class SmurfForm extends Component {
   addSmurf = event => {
     event.preventDefault();
     // add code to create the smurf using the api
+
+    //solution:
+    
+      // const { name, age, height }  = this.state;
+      // const newSmurf = { name, age, height };
+
+      const smurf = {
+        name: this.state.name,
+        age: this.state.age,
+        height: this.state.height
+      }
+      axios
+      .post(url, smurf)
+      .then(response => {
+        this.props.handleSubmit(response.data);
+        this.setState({ name: '', age: '', height: '' });
+      })
+      .catch(err => console.log(err));
 
     this.setState({
       name: '',
@@ -49,6 +78,14 @@ class SmurfForm extends Component {
           />
           <button type="submit">Add to the village</button>
         </form>
+
+      <div className = "nav-button-container">
+      <button> 
+       <NavLink exact to = "/" activeClassName = "activeNavBUtton"> 
+          Home
+        </NavLink>
+      </button>
+      </div>
       </div>
     );
   }
