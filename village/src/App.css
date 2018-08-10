@@ -1,3 +1,13 @@
 .App {
-  text-align: center;
+  margin: 20px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80%;
+  height: 80%;
+  overflow-y: scroll;
+  border-radius: 5px;
+  border: 1px solid black;
+  background: white;
+  padding-top: 15px;
 }
