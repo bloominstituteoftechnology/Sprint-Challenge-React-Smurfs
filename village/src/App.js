@@ -48,7 +48,7 @@ class App extends Component {
   render() {
     console.log(this.state.smurfs);
     return (
-      <div className="App">
+      <div className="appWrapper">
         <Route exact path={"/"} component={Header} />
         <Route
           exact

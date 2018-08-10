@@ -1,6 +1,8 @@
 import React, { Fragment } from "react";
 import { Link } from "react-router-dom";
 
+import "./Component.css";
+
 const IndSmurfCard = props => {
   return (
     <Fragment>
