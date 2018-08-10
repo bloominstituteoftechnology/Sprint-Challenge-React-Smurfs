@@ -1,5 +1,5 @@
 1.  Explain the differences between `client-side routing` and `server-side routing`. 
--Client side routing uses one server request to get data, then stores it in state, then routes state data throughout its app. State side routing makes requests to databases through 'workers' storing data in containers with certain configurations, then stores data in an API which can later be accessed by the get request sent from a client. 
+-Client side routing uses one server request to get data, then stores it in state, then routes state data throughout its app. Server side routing makes requests to databases through 'workers' storing data in containers with certain configurations, then stores data in an API which can later be accessed by the get request sent from a client. 
 
 1.  What does HTTP stand for?
 - HTTP stands for Hyper-Text Transfer Protocol.
