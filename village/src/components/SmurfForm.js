@@ -19,7 +19,7 @@ class SmurfForm extends Component {
       age: this.state.age,
       height: this.state.height
     })
-      .then(res => console.log(res))
+      .then(res => window.location.reload())
       .catch(err => console.log(err))
 
     this.setState({

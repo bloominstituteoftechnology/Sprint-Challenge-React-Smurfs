@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import axios from 'axios' 
-
+import { Route } from 'react-router-dom'
 import './App.css';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
+import Header from './components/Header';
 
 class App extends Component {
   constructor(props) {
@@ -20,15 +21,25 @@ class App extends Component {
       .then(res => this.setState({smurfs: res.data}))
       .catch(err => console.log(err))
   }
-  
+
   render() {
     return (
-      <div className="App">
-        <SmurfForm />
-        <Smurfs smurfs={this.state.smurfs} />
+      <div>
+        <Route exact path="/" component={Header} />
+        <Route path="/smurfs" 
+          render = {props => <SmurfsApp {...props} smurfs={this.state.smurfs} />} />
       </div>
     );
   }
+}
+
+function SmurfsApp (props){
+  return (
+    <div className="App">
+        <SmurfForm />
+        <Smurfs smurfs={props.smurfs} />
+    </div>
+  )
 }
 
 export default App;
