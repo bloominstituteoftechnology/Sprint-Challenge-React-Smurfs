@@ -34,16 +34,16 @@ class App extends Component {
       });
   }
 
-  // delSmurf = id => {
-  //   axios
-  //     .delete(`http://localhost:3333/smurfs/${id}`)
-  //     .then(response => {
-  //       this.setState({ smurfs: response.smurfs });
-  //     })
-  //     .catch(err => {
-  //       console.log(err);
-  //     });
-  // };
+  delSmurf = id => {
+    axios
+      .delete(`http://localhost:3333/smurfs/${id}`)
+      .then(response => {
+        this.setState({ smurfs: response.smurfs });
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  };
 
   render() {
     console.log(this.state.smurfs);

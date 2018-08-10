@@ -8,12 +8,12 @@ const IndSmurfCard = props => {
         <h1>{props.smurfs[props.match.params.id].name}</h1>
         <h2>{props.smurfs[props.match.params.id].height} smurf feet tall</h2>
         <h2>{props.smurfs[props.match.params.id].age} smurf years old</h2>
-        {/* <Link
+        <Link
           to={"/smurfList"}
           onClick={props.deleteHandler(props.match.params.id)}
         >
           Delete
-        </Link> */}
+        </Link>
         <Link to={"/smurfList"}>Home</Link>
       </div>
     </Fragment>
