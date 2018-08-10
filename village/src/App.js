@@ -46,7 +46,7 @@ class App extends Component {
     axios
       .delete(`http://localhost:3333/smurfs/${id}`)
       .then(res => {
-        this.setState({ smurfs: res.data });
+        this.setState({ smurfs: res.data }, () => window.location="/smurfs");
       })
       .catch(err => {
         console.error("Server Delete", err);
@@ -102,7 +102,7 @@ class App extends Component {
                 deleteSmurf={this.deleteSmurf}
                 updateSmurf={this.updateSmurf}
               />
-              <Link to="/">Home</Link>
+              <Link to="/" className="coral">Home</Link>
             </div>
           )}
         />
