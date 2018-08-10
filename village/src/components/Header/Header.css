@@ -1,0 +1,11 @@
+.navlink-container {
+    background: #c4001a
+}
+
+.nav-links {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    width: 1000px;
+    margin: 0 auto;
+}
