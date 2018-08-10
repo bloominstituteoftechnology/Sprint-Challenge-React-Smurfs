@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 import Smurf from './Smurf';
 
@@ -10,6 +11,7 @@ class Smurfs extends Component {
         <ul>
           {this.props.smurfs.map(smurf => {
             return (
+              // <Link to={`${this.props.match.url}`/`${smurf.id}`}>
               <Smurf
                 name={smurf.name}
                 id={smurf.id}
@@ -19,6 +21,7 @@ class Smurfs extends Component {
                 handleDelete={this.props.handleDelete}
                 handleSyncingDB={this.handleSyncingDB}
               />
+              // </Link>
             );
           })}
         </ul>

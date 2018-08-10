@@ -5,6 +5,7 @@ import { Route, NavLink } from 'react-router-dom';
 import './App.css';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
+import Smurf from './components/Smurf';
 
 class App extends Component {
   constructor(props) {
@@ -14,6 +15,11 @@ class App extends Component {
     };
   }
 
+  componentDidMount() {
+    this.handleSyncingDB();
+  }
+
+  // Syncing the list with server
   handleSyncingDB = () => {
     axios.get('http://localhost:3333/smurfs')
     .then(response => response.data)
@@ -30,18 +36,22 @@ class App extends Component {
     ;
   }
 
-  componentDidMount() {
-    this.handleSyncingDB();
-  }
-
   render() {
     return (
       <div className="App">
         <NavLink to="/form" >Add Smurfs</NavLink>
         <NavLink to="/smurfs" >Smurfs</NavLink>
 
-        <Route exact path="/form" render={ props => <SmurfForm handleSyncingDB={this.handleSyncingDB} {...props} />} />
-        <Route path="/smurfs" render={ props => <Smurfs smurfs={this.state.smurfs} handleDelete={this.handleDelete} handleSyncingDB={this.handleSyncingDB} {...props} />} />
+        <Route exact path="/form" 
+          render={ props => <SmurfForm handleSyncingDB={this.handleSyncingDB} {...props} />} 
+        />
+        <Route path="/smurfs" 
+          render={ props => <Smurfs smurfs={this.state.smurfs} 
+                                    handleDelete={this.handleDelete} 
+                                    handleSyncingDB={this.handleSyncingDB} 
+                                    {...props} 
+                            />} 
+        />
       </div>
     );
   }
