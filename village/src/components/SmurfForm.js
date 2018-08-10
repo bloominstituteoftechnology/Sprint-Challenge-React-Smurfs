@@ -27,10 +27,10 @@ class SmurfForm extends Component {
   submitNewSmurf=()=>{
     const newSmurfObj={
       name: this.state.name,
-      age: `${this.state.age} smurf years old`,
-      height: `${this.state.height} tall`
+      age: this.state.age,
+      height: this.state.height
     }
-    axios.post('http://localhost:3333/smurfs',newSmurfObj).then(res=>console.log(res.data)).catch(err=>console.log(err));
+    axios.post('http://localhost:3333/smurfs',newSmurfObj).then(res=>{console.log(res.data);window.location.reload()}).catch(err=>console.log(err));
   }
   render() {
     return (
