@@ -48,8 +48,12 @@ class App extends Component {
         <Route exact path="/smurfs" render={props => (
           <Smurfs {...props} smurfs={this.state.smurfs} handleDelete={this.handleDelete} />
         )} />
-        <Route path="/smurfs/:id" component={UpdateSmurf} />
-        <Route path="/smurf/:id" component={SingleSmurf} />
+        <Route path="/smurfs/:id" render={props => (
+          <UpdateSmurf {...props} smurfs={this.state.smurfs} handleDelete={this.handleDelete} />
+        )} />
+        <Route path="/smurf/:id" render={props => (
+          <SingleSmurf {...props} smurfs={this.state.smurfs} handleDelete={this.handleDelete} />
+        )} />
       </div>
     );
   }

@@ -13,21 +13,29 @@ class UpdateSmurf extends Component {
     }
 
     componentDidMount() {
-        let url = 'http://localhost:3333/smurfs';
+        // To prevent too many API calls, it's probably better to utilize the state of the App, so I refactored that.
+        // let url = 'http://localhost:3333/smurfs';
         let id = Number(this.props.match.params.id);
-        axios.get(url)
-            .then(res => {
-                let found = res.data.find(smurf => smurf.id === id);
-                this.setState({
-                    name: found.name,
-                    age: found.age,
-                    height: found.height,
-                    id: found.id
-                })
-            })
-            .catch(err => {
-                console.log(err);
-            })
+        // axios.get(url)
+        //     .then(res => {
+        //         let found = res.data.find(smurf => smurf.id === id);
+        //         this.setState({
+        //             name: found.name,
+        //             age: found.age,
+        //             height: found.height,
+        //             id: found.id
+        //         })
+        //     })
+        //     .catch(err => {
+        //         console.log(err);
+        //     })
+        let found = this.props.smurfs.find(smurf => smurf.id === id);
+        this.setState({
+            name: found.name,
+            age: found.age,
+            height: found.height,
+            id: found.id
+        })
     }
 
     handleInputChange = e => {
