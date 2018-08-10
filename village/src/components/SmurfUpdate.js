@@ -12,7 +12,7 @@ class SmurfUpdate extends Component {
         this.state = {
             name: '',
             age: '',
-            email:'',
+            height:'',
             id: 0
          }     
     }
@@ -21,6 +21,8 @@ componentDidMount () {
     const id = Number(this.props.match.params.id);
     axios.get(url)
     .then(response => {
+        console.log(response);
+        console.log(response.data);
         let matching = response.data.find(smurf => smurf.id === id);
         this.setState({
             name: matching.name,
@@ -47,6 +49,7 @@ update = (event) => {
         age: this.state.age,
         height: this.state.height
     }
+    console.log(this.state.id + 'update');
     axios.put(`${url}/${this.state.id}`, updatedSmurf)
     .then(response => {
         console.log(response);
@@ -81,7 +84,7 @@ update = (event) => {
                         value={this.state.height}
                         onChange={this.handleChange}
                     />
-                    <button type="submit">Update</button>
+                    <button type="submit" onClick={this.update}>Update</button>
                 </form>
                 
             </div>
