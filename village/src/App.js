@@ -17,6 +17,12 @@ class App extends Component {
 		};
 	}
 
+	killSmurf = id => {
+		axios
+			.delete(`${API_URL}/${id}`)
+			.then(response => this.setState({ smurfs: response.data }));
+	};
+
 	componentDidMount() {
 		axios.get(API_URL).then(response => {
 			this.setState({
@@ -30,13 +36,13 @@ class App extends Component {
 	render() {
 		return (
 			<div className="App">
-				<Route exact path="/" component={Header} />
+				<Route exact path="/" component={ Header } />
 				<Route
 					path="/smurfs"
 					render={() => (
 						<div>
 							<SmurfForm />
-							<Smurfs smurfs={this.state.smurfs} />
+							<Smurfs onKillSmurf={ this.killSmurf } smurfs={ this.state.smurfs } />
 						</div>
 					)}
 				/>
