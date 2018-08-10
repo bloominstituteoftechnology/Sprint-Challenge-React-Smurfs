@@ -22,11 +22,21 @@ class App extends Component {
   }
 
   getSmurfData = (param) => {
-    return axios.get(`${URL}/${param}`)
+    console.log(typeof param);
+    let smurf = parseInt(param);
+    return axios.get(URL+`/${param}`)
     .then((res)=>{
+      console.log("response", res);
+      
       this.setSmurfDataToState(res.data);
     })
     .catch((err)=> console.log('SMURF ERR', err));
+  }
+
+  getSmurfFromState = (id) => {
+    console.log(id);
+    
+    return this.state.smurfs[id];
   }
 
   setSmurfDataToState = (data) => {
@@ -47,14 +57,18 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <div className="profile-container">
+        <ProfileContainer>
           <Route exact path="/" component={ProfileLanding} />
-          <Route path="/:smurf" component={Profile} />
-        </div>
-        <div className="form-list">
+          <Route path="/:id" render={
+            (props) => { 
+              return <Profile {...props} getSmurf={this.getSmurfFromState}/>
+            }
+          } />
+        </ProfileContainer>
+        <FormList>
           <SmurfForm addNewSmurf={this.addNewSmurf}/>
           <Smurfs smurfs={this.state.smurfs} />
-        </div>
+        </FormList>
       </div>
     );
   }
