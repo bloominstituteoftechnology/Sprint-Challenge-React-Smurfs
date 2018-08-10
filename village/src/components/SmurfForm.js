@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
+
 class SmurfForm extends Component {
   constructor(props) {
     super(props);
@@ -8,6 +9,7 @@ class SmurfForm extends Component {
       name: '',
       age: '',
       height: '',
+      id: '',
       smurfs: [] 
     };
   }
@@ -31,34 +33,39 @@ class SmurfForm extends Component {
   .catch((err) => console.log(err))
 }
 
-getSmurfId = (e) => {
-  e.prevenDefault();
-  let id = null;
-  if(this.state.smurfs.name === this.state.name) {
-    id = this.state.smurfs.id;
-    return id; 
+getSmurffed = (e) => {
+  e.preventDefault();
 
+ this.state.smurfs.map(smurf => {
+   
+ if(smurf.name === this.state.name) {
+   let x = this.setState({id: smurf.id})
+    return x;
   }
 
-  console.log(id);
-  axios
-  .delete(`http://localhost:5000/friends/${id}`)
-  .then(response => {
-    this.setState(() => ({ friend: response.data }));
-  })
-  .catch(error => {
-    console.error(error);
-  });
+ });
 
+axios
+.delete(`http://localhost:3333/friends/${this.state.id}`)
+.then(response => {
+  console.log('this is the axios delete response', response.data);
+
+  this.setState(() => ({ smurfs: response.data }));
+})
+.catch(error => {
+  console.error(error);
+});
 
 }
-
 
   handleInputChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
 
+
   render() {
+    console.log('this is the this.state.smurfs.name', this.state.smurfs.name);
+
     return (
       <div className="SmurfForm">
         <form onSubmit={this.addSmurf}>
@@ -83,12 +90,15 @@ getSmurfId = (e) => {
           <button type="submit">Add to the village</button>
         </form>
 
-        <form onSubmit={this.getSmurfId}>
+        <form onSubmit={this.getSmurffed}>
             <button type="submit">Delete</button> 
         </form>
+
+ 
       </div>
     );
   }
 }
+
 
 export default SmurfForm;
