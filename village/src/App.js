@@ -36,7 +36,7 @@ class App extends Component {
            <NavLink className="navlink" exact to="/">Home</NavLink>
            <NavLink className="navlink" to="/smurfs">The Village</NavLink>
          </div>
-        <Route path="/" component={Header}/>
+        <Route exact path="/" component={Header}/>
         <Route path="/smurfs" component={SmurfForm}/>
         <Route path="/smurfs"  render={props => <Smurfs {...props} smurfs={this.state.smurfs}/>}/>
       </div>
