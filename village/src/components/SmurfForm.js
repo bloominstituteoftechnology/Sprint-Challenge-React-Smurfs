@@ -31,12 +31,34 @@ class SmurfForm extends Component {
   .catch((err) => console.log(err))
 }
 
+getSmurfId = (e) => {
+  e.prevenDefault();
+  let id = null;
+  if(this.state.smurfs.name === this.state.name) {
+    id = this.state.smurfs.id;
+    return id; 
+
+  }
+
+  console.log(id);
+  axios
+  .delete(`http://localhost:5000/friends/${id}`)
+  .then(response => {
+    this.setState(() => ({ friend: response.data }));
+  })
+  .catch(error => {
+    console.error(error);
+  });
+
+
+}
+
+
   handleInputChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
 
   render() {
-    console.log(this.state.smurfs)
     return (
       <div className="SmurfForm">
         <form onSubmit={this.addSmurf}>
@@ -59,6 +81,10 @@ class SmurfForm extends Component {
             name="height"
           />
           <button type="submit">Add to the village</button>
+        </form>
+
+        <form onSubmit={this.getSmurfId}>
+            <button type="submit">Delete</button> 
         </form>
       </div>
     );
