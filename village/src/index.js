@@ -7,7 +7,7 @@ import Header from './components/Header';
 
 ReactDOM.render(
   <Router>
-    <div>
+    <div className="page">
       <Route exact path="/" component={Header} />
       <Route path="/smurfs" component={App} />
     </div>
