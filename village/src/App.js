@@ -6,6 +6,7 @@ import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
 import Header from './components/Header';
 import SmurfUpdate from './components/SmurfUpdate';
+import SingleSmurf from './components/SingleSmurf';
 
 class App extends Component {
   constructor(props) {
@@ -54,6 +55,8 @@ class App extends Component {
         <Route exact path="/smurfs" 
           render = {props => <SmurfsApp {...props} smurfs={this.state.smurfs} onDelete={this.onDelete.bind(this)}/>} />
         <Route path="/smurfs/:id" component={SmurfUpdate} />
+        <Route path="/single/:id" 
+          render = {props => <SingleSmurf {...props} smurfs={this.smurfs} />} />
       </div>
     );
   }
