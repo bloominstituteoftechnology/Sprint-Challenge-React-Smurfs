@@ -1,4 +1,13 @@
+body {
+  background: #274c77;
+}
+
 .appWrapper {
   text-align: center;
   margin: 0 auto;
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }

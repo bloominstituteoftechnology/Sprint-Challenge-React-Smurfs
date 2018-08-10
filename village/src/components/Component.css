@@ -1,4 +1,108 @@
 .Smurfs {
+  width: 100%;
   padding: 1rem;
+  background: #6096ba;
+  border-bottom: 4px solid #274c77;
+}
+
+.Smurfs a {
+  text-decoration: none;
+  color: black;
+}
+.Smurfs a:hover {
+  text-decoration: none;
+  color: #e7ecef;
+}
+
+.Smurfs ul {
+  padding: 0;
+  margin-top: 2rem;
+}
+
+.Smurf h3 {
+  margin-top: 2rem;
+}
+.headerWrapper {
+  margin-top: 4rem;
+  color: #88ccff;
+}
+
+.headerWrapper img {
+  height: 5rem;
+  width: auto;
+}
+
+.headerWrapper a {
+  text-decoration: none;
+  color: black;
+}
+
+.headerWrapper a:hover {
+  color: #88ccff;
+}
+
+.indSmurfCard {
+  background: #6096ba;
+  width: 80%;
+  margin-top: 4rem;
+  border-radius: 4px;
   text-align: center;
+  padding: 1rem;
+}
+
+.indSmurfCard h2 {
+  background: #6096ba;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.SmurfForm {
+  width: 100%;
+  border-radius: 0 0 4px 4px;
+  padding: 1rem;
+  background: #8b8c89;
+  border-top: 2px solid white;
+}
+
+.SmurfForm input {
+  padding: 0.5rem;
+  margin: 1rem;
+  font-size: 1rem;
+  border-radius: 4px;
+  border: 1px solid white;
+  background: #6096ba;
+}
+.SmurfForm input::placeholder {
+  color: white;
+  text-align: center;
+}
+
+.SmurfForm button {
+  border-radius: 4px;
+  border: 4px solid #274c77;
+  padding: 0.5rem;
+  background: white;
+  color: #274c77;
+  font-weight: bold;
+  margin-bottom: 4rem;
+}
+
+.SmurfForm button:hover {
+  color: white;
+  background: #274c77;
+  cursor: pointer;
+}
+
+.SmurfForm a {
+  border-radius: 4px;
+  border: 4px solid white;
+  padding: 0.2rem;
+  background: #51a3a3;
+  color: #274c77;
+  margin-bottom: 1rem;
+  text-decoration: none;
+}
+.SmurfForm a:hover {
+  color: #51a3a3;
+  background: white;
 }

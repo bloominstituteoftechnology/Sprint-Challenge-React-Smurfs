@@ -6,7 +6,7 @@ import "./Component.css";
 const IndSmurfCard = props => {
   return (
     <Fragment>
-      <div>
+      <div className="indSmurfCard">
         <h1>{props.smurfs[props.match.params.id].name}</h1>
         <h2>{props.smurfs[props.match.params.id].height} smurf feet tall</h2>
         <h2>{props.smurfs[props.match.params.id].age} smurf years old</h2>

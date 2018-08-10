@@ -51,13 +51,12 @@ class App extends Component {
       <div className="appWrapper">
         <Route exact path={"/"} component={Header} />
         <Route
-          exact
-          path={"/smurfList"}
+          path={`/smurfList/:id`}
           render={props => (
-            <SmurfForm
+            <IndSmurfCard
               {...props}
-              dataUrl={dataUrl}
               smurfs={this.state.smurfs}
+              deleteHandler={this.delSmurf}
             />
           )}
         />
@@ -67,12 +66,13 @@ class App extends Component {
           render={props => <Smurfs {...props} smurfs={this.state.smurfs} />}
         />
         <Route
-          path={`/smurfList/:id`}
+          exact
+          path={"/smurfList"}
           render={props => (
-            <IndSmurfCard
+            <SmurfForm
               {...props}
+              dataUrl={dataUrl}
               smurfs={this.state.smurfs}
-              deleteHandler={this.delSmurf}
             />
           )}
         />
