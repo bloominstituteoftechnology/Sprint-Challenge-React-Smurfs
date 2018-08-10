@@ -17,6 +17,7 @@ class Smurfs extends Component {
                   age={smurf.age}
                   height={smurf.height}
                   delete={this.props.delete}
+                  update={this.props.update}
                 />
               </div>
             );
