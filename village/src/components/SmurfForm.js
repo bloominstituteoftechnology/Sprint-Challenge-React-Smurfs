@@ -23,7 +23,6 @@ class SmurfForm extends Component {
   //   });
   // }
 
-  // <form onSubmit={this.addSmurf}>
 
 
   handleInputChange = e => {
