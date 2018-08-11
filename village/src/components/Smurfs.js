@@ -1,32 +1,46 @@
-import React, { Component } from 'react';
+import React from "react";
+import Smurf from "./Smurf";
 
-import Smurf from './Smurf';
+const Smurfs = props => {
+  if (props.match) {
+    var smurf = props.smurfs.find(smurf => {
+      return +smurf.id === +props.match.params.id;
+    });
+  }
 
-class Smurfs extends Component {
-  render() {
-    return (
-      <div className="Smurfs">
-        <h1>Smurf Village</h1>
-        <ul>
-          {this.props.smurfs.map(smurf => {
+  return (
+    <div className="smurfs">
+      <h1>Smurf Village</h1>
+      <ul>
+        {smurf == null ? (
+          props.smurfs.map(smurf => {
             return (
               <Smurf
-                name={smurf.name}
-                id={smurf.id}
-                age={smurf.age}
-                height={smurf.height}
+                smurf={smurf}
                 key={smurf.id}
+                delete={() => props.deleteSmurf(smurf.id)}
+                update={() => props.updateSmurf(smurf.id)}
               />
             );
-          })}
-        </ul>
-      </div>
-    );
-  }
-}
+          })
+        ) : (
+          <Smurf
+            smurf={smurf}
+            delete={() =>
+              props.deleteSmurf(smurf.id, () => {
+                window.location = "/smurfs";
+              })
+            }
+            update={() => props.updateSmurf(smurf.id)}
+          />
+        )}
+      </ul>
+    </div>
+  );
+};
 
-Smurf.defaultProps = {
- smurfs: [],
+Smurfs.defaultProps = {
+  smurfs: []
 };
 
 export default Smurfs;

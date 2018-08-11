@@ -1,24 +1,128 @@
-import React, { Component } from 'react';
-
-import './App.css';
-import SmurfForm from './components/SmurfForm';
-import Smurfs from './components/Smurfs';
+import React, { Component } from "react";
+import axios from "axios";
+import { Route, Link } from "react-router-dom";
+import Header from "./components/Header";
+import SmurfForm from "./components/SmurfForm";
+import Smurfs from "./components/Smurfs";
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      smurfs: [],
+      smurfs: []
     };
   }
-  // add any needed code to ensure that the smurfs collection exists on state and it has data coming from the server
-  // Notice what your map function is looping over and returning inside of Smurfs.
-  // You'll need to make sure you have the right properties on state and pass them down to props.
+
+  /* SmurfForm methods */
+
+  addSmurf = e => {
+    e.preventDefault();
+    axios
+      .post("http://localhost:3333/smurfs", {
+        name: this.state.name,
+        age: this.state.age,
+        height: this.state.height
+      })
+      .then(res => {
+        this.setState({
+          smurfs: res.data,
+          name: "",
+          age: "",
+          height: ""
+        });
+      })
+      .catch(err => {
+        console.error("Server Post", err);
+      });
+  };
+
+  handleInputChange = e => {
+    this.setState({ [e.target.name]: e.target.value });
+  };
+
+  /* Smurfs methods */
+
+  deleteSmurf = (id, cb) => {
+    axios
+      .delete(`http://localhost:3333/smurfs/${id}`)
+      .then(res => {
+        if (cb) {
+          this.setState({ smurfs: res.data }, cb());
+        } else {
+          this.setState({ smurfs: res.data });
+        }
+      })
+      .catch(err => {
+        console.error("Server Delete", err);
+      });
+  };
+
+  updateSmurf = id => {
+    axios
+      .put(`http://localhost:3333/smurfs/${id}`, {
+        name: this.state.name,
+        age: this.state.age,
+        height: this.state.height
+      })
+      .then(res => {
+        this.setState({ smurfs: res.data });
+      })
+      .catch(err => {
+        console.error("Server Put", err);
+      });
+  };
+
+  /* Lifecycle methods */
+
+  componentDidMount() {
+    axios
+      .get("http://localhost:3333/smurfs")
+      .then(res => {
+        this.setState({ smurfs: res.data });
+      })
+      .catch(err => {
+        console.error("Server Get", err);
+      });
+  }
+
   render() {
     return (
       <div className="App">
-        <SmurfForm />
-        <Smurfs smurfs={this.state.smurfs} />
+        <Route exact path="/" component={Header} />
+        <Route
+          exact
+          path="/smurfs"
+          render={props => (
+            <div>
+              <SmurfForm
+                name={this.state.name}
+                age={this.state.age}
+                height={this.state.height}
+                onChange={this.handleInputChange}
+                addSmurf={this.addSmurf}
+              />
+              <Smurfs
+                smurfs={this.state.smurfs}
+                deleteSmurf={this.deleteSmurf}
+                updateSmurf={this.updateSmurf}
+              />
+              <Link to="/" className="coral">
+                Home
+              </Link>
+            </div>
+          )}
+        />
+        <Route
+          path="/smurfs/:id"
+          render={props => (
+            <Smurfs
+              {...props}
+              smurfs={this.state.smurfs}
+              deleteSmurf={this.deleteSmurf}
+              updateSmurf={this.updateSmurf}
+            />
+          )}
+        />
       </div>
     );
   }
