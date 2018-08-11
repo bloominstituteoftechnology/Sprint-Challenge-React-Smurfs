@@ -2,11 +2,10 @@ import React from "react";
 import Smurf from "./Smurf";
 
 const Smurfs = props => {
-  let smurf;
   if (props.match) {
-    smurf = props.smurfs.filter(smurf => {
+    var smurf = props.smurfs.find(smurf => {
       return +smurf.id === +props.match.params.id;
-    })[0];
+    });
   }
 
   return (
@@ -17,10 +16,7 @@ const Smurfs = props => {
           props.smurfs.map(smurf => {
             return (
               <Smurf
-                name={smurf.name}
-                id={smurf.id}
-                age={smurf.age}
-                height={smurf.height}
+                smurf={smurf}
                 key={smurf.id}
                 delete={() => props.deleteSmurf(smurf.id)}
                 update={() => props.updateSmurf(smurf.id)}
@@ -29,12 +25,12 @@ const Smurfs = props => {
           })
         ) : (
           <Smurf
-            name={smurf.name}
-            id={smurf.id}
-            age={smurf.age}
-            height={smurf.height}
-            key={smurf.id}
-            delete={() => props.deleteSmurf(smurf.id)}
+            smurf={smurf}
+            delete={() =>
+              props.deleteSmurf(smurf.id, () => {
+                window.location = "/smurfs";
+              })
+            }
             update={() => props.updateSmurf(smurf.id)}
           />
         )}

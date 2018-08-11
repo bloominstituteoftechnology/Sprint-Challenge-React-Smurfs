@@ -42,20 +42,19 @@ class App extends Component {
 
   /* Smurfs methods */
 
-  deleteSmurf = id => {
+  deleteSmurf = (id, cb) => {
     axios
       .delete(`http://localhost:3333/smurfs/${id}`)
       .then(res => {
-        this.setState({ smurfs: res.data });
+        if (cb) {
+          this.setState({ smurfs: res.data }, cb());
+        } else {
+          this.setState({ smurfs: res.data });
+        }
       })
       .catch(err => {
         console.error("Server Delete", err);
       });
-  };
-
-  deleteSmurfAndRedirect = id => {
-    this.deleteSmurf(id);
-    window.location="/smurfs";
   };
 
   updateSmurf = id => {
@@ -107,7 +106,9 @@ class App extends Component {
                 deleteSmurf={this.deleteSmurf}
                 updateSmurf={this.updateSmurf}
               />
-              <Link to="/" className="coral">Home</Link>
+              <Link to="/" className="coral">
+                Home
+              </Link>
             </div>
           )}
         />
@@ -117,7 +118,7 @@ class App extends Component {
             <Smurfs
               {...props}
               smurfs={this.state.smurfs}
-              deleteSmurf={this.deleteSmurfAndRedirect}
+              deleteSmurf={this.deleteSmurf}
               updateSmurf={this.updateSmurf}
             />
           )}
