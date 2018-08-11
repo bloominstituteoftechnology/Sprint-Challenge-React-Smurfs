@@ -16,6 +16,8 @@ class Smurfs extends Component {
                 age={smurf.age}
                 height={smurf.height}
                 key={smurf.id}
+                onGeneticallyAlterSmurf={ this.props.onGeneticallyAlterSmurf.bind(null, smurf.id) }
+                onKillSmurf={ this.props.onKillSmurf.bind(null, smurf.id) }
               />
             );
           })}
