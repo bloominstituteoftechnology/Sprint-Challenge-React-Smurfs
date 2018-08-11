@@ -21,9 +21,9 @@ class Header extends Component {
       <div className="container">
         <div className="navlink-container">
           <ul className="nav-links">
-            <li><NavLink exact to="/" className="nav-text">Home</NavLink></li>
-            <li><NavLink to="/village/" className="nav-text">Go to village!</NavLink></li>
-            <li><NavLink to="/createsmurf/" className="nav-text">Create your smurf!</NavLink></li>
+            <li><NavLink exact to="/" activeClassName="active-component" className="nav-text">Home</NavLink></li>
+            <li><NavLink to="/village/" activeClassName="active-component" className="nav-text">Go to village!</NavLink></li>
+            <li><NavLink to="/createsmurf/" activeClassName="active-component" className="nav-text">Create your smurf!</NavLink></li>
           </ul>
         </div>
         
