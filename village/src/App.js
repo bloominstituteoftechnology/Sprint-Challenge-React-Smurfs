@@ -5,6 +5,7 @@ import { Route } from 'react-router-dom';
 import './App.css';
 import Smurfs from './components/Smurfs';
 import Header from './components/Header';
+import SmurfDetails from './components/SmurfDetails';
 
 class App extends Component {
   constructor(props) {
@@ -85,11 +86,13 @@ class App extends Component {
           <h3 style={{ color: 'red' }} >{this.state.errorMessage}</h3>) : null}
 
         <Route
-          path="/smurfs"
+          exact path="/smurfs"
           render={(props) => <Smurfs {...props} smurfs={this.state.smurfs} setSmurfData={this.setSmurfData} setErrorHandler={this.setErrorHandler} deleteSmurf={this.deleteSmurf} />}
         />
-
-                     {/* <Route path="/smurfs/${id}" /> */}
+        <Route
+          path="/smurfs/:id"
+          render={(props) => <SmurfDetails {...props} smurfs={this.state.smurfs} setSmurfData={this.setSmurfData} setErrorHandler={this.setErrorHandler} />}
+        />
       </div>
     );
   }
