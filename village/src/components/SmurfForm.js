@@ -30,6 +30,19 @@ class SmurfForm extends Component {
     });
   }
 
+  // editSmurf = (id) => {
+  //   const { name, age, height, id } = this.state;
+  //   const newSmurf = { name, age, height };
+  //   axios.put(`http://localhost:3333/smurfs/${id}`, newSmurf)
+  //     .then(response => {
+  //       this.setState({
+  //         friends: response.data
+  //       })
+  //     })
+  //     .catch(error => {
+  //       console.error('Server Error', error);
+  //     });
+  // }
 
 
   handleInputChange = e => {
@@ -60,6 +73,28 @@ class SmurfForm extends Component {
           />
           <button type="submit">Add to the village</button>
         </form>
+
+        {/* <form onSubmit={this.deleteSmurf}>
+          <input
+            onChange={this.handleInputChange}
+            placeholder="name"
+            value={this.state.name}
+            name="name"
+          />
+          <input
+            onChange={this.handleInputChange}
+            placeholder="age"
+            value={this.state.age}
+            name="age"
+          />
+          <input
+            onChange={this.handleInputChange}
+            placeholder="height"
+            value={this.state.height}
+            name="height"
+          />
+          <button type="submit">Add to the village</button>
+        </form> */}
       </div>
     );
   }

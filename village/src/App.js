@@ -36,6 +36,8 @@ class App extends Component {
       );
   }
 
+
+
   setSmurfData = data => this.setState({ smurfs: data })
 
   setErrorHandler = errMsg => {
@@ -45,6 +47,35 @@ class App extends Component {
     }, 2000);
   }
 
+
+  editSmurf = (id) => {
+    const { name, age, height } = this.state;
+    const newSmurf = { name, age, height };
+    axios.put(`http://localhost:3333/smurfs/${id}`, newSmurf)
+      .then(response => {
+        this.setState({
+          friends: response.data
+        })
+      })
+      .catch(error => {
+        console.error('Server Error', error);
+      });
+  }
+
+
+  deleteSmurf = (id) => {
+    axios.delete(`http://localhost:3333/smurfs/${id}`)
+      .then(response => {
+        this.setState({
+          smurfs: response.data
+        })
+      })
+      .catch(error => {
+        console.error('Server Error', error);
+      });
+  }
+
+
   render() {
     return (
       <div className="App">
@@ -52,11 +83,13 @@ class App extends Component {
 
         {this.state.errorMessage !== null ? (
           <h3 style={{ color: 'red' }} >{this.state.errorMessage}</h3>) : null}
-          
+
         <Route
           path="/smurfs"
-          render={(props) => <Smurfs {...props} smurfs={this.state.smurfs} setSmurfData={this.setSmurfData} setErrorHandler={this.setErrorHandler} />}
+          render={(props) => <Smurfs {...props} smurfs={this.state.smurfs} setSmurfData={this.setSmurfData} setErrorHandler={this.setErrorHandler} deleteSmurf={this.deleteSmurf} />}
         />
+
+                     {/* <Route path="/smurfs/${id}" /> */}
       </div>
     );
   }
