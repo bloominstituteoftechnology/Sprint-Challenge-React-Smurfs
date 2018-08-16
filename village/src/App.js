@@ -28,13 +28,14 @@ addSmurfsNew = (smurfs) => {
   this.setState({smurfs});
 };
 
-deleteSmurf = id => {
-  axios.delete('http://localhost:3333/smurfs/${id')
+deleteSmurf = (e) => {
+  axios.delete(`http://localhost:3333/smurfs/${e.target.id}`)
     .then(response => {
       this.getSmurfs();
+      console.log(response);
     })
     .catch(error => {
-      console.log(error);
+      console.log(`Error deleting smurf: ${error}`);
     })
 }
   // add any needed code to ensure that the smurfs collection exists on state and it has data coming from the server
