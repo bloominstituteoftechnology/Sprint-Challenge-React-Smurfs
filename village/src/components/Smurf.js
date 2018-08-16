@@ -23,14 +23,19 @@ class Smurf extends Component {
           <h3>{this.state.smurf.name}</h3>
           <strong>{this.state.smurf.height} tall</strong>
           <p>{this.state.smurf.age} smurf years old</p>
-          <div className='actions'>
-            <button
-              data-id={this.state.smurf.id}
-              onClick={this.props.deleteSmurf}
-            >
-              Delete
-          </button>
-          </div>
+          {
+            (this.props.deleteSmurf)
+              ?
+              <div className='actions'>
+                <button
+                  data-id={this.state.smurf.id}
+                  onClick={this.props.deleteSmurf}
+                >
+                  Delete
+                </button>
+              </div>
+              : null
+          }
         </div>
       );
     }
