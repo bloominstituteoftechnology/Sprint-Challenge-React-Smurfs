@@ -24,6 +24,18 @@ class App extends Component {
     })})
 
   }
+
+  deleteSmurf = id => {
+    console.log(id)
+    axios.delete(`http://localhost:3333/smurfs/${id}`, {
+      name: "",
+      age: "",
+      height: ""
+  })
+    .then(response => response.data)
+    .then(window.location.reload(true))
+    .catch(err => console.log(err))
+  }
   // add any needed code to ensure that the smurfs collection exists on state and it has data coming from the server
   // Notice what your map function is looping over and returning inside of Smurfs.
   // You'll need to make sure you have the right properties on state and pass them down to props.
@@ -33,7 +45,7 @@ class App extends Component {
         <Route exact path="/" component={Header} />
         <Route path="/smurfs" render={() => <div>
           <SmurfForm />
-        <Smurfs smurfs={this.state.smurfs} />
+        <Smurfs deleteSmurf={this.deleteSmurf} smurfs={this.state.smurfs} />
         </div>
         }/>
       </div>

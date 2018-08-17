@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios'
 
+import Smurfs from './Smurfs';
+
 class SmurfForm extends Component {
   constructor(props) {
     super(props);
@@ -22,6 +24,7 @@ class SmurfForm extends Component {
   })
   .then(response => response.data)
   }
+
 
   handleInputChange = e => {
     this.setState({ [e.target.name]: e.target.value });
