@@ -14,7 +14,7 @@ class Smurfs extends Component {
               <Link to={`/smurf/${smurf.id}`} key={smurf.id}>
                 <Smurf
                   smurf={smurf}
-                  deleteSmurf={this.props.deleteSmurf}
+                  deleteSmurf={null}
                 />
               </Link>
             );
