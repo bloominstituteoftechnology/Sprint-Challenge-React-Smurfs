@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 
 class SmurfForm extends Component {
   constructor(props) {
@@ -33,6 +32,36 @@ class SmurfForm extends Component {
         console.error(err);
       });
   };
+  
+    // setSmurfData = data => this.setState({ smurfs: data });
+  
+    render() {
+      return (
+        <div className="App">
+          <Route exact path="/" component={Header} />
+          <Route path="/smurfs" render={props =>
+            (<div>
+              <Smurfs
+              {...props}
+              smurfs={this.state.smurfs} 
+              setSmurfData={this.setSmurfData}
+              />
+            </div>
+            )}
+          />
+        </div>
+      );
+    }
+  }
+  
+  export default App;
+
+    this.setState({
+      name: '',
+      age: '',
+      height: ''
+    });
+  // }
 
   handleInputChange = e => {
     this.setState({ [e.target.name]: e.target.value });
@@ -65,6 +94,6 @@ class SmurfForm extends Component {
       </div>
     );
   }
-}
+
 
 export default SmurfForm;
