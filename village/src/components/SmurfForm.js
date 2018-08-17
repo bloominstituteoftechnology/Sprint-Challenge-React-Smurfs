@@ -29,6 +29,8 @@ class SmurfForm extends Component {
       .then(response => console.log(response))
       .catch(err => console.log(err));
 
+    window.location.reload();
+
   }
 
   handleInputChange = e => {
