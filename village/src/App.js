@@ -3,7 +3,7 @@ import axios from "axios";
 import "./App.css";
 import SmurfForm from "./components/SmurfForm";
 import Smurfs from "./components/Smurfs";
-import { NavLink, Route } from "react-router-dom";
+import { Route } from "react-router-dom";
 import Header from "./components/Header";
 
 const url = "http://localhost:3333/smurfs";
