@@ -1,8 +1,29 @@
 import React, { Component } from "react";
-import {Link} from 'react-router-dom';
+import { Link } from "react-router-dom";
 import Smurf from "./Smurf";
+import axios from "axios";
 
 class Smurfs extends Component {
+  constructor() {
+    super();
+    this.state = {
+      smurfs: []
+    };
+  }
+
+  deleteSmurf = id => {
+    axios
+      .delete(`http://localhost:3333/smurfs/:${id}`)
+      .then(response => {
+        this.setState({
+          smurfs: response.data
+        });
+      })
+      .catch(error => {
+        console.log("Error: ", error);
+      });
+  };
+
   render() {
     return (
       <div className="Smurfs">
@@ -13,13 +34,17 @@ class Smurfs extends Component {
         <ul>
           {this.props.smurfs.map(smurf => {
             return (
-              <Smurf
-                name={smurf.name}
-                id={smurf.id}
-                age={smurf.age}
-                height={smurf.height}
-                key={smurf.id}
-              />
+              <div>
+                <Smurf
+                  key={smurf.id}
+                  name={smurf.name}
+                  age={smurf.age}
+                  height={smurf.height}
+                />
+                <button onClick={() => this.deleteSmurf(smurf.id)}>
+                  Delete
+                </button>
+              </div>
             );
           })}
         </ul>
