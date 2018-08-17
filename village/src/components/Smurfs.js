@@ -1,14 +1,13 @@
-import React, { Component } from 'react';
-import {Link, Route} from 'react-router-dom';
+import React, { Component } from "react";
+import { Link, Route } from "react-router-dom";
 
-import Smurf from './Smurf';
-
+import Smurf from "./Smurf";
+import Character from "./Character";
 
 class Smurfs extends Component {
   constructor(props) {
-  super(props)
-}
-
+    super(props);
+  }
 
   render() {
     return (
@@ -17,26 +16,26 @@ class Smurfs extends Component {
         <ul>
           {this.props.smurfs.map(smurf => {
             return (
-        
-              <Smurf
-                name={smurf.name}
-                id={smurf.id}
-                age={smurf.age}
-                height={smurf.height}
-                key={smurf.id}
-                deleteSmurf={this.props.deleteSmurf}
-              /> 
+              <div>
+                <Smurf
+                  name={smurf.name}
+                  id={smurf.id}
+                  age={smurf.age}
+                  height={smurf.height}
+                  key={smurf.id}
+                  deleteSmurf={this.props.deleteSmurf}
+                />
+              </div>
             );
           })}
         </ul>
-        
       </div>
     );
   }
 }
 
 Smurf.defaultProps = {
- smurfs: [],
+  smurfs: []
 };
 
 export default Smurfs;
