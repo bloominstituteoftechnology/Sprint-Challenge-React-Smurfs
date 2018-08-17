@@ -46,6 +46,7 @@ componentDidMount(){
     console.log("app render", this.state.smurfs)
     return (
       <div className="App">
+      <h1>Smurf Village</h1>
         <SmurfForm />
     <div>{this.state.smurfs.map(each => <Smurfs data={each} key={each.id} />)} </div>
       </div>
