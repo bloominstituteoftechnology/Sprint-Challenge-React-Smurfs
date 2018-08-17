@@ -1,6 +1,5 @@
-import React, { Component } from 'react';
-import axios from 'axios';
-
+import React, { Component } from "react";
+import axios from "axios";
 
 const URL = "http://localhost:3333/smurfs";
 
@@ -10,9 +9,9 @@ class SmurfForm extends Component {
     this.state = {
       smurfs: [],
       url: URL,
-      name: '',
-      age: '',
-      height: ''
+      name: "",
+      age: "",
+      height: ""
     };
   }
 
@@ -21,34 +20,23 @@ class SmurfForm extends Component {
     const newInfo = {
       name: this.state.name,
       age: this.state.age,
-      height: this.state.height,
+      height: this.state.height
     };
     axios
-    .post(URL, newInfo)
-    .then(response => {
-      this.setState({
-        name: '',
-        age: '',
-        height: '',
-        smurfs: response.data
-      });  
-    })
-    .catch(error => {
-      console.log("Error: ", error);
-    });
+      .post(URL, newInfo)
+      .then(response => {
+        this.props.getSmurfs(response.data);
+        this.setState({name: "", age: "", height: ""});
+      })
     
-  };
-
-
-
+      .catch(error => {
+        console.log("Error: ", error);
+      });
+    }
 
   handleInputChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
-
-
-
-
 
   render() {
     return (
