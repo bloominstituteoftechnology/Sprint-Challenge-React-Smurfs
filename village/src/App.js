@@ -17,6 +17,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <h2>Testing the Server</h2>
         <SmurfForm />
         <Smurfs smurfs={this.state.smurfs} />
       </div>
