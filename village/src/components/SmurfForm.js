@@ -9,7 +9,7 @@ class SmurfForm extends Component {
     this.state = {
       name: "",
       age: "",
-      height: "",
+      height: ""
     };
   }
 
@@ -20,19 +20,33 @@ class SmurfForm extends Component {
       name: this.state.name,
       age: this.state.age,
       height: this.state.height
-    }
+    };
     axios
-    .post(url, newSmurf)
-    .then(response => {
-      this.props.updateHandle(response.data);
-    })
-    .catch(err => console.log("Error: NOT FOUND"));
+      .post(url, newSmurf)
+      .then(response => {
+        this.props.updateHandle(response.data);
+      })
+      .catch(err => console.log("Error: NOT FOUND"));
     this.setState({
       name: "",
       age: "",
       height: ""
     });
-  }
+  };
+
+  editSmurf = id => {
+    const editObj = {
+      name: this.state.name,
+      age: this.state.age,
+      height: this.state.height
+    };
+    axios.put(`http://localhost:3333/smurfs${id}`, editObj)
+    .then(response => {
+      this.setState({
+        
+      });
+    });
+  };
 
   handleInputChange = e => {
     this.setState({ [e.target.name]: e.target.value });
