@@ -43,8 +43,9 @@ class App extends Component {
     return (
       <div className="App">
         <Route exact path="/" component={Header} />
-        <Route path="/smurfs" render={() => <div>
-          <SmurfForm />
+        <Route exact path="/smurfs" render={() => 
+        <div>
+        <SmurfForm />
         <Smurfs deleteSmurf={this.deleteSmurf} smurfs={this.state.smurfs} />
         </div>
         }/>
