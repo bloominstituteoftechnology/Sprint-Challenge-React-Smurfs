@@ -35,7 +35,7 @@ class App extends Component {
     return (
       <div className="App">
         <Route
-          path="/"
+          exact path="/"
           component={Header}
           />
         <Route
