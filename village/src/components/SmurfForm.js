@@ -1,25 +1,35 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
+import axios from "axios";
+const URL = "http://localhost:3333/smurfs";
 
 class SmurfForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: '',
-      age: '',
-      height: ''
+      name: "",
+      age: "",
+      height: ""
     };
   }
 
   addSmurf = event => {
     event.preventDefault();
     // add code to create the smurf using the api
-
-    this.setState({
-      name: '',
-      age: '',
-      height: ''
+    const name = this.state.name;
+    const age = this.state.age;
+    const height = this.state.height;
+    axios.post(URL, { name: name, age: age, height: height }).then(response => {
+      this.setState({
+        smurfs: response.data,
+        name: "",
+        age: "",
+        height: ""
+      });
+    })
+    .catch(err => {
+      console.error(err);
     });
-  }
+  };
 
   handleInputChange = e => {
     this.setState({ [e.target.name]: e.target.value });
