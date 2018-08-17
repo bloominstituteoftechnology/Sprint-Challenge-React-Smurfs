@@ -10,9 +10,9 @@ class Smurfs extends Component {
       smurfs: []
     };
   }
-
   deleteSmurf = id => {
     axios
+      //need to find a way to identify each smurf entry
       .delete(`http://localhost:3333/smurfs/:${id}`)
       .then(response => {
         this.setState({
@@ -23,6 +23,7 @@ class Smurfs extends Component {
         console.log("Error: ", error);
       });
   };
+
 
   render() {
     return (

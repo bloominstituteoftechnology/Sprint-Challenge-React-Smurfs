@@ -10,9 +10,9 @@ class SmurfForm extends Component {
     this.state = {
       smurfs: [],
       url: URL,
-      newName: '',
-      newAge: '',
-      newHeight: ''
+      name: '',
+      age: '',
+      height: ''
     };
   }
 
