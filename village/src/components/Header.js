@@ -1,7 +1,15 @@
-import React from 'react';
+import React from "react";
+import { Link } from "react-router-dom";
 
 const Header = () => {
-  return <h2>Describe your header here.</h2>
-}
- 
+  return (
+    <div className='village'>
+      <h2>Hi! Welcome to Our Village!</h2>
+      <Link classname='link' to='/smurfs'>
+      Come on in!
+      </Link>
+    </div>
+  );
+};
+
 export default Header;
