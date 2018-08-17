@@ -30,16 +30,28 @@ class App extends Component {
       .catch(err => console.log("Error: NOT FOUND"));
   }
 
+  updateHandle = smurfs => {
+    this.setState({ smurfs });
+  };
+
   render() {
     return (
       <div className="App">
-        <nav>
-          <NavLink to="/">Home</NavLink>
-          <NavLink to="/smurfs">Village</NavLink>
-        </nav>
-        <Route exact path="/" component={Header}/>
-        <Route path="/smurfs" render={props => <Smurfs {...props} smurfs={this.state.smurfs} /> } />
-        <SmurfForm smurfs={this.state.smurfs} />
+        <Route exact path="/" component={Header} />
+        <Route
+          path="/smurfs"
+          render={props => <Smurfs {...props} smurfs={this.state.smurfs} />}
+        />
+        <Route
+          path="/smurfs"
+          render={props => (
+            <SmurfForm
+              {...props}
+              smurfs={this.state.smurfs}
+              updateHandle={this.updateHandle}
+            />
+          )}
+        />
       </div>
     );
   }

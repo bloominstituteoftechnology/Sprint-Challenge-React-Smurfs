@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import SmurfForm from "./SmurfForm";
 import Smurf from './Smurf';
+import { Link } from "react-router-dom";
 
 class Smurfs extends Component {
   render() {
     return (
       <div className="Smurfs">
         <h1>Smurf Village</h1>
-        <SmurfForm />
+        <Link to="/">Home</Link>
         <ul>
           {this.props.smurfs.map(smurf => {
             return (
