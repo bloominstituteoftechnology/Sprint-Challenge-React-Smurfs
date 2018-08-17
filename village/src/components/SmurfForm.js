@@ -5,6 +5,7 @@ class SmurfForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      smurfs: [],
       name: '',
       age: '',
       height: ''
