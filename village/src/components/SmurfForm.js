@@ -1,13 +1,15 @@
 import React, { Component } from "react";
 import axios from "axios";
 
+const url = "http://localhost:3333/smurfs";
+
 class SmurfForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
       name: "",
       age: "",
-      height: ""
+      height: "",
     };
   }
 
