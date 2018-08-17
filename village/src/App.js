@@ -22,13 +22,14 @@ class App extends Component {
       this.setState({
         smurfs: response.data,
       });
-    });
+    })
+    .catch(err => console.log("Error: NOT FOUND"));
   }
 
   render() {
     return (
       <div className="App">
-        <SmurfForm />
+        <SmurfForm smurfs={this.state.smurfs}/>
         <Smurfs smurfs={this.state.smurfs} />
       </div>
     );

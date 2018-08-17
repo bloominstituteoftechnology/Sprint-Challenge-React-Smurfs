@@ -19,13 +19,17 @@ class SmurfForm extends Component {
       age: this.state.age,
       height: this.state.height
     };
-    axios.post("http://localhost:3333/smurfs", newSmurf).then(response => {
+    axios
+    .post("http://localhost:3333/smurfs", newSmurf)
+    .then(response => {
       this.setState({
+        smurfs: response.data,
         name: "",
         age: "",
         height: ""
       });
-    });
+    })
+    .catch(err => console.log("Error: NOT FOUND"));
   };
 
   handleInputChange = e => {
@@ -54,7 +58,7 @@ class SmurfForm extends Component {
             value={this.state.height}
             name="height"
           />
-          <button type="submit">Add to the village</button>
+          <button type="submit" onClick={() => this.addSmurf}>Add to the village</button>
         </form>
       </div>
     );
