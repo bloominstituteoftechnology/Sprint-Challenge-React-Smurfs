@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import './App.css';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
+import Header from './components/Header';
 import axios from 'axios';
-
+import {Route} from 'react-router-dom';
 
 const url = "http://localhost:3333/smurfs";
 
@@ -32,10 +33,25 @@ class App extends Component {
   // You'll need to make sure you have the right properties on state and pass them down to props.
   render() {
     return (
-      <div className="App">        
-        <SmurfForm />
-        <Smurfs 
+      <div className="App">
+        <Route
+          path="/"
+          component={Header}
+          />
+        <Route
+        path="/smurfs"
+        render={props => {
+          return <SmurfForm />
+        }}
+        />       
+        <Route
+          path="/smurfs"
+          render={props => {
+            return <Smurfs 
           smurfs={this.state.smurfs} />
+          }}
+          />
+        
       </div>
     );
   }
