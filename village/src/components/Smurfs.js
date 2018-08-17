@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import SmurfForm from "./SmurfForm";
 import Smurf from './Smurf';
 import { Link } from "react-router-dom";
 
