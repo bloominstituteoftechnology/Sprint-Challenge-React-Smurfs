@@ -8,7 +8,6 @@ class Smurfs extends Component {
       <div className="Smurfs">
         <h1>Smurf Village</h1>
         <Link to={`/`}>
-          {/* <Smurf /> */}
           <button>Head Back Home</button>
         </Link>
         <ul>

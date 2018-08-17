@@ -54,6 +54,7 @@ class SmurfForm extends Component {
     return (
       <div className="SmurfForm">
         <form onSubmit={this.handleSubmit}>
+          <h2>Add to the Smurf Village</h2>
           <input
             onChange={this.handleInputChange}
             placeholder="name"
