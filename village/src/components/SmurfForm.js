@@ -11,8 +11,7 @@ class SmurfForm extends Component {
     };
   }
 
-  addSmurf = event => {
-    event.preventDefault();
+  addSmurf = () => {
     axios.post('http://localhost:3333/smurfs', this.state)
 
     this.setState({
@@ -21,6 +20,7 @@ class SmurfForm extends Component {
       height: ''
     });
   }
+
 
   handleInputChange = e => {
     this.setState({ [e.target.name]: e.target.value });
@@ -49,6 +49,7 @@ class SmurfForm extends Component {
             name="height"
           />
           <button type="submit">Add to the village</button>
+
         </form>
       </div>
     );
