@@ -40,7 +40,7 @@ class App extends Component {
         <Route exact path="/" component={Header} />
         <Route
           path="/smurfs"
-          render={props => <Smurfs {...props} smurfs={this.state.smurfs} />}
+          render={props => <Smurfs {...props} smurfs={this.state.smurfs}  />}
         />
         <Route
           path="/smurfs"

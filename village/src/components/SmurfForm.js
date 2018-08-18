@@ -25,27 +25,13 @@ class SmurfForm extends Component {
       .post(url, newSmurf)
       .then(response => {
         this.props.updateHandle(response.data);
+        this.setState({
+          name: "",
+          age: "",
+          height: ""
+        });
       })
       .catch(err => console.log("Error: NOT FOUND"));
-    this.setState({
-      name: "",
-      age: "",
-      height: ""
-    });
-  };
-
-  editSmurf = id => {
-    const editObj = {
-      name: this.state.name,
-      age: this.state.age,
-      height: this.state.height
-    };
-    axios.put(`http://localhost:3333/smurfs${id}`, editObj)
-    .then(response => {
-      this.setState({
-        
-      });
-    });
   };
 
   handleInputChange = e => {
