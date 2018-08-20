@@ -15,7 +15,7 @@
 1.  Mention three tools we can use to make AJAX requests.
 
 ## Initializing Project - READ THIS CAREFULLY, you have two apps here. A server, and a client.
-
+ 
 * Start by Forking and Cloning this Repo.
 * `cd` into the forked copy.
 * **RUN** `yarn install or npm install` at the root to retrieve all the dependencies for the node server. You will not need to create any react apps here nor will you need to install any other dependencies. You should have all you need in this repo.
