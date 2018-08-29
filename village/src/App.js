@@ -30,13 +30,11 @@ componentDidMount() {
       console.error("error:", err);
     });
 }
-
-
   render() {
     return (
       <div className="App">
         <Route exact path="/" component={Header}></Route>
-        <Link  to="/SmurfForm">Smurf Form </Link>
+        <SmurfForm updateHandler={this.update}/>
         <Route path="/SmurfFrom" component={SmurfForm}></Route>
         <Smurfs smurfs={this.state.smurfs} />
       </div>
