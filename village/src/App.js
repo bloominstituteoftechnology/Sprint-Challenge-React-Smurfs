@@ -34,8 +34,7 @@ componentDidMount() {
     return (
       <div className="App">
         <Route exact path="/" component={Header}></Route>
-        <SmurfForm updateHandler={this.update}/>
-        <Route path="/SmurfFrom" component={SmurfForm}></Route>
+        <Route path="/smurfs" component={SmurfForm}></Route>
         <Smurfs smurfs={this.state.smurfs} />
       </div>
     );

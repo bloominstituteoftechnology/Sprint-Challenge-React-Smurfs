@@ -26,6 +26,12 @@ class SmurfForm extends Component {
       .catch(error => {
         console.error('Server Error', error);
       }); 
+      this.setState({
+        name: '',
+        age: '',
+        height: ''
+      });
+    window.location.reload();
   }
   handleInputChange = e => {
     this.setState({ [e.target.name]: e.target.value });
