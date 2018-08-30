@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import Smurf from './Smurf';
+import SmurfForm from './SmurfForm'
 import { Link } from 'react-router-dom'
-// import DeleteSmurf from './DeleteSmurf';
+
 
 class Smurfs extends Component {
   constructor() {
@@ -25,6 +25,7 @@ class Smurfs extends Component {
   render() {
     return (
       <div className="Smurfs">
+      <SmurfForm />
         <h1>Smurf Village</h1>
         
           {this.state.smurfs.map(smurf => {

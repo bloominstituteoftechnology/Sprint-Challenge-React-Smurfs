@@ -34,7 +34,6 @@ class App extends Component {
     return (
       <div className="App">
         <div>
-          <SmurfForm />
           <Route exact path="/" component={Header} />
           <Route path="/smurfs" component={Smurfs} />
           <Route path="/smurf/:id" component={Smurf} />
