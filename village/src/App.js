@@ -33,14 +33,12 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Route exact path="/" component={Header}/>
-        <Route  path="/smurf/:id" render={(props) => <Smurf  smurf={this.state.smurfs} /> } />
-        <Route path="/smurfs" render={props => 
         <div>
           <SmurfForm />
-          <Smurfs smurfs={this.state.smurfs} />
+          <Route exact path="/" component={Header} />
+          <Route path="/smurfs" component={Smurfs} />
+          <Route path="/smurf/:id" component={Smurf} />
           </div>
-        } />
        
     
       </div>

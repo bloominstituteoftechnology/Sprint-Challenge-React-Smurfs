@@ -1,49 +1,59 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import Smurf from './Smurf';
 import axios from 'axios';
+import Smurf from './Smurf';
+import { Link } from 'react-router-dom'
+// import DeleteSmurf from './DeleteSmurf';
 
 class Smurfs extends Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
-      smurfs: [],
-      name: '',
-      age: '',
-      height: '',
-    }
+      smurfs: []
+    };
   }
 
   componentDidMount() {
-    this.fetchSmurf()
+    this.fetchSmurfs()
   }
 
-  fetchSmurf = id => {
-    axios
-    .get(`http://localhost:3333/smurfs/${id}`)
-    .then((response) => this.setState({ smurfs: response.data }))
-    .catch(error => console.log(`${error}`))
-  };
+  fetchSmurfs = () => {
+    axios.get(`http://localhost:3333/smurfs/`)
+      .then((response) => this.setState({ smurfs: response.data}))
+      .catch(error => console.log(`${error}`))
+  }
+
   render() {
     return (
       <div className="Smurfs">
         <h1>Smurf Village</h1>
-        <ul>
-          {this.props.smurfs.map(smurf => {
+        
+          {this.state.smurfs.map(smurf => {
+            let id = smurf.id
+            console.log("smurf", smurf)
             return (
-              <Link to={`./smurf/${smurf.id}`} key={smurf.id}>{smurf.name}</Link>
-              
-              
+              <Link 
+              key={smurf.id}
+              style={{ textDecoration: 'none', color: "black" }} to={{ pathname: `/smurf/${id}`,
+              state: {
+                name: smurf.name,
+                height: smurf.height,
+                age: smurf.age,
+              },
+              }}>
+              <br />
+              <div style={{ border: "1px solid black", width: "20%", marginLeft: "40%"}}>
+
+              <p>Name: {smurf.name}</p>
+              <p>Age: {smurf.age}</p>
+              <p>Height: {smurf.height}</p>
+              </div>
+              </Link>
+             
             );
           })}
-        </ul>
       </div>
     );
   }
 }
-
-Smurf.defaultProps = {
- smurfs: [],
-};
 
 export default Smurfs;
