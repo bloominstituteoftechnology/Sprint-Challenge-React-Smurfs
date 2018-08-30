@@ -6,7 +6,7 @@ const Smurf = (props) => {
     <div className="smurf">
       <h3>{props.location.state.name}</h3>
       <strong>{props.location.state.height} tall</strong>
-      <p>{props.location.state.age} old</p>
+      <p>{props.location.state.age} years old</p>
       <p>id: {props.match.params.id}</p>
     </div>
   );
