@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { Route, NavLink } from 'react-router-dom';
 
 import './App.css';
 import SmurfForm from './components/SmurfForm';
@@ -10,11 +11,6 @@ class App extends Component {
     super(props);
     this.state = {
       smurfs: [],
-      smurf:{
-        name:'',
-        age:"",
-        height:'',
-      }
     };
   }
   // add any needed code to ensure that the smurfs collection exists on state and it has data coming from the server
@@ -32,35 +28,21 @@ class App extends Component {
       })
   }
 
-  // handleChange = e => {
-  //   this.setState({
-  //     smurf:{
-  //       ...this.state.smurf,
-  //       [e.target.name]:e.target.value,
-  //     }
-  //   })
-  // }
-
-  // handleSubmit = e => {
-  //   e.preventDefault();
-  //   axios
-  //     .post('http://localhost:3333/smurfs', this.state.smurf)
-  //     .then(response => {
-  //       this.setState({
-  //         friends:response.data,
-  //         friend:{name:'', age:'', height:''}
-  //       })
-  //     })
-  //     .catch(error => {
-  //       console.log(error)
-  //     })
-  // }
-
   render() {
     return (
       <div className="App">
-        <SmurfForm />
-        <Smurfs smurfs={this.state.smurfs} />
+        <NavLink exact to="/">Smurf Village</NavLink>
+        <NavLink exact to="/smurf-form">New Smurf</NavLink>
+        <Route 
+          exact path="/" 
+          render={props => (
+            <Smurfs {...props} smurfs={this.state.smurfs} />
+          )} 
+        />
+        <Route 
+          path="/smurf-form" 
+          component={SmurfForm}
+        />
       </div>
     );
   }
