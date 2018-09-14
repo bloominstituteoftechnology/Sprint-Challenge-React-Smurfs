@@ -1,57 +1,39 @@
 import React, { Component } from 'react';
 
-class SmurfForm extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      name: '',
-      age: '',
-      height: ''
-    };
-  }
-
-  addSmurf = event => {
+const SmurfForm = props => {
+  const hdlsbmt = (event) => {
     event.preventDefault();
-    // add code to create the smurf using the api
-
-    this.setState({
-      name: '',
-      age: '',
-      height: ''
-    });
+    if (props.sltupdt) {
+      props.updtsmf(props.smf.id);
+    } else {
+      props.adsmf();
+    }
   }
-
-  handleInputChange = e => {
-    this.setState({ [e.target.name]: e.target.value });
-  };
-
-  render() {
     return (
       <div className="SmurfForm">
-        <form onSubmit={this.addSmurf}>
+        <form onSubmit={hdlsbmt}>
           <input
-            onChange={this.handleInputChange}
+            onChange={props.handleChange}
             placeholder="name"
-            value={this.state.name}
+            value={props.smf.name}
             name="name"
           />
           <input
-            onChange={this.handleInputChange}
+            onChange={props.handleChange}
             placeholder="age"
-            value={this.state.age}
+            value={props.smf.age}
             name="age"
           />
           <input
-            onChange={this.handleInputChange}
+            onChange={props.handleChange}
             placeholder="height"
-            value={this.state.height}
+            value={props.smf.height}
             name="height"
           />
-          <button type="submit">Add to the village</button>
+          <button type="submit">{props.sltupdt ? "Bring on the change!" : "Add to the village"}</button>
         </form>
       </div>
     );
-  }
 }
 
 export default SmurfForm;
