@@ -16,9 +16,7 @@ class SmurfForm extends Component {
     let smurf = this.state;
     axios
       .post("http://localhost:3333/smurfs", smurf)
-      .then
-      //need to setState with response.data
-      ()
+      .then(this.props.history.push("/"))
       .catch(err => console.log(err));
     console.log("smurf added!");
     this.setState({
@@ -33,9 +31,6 @@ class SmurfForm extends Component {
   };
 
   render() {
-    {
-      console.log(this.props);
-    }
     return (
       <div className="SmurfForm">
         <form onSubmit={this.addSmurf}>

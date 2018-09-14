@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import { Route, Link } from "react-router-dom";
 import "./App.css";
 import SmurfForm from "./components/SmurfForm";
 import Smurfs from "./components/Smurfs";
@@ -24,13 +24,18 @@ class App extends Component {
   // Notice what your map function is looping over and returning inside of Smurfs.
   // You'll need to make sure you have the right properties on state and pass them down to props.
   render() {
-    {
-      console.log(this.state);
-    }
     return (
       <div className="App">
-        <SmurfForm />
-        <Smurfs smurfs={this.state.smurfs} />
+        <Link to="/smurf-form">Add a Smurf!</Link>
+        <Route
+          exact
+          path="/"
+          render={() => <Smurfs smurfs={this.state.smurfs} />}
+        />
+        <Route path="/smurf-form" render={props => <SmurfForm {...props} />} />
+
+        {/* <SmurfForm />
+        <Smurfs smurfs={this.state.smurfs} /> */}
       </div>
     );
   }
