@@ -37,6 +37,10 @@ class App extends Component {
     .catch(err => {console.log('Smurf Delete: ' + err)})
   }
 
+  updateSmurf = (smurf) => {
+    console.log(smurf);
+  }
+
 
   render() {
     return (
