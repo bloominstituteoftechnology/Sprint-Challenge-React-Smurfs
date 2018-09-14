@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import './App.css';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
+import SmurfUpdate from './components/SmurfUpdate';
 
 
 class App extends Component {
@@ -36,6 +37,20 @@ class App extends Component {
       .then(response => {
         this.setState({ smurfs: response.data })
       })
+      .catch(error => {
+        console.log(error);
+      });
+  }
+
+  updateSmurf = (id) => {
+    axios
+      .put(`http://localhost:3333/smurfs/${id}`)
+      .then(response => {
+        this.setState({ smurfs: response.data })
+      })
+      .catch(error => {
+        console.log(error);
+      });
   }
 
   render() {
@@ -53,6 +68,7 @@ class App extends Component {
 
         <Route exact path='/smurfs' render={props => <Smurfs {...props} smurfs={this.state.smurfs} deleteSmurf={this.deleteSmurf} />} />
         <Route exact path='/smurfform' component={SmurfForm} />
+        <Route path="/smurfs/:id" component={SmurfUpdate} />
       </div>
     );
   }
