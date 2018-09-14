@@ -1,7 +1,13 @@
-import React from 'react';
+import React from "react";
+import { Route, NavLink } from "react-router-dom";
 
 const Header = () => {
-  return <h2>Describe your header here.</h2>
-}
- 
+  return (
+    <div>
+      <h2>Enter the world of Smurf</h2>
+      <NavLink to="/smurfs">Click</NavLink>
+    </div>
+  );
+};
+
 export default Header;
