@@ -1,21 +1,22 @@
 import React, { Component } from "react";
 import axios from "axios";
+import { Route, Switch, withRouter } from "react-router-dom";
 import "./App.css";
 import SmurfForm from "./components/SmurfForm";
 import Smurfs from "./components/Smurfs";
+import Header from './components/Header';
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
       smurfs: []
-      
     };
   }
   // add any needed code to ensure that the smurfs collection exists on state and it has data coming from the server
   // Notice what your map function is looping over and returning inside of Smurfs.
   // You'll need to make sure you have the right properties on state and pass them down to props.
-  
+
   /* 
     get data from locakhost at port 3335
     with the endpoint smurfs when the 
@@ -25,7 +26,7 @@ class App extends Component {
     axios
       .get("http://localhost:3333/smurfs/")
       .then(res => {
-        this.setState({smurfs: res.data});
+        this.setState({ smurfs: res.data });
       })
       .catch(error => {
         console.err(error);
@@ -58,16 +59,25 @@ class App extends Component {
       age: "",
       height: ""
     });
+    this.props.history.push(`/`);
   };
 
   render() {
+    //TODO: refactor this to feel more intuitive
     return (
       <div className="App">
-        <SmurfForm />
-        <Smurfs smurfs={this.state.smurfs} />
+        <Header />
+      
+          <SmurfForm />
+
+        <Route
+          exact
+          path="/"
+          render={props => <Smurfs smurfs={this.state.smurfs} />}
+        />
       </div>
     );
   }
 }
 
-export default App;
+export default withRouter(App);
