@@ -17,14 +17,12 @@ class Smurfs extends Component {
                 age={smurf.age}
                 height={smurf.height}
                 key={smurf.id}
+                deleteSmurf={this.props.deleteSmurf}
               />
             );
           })}
         </ul>
-        <h3>Don't see all your blue friends?</h3>
-        <Link to="/new-smurf">
-          Add a Smurf to the List
-        </Link>
+        
       </div>
     );
   }
