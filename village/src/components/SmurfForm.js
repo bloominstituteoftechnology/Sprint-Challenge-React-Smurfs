@@ -30,6 +30,16 @@ class SmurfForm extends Component {
     });
   })}
 
+  handleUpdateSmurf = smurfId => {
+    axios.put(`http://localhost:3333/smurfs/${smurfId}`, this.state)
+    .then(response => {
+      this.setState({
+        blankFormValues
+      });
+    this.props.history.push(`/smurfs/${smurfId}`);
+  });
+}
+
   handleInputChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   };

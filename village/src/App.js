@@ -32,6 +32,8 @@ class App extends Component {
       .then(response => this.setState({ smurfs: response.data }));
   }
 
+  
+
   render() {
     return (
       <div className="App">

@@ -7,12 +7,20 @@ function SmurfCard(props) {
     props.handleDeleteSmurf(smurf.id);
     props.history.push('/');
   }
+  function handleUpdate() {
+    props.handleUpdateSmurf(smurf.id);
+  }
+  //goToUpdateSmurfForm = (event, id) => {
+  //  event.preventDefault();
+
+//  }
   return (
     <div className="smurf-card">
     <h3>{smurf.name}</h3>
     <strong>{smurf.height} tall</strong>
     <p>{smurf.age} smurf years old</p>
     <button onClick={handleDelete}>Exile Smurf</button>
+    <button onClick={handleUpdate}>Update the Census Records...</button>
     </div>
 
 )}
