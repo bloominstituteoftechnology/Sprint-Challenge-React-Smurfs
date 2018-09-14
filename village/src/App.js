@@ -21,7 +21,7 @@ class App extends Component {
     this.fetchData();
   }
 
-  // Fetch the data for friends list
+  // Fetch the data for smurfs list
   fetchData() {
     axios
       .get('http://localhost:3333/smurfs')
@@ -33,6 +33,7 @@ class App extends Component {
       })
   }
 
+  // Adds a new smurf
   addNewSmurf = (e, smurf) => {
     console.log(smurf)
     
@@ -41,6 +42,13 @@ class App extends Component {
     axios.post('http://localhost:3333/smurfs', this.state.smurf)
       .then(response => this.setState({ smurfs :response.data, smurf: this.state.smurf}))
       .catch(error => console.log(error));
+  }
+
+  // Deletes a smurf
+  deleteSmurf = smurfId => {
+    return axios.delete(`http://localhost:3333/smurfs/${smurfId}`)
+      .then(response => this.setState({ smurfs: response.data}))
+      .catch(error => { console.error('Server Error', error)});
   }
 
   // add any needed code to ensure that the smurfs collection exists on state and it has data coming from the server
@@ -60,6 +68,7 @@ class App extends Component {
             /> 
             <Smurfs
               smurfs={this.state.smurfs}
+              deleteSmurf={this.deleteSmurf}
             />
           </Fragment>
         } />
