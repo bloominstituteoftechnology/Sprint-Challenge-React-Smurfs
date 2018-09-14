@@ -87,6 +87,7 @@ class App extends Component {
           path="/smurfs-form"
           render={props => (
             <SmurfForm 
+          {...props}  
           name={this.state.name} 
           age={this.state.age} 
           height={this.state.height} 

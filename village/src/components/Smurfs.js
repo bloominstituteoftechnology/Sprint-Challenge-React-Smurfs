@@ -31,7 +31,7 @@ Smurfs.propTypes = {
  smurfs: PropTypes.array,
  name: PropTypes.string,
  age: PropTypes.number,
- height:PropTypes.string,
+ height: PropTypes.string,
 
 };
 
