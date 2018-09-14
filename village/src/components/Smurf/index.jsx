@@ -1,6 +1,7 @@
 import React from 'react';
 import '../../App.css';
 import axios from 'axios';
+import Form from '../Form';
 
 class Smurf extends React.Component {
   state = {
@@ -40,11 +41,44 @@ class Smurf extends React.Component {
         })
         .catch(error => console.log(error));
     }
+
+    this.setState({ isEditing: true });
   }
 
+  handleEditCancel = e => {
+    e.preventDefault();
+
+    this.setState({ isEditing: false });
+  }
 
   handleInputChange = e => {
     this.setState({ [e.target.name]: e.target.value });
+  }
+
+  handleEditSmurf = e => {
+    e.preventDefault();
+
+    axios
+      .put(`http://localhost:3333/smurfs/${this.id}`)
+      .then(response => {
+        const smurf = response.data.find(smurf => smurf.id === Number(this.id));
+        this.setState({ isEditing: false, smurf });
+      })
+      .catch(error => console.log(error));
+  }
+
+  handleDelete = e => {
+    e.preventDefault();
+
+    axios
+      .delete(`http://localhost:3333/smurfs/${this.id}`)
+      .then(response => {
+        this.setState({ smurf: null });
+        this.props.handleUpdateSmurfs(response.data, Number(this.id));
+      })
+      .catch(error => {
+        console.log(error);
+      })
   }
 
   render() {
@@ -54,11 +88,26 @@ class Smurf extends React.Component {
       )
     }
 
+    if (this.state.isEditing) {
+      return (
+        <Form name={this.state.name}
+              age={this.state.age}
+              height={this.state.height}
+              handleInputChange={this.handleInputChange}
+              handleCancel={this.handleEditCancel}
+              handleSmurfSubmit={this.handleEditSmurf}/>
+      )
+    }
+
     return (
       <div className="smurf-page">
         <h3>{this.state.name}</h3>
         <strong>{this.state.height} tall</strong>
         <p>{this.state.age} smurf years old</p>
+        <div className="buttons-wrapper">
+          <button onClick={this.toggleEditMode}>Edit</button>
+          <button onClick={this.handleDelete}>Delete</button>
+        </div>
       </div>
     );
   }

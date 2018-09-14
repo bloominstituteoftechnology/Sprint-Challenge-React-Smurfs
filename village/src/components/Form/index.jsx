@@ -1,7 +1,6 @@
 import React from 'react';
 import '../../App.css';
 
-// refactored in to a basic presentational component
 const Form = props => {
   return (
     <div className="form-wrapper">
