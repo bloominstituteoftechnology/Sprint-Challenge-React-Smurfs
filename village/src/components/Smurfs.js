@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 
 import Smurf from './Smurf';
 
@@ -18,6 +17,7 @@ class Smurfs extends Component {
                 height={smurf.height}
                 key={smurf.id}
                 deleteSmurf={this.props.deleteSmurf}
+                history={this.props.history}
               />
             );
           })}

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import './App.css';
 import SmurfForm from './components/SmurfForm';
+import SmurfUpdateForm from './components/SmurfUpdateForm';
 import Smurfs from './components/Smurfs';
 import Header from './components/Header';
 import axios from 'axios';
@@ -43,6 +44,16 @@ class App extends Component {
     .then(response => this.setState({ smurfs: response.data }))
   }
 
+  updateSmurf = (id, data) => {
+    axios.put(`http://localhost:3333/smurfs/${id}`, data)
+    .then(response => {
+      this.setState({
+        smurfs: response.data
+      })
+    })
+    .catch(err => console.log(err));
+  }
+
   render() {
     return (
       <div className="App">
@@ -56,12 +67,16 @@ class App extends Component {
 
         <Route path="/smurfs" render={props => (
           <Smurfs {...props} smurfs={this.state.smurfs} deleteSmurf={this.deleteSmurf} />
+          
         )} />
 
-        <Route path="/smurfs" render={props => (
-          <SmurfForm {...props} newSmurf={this.newSmurf}/>
+        <Route exact path="/smurfs" render={props => (
+          <SmurfForm {...props} newSmurf={this.newSmurf} />
         )} />
-        
+
+        <Route exact path="/smurfs/:id" render={props => (
+          <SmurfUpdateForm {...props} smurfs={this.state.smurfs} updateSmurf={this.updateSmurf} />
+        )} />
         
       </div>
     );
