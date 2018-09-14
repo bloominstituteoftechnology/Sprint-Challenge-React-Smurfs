@@ -21,6 +21,23 @@ class App extends Component {
       .then(response => this.setState({ smurfs: response.data }))
       .catch(err => console.log(err));
   }
+
+  getData() {
+    axios
+      .get("http://localhost:3333/smurfs")
+      .then(response => this.setState({ smurfs: response.data }))
+      .catch(err => console.log(err));
+  }
+
+  deleteSmurf(e, id) {
+    e.preventDefault();
+
+    let url = `http://localhost:3333/smurfs/${id}`;
+    axios
+      .delete(url)
+      .then(response => this.setState({ smurfs: response.data }))
+      .catch(err => console.log(err));
+  }
   // Notice what your map function is looping over and returning inside of Smurfs.
   // You'll need to make sure you have the right properties on state and pass them down to props.
   render() {
@@ -34,7 +51,12 @@ class App extends Component {
           <Route
             exact
             path="/"
-            render={() => <Smurfs smurfs={this.state.smurfs} />}
+            render={() => (
+              <Smurfs
+                deleteSmurf={this.deleteSmurf.bind(this)}
+                smurfs={this.state.smurfs}
+              />
+            )}
           />
           <Route
             path="/smurf-form"

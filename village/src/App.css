@@ -82,3 +82,9 @@ h1 {
   font-size: 20px;
   padding-left: 65px;
 }
+
+.delete {
+  color: red;
+  text-decoration: none;
+  cursor: pointer;
+}
