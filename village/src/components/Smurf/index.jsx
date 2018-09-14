@@ -75,6 +75,7 @@ class Smurf extends React.Component {
       .then(response => {
         this.setState({ smurf: null });
         this.props.handleUpdateSmurfs(response.data, Number(this.id));
+        this.props.history.push("/");
       })
       .catch(error => {
         console.log(error);
@@ -102,7 +103,7 @@ class Smurf extends React.Component {
     return (
       <div className="smurf-page">
         <h3>{this.state.name}</h3>
-        <strong>{this.state.height} tall</strong>
+        <strong>{this.state.height} cm tall</strong>
         <p>{this.state.age} smurf years old</p>
         <div className="buttons-wrapper">
           <button onClick={this.toggleEditMode}>Edit</button>
