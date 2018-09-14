@@ -6,7 +6,6 @@ import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
 
 import axios from 'axios';
-import Smurf from './components/Smurf';
 
 class App extends Component {
   constructor(props) {
@@ -49,7 +48,8 @@ class App extends Component {
       <Route 
         path='/smurf-form' 
         render={props => (          
-          <SmurfForm />
+          <SmurfForm             
+          />
         )}
       />            
       </div>

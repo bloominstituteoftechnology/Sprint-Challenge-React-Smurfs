@@ -10,7 +10,7 @@ const resetFormValues = {
 class SmurfForm extends Component {
   constructor(props) {
     super(props);
-    this.state = {
+    this.state = {      
       smurfObject: {
         name: '',
         age: '',
@@ -24,10 +24,9 @@ class SmurfForm extends Component {
     // add code to create the smurf using the api
     axios.post('http://localhost:3333/smurfs', this.state.smurfObject)
       .then(response => this.setState({
-        smurfObject: resetFormValues
-
+        smurfObject: resetFormValues,        
       }))
-    window.location.reload();
+      window.location.reload();
   }
 
   handleInputChange = e => {
