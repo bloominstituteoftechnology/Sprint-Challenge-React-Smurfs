@@ -4,7 +4,6 @@ import "./App.css";
 import { BrowserRouter as Router, Route, NavLink } from "react-router-dom";
 import SmurfForm from "./components/SmurfForm";
 import Smurfs from "./components/Smurfs";
-import Smurf from "./components/Smurf";
 
 class App extends Component {
   constructor(props) {
@@ -40,7 +39,9 @@ class App extends Component {
           <NavLink to="/smurf-form"> Add a Smurf </NavLink>
         </div>
         <Route path="/smurf-form" component={SmurfForm} />
-        <Smurfs smurfs={this.state.smurfs}/>
+        <Route 
+          exact path="/" 
+          render= {props => <Smurfs {...props} smurfs={this.state.smurfs}/>}/>
       </div>;
   }
 }
