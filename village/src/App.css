@@ -1,3 +1,18 @@
 .App {
   text-align: center;
 }
+
+h1 {
+  color: rgba(0, 0, 255, 0.808);
+  font-size: 3rem;
+  padding-left: 35px;
+}
+
+.name {
+  color: rgba(0, 0, 255, 0.808);
+}
+
+.village {
+  margin-top: 80px;
+  font-size: 1.3rem;
+}
