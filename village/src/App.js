@@ -6,6 +6,7 @@ import './App.css';
 import Navigation from './components/Navigation';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
+import SmurfPage from './components/SmurfPage';
 
 class App extends Component {
   constructor(props) {
@@ -35,8 +36,9 @@ class App extends Component {
     return (
       <div className="App">
       <Navigation />
-        <Route exact path="/" render={ () => <Smurfs smurfs={this.state.smurfs} />}  />
+        <Route exact path="/" render={ props => <Smurfs {...props} smurfs={this.state.smurfs} />}  />
         <Route path="/smurf-form" render={ props => <SmurfForm {...props} updateSmurfs={this.updateSmurfs} />}  />
+        <Route path="/smurf/:smurfid" render={ props => <SmurfPage {...props} smurfs={this.state.smurfs}/>} />
         {/* <SmurfForm updateSmurfs={this.updateSmurfs}/> */}
         {/* <Smurfs smurfs={this.state.smurfs} /> */}
       </div>
