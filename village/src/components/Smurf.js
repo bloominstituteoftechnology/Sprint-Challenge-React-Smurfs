@@ -22,7 +22,6 @@ class Smurf extends React.Component {
   onChangeHandler = e => {
     this.setState({ [e.target.name]: e.target.value });
     console.log({[e.target.name]: e.target.value });
-    console.log(this.state);
   };
   deleteASmurf = id => {
     this.props.deleteASmurf(id);
@@ -48,22 +47,26 @@ class Smurf extends React.Component {
           <form style={{ margin: "20px" }}>
             <input
               placeholder="Name"
+              defaultValue={this.state.name}
               type="text"
               name="name"
               onChange={this.onChangeHandler}
             />
             <input
+              defaultValue={this.state.height}
               placeholder="Height"
               type="text"
               name="height"
               onChange={this.onChangeHandler}
             />
             <input
+              defaultValue={this.state.age}
               placeholder="Age"
               type="text"
               name="age"
               onChange={this.onChangeHandler}
             />
+            {console.log(this.props.id, {name: this.state.name, height: this.state.height, age: this.state.age})}
             <button
               type="submit"
               onClick={() => this.updateASmurf(this.props.id, {name: this.state.name, height: this.state.height, age: this.state.age})}

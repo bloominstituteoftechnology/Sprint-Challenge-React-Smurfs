@@ -35,10 +35,9 @@ class App extends Component {
   }
 
   updateASmurf = (id, newObj) => {
-    axios.patch(`http://localhost:333/smurfs/${id}`, newObj)
-         .then(smurfs => this.setState({smurfs: smurfs.data}))
+    axios.put(`http://localhost:3333/smurfs/${id}`, newObj)
+         .then(s => this.setState({smurfs: s.data}))
          .catch(err => new Error(err));
-         console.log(id, newObj);
   }
 
   render() {
