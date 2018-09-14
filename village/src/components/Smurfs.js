@@ -1,21 +1,8 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import Smurf from './Smurf';
 
 class Smurfs extends Component {
-
-  componentDidMount() {
-    axios
-      .get('http://localhost:3333/smurfs')
-      .then(response => {
-        console.log ("this is the response:", response);
-        this.setState({smurfs: response.data }, () => console.log(this.state.smurfs));
-      })
-      .catch(error => {
-        console.error('Server Error', error);
-      });
-  }
-
+  
   render() {
     return (
       <div className="Smurfs">

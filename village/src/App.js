@@ -3,6 +3,7 @@ import axios from 'axios';
 import './App.css';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
+import { Route, Link } from 'react-router-dom';
 
 class App extends Component {
   constructor(props) {
@@ -29,8 +30,27 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <SmurfForm />
-        <Smurfs smurfs={this.state.smurfs} />
+        {/* <SmurfForm />
+        <Smurfs smurfs={this.state.smurfs} /> */}
+
+        <header>
+          <h1>Welcome to the Smurf Village!</h1>
+          <h3>Join us in the Smurf Village here:</h3>
+          <Link to='/smurfs'>Smurf Village</Link>
+          <h3>Add a new member to our Smurf Village here:</h3>
+          <Link to='/smurfform'>New Smurf</Link>
+        </header>
+
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        
+        <Route path='/smurfform' component={SmurfForm} /> 
+        <Route path='/smurfs' render={props => <Smurfs {...props} smurfs={this.state.smurfs} />} />
+
       </div>
     );
   }
