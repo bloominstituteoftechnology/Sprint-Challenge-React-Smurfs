@@ -34,6 +34,13 @@ class App extends Component {
          .catch(err => new Error(err));
   }
 
+  updateASmurf = (id, newObj) => {
+    axios.patch(`http://localhost:333/smurfs/${id}`, newObj)
+         .then(smurfs => this.setState({smurfs: smurfs.data}))
+         .catch(err => new Error(err));
+         console.log(id, newObj);
+  }
+
   render() {
     return (
       <div className="App">
@@ -43,7 +50,7 @@ class App extends Component {
           <li><NavLink exact activeClassName="selected" to="/">Smurfs</NavLink></li>
           <li><NavLink exact activeClassName="selected" to="/smurf-form">Create New Smurf</NavLink></li>
         </nav>
-        <Route exact path="/" render={(props) => <Smurfs deleteASmurf={this.deleteASmurf} {...props} smurfs={this.state.smurfs} />} />
+        <Route exact path="/" render={(props) => <Smurfs updateASmurf={this.updateASmurf} deleteASmurf={this.deleteASmurf} {...props} smurfs={this.state.smurfs} />} />
         <Route exact path="/smurf-form" render={(props) => <SmurfForm {...props} postNewSmurf={this.postNewSmurf} />} />
       </div>
     );
