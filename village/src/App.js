@@ -57,6 +57,11 @@ class App extends Component {
 	render() {
 		return (
 			<div className="App">
+				<NavLink to="/">Welcome to our village!</NavLink>
+				<NavLink to="/smurf-list">Smurf List</NavLink>
+				<NavLink exact to="/add-smurf">
+					Add A Smurf!
+				</NavLink>
 				<Route exact path="/" component={Home} />
 				<Route
 					path="/smurf-list"
@@ -73,11 +78,6 @@ class App extends Component {
 						/>
 					)}
 				/>
-				<NavLink to="/">Welcome to our village!</NavLink>
-				<NavLink to="/smurf-list">Smurf List</NavLink>
-				<NavLink exact to="/add-smurf">
-					Add A Smurf!
-				</NavLink>
 			</div>
 		);
 	}
