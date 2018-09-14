@@ -6,6 +6,7 @@ import './App.css';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
 import Header from './components/Header';
+import Smurf from './components/Smurf';
 
 
 
@@ -34,37 +35,65 @@ class App extends Component {
     })
   }
 
-  // addNewSmurf = event => {
-  //   event.preventDefault();
-  //   console.log('smurfing')
-  //   axios.post('http://localhost:3333/smurfs', this.state.smurf)
-  //   .then(response => this.setState({ smurfs: response.data, smurf: blankFormValues }))
+  // deleteSmurf = smurfId => {
+  //   return axios.delete(`http//localhost:3333/smurfs/${smurfId}`)
+  //   .then(response => this.setState({ smurfs: response.data}));
   // }
+
+  
 
 
   render() {
     return (
       <div className="App">
+      <ul className="navbar">
+        <li>
+          <NavLink exact to="/" activeClassName="activeNavButton">
+            Welcome
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to="/smurfs" activeClassName="activeNavButton">
+            The Village
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to="/smurf-form" activeClassName="activeNavButton">
+            Add New
+          </NavLink>
+        </li>
+      </ul>
+
+
       <Route exact path ="/" 
         component={Header}
       />
         
-        <Route path="/smurfs"
+        <Route exact path="/smurfs"
           render={props => (
             <Smurfs
               {...props}
               smurfs={this.state.smurfs}
+              deleteSmurf={this.deleteSmurf}
             />
           )}
         />
 
-          <Route path="/smurfs" 
+          <Route path="/smurf-form" 
         render={props => (
           <SmurfForm
             {...props} />
         )}
       />
 
+      <Route 
+        path="/smurfs/:smurfId"
+        render={props => (
+          <Smurf
+            {...props}            
+          />
+        )}
+      />
       </div>
     );
   }

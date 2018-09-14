@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Route, NavLink, withRouter } from 'react-router-dom';
 import axios from 'axios';
 
 
@@ -22,7 +21,11 @@ class SmurfForm extends Component {
     }))
   }
   
-
+  handleSubmit(event) {
+    event.preventDefault();
+    props.handleAddNewAvenger();
+    }
+}
 
   handleInputChange = e => {
     this.setState({ [e.target.name]: e.target.value });
@@ -31,6 +34,8 @@ class SmurfForm extends Component {
   render() {
     return (
       <div className="SmurfForm">
+        <h2>You wanna add a new Smurf???</h2>
+        <p>Awesome!! Tell us about this Smurf!!</p>
         <form onSubmit={this.addSmurf}>
           <input
             onChange={this.handleInputChange}
@@ -50,7 +55,7 @@ class SmurfForm extends Component {
             value={this.state.height}
             name="height"
           />
-          <button type="submit">Add to the village</button>
+          <button type="submit" onClick={handleSubmit}>Add to the village</button>
         </form>
       </div>
     );
