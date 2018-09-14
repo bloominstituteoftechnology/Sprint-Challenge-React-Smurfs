@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 class SmurfForm extends Component {
   constructor(props) {
@@ -12,7 +14,16 @@ class SmurfForm extends Component {
 
   addSmurf = event => {
     event.preventDefault();
-    // add code to create the smurf using the api
+    
+  axios({
+      method: 'post',
+      url: 'http://localhost:3333/smurfs',
+      data: {
+          name: `${this.state.name}`,
+          age: this.state.age,
+          height: `${this.state.height}`
+      }
+  })
 
     this.setState({
       name: '',
@@ -27,28 +38,30 @@ class SmurfForm extends Component {
 
   render() {
     return (
-      <div className="SmurfForm">
-        <form onSubmit={this.addSmurf}>
-          <input
-            onChange={this.handleInputChange}
-            placeholder="name"
-            value={this.state.name}
-            name="name"
-          />
-          <input
-            onChange={this.handleInputChange}
-            placeholder="age"
-            value={this.state.age}
-            name="age"
-          />
-          <input
-            onChange={this.handleInputChange}
-            placeholder="height"
-            value={this.state.height}
-            name="height"
-          />
-          <button type="submit">Add to the village</button>
-        </form>
+      <div><Link to={'/'}>HOME</Link>
+        <div className="SmurfForm">
+          <form onSubmit={this.addSmurf}>
+            <input
+              onChange={this.handleInputChange}
+              placeholder="name"
+              value={this.state.name}
+              name="name"
+            />
+            <input
+              onChange={this.handleInputChange}
+              placeholder="age"
+              value={this.state.age}
+              name="age"
+            />
+            <input
+              onChange={this.handleInputChange}
+              placeholder="height"
+              value={this.state.height}
+              name="height"
+            />
+            <button type="submit">Add to the village</button>
+          </form>
+        </div>
       </div>
     );
   }
