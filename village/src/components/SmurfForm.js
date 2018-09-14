@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class SmurfForm extends Component {
   constructor(props) {
@@ -13,6 +14,13 @@ class SmurfForm extends Component {
   addSmurf = event => {
     event.preventDefault();
     // add code to create the smurf using the api
+    const newSmurf = {
+      name: this.state.name,
+      age: this.state.age,
+      height: this.state.height,
+    };
+    console.log('newSmurf: ', newSmurf);
+    this.props.addSmurf(newSmurf);
 
     this.setState({
       name: '',
@@ -52,6 +60,10 @@ class SmurfForm extends Component {
       </div>
     );
   }
+}
+
+SmurfForm.propTypes = {
+  addSmurf: PropTypes.func,
 }
 
 export default SmurfForm;
