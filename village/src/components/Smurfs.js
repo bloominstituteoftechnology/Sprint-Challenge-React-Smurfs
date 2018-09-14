@@ -6,7 +6,7 @@ class Smurfs extends Component {
 
   componentDidMount() {
     axios
-      .get('/smurfs')
+      .get('http://localhost:3333/smurfs')
       .then(response => {
         console.log ("this is the response:", response);
         this.setState({smurfs: response.data }, () => console.log(this.state.smurfs));
