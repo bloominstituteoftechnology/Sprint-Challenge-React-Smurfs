@@ -1,7 +1,16 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-const Header = () => {
-  return <h2>Describe your header here.</h2>
+const Header = (props) => {
+  return (
+    <div>
+      <h2>Welcome to the Smurf Village</h2>
+      <Link className="enter" to="./smurfs">
+        Enter Village
+      </Link>      
+    </div>
+  )
+    
 }
  
 export default Header;

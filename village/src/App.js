@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { Route, NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './App.css';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
+
 
 class App extends Component {
   constructor(props) {
@@ -26,13 +29,23 @@ class App extends Component {
         console.log(error);
       });
   }
-  
+
 
   render() {
     return (
       <div className="App">
-        <SmurfForm />
-        <Smurfs smurfs={this.state.smurfs} />
+        <header>
+          <h2>Welcome to the Smurf Village</h2>
+          <NavLink  className="enter" to="/smurfs">
+            Enter Village
+          </NavLink >    
+          <NavLink  className="join" to="/smurfform">
+            Join Village
+          </NavLink >  
+        </header>
+
+        <Route exact path='/smurfs' render={props => <Smurfs {...props} smurfs={this.state.smurfs} />} />
+        <Route exact path='/smurfform' component={SmurfForm} />
       </div>
     );
   }
