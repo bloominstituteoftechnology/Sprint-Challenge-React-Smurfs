@@ -30,6 +30,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <button onClick={() => this.props.history.goBack()}>Back</button>
         <SmurfForm postNewSmurf={this.postNewSmurf} />
         <Smurfs smurfs={this.state.smurfs} />
       </div>
