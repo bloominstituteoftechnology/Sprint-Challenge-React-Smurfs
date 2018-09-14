@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-
 import './App.css';
+
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
 
@@ -23,5 +23,7 @@ class App extends Component {
     );
   }
 }
+
+Change to be able to commit initial PR;
 
 export default App;
