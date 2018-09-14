@@ -9,8 +9,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      smurfs: [],
-      newSmurf: {name:'', age:'', height:''}
+      smurfs: []
     };
   }
   // add any needed code to ensure that the smurfs collection exists on state and it has data coming from the server
@@ -23,10 +22,17 @@ class App extends Component {
     .catch(err => {console.log('Initial Get: ' + err)})
   }
 
+  updateSmurfs = (smurf) => {
+    axios.post('http://localhost:3333/smurfs', {...smurf})
+    .then(response => {console.log('Smurf Post: ' + response.statusText); this.setState({smurfs: response.data})})
+    .catch(err => {console.log('Smurf Post: ' + err)})
+  } 
+
+
   render() {
     return (
       <div className="App">
-        <SmurfForm />
+        <SmurfForm updateSmurfs={this.updateSmurfs}/>
         <Smurfs smurfs={this.state.smurfs} />
       </div>
     );
