@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
+
+// TODO: refactor in to a simple presentational component and handle the logic inside the app component
 class SmurfForm extends Component {
   constructor(props) {
     super(props);
@@ -38,33 +40,38 @@ class SmurfForm extends Component {
     });
   };
 
+
   handleInputChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
 
   render() {
     return (
-      <div className="SmurfForm">
-        <form onSubmit={this.addSmurf}>
+      <div className="form-wrapper">
+        <form>
           <input
-            onChange={this.handleInputChange}
-            placeholder="name"
-            value={this.state.name}
+            type="text"
             name="name"
+            placeholder="Name"
+            value={this.props.name}
+            onChange={this.props.handleInputChange}
           />
           <input
-            onChange={this.handleInputChange}
-            placeholder="age"
-            value={this.state.age}
+            type="text"
             name="age"
+            placeholder="Age"
+            value={this.props.age}
+            onChange={this.props.handleInputChange}
           />
           <input
-            onChange={this.handleInputChange}
-            placeholder="height"
-            value={this.state.height}
+            type="text"
             name="height"
+            placeholder="Height"
+            value={this.props.height}
+            onChange={this.props.handleInputChange}
           />
-          <button type="submit">Add to the village</button>
+          <button onClick={this.props.handleSmurfSubmit}>Submit</button>
+          <button onClick={this.props.handleCancel}>Cancel</button>
         </form>
       </div>
     );

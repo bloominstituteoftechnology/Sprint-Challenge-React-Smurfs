@@ -61,20 +61,28 @@ class App extends Component {
     });
     this.props.history.push(`/`);
   };
-
+  // TODO: refactor some more code for form to work
   render() {
-    //TODO: refactor this to feel more intuitive
     return (
-      <div className="App">
+      <div className="wrapper">
         <Header />
-      
-          <SmurfForm />
 
-        <Route
-          exact
-          path="/"
-          render={props => <Smurfs smurfs={this.state.smurfs} />}
+        <Route exact path="/" render={ props =>
+            <Smurfs smurfs={this.state.smurfs} />
+          }
         />
+
+        <Switch>
+
+          <Route path="/smurfs/add" render={ props =>
+              <SmurfForm name={this.state.name}
+                    age={this.state.age}
+                    height={this.state.height}
+                    handleInputChange={this.handleInputChange}
+                    handleSmurfSubmit={this.handleSmurfSubmit} />
+            }
+          />
+        </Switch>
       </div>
     );
   }
