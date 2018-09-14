@@ -1,0 +1,17 @@
+.smurf-form{
+    display: flex;
+    flex-direction: column;
+    padding: 5% 10%;
+    
+}
+
+.SmurfForm{
+    max-width: 600px;
+    margin: 50px auto;
+    height: 600px;
+}
+
+.form-input{
+   margin: 5% 0;
+   height: 40px;
+}

@@ -1,3 +1,40 @@
 .App {
   text-align: center;
 }
+
+.Nav {
+  margin: 10px auto;
+  display: flex;
+  max-width: 400px;
+  justify-content: space-between;
+}
+
+a{
+  text-decoration: none;
+}
+
+.Header{
+  color: dodgerblue;
+  margin: 90px auto;
+}
+
+.header-title{
+  font-size: 4rem;
+}
+
+.Smurf {
+  border: 1px solid lightblue;
+  width: 200px;
+  border-radius: 8px;
+  margin: 10px auto;
+}
+
+.smurf-name {
+  color: dodgerblue;
+}
+
+.village-title {
+  margin: 0 auto;
+  font-size: 4rem;
+  color: blue;
+}

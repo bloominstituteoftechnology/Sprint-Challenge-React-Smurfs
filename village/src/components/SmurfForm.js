@@ -1,4 +1,9 @@
 import React, { Component } from 'react';
+import { Route, NavLink, withRouter } from 'react-router-dom';
+import axios from 'axios';
+import PropTypes from 'prop-types';
+import '../SmurfForm.css';
+
 
 class SmurfForm extends Component {
   constructor(props) {
@@ -13,12 +18,18 @@ class SmurfForm extends Component {
   addSmurf = event => {
     event.preventDefault();
     // add code to create the smurf using the api
-
-    this.setState({
-      name: '',
-      age: '',
-      height: ''
-    });
+    const newSmurf = {
+      name: this.state.name,
+      age: this.state.age,
+      height: this.state.height
+    }
+    axios.post('http://localhost:3333/smurfs', newSmurf)
+    .then(response => {
+      this.setState({
+        smurfs: response.data
+      }, () => this.props.history.push('/smurfs'));
+    })
+    .catch(err => console.log(err))
   }
 
   handleInputChange = e => {
@@ -28,30 +39,40 @@ class SmurfForm extends Component {
   render() {
     return (
       <div className="SmurfForm">
-        <form onSubmit={this.addSmurf}>
-          <input
+        <form onSubmit={this.addSmurf} className='smurf-form'>
+          <input className='form-input'
             onChange={this.handleInputChange}
             placeholder="name"
             value={this.state.name}
             name="name"
           />
-          <input
+          <input className='form-input'
             onChange={this.handleInputChange}
             placeholder="age"
             value={this.state.age}
             name="age"
           />
-          <input
+          <input className='form-input'
             onChange={this.handleInputChange}
             placeholder="height"
             value={this.state.height}
             name="height"
           />
-          <button type="submit">Add to the village</button>
+          <button type="submit" onClick={this.addSmurf} className='form-input'>Add to the village</button>
         </form>
       </div>
     );
   }
+}
+
+SmurfForm.propTypes = {
+  newSmurf: PropTypes.shape({
+    name: PropTypes.string,
+    age: PropTypes.number,
+    height: PropTypes.string
+  }),
+  addSmurf: PropTypes.func,
+  handleInputChange: PropTypes.func
 }
 
 export default SmurfForm;
