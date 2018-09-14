@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import axios from 'axios'
 
 class SmurfForm extends Component {
   constructor(props) {
@@ -21,9 +20,7 @@ class SmurfForm extends Component {
       height: this.state.height,
     }
 
-    axios
-      .post('http://localhost:3333/smurfs', newSmurf)
-      .then(res => this.setState({ smurfs: res.data }))
+    this.props.postSmurf(newSmurf)
 
     this.setState({
       name: '',
@@ -31,7 +28,6 @@ class SmurfForm extends Component {
       height: ''
     })
   }
-  
 
   handleInputChange = e => {
     this.setState({ [e.target.name]: e.target.value })

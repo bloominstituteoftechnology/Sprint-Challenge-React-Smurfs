@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import { withRouter } from 'react-router-dom'
 import './App.css'
 import SmurfForm from './components/SmurfForm'
 import Smurfs from './components/Smurfs'
@@ -22,14 +23,20 @@ class App extends Component {
       .catch(err => console.log(err))
   }
 
+  postSmurf = (newSmurf) => {
+    axios
+    .post('http://localhost:3333/smurfs', newSmurf)
+    .then(res => this.setState({ smurfs: res.data }, this.props.history.push("/")))
+  }
+
   render() {
     return (
       <div className="App">
-        <SmurfForm />
+        <SmurfForm postSmurf={this.postSmurf} />
         <Smurfs smurfs={this.state.smurfs} />
       </div>
     )
   }
 }
 
-export default App
+export default withRouter(App)
