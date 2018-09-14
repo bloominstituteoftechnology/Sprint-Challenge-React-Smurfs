@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Route, NavLink, BrowserRouter as Router } from 'react-router-dom';
-
+import Smurf from './components/Smurf';
 import './App.css';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
@@ -29,7 +29,7 @@ class App extends Component {
   
   render() {
     return (
-      <Router>
+     
       <div className="App">
       
       <div className = 'nav-bar'>
@@ -39,10 +39,9 @@ class App extends Component {
       
       <Route exact path = '/' render = {(props) => <Smurfs {...props} smurfs = {this.state.smurfs} />} />
       <Route path = '/smurf-form' render = {(props) => <SmurfForm {...props} reloadSmurfs = {this.reloadSmurfs} />} />
-      
+      <Route path = {`/smurfs/:smurfID`} render = {(props) => <Smurf {...props} smurfList = {this.state.smurfs}/>} />
       
       </div>
-      </Router>
     );
   }
 }
