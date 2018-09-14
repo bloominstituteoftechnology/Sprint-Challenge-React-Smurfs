@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import {Redirect} from 'react-router-dom';
 
 class SmurfForm extends Component {
   constructor(props) {

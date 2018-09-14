@@ -1,3 +1,8 @@
 .App {
   text-align: center;
 }
+
+.selected { 
+  text-decoration: none;
+  color: red;
+}

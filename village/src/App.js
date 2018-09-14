@@ -4,8 +4,7 @@ import './App.css';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
 import axios from 'axios';
-import {Route, NavLink, Redirect} from 'react-router-dom';
-import Smurf from './components/Smurf';
+import {Route, NavLink} from 'react-router-dom';
 
 class App extends Component {
   constructor(props) {
@@ -41,8 +40,8 @@ class App extends Component {
         <h1>Welcome to SmurfVille</h1>
         <button onClick={() => this.props.history.goBack()} style={{position: 'absolute', top: '20px', left: '20px'}}>Back</button>
         <nav>
-          <li><NavLink to="/">Smurfs</NavLink></li>
-          <li><NavLink to="/smurf-form">Create New Smurf</NavLink></li>
+          <li><NavLink exact activeClassName="selected" to="/">Smurfs</NavLink></li>
+          <li><NavLink exact activeClassName="selected" to="/smurf-form">Create New Smurf</NavLink></li>
         </nav>
         <Route exact path="/" render={(props) => <Smurfs deleteASmurf={this.deleteASmurf} {...props} smurfs={this.state.smurfs} />} />
         <Route exact path="/smurf-form" render={(props) => <SmurfForm {...props} postNewSmurf={this.postNewSmurf} />} />
