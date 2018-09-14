@@ -1,14 +1,19 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import axios from "axios";
-import './App.css';
-import SmurfForm from './components/SmurfForm';
-import Smurfs from './components/Smurfs';
+import "./App.css";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import SmurfForm from "./components/SmurfForm";
+import Smurfs from "./components/Smurfs";
+import Smurf from "./components/Smurf";
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      smurfs: []
+      smurfs: [],
+      name: "",
+      age: "",
+      height: ""
     };
   }
 
@@ -26,12 +31,16 @@ class App extends Component {
   // Notice what your map function is looping over and returning inside of Smurfs.
   // You'll need to make sure you have the right properties on state and pass them down to props.
   render() {
-    return (
-      <div className="App">
-        <SmurfForm />
-        <Smurfs smurfs={this.state.smurfs} />
-      </div>
-    );
+    return <div className="App">
+        <div>
+          <Link to="/"> Village </Link>
+        </div>
+        <div>
+          <Link to="/smurf-form"> Add a Smurf </Link>
+        </div>
+        <Route path="/smurf-form" component={SmurfForm} />
+        <Smurfs smurfs={this.state.smurfs}/>
+      </div>;
   }
 }
 
