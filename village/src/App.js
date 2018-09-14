@@ -10,7 +10,14 @@ class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
+      isUpdating: false,
       smurfs: [],
+      smurf: {
+        name: '',
+        age: '',
+        height: '',
+        id: ''
+      }
     }
   }
   // add any needed code to ensure that the smurfs collection exists on state and it has data coming from the server
@@ -30,6 +37,29 @@ class App extends Component {
     .then(res => this.setState({ smurfs: res.data }, this.props.history.push("/")))
   }
 
+  goToUpdateForm = (id) => {
+    const smurfToUpdate = this.state.smurfs.find(smurf => smurf.id === id);
+    this.setState({ isUpdating: true, smurf: smurfToUpdate }, () => this.props.history.push('/smurf-form'));
+  }
+
+  putSmurf = (smurf) => {
+    const blankFormValues = {
+      name: '',
+      age: '',
+      height: '',
+      id: ''
+    }
+    axios.put(`http://localhost:3333/smurfs/${smurf.id}`, smurf)
+      .then(res => {
+        this.setState({
+          smurfs: res.data, 
+          isUpdating: false,
+          smurf: blankFormValues,
+        });
+        this.props.history.push('/');
+      });
+  }
+
   deleteSmurf = (id) => {
     axios.delete(`http://localhost:3333/smurfs/${id}`)
       .then(res => this.setState({ smurfs: res.data }, this.props.history.push('/')))
@@ -40,8 +70,8 @@ class App extends Component {
       <div className="App">
         <NavBar />
 
-        <Route exact path="/" render={() => <Smurfs smurfs={this.state.smurfs} deleteSmurf={this.deleteSmurf} />} />
-        <Route path="/smurf-form" render={() => <SmurfForm postSmurf={this.postSmurf} />} />
+        <Route exact path="/" render={() => <Smurfs smurfs={this.state.smurfs} goToUpdateForm={this.goToUpdateForm} deleteSmurf={this.deleteSmurf} />} />
+        <Route path="/smurf-form" render={() => <SmurfForm {...this.state} postSmurf={this.postSmurf} putSmurf={this.putSmurf} smurf={this.state.smurf} />} />
       </div>
     )
   }
