@@ -1,3 +1,30 @@
 .App {
-  text-align: center;
+	text-align: center;
+}
+
+html {
+	overflow-y: scroll;
+}
+
+nav {
+	margin: 10px 0;
+}
+
+a {
+	padding: 5px;
+	margin: 10px;
+	text-decoration: none;
+	color: white;
+	background: rgb(0, 140, 255);
+	border: 1px solid blue;
+}
+
+.active {
+	color: white;
+	background: rgb(0, 68, 124);
+	border: 1px solid blue;
+}
+
+button {
+	margin: 0 5px;
 }
