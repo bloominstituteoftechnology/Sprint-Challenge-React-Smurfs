@@ -1,10 +1,14 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 import Smurf from './Smurf'
 
 const SmurfPage = (props) => {
-    let singleSmurf = props.smurfs.find(smurf => (smurf.id === parseInt(props.match.params.smurfid, 10)));
+    let smurf = props.smurfs.find(smurf => (smurf.id === parseInt(props.match.params.smurfid, 10)));
     return (
-        <Smurf {...singleSmurf}/>
+        <Fragment>
+            <Smurf {...smurf}/>
+            <button onClick={() => {props.banish(smurf); props.history.push('/')}}>Banish Me</button>
+        </Fragment>
+
 
     )
 }
