@@ -30,12 +30,17 @@ class App extends Component {
     .then(res => this.setState({ smurfs: res.data }, this.props.history.push("/")))
   }
 
+  deleteSmurf = (id) => {
+    axios.delete(`http://localhost:3333/smurfs/${id}`)
+      .then(res => this.setState({ smurfs: res.data }, this.props.history.push('/')))
+  }
+
   render() {
     return (
       <div className="App">
         <NavBar />
-        
-        <Route exact path="/" render={() => <Smurfs smurfs={this.state.smurfs} />} />
+
+        <Route exact path="/" render={() => <Smurfs smurfs={this.state.smurfs} deleteSmurf={this.deleteSmurf} />} />
         <Route path="/smurf-form" render={() => <SmurfForm postSmurf={this.postSmurf} />} />
       </div>
     )
