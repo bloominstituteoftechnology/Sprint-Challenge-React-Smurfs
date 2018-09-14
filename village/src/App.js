@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
+// import { BrowserRouter as Router, Route} from 'react-router-dom';
+import {NavLink} from 'react-router-dom';
 import axios from 'axios';
 import './App.css';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
+// import Links from './components/Links';
 
 class App extends Component {
   constructor(props) {
@@ -27,10 +30,16 @@ class App extends Component {
   // You'll need to make sure you have the right properties on state and pass them down to props.
   render() {
     return (
+      
       <div className="App">
-        <SmurfForm />
-        <Smurfs smurfs={this.state.smurfs} />
+      <NavLink className="nav" to='/smurf-form'>Smurf Form</NavLink>
+      <NavLink className="nav" to='/'>Smurfs</NavLink>
+      {/* <Links /> */}
+      <SmurfForm  /> 
+      <Smurfs smurfs={this.state.smurfs}/>
+       
       </div>
+    
     );
   }
 }
