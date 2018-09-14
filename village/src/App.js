@@ -6,6 +6,7 @@ import './App.css';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
 import Header from './components/Header';
+import Nav from './components/Navigation';
 
 class App extends Component {
   constructor(props) {
@@ -43,17 +44,25 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <Nav />
         <Route exact path="/" component={Header} />
         <Route
-          exact
           path="/smurfs"
           render={(props) => (
             <React.Fragment>
-              <SmurfForm addNewSmurf={this.addNewSmurf} />
               <Smurfs
                 smurfs={this.state.smurfs}
                 deleteSmurf={this.deleteSmurf}
               />
+            </React.Fragment>
+          )}
+        />
+
+        <Route
+          path="/addsmurf"
+          render={(props) => (
+            <React.Fragment>
+              <SmurfForm addNewSmurf={this.addNewSmurf} />
             </React.Fragment>
           )}
         />
