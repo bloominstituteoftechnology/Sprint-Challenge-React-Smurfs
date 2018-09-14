@@ -17,6 +17,7 @@ class Smurfs extends Component {
                 age={smurf.age}
                 height={smurf.height}
                 deleteSmurf={this.props.deleteSmurf} 
+                handleSmurfEdit={this.props.handleSmurfEdit} 
                 key={smurf.id}
               />
             );
@@ -41,7 +42,8 @@ Smurfs.propTypes = {
       height: PropTypes.string
     })
   ).isRequired,
-  deleteSmurf: PropTypes.func
+  deleteSmurf: PropTypes.func,
+  handleSmurfEdit: PropTypes.func
 };
 
 export default Smurfs;

@@ -5,10 +5,10 @@ class SmurfForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: '',
-      age: '',
-      height: '',
-      id: -1
+      name: this.props.editSmurf.name,
+      age: this.props.editSmurf.age,
+      height: this.props.editSmurf.height,
+      id: this.props.editSmurf.id
     };
   }
 
@@ -19,12 +19,6 @@ class SmurfForm extends Component {
       name: this.state.name,
       age: Number(this.state.age),
       height: this.state.height
-    });
-
-    this.setState({
-      name: '',
-      age: '',
-      height: ''
     });
 
     this.props.history.push('/');
@@ -38,13 +32,6 @@ class SmurfForm extends Component {
       age: Number(this.state.age),
       height: this.state.height
     }, this.state.id);
-
-    this.setState({
-      name: '',
-      age: '',
-      height: '',
-      id: -1
-    });
 
     this.props.history.push('/');
   };
@@ -86,7 +73,13 @@ class SmurfForm extends Component {
 SmurfForm.propTypes = {
   postSmurf: PropTypes.func.isRequired,
   putSmurf: PropTypes.func.isRequired,
-  editingSmurf: PropTypes.bool.isRequired
+  editingSmurf: PropTypes.bool.isRequired,
+  editSmurf: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    age: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
+    height: PropTypes.string.isRequired,
+    id: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired
+  }).isRequired
 };
 
 export default SmurfForm;
