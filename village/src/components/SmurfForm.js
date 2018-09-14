@@ -14,12 +14,17 @@ class SmurfForm extends Component {
 
   addSmurf = event => {
     // add code to create the smurf using the api
-    axios.post("http://localhost:3333/smurfs", this.state);
-    this.setState({
-      name: "",
-      age: "",
-      height: ""
-    });
+    event.preventDefault();
+    axios
+      .post("http://localhost:3333/smurfs", this.state)
+      .then(response => this.props.addNewSmurf(response.data))
+      .then(() => {
+        this.setState({
+          name: "",
+          age: "",
+          height: ""
+        });
+      });
   };
 
   handleInputChange = e => {

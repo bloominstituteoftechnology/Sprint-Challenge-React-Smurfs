@@ -31,7 +31,7 @@ class App extends Component {
     axios
       .get("http://localhost:3333/smurfs")
       .then(response => {
-        console.log(response);
+        // console.log(response);
         // set our state with the new data
         this.setState({ smurfs: response.data });
       })
@@ -45,6 +45,15 @@ class App extends Component {
         [event.target.name]: event.target.value
       }
     });
+  };
+
+  addNewSmurf = smurfs => {
+    this.setState(
+      {
+        smurfs //shorthand for smurfs: smurfs
+      },
+      () => console.log(this.state)
+    );
   };
 
   render() {
@@ -61,7 +70,12 @@ class App extends Component {
           path="/"
           render={props => <Smurfs {...props} smurfs={this.state.smurfs} />}
         />
-        <Route path="/add-smurf" component={SmurfForm} />
+        <Route
+          path="/add-smurf"
+          render={props => (
+            <SmurfForm {...props} addNewSmurf={this.addNewSmurf} />
+          )}
+        />
       </div>
     );
   }
