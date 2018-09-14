@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import Axios from 'axios';
+import {Route} from 'react-router-dom';
 
 import './App.css';
+import Header from './components/Header';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
 
@@ -26,15 +28,10 @@ class App extends Component {
   };
 
   /* C */
-  postSmurf = (event) => {
-    event.preventDefault();
-    if(event.target.name.value && event.target.age.value && event.target.height.value) {
+  postSmurf = (newSmurf) => {
+    if(newSmurf.name && newSmurf.age && newSmurf.height) {
       Axios
-        .post(this.dataSource, {
-          name: event.target.name.value,
-          age: Number(event.target.age.value),
-          height: event.target.height.value
-        })
+        .post(this.dataSource, newSmurf)
         .then( (response) => this.setSmurfs(response.data) )
         .catch( (err) => console.error(err) );
     }
@@ -57,8 +54,16 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <SmurfForm postSmurf={this.postSmurf} />
-        <Smurfs smurfs={this.state.smurfs} />
+        <Header />
+        <Route 
+          exact 
+          path='/' 
+          render={() => <Smurfs smurfs={this.state.smurfs} />} 
+        />
+        <Route 
+          path='/smurf-form' 
+          render={(props) => <SmurfForm {...props} postSmurf={this.postSmurf} />} 
+        />
       </div>
     );
   }
