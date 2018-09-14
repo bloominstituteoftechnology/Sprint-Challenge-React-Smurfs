@@ -1,0 +1,32 @@
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.nav-links-div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 50vw;
+}
+
+.nav-links-div a {
+    text-decoration: none;
+    color: black;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.nav-links-div a:hover {
+    background-color: black;
+    color: lightsteelblue;
+}
+
+.active-link {
+    border: 1px solid black;
+    border-radius: 5px;
+}

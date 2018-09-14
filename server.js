@@ -24,6 +24,14 @@ let smurfs = [
 server.get('/smurfs', (req, res) => {
   res.json(smurfs);
 });
+
+server.get('/smurfs/:id', (req, res) => {
+  const smurf = smurfs.filter(
+    smurf => smurf.id.toString() === req.params.id
+  )[0];
+  res.status(200).json(smurf);
+});
+
 let smurfId = 1;
 
 server.post('/smurfs', (req, res) => {

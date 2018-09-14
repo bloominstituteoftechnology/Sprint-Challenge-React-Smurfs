@@ -1,3 +1,48 @@
 .App {
   text-align: center;
 }
+
+.App button {
+  border-radius: 5px;
+}
+
+.App form {
+  margin: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.App form * {
+  margin: 10px;
+}
+
+.App form input {
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.App form button {
+  background: lightseagreen;
+  padding: 5px 10px;
+}
+
+.App form button:hover {
+  color: lightseagreen;
+  background: black;
+  cursor: pointer;
+}
+
+
+/* Animations */
+@keyframes fade-in-anim {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+.fade-in {
+  animation-name: fade-in-anim;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+}

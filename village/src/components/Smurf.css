@@ -1,0 +1,44 @@
+.Smurf {
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 10px;
+    width: 50vw;
+}
+
+.Smurf * {
+    margin: 10px;
+}
+
+.Smurf button {
+    padding: 5px;
+}
+
+.edit-btn {
+    background: lightskyblue;
+}
+
+.edit-btn:hover {
+    background: black;
+    color: lightskyblue;
+    cursor: pointer;
+}
+
+.edit-btn a {
+    color: black;
+    text-decoration: none;
+}
+
+.edit-btn a:hover {
+    color: lightskyblue;
+}
+
+.delete-btn {
+    background: lightcoral;
+}
+
+.delete-btn:hover {
+    cursor: pointer;
+    background: black;
+    color: lightcoral;
+}
