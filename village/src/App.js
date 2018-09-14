@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, NavLink } from 'react-router-dom';
+import { Route, NavLink, withRouter } from 'react-router-dom';
 import axios from 'axios';
 
 import './App.css';
@@ -69,9 +69,9 @@ class App extends Component {
         })
   }
 
-  removeSmurf = id => {
+  removeSmurf = smfid => {
     return axios 
-               .delete(`http://localhost:3333/smurfs/${id}`)
+               .delete(`http://localhost:3333/smurfs/${smfid}`)
                .then((response) => this.setState({
                  smurfData: response.data
                }));
@@ -85,16 +85,16 @@ class App extends Component {
     }, () => this.props.history.push("/smurf-form"));
   }
 
-  updateSmurf = id => {
+  updateSmurf = smfid => {
     axios
-        .put(`http://localhost:3333/smurfs/${id}`, this.state.smurf)
+        .put(`http://localhost:3333/smurfs/${smfid}`, this.state.smurf)
         .then((response) => {
           this.setState({
             smurfData: response.data,
             smurf: blnfrm,
             sltupdt: false
           });
-          this.props.history.push(`/smurfs`);
+          this.props.history.push(`/smurfs/${smfid}`);
         })
   }
 
@@ -120,11 +120,11 @@ class App extends Component {
       </ul>
       <Route exact path="/" component={Header} />
       <Route exact path="/smurfs" render={props => (<SmurfList {...props} list={this.state.smurfData} />)} />
-      <Route path="/smurfs/:id" render={props => (<Smurf {...props} list={this.state.smurfData} rmsmf={this.removeSmurf} rdrtfrm={this.rdrtfrm} />)} />
+      <Route path="/smurfs/:smfid" render={props => (<Smurf {...props} list={this.state.smurfData} rmsmf={this.removeSmurf} rdrtfrm={this.rdrtfrm} />)} />
       <Route path="/smurf-form" render={props => (<SmurfForm {...props} smf={this.state.smurf} adsmf={this.addSmurf} handleChange={this.handleInputChange} updtsmf={this.updateSmurf} sltupdt={this.state.sltupdt} />)} />
       </div>
     );
   }
 }
 
-export default App;
+export default withRouter(App);

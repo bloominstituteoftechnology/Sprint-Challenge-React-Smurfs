@@ -1,12 +1,14 @@
 import React from 'react';
 
 const Smurf = props => {
-  const smurf = props.list.find(smurf => smurf.id === parseInt(props.match.params.id, 10));
+  const smurf = props.list.find(smurf => smurf.id === parseInt(props.match.params.smfid, 10));
+  console.log(smurf);
 
   const hdldlt = () => {
     props.rmsmf(smurf.id);
     props.history.push("/smurfs")
   }
+
   return (
     <div className="Smurf">
       <h3>{smurf.name}</h3>

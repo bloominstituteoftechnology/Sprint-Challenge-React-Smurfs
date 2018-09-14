@@ -4,7 +4,7 @@ const SmurfForm = props => {
   const hdlsbmt = (event) => {
     event.preventDefault();
     if (props.sltupdt) {
-      props.updtsmf(props.smurf.id)
+      props.updtsmf(props.smf.id);
     } else {
       props.adsmf();
     }
@@ -30,7 +30,7 @@ const SmurfForm = props => {
             value={props.smf.height}
             name="height"
           />
-          <button type="submit">Add to the village</button>
+          <button type="submit">{props.sltupdt ? "Bring on the change!" : "Add to the village"}</button>
         </form>
       </div>
     );

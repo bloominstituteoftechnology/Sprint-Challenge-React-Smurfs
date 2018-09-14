@@ -10,7 +10,7 @@ const SmurfList = props => {
         <ul>
           {props.list.map(smurf => {
             return (
-              <div className="Smurf">
+              <div className="Smurf" key={smurf.id}>
                 <h3 onClick={() => props.history.push(`/smurfs/${smurf.id}`)}>{smurf.name}</h3>
                 <strong>{smurf.height} tall</strong>
                 <p>{smurf.age} smurf years old</p>
