@@ -9,30 +9,67 @@ class Smurfs extends Component {
       smurfs: []
     };
   }
+
+  cullSmurf = (event, id) => {
+    event.preventDefault();
+    axios
+      .delete(`http://localhost:3333/smurfs/${id}`)
+      .then(response => {
+        this.setState({
+          smurfs: response.data
+        });
+      })
+      .catch(err => {
+        console.error(err);
+      });
+  };
+
+  editSmurf = (event, id) => {
+    event.preventDefault();
+    this.setState({
+      edit: id
+    });
+  };
+
+  saveSmurf = (event, id, stats) => {
+    event.preventDefault();
+    axios
+      .put(`http://localhost:3333/smurfs/${id}`, stats)
+      .then(response => {
+        this.setState({
+          smurfs: response.data,
+          edit: null
+        });
+      })
+      .catch(err => {
+        console.error(err);
+      });
+  };
+
   componentDidMount() {
     axios
       .get('http://localhost:3333/smurfs')
       .then(response => {
-        this.setState(() => ({
+        this.setState({
           smurfs: response.data
-        }));
+        });
       })
       .catch(err => {
         console.error(err);
       });
   }
-  componentDidUpdate() {
-    axios
-      .get('http://localhost:3333/smurfs')
-      .then(response => {
-        this.setState(() => ({
-          smurfs: response.data
-        }));
-      })
-      .catch(err => {
-        console.error(err);
-      });
-  }
+  // componentDidUpdate() {
+  //   axios
+  //     .get('http://localhost:3333/smurfs')
+  //     .then(response => {
+  //       this.setState(() => ({
+  //         smurfs: response.data
+  //       }));
+  //     })
+  //     .catch(err => {
+  //       console.error(err);
+  //     });
+  // }
   render() {
     return (
       <div className="Smurfs">
@@ -48,6 +85,10 @@ class Smurfs extends Component {
                 age={smurf.age}
                 height={smurf.height}
                 key={smurf.id}
+                cullSmurf={this.cullSmurf}
+                editSmurf={this.editSmurf}
+                saveSmurf={this.saveSmurf}
+                edit={this.state.edit}
               />
             );
           })}
