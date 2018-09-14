@@ -1,19 +1,23 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-const Smurf = props => {
+function Smurf(props) {
+  console.log(props);
   return (
     <div className="Smurf">
-      <h3>{props.name}</h3>
-      <strong>{props.height} tall</strong>
-      <p>{props.age} smurf years old</p>
+      <h3>{props.smurf.name}</h3>
+      <p>{props.smurf.height} tall</p>
+      <p>{props.smurf.age} smurf years old</p>
     </div>
   );
 };
 
-Smurf.defaultProps = {
-  name: '',
-  height: '',
-  age: ''
-};
+Smurf.propTypes = {
+  smurf: PropTypes.shape({
+    name: PropTypes.string,
+    age: PropTypes.number,
+    height: PropTypes.string
+  }),
+}
 
 export default Smurf;
