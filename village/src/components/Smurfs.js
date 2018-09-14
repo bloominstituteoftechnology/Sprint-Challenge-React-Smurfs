@@ -10,6 +10,36 @@ class Smurfs extends Component {
 		};
 	}
 
+	// editSmurf = event => {
+	// 	axios
+	// 		.put(`http://localhost:3333/smurfs/${event.target.id}`, {
+	// 			name: this.state.name,
+	// 			age: this.state.age,
+	// 			height: this.state.height
+	// 		})
+	// 		.then(response => {
+	// 			this.setState({
+	// 				smurfs: response.data
+	// 			});
+	// 		})
+	// 		.catch(error => {
+	// 			console.log(error);
+	// 		});
+	// };
+
+	// deleteSmurf = event => {
+	// 	axios
+	// 		.delete('http://localhost:3333/smurfs')
+	// 		.then(response => {
+	// 			this.setState({
+	// 				smurfs: response.data
+	// 			});
+	// 		})
+	// 		.catch(error => {
+	// 			console.log(error);
+	// 		});
+	// };
+
 	componentDidMount() {
 		axios
 			.get('http://localhost:3333/smurfs')
