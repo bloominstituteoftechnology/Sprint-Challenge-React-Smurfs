@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 
-import Smurf from './Smurf';
+import SmurfCard from './SmurfCard';
 
 class Smurfs extends Component {
   render() {
@@ -11,7 +11,8 @@ class Smurfs extends Component {
         <List>
           {this.props.smurfs.map((smurf) => {
             return (
-              <Smurf
+              <SmurfCard
+                {...this.props}
                 name={smurf.name}
                 id={smurf.id}
                 age={smurf.age}
@@ -27,7 +28,7 @@ class Smurfs extends Component {
   }
 }
 
-Smurf.defaultProps = {
+SmurfCard.defaultProps = {
   smurfs: [],
 };
 

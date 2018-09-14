@@ -1,47 +1,21 @@
 import React from 'react';
-import styled from 'styled-components';
 
-const Smurf = (props) => {
-  function deleteSmurf() {
-    props.deleteSmurf(props.id);
-  }
-
-  return (
-    <Card className="Smurf">
-      <XButton onClick={deleteSmurf}>X</XButton>
-      <h3>{props.name}</h3>
-      <strong>{props.height} tall</strong>
-      <p>{props.age} smurf years old</p>
-    </Card>
+function Smurf(props) {
+  console.log(props);
+  const smurf = props.smurfs.find(
+    (smurf) => smurf.id === parseInt(props.match.params.smurfId, 10)
   );
-};
-
-Smurf.defaultProps = {
-  name: '',
-  height: '',
-  age: '',
-};
+  console.log(smurf);
+  if (!props.smurfs || !props.smurfs.length) {
+    return <div />;
+  }
+  return (
+    <div>
+      <h3>{smurf.name}</h3>
+      <strong>{smurf.height} tall</strong>
+      <p>{smurf.age} smurf years old</p>
+    </div>
+  );
+}
 
 export default Smurf;
-
-const XButton = styled.button`
-  border: none;
-  position: absolute;
-  left: 40px;
-  top: 20px;
-  font-size: 1rem;
-  padding: 0px 2px;
-  cursor: pointer;
-
-  &:hover {
-    background: #db1111;
-    color: white;
-  }
-`;
-
-const Card = styled.div`
-  position: relative;
-  text-align: center;
-  margin: 30px 1%;
-  width: 22%;
-`;

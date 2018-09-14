@@ -7,6 +7,7 @@ import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
 import Header from './components/Header';
 import Nav from './components/Navigation';
+import Smurf from './components/Smurf';
 
 class App extends Component {
   constructor(props) {
@@ -47,24 +48,25 @@ class App extends Component {
         <Nav />
         <Route exact path="/" component={Header} />
         <Route
+          exact
           path="/smurfs"
           render={(props) => (
-            <React.Fragment>
-              <Smurfs
-                smurfs={this.state.smurfs}
-                deleteSmurf={this.deleteSmurf}
-              />
-            </React.Fragment>
+            <Smurfs
+              {...props}
+              smurfs={this.state.smurfs}
+              deleteSmurf={this.deleteSmurf}
+            />
           )}
         />
 
         <Route
           path="/addsmurf"
-          render={(props) => (
-            <React.Fragment>
-              <SmurfForm addNewSmurf={this.addNewSmurf} />
-            </React.Fragment>
-          )}
+          render={(props) => <SmurfForm addNewSmurf={this.addNewSmurf} />}
+        />
+
+        <Route
+          path="/smurfs/:smurfId"
+          render={(props) => <Smurf {...props} smurfs={this.state.smurfs} />}
         />
       </div>
     );
