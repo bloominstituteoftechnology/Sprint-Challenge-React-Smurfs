@@ -23,8 +23,10 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <NavLink exact to="/" activeClassName="activeNavButton">Smurfs</NavLink>
-        <NavLink exact to="smurf-form" activeClassName="activeNavButton">Add a Smurf</NavLink>
+        <div className="navlink">
+          <NavLink exact to="/" activeClassName="activeNavButton">Smurfs</NavLink>
+          <NavLink exact to="smurf-form" activeClassName="activeNavButton">Add a Smurf</NavLink>
+        </div>
         <Route path='/smurf-form' component={SmurfForm} />
         <Route exact path='/' render={props => (<Smurfs {...props} />)} />  
         {/* <SmurfForm /> */}
