@@ -10,7 +10,7 @@ nav {
 	margin: 10px 0;
 }
 
-a {
+.navlink {
 	padding: 5px;
 	margin: 10px;
 	text-decoration: none;

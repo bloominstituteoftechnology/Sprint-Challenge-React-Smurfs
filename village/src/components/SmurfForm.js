@@ -13,27 +13,23 @@ class SmurfForm extends Component {
 
 	addSmurf = event => {
 		event.preventDefault();
-		if (this.state.name && this.state.age && this.state.height) {
-			axios
-				.post('http://localhost:3333/smurfs', {
-					name: this.state.name,
-					age: this.state.age,
-					height: this.state.height
-				})
-				.then(() => {
-					this.setState({
-						name: '',
-						age: '',
-						email: ''
-					});
-					this.props.history.push('/');
-				})
-				.catch(error => {
-					console.log(error);
+		axios
+			.post('http://localhost:3333/smurfs', {
+				name: this.state.name,
+				age: this.state.age,
+				height: this.state.height
+			})
+			.then(() => {
+				this.setState({
+					name: '',
+					age: '',
+					email: ''
 				});
-		} else {
-			alert('FINISH THE SMURF');
-		}
+				this.props.history.push('/');
+			})
+			.catch(error => {
+				console.log(error);
+			});
 	};
 
 	handleInputChange = e => {
@@ -49,18 +45,21 @@ class SmurfForm extends Component {
 						placeholder="name"
 						value={this.state.name}
 						name="name"
+						required
 					/>
 					<input
 						onChange={this.handleInputChange}
 						placeholder="age"
 						value={this.state.age}
 						name="age"
+						required
 					/>
 					<input
 						onChange={this.handleInputChange}
 						placeholder="height"
 						value={this.state.height}
 						name="height"
+						required
 					/>
 					<button type="submit">Add to the village</button>
 				</form>

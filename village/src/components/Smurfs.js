@@ -6,39 +6,46 @@ class Smurfs extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			smurfs: []
+			smurfs: [],
+			edit: null
 		};
 	}
 
-	// editSmurf = event => {
-	// 	axios
-	// 		.put(`http://localhost:3333/smurfs/${event.target.id}`, {
-	// 			name: this.state.name,
-	// 			age: this.state.age,
-	// 			height: this.state.height
-	// 		})
-	// 		.then(response => {
-	// 			this.setState({
-	// 				smurfs: response.data
-	// 			});
-	// 		})
-	// 		.catch(error => {
-	// 			console.log(error);
-	// 		});
-	// };
+	cullSmurf = (event, id) => {
+		event.preventDefault();
+		axios
+			.delete(`http://localhost:3333/smurfs/${id}`)
+			.then(response => {
+				this.setState({
+					smurfs: response.data
+				});
+			})
+			.catch(err => {
+				console.error(err);
+			});
+	};
 
-	// deleteSmurf = event => {
-	// 	axios
-	// 		.delete('http://localhost:3333/smurfs')
-	// 		.then(response => {
-	// 			this.setState({
-	// 				smurfs: response.data
-	// 			});
-	// 		})
-	// 		.catch(error => {
-	// 			console.log(error);
-	// 		});
-	// };
+	editSmurf = (event, id) => {
+		event.preventDefault();
+		this.setState({
+			edit: id
+		});
+	};
+
+	saveSmurf = (event, id, stats) => {
+		event.preventDefault();
+		axios
+			.put(`http://localhost:3333/smurfs/${id}`, stats)
+			.then(response => {
+				this.setState({
+					smurfs: response.data,
+					edit: null
+				});
+			})
+			.catch(err => {
+				console.error(err);
+			});
+	};
 
 	componentDidMount() {
 		axios
@@ -48,11 +55,10 @@ class Smurfs extends Component {
 					smurfs: response.data
 				});
 			})
-			.catch(error => {
-				console.log(error);
+			.catch(err => {
+				console.error(err);
 			});
 	}
-
 	render() {
 		return (
 			<div className="Smurfs">
@@ -60,14 +66,18 @@ class Smurfs extends Component {
 				<ul>
 					{this.state.smurfs.map(smurf => {
 						return (
+							// I tried to troubleshoot this, but my React Inspector was constantly refreshing
+
 							<Smurf
 								name={smurf.name}
 								id={smurf.id}
 								age={smurf.age}
 								height={smurf.height}
 								key={smurf.id}
-								edit={this.editSmurf}
-								delete={this.deleteSmurf}
+								cullSmurf={this.cullSmurf}
+								editSmurf={this.editSmurf}
+								saveSmurf={this.saveSmurf}
+								edit={this.state.edit}
 							/>
 						);
 					})}
