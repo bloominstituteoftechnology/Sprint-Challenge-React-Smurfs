@@ -6,6 +6,7 @@ import './App.css';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
 import Navigation from './components/Navigation/Navigation';
+import SmurfPage from './components/SmurfPage';
 import Smurf from './components/Smurf';
 
 const blankSmurfs = {
@@ -97,11 +98,12 @@ class App extends Component {
           smurf={this.state.smurf}
           addNewSmurf={this.addNewSmurf}
           updateSmurf={this.updateSmurf}
+          isUpdating={this.state.isUpdating}
           /> 
         } />
         <Route path="/smurfs/:id" render={ props =>
-          <Smurf {...props}
-            smurf={this.state.smurf}
+          <SmurfPage {...props}
+            smurf={this.state.smurfs}
             deleteSmurf={this.deleteSmurf}
             goToSmurfForm={this.goToSmurfForm}
           />  

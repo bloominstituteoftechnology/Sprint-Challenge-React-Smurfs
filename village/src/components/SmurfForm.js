@@ -39,26 +39,27 @@ class SmurfForm extends Component {
   render() {
     return (
       <div className="SmurfForm">
+        <p>{this.props.isUpdating ? 'Update Smurf' : 'Add New Smurf'}</p>
         <form onSubmit={this.addSmurf}>
           <input
             onChange={this.handleInputChange}
             placeholder="name"
-            value={this.state.name}
+            value={this.props.smurf.name}
             name="name"
           />
           <input
             onChange={this.handleInputChange}
             placeholder="age"
-            value={this.state.age}
+            value={this.props.isUpdating ? `${this.props.smurf.age}` : ''}
             name="age"
           />
           <input
             onChange={this.handleInputChange}
             placeholder="height"
-            value={this.state.height}
+            value={this.props.smurf.height}
             name="height"
           />
-          <button type="submit">Add to the village</button>
+          <button type="submit">{this.props.isUpdating ? 'Update' : 'Add'}</button>
         </form>
       </div>
     );
