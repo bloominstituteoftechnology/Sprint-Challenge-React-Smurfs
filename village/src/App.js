@@ -13,8 +13,8 @@ class App extends Component {
       smurfs: [],
       smurf: {
         name: '',
-        age: '',
         height: '',
+        age: '',
       }
     };
   }
