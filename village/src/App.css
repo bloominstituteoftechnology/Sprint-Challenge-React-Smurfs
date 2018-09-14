@@ -1,3 +1,26 @@
 .App {
   text-align: center;
+  background: whitesmoke;
+  height: 722px;
+  width: 75%;
+  position: relative;
+  left: 190px;
+}
+
+.nav-bar{
+  background: rgb(22, 22, 90);
+  height: 35px;
+  padding-top: 20px;
+
+}
+
+.nav-bar a{
+  color: whitesmoke;
+  text-decoration: none;
+  padding: 15px;
+}
+
+.nav-bar a:hover{
+  color: rgb(22, 22, 90);
+  background: whitesmoke;
 }

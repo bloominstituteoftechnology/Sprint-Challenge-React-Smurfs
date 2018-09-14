@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './Smurfs.css';
 
 class SmurfForm extends Component {
   constructor(props) {
@@ -35,6 +36,7 @@ class SmurfForm extends Component {
   render() {
     return (
       <div className="SmurfForm">
+        <h1>Create Your New Smurf!</h1>
         <form onSubmit={this.addSmurf}>
           <input
             onChange={this.handleInputChange}
