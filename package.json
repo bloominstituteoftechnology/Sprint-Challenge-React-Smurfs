@@ -13,6 +13,7 @@
     "cors": "^2.8.4",
     "express": "^4.16.2",
     "nodemon": "^1.14.11",
+    "prop-types": "^15.6.2",
     "react-router-dom": "^4.3.1"
   }
 }
