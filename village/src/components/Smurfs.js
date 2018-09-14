@@ -7,6 +7,7 @@ class Smurfs extends Component {
     return (
       <div className="Smurfs">
         <h1>Smurf Village</h1>
+        <h3>Check out these Smurfs!</h3>
         <ul>
           {this.props.smurfs.map(smurf => {
             return (
