@@ -10,7 +10,7 @@ import './Smurfs.css';
 class Smurfs extends Component {
   render() {
     return (
-      <div className="Smurfs">
+      <div className="Smurfs fade-in">
         <h1>Smurf Village</h1>
           {this.props.smurfs.map(smurf => {
             return (

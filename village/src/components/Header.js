@@ -7,7 +7,7 @@ import './Header.css';
 
 const Header = () => {
   return(
-    <div className = 'header'>
+    <div className = 'header fade-in'>
       <h2>Welcome, Guest, to Smurf Village!</h2>
       <div className = 'nav-links-div'>
         <NavLink exact to = '/' activeClassName = 'active-link'>Main Page</NavLink>
