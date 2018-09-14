@@ -7,7 +7,8 @@ class SmurfForm extends Component {
     this.state = {
       name: '',
       age: '',
-      height: ''
+      height: '',
+      id: -1
     };
   }
 
@@ -29,6 +30,25 @@ class SmurfForm extends Component {
     this.props.history.push('/');
   }
 
+  updateSmurf = (event) => {
+    event.preventDefault();
+
+    this.props.putSmurf({
+      name: this.state.name,
+      age: Number(this.state.age),
+      height: this.state.height
+    }, this.state.id);
+
+    this.setState({
+      name: '',
+      age: '',
+      height: '',
+      id: -1
+    });
+
+    this.props.history.push('/');
+  };
+
   handleInputChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
@@ -36,7 +56,7 @@ class SmurfForm extends Component {
   render() {
     return (
       <div className="SmurfForm">
-        <form onSubmit={this.addSmurf}>
+        <form onSubmit={this.props.editingSmurf ? this.updateSmurf : this.addSmurf}>
           <input
             onChange={this.handleInputChange}
             placeholder="name"
@@ -64,7 +84,9 @@ class SmurfForm extends Component {
 }
 
 SmurfForm.propTypes = {
-  postSmurf: PropTypes.func.isRequired
+  postSmurf: PropTypes.func.isRequired,
+  putSmurf: PropTypes.func.isRequired,
+  editingSmurf: PropTypes.bool.isRequired
 };
 
 export default SmurfForm;

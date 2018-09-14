@@ -12,7 +12,8 @@ class App extends Component {
     super(props);
     this.dataSource = 'http://localhost:3333/smurfs';
     this.state = {
-      smurfs: []
+      smurfs: [],
+      editingSmurf: false
     };
   }
   // add any needed code to ensure that the smurfs collection exists on state and it has data coming from the server
@@ -25,6 +26,10 @@ class App extends Component {
 
   setSmurfs = (smurfsArr) => {
     this.setState({smurfs: smurfsArr});
+  };
+
+  handleSmurfEdit = (editSmurf) => {
+
   };
 
   /* C */
@@ -46,10 +51,22 @@ class App extends Component {
   };
 
   /* U */
-  // putSmurf = (event) => {};
+  putSmurf = (updatedSmurf, smurfId) => {
+    if(updatedSmurf.name && updatedSmurf.age && updatedSmurf.height) {
+      Axios
+        .put(`${this.dataSource}/${smurfId}`, updatedSmurf)
+        .then( (response) => this.setSmurfs(response.data) )
+        .catch( (err) => console.error(err) );
+    }
+  };
 
   /* D */
-  // deleteSmurf = (id) => {};
+  deleteSmurf = (smurfId) => {
+    Axios
+      .delete(`${this.dataSource}/${smurfId}`)
+      .then( (response) => this.setSmurfs(response.data) )
+      .catch( (err) => console.error(err) );
+  };
 
   render() {
     return (
@@ -58,11 +75,13 @@ class App extends Component {
         <Route 
           exact 
           path='/' 
-          render={() => <Smurfs smurfs={this.state.smurfs} />} 
+          render={() => 
+            <Smurfs smurfs={this.state.smurfs} deleteSmurf={this.deleteSmurf} editingSmurf={this.state.editingSmurf} />
+          } 
         />
         <Route 
           path='/smurf-form' 
-          render={(props) => <SmurfForm {...props} postSmurf={this.postSmurf} />} 
+          render={(props) => <SmurfForm {...props} postSmurf={this.postSmurf} putSmurf={this.putSmurf} />} 
         />
       </div>
     );
