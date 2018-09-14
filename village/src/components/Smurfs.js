@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import Smurf from './Smurf';
+import PropTypes from 'prop-types';
 
 class Smurfs extends Component {
   render() {
@@ -11,11 +12,12 @@ class Smurfs extends Component {
           {this.props.smurfs.map(smurf => {
             return (
               <Smurf
+                key={smurf.id}
                 name={smurf.name}
-                id={smurf.id}
+                // id={smurf.id}
                 age={smurf.age}
                 height={smurf.height}
-                key={smurf.id}
+                
               />
             );
           })}
@@ -25,8 +27,12 @@ class Smurfs extends Component {
   }
 }
 
-Smurf.defaultProps = {
- smurfs: [],
+Smurfs.propTypes = {
+ smurfs: PropTypes.array,
+ name: PropTypes.string,
+ age: PropTypes.number,
+ height:PropTypes.string,
+
 };
 
 export default Smurfs;
