@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-class SmurfForm extends Component {
+class UpdateSmurf extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -24,7 +24,7 @@ class SmurfForm extends Component {
     .then(reponse =>
       alert('Welcome '+ newSmurf.name + ' to the village!'),
     )
-    .catch(error => console.error('SmurfForm Error', error))
+    .catch(error => console.error('UpdateSmurf Error', error))
 
     this.setState({
       name: '',
@@ -40,7 +40,7 @@ class SmurfForm extends Component {
   render() {
     console.log()
     return (
-      <div className="SmurfForm">
+      <div className="UpdateSmurf">
         <form onSubmit={this.addSmurf}>
           <input
             onChange={this.handleInputChange}
@@ -67,4 +67,4 @@ class SmurfForm extends Component {
   }
 }
 
-export default SmurfForm;
+export default UpdateSmurf;
