@@ -51,6 +51,17 @@ class App extends Component {
       }))
       .catch(err => console.log(err))
   }
+
+  handleEditedSmurf = editedSmurf => {
+    const id = editedSmurf.id;
+
+    axios
+      .put(`http://localhost:3333/smurfs/${id}`, editedSmurf)
+      .then(res => this.setState({
+        smurfs: res.data
+      }))
+      .catch(err => console.log(err))
+  }
   
   // add any needed code to ensure that the smurfs collection exists on state and it has data coming from the server
   // Notice what your map function is looping over and returning inside of Smurfs.
@@ -82,7 +93,7 @@ class App extends Component {
 
         <Route 
           path="/editsmurf/:id" 
-          render={props => <EditSmurfForm {...props} />
+          render={props => <EditSmurfForm {...props} handleEditedSmurf={this.handleEditedSmurf} />
           } 
         />
       </div>
