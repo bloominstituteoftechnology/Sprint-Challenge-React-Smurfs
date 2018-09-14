@@ -26,6 +26,11 @@ class App extends Component {
         console.log(err);
       });
   }
+  handleDeleteSmurf = smurfId => {
+    return axios.delete(`http://localhost:3333/smurfs/${smurfId}`)
+      .then(response => this.setState({ smurfs: response.data }));
+  }
+  
   render() {
     return (
       <div className="App">
