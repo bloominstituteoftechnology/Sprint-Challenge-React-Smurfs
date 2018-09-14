@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
-
+import {Link} from 'react-router-dom';
 import Smurf from './Smurf';
+import './Smurfs.css';
 
 class Smurfs extends Component {
   render() {
     return (
-      <div className="Smurfs">
+      <div className="smurfs">
         <h1>Smurf Village</h1>
-        <ul>
+        <div className='smurf-cards'>
           {this.props.smurfs.map(smurf => {
             return (
               <Smurf
@@ -19,7 +20,10 @@ class Smurfs extends Component {
               />
             );
           })}
-        </ul>
+        </div>
+        <div className='link-div'>
+        <Link to='/' style={{textDecoration: 'none', color: 'blue'}}>Leave the Smurf Village</Link>
+        </div>
       </div>
     );
   }

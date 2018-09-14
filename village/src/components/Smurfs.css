@@ -1,0 +1,60 @@
+.smurfs h1{
+   text-align: center;
+}
+
+.smurfs .smurf-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin-bottom: 40px;
+}
+
+.smurf {
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    box-shadow: 2px 4px 5px gray;
+    width: 50%;
+    height: 200px;
+    margin-bottom: 30px;
+}
+
+.smurf h3 {
+    text-align: center;
+    padding-bottom: 40px;
+}
+
+.smurf .smurf-stats {
+    padding-left: 20px;
+}
+
+.smurf-form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
+input {
+    margin-bottom: 10px;
+    border-radius: 3px;
+    height: 16px;
+    font-size: 14px;
+    padding-left: 5px;
+}
+
+.submit-button {
+    height: 24px;
+    font-size: 14px;
+    border-radius: 3px;
+}
+
+.link-div {
+    text-align: center;
+}
+
+.header {
+    text-align: center;
+    margin-top: 40px;
+}
