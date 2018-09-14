@@ -10,6 +10,8 @@ class Smurfs extends Component {
         <ul>
           {this.props.smurfs.map(smurf => {
             return (
+              // I tried to troubleshoot this, but my React Inspector was constantly refreshing
+
               <Smurf
                 name={smurf.name}
                 id={smurf.id}

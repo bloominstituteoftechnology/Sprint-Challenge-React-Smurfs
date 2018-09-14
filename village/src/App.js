@@ -4,6 +4,8 @@ import './App.css';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
 import axios from 'axios';
+import Smurf from './components/Smurf';
+import { Route } from 'react-router-dom';
 
 class App extends Component {
   constructor(props) {
@@ -27,11 +29,24 @@ class App extends Component {
         console.error(err);
       });
   }
+  componentDidUpdate() {
+    axios
+      .get('http://localhost:3333/smurfs')
+      .then(response => {
+        this.setState(() => ({
+          smurfs: response.data
+        }));
+      })
+      .catch(err => {
+        console.error(err);
+      });
+  }
   render() {
     return (
       <div className="App">
         <SmurfForm />
         <Smurfs smurfs={this.state.smurfs} />
+        <Route path="/smurfs/:id" component={Smurf} />
       </div>
     );
   }
