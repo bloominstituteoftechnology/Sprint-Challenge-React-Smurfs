@@ -1,0 +1,33 @@
+.smurfs-container {
+  display: flex;
+  flex-wrap: wrap;
+  background: url("http://www.wallpapers13.com/wp-content/uploads/2017/11/Smurfs-The-Lost-Village-cartoon-Screenshot-HD-Wallpaper-1920x1080-915x515.jpg");
+}
+
+.Smurf {
+  width: 200px;
+  margin: 20px;
+  border: 1px solid black;
+  box-shadow: -2px 10px 29px -4px;
+  background-color: #88ccff;
+}
+
+.Smurf h3 {
+  background-color: white;
+}
+
+.Smurfs h1 {
+  color: black;
+}
+
+.SmurfForm {
+  display: flex;
+  justify-content: center;
+  background-color: white;
+}
+
+.SmurfForm input {
+  display: block;
+  margin: 20px;
+  height: 20px;
+}
