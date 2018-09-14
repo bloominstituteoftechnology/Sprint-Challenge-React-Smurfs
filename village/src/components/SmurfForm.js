@@ -1,31 +1,32 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+import PropTypes from 'prop-types';
 
 class SmurfForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
       name: '',
-      height: '',
-      age: ''
+      age: '',
+      height: ''
     };
   }
 
   addSmurf = event => {
     event.preventDefault();
     // add code to create the smurf using the api
-    axios 
-      .post('http://localhost:3333/smurfs', this.state.smurf)
-      .then(response => {
-        this.setState({
-          smurfs: response.data,
-          smurf: { 
-            name: '', 
-            height: '', 
-            age: '' },
-        });
-      })
-      .catch(err => console.log(err));
+    const newSmurf = {
+      name: this.state.name,
+      age: this.state.age,
+      height: this.state.height,
+    };
+    console.log('newSmurf: ', newSmurf);
+    this.props.addSmurf(newSmurf);
+
+    this.setState({
+      name: '',
+      age: '',
+      height: ''
+    });
   }
 
   handleInputChange = e => {
@@ -54,11 +55,15 @@ class SmurfForm extends Component {
             value={this.state.height}
             name="height"
           />
-          <button type="submit" onClick={this.addSmurf}>Add to the village</button>
+          <button type="submit">Add to the village</button>
         </form>
       </div>
     );
   }
+}
+
+SmurfForm.propTypes = {
+  addSmurf: PropTypes.func,
 }
 
 export default SmurfForm;
