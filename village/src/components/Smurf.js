@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 const Smurf = props => {
   return (
@@ -9,12 +9,15 @@ const Smurf = props => {
     </div>
   );
 };
+// function handleDelete() {
+//   props.deleteSmurf(smurfs.id);
+//   props.history.push("/smurfs");
+// }
 
 Smurf.defaultProps = {
-  name: '',
-  height: '',
-  age: ''
+  name: "",
+  height: "",
+  age: ""
 };
 
 export default Smurf;
-
