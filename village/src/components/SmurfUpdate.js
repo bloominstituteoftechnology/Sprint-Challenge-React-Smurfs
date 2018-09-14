@@ -38,9 +38,26 @@ class SmurfUpdate extends React.Component {
         return (
             <div>
                 <form onSubmit={this.handleSubmit.bind(this)}>
-                    <input type="text" name="name" placeholder="Name" onChange={this.handleChange.bind(this)}/>
-                    <input type="number" name="age" placeholder="Age" onChange={this.handleChange.bind(this)}/>
-                    <input type="number" name="height" placeholder="Height" onChange={this.handleChange.bind(this)}/>
+                    <input 
+                        type="text" 
+                        name="name" 
+                        placeholder="Name" 
+                        onChange={this.handleChange.bind(this)}
+                    />
+
+                    <input 
+                        type="number" 
+                        name="age" 
+                        placeholder="Age" 
+                        onChange={this.handleChange.bind(this)}
+                    />
+
+                    <input 
+                        type="number" 
+                        name="height" 
+                        placeholder="Height" 
+                        onChange={this.handleChange.bind(this)}
+                    />
                     <button>Add</button>
                 </form>
             </div>
