@@ -5,7 +5,7 @@ const Navigator = (props) =>{
     return(
         <div>
             <Link to={'/'}>Home</Link>
-            <Link to={'add/'}>Add Smurf</Link>
+            <Link to={'smurf-form/'}>Add Smurf</Link>
         </div>
     )
 }

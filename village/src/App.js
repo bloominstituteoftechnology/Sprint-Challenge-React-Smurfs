@@ -40,7 +40,7 @@ class App extends Component {
         <Navigator />
         <Route
           exact
-          path='/add/'
+          path='/smurf-form/'
           render={props=>(
             <SmurfForm />
           )}
