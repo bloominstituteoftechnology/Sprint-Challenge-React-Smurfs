@@ -19,6 +19,8 @@ class SmurfForm extends Component {
       age: '',
       height: ''
     });
+
+    this.props.addNewSmurf(event, this.state);
   }
 
   handleInputChange = e => {
