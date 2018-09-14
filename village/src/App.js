@@ -4,6 +4,7 @@ import './App.css';
 import SmurfForm from './components/SmurfForm';
 import SmurfUpdateForm from './components/SmurfUpdateForm';
 import Smurfs from './components/Smurfs';
+import SmurfCard from './components/SmurfCard';
 import Header from './components/Header';
 import axios from 'axios';
 
@@ -76,6 +77,12 @@ class App extends Component {
 
         <Route exact path="/smurfs/:id" render={props => (
           <SmurfUpdateForm {...props} smurfs={this.state.smurfs} updateSmurf={this.updateSmurf} />
+        )} />
+
+        <Route path="/smurf/:id" render={props => (
+          <SmurfCard {...props} 
+            smurfs={this.state.smurfs}
+          />
         )} />
         
       </div>
