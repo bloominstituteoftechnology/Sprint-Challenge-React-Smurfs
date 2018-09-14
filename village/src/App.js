@@ -11,9 +11,6 @@ class App extends Component {
     super(props);
     this.state = {
       smurfs: [],
-      // name: '',
-      // age: '',
-      // height: ''
     };
   }
   // add any needed code to ensure that the smurfs collection exists on state and it has data coming from the server
@@ -31,34 +28,6 @@ class App extends Component {
         console.log(err);
       });
   }
-
-  // addSmurf = event => {
-  //       event.preventDefault();
-  //       // add code to create the smurf using the api
-  //       // const id = (this.state.smurfs[this.state.smurfs.length - 1].id + 1)
-  //       const smurf = {name: this.state.name, age: this.state.age, height: this.state.height};
-    
-  //       axios
-  //         .post('http://localhost:3333/smurfs', smurf)
-    
-  //         .then(response => 
-  //               this.setState({ smurf: response.data, name: '', age: '', height: ''})
-  //             )
-              
-  //         .catch(err => {
-  //           console.log(err);
-  //         });
-    
-        // this.setState({
-        //   name: '',
-        //   age: '',
-        //   height: ''
-        // });
-      // };
-    
-      // handleInputChange = e => {
-      //   this.setState({ [e.target.name]: e.target.value });
-      // };
 
   render() {
     return (
