@@ -1,0 +1,35 @@
+.Smurfs ul{
+    padding: 0;
+}
+
+.table-header{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 50%;
+    color: #F52C07;
+} 
+
+.table-header h2{
+    width: 25%;
+    text-align: center;
+}
+
+.Smurf{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 50%;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.Smurf h4 {
+    width: 25%;
+    display:flex;
+    justify-content: center;
+}
+
+.Smurf p {
+    width: 50%;
+}
