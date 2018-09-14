@@ -1,9 +1,8 @@
-import React, { Component } from 'react';
+import React, { Fragment, Component } from 'react';
 import axios from 'axios';
-import { Route, Link } from 'react-router-dom';
+import { Route, NavLink } from 'react-router-dom';
 
 import './App.css';
-import Header from './components/Header';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
 
@@ -30,9 +29,25 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-      <Route path="/" component={Header} />
-        <SmurfForm />
-        <Smurfs smurfs={this.state.smurfs} />
+      <ul className="navbar">
+      <li>
+        <NavLink exact to="/" activeClassName="activeNavButton">
+        Home
+        </NavLink>
+        </li>
+        <li>
+        <NavLink to="/smurf-form" activeClassName="activeNavButton">
+        Add Smurf
+        </NavLink>
+        </li>
+        </ul>
+      <Route path="/" render={props =>
+      <Smurfs {...props} smurfs={this.state.smurfs} />}
+      />
+      <Route path="/smurf-form" render={props =>
+        <SmurfForm {...props} />
+        }
+      />
       </div>
     );
   }
