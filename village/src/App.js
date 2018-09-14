@@ -25,9 +25,11 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <nav>
         <NavLink className="Homer" to="/"> Home</NavLink>
         <NavLink className= "Smurfss" to='/Smurfs'>Smurfs</NavLink>
         <NavLink className= "SmurfsForm" to='/smurfsform'> SmurfsForm</NavLink>
+        </nav>
         <Route exact path='/' component={Header}/>
         <Route exact path='/smurfsform' component={SmurfForm}/>
         <Route exact path='/smurfs' render={(props)=>

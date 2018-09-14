@@ -30,6 +30,11 @@
   background: lightblue;
 }
 
-.NavLink{
+const NavLink{
   background: lightblue;
+}
+
+nav{
+  background:lightblue;
+  padding: 5px;
 }
