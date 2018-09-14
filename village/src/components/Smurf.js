@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 function Smurf(props) {
-  console.log(props);
   return (
     <div className="Smurf">
       <h3>{props.smurf.name}</h3>

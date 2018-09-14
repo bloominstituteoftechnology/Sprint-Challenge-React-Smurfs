@@ -4,8 +4,6 @@ import PropTypes from 'prop-types';
 import Smurf from './Smurf';
 
 function Smurfs(props) {
-  console.log(props);
-
   return (
     <div className="Smurfs">
       <h1>Smurf Village</h1>

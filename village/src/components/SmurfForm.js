@@ -2,9 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 function SmurfForm(props) {
-  console.log(props);
-  console.log(props.newSmurf.age);
-
     return (
       <div className="SmurfForm">
         <h2> Add a new smurf! </h2>

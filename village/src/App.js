@@ -1,5 +1,6 @@
-import React, { Component } from 'react';
+import React, { Fragment, Component } from 'react';
 import axios from 'axios';
+import { Link, NavLink, Route } from 'react-router-dom';
 
 import './App.css';
 import SmurfForm from './components/SmurfForm';
@@ -61,20 +62,48 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.state.smurfs);
     return (
       <div className="App">
-        <Smurfs
+        <div className="nav-bar">
+          <NavLink exact to="/">
+            Smurf Village
+          </NavLink>
+          
+          <NavLink exact to="/smurf-form">
+            Add A New Smurf
+          </NavLink>
+        </div>
+
+        <Route 
+        exact path="/" 
+        component={() => 
+          <Smurfs 
+            smurfs={this.state.smurfs}
+            newSmurf={this.state.newSmurf}
+          />}
+        />
+        {/* <Smurfs
           smurfs={this.state.smurfs}
           newSmurf={this.state.newSmurf}
+        /> */}
+        <Route
+          path="/smurf-form"
+          component={() => 
+            <SmurfForm 
+              smurfs={this.state.smurfs}
+              newSmurf={this.state.newSmurf}
+              handleChange={this.handleChange}
+              handleAgeChange={this.handleAgeChange}
+              addNewSmurf={this.handleAddSmurf}
+          />}
         />
-        <SmurfForm
+        {/* <SmurfForm
           smurfs={this.state.smurfs}
           newSmurf={this.state.newSmurf}
           handleChange={this.handleChange}
           handleAgeChange={this.handleAgeChange}
           addNewSmurf={this.handleAddSmurf}
-        />
+        /> */}
       </div>
     );
   }
