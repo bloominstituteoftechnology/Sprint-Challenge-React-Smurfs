@@ -21,7 +21,14 @@ class SmurfForm extends Component {
       height: ''
     });
 
-    this.props.addNewSmurf(event, this.state);
+    // If updating, set the value for each of the inputs to the smurf's values
+    if (this.props.isUpdating) {
+      this.props.updateSmurf(this.props.smurf.id);
+    }
+    else {
+      this.props.addNewSmurf(event, this.state);
+    }
+
   }
 
   // Handles the forms input

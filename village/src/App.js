@@ -1,21 +1,32 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import axios from 'axios';
-import { Route } from 'react-router-dom';
+import { Route, withRouter } from 'react-router-dom';
 
 import './App.css';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
-import Header from './components/Header';
 import Navigation from './components/Navigation/Navigation';
+import Smurf from './components/Smurf';
+
+const blankSmurfs = {
+  name: '',
+  age: '',
+  height: '',
+}
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
       smurfs: [],
-      smurf: null,
-    };
-  }
+      smurf: {
+        name: '',
+        age: '',
+        height: '',
+      },
+      isUpdating: false,
+    }
+  };
 
   componentDidMount() {
     this.fetchData();
@@ -35,13 +46,10 @@ class App extends Component {
 
   // Adds a new smurf
   addNewSmurf = (e, smurf) => {
-    console.log(smurf)
-    
-    this.setState({smurf}, () => {console.log(this.state);});
-
-    axios.post('http://localhost:3333/smurfs', this.state.smurf)
-      .then(response => this.setState({ smurfs :response.data, smurf: this.state.smurf}))
-      .catch(error => console.log(error));
+    e.preventDefault();
+    this.setState({smurf}, () => {axios.post('http://localhost:3333/smurfs', this.state.smurf)
+    .then(response => this.setState({ smurfs :response.data, smurf}, () => this.props.history.push('/')))
+    .catch(error => console.log(error));});
   }
 
   // Deletes a smurf
@@ -49,6 +57,25 @@ class App extends Component {
     return axios.delete(`http://localhost:3333/smurfs/${smurfId}`)
       .then(response => this.setState({ smurfs: response.data}))
       .catch(error => { console.error('Server Error', error)});
+  }
+
+  // Go to the form to edit the smurf
+  goToSmurfForm = (e, id) => {
+    e.preventDefault();
+    const smurfUpdate = this.state.smurfs.find(smurf => smurf.id === id);
+    this.setState({isUpdating: true, smurf: smurfUpdate }, () => this.props.history.push('/smurf-form'))
+  }
+
+  updateSmurf = smurfId => {
+    axios.put(`http://localhost:3333/smurfs/${smurfId}`, this.state.smurf)
+      .then(response => {
+        this.setState({
+          smurfs: response.data,
+          isUpdating: false,
+          smurf: blankSmurfs,
+        });
+        this.props.history.push('/');
+      })
   }
 
   // add any needed code to ensure that the smurfs collection exists on state and it has data coming from the server
@@ -59,22 +86,29 @@ class App extends Component {
       <div className="App">
       <Navigation />
         <Route exact path="/" render={ props =>
-          <Header />
+          <Smurfs {...props}
+            smurfs={this.state.smurfs}
+            deleteSmurf={this.deleteSmurf}
+            goToSmurfForm={this.goToSmurfForm}
+          />
         } />
-        <Route path="/smurfs" render={ props =>
-          <Fragment>
-            <SmurfForm
-            addNewSmurf={this.addNewSmurf}
-            /> 
-            <Smurfs
-              smurfs={this.state.smurfs}
-              deleteSmurf={this.deleteSmurf}
-            />
-          </Fragment>
+        <Route exact path="/smurf-form" render={ props =>
+          <SmurfForm {...props}
+          smurf={this.state.smurf}
+          addNewSmurf={this.addNewSmurf}
+          updateSmurf={this.updateSmurf}
+          /> 
+        } />
+        <Route path="/smurfs/:id" render={ props =>
+          <Smurf {...props}
+            smurf={this.state.smurf}
+            deleteSmurf={this.deleteSmurf}
+            goToSmurfForm={this.goToSmurfForm}
+          />  
         } />
       </div>
     );
   }
 }
 
-export default App;
+export default withRouter(App);
