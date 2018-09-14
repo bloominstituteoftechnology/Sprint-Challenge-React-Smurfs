@@ -68,42 +68,32 @@ class App extends Component {
           <NavLink exact to="/">
             Smurf Village
           </NavLink>
-          
+
           <NavLink exact to="/smurf-form">
             Add A New Smurf
           </NavLink>
         </div>
 
-        <Route 
-        exact path="/" 
-        component={() => 
-          <Smurfs 
-            smurfs={this.state.smurfs}
-            newSmurf={this.state.newSmurf}
-          />}
-        />
-        {/* <Smurfs
-          smurfs={this.state.smurfs}
-          newSmurf={this.state.newSmurf}
-        /> */}
         <Route
-          path="/smurf-form"
-          component={() => 
-            <SmurfForm 
+          exact path="/"
+          render={(props) =>
+            <Smurfs 
               smurfs={this.state.smurfs}
               newSmurf={this.state.newSmurf}
-              handleChange={this.handleChange}
-              handleAgeChange={this.handleAgeChange}
-              addNewSmurf={this.handleAddSmurf}
+            />}
+        />
+
+        <Route
+          path="/smurf-form"
+          render={(props) =>
+            <SmurfForm {...props}
+            smurfs={this.state.smurfs}
+            newSmurf={this.state.newSmurf}
+            handleChange={this.handleChange}
+            handleAgeChange={this.handleAgeChange}
+            addNewSmurf={this.handleAddSmurf}
           />}
         />
-        {/* <SmurfForm
-          smurfs={this.state.smurfs}
-          newSmurf={this.state.newSmurf}
-          handleChange={this.handleChange}
-          handleAgeChange={this.handleAgeChange}
-          addNewSmurf={this.handleAddSmurf}
-        /> */}
       </div>
     );
   }
