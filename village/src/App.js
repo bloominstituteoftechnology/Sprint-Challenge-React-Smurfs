@@ -9,6 +9,8 @@ import axios from 'axios';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
 import Header from './components/Header';
+import EditSmurfForm from './components/EditSmurfForm';
+import MainPage from './components/MainPage';
 
 // Styles
 import './App.css';
@@ -62,7 +64,12 @@ class App extends Component {
         />
 
         <Route 
-          path="/smurfs" 
+          exact path="/" 
+          component={MainPage} 
+        />
+
+        <Route 
+          path="/smurf-form" 
           render={props => <SmurfForm {...props} handleNewSmurf={this.handleNewSmurf} />
           } 
         />
@@ -70,6 +77,12 @@ class App extends Component {
         <Route 
           path="/smurfs" 
           render={props => <Smurfs {...props} smurfs={this.state.smurfs} deleteSmurf={this.deleteSmurf} />
+          } 
+        />
+
+        <Route 
+          path="/editsmurf/:id" 
+          render={props => <EditSmurfForm {...props} />
           } 
         />
       </div>

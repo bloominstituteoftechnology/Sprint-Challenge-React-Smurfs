@@ -1,0 +1,20 @@
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.nav-links-div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 50vw;
+}
+
+.active-link {
+    border: 1px solid black;
+    padding: 5px;
+}
