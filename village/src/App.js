@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+import {Route} from 'react-router-dom';
+import {NavLink} from 'react-router-dom';
 import './App.css';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
+
 
 class App extends Component {
   constructor(props) {
@@ -15,22 +17,18 @@ class App extends Component {
   // Notice what your map function is looping over and returning inside of Smurfs.
   // You'll need to make sure you have the right properties on state and pass them down to props.
 
-  componentDidMount() {
-    axios.get('http://localhost:3333/smurfs')
-    .then(response => {
-      this.setState({smurfs: response.data})
-    })
-    .catch(error => {
-      console.log(error);
-    })
-  }
+
 
 
   render() {
     return (
       <div className="App">
-        <SmurfForm />
-        <Smurfs smurfs={this.state.smurfs} />
+        <NavLink exact to="/" activeClassName="activeNavButton">Smurfs</NavLink>
+        <NavLink exact to="smurf-form" activeClassName="activeNavButton">Add a Smurf</NavLink>
+        <Route path='/smurf-form' component={SmurfForm} />
+        <Route exact path='/' render={props => (<Smurfs {...props} />)} />  
+        {/* <SmurfForm /> */}
+        {/* <Smurfs smurfs={this.state.smurfs} /> */}
       </div>
     );
   }
