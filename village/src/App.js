@@ -4,6 +4,8 @@ import './App.css';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
 import axios from 'axios';
+import {Route, NavLink, Redirect} from 'react-router-dom';
+import Smurf from './components/Smurf';
 
 class App extends Component {
   constructor(props) {
@@ -27,12 +29,23 @@ class App extends Component {
          .catch(err => new Error(err));
   }
 
+  deleteASmurf = (id) => {
+    axios.delete(`http://localhost:3333/smurfs/${id}`)
+         .then(smurfs => this.setState({smurfs: smurfs.data}))
+         .catch(err => new Error(err));
+  }
+
   render() {
     return (
       <div className="App">
-        <button onClick={() => this.props.history.goBack()}>Back</button>
-        <SmurfForm postNewSmurf={this.postNewSmurf} />
-        <Smurfs smurfs={this.state.smurfs} />
+        <h1>Welcome to SmurfVille</h1>
+        <button onClick={() => this.props.history.goBack()} style={{position: 'absolute', top: '20px', left: '20px'}}>Back</button>
+        <nav>
+          <li><NavLink to="/">Smurfs</NavLink></li>
+          <li><NavLink to="/smurf-form">Create New Smurf</NavLink></li>
+        </nav>
+        <Route exact path="/" render={(props) => <Smurfs deleteASmurf={this.deleteASmurf} {...props} smurfs={this.state.smurfs} />} />
+        <Route exact path="/smurf-form" render={(props) => <SmurfForm {...props} postNewSmurf={this.postNewSmurf} />} />
       </div>
     );
   }
