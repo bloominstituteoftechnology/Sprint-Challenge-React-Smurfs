@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 import Smurf from './Smurf';
 
@@ -25,8 +26,20 @@ class Smurfs extends Component {
   }
 }
 
+// ?
 Smurf.defaultProps = {
  smurfs: [],
+};
+
+Smurfs.propTypes = {
+  smurfs: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number,
+      name: PropTypes.string,
+      age: PropTypes.number,
+      height: PropTypes.string
+    })
+  ).isRequired
 };
 
 export default Smurfs;

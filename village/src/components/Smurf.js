@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const Smurf = props => {
   return (
@@ -10,11 +11,18 @@ const Smurf = props => {
   );
 };
 
+// ?
 Smurf.defaultProps = {
   name: '',
   height: '',
   age: ''
 };
 
-export default Smurf;
+Smurf.propTypes = {
+  id: PropTypes.number,
+  name: PropTypes.string.isRequired,
+  age: PropTypes.number.isRequired,
+  height: PropTypes.string.isRequired
+};
 
+export default Smurf;
