@@ -34,6 +34,12 @@ class App extends Component {
       .then((response) => this.setState({ smurfs: response.data }));
   };
 
+  deleteSmurf = (smurfId) => {
+    return axios
+      .delete(`http://localhost:3333/smurfs/${smurfId}`)
+      .then((response) => this.setState({ smurfs: response.data }));
+  };
+
   render() {
     return (
       <div className="App">
@@ -44,7 +50,10 @@ class App extends Component {
           render={(props) => (
             <React.Fragment>
               <SmurfForm addNewSmurf={this.addNewSmurf} />
-              <Smurfs smurfs={this.state.smurfs} />
+              <Smurfs
+                smurfs={this.state.smurfs}
+                deleteSmurf={this.deleteSmurf}
+              />
             </React.Fragment>
           )}
         />
