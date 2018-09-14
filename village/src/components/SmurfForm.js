@@ -1,6 +1,7 @@
 import React from "react";
 
 function SmurfForm(props) {
+	console.log(props);
 	return (
 		<div className="SmurfForm">
 			<form onSubmit={props.addSmurf}>

@@ -5,6 +5,7 @@ import SmurfForm from "./components/SmurfForm";
 import Smurfs from "./components/Smurfs";
 import Home from "./Home";
 import { Route, Link, NavLink } from "react-router-dom";
+import Smurf from "./components/Smurf";
 
 class App extends Component {
 	constructor(props) {
@@ -56,15 +57,27 @@ class App extends Component {
 	render() {
 		return (
 			<div className="App">
-				<NavLink to="/">Welcome to our village!</NavLink>
-				<NavLink to="/smurf-village">Smurf List</NavLink>
-				<SmurfForm
-					smurfs={this.state.smurfs}
-					smurf={this.state.smurf}
-					handleInputChange={this.handleInputChange}
-					addSmurf={this.addSmurf}
+				<Route exact path="/" component={Home} />
+				<Route
+					path="/smurf-list"
+					render={props => <Smurfs smurfs={this.state.smurfs} />}
 				/>
-				<Smurfs smurfs={this.state.smurfs} />
+				<Route
+					path="/add-smurf"
+					render={props => (
+						<SmurfForm
+							smurfs={this.state.smurfs}
+							smurf={this.state.smurf}
+							handleInputChange={this.handleInputChange}
+							addSmurf={this.addSmurf}
+						/>
+					)}
+				/>
+				<NavLink to="/">Welcome to our village!</NavLink>
+				<NavLink to="/smurf-list">Smurf List</NavLink>
+				<NavLink exact to="/add-smurf">
+					Add A Smurf!
+				</NavLink>
 			</div>
 		);
 	}
