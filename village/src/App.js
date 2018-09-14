@@ -5,6 +5,7 @@ import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
 import { Route } from 'react-router-dom';
 import NavBar from './components/NavBar';
+import Smurf from './component/Smurf';
 
 class App extends Component {
   // add any needed code to ensure that the smurfs collection exists on state and it has data coming from the server
@@ -17,6 +18,7 @@ class App extends Component {
         <NavBar />
         <Route exact path="/" component={Smurfs} />
         <Route path="/smurf-form" component={SmurfForm} />
+        {/* <Route path="/smurf/:id" component={Smurf} /> */}
       </div>
     );
   }
