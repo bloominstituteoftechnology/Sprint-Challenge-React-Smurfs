@@ -5,8 +5,8 @@ const Header = () => {
   <div>
     <h2>Welcome to the Smurf Village humans!</h2>
 
-    <Link to='/smurfs'>The Village</Link>
-    
+    <Link to='/smurfForms'>The Village</Link>
+
   </div>
   );
 }

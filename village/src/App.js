@@ -5,13 +5,14 @@ import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
 import axios from 'axios';
 import Header from './components/Header';
-import {Route,} from 'react-router-dom';
+import {Route} from 'react-router-dom';
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
       smurfs: [],
+
 
     };
   }
@@ -20,9 +21,9 @@ class App extends Component {
     axios
     .get('http://localhost:3333/smurfs')
     .then (response =>{
-      // console.log(response);
+      console.log(response);
       this.setState({smurfs: response.data });
-      // console.log(response.data);
+      console.log(response.data);
     })
     .catch(err =>
       console.log('we have a problem',err)
@@ -32,18 +33,15 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-      <Route exact path = '/' render = {()=> <Header/>}/>
-      <Route 
-        path ='/smurfs'
-        render = {props => 
-          (
-            <div>
-              <SmurfForm
-              {...props}/>
-              
-              <Smurfs 
-              {...props} smurfs={this.state.smurfs}/>
-              </div>)}/>
+
+        <Route exact path = '/' render = {()=> <Header/>}/>
+
+          <Route path='/smurfForms' render = {props =>(
+            <SmurfForm {...props}/>
+          )}/>
+          <Route path='/' render = {props =>(
+            <Smurfs {...props} smurfs={this.state.smurfs}/>
+          )}/>
       </div>
     );
   }

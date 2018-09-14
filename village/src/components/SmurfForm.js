@@ -13,7 +13,7 @@ class SmurfForm extends Component {
   }
 
   addSmurf = event => {
-    // event.preventDefault();
+    event.preventDefault();
     // ^^^ need to look into this please
     axios
     .post('http://localhost:3333/smurfs', {
