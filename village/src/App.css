@@ -1,3 +1,30 @@
 .App {
   text-align: center;
 }
+
+.App button {
+  border-radius: 5px;
+}
+
+.App form {
+  margin: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.App form * {
+  margin: 10px;
+}
+
+.App form button {
+  background: lightseagreen;
+  padding: 5px 10px;
+}
+
+.App form button:hover {
+  color: lightseagreen;
+  background: black;
+  cursor: pointer;
+}

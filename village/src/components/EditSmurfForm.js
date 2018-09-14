@@ -69,24 +69,24 @@ export default class EditSmurfForm extends React.Component {
                 <form onSubmit={this.editSmurf}>
                     <input
                         onChange={this.handleInputChange}
-                        placeholder="name"
+                        placeholder={this.state.smurf.name}
                         value={this.state.editedSmurf.name}
                         name="name"
                     />
                     <input
                         onChange={this.handleInputChange}
-                        placeholder="age"
+                        placeholder={this.state.smurf.age}
                         value={this.state.editedSmurf.age}
                         name="age"
                         type="number"
                     />
                     <input
                         onChange={this.handleInputChange}
-                        placeholder="height"
+                        placeholder={this.state.smurf.height}
                         value={this.state.editedSmurf.height}
                         name="height"
                     />
-                    <button type="submit">Add to the village</button>
+                    <button type="submit">Submit Edits</button>
                 </form>
             </div>
         );
