@@ -5,6 +5,9 @@ import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
 import Header from './components/Header';
 import {Route, NavLink} from 'react-router-dom';
+import styled from 'styled-components';
+
+
 
 class App extends Component {
   constructor(props) {
@@ -22,10 +25,14 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-       <Route exact path='/' component={Header}/>
+        <NavLink className="Homer" to="/"> Home</NavLink>
+        <NavLink className= "Smurfss" to='/Smurfs'>Smurfs</NavLink>
+        <NavLink className= "SmurfsForm" to='/smurfsform'> SmurfsForm</NavLink>
+        <Route exact path='/' component={Header}/>
+        <Route exact path='/smurfsform' component={SmurfForm}/>
         <Route exact path='/smurfs' render={(props)=>
-          <div {...props}>
-            <SmurfForm />
+      <div {...props}>
+            
             <Smurfs smurfs={this.state.smurfs} />
           </div> }/>
       </div>

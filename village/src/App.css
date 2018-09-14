@@ -1,3 +1,35 @@
 .App {
   text-align: center;
 }
+
+.Homer{
+  font-size: 1.5rem;
+  text-decoration: none;
+  padding: 5px;
+  color:red;
+  background: lightblue;
+}
+
+.Smurfss{
+  font-size: 1.5rem;
+  text-decoration: none;
+  padding: 5px;
+  color: white;
+  background: lightblue;
+}
+
+.SmurfsForm{
+  font-size: 1.5rem;
+  text-decoration: none;
+  padding: 5px;
+  color: blue;
+  background: lightblue;
+}
+
+.Smurfs{
+  background: lightblue;
+}
+
+.NavLink{
+  background: lightblue;
+}
