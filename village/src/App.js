@@ -45,7 +45,7 @@ class App extends Component {
       <div className="App">
         <nav className = 'navbar'>
           <NavLink to = '/smurf-form'>Smurf Form</NavLink>
-          
+
           <NavLink to = '/'>Our Village</NavLink>
         </nav>
         <Route path = '/smurf-form' component = {SmurfForm} />
@@ -58,6 +58,8 @@ class App extends Component {
 }
 }
 export default App;
+
+// this is the old code from before NavLink added, kept it here in case of an error with NavLink
 
 // return (
 //   <div className="App">
