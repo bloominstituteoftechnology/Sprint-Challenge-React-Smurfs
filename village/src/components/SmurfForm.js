@@ -13,8 +13,8 @@ class SmurfForm extends Component {
   }
 
   addSmurf = event => {
-    event.preventDefault();
-    
+    // event.preventDefault();
+    // ^^^ need to look into this please
     axios
     .post('http://localhost:3333/smurfs', {
       name:this.state.name,
@@ -59,7 +59,7 @@ class SmurfForm extends Component {
             name="height"
           />
           
-          <button type="submit">Add To The Village</button>
+          <button type="submit" onClick={this.addSmurf}>Add To The Village</button>
           
         </form>
         <Link to='/'>Leaving so soon?</Link>

@@ -40,6 +40,7 @@ class App extends Component {
             <div>
               <SmurfForm
               {...props}/>
+              
               <Smurfs 
               {...props} smurfs={this.state.smurfs}/>
               </div>)}/>
