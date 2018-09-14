@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import { Route, Switch, withRouter } from "react-router-dom";
 import "./App.css";
-import SmurfForm from "./components/SmurfForm";
+import Form from "./components/Form";
 import Smurfs from "./components/Smurfs";
 import Header from './components/Header';
 
@@ -75,7 +75,7 @@ class App extends Component {
         <Switch>
 
           <Route path="/smurfs/add" render={ props =>
-              <SmurfForm name={this.state.name}
+              <Form name={this.state.name}
                     age={this.state.age}
                     height={this.state.height}
                     handleInputChange={this.handleInputChange}
