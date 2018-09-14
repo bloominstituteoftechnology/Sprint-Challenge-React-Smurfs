@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, NavLink, BrowserRouter as Router } from 'react-router-dom';
+import { Route, NavLink } from 'react-router-dom';
 import Smurf from './components/Smurf';
 import './App.css';
 import SmurfForm from './components/SmurfForm';
