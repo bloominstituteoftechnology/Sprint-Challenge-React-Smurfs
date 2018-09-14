@@ -23,16 +23,38 @@ class App extends Component {
 
   componentDidMount() {
     axios
-    .get('http://localhost:3333/smurfs')
-    .then(response => {
-      this.setState({smurfs: response.data})
-    })
-    .catch(error => {
-      console.log(error)
-    })
+      .get('http://localhost:3333/smurfs')
+      .then(response => {
+        this.setState({smurfs: response.data})
+      })
+      .catch(error => {
+        console.log(error)
+      })
   }
 
+  // handleChange = e => {
+  //   this.setState({
+  //     smurf:{
+  //       ...this.state.smurf,
+  //       [e.target.name]:e.target.value,
+  //     }
+  //   })
+  // }
 
+  // handleSubmit = e => {
+  //   e.preventDefault();
+  //   axios
+  //     .post('http://localhost:3333/smurfs', this.state.smurf)
+  //     .then(response => {
+  //       this.setState({
+  //         friends:response.data,
+  //         friend:{name:'', age:'', height:''}
+  //       })
+  //     })
+  //     .catch(error => {
+  //       console.log(error)
+  //     })
+  // }
 
   render() {
     return (
