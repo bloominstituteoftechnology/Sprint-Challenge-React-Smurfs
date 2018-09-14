@@ -7,6 +7,7 @@ import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
 import axios from 'axios';
 import Header from './components/Header';
+import './components/smurf.css';
 
 class App extends Component {
   constructor(props) {
@@ -21,11 +22,11 @@ class App extends Component {
          .then(smurfs => this.setState({smurfs: smurfs.data}))
          .catch(err => new Error(err));
   }
-   postNewSmurf = (newSmurf) => {
-    axios.post(`http://localhost:3333/smurfs`, newSmurf)
-         .then(smurfs => this.setState({smurfs: smurfs.data}))
-         .catch(err => new Error(err));
-  }
+  //  postNewSmurf = (newSmurf) => {
+  //   axios.post(`http://localhost:3333/smurfs`, newSmurf)
+  //        .then(smurfs => this.setState({smurfs: smurfs.data}))
+  //        .catch(err => new Error(err));
+  // }
 
   // add any needed code to ensure that the smurfs collection exists on state and it has data coming from the server
   // Notice what your map function is looping over and returning inside of Smurfs.
@@ -33,20 +34,22 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <NavLink to="/">
+      <nav>
+        <NavLink to="/" className="nav-link">
           Home
         </NavLink>
-        <NavLink to="/new-smurf">
+        <NavLink to="/new-smurf" className="nav-link">
           Add Smurf
         </NavLink>
+      </nav>
          <Route exact path="/" render={props => (
           <Header />
         )} />
          <Route path="/smurfs" render={props => (
-          <Smurfs smurfs={this.state.smurfs} />
+          <Smurfs {...props} smurfs={this.state.smurfs} />
         )} />
          <Route path="/new-smurf" render={props => (
-          <SmurfForm newSmurf={this.postNewSmurf}/>
+          <SmurfForm {...props} newSmurf={this.addSmurf}/>
         )} />
       </div>
     );

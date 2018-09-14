@@ -1,0 +1,45 @@
+*{
+  color: #fff;
+  text-align: center;
+}
+.nav-link{
+  margin-right: 10px;
+  text-decoration: none;
+  font-weight: 100;
+  color: #fff;
+  opacity: 0.8;
+}
+
+.nav-link:hover{
+  opacity: 1.0;
+}
+
+h1{
+  color: #fff;
+  text-align:center;
+}
+
+.Smurfs{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+button{
+  color: #fff;
+  background: rgba(24, 50, 84, 0.45);
+  height: 45px;
+  border-radius: 25px;
+}
+
+form{
+  margin-top: 20px;
+}
+
+form input{
+  height: 40px;
+  border: 1px solid  rgba(24, 50, 84, 0.45);
+  color: #333;
+  opacity: 0.70;
+}
+

@@ -1,5 +1,13 @@
 body {
+  background: linear-gradient(
+    rgba(24, 50, 84, 0.45), 
+    rgba(24, 50, 90, 0.45)
+  ),url('./smurf-village.jpg') no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  font-family: sans-serif;
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
 }
