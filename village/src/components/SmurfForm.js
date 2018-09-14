@@ -12,7 +12,7 @@ class SmurfForm extends Component {
 
   addSmurf = event => {
     event.preventDefault();
-    // add code to create the smurf using the api
+
     const newSmurf = {
       name: event.target.name.value,
       age: Number(event.target.age.value),
