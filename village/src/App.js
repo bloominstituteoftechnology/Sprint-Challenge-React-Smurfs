@@ -3,6 +3,8 @@ import axios from "axios";
 import "./App.css";
 import SmurfForm from "./components/SmurfForm";
 import Smurfs from "./components/Smurfs";
+import Home from "./Home";
+import { Route, Link, NavLink } from "react-router-dom";
 
 class App extends Component {
 	constructor(props) {
@@ -54,6 +56,8 @@ class App extends Component {
 	render() {
 		return (
 			<div className="App">
+				<NavLink to="/">Welcome to our village!</NavLink>
+				<NavLink to="/smurf-village">Smurf List</NavLink>
 				<SmurfForm
 					smurfs={this.state.smurfs}
 					smurf={this.state.smurf}
