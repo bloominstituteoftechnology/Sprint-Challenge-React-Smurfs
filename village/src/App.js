@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import "./App.css";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, NavLink } from "react-router-dom";
 import SmurfForm from "./components/SmurfForm";
 import Smurfs from "./components/Smurfs";
 import Smurf from "./components/Smurf";
@@ -16,6 +16,7 @@ class App extends Component {
       height: ""
     };
   }
+  
 
   componentDidMount() {
     axios
@@ -33,10 +34,10 @@ class App extends Component {
   render() {
     return <div className="App">
         <div>
-          <Link to="/"> Village </Link>
+          <NavLink to="/"> Village </NavLink>
         </div>
         <div>
-          <Link to="/smurf-form"> Add a Smurf </Link>
+          <NavLink to="/smurf-form"> Add a Smurf </NavLink>
         </div>
         <Route path="/smurf-form" component={SmurfForm} />
         <Smurfs smurfs={this.state.smurfs}/>
