@@ -66,7 +66,7 @@ class App extends Component {
         <ul className="navbar">
           <li>
             <NavLink exact to="/" activeClassName="activeNavButton">
-              Home
+              Smurfs
             </NavLink>
           </li>
         
