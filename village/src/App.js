@@ -44,7 +44,7 @@ class App extends Component {
       <NavLink className="nav" to='/'>Smurfs</NavLink> */}
       {/* <Links /> */}
       <nav>
-        <div><NavLink className="active"exact to = '/'>Village</NavLink></div>
+        <div><NavLink exact to = '/'>Village</NavLink></div>
         <div><NavLink to = '/smurf-form'>Add New Smurf</NavLink></div>
       </nav>
 
