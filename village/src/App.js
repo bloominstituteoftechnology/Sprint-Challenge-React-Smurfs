@@ -54,10 +54,14 @@ class App extends Component {
     this.props.history.push('/');
   };
 
+  findSmurf = (keyName, val) => {
+    return this.state.smurfs.find( (element) => element[keyName] === val );
+  };
+
   handleSmurfEdit = (smurfId) => {
     this.setState({
       ...this.state,
-      editSmurf: this.findSmurf(smurfId),
+      editSmurf: this.findSmurf('id', smurfId),
       editingSmurf: true
     });
     this.props.history.push('/smurf-form');
@@ -66,13 +70,9 @@ class App extends Component {
   handleSmurfClick = (smurfId) => {
     this.setState({
       ...this.state,
-      viewSmurf: this.findSmurf(smurfId)
+      viewSmurf: this.findSmurf('id', smurfId)
     });
     this.props.history.push(`/smurf/${smurfId}`);
-  };
-
-  findSmurf = (smurfId) => {
-    return this.state.smurfs.find( (element) => element.id === smurfId );
   };
 
   /* C */
@@ -118,8 +118,9 @@ class App extends Component {
         <Route 
           exact 
           path='/' 
-          render={() => 
+          render={(props) => 
             <Smurfs 
+              {...props} 
               smurfs={this.state.smurfs} 
               deleteSmurf={this.deleteSmurf} 
               handleSmurfEdit={this.handleSmurfEdit} 
