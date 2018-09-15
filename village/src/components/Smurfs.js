@@ -66,14 +66,12 @@ class Smurfs extends Component {
 				<ul>
 					{this.state.smurfs.map(smurf => {
 						return (
-							// I tried to troubleshoot this, but my React Inspector was constantly refreshing
-
 							<Smurf
-								name={smurf.name}
+								key={smurf.id}
 								id={smurf.id}
+								name={smurf.name}
 								age={smurf.age}
 								height={smurf.height}
-								key={smurf.id}
 								cullSmurf={this.cullSmurf}
 								editSmurf={this.editSmurf}
 								saveSmurf={this.saveSmurf}

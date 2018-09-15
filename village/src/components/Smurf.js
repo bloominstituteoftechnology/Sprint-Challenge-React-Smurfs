@@ -43,21 +43,21 @@ class Smurf extends Component {
 					<br />
 					<input
 						onChange={this.handleInputChange}
-						placeholder="age"
-						value={this.state.age}
-						name="age"
-					/>
-					<br />
-					<br />
-					<input
-						onChange={this.handleInputChange}
 						placeholder="height"
 						value={this.state.height}
 						name="height"
 					/>
 					<br />
 					<br />
-					<input type="submit" value="Submit Smurf" />
+					<input
+						onChange={this.handleInputChange}
+						placeholder="age"
+						value={this.state.age}
+						name="age"
+					/>
+					<br />
+					<br />
+					<input type="submit" value="Apply Modifications" />
 				</form>
 			);
 		} else {
@@ -69,10 +69,10 @@ class Smurf extends Component {
 					<strong>{this.props.height} tall</strong>
 					<p>{this.props.age} smurf years old</p>
 					<button onClick={event => this.props.cullSmurf(event, this.props.id)}>
-						Delete Me
+						Cull Smurf
 					</button>
 					<button onClick={event => this.editSmurf(event, this.props.id)}>
-						Edit Smurf
+						Modify Smurf
 					</button>
 				</div>
 			);
