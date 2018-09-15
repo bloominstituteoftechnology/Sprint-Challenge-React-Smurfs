@@ -5,38 +5,32 @@ class SmurfForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: this.props.editSmurf.name,
-      age: this.props.editSmurf.age,
-      height: this.props.editSmurf.height,
-      id: this.props.editSmurf.id
+      name: this.props.smurf.name,
+      age: this.props.smurf.age,
+      height: this.props.smurf.height,
+      id: this.props.smurf.id
     };
-  }
+  };
 
   addSmurf = (event) => {
     event.preventDefault();
-    // add code to create the smurf using the api
     this.props.postSmurf({
       name: this.state.name,
       age: Number(this.state.age),
       height: this.state.height
     });
-
-    this.props.history.push('/');
-  }
+  };
 
   updateSmurf = (event) => {
     event.preventDefault();
-
     this.props.putSmurf({
       name: this.state.name,
       age: Number(this.state.age),
       height: this.state.height
     }, this.state.id);
-
-    this.props.history.push('/');
   };
 
-  handleInputChange = e => {
+  handleInputChange = (e) => {
     this.setState({ [e.target.name]: e.target.value });
   };
 
@@ -67,19 +61,19 @@ class SmurfForm extends Component {
         </form>
       </div>
     );
-  }
-}
+  };
+};
 
 SmurfForm.propTypes = {
-  postSmurf: PropTypes.func.isRequired,
-  putSmurf: PropTypes.func.isRequired,
-  editingSmurf: PropTypes.bool.isRequired,
-  editSmurf: PropTypes.shape({
+  smurf: PropTypes.shape({
     name: PropTypes.string.isRequired,
     age: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
     height: PropTypes.string.isRequired,
     id: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired
-  }).isRequired
+  }).isRequired,
+  editingSmurf: PropTypes.bool.isRequired,
+  postSmurf: PropTypes.func.isRequired,
+  putSmurf: PropTypes.func.isRequired
 };
 
 export default SmurfForm;

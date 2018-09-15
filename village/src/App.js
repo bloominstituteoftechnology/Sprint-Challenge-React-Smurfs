@@ -6,6 +6,7 @@ import './App.css';
 import Header from './components/Header';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
+import Smurf from './components/Smurf';
 
 class App extends Component {
   constructor(props) {
@@ -19,12 +20,15 @@ class App extends Component {
         age: '',
         height: '',
         id: ''
+      },
+      viewSmurf: {
+        name: '',
+        age: '',
+        height: '',
+        id: ''
       }
     };
-  }
-  // add any needed code to ensure that the smurfs collection exists on state and it has data coming from the server
-  // Notice what your map function is looping over and returning inside of Smurfs.
-  // You'll need to make sure you have the right properties on state and pass them down to props.
+  };
 
   componentDidMount = () => {
     this.getSmurfs();
@@ -39,18 +43,36 @@ class App extends Component {
         age: '',
         height: '',
         id: ''
+      },
+      viewSmurf: {
+        name: '',
+        age: '',
+        height: '',
+        id: ''
       }
     });
+    this.props.history.push('/');
   };
 
   handleSmurfEdit = (smurfId) => {
-    const smurf = this.state.smurfs.find( (element) => element.id === smurfId );
     this.setState({
       ...this.state,
-      editSmurf: smurf,
+      editSmurf: this.findSmurf(smurfId),
       editingSmurf: true
     });
     this.props.history.push('/smurf-form');
+  };
+
+  handleSmurfClick = (smurfId) => {
+    this.setState({
+      ...this.state,
+      viewSmurf: this.findSmurf(smurfId)
+    });
+    this.props.history.push(`/smurf/${smurfId}`);
+  };
+
+  findSmurf = (smurfId) => {
+    return this.state.smurfs.find( (element) => element.id === smurfId );
   };
 
   /* C */
@@ -101,6 +123,7 @@ class App extends Component {
               smurfs={this.state.smurfs} 
               deleteSmurf={this.deleteSmurf} 
               handleSmurfEdit={this.handleSmurfEdit} 
+              handleSmurfClick={this.handleSmurfClick} 
             />
           } 
         />
@@ -109,16 +132,28 @@ class App extends Component {
           render={(props) => 
             <SmurfForm 
               {...props} 
+              smurf={this.state.editSmurf} 
+              editingSmurf={this.state.editingSmurf} 
               postSmurf={this.postSmurf} 
               putSmurf={this.putSmurf} 
-              editingSmurf={this.state.editingSmurf} 
-              editSmurf={this.state.editSmurf} 
+            />
+          } 
+        />
+        <Route 
+          path='/smurf/:id' 
+          render={(props) => 
+            <Smurf 
+              {...props} 
+              smurf={this.state.viewSmurf} 
+              deleteSmurf={this.deleteSmurf} 
+              handleSmurfEdit={this.handleSmurfEdit} 
+              handleSmurfClick={this.handleSmurfClick} 
             />
           } 
         />
       </div>
     );
-  }
-}
+  };
+};
 
 export default withRouter(App);

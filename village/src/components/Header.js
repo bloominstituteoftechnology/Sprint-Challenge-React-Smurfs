@@ -4,10 +4,10 @@ import {NavLink} from 'react-router-dom';
 const Header = () => {
   return (
     <nav>
-      <NavLink to='/'>Smurf Village</NavLink>
-      <NavLink to='/smurf-form'>Add a Smurf to the Village</NavLink>
+      <NavLink exact to='/' activeClassName='active'>Smurf Village</NavLink>
+      <NavLink to='/smurf-form' activeClassName='active'>Add a Smurf to the Village</NavLink>
     </nav>
   );
-}
+};
  
 export default Header;
