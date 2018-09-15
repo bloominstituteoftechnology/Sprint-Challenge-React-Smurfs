@@ -19,7 +19,7 @@ class App extends Component {
   componentDidMount() {
     axios.get('http://localhost:3333/smurfs')
          .then(smurfs => this.setState({smurfs: smurfs.data}))
-         .catch(err => new Error(err));
+         .catch(err => console.log(new Error(err)));
   }
 
   postNewSmurf = (newSmurf) => {
@@ -31,13 +31,13 @@ class App extends Component {
   deleteASmurf = (id) => {
     axios.delete(`http://localhost:3333/smurfs/${id}`)
          .then(smurfs => this.setState({smurfs: smurfs.data}))
-         .catch(err => new Error(err));
+         .catch(err => console.log(new Error(err)));
   }
 
   updateASmurf = (id, newObj) => {
     axios.put(`http://localhost:3333/smurfs/${id}`, newObj)
          .then(s => this.setState({smurfs: s.data}))
-         .catch(err => new Error(err));
+         .catch(err => console.log(new Error(err)));
   }
 
   render() {
@@ -45,12 +45,12 @@ class App extends Component {
       <div className="App">
         <h1>Welcome to SmurfVille</h1>
         <button onClick={() => this.props.history.goBack()} style={{position: 'absolute', top: '20px', left: '20px'}}>Back</button>
-        <nav>
-          <li><NavLink exact activeClassName="selected" to="/">Smurfs</NavLink></li>
-          <li><NavLink exact activeClassName="selected" to="/smurf-form">Create New Smurf</NavLink></li>
+        <nav style={{display: 'flex', justifyContent: 'center'}}>
+          <li style={{listStyle: 'none', margin: '0 20px'}}><NavLink exact activeClassName="selected" to="/smurfs">Click to View All Smurfs</NavLink></li>
+          <li style={{listStyle: 'none', margin: '0 20px'}}><NavLink exact activeClassName="selected" to="/smurf-form">Create New Smurf</NavLink></li>
         </nav>
-        <Route exact path="/" render={(props) => <Smurfs updateASmurf={this.updateASmurf} deleteASmurf={this.deleteASmurf} {...props} smurfs={this.state.smurfs} />} />
-        <Route exact path="/smurf-form" render={(props) => <SmurfForm {...props} postNewSmurf={this.postNewSmurf} />} />
+          <Route path="/smurfs" render={(props) => <Smurfs updateASmurf={this.updateASmurf} deleteASmurf={this.deleteASmurf} {...props} smurfs={this.state.smurfs} />} />
+          <Route exact path="/smurf-form" render={(props) => <SmurfForm {...props} postNewSmurf={this.postNewSmurf} />} />
       </div>
     );
   }

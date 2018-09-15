@@ -1,4 +1,5 @@
 import React from "react";
+import {Route, Link} from 'react-router-dom';
 
 class Smurf extends React.Component {
   constructor() {
@@ -21,7 +22,6 @@ class Smurf extends React.Component {
 
   onChangeHandler = e => {
     this.setState({ [e.target.name]: e.target.value });
-    console.log({[e.target.name]: e.target.value });
   };
   deleteASmurf = id => {
     this.props.deleteASmurf(id);
@@ -66,7 +66,6 @@ class Smurf extends React.Component {
               name="age"
               onChange={this.onChangeHandler}
             />
-            {console.log(this.props.id, {name: this.state.name, height: this.state.height, age: this.state.age})}
             <button
               type="submit"
               onClick={() => this.updateASmurf(this.props.id, {name: this.state.name, height: this.state.height, age: this.state.age})}
@@ -75,8 +74,24 @@ class Smurf extends React.Component {
             </button>
           </form>
         ) : null}
+        <div style={{margin: '20px 0'}}>
+          <Link to={`/smurfs/${this.props.id}`}>{this.props.name}</Link>
+          <Route path={`/smurfs/${this.props.id}`} render={(props) => <Test {...props} smurf={this.props} /> }/>
+        </div>
       </div>
     );
+  }
+}
+
+class Test extends React.Component {
+  render() {
+    return (
+      <React.Fragment>
+        <h3>{this.props.name}</h3>
+        <strong>{this.props.height} tall</strong>
+        <p>{this.props.age} smurf years old</p>
+      </React.Fragment>
+    )
   }
 }
 
