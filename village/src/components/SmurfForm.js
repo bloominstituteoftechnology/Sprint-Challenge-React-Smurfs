@@ -58,23 +58,26 @@ class SmurfForm extends Component {
             placeholder="name"
             value={this.state.name}
             name="name"
-            style={{ width: "300px", margin: "20px", height: "30px", borderRadius: '3px', border: '1px solid black' }}
+            required
+            style={{ width: "300px", margin: "20px", height: "30px", borderRadius: '3px', border: '1px solid black', padding: '0 20px' }}
           />
           <input
             onChange={this.handleInputChange}
             placeholder="age"
             value={this.state.age}
             name="age"
-            style={{ width: "300px", height: "30px", borderRadius: '3px', border: '1px solid black' }}
+            required
+            style={{ width: "300px", height: "30px", borderRadius: '3px', border: '1px solid black', padding: '0 20px' }}
           />
           <input
             onChange={this.handleInputChange}
             placeholder="height"
             value={this.state.height}
             name="height"
-            style={{ width: "300px", margin: "20px", height: "30px", borderRadius: '3px', border: '1px solid black' }}
+            required
+            style={{ width: "300px", margin: "20px", height: "30px", borderRadius: '3px', border: '1px solid black', padding: '0 20px' }}
           />
-          <button style={{ width: "300px", height: "30px", borderRadius: '3px', border: '1px solid black' }} type="submit">
+          <button style={{ width: "300px", height: "30px", borderRadius: '3px', border: '1px solid black', cursor: 'pointer', background: 'lightgreen', fontWeight: 'bold' }} type="submit">
             Add to the village
           </button>
         </form>
