@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 import Smurf from './Smurf';
 
@@ -10,11 +11,11 @@ class Smurfs extends Component {
         <ul>
           {this.props.smurfs.map(smurf => {
             return (
-              <Smurf
-                name={smurf.name}
-                id={smurf.id}
-                age={smurf.age}
-                height={smurf.height}
+              <Smurf 
+                smurf={smurf} 
+                deleteSmurf={this.props.deleteSmurf} 
+                handleSmurfEdit={this.props.handleSmurfEdit} 
+                handleSmurfClick={this.props.handleSmurfClick} 
                 key={smurf.id}
               />
             );
@@ -22,11 +23,26 @@ class Smurfs extends Component {
         </ul>
       </div>
     );
-  }
-}
+  };
+};
 
-Smurf.defaultProps = {
- smurfs: [],
+// ?
+// Smurf.defaultProps = {
+//  smurfs: [],
+// };
+
+Smurfs.propTypes = {
+  smurfs: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string,
+      age: PropTypes.number,
+      height: PropTypes.string,
+      id: PropTypes.number.isRequired
+    })
+  ).isRequired,
+  deleteSmurf: PropTypes.func,
+  handleSmurfEdit: PropTypes.func,
+  handleSmurfClick: PropTypes.func
 };
 
 export default Smurfs;

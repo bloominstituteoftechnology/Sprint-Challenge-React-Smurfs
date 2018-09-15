@@ -1,34 +1,43 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class SmurfForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: '',
-      age: '',
-      height: ''
+      name: this.props.smurf.name,
+      age: this.props.smurf.age,
+      height: this.props.smurf.height,
+      id: this.props.smurf.id
     };
-  }
+  };
 
-  addSmurf = event => {
+  addSmurf = (event) => {
     event.preventDefault();
-    // add code to create the smurf using the api
-
-    this.setState({
-      name: '',
-      age: '',
-      height: ''
+    this.props.postSmurf({
+      name: this.state.name,
+      age: Number(this.state.age),
+      height: this.state.height
     });
-  }
+  };
 
-  handleInputChange = e => {
+  updateSmurf = (event) => {
+    event.preventDefault();
+    this.props.putSmurf({
+      name: this.state.name,
+      age: Number(this.state.age),
+      height: this.state.height
+    }, this.state.id);
+  };
+
+  handleInputChange = (e) => {
     this.setState({ [e.target.name]: e.target.value });
   };
 
   render() {
     return (
       <div className="SmurfForm">
-        <form onSubmit={this.addSmurf}>
+        <form onSubmit={this.props.editingSmurf ? this.updateSmurf : this.addSmurf}>
           <input
             onChange={this.handleInputChange}
             placeholder="name"
@@ -37,6 +46,7 @@ class SmurfForm extends Component {
           />
           <input
             onChange={this.handleInputChange}
+            type='number'
             placeholder="age"
             value={this.state.age}
             name="age"
@@ -51,7 +61,19 @@ class SmurfForm extends Component {
         </form>
       </div>
     );
-  }
-}
+  };
+};
+
+SmurfForm.propTypes = {
+  smurf: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    age: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
+    height: PropTypes.string.isRequired,
+    id: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired
+  }).isRequired,
+  editingSmurf: PropTypes.bool.isRequired,
+  postSmurf: PropTypes.func.isRequired,
+  putSmurf: PropTypes.func.isRequired
+};
 
 export default SmurfForm;
