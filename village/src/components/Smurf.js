@@ -31,7 +31,7 @@ class Smurf extends React.Component {
   };
   render() {
     return (
-      <div className="Smurf">
+      <div style={{margin: '20px'}}>
         <h3>{this.props.name}</h3>
         <strong>{this.props.height} tall</strong>
         <p>{this.props.age} smurf years old</p>
@@ -74,24 +74,8 @@ class Smurf extends React.Component {
             </button>
           </form>
         ) : null}
-        <div style={{margin: '20px 0'}}>
-          <Link to={`/smurfs/${this.props.id}`}>{this.props.name}</Link>
-          <Route path={`/smurfs/${this.props.id}`} render={(props) => <Test {...props} smurf={this.props} /> }/>
-        </div>
       </div>
     );
-  }
-}
-
-class Test extends React.Component {
-  render() {
-    return (
-      <React.Fragment>
-        <h3>{this.props.name}</h3>
-        <strong>{this.props.height} tall</strong>
-        <p>{this.props.age} smurf years old</p>
-      </React.Fragment>
-    )
   }
 }
 
