@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import Axios from 'axios';
+import PropTypes from 'prop-types';
 
 class SmurfForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
       //Might need to add 'smurf'...check this config first
-      smurfs: [],
+      // smurfs: [],
       smurf:{
       name: '',
       age: '',
@@ -17,17 +17,21 @@ class SmurfForm extends Component {
 
   addSmurf = event => {
     event.preventDefault();
-    Axios
-      .post('http://localhost:3333/smurfs', this.state.smurf)
-      .then(response => {
-        this.setState({ smurfs: [...response.data], smurf: {
+
+    const newSmurf = {
+      name: this.state.name,
+      age: this.state.age,
+      height: this .state.height,
+    }
+    this.props.addSmurf(newSmurf);
+  
+        this.setState({
           name: '',
           age: '',
           height: ''
-          }
         });
-      })
-  }
+      }
+  
 
   handleInputChange = e => {
     this.setState({ 
@@ -64,6 +68,10 @@ class SmurfForm extends Component {
       </div>
     );
   }
+}
+
+SmurfForm.propTypes ={
+  addSmurf: PropTypes.func,
 }
 
 export default SmurfForm;
