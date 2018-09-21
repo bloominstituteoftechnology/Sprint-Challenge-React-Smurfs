@@ -67,17 +67,12 @@ class App extends Component {
             </NavLink>
           </li>
           <li>
-            <NavLink exact to="/smurfs" activeClassName="activeNavButton">
-              The Village
-            </NavLink>
-          </li>
-          <li>
             <NavLink exact to="/smurf-form" activeClassName="activeNavButton">
               Add a Smurf!
             </NavLink>
           </li>
         </ul>
-        <Route exact path="/" component={Home} />
+        <Route exact path="/" component={Smurfs} />
         <Route
           exact
           path="/smurfs"
@@ -88,7 +83,7 @@ class App extends Component {
           render={props => (
             <SmurfForm
               {...props}
-              smurf={this.state.friend}
+              smurf={this.state.smurf}
               handleAddNewSmurf={this.handleAddNewSmurf}
               handleChange={this.handleChange}
             />
