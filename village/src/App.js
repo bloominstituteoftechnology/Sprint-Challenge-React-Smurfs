@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { NavLink } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 
 import './App.css';
 import SmurfForm from './components/SmurfForm';
@@ -41,7 +43,7 @@ class App extends Component {
 		});
 	};
 
-	handleSubmit = (event) => {
+	/* handleSubmit = (event) => {
 		event.preventDefault();
 		axios
 			.post('http://localhost:3333/smurfs', this.state.smurf)
@@ -54,13 +56,21 @@ class App extends Component {
 					() => this.props.history.push('/')
 				);
 			});
-	};
+	}; */
 
 	render() {
 		return (
 			<div className="App">
-				<SmurfForm />
-				<Smurfs smurfs={this.state.smurfs} />
+				<NavLink exact to="/">
+					Smurfs
+				</NavLink>
+				<NavLink to="smurf-form">Add Smurf</NavLink>
+				<Route path="/smurf-form" component={SmurfForm} />
+				<Route
+					exact
+					path="/"
+					render={(props) => <Smurfs smurfs={this.state.smurfs} />}
+				/>
 			</div>
 		);
 	}
