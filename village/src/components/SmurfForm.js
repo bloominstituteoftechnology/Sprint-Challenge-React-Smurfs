@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import Axios from "../../node_modules/axios";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 class SmurfForm extends Component {
   constructor(props) {

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Axios from "axios";
 import "./App.css";
-import { BrowserRouter as Route, Router, NavLink } from "react-router-dom";
+import { BrowserRouter as Route, NavLink } from "react-router-dom";
 import SmurfForm from "./components/SmurfForm";
 import Smurfs from "./components/Smurfs";
 import styled from "styled-components";
@@ -68,7 +68,6 @@ class App extends Component {
   }
 }
 
-// Navigation Styles
 const AppWrapper = styled.div`
   max-width: 880px;
   display: flex;
