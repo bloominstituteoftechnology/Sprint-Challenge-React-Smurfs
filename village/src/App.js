@@ -21,6 +21,7 @@ axios
   })
 })
 .catch(err=> console.log(err))
+
 }
 
   // add any needed code to ensure that the smurfs collection exists on state and it has data coming from the server
@@ -29,8 +30,8 @@ axios
   render() {
     return (
       <div className="App">
-        <Route path = '/' component = {SmurfForm} />
-        <Smurfs smurfs={this.state.smurfs} />
+        <Route path = '/SmurfForm' component = {SmurfForm} />
+        <Route path= '/' render={props => <Smurfs {...props} smurfs = {this.state.smurfs} />} />
       </div>
     );
   }
