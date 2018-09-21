@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 import Axios from 'axios';
 import './App.css';
-import RouteFrontPage from './components/RouteFrontPage/RouteFrontPage';
-
+import RouteFrontPage from './components/Route/RouteFrontPage';
+import RouteSmurfPage from './components/Route/RouteSmurfPage';
 class App extends Component {
   constructor(props) {
     super(props);
@@ -28,11 +28,20 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-      <h1>Test</h1>
         <Route 
-        exact path="/"
-        render={(props) =>(
-          <RouteFrontPage {...props} smurfs={this.state.smurfs} />
+          exact path="/smurfs"
+          render={(props) =>(
+            <RouteFrontPage 
+              {...props} 
+              smurfs={this.state.smurfs} />
+          )}
+        />
+        <Route 
+          path="/smurfs/:id"
+          render={(props) =>(
+            <RouteSmurfPage 
+            {...props} 
+            smurfs={this.state.smurfs} />
           )}
         />
       </div>
