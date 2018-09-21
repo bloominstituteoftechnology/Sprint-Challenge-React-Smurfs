@@ -6,6 +6,7 @@
   margin: 0;
   padding: 0px;
   height: 64px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   list-style: none;
   display: flex;
   justify-content: center;
@@ -18,6 +19,11 @@
   height: 16px;
 }
 
+.navbar > li > a.activeNavButton {
+  background-color: #3cbded;
+  color: white;
+}
+
 .nav-button {
   text-decoration: none;
 }
@@ -27,4 +33,12 @@
 
 ul {
   padding-left: 0px;
+}
+
+.smurf-card {
+}
+
+.Smurf {
+  border: 2px solid #3cbded;
+  margin: 30px 500px;
 }
