@@ -30,4 +30,12 @@ Smurf.defaultProps = {
   smurfs: []
 };
 
+const SmurfsList = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  flex-wrap: wrap;
+`;
+
 export default Smurfs;
