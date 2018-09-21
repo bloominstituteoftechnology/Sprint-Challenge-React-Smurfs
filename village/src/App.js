@@ -3,7 +3,7 @@ import {Route} from 'react-router-dom'
 import './App.css';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
-import Smurf from './components/Smurf';
+
 
 import axios from 'axios';
 
@@ -32,10 +32,8 @@ class App extends Component {
   render() {
     return (
       <React.Fragment>
-        {/* <SmurfForm /> */}
-        <Route exact path='/' component={SmurfForm}/>
-        {/* <Smurfs smurfs={this.state.smurfs} /> */}
-        <Route path='/smurfs' component={Smurf}/>
+        <Route exact path='/' component={SmurfForm}/> */}
+        <Route path= '/' render={props => <Smurfs {...props} smurfs = {this.state.smurfs} />} />
       </React.Fragment>
     );
   }
