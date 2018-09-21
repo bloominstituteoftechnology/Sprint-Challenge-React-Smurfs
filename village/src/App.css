@@ -1,3 +1,33 @@
 .App {
   text-align: center;
 }
+.Smurf {
+  max-width: 400px;
+  width: 100%;
+  background-color: blue;
+  color: white;
+  border: 2px solid lightblue;
+  margin-left: auto;
+  margin-right: auto;
+}
+.Smurfs, .welcomeText {
+  max-width: 600px;
+  width:100%;
+  padding: 3px;
+  border: 2px solid red;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: white;
+  color: deepskyblue;
+}
+.navBar{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.navButton {
+  text-decoration: none;
+  color: blue;
+  cursor: pointer;
+  padding: 10px;
+}
