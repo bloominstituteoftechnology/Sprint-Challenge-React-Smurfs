@@ -28,7 +28,7 @@ class SmurfForm extends Component {
           console.log(response.data)
         })
         .catch(err => {
-          console.error(`Error on Post ${err}`)
+          console.error(`Error ${err}`)
         })
 
     this.setState({
