@@ -43,7 +43,7 @@ class App extends Component {
 
   render() {
     return (
-      <AppWrapper>
+      <App>
         <NavWrapper>
           <NavLink to="/">Village</NavLink>
           <NavLink to="/smurf-form">Add a Smurf</NavLink>
@@ -63,12 +63,12 @@ class App extends Component {
             />
           )}
         />
-      </AppWrapper>
+      </App>
     );
   }
 }
 
-const AppWrapper = styled.div`
+const App = styled.div`
   max-width: 880px;
   display: flex;
   justify-content: center;
