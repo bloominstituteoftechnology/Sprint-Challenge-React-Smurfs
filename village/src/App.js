@@ -47,12 +47,22 @@ class App extends Component {
       <div className="App">
         <ul className="navbar">
           <li>
-            <NavLink exact to="/smurfs" activeClassName="activeNavButton">
+            <NavLink
+              exact
+              to="/smurfs"
+              className="nav-button"
+              activeClassName="activeNavButton"
+            >
               Home
             </NavLink>
           </li>
           <li>
-            <NavLink exact to="/smurf-form" activeClassName="activeNavButton">
+            <NavLink
+              exact
+              to="/smurf-form"
+              className="nav-button"
+              activeClassName="activeNavButton"
+            >
               Add a Smurf!
             </NavLink>
           </li>

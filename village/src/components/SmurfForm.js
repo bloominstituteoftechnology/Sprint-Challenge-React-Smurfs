@@ -26,7 +26,7 @@ class SmurfForm extends Component {
       height: this.state.height
     };
     axios
-      .post('http://localhost:3333/smurfs', this.state.smurf)
+      .post('http://localhost:3333/smurfs', newSmurf)
       .then(response => {
         this.setState({ smurfs: response.data, smurf: blankFormValues });
       })
