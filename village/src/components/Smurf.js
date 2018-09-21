@@ -1,20 +1,83 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
-const Smurf = props => {
-  return (
-    <div className="Smurf">
-      <h3>{props.name}</h3>
-      <strong>{props.height} tall</strong>
-      <p>{props.age} smurf years old</p>
-    </div>
-  );
-};
+class Smurf extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
 
-Smurf.defaultProps = {
-  name: '',
-  height: '',
-  age: ''
-};
+  editSmurf = (event, id) => {
+    this.setState({
+      name: this.props.name,
+      age: this.props.age,
+      height: this.props.height
+    });
+    this.props.editSmurf(event, id);
+  };
+
+  handleInputChange = e => {
+    this.setState({ [e.target.name]: e.target.value });
+  };
+
+  render() {
+    if (this.props.edit === this.props.id) {
+      return (
+        <form
+          className="Smurf"
+          onSubmit={event =>
+            this.props.saveSmurf(event, this.props.id, {
+              name: this.state.name,
+              age: this.state.age,
+              height: this.state.height
+            })
+          }
+        >
+          <input
+            onChange={this.handleInputChange}
+            placeholder="name"
+            value={this.state.name}
+            name="name"
+          />
+          <br />
+          <br />
+          <input
+            onChange={this.handleInputChange}
+            placeholder="age"
+            value={this.state.age}
+            name="age"
+          />
+          <br />
+          <br />
+          <input
+            onChange={this.handleInputChange}
+            placeholder="height"
+            value={this.state.height}
+            name="height"
+          />
+          <br />
+          <br />
+          <input type="submit" value="Submit Smurf" />
+        </form>
+      );
+    } else {
+      return (
+        <div className="Smurf">
+          <Link to={`/smurfs/${this.props.id}`}>
+            <h3>{this.props.name}</h3>
+          </Link>
+          <strong>{this.props.height} tall</strong>
+          <p>{this.props.age} smurf years old</p>
+          <button onClick={event => this.props.cullSmurf(event, this.props.id)}>
+            Delete Me
+          </button>
+          <button onClick={event => this.editSmurf(event, this.props.id)}>
+            Edit Smurf
+          </button>
+        </div>
+      );
+    }
+  }
+}
 
 export default Smurf;
-
