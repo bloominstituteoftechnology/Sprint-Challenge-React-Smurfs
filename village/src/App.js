@@ -2,9 +2,11 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import {Route} from 'react-router-dom';
 
+import Navigation from './components/Navigation';
 import './App.css';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
+import SmurfPage from './components/SmurfPage';
 
 class App extends Component {
   constructor(props) {
@@ -29,13 +31,24 @@ class App extends Component {
     .catch(err => {console.log('Smurf Post: ' + err)})
   } 
   
+
+  updateSmurf = (smurf) => {
+    console.log(smurf);
+  }
+
+
+  
   
   
   render() {
     return (
       <div className="App">
-        <SmurfForm />
-        <Smurfs smurfs={this.state.smurfs} />
+        <Navigation />
+        <Route exact path="/" render={ props => <Smurfs {...props} smurfs={this.state.smurfs} />}  />
+        <Route path="/smurf-form" render={ props => <SmurfForm {...props} updateSmurfs={this.updateSmurfs} />}  />
+        <Route path="/smurf/:smurfid" render={ props => <SmurfPage {...props} smurfs={this.state.smurfs} delete={this.deleteSmurf}/>} />
+        {/* <SmurfForm updateSmurfs={this.updateSmurfs}/> */}
+        {/* <Smurfs smurfs={this.state.smurfs} /> */}
       </div>
     );
   }
