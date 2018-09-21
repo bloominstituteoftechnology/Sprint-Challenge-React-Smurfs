@@ -72,7 +72,6 @@ class App extends Component {
             </NavLink>
           </li>
         </ul>
-        <Route exact path="/" component={Smurfs} />
         <Route
           exact
           path="/smurfs"
