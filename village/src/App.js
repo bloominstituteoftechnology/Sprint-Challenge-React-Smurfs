@@ -4,6 +4,8 @@ import './App.css';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
 import { Route } from 'react-router-dom'
+import NavBar from './components/NavBar.js'
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -30,6 +32,7 @@ axios
   render() {
     return (
       <div className="App">
+        <NavBar/>
         <Route path = '/SmurfForm' component = {SmurfForm} />
         <Route path= '/' render={props => <Smurfs {...props} smurfs = {this.state.smurfs} />} />
       </div>
