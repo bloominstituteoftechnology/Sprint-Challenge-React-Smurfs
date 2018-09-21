@@ -4,6 +4,8 @@ import "./App.css";
 import { BrowserRouter as Route, Router, NavLink } from "react-router-dom";
 import SmurfForm from "./components/SmurfForm";
 import Smurfs from "./components/Smurfs";
+import styled from "styled-components";
+
 
 class App extends Component {
   constructor(props) {
@@ -38,16 +40,13 @@ class App extends Component {
   // add any needed code to ensure that the smurfs collection exists on state and it has data coming from the server
   // Notice what your map function is looping over and returning inside of Smurfs.
   // You'll need to make sure you have the right properties on state and pass them down to props.
+
   render() {
     return (
       <AppWrapper>
         <NavWrapper>
-          <NavElement>
-            <NavLink to="/"> Village </NavLink>
-          </NavElement>
-          <NavElement>
-            <NavLink to="/smurf-form"> Add a Smurf </NavLink>
-          </NavElement>
+          <NavLink to="/">Village</NavLink>
+          <NavLink to="/smurf-form">Add a Smurf</NavLink>
         </NavWrapper>
         <Route
           path="/smurf-form"
@@ -68,5 +67,22 @@ class App extends Component {
     );
   }
 }
+
+// Navigation Styles
+const AppWrapper = styled.div`
+  max-width: 880px;
+  display: flex;
+  justify-content: center;
+  `;
+
+const NavWrapper = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  justify-content: space-evenly;
+  width: 100%;
+  height: 20px;
+  margin: 0;
+`;
 
 export default App;
