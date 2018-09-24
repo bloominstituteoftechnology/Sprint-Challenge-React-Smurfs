@@ -10,9 +10,13 @@ class SmurfCard extends React.Component {
         }
     }
 
+    componentDidMount() {
+        const Smurf = this.props.smurfs.find(smurf => smurf.id == this.props.match.params.id);
+        this.test();
+    }
+
     test = () => {
         const Smurf = this.props.smurfs.find(smurf => smurf.id == this.props.match.params.id);
-        console.log(Smurf);
         this.setState({
             age: Smurf.age,
             name: Smurf.name,
@@ -23,7 +27,7 @@ class SmurfCard extends React.Component {
     render() {
         return (
             <div className="SmurfCard">
-            <button onClick={this.test}>Where's my Smurf?</button>
+            {/* <button onClick={this.test}>Where's my Smurf?</button> */}
             <h3>{this.state.name}</h3> 
             <strong>{this.state.height} tall</strong>
             <p>{this.state.age} smurf years old</p>
