@@ -1,0 +1,36 @@
+.navlink-container {
+    background: #c4001a;
+    padding: 20px 15px;
+}
+
+.navlink-container .nav-links {
+    width: 1000px;
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    margin: 0 auto;
+    padding: 0;
+}
+
+.navlink-container .nav-links li {
+    /* border: 1px solid rgb(255, 0, 0); */
+    border-radius: 5px;
+    margin: 0 20px;
+    padding: 10px 15px;
+}
+
+.navlink-container .nav-links li:hover {
+    background-color: rgb(255, 0, 0);
+}
+
+.navlink-container .nav-links li .nav-text {
+    color: white;
+    text-decoration: none;
+    font-weight: lighter;
+    letter-spacing: .5px;
+}
+
+.navlink-container .nav-links li .active-component {
+    /* font-weight: bold; */
+    color: black;
+}

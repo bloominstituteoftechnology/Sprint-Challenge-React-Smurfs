@@ -1,0 +1,13 @@
+.Smurf {
+    border: 1px solid red;
+    margin: 20px 20px;
+    width: 250px;
+    background-color: white;
+    border-radius: 5px;
+    font-weight: lighter;
+}
+
+.Smurf:hover {
+    background-color:  rgb(255, 245, 213);
+    border: 1px solid rgb(253, 251, 121);
+}

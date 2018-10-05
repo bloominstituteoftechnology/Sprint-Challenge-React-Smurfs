@@ -1,0 +1,20 @@
+.Smurfs {
+    background-color: rgb(255, 182, 169);
+}
+
+.Smurfs ul {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0;
+}
+
+.Smurfs .image-container {
+    width: 100%;
+}
+
+.Smurfs .image-container .smurfs-img{
+    width: 100%;
+}
