@@ -3,7 +3,6 @@
 * The purpose of this exercise is to get you used to being quizzed on _Interview Questions_ commonly asked about Client Side Routing and making AJAX requests from a React application.
 * Answers to your written questions will be recorded in _Answers.md_
 * This is to be worked on alone but you can use outside resources. You can _reference_ any old code you may have, and the React Documentation, however, please refrain from copying and pasting any of your answers. Try and understand the question and put your responses in your own words. Be as thorough as possible when explaining something.
-* **Just a friendly Reminder** Don't fret or get anxious about this, this is a no-pressure assessment that is only going to help guide you here in the near future. This is NOT a pass/fail situation.
 
 ## Start by forking and cloning this repository.
 
@@ -62,9 +61,8 @@
     * You'll start by wrapping your `root` component in the `Router` component.
     * Then declare your routes with `Route`.
     * Then make it so you can navigate to your routes using `Link`.
-* Create a home `/` route that mounts a Header component describing to a user that they are welcomed guests in the smurf village. 
-    * This header component should have a button/link that can take a user to a new page.
-* Create a link that navigates a user into the village. This route `/smurfs` should mount the `App` component that will fetch your data, and display your Smurfs as well as your Smurf Form.
+* Create two `routes` in your `App` component, one at `'/'` for your `Smurfs` component, and one at `/smurf-form` for your form.
+* Then in your `App` component, create a nav bar that will use `NavLink` to route to your different pages.
 
 ## STRETCH PROBLEMS
 
