@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { CardColumns } from "reactstrap";
 import axios from "axios";
 import Smurf from "./Smurf";
 
@@ -26,7 +27,7 @@ class Smurfs extends Component {
   render() {
     return (
       <div className="Smurfs">
-        <ul>
+        <CardColumns>
           {this.state.smurfs.map(smurf => {
             return (
               <Smurf
@@ -38,7 +39,7 @@ class Smurfs extends Component {
               />
             );
           })}
-        </ul>
+        </CardColumns>
       </div>
     );
   }
