@@ -22,10 +22,9 @@ class App extends Component {
       .get("http://localhost:3333/smurfs")
       .then(response => {
         console.log(response);
-        const smurfs = response.data;
-        this.setState({ smurfs });
+        this.setState({ smurfs: response.data });
       })
-      .catch(function(error) {
+      .catch(error => {
         console.log(error);
       });
   }
