@@ -26,7 +26,6 @@ class Smurfs extends Component {
   render() {
     return (
       <div className="Smurfs">
-        <h1>Smurf Village</h1>
         <ul>
           {this.state.smurfs.map(smurf => {
             return (
