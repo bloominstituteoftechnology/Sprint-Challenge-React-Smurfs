@@ -1,14 +1,34 @@
-import React, { Component } from 'react';
-
-import Smurf from './Smurf';
+import React, { Component } from "react";
+import { CardColumns } from "reactstrap";
+import axios from "axios";
+import Smurf from "./Smurf";
 
 class Smurfs extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      smurfs: []
+    };
+  }
+  componentDidMount() {
+    axios
+      .get("http://localhost:3333/smurfs")
+      .then(response => {
+        console.log(response);
+        this.setState({ smurfs: response.data });
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  }
+  newSmurf = data => {
+    this.setState({ smurfs: data });
+  };
   render() {
     return (
       <div className="Smurfs">
-        <h1>Smurf Village</h1>
-        <ul>
-          {this.props.smurfs.map(smurf => {
+        <CardColumns>
+          {this.state.smurfs.map(smurf => {
             return (
               <Smurf
                 name={smurf.name}
@@ -19,14 +39,14 @@ class Smurfs extends Component {
               />
             );
           })}
-        </ul>
+        </CardColumns>
       </div>
     );
   }
 }
 
 Smurf.defaultProps = {
- smurfs: [],
+  smurfs: []
 };
 
 export default Smurfs;
