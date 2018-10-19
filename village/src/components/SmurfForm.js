@@ -22,6 +22,12 @@ class SmurfForm extends Component {
     } else {
       alert('cant have a empty field');
     }
+
+    this.setState({
+      name: '',
+      age: '',
+      height: ''
+    });
   };
 
   handleInputChange = e => {

@@ -1,8 +1,12 @@
 import React, { Component } from 'react';
+import { TweenMax } from 'gsap/all';
 
 import Smurf from './Smurf';
 
 class Smurfs extends Component {
+  constructor() {
+    super();
+  }
   render() {
     return (
       <div className="Smurfs">
