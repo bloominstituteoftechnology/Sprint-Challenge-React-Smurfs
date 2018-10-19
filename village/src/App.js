@@ -22,12 +22,18 @@ componentDidMount() {
     .catch(err => {console.log(err)})
 }
 
+// addNewSmurf = (newSmurf) => {
+//   axios.post('http://localhost:3333/smurfs', newSmurf)
+//   .then(response => {this.setState({ smurfs: response.data }) })
+//   .catch(err => console.log(err))
+// }
 
+createNewSmurf = data => this.setState({ smurfs: data });
 
   render() {
     return (
       <div className="App">
-        <SmurfForm />
+        <SmurfForm createNewSmurf={this.createNewSmurf}/>
         <Smurfs smurfs={this.state.smurfs} />
       </div>
     );
