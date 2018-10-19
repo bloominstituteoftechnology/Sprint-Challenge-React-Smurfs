@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
 import { StyledButton, StyledInput, Container } from '../Style';
 
@@ -33,16 +33,20 @@ class SmurfForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: '',
-      age: '',
-      height: ''
+      smurf: {
+        name: '',
+        age: '',
+        height: ''
+      },
+      isEditing: false,
+      editID: '',
     };
   }
 
   addSmurf = event => {
     event.preventDefault();
     // add code to create the smurf using the api
-    axios.post(`${this.props.url}/smurfs`, this.state)
+    axios.post(`${this.props.url}/smurfs`, this.state.smurf)
       .then(({data}) => {
         this.props.updateSmurfs(data);
         this.props.history.push('/');
@@ -65,12 +69,12 @@ class SmurfForm extends Component {
       <Container>
         <StyledForm onSubmit={this.addSmurf}>
             <FormInputs>
-                <StyledInput type="text" name="name" placeholder="Name" value={this.state.name} onChange={this.handleInputChange} autoComplete="off" required/>
-                <StyledInput type="number" name="age" placeholder="Age" value={this.state.age} onChange={this.handleInputChange} autoComplete="off" required/>
-                <StyledInput type="text" name="height" placeholder="Height" value={this.state.height} onChange={this.handleInputChange} autoComplete="off" required/>
+                <StyledInput type="text" name="name" placeholder="Name" value={this.state.smurf.name} onChange={this.handleInputChange} autoComplete="off" required/>
+                <StyledInput type="number" name="age" placeholder="Age" value={this.state.smurf.age} onChange={this.handleInputChange} autoComplete="off" required/>
+                <StyledInput type="text" name="height" placeholder="Height" value={this.state.smurf.height} onChange={this.handleInputChange} autoComplete="off" required/>
             </FormInputs>
             <FormButtons>
-                <StyledButton type="submit">Add to Village</StyledButton>
+                <StyledButton type="submit">{this.state.isEditing?'Update Smurf':'Add to Village'}</StyledButton>
             </FormButtons>
         </StyledForm>
       </Container>

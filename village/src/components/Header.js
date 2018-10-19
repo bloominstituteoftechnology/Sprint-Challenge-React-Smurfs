@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom'
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
 import { Container } from '../Style';
 
@@ -21,7 +21,7 @@ const Header = () => {
         <Container>
             <Navigation>
                 <NavLink exact to="/"><i className="fas fa-home"></i></NavLink>
-                <NavLink to="/smurf-form"><i class="fas fa-plus-square"></i></NavLink>
+                <NavLink to="/smurf-form"><i className="fas fa-plus-square"></i></NavLink>
             </Navigation>
         </Container>
     );
