@@ -14,7 +14,7 @@ class Smurfs extends Component {
   }
 
   componentDidUpdate(prevProps){
-    if(prevProps.smurfs !== this.props.smurfs){
+    if(prevProps.smurfs.length !== this.props.smurfs.length){
       this.getSmurfs();
     }
   }

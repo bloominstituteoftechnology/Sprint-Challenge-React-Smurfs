@@ -32,15 +32,25 @@ class App extends Component {
     this.getSmurfs();
   }
 
+  postSmurf(newSmurf) {
+
+    console.log('Adding Smurf - ', newSmurf)
+
+    axios
+      .post('http://localhost:3333/smurfs', newSmurf)
+      .then(this.getSmurfs())
+      .catch(error => console.log(error));
+
+  }
+
   render() {
     // const smurfs = this.state.smurfs;
     return (
       <Router>
         <div className="App">
           <NavBar />
-          <Route path='/SmurfForm' render={() => <SmurfForm />} />
+          <Route path='/SmurfForm' render={() => <SmurfForm postSmurf={this.postSmurf} />} />
           <Route exact path='/' render={() => <Smurfs smurfs={this.state.smurfs} />} />
-          {/* <Smurfs smurfs={this.state.smurfs} /> */}
         </div>
       </Router>
     );

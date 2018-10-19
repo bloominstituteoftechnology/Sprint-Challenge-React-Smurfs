@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 
 
 class SmurfForm extends Component {
@@ -22,12 +21,7 @@ class SmurfForm extends Component {
       height: this.state.height
     }
 
-    console.log('Adding Smurf - ', newSmurf)
-    
-    axios
-      .post('http://localhost:3333/smurfs', newSmurf)
-      .then(smurfs => this.setState({ smurfs: smurfs.data }))
-      .catch(error => console.log(error));
+    this.props.postSmurf(newSmurf);
 
     this.setState({
       name: '',
