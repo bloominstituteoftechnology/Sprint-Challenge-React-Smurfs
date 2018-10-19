@@ -13,6 +13,7 @@ class Smurfs extends Component {
               id={smurf.id}
               occupation={smurf.occupation}
               img={smurf.img}
+              removeSmurf={this.props.removeSmurf}
               key={smurf.id}
             />
           )

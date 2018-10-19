@@ -1,13 +1,20 @@
 import React from 'react'
-import { SmurfContainer, SmurfImg, SmurfText, SmurfName } from '../styles/Smurf'
+import {
+  SmurfContainer,
+  SmurfImg,
+  SmurfText,
+  SmurfName,
+  RemoveSmurf
+} from '../styles/Smurf'
 
-const Smurf = ({ name, occupation, img }) => (
+const Smurf = ({ id, name, occupation, img, removeSmurf }) => (
   <SmurfContainer>
-    <SmurfImg alt={name} src={img} />
     <SmurfName>{name}</SmurfName>
     {occupation
       .split(',')
-      .map((item, i) => <SmurfText key={i}>{item}</SmurfText>)}
+      .map((item, i) => <SmurfText key={i}>occupation: {item}</SmurfText>)}
+    <SmurfImg alt={name} src={img} />
+    <RemoveSmurf onClick={() => removeSmurf(id)}>x</RemoveSmurf>
   </SmurfContainer>
 )
 

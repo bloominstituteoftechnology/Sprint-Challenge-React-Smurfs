@@ -2,11 +2,15 @@ import styled from 'styled-components'
 
 export const SmurfContainer = styled.div`
   border: 1px solid black;
-  width: 130px;
+  min-width: 130px;
+  padding: 15px;
+  margin: 5px;
+  flex: 1;
+  position: relative;
 `
 
 export const SmurfImg = styled.img`
-  width: 100px;
+  width: 100%;
 `
 
 export const SmurfText = styled.p`
@@ -15,4 +19,12 @@ export const SmurfText = styled.p`
 
 export const SmurfName = styled(SmurfText)`
   font-weight: bold; 
+`
+
+export const RemoveSmurf = styled.div`
+  font-size: 2rem;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  cursor: pointer;
 `

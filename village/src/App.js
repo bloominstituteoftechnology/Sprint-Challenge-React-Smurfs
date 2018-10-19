@@ -20,6 +20,13 @@ class App extends Component {
       .catch(err => console.log(err))
   }
 
+  removeSmurf = id => {
+    axios
+      .delete(`/smurfs/${id}`)
+      .then(res => this.setState({ smurfs: res.data }))
+      .catch(err => console.log(err))
+  }
+
   render() {
     const { smurfs } = this.state
 
@@ -29,7 +36,9 @@ class App extends Component {
         <Route
           exact
           path="/"
-          render={props => <Smurfs smurfs={smurfs} {...props} />}
+          render={props => (
+            <Smurfs smurfs={smurfs} removeSmurf={this.removeSmurf} {...props} />
+          )}
         />
         <Route path="/smurf-form" component={SmurfForm} />
       </div>
