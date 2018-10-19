@@ -29,12 +29,12 @@ class App extends Component {
   render() {
     return (
       <div>
-      <div>
+      <div className="links">
         <NavLink to="/">Smurfs</NavLink>
-        <NavLink to="/smurf-form">Add Smurf</NavLink>
+        <NavLink to="/smurf-form">Add New Smurf</NavLink>
       </div>
       <div>
-                  <Route exact path="/" render={props => <Smurfs {...props} smurfs= {this.state.smurfs}/>} />
+                  <Route exact path="/" render={() => <Smurfs smurfs= {this.state.smurfs}/>} />
                   <Route path="/smurf-form" component={SmurfForm} />
       </div>
       </div>

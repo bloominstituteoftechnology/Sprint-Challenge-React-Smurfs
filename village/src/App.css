@@ -1,3 +1,13 @@
 .App {
   text-align: center;
 }
+
+.links {
+display: flex;
+width: 30%;
+justify-content: space-evenly;
+margin-bottom: 50px;
+margin-top: 10px;
+
+}
+
