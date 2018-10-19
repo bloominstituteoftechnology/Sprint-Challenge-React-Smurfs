@@ -4,7 +4,7 @@ import './App.css';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
 
-import axios from 'axios';
+import Axios from 'axios';
 
 class App extends Component {
   constructor(props) {
@@ -19,11 +19,11 @@ class App extends Component {
     };
   }
   componentDidMount() {
-    axios
+    Axios
       .get('http://localhost:3333/smurfs')
       .then(response => {
         this.setState({
-          smurfs: response.data
+          smurfs: response.data,
         })
       })
       .catch(error => {
