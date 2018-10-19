@@ -20,12 +20,15 @@ class SmurfForm extends Component {
       height: this.state.height
     };
     axios
-      .post("htpp://localhost:3333/smurfs", newSmurfObj)
-      .then(() => this.setState({
-        name: '',
-        age: '',
-        height: ''
-      }))
+      .post("http://localhost:3333/smurfs", newSmurfObj)
+      .then(() => {
+        this.setState({
+          name: '',
+          age: '',
+          height: ''
+         });
+         this.props.refresh();
+      })
       .catch(error => console.log(error));
   }
 
