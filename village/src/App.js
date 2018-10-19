@@ -5,6 +5,7 @@ import {Route} from 'react-router-dom';
 import './App.css';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
+import SmurfNav from './components/SmurfNav.js';
 
 class App extends Component {
   constructor(props) {
@@ -26,6 +27,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <SmurfNav />
         <Route exact path="/" render={props => (
           <Smurfs smurfs={this.state.smurfs} />
         )} />
