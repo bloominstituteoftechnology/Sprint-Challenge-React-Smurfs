@@ -42,3 +42,30 @@ nav a {
 nav a.active {
   border-bottom: 1px solid #efefef;
 }
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+form input {
+  width: 240px;
+  height: 30px;
+  margin: 5px 0;
+  border-radius: 5px;
+  padding-left: 10px;
+  font-size: 18px;
+}
+
+button {
+  height: 40px;
+  width: 200px;
+  color: #444444;
+  background: seashell;
+  border-radius: 10px;
+  font-size: 20px;
+  border: none;
+  cursor: pointer;
+}

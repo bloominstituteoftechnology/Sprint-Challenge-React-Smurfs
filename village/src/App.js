@@ -21,6 +21,14 @@ class App extends Component {
       .catch(error => console.log(error));
   }
 
+  handleDelete = id => {
+    axios
+    .delete(`http://localhost:3333/smurfs/${id}`)
+    .then(response => this.setState({ friends: response.data }))
+    .catch(error => console.log(error));
+    window.location.reload();
+  }
+
   // add any needed code to ensure that the smurfs collection exists on state and it has data coming from the server
   // Notice what your map function is looping over and returning inside of Smurfs.
   // You'll need to make sure you have the right properties on state and pass them down to props.
@@ -40,7 +48,7 @@ class App extends Component {
           <Route path="/form" component={SmurfForm} />
           <Route
             path="/smurfs"
-            render={props => <Smurfs smurfs={this.state.smurfs} {...props} />}
+            render={props => <Smurfs smurfs={this.state.smurfs} handleDelete={this.handleDelete} {...props} />}
           />
         </div>
       </div>
