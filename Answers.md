@@ -22,3 +22,7 @@ Routing, in general, describes the movement between different types of major int
 ## Question2
 
 HTTP === 'Hyper Text Transfer Protocol" and it outlines how information is encoded and structured on the web and the actions that servers and browsers take in response to the receiving of that information.
+
+## Question3
+
+CRUD stands for CREATE/READ/UPDATE/DELETE and describes the four necessary functions of a sustained database, API, or informational-based collection that interacts with elements that access data from it.  Essentially and literally, one should be able to CREATE new data and add it to the database, access any data in the database at any point of time or READ the data, change existing data or UPDATE it at any point in time, and finally remove or DELETE data from the database, if desired.
