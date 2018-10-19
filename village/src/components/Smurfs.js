@@ -17,11 +17,10 @@ class Smurfs extends Component {
                 height={smurf.height}
                 key={smurf.id}
                 deleteSmurf={this.props.deleteSmurf}
-                // isEditing={this.props.isEditing}
-                // editedSmurf={this.props.editedSmurf}
-                // updateSmurf={this.props.updateSmurf}
-                // toggleEditing={this.props.toggleEditing}
-                // editsChangeHandler={this.props.editsChangeHandler}
+                editedSmurf={this.props.editedSmurf}
+                updateSmurf={this.props.updateSmurf}
+                editComplete={this.props.editComplete}
+                editsChangeHandler={this.props.editsChangeHandler}
               />
             );
           })}
