@@ -15,17 +15,20 @@ class SmurfForm extends Component {
 
   addSmurf = event => {
     event.preventDefault();
-    // add code to create the smurf using the api
-
+    
+    // defined a new body
     const newSmurfFriend = {
       name: this.state.name,
       age: this.state.age,
       height: this.state.height
     }
+
+    //posts new data to the specified url using .post
     axios     
     .post('http://localhost:3333/smurfs',  
     newSmurfFriend )
 
+    //it then runs sets the state to the new data via the addNewSmurf function (defined in app.js)
     .then(response => {
       console.log('ADDING NEW SMURF', response);
       this.props.addNewSmurf(response.data)
@@ -74,6 +77,8 @@ class SmurfForm extends Component {
             name="height"
           />
           <button type="submit">Add to the village</button>
+
+          {/* added a description and a link back to the home page so the user can see their new smurf  */}
           <p>Return to the <NavLink to ='/'>homepage </NavLink> to see updated list</p>
         </form>
       </div>

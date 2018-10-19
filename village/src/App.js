@@ -13,6 +13,8 @@ class App extends Component {
       smurfs: [],
     };
   }
+
+  // getting the data from that url, then setting the state to the data from the url
   componentDidMount() {
     axios
       .get('http://localhost:3333/smurfs')
@@ -25,23 +27,24 @@ class App extends Component {
       });
   }
 
+  //function is used for adding (posting) new smurf to village list. It sets the state to the new data that was in the form. See SmurfForm...
   addNewSmurf = data => {
     this.setState({smurfs:data})
   }
 
 
-  // add any needed code to ensure that the smurfs collection exists on state and it has data coming from the server
-  // Notice what your map function is looping over and returning inside of Smurfs.
-  // You'll need to make sure you have the right properties on state and pass them down to props.
+
   render() {
     return (
       <div className="App">
-
+      
+      {/* Set links to their respective urls */}
         <nav className = 'navBar'>
           <NavLink className = 'navLink'to ='/'>Home</NavLink>
           <NavLink className = 'navLink' to= '/addSmurf'>Add Smurf</NavLink>
         </nav>
-
+      
+      {/* defining what to display for each path */}
     <Route 
         exact path='/' 
         render=
