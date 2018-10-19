@@ -24,6 +24,8 @@ class SmurfForm extends Component {
     .then(response => {
       this.setState({ smurfs: response.data });
       this.props.history.push('/');
+      window.location.reload();
+      
     })
     .catch(error => console.log(error));
 
@@ -47,18 +49,22 @@ class SmurfForm extends Component {
             placeholder="name"
             value={this.state.name}
             name="name"
+            required
           />
           <input
             onChange={this.handleInputChange}
             placeholder="age"
             value={this.state.age}
             name="age"
+            type='number'
+            required
           />
           <input
             onChange={this.handleInputChange}
             placeholder="height"
             value={this.state.height}
             name="height"
+            required
           />
           <button onClick={this.addSmurf} type="submit">Add to the village</button>
         </form>
