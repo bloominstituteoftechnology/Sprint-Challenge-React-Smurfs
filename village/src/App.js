@@ -18,7 +18,7 @@ class App extends Component {
       .catch(error => console.log(error));
   }
   setNewSmurfState(smurfData) {
-    this.setState({ smurfs: smurtData });
+    this.setState({ smurfs: smurfData });
   }
   render() {
     return (
