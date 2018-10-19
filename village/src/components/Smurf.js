@@ -17,30 +17,8 @@ class Smurf extends React.Component {
   }
 
   handleDelete = props => {
-    this.props.deleteSmurf(this.props.id);
+    this.props.deleteSmurf(this.props.smurf.id);
   }
-
-  toggleEdit = () => {
-    this.setState(prevState => ({
-      editing: !prevState.editing,
-    }))
-  }
-
-
-  // handleEdit = () => {
-  //   const smurf = {
-  //     id: this.state.id,
-  //     name: this..name,
-  //     age: this.props.age,
-  //     height: this.props.height,
-  //   }
-  //   this.props.editSmurf(smurf);
-  //   this.setState({
-  //     editing: false,
-  //   });
-  //
-  //
-  // }
 
 
   render(){

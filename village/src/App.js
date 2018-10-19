@@ -60,8 +60,7 @@ class App extends Component {
     }
 
 
-    deleteSmurf = (event, id) => {
-      event.preventDefault();
+    deleteSmurf =  id => {
       axios
         .delete(`${this.url}/${id}`)
         .then(response => {
@@ -116,7 +115,8 @@ class App extends Component {
         <Route exact path='/' component={Welcome} />
         <Route exact path='/village' render={(props) => (
           <Smurfs {...props} smurfs={this.state.smurfs}
-          setUpForm={this.setUpForm} />)} />
+          setUpForm={this.setUpForm}
+        deleteSmurf={this.deleteSmurf} />)} />
         <Route path='/smurf-form' render={(props) => (
           <SmurfForm {...props}
             smurf={this.state.smurf} makeSmurf={this.makeSmurf} handleInputChange={this.handleInputChange}
