@@ -23,6 +23,8 @@ class SmurfForm extends Component {
         age: '',
         height: ''
       });
+    } else {
+      alert('Invalid input');
     }
   }
 
