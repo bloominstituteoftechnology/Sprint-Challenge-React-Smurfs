@@ -3,3 +3,17 @@
     margin-left: 50px;
     margin-bottom: 50px;
 }
+
+.Smurf {
+    display: flex;
+    flex-flow: column nowrap;
+    width: 100%;
+}
+
+.divbtn {
+    cursor: pointer;
+    margin: 20px auto;
+    width: 20%;
+    
+    
+}
