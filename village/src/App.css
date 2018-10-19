@@ -1,3 +1,85 @@
 .App {
   text-align: center;
+  background: #288ed7;
+  color: white;
+  text-align: center;
+  margin: 0;
+}
+
+.header {
+  border: 1px solid black;
+  width: 100%;
+  background: url('https://ibin.co/w800/4JbdZFwuH3wR.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 300px;
+  background-position: top center;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.header h1 {
+  align-self: flex-end;
+  width: 100%;
+  text-align: right;
+  padding: 0 50px;
+  font-size: 90px;
+}
+
+.header nav {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  font-size: 20px;
+  background: red;
+}
+.header a {
+  color: white;
+  margin: 20px;
+}
+
+.Smurfs {
+  text-align: center;
+  margin: 0;
+}
+
+.Smurf{
+  margin: 0;
+  margin: 20px auto;
+  width: 300px;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  border: 3px solid white;
+  justify-content: space-between;
+}
+
+.Smurf .buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.Smurf .button {
+  background: red;
+  padding: 10px;
+  color: white;
+  border: 1px solid white;
+  cursor: pointer;
+  border-radius: 3px;
+}
+
+.Smurf .icon {
+  border: 3px solid white;
+  border-radius: 50%;
+  width: 90px;
+  height: 90px;
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+}
+
+.Smurf .icon .smurf{
+  margin: 0;
 }

@@ -1,4 +1,5 @@
 import React from 'react';
+import SmurfIcon from './SmurfIcon';
 
 class Smurf extends React.Component {
   constructor(props){
@@ -31,11 +32,16 @@ class Smurf extends React.Component {
   render(){
     return (
       <div className="Smurf">
-        <div className='button delete' onClick={this.handleDelete}>
-          Delete Smurf
+        <div className='buttons'>
+          <div className='button delete' onClick={this.handleDelete}>
+            Delete Smurf
+          </div>
+          <div className='button edit' onClick={this.toggleEdit}>
+            Edit Smurf
+          </div>
         </div>
-        <div className='button edit' onClick={this.toggleEdit}>
-          Edit Smurf
+        <div className='icon'>
+          <SmurfIcon />
         </div>
         <h3>{this.state.name}</h3>
         <strong>{this.state.height} tall</strong>
