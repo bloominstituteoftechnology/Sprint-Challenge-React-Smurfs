@@ -1,3 +1,18 @@
 .App {
   text-align: center;
 }
+.link{
+  border:1px solid black;
+  padding:5px;
+  text-decoration: none;
+}
+ul{
+  display: flex;
+  flex-wrap:wrap;
+  padding: 0;
+}
+.Smurf{
+  border:1px solid black;
+  margin:5px; 
+  width:300px;
+}

@@ -52,8 +52,8 @@ class App extends Component {
     return (
       <div className="App">
         <div className="navbar">
-          <NavLink to="/">Smurfs</NavLink>
-          <NavLink to="/smurfs-form">Create Smurf</NavLink>
+          <NavLink activeClassName="link" to="/">Smurfs</NavLink>
+          <NavLink activeClassName="link" to="/smurfs-form">Create Smurf</NavLink>
         </div>
         <Route 
           exact path="/"

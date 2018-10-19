@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import Smurf from './Smurf';
 
+
 class Smurfs extends Component {
   render() {
     return (
