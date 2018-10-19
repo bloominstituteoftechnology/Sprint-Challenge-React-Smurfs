@@ -16,6 +16,12 @@ class App extends Component {
         age: "",
         height: ""
       }
+      // isEditing: false,
+      // editedSmurf: {
+      //   name: "",
+      //   age: "",
+      //   height: ""
+      // }
     };
   }
   // add any needed code to ensure that the smurfs collection exists on state and it has data coming from the server
@@ -39,6 +45,15 @@ class App extends Component {
       }
     });
   };
+
+  // editsChangeHandler = (key, value) => {
+  //   this.setState({
+  //     editedSmurf: {
+  //       ...this.state.editedSmurf,
+  //       [key]: value
+  //     }
+  //   });
+  // };
 
   addSmurf = event => {
     event.preventDefault();
@@ -84,6 +99,33 @@ class App extends Component {
       );
   };
 
+  // //writing updateSmurf basic function now, will pass down once I figure out how I want it to be displayed to the user
+  // updateSmurf = (event, id) => {
+  //   event.preventDefault();
+  //   let smurf = this.state.editedSmurf;
+  //   if (smurf.name !== "" && smurf.age !== "" && smurf.height !== "") {
+  //     axios
+  //       .put(`http://localhost:3333/${id}`, this.state.updatedSmurf)
+  //       .then(res => {
+  //         this.setState({ smurfs: res.data });
+  //       })
+  //       .catch(err => {
+  //         console.log(
+  //           err,
+  //           "This smurf is immutable and cannot be changed. Or you just smurfed up somehow."
+  //         );
+  //       });
+  //     this.toggleEditing(event);
+  //   } else {
+  //     alert("Finish entering your smurfing edits, smurfbag");
+  //   }
+  // };
+
+  // toggleEditing = event => {
+  //   event.preventDefault();
+  //   this.setState({ isEditing: !this.state.isEditing });
+  // };
+
   render() {
     if (!this.state.smurfs.length) {
       return <h1>Retrieving the smurfing data, hold on...</h1>;
@@ -119,6 +161,11 @@ class App extends Component {
                 {...ownProps}
                 smurfs={this.state.smurfs}
                 deleteSmurf={this.deleteSmurf}
+                // isEditing={this.isEditing}
+                // editedSmurf={this.state.editedSmurf}
+                // updateSmurf={this.updateSmurf}
+                // toggleEditing={this.toggleEditing}
+                // editsChangeHandler={this.editsChangeHandler}
               />
             )}
           />
