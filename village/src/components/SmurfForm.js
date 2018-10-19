@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {Route, NavLink } from "react-router-dom";
 import axios from 'axios';
 
 import './style.css';
@@ -42,7 +43,7 @@ class SmurfForm extends Component {
   render() {
     return (
       <div className="SmurfForm">
-        <form onSubmit={this.addSmurf}>
+        <form onSubmit={this.addSmurf} className = "form-div">
           <input
             onChange={this.handleInputChange}
             placeholder="name"
