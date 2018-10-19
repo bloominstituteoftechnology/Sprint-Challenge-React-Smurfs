@@ -13,7 +13,8 @@ class App extends Component {
       smurf: {
         name: "",
         age: "",
-        height: ""
+        height: "",
+        imgUrl: ""
       }
     };
   }
@@ -39,6 +40,7 @@ class App extends Component {
         name: "",
         age: "",
         height: "",
+        imgUrl: ""
       }
     })
     );
@@ -66,6 +68,7 @@ class App extends Component {
             Birth a Smurf
           </NavLink>
         </header>
+        <div className="border"/>
 
         <Route
           path="/smurf-form"

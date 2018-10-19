@@ -16,29 +16,37 @@ class SmurfForm extends Component {
 
   render() {
     return (
-      <div className="SmurfForm">
-        <form onSubmit={this.props.addSmurf}>
+      <div>
+        <form onSubmit={this.props.addSmurf} className="smurfForm">
+        <h1>New Smurf!</h1>
+        <div className="titleBorder"/>
           <input
             onChange={this.props.handleInputChange}
-            placeholder="name"
+            placeholder="Smurfy Name"
             value={this.props.smurf.name}
             name="name"
           />
           <input
             onChange={this.props.handleInputChange}
-            placeholder="age"
+            placeholder="Smurfy Age"
             value={this.props.smurf.age}
             name="age"
           />
           <input
             onChange={this.props.handleInputChange}
-            placeholder="height"
+            placeholder="Smurfy Height"
             value={this.props.smurf.height}
             name="height"
           />
+          <input
+            onChange={this.props.handleInputChange}
+            placeholder="Smurfy Image"
+            value={this.props.smurf.imgUrl}
+            name="imgUrl"
+          />
           <button 
           type="submit" 
-          onClick={(event) => {this.props.addSmurf(event); this.props.history.push('/')} }>Make magic happen!</button>
+          onClick={(event) => {this.props.addSmurf(event); this.props.history.push('/')}} className="submitButton" >Make magic happen!</button>
         </form>
       </div>
     );
