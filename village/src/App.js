@@ -29,11 +29,19 @@ class App extends Component {
     this.setState({ smurfs: data });
   }
 
+  deleteSmurf = (ev, id) => {
+    ev.preventDefault();
+    axios
+      .delete(`http://localhost:3333/smurfs/${id}`)
+      .then(response => this.setState({ smurfs: response.data }))
+      .catch(error => console.log(error));
+  }
+
   render() {
     return (
       <div className="App">
         <NavBar />
-        <Route exact path="/" render={(props) => <Smurfs {...props} smurfs={this.state.smurfs} />} />
+        <Route exact path="/" render={(props) => <Smurfs {...props} smurfs={this.state.smurfs} deleteSmurf={this.deleteSmurf} />} />
         <Route path="/smurf-form" render={(props) => <SmurfForm {...props} refresh={this.handleSetData} />} />
       </div>
     );
