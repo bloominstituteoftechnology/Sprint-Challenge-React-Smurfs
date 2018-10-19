@@ -23,6 +23,6 @@
     border-right: none;
 }
 
-.smurf-nav a .selected {
+.smurf-nav a.selected {
     text-decoration: underline;
 }

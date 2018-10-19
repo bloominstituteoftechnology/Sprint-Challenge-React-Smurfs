@@ -5,6 +5,7 @@ import { Route } from 'react-router-dom';
 import './App.css';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs/Smurfs';
+import Smurf from './components/Smurf';
 import SmurfNav from './components/SmurfNav/SmurfNav';
 import EnterVillage from './components/EnterVillage/EnterVillage';
 
@@ -37,10 +38,9 @@ class App extends Component {
       <div className="App">
       <SmurfNav />
       <Route exact path="/" component={ EnterVillage } />
-      <Route path="/smurfs" render={props => <Smurfs {...props} smurfs={this.state.smurfs} />} />
+      <Route exact path="/smurfs" render={props => <Smurfs {...props} smurfs={this.state.smurfs} />} />
       <Route path="/smurf-form" render={props => <SmurfForm {...props} updateState={this.updateState} />} />
-        {/* <SmurfForm updateState={this.updateState} /> */}
-        {/* <Smurfs smurfs={this.state.smurfs} /> */}
+      <Route path="/smurfs/:id" component={ Smurf } /> {/* currently displays no individual smurf data, did not realize GET /smurf/:id is not in server */}
       </div>
     );
   }
