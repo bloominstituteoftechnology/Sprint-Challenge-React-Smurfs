@@ -36,15 +36,16 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-
-        <NavLink exact to ="/"
-          className="link list-link"
-          activeClassName="activeNavButton">Smurf List
+        <div className="nav">
+          <NavLink exact to ="/"
+            className="link list-link"
+            activeClassName="activeNavButton">Smurf List
+            </NavLink>
+          <NavLink  to="smurf-form"
+            className="link form-link"
+            activeClassName="activeNavButton">Add Smurf
           </NavLink>
-        <NavLink  to="smurf-form"
-          className="link form-link"
-          activeClassName="activeNavButton">Add Smurf
-        </NavLink>
+        </div>
 
         <Route path="/smurf-form"
           render = {props =>
