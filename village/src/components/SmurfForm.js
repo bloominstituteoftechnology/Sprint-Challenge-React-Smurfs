@@ -6,9 +6,8 @@ class SmurfForm extends Component {
   constructor(props) {
     super(props);
     this.serverURL = "http://localhost:3333/smurfs";
-
+    
     this.state = {
-      smurfs : [],
       name: '',
       age: '',
       height: ''
@@ -23,19 +22,16 @@ class SmurfForm extends Component {
       age: this.state.age,
       height: this.state.height
     })
-    .then(response => console.log(response.data))
-      // this.setState({ smurfs: response.data }))
+    .then(response => this.props.updateSmurfs(response.data))
     .catch(error => console.log(error));
-    
-console.log(this.state.smurfs);
+ 
     this.setState({
-      smurfs:[],
       name: '',
       age: '',
       height: ''
     });
 
-    this.props.updateSmurfs(this.state.smurfs);
+   
   }
 
   handleInputChange = e => {

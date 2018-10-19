@@ -12,6 +12,7 @@ class App extends Component {
       smurfs: [],
     };
    this.serverURL = "http://localhost:3333/smurfs";
+   this.updateSmurfs = this.updateSmurfs.bind(this);
   }
 
   componentDidMount(){
@@ -25,7 +26,7 @@ class App extends Component {
   // You'll need to make sure you have the right properties on state and pass them down to props.
 
   updateSmurfs(updatedSmurfs){
-    this.setState({smurfs: updatedSmurfs});
+     this.setState({ smurfs: updatedSmurfs });
   }
 
 
