@@ -15,6 +15,7 @@ class App extends Component {
     };
    this.serverURL = "http://localhost:3333/smurfs";
    this.updateSmurfs = this.updateSmurfs.bind(this);
+   this.deleteSmurf = this.deleteSmurf.bind(this);
   }
 
   componentDidMount(){
@@ -31,6 +32,13 @@ class App extends Component {
      this.setState({ smurfs: updatedSmurfs });
   }
 
+  deleteSmurf(event, id){
+    event.preventDefault();
+
+    axios.delete(`${this.serverURL}/${id}`)
+      .then(response => this.setState({ smurfs: response.data }))
+      .catch(error => console.log(error));
+  }
 
 
   render() {
@@ -41,7 +49,8 @@ class App extends Component {
             <NavLink to="/smurf-form" >Add smurf</NavLink>
         </nav>
 
-        <Route exact path="/" render={(props) =>( <Smurfs {...props} smurfs={this.state.smurfs} />)}/>
+        <Route exact path="/" render={(props) =>( <Smurfs {...props} smurfs={this.state.smurfs} 
+                          deleteSmurf = {this.deleteSmurf}/>)}/>
         <Route path="/smurf-form" render={(props) =>(<SmurfForm {...props} updateSmurfs={this.updateSmurfs}/> )}/>
   
       </div>

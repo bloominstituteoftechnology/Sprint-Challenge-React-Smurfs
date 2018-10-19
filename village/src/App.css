@@ -1,3 +1,40 @@
-.App {
+
+body {
+  background: #eee;
+}
+* {
+  box-sizing: border-box;
+}
+
+.App{
+  max-width : 1000px;
+  margin : 0 auto;
+  display : flex;
   text-align: center;
+}
+
+.smurfList{
+  display:flex;
+  width:100%;
+  flex-wrap: wrap;
+}
+.smurf{
+  width : 30%;
+  background : white;
+  margin : 5px;
+}
+
+.name{
+  display:flex;
+
+}
+
+.name h3{
+  width : 90%;
+}
+
+.name p{
+  background : purple;
+  color : white;
+  padding : 2px;
 }
