@@ -7,12 +7,25 @@ body {
 }
 
 .App{
+  width : 800px;
   max-width : 1000px;
   margin : 0 auto;
   display : flex;
   text-align: center;
+  display : flex;
+  flex-direction : column;
 }
 
+nav {
+  margin : 20px;
+}
+nav * {
+  margin : 15px;
+  font-size: 1.2rem; 
+}
+.smurfs{
+  width : 100%;
+}
 .smurfList{
   display:flex;
   width:100%;

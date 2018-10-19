@@ -30,6 +30,8 @@ class App extends Component {
 
   updateSmurfs(updatedSmurfs){
      this.setState({ smurfs: updatedSmurfs });
+     this.props.history.push("/");
+
   }
 
   deleteSmurf(event, id){
@@ -54,7 +56,7 @@ class App extends Component {
 
         <Route path="/smurf/:id" render={(props) =>( <Smurfs {...props} smurfs={this.state.smurfs} 
                           deleteSmurf = {this.deleteSmurf}/>)}/>
-                          
+
         <Route path="/smurf-form" render={(props) =>(<SmurfForm {...props} updateSmurfs={this.updateSmurfs}/> )}/>
   
       </div>
