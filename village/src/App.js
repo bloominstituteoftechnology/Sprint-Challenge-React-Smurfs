@@ -11,7 +11,10 @@ class App extends Component {
     super(props);
     this.state = {
       smurfs: [],
-      url: 'http://localhost:3333'
+      url: 'http://localhost:3333',
+      name: '',
+      age: '',
+      height: ''
     };
   }
   // add any needed code to ensure that the smurfs collection exists on state and it has data coming from the server
@@ -27,11 +30,37 @@ class App extends Component {
     }
   }
 
+  handleInputChange = e => {
+    this.setState({ [e.target.name]: e.target.value });
+  };
+
+  // UPDATE SMURF LIST
   updateSmurfs = smurfs => {
     this.setState({ smurfs });
   };
 
-  // DELETE SMURFS
+  // ADD NEW SMURF TO LIST
+  addSmurf = event => {
+    event.preventDefault();
+    const { name, age, height } = this.state;
+    // add code to create the smurf using the api
+    axios
+      .post(`http://localhost:3333/smurfs`, {
+        name,
+        age,
+        height
+      })
+      .then(res => this.updateSmurfs(res.data))
+      .catch(err => console.log(err));
+
+    this.setState({
+      name: '',
+      age: '',
+      height: ''
+    });
+  };
+
+  // DELETE SMURF
   deleteSmurf = id => {
     const { url } = this.state;
     axios
@@ -40,7 +69,11 @@ class App extends Component {
       .catch(err => console.log(err));
   };
 
+  // UPDATE SINGLE SMURF
+  updateSmurf = e => {};
+
   render() {
+    const { name, age, height } = this.state;
     return (
       <div className="App">
         <nav className="nav">
@@ -52,7 +85,15 @@ class App extends Component {
         <Route
           path="/smurf-form"
           render={props => (
-            <SmurfForm updateSmurfs={this.updateSmurfs} {...props} />
+            <SmurfForm
+              name={name}
+              age={age}
+              height={height}
+              addSmurf={this.addSmurf}
+              handleInputChange={this.handleInputChange}
+              updateSmurfs={this.updateSmurfs}
+              {...props}
+            />
           )}
         />
         <Route
