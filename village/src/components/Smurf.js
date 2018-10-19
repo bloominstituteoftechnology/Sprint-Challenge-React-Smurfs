@@ -1,11 +1,13 @@
 import React from 'react';
 
+import './style.css';
+
 const Smurf = props => {
   return (
     <div className="Smurf">
-      <h3>{props.name}</h3>
-      <strong>{props.height} tall</strong>
-      <p>{props.age} smurf years old</p>
+      <h3>Name :  {props.name}</h3>
+      <strong>Height :  {props.height} tall</strong>
+      <p>Age : {props.age} smurf years old</p>
     </div>
   );
 };

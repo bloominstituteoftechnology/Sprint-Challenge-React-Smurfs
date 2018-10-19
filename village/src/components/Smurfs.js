@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import './style.css';
+
 import Smurf from './Smurf';
 
 class Smurfs extends Component {
