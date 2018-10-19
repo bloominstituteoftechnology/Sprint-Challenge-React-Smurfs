@@ -1,3 +1,49 @@
 .App {
   text-align: center;
 }
+
+nav {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 20px;
+  background: #88CCFF;
+}
+
+nav a {
+  text-decoration: none;
+  color: white;
+}
+
+.Smurfs {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.Smurf{
+  background: #88CCFF;
+  color: white;
+  border: 0.5px solid black;
+  border-radius: 5px;
+  padding: 20px;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+  width: 200px;
+  height: 100px;
+  position: relative;
+}
+
+.delete {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+}
+
+.delete:hover {
+  color: crimson;
+}
