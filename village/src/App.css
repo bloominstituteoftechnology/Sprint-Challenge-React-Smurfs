@@ -7,3 +7,10 @@ h1{
   font-size : 50px;
   font-family : fantasy;
 }
+
+.nav-links {
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom : 20px;
+  font-weight: bold;
+}

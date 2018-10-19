@@ -33,7 +33,7 @@ img{
 input {
     margin : 10px;
     padding : 8px;
-    width : 300px;
+    width : 350px;
     font-size : 16px;
  }
 
@@ -57,4 +57,9 @@ input {
         margin-left : 920px;
         width : 100px;
         margin-bottom : 20px;     
+  }
+
+  .close-div {
+    margin-left : 230px;
+    cursor: pointer;
   }

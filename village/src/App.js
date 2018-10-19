@@ -4,6 +4,7 @@ import {Route, NavLink } from "react-router-dom";
 import './App.css';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
+import Smurf from './components/Smurf';
 
 class App extends Component {
   constructor(props) {
@@ -27,14 +28,23 @@ class App extends Component {
       this.setState({ smurfs : smurf })
   }
 
-
   render() {
     return (
       <div className="App">
+        
+        <h1>Smurf Village</h1>
+        <div className ="nav-links">
+            <div>
+                <NavLink exact to ="/" activeClassName = "somethingElse"> Smurf List</NavLink>
+            </div>
+            <div>
+                <NavLink to = "/add-smurf"> Add Smurf </NavLink>
+            </div>
+        </div>
+        
         {/* <SmurfForm 
               updateSmurfs = {this.updateSmurfs}
         /> */}
-        <h1>Smurf Village</h1>
         <Route 
             exact path='/add-smurf' 
             render = { props => 
@@ -42,12 +52,13 @@ class App extends Component {
             }
         />
 
-        {/* <Smurfs smurfs = {this.state.smurfs} /> */}
-          
+        {/* <Smurfs smurfs = {this.state.smurfs} /> */}          
         <Route 
             exact path='/' 
             render = { props => 
-                <Smurfs {...props} smurfs = {this.state.smurfs} />
+                <Smurfs {...props} smurfs = {this.state.smurfs} 
+                                   deleteHandler = {this.deleteHandler}
+                />
             }
         />
 

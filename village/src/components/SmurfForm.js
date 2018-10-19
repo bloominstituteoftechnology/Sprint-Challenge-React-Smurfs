@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Link } from "react-router-dom";
+
 import axios from 'axios';
 
 import './style.css';
@@ -63,9 +63,8 @@ class SmurfForm extends Component {
             name="height"
           />
 
-        { /* <Link to = "/"> */} 
-                <button type="submit">Add to the village</button> {/*Button link to Home page to see added Smurf */}
-           {/*</Link> */}
+          <button type="submit">Add to the village</button> {/*Button link to Home page to see added Smurf */}
+         
         </form>
       </div>
     );
