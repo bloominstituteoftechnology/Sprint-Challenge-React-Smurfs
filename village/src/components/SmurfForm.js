@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import shortid from 'shortid';
 
 class SmurfForm extends Component {
   constructor(props) {
@@ -12,13 +11,12 @@ class SmurfForm extends Component {
     e.preventDefault();
     axios
       .post(this.props.URL, {
-        id: shortid.generate(),
         name: this.state.name,
-        age: this.state.age,
+        age: parseInt(this.state.age, 10),
         height: this.state.height
       })
-      .then(res => {
-        this.props.updateSmurfs(res.data);
+      .then(() => {
+        this.props.updateSmurfs(this.props.URL);
         this.setState({ name: '', age: '', height: '' });
       })
       .catch(err => console.log(err));
@@ -38,7 +36,6 @@ class SmurfForm extends Component {
             placeholder="name"
             value={this.state.name}
             name="name"
-            required
           />
           <input
             type="number"
@@ -46,15 +43,13 @@ class SmurfForm extends Component {
             placeholder="age"
             value={this.state.age}
             name="age"
-            required
           />
           <input
-            type="number"
+            type="text"
             onChange={this.handleInputChange}
             placeholder="height"
             value={this.state.height}
             name="height"
-            required
           />
           <button type="submit">Add to the village</button>
         </form>
