@@ -23,7 +23,9 @@ class SmurfForm extends Component {
       .then(response => console.log(response))
       .catch(error => console.log(error));
     this.props.history.push("/");
-    window.location.reload(); // didn't seem to update until refresh?
+
+    // This is here for an auto-refresh upon submitting a Smurf
+    // window.location.reload();
 
     this.setState({
       name: "",
@@ -42,27 +44,32 @@ class SmurfForm extends Component {
 
   render() {
     return (
-      <div className="SmurfForm">
-        <form onSubmit={this.addSmurf}>
+      <div className="SmurfSubmit">
+        <form onSubmit={this.addSmurf} className="SmurfForm">
           <input
             onChange={this.handleInputChange}
             placeholder="name"
             value={this.state.name}
             name="name"
+            className="input"
           />
           <input
             onChange={this.handleInputChange}
             placeholder="age"
             value={this.state.age}
             name="age"
+            className="input"
           />
           <input
             onChange={this.handleInputChange}
             placeholder="height"
             value={this.state.height}
             name="height"
+            className="input"
           />
-          <button type="submit">Add to the village</button>
+          <button type="submit" class="btn">
+            Add Smurf
+          </button>
         </form>
       </div>
     );

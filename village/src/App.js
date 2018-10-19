@@ -29,8 +29,10 @@ class App extends Component {
       <div className="App">
         <Nav />
 
-        <h1 className="headline">S * M * U * R * F *</h1>
-
+        <img
+          src="https://www.visitflanders.com/en/binaries/de-smurfen_crop1400x560_tcm13-7763.jpg"
+          alt="Look at all these dang Smurfs"
+        />
         <Route
           exact
           path="/"
