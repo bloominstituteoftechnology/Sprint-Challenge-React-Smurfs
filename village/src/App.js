@@ -22,18 +22,14 @@ class App extends Component {
       .catch(err => console.log(err));
   }
 
-  handleChange = () => {
-    axios 
-      .post('http://localhost:3333/smurfs')
-      .then(res => {
-        this.setState({ smurfs: res.data });
-      })
-      .catch(err => console.log(err));
+  handleChange = (newSmurfs) => {
+        this.setState({ smurfs: newSmurfs });
+      
   }
 
-  handleDelete=(event, beingDeleted)=>{
+  handleDelete=(event, id)=>{
     event.preventDefault();
-    axios.delete(`http://localhost:3333/smurfs/${beingDeleted.id}`, beingDeleted)
+    axios.delete(`http://localhost:3333/smurfs/${id}`, id)
               .then(response => {
                      this.setState({ smurfs: [...response.data]
                                   });
