@@ -15,6 +15,11 @@ class App extends Component {
     };
   }
 
+  // add any needed code to ensure that the smurfs collection exists on state and it has data coming from the server
+  // Notice what your map function is looping over and returning inside of Smurfs.
+  // You'll need to make sure you have the right properties on state and pass them down to props.
+
+  // GET data from the server and putting it on state
   componentDidMount() {
     axios.get('http://localhost:3333/smurfs')
          .then(res => {
@@ -25,6 +30,7 @@ class App extends Component {
          .catch(err => console.log(err))
   }
 
+  // getting rid of the need to refresh the page when navigating back from the form.
   componentDidUpdate() {
     axios.get('http://localhost:3333/smurfs')
     .then(res => {
@@ -35,8 +41,8 @@ class App extends Component {
     .catch(err => console.log(err))
   }
 
+  // grabbing ID from selected smurf and sending DELETE to server. Then updating the data on state.
   deleteHandler = id => {
-    console.log(id);
     axios.delete(`http://localhost:3333/smurfs/${id}`)
     .then(res => {
       this.setState({
@@ -46,9 +52,6 @@ class App extends Component {
     .catch(err => console.log(err))
   }
 
-  // add any needed code to ensure that the smurfs collection exists on state and it has data coming from the server
-  // Notice what your map function is looping over and returning inside of Smurfs.
-  // You'll need to make sure you have the right properties on state and pass them down to props.
   render() {
     return (
       <div className="App">

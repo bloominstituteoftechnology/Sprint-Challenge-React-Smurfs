@@ -5,6 +5,8 @@ import Smurf from './Smurf';
 class Smurfs extends Component {
   constructor(props) {
     super(props);
+    this.state = {}
+    // I needed props, so made a constructor. But the useless constructor msg was annoying me so I put empty state here. 
   }
   render() {
     return (
@@ -20,7 +22,7 @@ class Smurfs extends Component {
                   height={smurf.height}
                   key={smurf.id}
                   deleteHandler={this.props.deleteHandler}
-                />
+                /> 
               );
             })}
           </ul>
