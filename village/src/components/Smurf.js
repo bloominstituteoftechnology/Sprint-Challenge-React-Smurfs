@@ -1,13 +1,24 @@
 import React from 'react';
 
-const Smurf = props => {
-  return (
-    <div className="Smurf">
-      <h3>{props.name}</h3>
-      <strong>{props.height} tall</strong>
-      <p>{props.age} smurf years old</p>
-    </div>
-  );
+class Smurf extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      name: this.props.name,
+      age: this.props.age,
+      height: this.props.height,
+    }
+  }
+
+  render(){
+    return (
+      <div className="Smurf">
+        <h3>{this.state.name}</h3>
+        <strong>{this.state.height} tall</strong>
+        <p>{this.state.age} smurf years old</p>
+      </div>
+    );
+  }  
 };
 
 Smurf.defaultProps = {
@@ -17,4 +28,3 @@ Smurf.defaultProps = {
 };
 
 export default Smurf;
-
