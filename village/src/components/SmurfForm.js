@@ -65,9 +65,9 @@ class SmurfForm extends Component {
       <Container>
         <StyledForm onSubmit={this.addSmurf}>
             <FormInputs>
-                <StyledInput type="text" name="name" placeholder="Name" value={this.state.name} onChange={this.handleInputChange} autoComplete="off"/>
-                <StyledInput type="number" name="age" placeholder="Age" value={this.state.age} onChange={this.handleInputChange} autoComplete="off"/>
-                <StyledInput type="text" name="height" placeholder="Height" value={this.state.height} onChange={this.handleInputChange} autoComplete="off"/>
+                <StyledInput type="text" name="name" placeholder="Name" value={this.state.name} onChange={this.handleInputChange} autoComplete="off" required/>
+                <StyledInput type="number" name="age" placeholder="Age" value={this.state.age} onChange={this.handleInputChange} autoComplete="off" required/>
+                <StyledInput type="text" name="height" placeholder="Height" value={this.state.height} onChange={this.handleInputChange} autoComplete="off" required/>
             </FormInputs>
             <FormButtons>
                 <StyledButton type="submit">Add to Village</StyledButton>

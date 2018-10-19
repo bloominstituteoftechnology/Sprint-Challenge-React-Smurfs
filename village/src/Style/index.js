@@ -24,7 +24,7 @@ export const StyledButton = styled.button`
     font-size: 16px;
     font-weight: 600;
     cursor: pointer;
-    color: rgba(56, 151, 240, 0.4);
+    color: #3897f0;
 `;
 
 export const Container = styled.div`

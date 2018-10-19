@@ -8,6 +8,10 @@ body {
   box-sizing: border-box;
 }
 
+a {
+  color: #000;
+}
+
 .active {
-  color: rgba(56,151,240, 0.4);
+  color: #2783FB;
 }
