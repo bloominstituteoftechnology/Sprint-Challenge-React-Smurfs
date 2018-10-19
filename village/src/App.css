@@ -45,12 +45,18 @@
   flex-direction: column;
   justify-content: space-evenly;
 }
+.SmurfForm input {
+border-radius: 5px;
+border: 1px solid lightgray;
+}
 
 .SmurfForm button {
-  border-radius: 3px;
+  border-radius: 5px;
+  color: white;
+  background-color: gray;
 }
 
 .SmurfForm button:hover {
-  background-color: lightgray;
+  background-color: #565656;
   cursor: pointer;
 }
