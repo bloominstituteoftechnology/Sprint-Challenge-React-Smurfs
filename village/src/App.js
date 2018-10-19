@@ -2,9 +2,11 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import axios from 'axios';
 
-import './App.css';
+import NavBar from './components/NavBar';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
+
+import './App.css';
 
 
 class App extends Component {
@@ -30,18 +32,12 @@ class App extends Component {
     this.getSmurfs();
   }
 
-  // componentDidUpdate(prevState){
-  //   if(prevState.match.params !== this.match.params){
-  //     this.getSmurfs();
-  //   }
-  // }
-
-
   render() {
     // const smurfs = this.state.smurfs;
     return (
       <Router>
         <div className="App">
+          <NavBar />
           <Route path='/SmurfForm' render={() => <SmurfForm />} />
           <Route exact path='/' render={() => <Smurfs smurfs={this.state.smurfs} />} />
           {/* <Smurfs smurfs={this.state.smurfs} /> */}

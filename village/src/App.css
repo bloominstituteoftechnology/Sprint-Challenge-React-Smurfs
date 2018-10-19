@@ -11,7 +11,25 @@
 }
 
 .SmurfForm input, .SmurfForm button {
-  padding: 5px;
+  padding: 8px;
+}
+
+.navbar {
+  height: 40px;
+  background: blue;
+  color: snow;
+  display: flex;
+
+}
+
+.navLink {
+  text-decoration: none;
+  color: snow;
+  padding: 10px;
+}
+
+.active {
+  background: royalblue;
 }
 
 .Smurfs {
