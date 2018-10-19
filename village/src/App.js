@@ -5,6 +5,7 @@ import { Route, NavLink } from 'react-router-dom';
 import './App.css';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
+import Smurf from './components/Smurf';
 
 const serverRoot = 'http://localhost:3333';
 
@@ -57,14 +58,7 @@ class App extends Component {
           <NavLink to='/'>Home</NavLink>
           <NavLink exact to='/smurf-form'>Add Smurf</NavLink>
         </div>
-        <Route 
-          path='/smurf-form' 
-          render={props => 
-            <SmurfForm 
-              addSmurf={this.addSmurf} 
-              {...props}/>
-            }
-        />
+
         <Route 
           exact 
           path='/' 
@@ -73,7 +67,37 @@ class App extends Component {
               smurfs={this.state.smurfs} 
               deleteSmurf={this.deleteSmurf} 
               {...props}/>
+          }
+        />
+        <Route 
+          path='/smurf-form' 
+          render={props => 
+            <SmurfForm 
+              addSmurf={this.addSmurf} 
+              {...props}/>
+          }
+        />
+
+        <Route 
+          path='/smurf/:id'
+          render={props => {
+              const smurfObj = this.state.smurfs.find(s => s.id == props.match.params.id);
+              console.log(smurfObj)
+              return (
+                <div className="modify-smurf" {...props}>
+                  <SmurfForm 
+                    id={props.match.params.id}
+                    addSmurf={this.modifySmurf}
+                  />
+                  <Smurf
+                  {...smurfObj}
+                  modifySmurf={this.modifySmurf}
+                  deleteSmurf={this.deleteSmurf}
+                  />
+                </div>
+              )
             }
+          }
         />
         
       </div>

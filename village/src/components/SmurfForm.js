@@ -4,6 +4,7 @@ class SmurfForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      id: (this.props.id ? this.props.id : null),
       name: '',
       age: '',
       height: ''
@@ -48,7 +49,8 @@ class SmurfForm extends Component {
             value={this.state.height}
             name="height"
           />
-          <button type="submit">Add to the village</button>
+          <button type="submit">
+            {!this.props.id ? 'Add to the village' : 'Modyfy Smurf'}</button>
         </form>
       </div>
     );
