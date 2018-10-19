@@ -46,10 +46,10 @@ class App extends Component {
       <div className="App">
         <nav>
           <div className="nav-links">
-            <NavLink  to='/smurf-form'>
+            <NavLink className="nav-link"  to='/smurf-form'>
               Add Smurf
             </NavLink>
-            <NavLink exact to='/'>
+            <NavLink className="nav-link" exact to='/'>
               Smurfs
             </NavLink>
           </div>
