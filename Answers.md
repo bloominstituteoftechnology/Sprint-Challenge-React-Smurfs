@@ -26,3 +26,12 @@ HTTP === 'Hyper Text Transfer Protocol" and it outlines how information is encod
 ## Question3
 
 CRUD stands for CREATE/READ/UPDATE/DELETE and describes the four necessary functions of a sustained database, API, or informational-based collection that interacts with elements that access data from it.  Essentially and literally, one should be able to CREATE new data and add it to the database, access any data in the database at any point of time or READ the data, change existing data or UPDATE it at any point in time, and finally remove or DELETE data from the database, if desired.
+
+
+## Question4
+
+Four HTTP methods that serve as examples of CRUD in action are as follows:
+    POST -> allows a user to "CREATE" (new data is stored in database)
+    GET -> allows a user to "READ" (existing data is retrieved from a database)
+    PUT -> allows a user to "UPDATE" (existing data is mutated or changed in the database)
+    DELETE -> allows a user to "DELETE" (data is removed from the database)
