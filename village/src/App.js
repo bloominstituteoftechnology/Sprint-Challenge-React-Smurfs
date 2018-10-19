@@ -21,6 +21,10 @@ class App extends Component {
       .then(smurfs => this.setState({ smurfs: smurfs.data }))
       .catch(error => console.log(error));
   }
+
+  componentDidUpdate(){
+    
+  }
   
   render() {
     return (
