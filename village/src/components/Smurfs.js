@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { TweenMax } from 'gsap/all';
 
 import Smurf from './Smurf';
 
