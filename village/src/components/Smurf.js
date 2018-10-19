@@ -4,7 +4,13 @@ const Smurf = props => {
   return (
     <div className="Smurf">
       <h3>
-        <i className="fas fa-edit" />
+        <i
+          className="fas fa-edit"
+          onClick={() => {
+            props.toggleUpdate(props.smurf);
+            props.history.push("/smurf-form");
+          }}
+        />
         {props.name}
         <i
           className="fas fa-trash-alt"

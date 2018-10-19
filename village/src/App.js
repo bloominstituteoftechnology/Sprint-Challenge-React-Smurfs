@@ -11,7 +11,10 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      smurfs: []
+      smurfs: [],
+      smurfId: "",
+      isEditing: false,
+      smurf: {}
     };
   }
   // add any needed code to ensure that the smurfs collection exists on state and it has data coming from the server
@@ -26,6 +29,12 @@ class App extends Component {
   addSmurftoSmurfs = smurfs => {
     this.setState({ smurfs: smurfs });
   };
+  toggleUpdate = smurf => {
+    this.setState({ isEditing: true, smurfId: smurf.id, smurf: smurf });
+  };
+  falseUpdate = () => {
+    this.setState({ isEditing: false, smurf: {} });
+  };
   deleteSmurf = id => {
     axios
       .delete(`http://localhost:3333/smurfs/${id}`)
@@ -35,11 +44,18 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <NavBar />
+        <NavBar isEditing={this.state.isEditing} />
         <Route
           path="/smurf-form"
           render={props => (
-            <SmurfForm {...props} addSmurftoSmurfs={this.addSmurftoSmurfs} />
+            <SmurfForm
+              {...props}
+              addSmurftoSmurfs={this.addSmurftoSmurfs}
+              isEditing={this.state.isEditing}
+              smurfId={this.state.smurfId}
+              smurf={this.state.smurf}
+              falseUpdate={this.falseUpdate}
+            />
           )}
         />
         <Route
@@ -50,6 +66,7 @@ class App extends Component {
               {...props}
               smurfs={this.state.smurfs}
               deleteSmurf={this.deleteSmurf}
+              toggleUpdate={this.toggleUpdate}
             />
           )}
         />

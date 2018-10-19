@@ -1,12 +1,14 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
-const NavBar = () => (
+const NavBar = props => (
   <nav>
     <NavLink exact to="/">
       Home
     </NavLink>
-    <NavLink to="/smurf-form">Add Smurf</NavLink>
+    <NavLink to="/smurf-form">
+      {props.isEditing ? "Edit Smurf" : "Add Smurf"}
+    </NavLink>
   </nav>
 );
 
