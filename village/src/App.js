@@ -23,6 +23,19 @@ class App extends Component {
       .catch(error => console.log(error));
   }
 
+  DeleteSmurf = (event, id) => {
+    event.preventDefault();
+    console.log(id);
+    // add code to create the smurf using the api
+    axios
+      .delete('/id=0')
+      .then(response => {
+        console.log(response);
+        // this.props.history.push('/item-list');
+      })
+      .catch(error => console.log(event.target));
+  };
+
   render() {
     return (
       <div className="App">
@@ -50,7 +63,11 @@ class App extends Component {
           )}
         />
 
-        <Route exact path="/" render={props => <Smurfs {...props} smurfs={this.state.smurfs} />} />
+        <Route
+          exact
+          path="/"
+          render={props => <Smurfs {...props} DeleteSmurf={this.DeleteSmurf} smurfs={this.state.smurfs} />}
+        />
       </div>
     );
   }

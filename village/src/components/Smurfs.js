@@ -16,6 +16,7 @@ class Smurfs extends Component {
                 age={smurf.age}
                 height={smurf.height}
                 key={smurf.id}
+                DeleteSmurf={this.props.DeleteSmurf}
               />
             );
           })}
@@ -26,7 +27,7 @@ class Smurfs extends Component {
 }
 
 Smurf.defaultProps = {
- smurfs: [],
+  smurfs: []
 };
 
 export default Smurfs;

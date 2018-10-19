@@ -38,6 +38,18 @@ class SmurfForm extends Component {
     this.props.history.push(`/`);
   };
 
+  DeleteSmurf = (event, id) => {
+    event.preventDefault();
+    // add code to create the smurf using the api
+    axios
+      .delete(`http://localhost:3333/smurfs/${id}`)
+      .then(response => {
+        console.log(response);
+        // this.props.history.push('/item-list');
+      })
+      .catch(error => console.log(error));
+  };
+
   handleInputChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
