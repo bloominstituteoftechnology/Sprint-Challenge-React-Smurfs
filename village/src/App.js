@@ -10,6 +10,9 @@ class App extends Component {
     super(props);
     this.state = {
       smurfs: [],
+      name: '',
+      age: '',
+      height: '',
     };
   }
 
@@ -19,6 +22,8 @@ class App extends Component {
     .then(res => this.setState({smurfs: res.data}))
     .catch(err => console.log(err))
   }
+  
+ 
 
   render() {
     return (
