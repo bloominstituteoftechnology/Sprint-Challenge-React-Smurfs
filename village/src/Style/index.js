@@ -24,6 +24,5 @@ export const StyledButton = styled.button`
     font-size: 16px;
     font-weight: 600;
     cursor: pointer;
-    color: #3897f0;
-    ${props => !props.enabled && css`color: rgba(56,151,240, 0.4); cursor: not-allowed`};
+    color: rgba(56, 151, 240, 0.4);
 `;
