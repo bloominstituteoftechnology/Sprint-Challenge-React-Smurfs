@@ -35,3 +35,7 @@ Four HTTP methods that serve as examples of CRUD in action are as follows:
     GET -> allows a user to "READ" (existing data is retrieved from a database)
     PUT -> allows a user to "UPDATE" (existing data is mutated or changed in the database)
     DELETE -> allows a user to "DELETE" (data is removed from the database)
+
+## Question5
+
+Three tools to make AJAX requests include libraries, such as the powerful HTTP library Axios which works very well with React.js, APIs such as fetch(), or other general JavaScript libraries with the capability, the most notable one being jQuery.  For development and testing purposes, and API modeling, programs such as Postman are excellent tools and are very useful when learning, experimenting, or creating things that deal with AJAX requests.
