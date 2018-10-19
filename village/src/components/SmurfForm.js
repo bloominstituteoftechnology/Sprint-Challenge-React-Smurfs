@@ -10,6 +10,7 @@ class SmurfForm extends Component {
       age: "",
       height: ""
     };
+    console.log(this.props);
   }
 
   addSmurf = event => {
