@@ -26,12 +26,17 @@
   margin: 20px;
 }
 
+.SingleSmurf {
+  border: 1px solid black;
+  width: 200px;
+  margin: 50px auto;
+}
+
 ul {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-  align-items: center;
   padding: 0;
 }
 

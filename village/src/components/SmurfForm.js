@@ -14,13 +14,14 @@ class SmurfForm extends Component {
   addSmurf = event => {
     event.preventDefault();
     const { name, age, height } = this.state;
-    let newSmurf = { name: name, age: age, height: height }
+    let newSmurf = { name, age, height }
     EventEmitter.dispatch('addSmurf', newSmurf);
     this.setState({
       name: '',
       age: '',
       height: ''
     });
+    alert(`${name} added! Click View Smurfs to see the Village.`)
   }
 
   handleInputChange = e => {

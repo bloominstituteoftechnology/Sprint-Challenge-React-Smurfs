@@ -4,6 +4,7 @@ import axios from 'axios';
 import './App.css';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
+import SingleSmurf from './components/SingleSmurf';
 import { EventEmitter } from './events';
 
 class App extends Component {
@@ -21,7 +22,7 @@ class App extends Component {
     axios
       .get('http://localhost:3333/smurfs')
       .then(res => {
-        this.setState({smurfs: [...res.data]});
+        this.setState({smurfs: res.data});
       })
       .catch(err => {
         console.error('Error retrieving smurfs', err);
@@ -69,6 +70,7 @@ class App extends Component {
           <NavLink className="nav-link" to='/smurf-form'>Add Smurf</NavLink>
         </div>
         <Route path='/smurf-form' component={SmurfForm} />
+        <Route path='/smurf/:id' render={ (props) => <SingleSmurf {...props } />}/>
         <Route exact path='/' render={ (props) => <Smurfs {...props} smurfs={this.state.smurfs}/> } />
       </div>
     );

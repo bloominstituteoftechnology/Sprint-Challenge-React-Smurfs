@@ -9,10 +9,10 @@ class Smurf extends Component {
       editingId: '',
       editedName: '',
       editedAge: '',
-      editedHeight: ''
+	  editedHeight: '',
     };
   }
-
+ 
   handleChange = event => {
     this.setState({ [event.target.name]: event.target.value });
   };
@@ -40,24 +40,26 @@ class Smurf extends Component {
   }
 
   render() {
-    const { name, height, age, id } = this.props;
+    const { name, height, age, id } = this.props.smurf;
     const { editingId, editedName, editedAge, editedHeight } = this.state;
     return (
-      // <Link to={`/smurf/${id}`}>
+      
         <div className="Smurf">
-          <h3>{name}</h3>
+          <Link to={`/smurf/${id}`}>
+           <h3>{name}</h3>
+          </Link>
           <strong>{height} tall</strong>
           <p>{age} smurf years old</p>
           <div className='smurf-btns'>
             <div 
               className='smurf-btn' 
               id={id} 
-              onClick={(name, height, age, id) => this.editSmurf(this.props.name, this.props.height, this.props.age, this.props.id)}>
+              onClick={() => this.editSmurf(name, height, age, id)}>
               Edit
             </div>
             <div 
               className='smurf-btn'  
-              onClick={(id) => EventEmitter.dispatch('deleteSmurf', this.props.id)}>
+              onClick={() => EventEmitter.dispatch('deleteSmurf', id)}>
               Delete
             </div>
           </div>
