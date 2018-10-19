@@ -1,0 +1,52 @@
+.Smurfs {
+  max-width: 600px;
+  margin: auto;
+  padding-top: 80px;
+  color: white;
+}
+
+.Smurf {
+  border: 1px solid lightgray;
+  margin-bottom: 20px;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.smurf-container {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url("http://wallpapersdsc.net/wp-content/uploads/2016/08/Smurfs-The-Lost-Village-Wallpapers.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100vw;
+  height: 100%;
+}
+
+.SmurfForm {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url("http://wallpapersdsc.net/wp-content/uploads/2016/08/Smurfs-The-Lost-Village-Wallpapers.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.SmurfForm form input {
+  padding: 10px;
+  margin: 10px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.1rem;
+}
+.SmurfForm form button {
+  background: green;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  padding: 10px;
+  font-size: 1.1rem;
+  margin: 10px;
+}

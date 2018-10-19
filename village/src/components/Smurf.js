@@ -1,5 +1,5 @@
-import React from 'react';
-
+import React from "react";
+import "./Smurf.css";
 const Smurf = props => {
   return (
     <div className="Smurf">
@@ -11,10 +11,9 @@ const Smurf = props => {
 };
 
 Smurf.defaultProps = {
-  name: '',
-  height: '',
-  age: ''
+  name: "",
+  height: "",
+  age: ""
 };
 
 export default Smurf;
-

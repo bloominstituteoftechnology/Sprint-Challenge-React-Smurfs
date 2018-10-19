@@ -22,14 +22,9 @@ class App extends Component {
     );
   }
   // componentDidUpdate() {
-  //   axios.get("http://localhost:3333/smurfs").then(
-  //     res =>
-  //       res.data === this.state.smurfs
-  //         ? this.setState({
-  //             smurfs: res.data
-  //           })
-  //         : null
-  //   );
+  // this.setState({
+
+  // })
   // }
   // handleAddNewSmurf(data) {
   //   const newSmurfs = data;
@@ -44,7 +39,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <nav>
+        <nav className="nav">
           <Link to="/">
             <h1>Home</h1>
           </Link>
@@ -55,8 +50,8 @@ class App extends Component {
         <Route
           exact
           path="/smurf-form"
-          render={() => (
-            <SmurfForm handleAddNewSmurf={this.handleAddNewSmurf} />
+          render={props => (
+            <SmurfForm {...props} handleAddNewSmurf={this.handleAddNewSmurf} />
           )}
         />
         {/* <SmurfForm handleAddNewSmurf={this.handleAddNewSmurf} /> */}
