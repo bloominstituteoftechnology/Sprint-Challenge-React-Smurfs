@@ -17,7 +17,11 @@ class App extends Component {
 
     };
   }
-
+  handleDeleteSmurf = (event,id) =>{
+    Axios.delete(`http://localhost:3333/smurfs/${id}`)
+    .then(()=>{this.getAllSmurfs()})
+    
+  }
   handleNewSmurf = event =>{
 
     let newSmurf = {
@@ -51,14 +55,10 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-
-          <NavLink to='/'>Home</NavLink>
-          <NavLink to='/smurf-form'>New Smurf</NavLink>
-
-
+        <NavLink className='btn' to='/'>Home</NavLink>
+        <NavLink className='btn' to='/smurf-form'>New Smurf</NavLink>
         <Route exact path='/smurf-form' render={(props)=><SmurfForm {...props} handleInputChange={this.handleInputChange} handleNewSmurf = {this.handleNewSmurf} age={this.state.age} height={this.state.height} name={this.state.name}  /> }></Route>                 
-        <Route exact path='/' render={(props)=><Smurfs {...props} smurfs={this.state.smurfs}/>}></Route>
-
+        <Route exact path='/' render={(props)=><Smurfs {...props} smurfs={this.state.smurfs} handleDeleteSmurf={this.handleDeleteSmurf}/>}></Route>
       </div>
     );
   }
