@@ -26,3 +26,11 @@ export const StyledButton = styled.button`
     cursor: pointer;
     color: rgba(56, 151, 240, 0.4);
 `;
+
+export const Container = styled.div`
+    width: 100%;
+    padding: 0 20px;
+    max-width: 850px;
+    min-width: 650px;
+    margin: 0 auto;
+`;

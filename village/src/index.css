@@ -4,6 +4,10 @@ body {
   font-family: sans-serif;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 .active {
   color: rgba(56,151,240, 0.4);
 }

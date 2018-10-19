@@ -1,5 +1,33 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import styled, { css } from 'styled-components';
+
+import { StyledButton, StyledInput, Container } from '../Style';
+
+const StyledForm = styled.form`
+  width: 100%;
+  padding: 20px 100px;
+  background: #fff;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 200px;
+  margin-bottom: 50px;
+  border: 1px solid #e6e6e6;
+  border-radius: 10px;
+`;
+const FormInputs = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+`;
+const FormButtons = styled.div`
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+`;
 
 class SmurfForm extends Component {
   constructor(props) {
@@ -34,29 +62,18 @@ class SmurfForm extends Component {
 
   render() {
     return (
-      <div className="SmurfForm">
-        <form onSubmit={this.addSmurf}>
-          <input
-            onChange={this.handleInputChange}
-            placeholder="name"
-            value={this.state.name}
-            name="name"
-          />
-          <input
-            onChange={this.handleInputChange}
-            placeholder="age"
-            value={this.state.age}
-            name="age"
-          />
-          <input
-            onChange={this.handleInputChange}
-            placeholder="height"
-            value={this.state.height}
-            name="height"
-          />
-          <button type="submit">Add to the village</button>
-        </form>
-      </div>
+      <Container>
+        <StyledForm onSubmit={this.addSmurf}>
+            <FormInputs>
+                <StyledInput type="text" name="name" placeholder="Name" value={this.state.name} onChange={this.handleInputChange} autoComplete="off"/>
+                <StyledInput type="number" name="age" placeholder="Age" value={this.state.age} onChange={this.handleInputChange} autoComplete="off"/>
+                <StyledInput type="text" name="height" placeholder="Height" value={this.state.height} onChange={this.handleInputChange} autoComplete="off"/>
+            </FormInputs>
+            <FormButtons>
+                <StyledButton type="submit">Add to Village</StyledButton>
+            </FormButtons>
+        </StyledForm>
+      </Container>
     );
   }
 }
