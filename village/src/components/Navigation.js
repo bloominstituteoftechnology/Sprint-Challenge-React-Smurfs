@@ -32,10 +32,10 @@ class Navigation extends React.Component {
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
               <NavItem>
-                <NavLink to="/smurf-form">Register a new Smurf!</NavLink>
+                <NavLink to="/smurf-form" className="link">Register a new Smurf!</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink to="https://www.youtube.com/watch?v=SJv5C-maMa0">Anthem</NavLink>
+                <NavLink to="https://www.youtube.com/watch?v=SJv5C-maMa0"  className="link">Anthem</NavLink>
               </NavItem>
             </Nav>
           </Collapse>
