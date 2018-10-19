@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 
+import { Link } from 'react-router-dom';
+
+
 import Smurf from './Smurf';
+
 
 import './smurf.css';
 
@@ -21,6 +25,7 @@ class Smurfs extends Component {
                   key={smurf.id}
                 />
                 <div className="divbtn" key={Math.random() + 1} id={smurf.id} onClick={this.props.deleteSmurf}>Delete</div>
+                <Link to='/update'><div className="divbtn" key={Math.random() + 2 * 30} id={smurf.id} onClick={this.props.updateSmurf}>Update</div></Link>
               </div>
             );
           })}

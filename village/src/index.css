@@ -23,7 +23,7 @@ button {
 }
 
 
-a {
+.nav a {
   text-decoration: none;
   font-family: sans-serif;
   font-size: 16px;
