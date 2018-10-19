@@ -33,7 +33,7 @@ Smurf.defaultProps = {
 };
 
 Smurfs.propTypes = {
-  smurfs: PropTypes.array.isRequired
+  smurfs: PropTypes.arrayOf(PropTypes.object).isRequired
 };
 
 export default Smurfs;
