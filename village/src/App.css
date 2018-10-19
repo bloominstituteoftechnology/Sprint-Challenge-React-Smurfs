@@ -1,3 +1,21 @@
 .App {
   text-align: center;
 }
+
+.nav-bar {
+  display: flex;
+  justify-content: space-around;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.button {
+  border: 1px solid black;
+  padding: 10px;
+  color: green;
+  background-color: blue;
+}
+.button:hover {
+  color: blue;
+  background-color: white; 
+}
