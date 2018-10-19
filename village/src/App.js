@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { Route, Link } from "react-router-dom";
+import { Route } from "react-router-dom";
 import "./App.css";
 
 import Smurfs from "./components/Smurfs";
@@ -19,7 +19,6 @@ class App extends Component {
     axios
       .get("http://localhost:3333/smurfs")
       .then(response => this.setState({ smurfs: response.data }))
-      .then(console.log(this.state.smurfs))
       .catch(error => console.log("Big problem, bruh", error));
   }
   // add any needed code to ensure that the smurfs collection exists on state and it has data coming from the server
@@ -28,8 +27,9 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <h1>Smurf time root</h1>
         <Nav />
+
+        <h1 className="headline">S * M * U * R * F *</h1>
 
         <Route
           exact

@@ -22,7 +22,8 @@ class SmurfForm extends Component {
       })
       .then(response => console.log(response))
       .catch(error => console.log(error));
-    window.location.reload();
+    this.props.history.push("/");
+    window.location.reload(); // didn't seem to update until refresh?
 
     this.setState({
       name: "",
@@ -33,6 +34,10 @@ class SmurfForm extends Component {
 
   handleInputChange = e => {
     this.setState({ [e.target.name]: e.target.value });
+  };
+
+  clickHandler = event => {
+    event.preventDefault();
   };
 
   render() {
@@ -57,10 +62,7 @@ class SmurfForm extends Component {
             value={this.state.height}
             name="height"
           />
-          <button type="submit" onClick={this.clickHandler}>
-            Add to the village
-          </button>
-          {/* <button type="submit">Add to the village</button> */}
+          <button type="submit">Add to the village</button>
         </form>
       </div>
     );
