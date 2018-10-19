@@ -18,11 +18,13 @@ class App extends Component {
   // Notice what your map function is looping over and returning inside of Smurfs.
   // You'll need to make sure you have the right properties on state and pass them down to props.
   componentDidMount() {
-    const { url } = this.state;
-    axios
-      .get(`${url}/smurfs`)
-      .then(res => this.setState({ smurfs: res.data }))
-      .catch(err => console.log(err));
+    const { url, smurfs } = this.state;
+    if (!smurfs.length) {
+      axios
+        .get(`${url}/smurfs`)
+        .then(res => this.updateSmurfs(res.data))
+        .catch(err => console.log(err));
+    }
   }
 
   updateSmurfs = smurfs => {
@@ -32,7 +34,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <nav>
+        <nav className="nav">
           <NavLink exact to="/">
             Smurfs
           </NavLink>
