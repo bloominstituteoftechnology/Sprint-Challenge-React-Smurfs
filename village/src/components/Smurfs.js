@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import axios from 'axios';
-
-import Smurf from './Smurf';
+import SmurfCard from './SmurfCard';
 
 class Smurfs extends Component {
   constructor(props) {
@@ -9,14 +7,8 @@ class Smurfs extends Component {
     this.state = {};
   }
 
-  deleteSmurf = (id) => {
-    axios.delete(`${this.props.url}/smurfs/${id}`)
-      .then(({data}) => this.props.updateSmurfs(data))
-      .catch(err => console.error(err));
-  }
-
-  editSmurf = (id, activeSmurf) => {
-    this.props.history.push(`/${id}/edit`)
+  goToSmurf = (id) => {
+    this.props.history.push(`/smurf/${id}`)
   }
 
   render() {
@@ -26,14 +18,13 @@ class Smurfs extends Component {
         <ul>
           {this.props.smurfs.map(smurf => {
             return (
-              <Smurf
+              <SmurfCard
                 name={smurf.name}
                 id={smurf.id}
                 age={smurf.age}
                 height={smurf.height}
                 key={smurf.id}
-                deleteSmurf={this.deleteSmurf}
-                editSmurf={this.editSmurf}
+                goToSmurf={this.goToSmurf}
               />
             );
           })}
@@ -43,7 +34,7 @@ class Smurfs extends Component {
   }
 }
 
-Smurf.defaultProps = {
+SmurfCard.defaultProps = {
  smurfs: [],
 };
 

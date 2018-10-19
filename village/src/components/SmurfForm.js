@@ -83,9 +83,10 @@ class SmurfForm extends Component {
         .then(({data}) => {
           this.props.updateSmurfs(data);
           this.props.history.push('/');
-          this.resetState();
         })
         .catch(err => console.error(err));
+
+        this.resetState();
         return;
     }
 
@@ -105,7 +106,7 @@ class SmurfForm extends Component {
 
   render() {
 
-    if(this.state.isEditing && !this.state.recievedSmurf) {
+    if(this.props.isEditing && !this.state.recievedSmurf) {
       return <h2>Loading...</h2>;
     }
     return (

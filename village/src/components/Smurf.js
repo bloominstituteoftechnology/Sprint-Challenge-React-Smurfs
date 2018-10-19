@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components'
+import axios from 'axios';
 
 import { Container } from '../Style';
 
@@ -36,28 +37,50 @@ const SmurfActions = styled.div`
 } 
 `;
 
-const Smurf = props => {
-  return (
-    <Container>
-      <StyledSmurf>
-        <SmurfInfo>
-          <div>
-              <span>{props.name}</span>
-          </div>
-          <div>
-              <span>{props.age} smurf years old</span>
-          </div>
-          <div>
-              <span>{props.height} tall</span>
-          </div>
-        </SmurfInfo>
-        <SmurfActions>
-            <i className="fas fa-edit" onClick={() => props.editSmurf(props.id, {name: props.name, age: props.age, height: props.height})}/>
-            <i className="fas fa-trash" onClick={() => props.deleteSmurf(props.id)}/>
-        </SmurfActions>
-      </StyledSmurf>
-    </Container>
-  );
+class Smurf extends Component {
+  constructor(props) {
+    super(props);
+    this.state={};
+  }
+
+  editSmurf = () => {
+    this.props.history.push(`/smurf/${this.props.smurf.id}/edit`)
+  }
+
+  deleteSmurf = (id) => {
+    axios.delete(`${this.props.url}/smurfs/${id}`)
+      .then(({data}) => { 
+        this.props.updateSmurfs(data);
+        this.props.history.push('/');
+      })
+      .catch(err => console.error(err));
+  }
+
+  render() {
+    if(!this.props.smurf) return <h2>Loading... </h2>
+    const {name, height, age, id} = this.props.smurf;
+    return (
+      <Container>
+        <StyledSmurf>
+          <SmurfInfo>
+            <div>
+                <span>{name}</span>
+            </div>
+            <div>
+                <span>{age} smurf years old</span>
+            </div>
+            <div>
+                <span>{height} tall</span>
+            </div>
+          </SmurfInfo>
+          <SmurfActions>
+              <i className="fas fa-edit" onClick={() => this.editSmurf(id, {name: name, age: age, height: height})}/>
+              <i className="fas fa-trash" onClick={() => this.deleteSmurf(id)}/>
+          </SmurfActions>
+        </StyledSmurf>
+      </Container>
+    );
+  }
 };
 
 Smurf.defaultProps = {
