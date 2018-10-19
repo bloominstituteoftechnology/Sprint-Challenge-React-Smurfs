@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Route, NavLink } from "react-router-dom";
+import {Link } from "react-router-dom";
 import axios from 'axios';
 
 import './style.css';
@@ -43,7 +43,7 @@ class SmurfForm extends Component {
   render() {
     return (
       <div className="SmurfForm">
-        <form onSubmit={this.addSmurf} className = "form-div">
+        <form onSubmit = {this.addSmurf} className = "form-div">
           <input
             onChange={this.handleInputChange}
             placeholder="name"
@@ -62,7 +62,10 @@ class SmurfForm extends Component {
             value={this.state.height}
             name="height"
           />
-          <button type="submit">Add to the village</button>
+
+        { /* <Link to = "/"> */} 
+                <button type="submit">Add to the village</button> {/*Button link to Home page to see added Smurf */}
+           {/*</Link> */}
         </form>
       </div>
     );

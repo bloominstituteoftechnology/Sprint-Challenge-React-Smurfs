@@ -1,3 +1,9 @@
 .App {
   text-align: center;
 }
+
+h1{
+  color : #092e24;
+  font-size : 50px;
+  font-family : fantasy;
+}

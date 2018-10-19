@@ -34,7 +34,7 @@ class App extends Component {
         {/* <SmurfForm 
               updateSmurfs = {this.updateSmurfs}
         /> */}
-       
+        <h1>Smurf Village</h1>
         <Route 
             exact path='/add-smurf' 
             render = { props => 

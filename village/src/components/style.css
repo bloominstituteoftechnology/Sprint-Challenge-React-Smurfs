@@ -6,8 +6,8 @@
     padding: 1rem;
     cursor: pointer; 
     position: relative;
-    margin: 1.5rem;
-    width : 300px;
+    margin: 1.1rem;
+    width : 250px;
     text-align: left;
     padding-left : 30px;
 }
@@ -20,7 +20,7 @@ img{
 
 
 .form-div{
-    background: #13232f;
+    background: #223b4e;
     padding : 40px;
     max-width:500px;
     margin : 30px auto;
@@ -50,5 +50,11 @@ input {
       margin-top: 40px;
       margin-left: 160px;
       border-radius: 5px;
+      cursor: pointer;
   }
   
+  .location{
+        margin-left : 920px;
+        width : 100px;
+        margin-bottom : 20px;     
+  }
