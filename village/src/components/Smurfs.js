@@ -8,9 +8,9 @@ import Smurf from './Smurf';
 class Smurfs extends Component {
   render() {
     return (
-      <div className="Smurfs">
+      <div className="smurfsBody">
         <h1>Smurf Village</h1>
-        <ul>
+        <div className="smurfContainer">
           {this.props.smurfs.map(smurf => {
             return (
               <Smurf
@@ -22,7 +22,7 @@ class Smurfs extends Component {
               />
             );
           })}
-        </ul>
+        </div>
       </div>
     );
   }

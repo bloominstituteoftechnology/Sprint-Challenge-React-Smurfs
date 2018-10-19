@@ -1,3 +1,134 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 62.5%;
+}
+
 .App {
   text-align: center;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+.active {
+  border-bottom: 2px solid white;
+  transition: all 0.1s linear;
+}
+
+/* NAVIGATION */
+.mainNav {
+  background: #2295d6;
+}
+
+.mainNav nav {
+  /* border: 1px solid green; */
+  padding: 10px 0;
+  font-size: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.mainNav nav .navLink:last-child {
+  margin-right: 15px;
+  color: #fff;
+}
+.mainNav nav .navLink:first-child {
+  margin-left: 15px;
+  color: #fff;
+  border: none;
+}
+
+/* FORM */
+.smurfForm {
+  display: flex;
+  flex-direction: column;
+  max-width: 600px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.smurfForm input {
+  padding-top: 40px;
+  padding-bottom: 10px;
+  /* padding-left: 10px; */
+  border: none;
+  border-bottom: 2px solid gray;
+  font-size: 3rem;
+}
+
+.smurfForm input::placeholder {
+  font-size: 3rem;
+}
+
+.smurfForm input:focus {
+  outline: none;
+}
+
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.smurfForm button {
+  padding: 10px 20px;
+  margin: 0 auto;
+  margin-top: 20px;
+  border-radius: 3px;
+  font-size: 1.6rem;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.smurfForm button:hover {
+  background: #2295d6;
+  color: #fff;
+}
+
+.smurfForm button:focus {
+  outline: none;
+}
+
+.smurfForm button:active {
+  transform: scale(0.98);
+}
+
+/* SMURFS */
+.smurfsBody h1 {
+  font-size: 4rem;
+  margin: 30px 0;
+}
+
+.smurfContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  /* border: 1px solid red; */
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.Smurf {
+  border: 1px solid #dbdbdb;
+  max-width: 300px;
+  width: 100%;
+  margin-bottom: 60px;
+  padding: 20px 0;
+}
+
+.Smurf h3 {
+  font-size: 2.5rem;
+}
+
+.Smurf p {
+  font-size: 1.8rem;
 }
