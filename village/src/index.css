@@ -49,11 +49,18 @@ nav a {
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 
 }
+
+.delete {
+  text-decoration: none;
+  color: white;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  cursor: pointer;
+}
 .Smurfs-page {
   display: flex;
   width: 100%;
   position: relative;
-  
+
 }
 .smurfs-container{
   display: flex;
@@ -66,6 +73,11 @@ nav a {
   margin: 20px;
   cursor: pointer;
   
+}
+
+.smurfpage-container{
+  display: flex;
+  justify-content: center;
 }
 .Smurf{
   transition: 0.5s;
@@ -113,6 +125,14 @@ nav a {
 
 .flip {
   transform: rotateY(180deg);
+}
+
+.delete-txt {
+  font-size: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  color: rgb(141, 18, 18);
+  text-shadow: 1px 1px 2px white;
 }
 
 
