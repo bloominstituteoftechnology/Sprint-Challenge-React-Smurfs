@@ -58,7 +58,7 @@ class SmurfForm extends Component {
   render() {
     return (
       <div className="SmurfForm">
-        <h2>{this.props.isEditing ? "Edit Smurf" : "Add Smurf"}</h2>
+        <h1>{this.props.isEditing ? "Edit Smurf" : "Add Smurf"}</h1>
         <form onSubmit={this.handleSubmit}>
           <input
             onChange={this.handleInputChange}
@@ -78,6 +78,7 @@ class SmurfForm extends Component {
             value={this.state.height}
             name="height"
           />
+          <br />
           <button type="submit">
             {this.props.isEditing ? "Edit Smurf" : "Add to the village"}
           </button>
