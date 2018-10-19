@@ -40,6 +40,7 @@ class App extends Component {
     }});
     alert("Smurf Has been Added!")
   }
+  
   deleteSmurf = (e,id) => {
     e.preventDefault();
     axios.delete(`http://localhost:3333/smurfs/${id}`)
