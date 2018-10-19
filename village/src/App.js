@@ -45,6 +45,7 @@ class App extends Component {
     axios.delete(`http://localhost:3333/smurfs/${id}`)
       .then(response => this.setState({smurfs : response.data}))
       .catch(error => console.log(error));
+      alert("Smurf Deleted");
   }
 
   handleInputChange = e => {
@@ -73,7 +74,7 @@ class App extends Component {
         addSmurf = {this.addSmurf}
         handleInputChange = {this.handleInputChange}/>
       }/>
-        <Route exact path='/' render={props=><Smurfs smurfs={this.state.smurfs} />} />
+        <Route exact path='/' render={props=><Smurfs deleteSmurf={this.deleteSmurf} smurfs={this.state.smurfs} />} />
       </div>
     );
   }
