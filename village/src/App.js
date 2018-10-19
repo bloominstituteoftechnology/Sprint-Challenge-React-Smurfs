@@ -36,7 +36,7 @@ createNewSmurf = data => this.setState({ smurfs: data });
   render() {
     return (
       <div className="App">
-        <Route path ="/smurfs " 
+        <Route exact path="/smurfs" 
           render={props => <Smurfs {...props} smurfs={this.state.smurfs} /> } />
         <Route path="/smurf-form"
           render={props => <SmurfForm {...props} createNewSmurf={this.createNewSmurf}/> } />

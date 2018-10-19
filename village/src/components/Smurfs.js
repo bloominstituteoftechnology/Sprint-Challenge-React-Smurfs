@@ -1,16 +1,15 @@
 import React, { Component } from 'react';
 
-
 import Smurf from './Smurf';
 
 class Smurfs extends Component {
-  constructor(props) {
-    super(props);
-  }
+//   constructor(props) {
+//     super(props);
+//   }
 
-  componentDidMount() {
-    console.log('smurf props', this.props)
-  }
+//   componentDidMount() {
+//     console.log('smurf props', this.props)
+//   }
 
   render() {
     return (
