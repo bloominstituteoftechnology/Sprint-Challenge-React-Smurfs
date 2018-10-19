@@ -30,7 +30,7 @@ class SmurfForm extends Component {
       // console.log('smurf did not add', err);
       // })
   }
-  
+
   handleInputChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
@@ -57,7 +57,7 @@ class SmurfForm extends Component {
             value={this.state.height}
             name="height"
           />
-          <button type="submit">Add to the village</button>
+          <button type="submit">Add to the Village</button>
         </form>
       </div>
     );

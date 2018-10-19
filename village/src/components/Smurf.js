@@ -1,4 +1,5 @@
 import React from 'react';
+// import axios from 'axios';
 
 const Smurf = props => {
   return (
@@ -22,6 +23,9 @@ Smurf.defaultProps = {
 
 export default Smurf;
 
+
+// TRIED TO ADD DELETE BUTTON BUT CAUSED ISSUES SO I COMMENTED OUT
+
 // import React from 'react';
 
 // function Smurf (props) {
@@ -29,7 +33,7 @@ export default Smurf;
 //     const smurf = props.smurfs.find(
 //       smurf => `${smurf.id}` === props.match.params.id
 //     );
-//   // STRETCH: Delete smurfs
+//   // TODO: STRETCH: Delete smurfs
 //   function handleDelete() {
 //     props.handleDelete(props.smurfs.id);
 //     props.history.push('/smurfs');
