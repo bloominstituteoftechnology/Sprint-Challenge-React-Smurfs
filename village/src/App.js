@@ -74,6 +74,16 @@ class App extends Component {
     }
   };
 
+  deleteSmurf = (event, id) => {
+    event.preventDefault();
+    axios
+      .delete(`http://localhost:3333/smurfs/${id}`)
+      .then(res => this.setState({ smurfs: res.data }))
+      .catch(err =>
+        console.log(err, "You can't delete me! I'M IN-SMURFING-VINCIBLE!!!")
+      );
+  };
+
   render() {
     if (!this.state.smurfs.length) {
       return <h1>Retrieving the smurfing data, hold on...</h1>;
@@ -105,7 +115,11 @@ class App extends Component {
             exact
             path="/"
             render={ownProps => (
-              <Smurfs {...ownProps} smurfs={this.state.smurfs} />
+              <Smurfs
+                {...ownProps}
+                smurfs={this.state.smurfs}
+                deleteSmurf={this.deleteSmurf}
+              />
             )}
           />
         </div>

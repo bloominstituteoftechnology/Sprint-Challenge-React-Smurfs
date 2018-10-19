@@ -4,6 +4,7 @@
 
 .App {
   text-align: center;
+  width: 100%;
 }
 .App .nav-header {
   padding: 30px 0;
@@ -22,4 +23,35 @@
 .App .activePageLink {
   color: white;
   background: #1ba0cf;
+}
+
+.Smurfs ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.Smurf {
+  border: 3px solid #1ba0cf;
+  color: #1ba0cf;
+  width: 35%;
+  border-radius: 10px;
+  margin: 20px 0;
+}
+
+.delete-button {
+  color: white;
+  background: #1ba0cf;
+  border: 2px solid white;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 5px;
+  margin: 10px 0;
+}
+
+.delete-button:hover {
+  background: white;
+  color: #1ba0cf;
+  border: 2px solid #1ba0cf;
 }
