@@ -30,7 +30,7 @@ class App extends Component {
 
   updateSmurfs(updatedSmurfs){
      this.setState({ smurfs: updatedSmurfs });
-     this.props.history.push("/");
+  //   this.props.history.push("/");
 
   }
 
