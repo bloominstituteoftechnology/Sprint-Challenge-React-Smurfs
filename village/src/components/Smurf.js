@@ -43,7 +43,7 @@ class Smurf extends Component {
     const { name, height, age, id } = this.props;
     const { editingId, editedName, editedAge, editedHeight } = this.state;
     return (
-      <Link to={`/smurf/${id}`}>
+      // <Link to={`/smurf/${id}`}>
         <div className="Smurf">
           <h3>{name}</h3>
           <strong>{height} tall</strong>
@@ -91,7 +91,7 @@ class Smurf extends Component {
             </form>
           </div>
         </div>
-      </Link>
+      // </Link>
     )
   }
 };

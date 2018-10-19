@@ -40,33 +40,25 @@ class App extends Component {
   }
 
   deleteSmurf = id => {
-    this.state.smurfs.map(smurf => {
-      if (smurf.id === id) {
-        axios
-          .delete(`http://localhost:3333/smurfs/${id}`)
-          .then(res => {
-            this.setState({ smurfs: res.data });
-          })
-          .catch(err => {
-            console.error('Error deleting smurf', err);
-          })
-      }
-    })
+    axios
+      .delete(`http://localhost:3333/smurfs/${id}`)
+      .then(res => {
+        this.setState({ smurfs: res.data });
+      })
+      .catch(err => {
+        console.error('Error deleting smurf', err);
+      })
   }
 
   updateSmurf = editedSmurf => {
-    this.state.smurfs.map(smurf => {
-      if (smurf.id === editedSmurf.id) {
-        axios
-          .put(`http://localhost:3333/smurfs/${editedSmurf.id}`, editedSmurf)
-          .then(res => {
-            this.setState({ smurfs: res.data });
-          })
-          .catch(err => {
-            console.error('Error updating smurf', err);
-          })
-      }
-    })
+    axios
+      .put(`http://localhost:3333/smurfs/${editedSmurf.id}`, editedSmurf)
+      .then(res => {
+        this.setState({ smurfs: res.data });
+      })
+      .catch(err => {
+        console.error('Error updating smurf', err);
+      })
   }
 
   render() {
