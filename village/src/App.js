@@ -23,11 +23,11 @@ class App extends Component {
 
   handleDelete = id => {
     axios
-    .delete(`http://localhost:3333/smurfs/${id}`)
-    .then(response => this.setState({ friends: response.data }))
-    .catch(error => console.log(error));
+      .delete(`http://localhost:3333/smurfs/${id}`)
+      .then(response => this.setState({ friends: response.data }))
+      .catch(error => console.log(error));
     window.location.reload();
-  }
+  };
 
   // add any needed code to ensure that the smurfs collection exists on state and it has data coming from the server
   // Notice what your map function is looping over and returning inside of Smurfs.
@@ -38,17 +38,23 @@ class App extends Component {
         <header>
           <nav>
             <NavLink exact to={"/"}>
-              Home
+              Smurfs
             </NavLink>
-            <NavLink to={"/smurfs"}>Smurfs</NavLink>
-            <NavLink to={"/form"}>Add New Smurf</NavLink>
+            <NavLink to={"/smurf-form"}>Add a New Smurf</NavLink>
           </nav>
         </header>
         <div className="container">
-          <Route path="/form" component={SmurfForm} />
+          <Route path="/smurf-form" component={SmurfForm} />
           <Route
-            path="/smurfs"
-            render={props => <Smurfs smurfs={this.state.smurfs} handleDelete={this.handleDelete} {...props} />}
+            exact
+            path="/"
+            render={props => (
+              <Smurfs
+                smurfs={this.state.smurfs}
+                handleDelete={this.handleDelete}
+                {...props}
+              />
+            )}
           />
         </div>
       </div>

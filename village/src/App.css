@@ -68,4 +68,12 @@ button {
   font-size: 20px;
   border: none;
   cursor: pointer;
+  margin: 10px 0;
+}
+
+.smurf {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }

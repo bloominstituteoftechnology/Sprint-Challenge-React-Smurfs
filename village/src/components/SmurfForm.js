@@ -7,7 +7,7 @@ class SmurfForm extends Component {
     this.state = {
       name: "",
       age: "",
-      height: ""
+      height: "",
     };
   }
 
@@ -34,7 +34,7 @@ class SmurfForm extends Component {
   render() {
     return (
       <div className="SmurfForm">
-        <form onSubmit={this.addSmurf}>
+        <form onSubmit={this.state.isEditing ? this.props.editSmurf : this.addSmurf}>
           <input
             onChange={this.handleInputChange}
             placeholder="name"
@@ -54,7 +54,7 @@ class SmurfForm extends Component {
             name="height"
           />
           <button type="submit">
-            Add to the village
+            Add to the Village
           </button>
         </form>
       </div>
