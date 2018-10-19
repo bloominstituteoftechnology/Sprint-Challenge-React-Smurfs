@@ -2,6 +2,11 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 class Smurf extends React.Component {
+  delete = e => {
+    e.preventDefault();
+    this.props.delete(this.props.id);
+  };
+
   render() {
     const props = this.props;
     return (
@@ -11,6 +16,7 @@ class Smurf extends React.Component {
           <strong>{props.height} tall</strong>
           <p>{props.age} smurf years old</p>
         </div>
+        <button onClick={this.delete}>Delete</button>
       </Link>
     );
   }
