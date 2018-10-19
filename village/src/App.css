@@ -1,3 +1,18 @@
 .App {
   text-align: center;
 }
+
+.link {
+  padding: 50px 20px;
+  text-decoration: none;
+  color: gray;
+  font-weight: bold;
+}
+
+.active {
+  text-decoration: underline;
+}
+
+.SmurfForm {
+  padding-top: 50px;
+}
