@@ -34,9 +34,6 @@ class Navigation extends React.Component {
               <NavItem>
                 <NavLink to="/smurf-form" className="link">Register a new Smurf!</NavLink>
               </NavItem>
-              <NavItem>
-                <NavLink to="https://www.youtube.com/watch?v=SJv5C-maMa0"  className="link">Anthem</NavLink>
-              </NavItem>
             </Nav>
           </Collapse>
         </Navbar>
