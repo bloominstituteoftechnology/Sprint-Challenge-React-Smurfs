@@ -1,0 +1,11 @@
+
+.Smurfs ul {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    background: lime
+}
+
+.Smurfs ul li {
+    background: white;
+}
