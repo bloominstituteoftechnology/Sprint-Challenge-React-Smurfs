@@ -15,7 +15,7 @@ class App extends Component {
 
   componentDidMount = () => {
     axios
-      .get('http//localhost:3333/smurfs')
+      .get('http://localhost:3333/smurfs')
       .then(res => {
           this.setState({ smurfs : [...res.data] });
       })
@@ -45,7 +45,7 @@ class App extends Component {
           className="link form-link"
           activeClassName="activeNavButton">Add Smurf
         </NavLink>
-        
+
         <Route path="/smurf-form"
           render = {props =>
             <SmurfForm 
