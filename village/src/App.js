@@ -25,10 +25,17 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <SmurfForm />
+        <SmurfForm onSubmit={this.update} />
         <Smurfs smurfs={this.state.smurfs} />
       </div>
     );
+  }
+
+  //--------------------------------------------------
+  update = smurfData => {
+    this.setState({
+      smurfs: smurfData
+    });
   }
 }
 
