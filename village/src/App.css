@@ -39,7 +39,8 @@
   margin: 20px 0;
 }
 
-.delete-button {
+.delete-button,
+.edit-button {
   color: white;
   background: #1ba0cf;
   border: 2px solid white;
@@ -47,10 +48,44 @@
   font-weight: bold;
   cursor: pointer;
   padding: 5px;
-  margin: 10px 0;
+  margin: 10px 5px;
 }
 
-.delete-button:hover {
+.delete-button:hover,
+.edit-button:hover {
+  background: white;
+  color: #1ba0cf;
+  border: 2px solid #1ba0cf;
+}
+
+.Smurf .edit-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.Smurf .edit-form {
+  width: 60%;
+  margin: 10px auto;
+}
+
+.Smurf .edit-form * {
+  width: 100%;
+  margin: 5px 0;
+}
+
+.Smurf button {
+  color: white;
+  background: #1ba0cf;
+  border: 2px solid white;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 5px;
+  margin: 10px 5px;
+}
+
+.Smurf button:hover {
   background: white;
   color: #1ba0cf;
   border: 2px solid #1ba0cf;
