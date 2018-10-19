@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import axios from 'axios';
+import '../App.css'
+import { NavLink} from 'react-router-dom';
 
 class SmurfForm extends Component {
   constructor(props) {
@@ -12,14 +15,39 @@ class SmurfForm extends Component {
 
   addSmurf = event => {
     event.preventDefault();
-    // add code to create the smurf using the api
+    
+    // defined a new body
+    const newSmurfFriend = {
+      name: this.state.name,
+      age: this.state.age,
+      height: this.state.height
+    }
+
+    //posts new data to the specified url using .post
+    axios     
+    .post('http://localhost:3333/smurfs',  
+    newSmurfFriend )
+
+    //it then runs sets the state to the new data via the addNewSmurf function (defined in app.js)
+    .then(response => {
+      console.log('ADDING NEW SMURF', response);
+      this.props.addNewSmurf(response.data)
+      })
+
+    .catch(error => {
+      console.error('Error:', error);
+    });
 
     this.setState({
       name: '',
       age: '',
       height: ''
     });
-  }
+
+    }
+
+  
+
 
   handleInputChange = e => {
     this.setState({ [e.target.name]: e.target.value });
@@ -28,7 +56,8 @@ class SmurfForm extends Component {
   render() {
     return (
       <div className="SmurfForm">
-        <form onSubmit={this.addSmurf}>
+        <form className = 'form' onSubmit={this.addSmurf}>
+        <h1>Fill out form to add new Smurf !</h1>
           <input
             onChange={this.handleInputChange}
             placeholder="name"
@@ -48,6 +77,9 @@ class SmurfForm extends Component {
             name="height"
           />
           <button type="submit">Add to the village</button>
+
+          {/* added a description and a link back to the home page so the user can see their new smurf  */}
+          <p>Return to the <NavLink to ='/'>homepage </NavLink> to see updated list</p>
         </form>
       </div>
     );
