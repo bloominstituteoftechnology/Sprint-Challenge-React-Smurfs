@@ -12,6 +12,7 @@ class Smurf extends React.Component {
         <h3>{this.props.name}</h3>
         <strong>{this.props.height} tall</strong>
         <p>{this.props.age} smurf years old</p>
+        <button onClick={event => this.props.deleteSmurf(event, this.props.id)}>Delete Smurf</button>
       </div>
     );
   }
