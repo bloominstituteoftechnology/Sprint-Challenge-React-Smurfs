@@ -33,7 +33,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <SmurfForm />
+        <SmurfForm smurfs={this.state.smurfs} />
         <Smurfs smurfs={this.state.smurfs} />
       </div>
     );
