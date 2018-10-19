@@ -30,6 +30,7 @@ class App extends Component {
 
   componentDidMount() {
     this.getSmurfs();
+
   }
 
   postSmurf(newSmurf) {
@@ -38,13 +39,12 @@ class App extends Component {
 
     axios
       .post('http://localhost:3333/smurfs', newSmurf)
-      .then(this.getSmurfs())
+      .then(this.getSmurfs)
       .catch(error => console.log(error));
 
   }
 
   render() {
-    // const smurfs = this.state.smurfs;
     return (
       <Router>
         <div className="App">
