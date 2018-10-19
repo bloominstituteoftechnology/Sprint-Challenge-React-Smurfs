@@ -5,6 +5,9 @@ import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
 import axios from 'axios';
 
+import { Route, NavLink } from 'react-router-dom';
+
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -14,20 +17,20 @@ class App extends Component {
   }
 
 
-  componentDidMount(){
+  componentDidMount() {
     axios
-    .get('http://localhost:3333/smurfs')
-    .then(response => {
-      console.log(response);
-      this.setState({smurfs: response.data})
-    })
-    .catch(err=>{
-      console.log(err);
-    })
+      .get('http://localhost:3333/smurfs')
+      .then(response => {
+        console.log(response);
+        this.setState({ smurfs: response.data })
+      })
+      .catch(err => {
+        console.log(err);
+      })
   }
 
   addNewSmurf = data => {
-    this.setState({smurfs:data})
+    this.setState({ smurfs: data })
   }
 
 
@@ -37,8 +40,26 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <SmurfForm addNewSmurf={this.addNewSmurf}/>
-        <Smurfs smurfs={this.state.smurfs} />
+
+        <nav>
+          <NavLink exact to='/'>
+            Smurfs
+          </NavLink>
+
+          <NavLink to='/smurfs/add'>
+            Add a Smurf
+          </NavLink>
+        </nav>
+
+        <Route exact path='/' render={ownProps => <Smurfs smurfs={this.state.smurfs}
+          addNewSmurf={this.addNewSmurf}
+          {...ownProps} />}
+        />
+        <Route exact path='/smurfs/add' render={ownProps =>
+          <SmurfForm addNewSmurf={this.addNewSmurf}
+            {...ownProps} />}
+        />
+
       </div>
     );
   }
