@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { EventEmitter } from '../events';
+import { Link } from 'react-router-dom';
 
 class Smurf extends Component {
   constructor(props) {
@@ -42,50 +43,55 @@ class Smurf extends Component {
     const { name, height, age, id } = this.props;
     const { editingId, editedName, editedAge, editedHeight } = this.state;
     return (
-      <div className="Smurf">
-        <h3>{name}</h3>
-        <strong>{height} tall</strong>
-        <p>{age} smurf years old</p>
-        <div className='smurf-btns'>
-          <div 
-            className='smurf-btn' 
-            id={id} 
-            onClick={(name, height, age, id) => this.editSmurf(this.props.name, this.props.height, this.props.age, this.props.id)}>
-            Edit
+      <Link to={`/smurf/${id}`}>
+        <div className="Smurf">
+          <h3>{name}</h3>
+          <strong>{height} tall</strong>
+          <p>{age} smurf years old</p>
+          <div className='smurf-btns'>
+            <div 
+              className='smurf-btn' 
+              id={id} 
+              onClick={(name, height, age, id) => this.editSmurf(this.props.name, this.props.height, this.props.age, this.props.id)}>
+              Edit
+            </div>
+            <div 
+              className='smurf-btn'  
+              onClick={(id) => EventEmitter.dispatch('deleteSmurf', this.props.id)}>
+              Delete
+            </div>
           </div>
-          <div 
-            className='smurf-btn'  
-            onClick={(id) => EventEmitter.dispatch('deleteSmurf', this.props.id)}>
-            Delete
+          <div className={editingId === id ? 'editing-form' : 'hidden'}>
+            <form onSubmit={this.submitEdit}>
+              <input
+                className='edit-input'
+                onChange={this.handleChange}
+                placeholder="name"
+                value={editedName}
+                name="editedName"
+                required
+              />
+              <input
+                className='edit-input'
+                onChange={this.handleChange}
+                placeholder="age"
+                value={editedAge}
+                name="editedAge"
+                required
+              />
+              <input
+                className='edit-input'
+                onChange={this.handleChange}
+                placeholder="height"
+                value={editedHeight}
+                name="editedHeight"
+                required
+              />
+              <input className='submit-edit' type="submit" value="Submit Edits"/>
+            </form>
           </div>
         </div>
-        <div className={editingId === id ? 'editing-form' : 'hidden'}>
-          <form onSubmit={this.submitEdit}>
-            <input
-              onChange={this.handleChange}
-              placeholder="name"
-              value={editedName}
-              name="editedName"
-              required
-            />
-            <input
-              onChange={this.handleChange}
-              placeholder="age"
-              value={editedAge}
-              name="editedAge"
-              required
-            />
-            <input
-              onChange={this.handleChange}
-              placeholder="height"
-              value={editedHeight}
-              name="editedHeight"
-              required
-            />
-            <input className='submit-edit' type="submit" value="Submit Edits"/>
-          </form>
-        </div>
-      </div>
+      </Link>
     )
   }
 };

@@ -30,7 +30,8 @@ class SmurfForm extends Component {
   render() {
     return (
       <div className="SmurfForm">
-        <form onSubmit={this.addSmurf}>
+        <img className='form-builder' src={require('../images/smurf.jpg')} alt='Builder Smurf'/>
+        <form className='add-form' onSubmit={this.addSmurf}>Enter Smurf Details:
           <input
             className='input-add'
             onChange={this.handleInputChange}

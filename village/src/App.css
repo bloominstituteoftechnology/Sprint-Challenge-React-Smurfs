@@ -3,7 +3,7 @@
 }
 
 .nav {
-  background-color: lightcyan;
+  background-color: #a5e3f5;
   padding: 30px;
 }
 
@@ -23,7 +23,7 @@
 .Smurf {
   border: 1px solid black;
   width: 200px;
-  margin: 20px ;
+  margin: 20px;
 }
 
 ul {
@@ -33,6 +33,11 @@ ul {
   justify-content: center;
   align-items: center;
   padding: 0;
+}
+
+a {
+  color: black;
+  text-decoration: none;
 }
 
 .village {
@@ -45,15 +50,38 @@ ul {
   margin: 40px auto;
 }
 
+.form-builder {
+  height: 200px;
+}
+
+.add-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 18px;
+  font-weight: 700;
+  margin-top: 20px;
+}
+
 .input-add {
   font-size: 18px;
   padding: 10px;
-  margin: 0 10px;
+  margin: 10px 0;
+  width: 300px;
 }
 
 .submit-add {
   font-size: 16px;
   padding: 10px;
+  width: 200px;
+  border: 1px solid black;
+  border-radius: 4px;
+  margin-top: 10px;
+  background-color: white;
+}
+
+.submit-add:hover {
+  background-color: whitesmoke;
 }
 
 .smurf-btns {
@@ -64,18 +92,42 @@ ul {
 .smurf-btn {
   border: 1px solid black;
   border-radius: 4px;
-  padding: 8px;
+  padding: 10px 10px 8px;
+  text-align: center;
   width: 50px;
   margin-bottom: 20px;
   cursor: pointer;
 }
 
 .smurf-btn:hover {
-  background-color: lightcyan;
+  background-color: #a5e3f5;
 }
 
 .editing-form {
   display: flex;
+  margin: 5px auto 20px;
+}
+
+.edit-input {
+  font-size: 14px;
+  margin: 5px;
+  padding: 5px;
+  width: 150px;
+}
+
+.submit-edit {
+  font-size: 12px;
+  font-weight: 500;
+  border: 1px solid black;
+  border-radius: 4px;
+  padding: 10px;
+  margin-top: 15px;
+  cursor: pointer;
+  background-color: white;
+}
+
+.submit-edit:hover {
+  background-color: whitesmoke;
 }
 
 .hidden {
