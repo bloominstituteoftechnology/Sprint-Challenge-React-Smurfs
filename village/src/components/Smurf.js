@@ -14,7 +14,7 @@ const Smurf = props => {
 Smurf.propTypes = {
   name: PropTypes.string,
   height: PropTypes.string,
-  age: PropTypes.number
+  age: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
 };
 
 export default Smurf;

@@ -26,7 +26,7 @@ class Smurfs extends Component {
   }
 }
 
-Smurf.propTypes = {
+Smurfs.propTypes = {
  smurfs: PropTypes.array
 };
 
