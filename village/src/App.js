@@ -29,10 +29,13 @@ class App extends Component {
       <div className="app">
         <SmurfNav />
         <Route exact path="/" render={props => (
-          <Smurfs smurfs={this.state.smurfs} />
+          <Smurfs smurfs={this.state.smurfs} {...props} />
         )} />
         <Route path="/smurf-form" render={props => (
           <SmurfForm onSubmit={this.update} {...props} />
+        )} />
+        <Route path="/smurf/:id" render={props => (
+          <Smurfs smurfs={this.state.smurfs} {...props} />
         )} />
       </div>
     );
