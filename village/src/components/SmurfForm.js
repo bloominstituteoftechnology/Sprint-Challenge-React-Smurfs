@@ -11,11 +11,11 @@ class SmurfForm extends Component {
     };
   }
 
-  addSmurf = () => {
-   
+  addSmurf = (e) => {
+    e.preventDefault();
     // add code to create the smurf using the api
-    axios.post('http://localhost:3333/smurfs', this.state)
-          .then(res => { this.setState({smurfs: res.data})})
+    axios.post('http://localhost:3333/smurfs', {...this.state})
+          .then(res =>  this.props.smurfData(res.data))
           this.props.history.push("/smurfs-village")
     this.setState({
       name: '',
