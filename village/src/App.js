@@ -40,6 +40,10 @@ class App extends Component {
     }});
     alert("Smurf Has been Added!")
   }
+  deleteSmurf = (e,id) => {
+    e.preventDefault();
+    axios.delete
+  }
 
   handleInputChange = e => {
     this.setState(
