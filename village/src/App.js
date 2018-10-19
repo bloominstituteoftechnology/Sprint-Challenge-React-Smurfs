@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { Route, Link } from 'react-router-dom';
+import axios from 'axios';
 
 import './App.css';
 import SmurfForm from './components/SmurfForm';
@@ -25,6 +27,15 @@ class App extends Component {
       )
       .catch((error) => console.error('Server Error', error));
   }
+
+  postSmurf = (newSmurf) => {
+    axios.post('http://localhost:3333/smurfs', newSmurf).then((response) => {
+      this.setState({
+        smurfs: response.data,
+      });
+    });
+  };
+
   render() {
     return (
       <div className="App">
