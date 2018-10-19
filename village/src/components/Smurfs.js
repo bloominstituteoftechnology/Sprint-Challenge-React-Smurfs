@@ -1,8 +1,19 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 
 import Smurf from './Smurf';
 
 class Smurfs extends Component {
+    
+  // deleteItem = (id) => {
+  //   axios
+  //     .delete(`http://localhost:3333/smurfs/${id}`)
+  //     .then(response => {
+  //       this.defaultProps({ smurfs: response.data });
+  //       // props.history.push('/');
+  //     })
+  //     .catch(error => console.log(error));
+  // };
   render() {
     return (
       <div className="Smurfs">
