@@ -10,3 +10,8 @@ body {
   background-color:rgba(169, 169, 243, 0.089);
   border:1px solid rgba(25, 25, 248, 0.295);
 }
+span{
+  cursor : pointer;
+  background :rgba(255, 0, 0, 0.26);
+  border-radius : 15%;
+}
