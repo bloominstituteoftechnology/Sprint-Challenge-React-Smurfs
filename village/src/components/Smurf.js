@@ -1,5 +1,6 @@
+// React and PropTypes Imports
 import React from 'react';
-
+import PropTypes from 'prop-types';
 const Smurf = props => {
   return (
     <div className="Smurf">
@@ -16,5 +17,11 @@ Smurf.defaultProps = {
   age: ''
 };
 
-export default Smurf;
+Smurf.propTypes = {
+  name: PropTypes.string.isRequired,
+  height: PropTypes.string.isRequired,
+  age: PropTypes.number.isRequired,
+  id: PropTypes.number
+};
 
+export default Smurf;
