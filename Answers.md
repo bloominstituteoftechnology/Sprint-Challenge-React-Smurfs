@@ -1,3 +1,4 @@
+Chad Jemett
 1.  Explain the differences between `client-side routing` and `server-side routing`.
 1.  What does HTTP stand for?
 1.  What does CRUD stand for?
