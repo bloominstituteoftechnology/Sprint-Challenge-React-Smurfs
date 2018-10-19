@@ -2,9 +2,14 @@ import React, {Component} from "react";
 import {Link} from "react-router-dom";
 
 import Smurf from "./Smurf";
+import "./Smurfs.css";
 
 class Smurfs extends Component {
   render() {
+    // if (!this.props.smurfs) {
+    //   return <h2>Loading Smurfs</h2>;
+    // }
+
     return (
       <div className="Smurfs">
         <h1>Smurf Village</h1>

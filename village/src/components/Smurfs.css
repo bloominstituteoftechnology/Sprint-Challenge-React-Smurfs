@@ -1,0 +1,27 @@
+.Smurfs {
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.Smurfs ul {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+.Smurfs ul a {
+  text-decoration: none;
+  color: #222;
+}
+
+.Smurfs button {
+  font-size: 16px;
+}
+
+.Smurf {
+  background: white;
+  min-width: 200px;
+  width: 30%;
+  padding: 25px;
+  margin: 40px 0 10px;
+}

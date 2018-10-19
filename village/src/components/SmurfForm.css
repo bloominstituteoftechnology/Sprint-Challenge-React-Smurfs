@@ -1,0 +1,33 @@
+.SmurfForm {
+  padding: 30px 50px;
+  margin: 100px auto 50px;
+}
+
+input {
+  background: #3db7eb;
+  border: 1px solid white;
+  color: #fff;
+  padding: 10px 20px;
+  font-size: 30px;
+  margin-bottom: 25px;
+}
+
+::placeholder {
+  color: #fff;
+  font-size: 30px;
+}
+
+button {
+  padding: 10px 20px;
+  background: none;
+  border: 1px solid white;
+  font-size: 24px;
+  cursor: pointer;
+  background: #3db7eb;
+  color: white;
+  border-radius: 15px;
+}
+
+button:hover {
+  background: #38b4e9;
+}

@@ -1,24 +1,24 @@
 import React from "react";
+import {Route} from "react-router-dom";
 
 const Smurf = props => {
   return (
-    <div className="Smurf">
-      <h3>{props.name}</h3>
-      <strong>{props.height} tall</strong>
-      <p>{props.age} smurf years old</p>
-    </div>
+    <Route path={`/smurf/:${props.id}`}>
+      {/* render={props => ( {...props} */}
+      <div className="Smurf">
+        <h3>{props.name}</h3>
+        <strong>{props.height} tall</strong>
+        <p>{props.age} smurf years old</p>
+      </div>
+    </Route>
   );
-  // <Route
-  //     path="/smurf/:id"
-  //     render={props => ( {...props}
-  //       <div className="Smurf">
-  //         <h3>{props.name}</h3>
-  //         <strong>{props.height} tall</strong>
-  //         <p>{props.age} smurf years old</p>
-  //       </div>
-  //     )}
-  //   />
 };
+
+// <div className="Smurf">
+//     <h3>{props.name}</h3>
+//     <strong>{props.height} tall</strong>
+//     <p>{props.age} smurf years old</p>
+//   </div>
 
 Smurf.defaultProps = {
   name: "",
