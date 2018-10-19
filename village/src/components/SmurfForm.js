@@ -12,9 +12,11 @@ class SmurfForm extends Component {
       }
     };
   }
-
+  routeToHome() {
+    this.props.history.push('/')
+  }
   addSmurf = event => {
-
+    this.routeToHome();
     // add code to create the smurf using the api
     axios
       .post("http://localhost:3333/smurfs", this.state.smurf)
@@ -27,8 +29,8 @@ class SmurfForm extends Component {
         height: ""
       }
     });
+    
   };
-
   handleInputChange = e => {
     this.setState({smurf: {
       ...this.state.smurf,
