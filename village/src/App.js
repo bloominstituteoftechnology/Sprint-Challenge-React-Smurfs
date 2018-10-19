@@ -15,9 +15,11 @@ class App extends Component {
   componentDidMount() {
     axios
       .get('http://localhost:3333/smurfs')
-      .then(response => this.setState({ smurfs: response.data}))
+      .then(response => this.setState({ smurfs: response.data,}))
       .catch(error => console.log(error));
   }
+
+
 
   
   // add any needed code to ensure that the smurfs collection exists on state and it has data coming from the server
