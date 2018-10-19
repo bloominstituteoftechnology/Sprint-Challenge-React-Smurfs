@@ -32,6 +32,10 @@ class SmurfForm extends Component {
     this.props.history.push('/');
   };
 
+  formFill = smurf => {
+    this.setState({ name: smurf.name, age: smurf.age, height: smurf.height });
+  };
+
   render() {
     return (
       <div className="SmurfForm">

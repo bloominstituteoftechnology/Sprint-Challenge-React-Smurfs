@@ -142,6 +142,7 @@ input[type='number']::-webkit-outer-spin-button {
   border-radius: 3px;
   margin-right: 5px;
   cursor: pointer;
+  margin-top: 5px;
 }
 
 .Smurf .smurfCardButton:hover {
