@@ -1,10 +1,10 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 const NavBar = (props) => {
 	return (
 		<div className="navbar-links">
-			<Link to={props.location}>{props.name}</Link>
+			<NavLink to={props.location}>{props.name}</NavLink>
 		</div>
 	);
 };
