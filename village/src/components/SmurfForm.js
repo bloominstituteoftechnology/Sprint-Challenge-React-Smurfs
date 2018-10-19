@@ -34,6 +34,8 @@ class SmurfForm extends Component {
       age: '',
       height: ''
     });
+    console.log('The props are:', this.props);
+    this.props.history.push(`/`);
   };
 
   handleInputChange = e => {
