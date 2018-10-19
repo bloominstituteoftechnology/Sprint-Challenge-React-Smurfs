@@ -37,7 +37,7 @@ class App extends Component {
       <div className="App">
         <div className="nav-bar">
           <NavLink exact to={'/'}>Smurf</NavLink>
-          <NavLink to={'/smurf-form'}>Smurf Form</NavLink>
+          <NavLink to={'/smurf-form'}>Form</NavLink>
           
         </div>
         <Route exact path='/' render={ props => (
