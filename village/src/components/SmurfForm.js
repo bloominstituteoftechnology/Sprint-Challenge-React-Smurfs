@@ -1,36 +1,12 @@
 import React, { Component } from 'react';
 
 class SmurfForm extends Component {
-  constructor(props) {
-    super(props);
-    // this.state = {
-    //   id: this.props.id,
-    //   name: this.props.name,
-    //   age: this.props.age,
-    //   height: this.props.height,
-    // };
-  }
-
-  // saveSmurf = event => {
-  //   event.preventDefault();
-  //   // add code to create the smurf using the api
-  //   if (this.state.name && this.state.age && this.state.height){
-  //     const smurf = {
-  //       id: this.state.id,
-  //       name: this.state.name,
-  //       age: this.state.age,
-  //       height: this.state.height,
-  //     }
-  //     this.props.saveSmurf(smurf)
-  //     this.setState({
-  //       id: '',
-  //       name: '',
-  //       age: '',
-  //       height: ''
-  //     });
-  //   }
+  // constructor(props) {
+  //   super(props);
   //
   // }
+
+
 
   handleSubmit = event => {
     event.preventDefault();

@@ -92,9 +92,9 @@ body, html {
 .Smurf{
   margin: 0 auto;
   margin: 20px auto;
-  padding: 20px;
-  width: 300px;
-  height: 300px;
+  padding: 10px;
+  width: 200px;
+  height: 200px;
   display: flex;
   flex-direction: column;
   border: 3px solid white;
@@ -118,7 +118,7 @@ body, html {
   border: 1px solid white;
   cursor: pointer;
   border-radius: 3px;
-  margin: 5px;
+
 
 }
 
@@ -163,10 +163,15 @@ body, html {
   width: 40%;
   margin: 10% auto;
   justify-content: space-between;
+  border: 5px solid white;
+  padding: 20px;
+  padding-bottom: 30px;
 }
 
 .SmurfForm input{
   margin: 10px;
+  width: 70%;
+  text-align: center; 
 }
 
 .SmurfForm button{
@@ -176,7 +181,7 @@ body, html {
     border: 1px solid white;
     cursor: pointer;
     border-radius: 3px;
-    margin-top: 10px;
+    margin-top: 30px;
 }
 
 .welcome {
