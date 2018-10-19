@@ -1,3 +1,27 @@
+* {
+  box-sizing: border-box;
+}
 .App {
   text-align: center;
+}
+
+.nav {
+  display: flex;
+  justify-content: center;
+  background: #333;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.nav a {
+  color: white;
+  text-decoration: none;
+  opacity: 0.95;
+  margin: 0 30px;
+}
+
+body {
+  overflow-x: hidden;
 }
