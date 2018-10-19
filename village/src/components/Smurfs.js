@@ -10,6 +10,9 @@ const SmurfWrapper = styled.div`
 
   h1 {
     width: 100%;
+    text-align: center;
+    margin-bottom: 3rem;
+    font-size: 3rem;
   }
 `;
 
@@ -27,6 +30,7 @@ class Smurfs extends Component {
               age={smurf.age}
               height={smurf.height}
               key={smurf.id}
+              deleteSmurf={this.props.deleteSmurf}
             />
           );
         })}
