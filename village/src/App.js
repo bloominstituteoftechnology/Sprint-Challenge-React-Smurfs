@@ -37,22 +37,31 @@ class App extends Component {
     return (
       <div className="App">
 
-      <Route path="/smurf-form"
-        render = {props =>
-          <SmurfForm 
-            {...props}
-            componentDidMount={this.componentDidMount}
-            handleChange={this.handleChange}
-             /> } 
-      />
-
-      <Route exact path="/"
-        render={props =>
-          <Smurfs 
-            {...props}
-            smurfs={this.state.smurfs}
-            handleChange={this.handleChange} /> } 
+        <NavLink exact to ="/"
+          className="link list-link"
+          activeClassName="activeNavButton">Smurf List
+          </NavLink>
+        <NavLink  to="smurf-form"
+          className="link form-link"
+          activeClassName="activeNavButton">Add Smurf
+        </NavLink>
+        
+        <Route path="/smurf-form"
+          render = {props =>
+            <SmurfForm 
+              {...props}
+              componentDidMount={this.componentDidMount}
+              handleChange={this.handleChange}
+              /> } 
         />
+
+        <Route exact path="/"
+          render={props =>
+            <Smurfs 
+              {...props}
+              smurfs={this.state.smurfs}
+              handleChange={this.handleChange} /> } 
+          />
       </div>
     );
   }
