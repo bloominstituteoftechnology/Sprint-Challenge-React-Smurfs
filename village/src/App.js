@@ -4,6 +4,7 @@ import axios from "axios";
 
 import './App.css';
 import SmurfForm from './components/SmurfForm';
+import Smurf from "./components/Smurf";
 import Smurfs from './components/Smurfs';
 import NavBar from "./components/NavBar";
 
@@ -43,6 +44,7 @@ class App extends Component {
         <NavBar />
         <Route exact path="/" render={(props) => <Smurfs {...props} smurfs={this.state.smurfs} deleteSmurf={this.deleteSmurf} />} />
         <Route path="/smurf-form" render={(props) => <SmurfForm {...props} refresh={this.handleSetData} />} />
+        <Route path="/smurf/:id" render={(props) => <Smurf {...props} smurfs={this.state.smurfs} />} />
       </div>
     );
   }
