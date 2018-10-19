@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from "axios";
-import {Route} from "react-router-dom";
+import {Link} from "react-router-dom";
 
 class SmurfForm extends Component {
   constructor(props) {
@@ -22,7 +22,6 @@ class SmurfForm extends Component {
       age: '',
       height: ''
     }))
-      .then(console.log(this))
       .then(res => this.props.history.push("/"))
   }
 
@@ -33,6 +32,7 @@ class SmurfForm extends Component {
   render() {
     return (
       <div className="SmurfForm">
+      <Link to="/">Home</Link>
         <form onSubmit={this.addSmurf}>
           <input
             onChange={this.handleInputChange}
