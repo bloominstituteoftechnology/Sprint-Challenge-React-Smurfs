@@ -1,9 +1,11 @@
 import React, {Component} from "react";
 import axios from "axios";
+import {Route, NavLink} from "react-router-dom";
 
 import "./App.css";
 import SmurfForm from "./components/SmurfForm";
 import Smurfs from "./components/Smurfs";
+import Home from "./components/Home";
 
 class App extends Component {
   constructor(props) {
@@ -14,6 +16,10 @@ class App extends Component {
   }
   // add any needed code to ensure that the smurfs collection exists on state and it has data coming from the server
   componentDidMount = () => {
+    this.getSmurfs();
+  };
+
+  getSmurfs = () => {
     axios
       .get("http://localhost:3333/smurfs")
       .then(response => {
@@ -27,7 +33,13 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <SmurfForm smurfs={this.state.smurfs} />
+        <NavLink to="/" exact>
+          Home
+        </NavLink>
+        <NavLink to="/smurfs">Smurfs</NavLink>
+        <NavLink to="/add-a-smurf">Add A Smurf</NavLink>
+        <Route path="/" render={Home} />
+        <SmurfForm getSmurfs={this.getSmurfs} />
         <Smurfs smurfs={this.state.smurfs} />
       </div>
     );
