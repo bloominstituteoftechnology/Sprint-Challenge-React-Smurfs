@@ -1,4 +1,5 @@
 Chad Jemett
+Done with MVP and Delete stretch at 10:52 PT.
 
 1.  Explain the differences between `client-side routing` and `server-side routing`.
 
