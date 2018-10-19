@@ -27,6 +27,13 @@ class App extends Component {
       .catch(err => console.log(err));
   }
 
+  deleteSmurf = (e, id) => {
+    e.preventDefault();
+    axios.delete(`http://localhost:3333/smurfs/${id}`)
+      .then(res => this.setState({ smurfs: res.data }))
+      .catch(err => console.log(err));
+  }
+
   render() {
     const { smurfs } = this.state;
 
@@ -34,15 +41,29 @@ class App extends Component {
       <div className="App">
         <nav>
           <ul>
-            <li><NavLink to="/">Smurfs</NavLink></li>
-            <li><NavLink to="/smurf-form">Add New Smurf</NavLink></li>
+            <li>
+              <NavLink exact to="/" activeStyle={{ fontWeight: "bold" }}>
+                Smurfs
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/smurf-form" activeStyle={{ fontWeight: "bold" }}>
+                Add New Smurf
+              </NavLink>
+            </li>
           </ul>
         </nav>
 
         <Route
           exact
           path="/"
-          render={ownProps => <Smurfs {...ownProps} smurfs={smurfs} />}
+          render={ownProps => (
+            <Smurfs
+              {...ownProps}
+              smurfs={smurfs}
+              deleteSmurf={this.deleteSmurf}
+            />
+          )}
         />
         <Route
           path="/smurf-form"
