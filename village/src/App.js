@@ -81,10 +81,9 @@ class App extends Component {
         <Route 
           path='/smurf/:id'
           render={props => {
-              const smurfObj = this.state.smurfs.find(s => s.id == props.match.params.id);
-              console.log(smurfObj)
+              const smurfObj = this.state.smurfs.find(s => String(s.id) === String(props.match.params.id));
               return (
-                <div className="modify-smurf" {...props}>
+                <div className="modify-smurf">
 
                   <Smurf
                     {...smurfObj}
