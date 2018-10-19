@@ -26,8 +26,22 @@ class App extends Component {
       .catch(error => console.log(error));
   }
 
-  updateFriend = (data) => {
+  updateContent = (data) => {
     this.setState({smurfs: data})
+  }
+
+  updateFreind = (e) => {
+    axios
+      .put(`http://localhost:3333/smurfs/${e.target.id}`, {[e.target.name]: e.target.value})
+      .then(response => this.updateContent(response.data)) 
+      .catch(error => console.log(error));
+  }
+
+  deleteSmurf = (e) => {
+    axios
+    .delete(`http://localhost:3333/smurfs/${e.target.id}`)
+    .then(response => this.setState({smurfs: response.data}))
+    .catch(error => console.log(error));
   }
 
   render() {
@@ -40,10 +54,10 @@ class App extends Component {
             <span>Add a new Friend</span>
         </NavLink>
         <Route exact path ='/addSmurf' render ={(props) => (
-           <SmurfForm {...props} update={this.updateFriend} />
+           <SmurfForm {...props} update={this.updateContent} />
         )}/>
         <Route exact path ='/' render ={(props) => (
-           <Smurfs {...props} smurfs={this.state.smurfs} />
+           <Smurfs {...props} smurfs={this.state.smurfs} delete={this.deleteSmurf} update={this.updateFreind}/>
         )}/>
       </div>
     );
