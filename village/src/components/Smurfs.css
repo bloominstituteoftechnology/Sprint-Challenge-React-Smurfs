@@ -1,0 +1,10 @@
+h1 {
+    border-bottom: .5px solid black;
+    width: 500px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 100px;
+    margin-top: 80px;
+
+}
