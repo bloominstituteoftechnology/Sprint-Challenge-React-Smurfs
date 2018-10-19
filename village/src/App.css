@@ -1,3 +1,90 @@
 .App {
   text-align: center;
 }
+
+.background-image {
+  background-image: url("https://vignette.wikia.nocookie.net/smurfs/images/0/07/Smurf_Village_Comic_Books.jpg/revision/latest?cb=20120417231142");
+  /* background-repeat: no-repeat; */
+  background-size: auto;
+}
+
+.smurfs-container {
+  opacity: 1;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  max-width: 880px;
+  margin: 0 auto;
+}
+
+h1 {
+  display: inline;
+  padding-top: 25px;
+  background-color: white;
+  opacity: 1;
+  color: #88ccff;
+  border-radius: 5px;
+}
+
+.Smurf {
+  opacity: 1;
+  width: 250px;
+  height: 150px;
+  margin: 15px;
+  background-color: #88ccff;
+  color: white;
+
+  border-radius: 5px;
+}
+
+.form-link {
+  display: block;
+  display: flex;
+
+  text-decoration: none;
+  text-align: center;
+  flex-direction: column;
+  width: 150px;
+  height: 40px;
+  padding-top: 20px;
+  margin: 25px auto;
+  background-color: coral;
+  color: white;
+  border-radius: 5px;
+}
+
+.form-link:hover {
+  color: coral;
+  background-color: white;
+  border: 2px solid coral;
+}
+
+.smurf-form {
+  max-width: 880px;
+  width: 100%;
+  height: 600px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+}
+
+.smurf-form input {
+  text-align: center;
+  display: block;
+  width: 450px;
+  height: 20px;
+}
+
+.smurf-form button {
+  text-align: center;
+  width: 180px;
+  height: 60px;
+  font-size: 20px;
+  padding-left: 65px;
+}
+
+.delete {
+  color: red;
+  text-decoration: none;
+  cursor: pointer;
+}
