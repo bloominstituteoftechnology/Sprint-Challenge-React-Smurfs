@@ -43,21 +43,18 @@ const Smurf = props => {
       <StyledSmurf>
         <SmurfInfo>
           <div>
-              <span>Name: </span>
               <span>{props.name}</span>
           </div>
           <div>
-              <span>Age: </span>
               <span>{props.age} smurf years old</span>
           </div>
           <div>
-              <span>Height: </span>
               <span>{props.height} tall</span>
           </div>
         </SmurfInfo>
         <SmurfActions>
             <i className="fas fa-edit" />
-            <i className="fas fa-trash" />
+            <i className="fas fa-trash" onClick={() => props.deleteSmurf(props.id)}/>
         </SmurfActions>
       </StyledSmurf>
     </Container>

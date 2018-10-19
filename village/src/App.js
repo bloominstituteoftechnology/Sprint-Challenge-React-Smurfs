@@ -21,18 +21,44 @@ class App extends Component {
   componentDidMount() {
     const { url } = this.state;
     axios.get(`${url}/smurfs`)
-    .then(({data}) => {this.setState({smurfs: data})})
+    .then(({data}) => {this.setState({smurfs: data.reverse()})})
     .catch(err => console.error(err));
   }
 
   updateSmurfs = (smurfs) => {this.setState({smurfs})}
 
+  deleteSmurf = (id) => {
+    axios.delete(`${this.state.url}/smurfs/${id}`)
+      .then(({data}) => this.setState({smurfs: data.reverse()}))
+      .catch(err => console.error(err));
+  }
+
   render() {
     return (
       <div className="App">
         <Header/>
-        <Route path="/smurf-form" render={(props) => <SmurfForm {...props} url={this.state.url} updateSmurfs={this.updateSmurfs}/>}/>
-        <Route path="/" exact render={(props) => <Smurfs {...props} smurfs={this.state.smurfs} />}/>
+        <Route 
+          path="/smurf-form" 
+          render={(props) => 
+            <SmurfForm 
+              {...props} 
+              url={this.state.url} 
+              updateSmurfs={this.updateSmurfs}
+            />
+          }
+        />
+
+        <Route 
+          exact 
+          path="/" 
+          render={(props) => 
+            <Smurfs 
+              {...props} 
+              smurfs={this.state.smurfs} 
+              deleteSmurf={this.deleteSmurf}
+            />
+          }
+        />
       </div>
     );
   }
