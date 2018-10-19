@@ -12,7 +12,7 @@ class App extends Component {
     super(props);
     this.state = {
       smurfs: [],
-      url: 'http://localhost:3333'
+      url: 'http://localhost:3333',
     };
   }
   // add any needed code to ensure that the smurfs collection exists on state and it has data coming from the server
@@ -25,13 +25,7 @@ class App extends Component {
     .catch(err => console.error(err));
   }
 
-  updateSmurfs = (smurfs) => {this.setState({smurfs})}
-
-  deleteSmurf = (id) => {
-    axios.delete(`${this.state.url}/smurfs/${id}`)
-      .then(({data}) => this.setState({smurfs: data.reverse()}))
-      .catch(err => console.error(err));
-  }
+  updateSmurfs = (smurfs) => {this.setState({smurfs: smurfs.reverse()})}
 
   render() {
     return (
@@ -39,7 +33,7 @@ class App extends Component {
         <Header/>
         <Route 
           path="/smurf-form" 
-          render={(props) => 
+          render={props => 
             <SmurfForm 
               {...props} 
               url={this.state.url} 
@@ -51,13 +45,31 @@ class App extends Component {
         <Route 
           exact 
           path="/" 
-          render={(props) => 
+          render={props => 
             <Smurfs 
               {...props} 
               smurfs={this.state.smurfs} 
+              url={this.state.url} 
+              updateSmurfs={this.updateSmurfs}
+              setActiveSmurf={this.setActiveSmurf}
+              editSmurf={this.editSmurf}
               deleteSmurf={this.deleteSmurf}
             />
           }
+        />
+
+        <Route 
+          path="/:id/edit"
+          render={(props => 
+            <SmurfForm 
+              {...props}
+              url={this.state.url} 
+              updateSmurfs={this.updateSmurfs}
+              isEditing
+              editId={props.match.params.id}
+              smurf={this.state.smurfs[this.state.smurfs.findIndex(smurf => smurf.id.toString() === props.match.params.id)]}
+            />
+          )}
         />
       </div>
     );

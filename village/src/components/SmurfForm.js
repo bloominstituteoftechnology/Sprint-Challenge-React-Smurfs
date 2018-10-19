@@ -39,13 +39,56 @@ class SmurfForm extends Component {
         height: ''
       },
       isEditing: false,
-      editID: '',
+      editId: '',
+      recievedSmurf: false,
     };
+  }
+
+  componentDidMount() {
+    const { isEditing, editId } = this.props;
+    if (this.props.isEditing && this.props.editId) {
+      this.setState({isEditing, editId});
+    }
+    if(this.props.smurf) {
+      this.setState({smurf: this.props.smurf, recievedSmurf: true})
+    }
+  }
+
+  componentWillReceiveProps(newProps) {
+    if(newProps.smurf) {
+      this.setState({smurf: newProps.smurf, recievedSmurf: true})
+    }
+  }
+
+
+  resetState = () => {
+    this.setState({
+      smurf: {
+        name: '',
+        age: '',
+        height: ''
+      },
+      isEditing: false,
+      editId: '',
+      recievedSmurf: false,
+    })
   }
 
   addSmurf = event => {
     event.preventDefault();
     // add code to create the smurf using the api
+
+    if (this.state.isEditing) {
+      axios.put(`${this.props.url}/smurfs/${this.state.editId}`, this.state.smurf)
+        .then(({data}) => {
+          this.props.updateSmurfs(data);
+          this.props.history.push('/');
+          this.resetState();
+        })
+        .catch(err => console.error(err));
+        return;
+    }
+
     axios.post(`${this.props.url}/smurfs`, this.state.smurf)
       .then(({data}) => {
         this.props.updateSmurfs(data);
@@ -53,18 +96,18 @@ class SmurfForm extends Component {
       })
       .catch(err => console.error(err));
     
-    this.setState({
-      name: '',
-      age: '',
-      height: ''
-    });
+      this.resetState();
   }
 
   handleInputChange = e => {
-    this.setState({ [e.target.name]: e.target.value });
+    this.setState({ smurf: {...this.state.smurf, [e.target.name]: e.target.value }} );
   };
 
   render() {
+
+    if(this.state.isEditing && !this.state.recievedSmurf) {
+      return <h2>Loading...</h2>;
+    }
     return (
       <Container>
         <StyledForm onSubmit={this.addSmurf}>

@@ -39,7 +39,6 @@ const SmurfActions = styled.div`
 const Smurf = props => {
   return (
     <Container>
-
       <StyledSmurf>
         <SmurfInfo>
           <div>
@@ -53,7 +52,7 @@ const Smurf = props => {
           </div>
         </SmurfInfo>
         <SmurfActions>
-            <i className="fas fa-edit" />
+            <i className="fas fa-edit" onClick={() => props.editSmurf(props.id, {name: props.name, age: props.age, height: props.height})}/>
             <i className="fas fa-trash" onClick={() => props.deleteSmurf(props.id)}/>
         </SmurfActions>
       </StyledSmurf>
