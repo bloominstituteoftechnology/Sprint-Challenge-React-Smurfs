@@ -30,6 +30,17 @@ class App extends Component {
       })
   }
 
+  newSmurf = (data) => {
+    axios
+    .post('http://localhost:3333/smurfs', data)
+    .then(response => {
+      this.setState({
+        smurfs: response.data
+      })
+    })
+    .catch(err => console.log(err));
+  }
+
   render() {
     return (
       <div className="App">
@@ -45,6 +56,7 @@ class App extends Component {
         </nav>
         <Route path='/smurf-form' render={props => <SmurfForm
         {...props}
+        newSmurf={this.newSmurf}
         />} />
         <Route  exact path='/' render={props => <Smurfs 
         {...props}
