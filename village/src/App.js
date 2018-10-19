@@ -52,7 +52,7 @@ class App extends Component {
     return (
       <div className="App">
         <div className="navbar">
-          <NavLink activeClassName="link" to="/">Smurfs</NavLink>
+          <NavLink activeClassName="link" exact to="/">Smurfs</NavLink>
           <NavLink activeClassName="link" to="/smurfs-form">Create Smurf</NavLink>
         </div>
         <Route 

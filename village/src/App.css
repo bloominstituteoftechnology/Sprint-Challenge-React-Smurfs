@@ -1,9 +1,15 @@
 .App {
   text-align: center;
 }
-.link{
+.navbar{
   border:1px solid black;
-  padding:5px;
+  margin-top:10px;
+}
+.link {
+  padding: 5px;
+  margin:10px;
+  background: black;
+  color: white;
   text-decoration: none;
 }
 ul{
@@ -16,3 +22,30 @@ ul{
   margin:5px; 
   width:300px;
 }
+.SmurfForm{
+  display: flex;
+  justify-content: center;
+}
+.SmurfForm form{
+  display: flex;
+  flex-direction: column;
+  width:50%;
+}
+.SmurfForm form input{
+  padding:10px;
+  border:none;
+  border-bottom:1px solid gainsboro;
+  font-size:15px;
+  outline: 0;
+}
+
+.SmurfForm form button{
+  padding:10px;
+  border:none;
+  background: black;
+  color:white;
+  font-size:20px;
+  outline: 0;
+}
+
+
