@@ -5,8 +5,6 @@ import './App.css';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
 
-const url = 'http://localhost:3333';
-
 class App extends Component {
   constructor(props) {
     super(props);
@@ -19,7 +17,7 @@ class App extends Component {
   // You'll need to make sure you have the right properties on state and pass them down to props.
 
   componentDidMount() {
-    this.getSmurfs(url);
+    this.getSmurfs('http://localhost:3333');
   }
 
   getSmurfs = url => {
@@ -29,10 +27,12 @@ class App extends Component {
   }
 
   render() {
+    const { smurfs } = this.state;
+
     return (
       <div className="App">
-        <SmurfForm />
-        <Smurfs smurfs={this.state.smurfs} />
+        <SmurfForm smurfs={smurfs} />
+        <Smurfs smurfs={smurfs} />
       </div>
     );
   }
