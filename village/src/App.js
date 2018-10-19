@@ -85,14 +85,17 @@ class App extends Component {
               console.log(smurfObj)
               return (
                 <div className="modify-smurf" {...props}>
-                  <SmurfForm 
+
+                  <Smurf
+                    {...smurfObj}
+                    {...props}
+                    modifySmurf={this.modifySmurf}
+                    deleteSmurf={this.deleteSmurf}
+                  />
+                  <SmurfForm
                     id={props.match.params.id}
                     addSmurf={this.modifySmurf}
-                  />
-                  <Smurf
-                  {...smurfObj}
-                  modifySmurf={this.modifySmurf}
-                  deleteSmurf={this.deleteSmurf}
+                    {...props}
                   />
                 </div>
               )
