@@ -13,13 +13,23 @@ class SmurfForm extends Component {
   addSmurf = event => {
     event.preventDefault();
     // add code to create the smurf using the api
+    if (
+      this.state.name.length > 0 &&
+      this.state.age.length > 0 &&
+      this.state.height.length > 0
+    ) {
+      this.props.addMain(this.state);
+    } else {
+      alert('cant have a empty field');
+    }
 
     this.setState({
       name: '',
       age: '',
       height: ''
     });
-  }
+    this.props.history.goBack();
+  };
 
   handleInputChange = e => {
     this.setState({ [e.target.name]: e.target.value });
