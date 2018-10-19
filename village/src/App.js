@@ -13,7 +13,7 @@ class App extends Component {
     };
   }
   
-  componentDidMount() {
+  componentDidMount = () => {
     axios.get('http://localhost:3333/smurfs')
     .then(response => {
       this.setState({
@@ -23,10 +23,16 @@ class App extends Component {
     .catch(err => console.log(err));
   }
 
+  updateState = (newState) => {
+    this.setState({
+      smurfs: newState
+    })
+  }
+
   render() {
     return (
       <div className="App">
-        <SmurfForm />
+        <SmurfForm updateState={this.updateState} />
         <Smurfs smurfs={this.state.smurfs} />
       </div>
     );
