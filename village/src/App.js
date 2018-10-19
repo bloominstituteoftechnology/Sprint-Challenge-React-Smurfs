@@ -50,7 +50,7 @@ class App extends Component {
             Add a Smurf
           </NavLink>
         </nav>
-
+      <div className='smurf-village'>
         <Route exact path='/' render={ownProps => <Smurfs smurfs={this.state.smurfs}
           addNewSmurf={this.addNewSmurf}
           {...ownProps} />}
@@ -59,7 +59,7 @@ class App extends Component {
           <SmurfForm addNewSmurf={this.addNewSmurf}
             {...ownProps} />}
         />
-
+          </div>
       </div>
     );
   }

@@ -13,15 +13,15 @@ class SmurfForm extends Component {
 
   addSmurf = event => {
     event.preventDefault();
-    const newSmurf= {name: this.state.name, age: this.state.age, height: this.state.height}
-    axios 
-    .post('http://localhost:3333/smurfs', newSmurf)
-    .then(response =>{
-      console.log('ADDING SMURF', response);
-      this.props.addNewSmurf(response.data)
-    })
-    .catch(err=>
-      console.log(err));
+    const newSmurf = { name: this.state.name, age: this.state.age, height: this.state.height }
+    axios
+      .post('http://localhost:3333/smurfs', newSmurf)
+      .then(response => {
+        console.log('ADDING SMURF', response);
+        this.props.addNewSmurf(response.data)
+      })
+      .catch(err =>
+        console.log(err));
 
     this.setState({
       name: '',
