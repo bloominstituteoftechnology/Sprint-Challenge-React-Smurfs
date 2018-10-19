@@ -1,34 +1,44 @@
 import React from 'react';
-import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink } from 'reactstrap';
+import {
+  Collapse,
+  Navbar,
+  NavbarToggler,
+  NavbarBrand,
+  Nav,
+  NavItem,
+  NavLink,
+  UncontrolledDropdown,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem } from 'reactstrap';
 
 class Navigation extends React.Component {
   constructor(props) {
     super(props);
 
-    this.toggleNavbar = this.toggleNavbar.bind(this);
+    this.toggle = this.toggle.bind(this);
     this.state = {
-      collapsed: true
+      isOpen: false
     };
   }
-
-  toggleNavbar() {
+  toggle() {
     this.setState({
-      collapsed: !this.state.collapsed
+      isOpen: !this.state.isOpen
     });
   }
   render() {
     return (
       <div>
-        <Navbar color="faded" light>
-          <NavbarBrand href="/" className="mr-auto">reactstrap</NavbarBrand>
-          <NavbarToggler onClick={this.toggleNavbar} className="mr-2" />
-          <Collapse isOpen={!this.state.collapsed} navbar>
-            <Nav navbar>
+        <Navbar color="light" light expand="md">
+          <NavbarBrand href="/">Smurf Village</NavbarBrand>
+          <NavbarToggler onClick={this.toggle} />
+          <Collapse isOpen={this.state.isOpen} navbar>
+            <Nav className="ml-auto" navbar>
               <NavItem>
-                <NavLink href="/components/">Components</NavLink>
+                <NavLink href="/smurf-form">Register a new Smurf!</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="https://github.com/reactstrap/reactstrap">GitHub</NavLink>
+                <NavLink href="https://www.youtube.com/watch?v=SJv5C-maMa0">Anthem</NavLink>
               </NavItem>
             </Nav>
           </Collapse>

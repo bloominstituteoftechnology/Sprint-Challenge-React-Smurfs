@@ -4,6 +4,7 @@ import axios from 'axios';
 import './App.css';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
+import Navigation from './components/Navigation';
 
 class App extends Component {
   constructor(props) {
@@ -12,6 +13,7 @@ class App extends Component {
       smurfs: [],
     };
   }
+
 
 componentDidMount() {
   axios.get('http://localhost:3333/smurfs')
@@ -30,6 +32,7 @@ componentDidMount() {
   render() {
     return (
       <div className="App">
+      <Navigation />
       <Route
       path = "/smurf-form"
       render = {props => (
@@ -41,6 +44,7 @@ componentDidMount() {
       )}
         />
         <Route
+        exact
         path = "/"
         render = {props =>(
           <Smurfs {...props}
