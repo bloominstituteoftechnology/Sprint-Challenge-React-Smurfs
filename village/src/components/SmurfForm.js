@@ -12,7 +12,7 @@ class SmurfForm extends Component {
   }
 
   addSmurf = event => {
-    event.preventDefault();
+    // event.preventDefault(); //form was not resetting no matter what I did, so page refresh was the easy way out.
     // add code to create the smurf using the api
     if (this.state.name !== '' && this.state.age !== '' && this.state.height !== '') {
       let obj = {
@@ -20,12 +20,14 @@ class SmurfForm extends Component {
         age: this.state.age,
         height: this.state.height,
       }
+      // POST here
       axios.post('http://localhost:3333/smurfs', obj)
           .then(res => res.data)
           .catch(err => console.log(err))
       alert('Form submitted. Please navigate home.')
     }
     else {
+      // error handling here
       alert('Please enter some form data.')
       this.setState({
         name: '',
@@ -33,7 +35,6 @@ class SmurfForm extends Component {
         height: ''
       });
     }
-    document.querySelector('form').reset();
   }
 
   handleInputChange = e => {
