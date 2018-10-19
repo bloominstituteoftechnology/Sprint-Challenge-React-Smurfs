@@ -4,6 +4,7 @@ import axios from 'axios';
 import './App.css';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
+import { EventEmitter } from './events';
 
 class App extends Component {
   constructor(props) {
@@ -11,6 +12,7 @@ class App extends Component {
     this.state = {
       smurfs: [],
     };
+    EventEmitter.subscribe('addSmurf', (newSmurf) => this.addSmurf(newSmurf))
   }
   
   componentDidMount() {
@@ -24,6 +26,17 @@ class App extends Component {
       })
   }
   
+  addSmurf = (newSmurf) => {
+    axios
+      .post('http://localhost:3333/smurfs', newSmurf)
+      .then(res => {
+        this.setState({ smurfs: res.data });
+      })
+      .catch(err => {
+        console.error('Error adding smurf', err);
+      })
+  }
+
   render() {
     return (
       <div className="App">
@@ -31,7 +44,7 @@ class App extends Component {
           <NavLink className="nav-link" to='/'>View Smurfs</NavLink>
           <NavLink className="nav-link" to='/smurf-form'>Add Smurf</NavLink>
         </div>
-        <Route path='/smurf-form'component={SmurfForm} />
+        <Route path='/smurf-form' component={SmurfForm} />
         <Route exact path='/' render={ (props) => <Smurfs {...props} smurfs={this.state.smurfs}/> } />
       </div>
     );

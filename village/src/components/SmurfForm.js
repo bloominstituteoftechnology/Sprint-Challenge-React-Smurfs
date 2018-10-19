@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+import { EventEmitter } from '../events';
 
 class SmurfForm extends Component {
   constructor(props) {
@@ -15,16 +15,7 @@ class SmurfForm extends Component {
     event.preventDefault();
     const { name, age, height } = this.state;
     let newSmurf = { name: name, age: age, height: height }
-    
-    axios
-      .post('http://localhost:3333/smurfs', newSmurf)
-      .then(res => {
-        this.setState({ smurfs: res.data });
-      })
-      .catch(err => {
-        console.error('Error adding smurf', err);
-      })
-
+    EventEmitter.dispatch('addSmurf', newSmurf);
     this.setState({
       name: '',
       age: '',
