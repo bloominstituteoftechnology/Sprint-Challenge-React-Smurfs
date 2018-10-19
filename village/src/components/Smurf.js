@@ -9,7 +9,7 @@ import {
 
 const Smurf = ({ id, name, occupation, img, removeSmurf }) => (
   <SmurfContainer>
-    <SmurfName>{name}</SmurfName>
+    <SmurfName to={`/smurf/${id}`}>{name}</SmurfName>
     {occupation
       .split(',')
       .map((item, i) => <SmurfText key={i}>occupation: {item}</SmurfText>)}

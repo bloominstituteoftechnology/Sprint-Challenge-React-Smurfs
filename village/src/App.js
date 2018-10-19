@@ -40,6 +40,12 @@ class App extends Component {
             <Smurfs smurfs={smurfs} removeSmurf={this.removeSmurf} {...props} />
           )}
         />
+        <Route
+          path="/smurf/:id"
+          render={props => (
+            <Smurfs smurfs={smurfs} removeSmurf={this.removeSmurf} {...props} />
+          )}
+        />
         <Route path="/smurf-form" component={SmurfForm} />
       </div>
     )

@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 
 export const SmurfContainer = styled.div`
   border: 1px solid black;
@@ -17,8 +18,9 @@ export const SmurfText = styled.p`
   font-size: 1.6rem;
 `
 
-export const SmurfName = styled(SmurfText)`
-  font-weight: bold; 
+export const SmurfName = styled(Link)`
+  font-size: 1.6rem;
+  font-weight: bold;
 `
 
 export const RemoveSmurf = styled.div`
