@@ -1,3 +1,47 @@
 .App {
   text-align: center;
 }
+
+.nav {
+  background-color: lightcyan;
+  padding: 30px;
+}
+
+.nav-link {
+  text-decoration: none;
+  font-size: 18px;
+  margin: 0 10px;
+  color: black;
+}
+
+.Smurf {
+  border: 1px solid black;
+  width: 200px;
+  margin: 20px ;
+}
+
+ul {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0;
+}
+
+.village {
+  margin: 20px auto;
+}
+
+.SmurfForm {
+  margin: 40px auto;
+}
+
+input {
+  font-size: 18px;
+  padding: 10px;
+  margin: 0 10px;
+}
+
+button {
+  font-size: 16px;
+  padding: 10px;
+}
