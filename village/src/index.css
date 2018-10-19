@@ -2,4 +2,11 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+  background:rgba(0, 0, 122, 0.445);
+}
+.Smurf{
+  display: inline-block;
+  width:33%;
+  background-color:rgba(169, 169, 243, 0.089);
+  border:1px solid rgba(25, 25, 248, 0.295);
 }

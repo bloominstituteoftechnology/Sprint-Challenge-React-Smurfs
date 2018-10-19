@@ -42,7 +42,9 @@ class App extends Component {
   }
   deleteSmurf = (e,id) => {
     e.preventDefault();
-    axios.delete
+    axios.delete(`http://localhost:3333/smurfs/${id}`)
+      .then(response => this.setState({smurfs : response.data}))
+      .catch(error => console.log(error));
   }
 
   handleInputChange = e => {
