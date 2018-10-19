@@ -19,6 +19,15 @@ class Smurfs extends Component {
                 key={smurf.id}
               />
             );
+            <button
+              className="delete-button"
+              onClick={event => {
+                props.deleteSmurf(event, smurf.id);
+                props.history.push('/smurfs');
+              }}
+            >
+              Delete
+            </button>;
           })}
         </ul>
       </div>

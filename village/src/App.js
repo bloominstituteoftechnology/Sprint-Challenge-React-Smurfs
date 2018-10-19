@@ -30,6 +30,16 @@ class App extends Component {
       .catch(err => console.log(err));
   }
 
+  deleteSmurf = (event, id) => {
+    event.preventDefault();
+    axios
+      .delete(`http://localhost:3333/smurfs/${id}`)
+      .then(response => {
+        this.setState({ smurfs: response.data });
+      })
+      .catch(err => console.log(err));
+  };
+
   handleChange = event => {
     this.setState({
       smurf: {
