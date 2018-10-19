@@ -1,6 +1,10 @@
+body {
+    background: #288ed7;
+}
+
 .App {
   text-align: center;
-  background: #288ed7;
+
   color: white;
   text-align: center;
   margin: 0;
@@ -41,6 +45,7 @@
 .Smurfs {
   text-align: center;
   margin: 0;
+  width: 100%;
 }
 
 .Smurf{
@@ -78,8 +83,32 @@
   justify-content: center;
   align-items: center;
   align-self: center;
+  background: black; 
 }
 
 .Smurf .icon .smurf{
   margin: 0;
+  fill: #288ed7;
+}
+
+.SmurfForm {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  margin: 10% auto;
+  justify-content: space-between;
+}
+
+.SmurfForm input{
+  margin: 10px;
+}
+
+.SmurfForm button{
+    background: red;
+    padding: 10px;
+    color: white;
+    border: 1px solid white;
+    cursor: pointer;
+    border-radius: 3px;
+    margin-top: 10px;
 }

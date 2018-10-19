@@ -5,6 +5,7 @@ import './App.css';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
 import Header from './components/Header';
+import Welcome from './components/Welcome'; 
 
 class App extends Component {
   constructor(props){
@@ -74,7 +75,8 @@ class App extends Component {
     return (
       <div className="App">
         <Route path='/' component={Header} />
-        <Route exact path='/smurf-form' render={(props) => (<SmurfForm {...props} saveSmurf={this.makeSmurf} name='' height='' age='' />)} />
+        <Route exact path='/' component={Welcome} />
+        <Route exact path='/smurf-form' render={(props) => (<SmurfForm {...props} makeSmurf={this.makeSmurf} name='' height='' age='' />)} />
         <Route exact path='/village' render={(props) => (<Smurfs {...props} smurfs={this.state.smurfs} deleteSmurf={this.deleteSmurf} editSmurf={this.editSmurf}/>)} />
       </div>
     );
