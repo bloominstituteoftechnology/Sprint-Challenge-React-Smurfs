@@ -1,3 +1,72 @@
 .App {
   text-align: center;
 }
+
+
+nav{
+  display: flex;
+  justify-content: center;
+  justify-content: space-around;
+  margin: 30px 0;
+  font-size: 2rem;
+}
+
+nav a{
+  text-decoration: none;
+  color: black;
+}
+nav .active{
+color: #3D97E4;
+}
+
+.smurf-village{
+  padding:50px 0;
+  /* background:url(http://www.mapsperak.com/wp-content/uploads/HeroBanner_SmurfVillageRetail_mobile.jpg); */
+  background-color: lightblue;
+  width: 100%;
+  border:1px black solid;
+}
+
+.smurf-village ul{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+}
+.Smurfs h1{
+  font-size: 4rem;
+  margin-bottom: 30px;
+  color: whitesmoke;
+  font-weight: bold;
+}
+
+.Smurf{
+  font-size: 1.8rem;
+  line-height: 30px;
+  border: 1px solid lightgray;
+  width: 45%;
+  background-color:white;
+  margin: 20px 20px;
+  padding: 20px 0;
+  background-image: url(https://vignette.wikia.nocookie.net/smurfs/images/9/95/Clumsy_1.png/revision/latest/scale-to-width-down/200?cb=20141120070054);
+  background-repeat: no-repeat;
+}
+
+.smurf-text{
+  padding-left: 23%;
+}
+
+button{
+  margin: 0 1%;
+}
+
+.edit-smurf-form{
+  display: flex;
+  flex-direction: column;
+  width:50%;
+  margin: 20px 0 20px 30%;
+}
+
+.edit-smurf-form input{
+  margin: 10px 0;
+}
