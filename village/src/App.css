@@ -38,6 +38,7 @@
 
 h1 {
   color: white;
+  border-right: 1px solid white;
   text-shadow: 2px 2px black;
   background-color: rgba(0, 0, 0, 0.75);
   margin: 0 auto;
@@ -102,4 +103,30 @@ margin-left: 2%;
     margin: 0 0 0 77%;
     padding: 0.5%;
     border-radius: 2px;
+  }
+
+  .Smurfs {
+    margin-top: 50px;
+  }
+
+  .seeMore {
+    color: black;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+
+  .villageButtonDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 600px;
+  }
+
+  .villageButton{
+    padding: 1%;
+    border-radius: 1px;
+  }
+
+  .Home {
+    background: none;
   }

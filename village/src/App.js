@@ -4,18 +4,14 @@ import "./App.css";
 import SmurfForm from "./components/SmurfForm";
 import Smurfs from "./components/Smurfs";
 import { Route, NavLink } from "react-router-dom";
+import Home from "./components/Home";
+import IndividualSmurf from './components/IndividualSmurf'
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
       smurfs: [],
-      smurf: {
-        name: "",
-        age: "",
-        height: "",
-        imgUrl: ""
-      }
     };
   }
   // add any needed code to ensure that the smurfs collection exists on state and it has data coming from the server
@@ -30,31 +26,18 @@ class App extends Component {
       .catch(error => console.log(error));
   }
 
-  addSmurf = event => {
-    event.preventDefault();
+
+appSetState = (smurfs) => {
+  this.setState({smurfs})
+}
+
+
+
+  deleteSmurf = (ev, id) => {
+    ev.preventDefault();
     axios
-    .post("http://localhost:3333/smurfs", this.state.smurf)
-    .then(response =>this.setState({
-      smurfs: response.data,
-      smurf: {
-        name: "",
-        age: "",
-        height: "",
-        imgUrl: ""
-      }
-    })
-    );
-    
-  };
-
-  handleInputChange = e => {
-    this.setState({ 
-      smurf: {
-      ...this.state.smurf,
-      [e.target.name]: e.target.value 
-      }
-    });
-
+      .delete(`http://localhost:3333/smurfs/${id}`)
+      .then(response => this.setState({ smurfs: response.data }));
   };
 
   render() {
@@ -62,29 +45,45 @@ class App extends Component {
       <div className="App">
         <header className="navBar">
           <NavLink className="navLinks" to="/" exact>
+            Home
+          </NavLink>
+          <NavLink className="navLinks" to="/village" exact>
             Village
           </NavLink>
           <NavLink className="navLinks" to="/smurf-form">
             Birth a Smurf
           </NavLink>
         </header>
-        <div className="border"/>
+        <div className="border" />
 
         <Route
           path="/smurf-form"
           render={props => (
             <SmurfForm
               {...props}
-              smurf={this.state.smurf}
-              addSmurf={this.addSmurf}
-              handleInputChange={this.handleInputChange}
+              appSetState={this.appSetState}
             />
           )}
         />
+        <Route exact path="/" render={props => <Home {...props} />} />
+
         <Route
           exact
-          path="/"
-          render={props => <Smurfs {...props} smurfs={this.state.smurfs} />}
+          path="/village"
+          render={props => (
+            <Smurfs
+              {...props}
+              smurfs={this.state.smurfs}
+              getSmurfById={this.getSmurfById}
+              deleteSmurf={this.deleteSmurf}
+            />
+          )}
+        />
+
+        <Route
+          path="/village/:id"
+          render={props => <IndividualSmurf {...props} smurfs={this.state.smurfs}/>}
+          
         />
       </div>
     );
