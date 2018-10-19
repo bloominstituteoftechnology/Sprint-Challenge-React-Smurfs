@@ -6,6 +6,7 @@ import "./App.css";
 import NavBar from "./components/NavBar";
 import SmurfForm from "./components/SmurfForm";
 import Smurfs from "./components/Smurfs";
+import SingleSmurf from "./components/SingleSmurf";
 
 class App extends Component {
   constructor(props) {
@@ -63,6 +64,17 @@ class App extends Component {
           path="/"
           render={props => (
             <Smurfs
+              {...props}
+              smurfs={this.state.smurfs}
+              deleteSmurf={this.deleteSmurf}
+              toggleUpdate={this.toggleUpdate}
+            />
+          )}
+        />
+        <Route
+          path="/smurf/:id"
+          render={props => (
+            <SingleSmurf
               {...props}
               smurfs={this.state.smurfs}
               deleteSmurf={this.deleteSmurf}

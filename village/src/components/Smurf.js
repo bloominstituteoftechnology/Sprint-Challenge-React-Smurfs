@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Smurf = props => {
   return (
@@ -11,7 +12,7 @@ const Smurf = props => {
             props.history.push("/smurf-form");
           }}
         />
-        {props.name}
+        <Link to={`/smurf/${props.id}`}>{props.name}</Link>
         <i
           className="fas fa-trash-alt"
           onClick={() => props.deleteSmurf(props.id)}

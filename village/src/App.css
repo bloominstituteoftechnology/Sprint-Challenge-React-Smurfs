@@ -35,6 +35,13 @@ nav a {
   padding: 0;
 }
 
+.SingleSmurf {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
 .Smurf {
   position: relative;
   width: 250px;
@@ -44,7 +51,6 @@ nav a {
   border: 2px solid #65D7D7;
   border-radius: 10px;
   margin-bottom: 10px;
-
 }
 
 .Smurf .fa-edit {
@@ -52,6 +58,7 @@ nav a {
   top: 5px;
   left: 5px;
   color: green;
+  cursor: pointer;
 }
 
 .Smurf .fa-trash-alt {
@@ -59,6 +66,12 @@ nav a {
   position: absolute;
   top: 5px;
   right: 5px;
+  cursor: pointer;
+}
+
+.Smurf a {
+  text-decoration: none;
+  color: #65D7D7;
 }
 
 .SmurfForm h1 {
