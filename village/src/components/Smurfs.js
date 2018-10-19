@@ -17,17 +17,9 @@ class Smurfs extends Component {
                 age={smurf.age}
                 height={smurf.height}
                 key={smurf.id}
+                deleteSmurf={this.props.deleteSmurf}
               />
             );
-            <button
-              className="delete-button"
-              onClick={event => {
-                this.deleteSmurf(event, smurf.id);
-                this.history.push('/smurfs');
-              }}
-            >
-              Delete
-            </button>;
           })}
         </ul>
       </div>
