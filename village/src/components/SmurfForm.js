@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+
 class SmurfForm extends Component {
   constructor(props) {
     super(props);
@@ -10,44 +11,34 @@ class SmurfForm extends Component {
     };
   }
 
-  addSmurf = event => {
-    event.preventDefault();
-    // add code to create the smurf using the api
-
-    this.setState({
-      name: '',
-      age: '',
-      height: ''
-    });
-  }
-
-  handleInputChange = e => {
-    this.setState({ [e.target.name]: e.target.value });
-  };
+ 
+ 
 
   render() {
     return (
       <div className="SmurfForm">
-        <form onSubmit={this.addSmurf}>
+        <form onSubmit={this.props.addSmurf}>
           <input
-            onChange={this.handleInputChange}
+            onChange={this.props.handleInputChange}
             placeholder="name"
-            value={this.state.name}
+            value={this.props.smurf.name}
             name="name"
           />
           <input
-            onChange={this.handleInputChange}
+            onChange={this.props.handleInputChange}
             placeholder="age"
-            value={this.state.age}
+            value={this.props.smurf.age}
             name="age"
           />
           <input
-            onChange={this.handleInputChange}
+            onChange={this.props.handleInputChange}
             placeholder="height"
-            value={this.state.height}
+            value={this.props.smurf.height}
             name="height"
           />
-          <button type="submit">Make magic happen!</button>
+          <button 
+          type="submit" 
+          onClick={(event) => {this.props.addSmurf(event); this.props.history.push('/')} }>Make magic happen!</button>
         </form>
       </div>
     );
