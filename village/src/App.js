@@ -5,7 +5,7 @@ import './App.css';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
 import Header from './components/Header';
-import Welcome from './components/Welcome'; 
+import Welcome from './components/Welcome';
 
 class App extends Component {
   constructor(props){
@@ -13,6 +13,15 @@ class App extends Component {
     this.url = 'http://localhost:3333/smurfs'
     this.state = {
       smurfs: [],
+      smurf: {
+        id: null,
+        name: '',
+        age: '',
+        height: '',
+      },
+      editingId: null,
+      isEditing: false,
+      activeSmurf: null,
     }
   }
     componentDidMount(){
@@ -28,9 +37,18 @@ class App extends Component {
         })
     }
 
+      handleInputChange = e => {
+        this.setState({
+          smurf: {
+            ...this.state.smurf,
+            [e.target.name]: e.target.value
+          }
+          });
+      };
+
     makeSmurf = smurf => {
       axios
-        .post(this.url, smurf)
+        .post(this.url, this.state.smurf)
         .then(response => {
           this.setState({
             smurfs: response.data
@@ -41,7 +59,9 @@ class App extends Component {
         })
     }
 
-    deleteSmurf = id => {
+
+    deleteSmurf = (event, id) => {
+      event.preventDefault();
       axios
         .delete(`${this.url}/${id}`)
         .then(response => {
@@ -54,12 +74,20 @@ class App extends Component {
         })
     }
 
-    editSmurf = (id, smurf) => {
+    editSmurf = ()=> {
       axios
-        .put(`${this.url}/${id}`, smurf)
+        .put(`${this.url}/${this.state.editingId}`, this.state.smurf)
         .then(response => {
           this.setState({
-            smurfs: response.data
+            smurfs: response.data,
+            editingId: null,
+            isEditing: false,
+            smurf: {
+              id: null,
+              name: '',
+              age: '',
+              height: '',
+            }
           })
         })
         .catch(response => {
@@ -67,17 +95,33 @@ class App extends Component {
         })
     }
 
-  // add any needed code to ensure that the smurfs collection exists on state and it has data coming from the server
-  // Notice what your map function is looping over and returning inside of Smurfs.
-  // You'll need to make sure you have the right properties on state and pass them down to props.
+    setUpForm = (event, smurf) => {
+      event.preventDefault();
+      this.setState({
+        smurf,
+        isEditing: true,
+        editingId: smurf.id,
+      })
+    }
+
   render() {
-    console.log(this.state.smurfs);
+    if (this.state.smurfs.length === 0) {
+      return(
+        <h1>Loading...</h1>
+      )
+    }
     return (
       <div className="App">
         <Route path='/' component={Header} />
         <Route exact path='/' component={Welcome} />
-        <Route exact path='/smurf-form' render={(props) => (<SmurfForm {...props} makeSmurf={this.makeSmurf} name='' height='' age='' />)} />
-        <Route exact path='/village' render={(props) => (<Smurfs {...props} smurfs={this.state.smurfs} deleteSmurf={this.deleteSmurf} editSmurf={this.editSmurf}/>)} />
+        <Route exact path='/village' render={(props) => (
+          <Smurfs {...props} smurfs={this.state.smurfs}
+          setUpForm={this.setUpForm} />)} />
+        <Route path='/smurf-form' render={(props) => (
+          <SmurfForm {...props}
+            smurf={this.state.smurf} makeSmurf={this.makeSmurf} handleInputChange={this.handleInputChange}
+          isEditing={this.state.isEditing}
+        editSmurf={this.editSmurf} />)} />
       </div>
     );
   }

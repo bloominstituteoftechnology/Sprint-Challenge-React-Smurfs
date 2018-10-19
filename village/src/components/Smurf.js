@@ -1,52 +1,72 @@
 import React from 'react';
 import SmurfIcon from './SmurfIcon';
+import SmurfForm from './SmurfForm';
+// import axios from 'axios';
+import { Route, Link } from 'react-router-dom';
 
 class Smurf extends React.Component {
   constructor(props){
     super(props);
-    this.state = {
-      name: this.props.name,
-      age: this.props.age,
-      height: this.props.height,
-      editing: false,
-    }
+    // this.state = {
+    //   id: this.props.id,
+    //   name: this.props.name,
+    //   age: this.props.age,
+    //   height: this.props.height,
+    //   editing: false,
+    // }
   }
 
   handleDelete = props => {
     this.props.deleteSmurf(this.props.id);
   }
 
-
-  handleEdit = () => {
-    const smurf = {
-      name: this.state.name,
-      age: this.state.age,
-      height: this.state.height,
-    }
-    this.props.editSmurf(this.props.id, smurf)
-      .then(response => {
-        this.props.history.push('/village')
-      })
+  toggleEdit = () => {
+    this.setState(prevState => ({
+      editing: !prevState.editing,
+    }))
   }
+
+
+  // handleEdit = () => {
+  //   const smurf = {
+  //     id: this.state.id,
+  //     name: this..name,
+  //     age: this.props.age,
+  //     height: this.props.height,
+  //   }
+  //   this.props.editSmurf(smurf);
+  //   this.setState({
+  //     editing: false,
+  //   });
+  //
+  //
+  // }
+
 
   render(){
     return (
+      <div className='smurf-container'>
       <div className="Smurf">
         <div className='buttons'>
           <div className='button delete' onClick={this.handleDelete}>
             Delete Smurf
           </div>
-          <div className='button edit' onClick={this.toggleEdit}>
+
+          <div className='button edit' onClick={event => {
+            this.props.setUpForm(event, this.props.smurf);
+            this.props.history.push('/smurf-form');
+          }} >
             Edit Smurf
           </div>
         </div>
         <div className='icon'>
           <SmurfIcon />
         </div>
-        <h3>{this.state.name}</h3>
-        <strong>{this.state.height} tall</strong>
-        <p>{this.state.age} smurf years old</p>
+        <h3>{this.props.smurf.name}</h3>
+        <strong>{this.props.smurf.height} tall</strong>
+        <p>{this.props.smurf.age} smurf years old</p>
       </div>
+    </div>
     );
   }
 };
