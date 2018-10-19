@@ -5,7 +5,6 @@ class SmurfForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      newSmurfs: [],
       name: '',
       age: '',
       height: ''
@@ -28,7 +27,7 @@ class SmurfForm extends Component {
         name: '',
         age: '',
         height: '',
-        newSmurfs: response.data
+        smurfs: response.data
       });
     })
     .catch(error => {
