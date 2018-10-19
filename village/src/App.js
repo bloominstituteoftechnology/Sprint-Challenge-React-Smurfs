@@ -23,17 +23,14 @@ class App extends Component {
       .catch(error => console.log(error));
   }
 
-  refreshState() {
-    axios
-      .get("http://localhost:3333/smurfs")
-      .then(response => this.setState({ smurfs: response.data }))
-      .catch(error => console.log(error));
+  handleSetData = data => {
+    this.setState({ smurfs: data });
   }
 
   render() {
     return (
       <div className="App">
-        <SmurfForm refresh={this.refreshState} />
+        <SmurfForm refresh={this.handleSetData} />
         <Smurfs smurfs={this.state.smurfs} />
       </div>
     );
