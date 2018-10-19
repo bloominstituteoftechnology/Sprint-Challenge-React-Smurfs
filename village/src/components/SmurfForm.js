@@ -72,7 +72,9 @@ class SmurfForm extends Component {
 }
 
 SmurfForm.propTypes = {
-  addNewSmurf: PropTypes.func.isRequired
+  addNewSmurf: PropTypes.func.isRequired,
+  editing: PropTypes.bool.isRequired,
+  updateSmurf: PropTypes.func.isRequired
 };
 
 export default SmurfForm;

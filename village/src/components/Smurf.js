@@ -10,7 +10,8 @@ const Smurf = props => {
       <button onClick={e => props.deleteSmurf(e, props.id)}>Delete</button>
       <button
         onClick={function(e) {
-          props.redirect(), props.updateEditing(props.id);
+          props.redirect();
+          props.updateEditing(props.id);
         }}>
         Update
       </button>
@@ -30,7 +31,9 @@ Smurf.propTypes = {
   // Age keeps throwing an error can't figure it out
   // age: PropTypes.string.isRequired,
   id: PropTypes.number,
-  redirect: PropTypes.func.isRequired
+  redirect: PropTypes.func.isRequired,
+  deleteSmurf: PropTypes.func.isRequired,
+  updateEditing: PropTypes.func.isRequired
 };
 
 export default Smurf;

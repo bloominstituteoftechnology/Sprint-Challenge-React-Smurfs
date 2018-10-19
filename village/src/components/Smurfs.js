@@ -40,7 +40,8 @@ Smurf.defaultProps = {
 
 Smurfs.propTypes = {
   smurfs: PropTypes.arrayOf(PropTypes.object).isRequired,
-  deleteSmurf: PropTypes.func.isRequired
+  deleteSmurf: PropTypes.func.isRequired,
+  updateEditing: PropTypes.func.isRequired
 };
 
 export default Smurfs;
