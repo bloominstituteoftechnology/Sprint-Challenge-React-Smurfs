@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Route, NavLink } from 'react-router-dom';
 
 import './App.css';
 import SmurfForm from './components/SmurfForm';
@@ -35,11 +36,29 @@ class App extends Component {
   // You'll need to make sure you have the right properties on state and pass them down to props.
   render() {
     return (
-      <div className="App">
-        <SmurfForm />
-        <Smurfs smurfs={this.state.smurfs} />
+      <div className='App'>
+        <nav className='nav'>
+          <NavLink to='/'>Home</NavLink>
+          <NavLink to='/smurf-form'>Add Smurf!</NavLink>
+        </nav>
+        <div className="smurf-container">
+          <Route exact path="/" render={(props) => (
+            <Smurfs
+              {...props}
+              smurfs={this.state.smurfs}
+              deleteSmurf={this.deleteSmurf}
+              updateSmurf={this.updateSmurf}
+              addSmurf={this.addSmurf}
+            />
+          )} />
+          <Route path='/smurf-form' render={(props) => (
+            <SmurfForm
+              smurfs={this.state.smurfs}
+            />)}
+          />
+        </div>
       </div>
-    );
+    )
   }
 }
 
