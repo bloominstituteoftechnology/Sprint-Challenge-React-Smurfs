@@ -1,6 +1,7 @@
 // React and axios imports
 import React, { Component } from 'react';
 import axios from 'axios';
+import { Route } from 'react-router-dom';
 
 import './App.css';
 // Component imports
@@ -38,8 +39,17 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <SmurfForm addNewSmurf={this.addNewSmurf} />
-        <Smurfs smurfs={this.state.smurfs} />
+        <Route
+          path="/smurf-form"
+          render={props => (
+            <SmurfForm {...props} addNewSmurf={this.addNewSmurf} />
+          )}
+        />
+        <Route
+          exact
+          path="/"
+          render={props => <Smurfs {...props} smurfs={this.state.smurfs} />}
+        />
       </div>
     );
   }
