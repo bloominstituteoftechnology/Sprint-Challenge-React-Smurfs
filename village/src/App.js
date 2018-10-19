@@ -38,6 +38,7 @@ class App extends Component {
       age: '',
       height: '',
     }});
+    alert("Smurf Has been Added!")
   }
 
   handleInputChange = e => {
@@ -46,7 +47,7 @@ class App extends Component {
         ...this.state.newSmurf,
         [e.target.name]: e.target.value 
       }});
-      console.log(this.state.newSmurf);
+      // console.log(this.state.newSmurf);
   };
   // add any needed code to ensure that the smurfs collection exists on state and it has data coming from the server
   // Notice what your map function is looping over and returning inside of Smurfs.
