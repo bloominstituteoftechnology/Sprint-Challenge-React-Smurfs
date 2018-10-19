@@ -30,6 +30,7 @@ class SmurfForm extends Component {
       .post('http://localhost:3333/smurfs', newSmurf)
       .then(response => {
         this.setState({ smurfs: response.data, smurf: blankSmurfForm });
+        this.props.history.push('/smurfs');
       })
       .catch(err => console.log(err));
 
@@ -48,25 +49,36 @@ class SmurfForm extends Component {
     return (
       <div className="SmurfForm">
         <form onSubmit={this.addSmurf}>
-          <input
-            onChange={this.handleInputChange}
-            placeholder="name"
-            value={this.state.name}
-            name="name"
-          />
-          <input
-            onChange={this.handleInputChange}
-            placeholder="age"
-            value={this.state.age}
-            name="age"
-          />
-          <input
-            onChange={this.handleInputChange}
-            placeholder="height"
-            value={this.state.height}
-            name="height"
-          />
-          <button type="submit">Add to the village</button>
+          <div className="input-group">
+            <input
+              onChange={this.handleInputChange}
+              value={this.state.name}
+              name="name"
+            />
+
+            <label>Name</label>
+          </div>
+          <div className="input-group">
+            <input
+              onChange={this.handleInputChange}
+              value={this.state.age}
+              name="age"
+            />
+
+            <label>Age</label>
+          </div>
+          <div className="input-group">
+            <input
+              onChange={this.handleInputChange}
+              value={this.state.height}
+              name="height"
+            />
+
+            <label>Height</label>
+          </div>
+          <button type="submit" className="button">
+            Add to the village
+          </button>
         </form>
       </div>
     );
