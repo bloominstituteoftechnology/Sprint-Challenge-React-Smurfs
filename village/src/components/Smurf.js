@@ -40,6 +40,12 @@ render(){
     <div className={`Smurf ${this.state.toggled ? 'flip' : ''}`}>
       <div className={`front`}>
         <h1>{this.state.smurf.name}</h1>
+        {this.props.prepDelete || this.props.smurfPage ? 
+          <div className="delete-txt" onClick={() => this.props.delete(this.state.smurf.id)}>
+            DELETE
+          </div> 
+        
+      : null }
       </div>
       <div className={`back`}>
       <Link to={`/smurfs/${this.state.smurf.id}`}><h3>{this.state.smurf.name}</h3></Link>

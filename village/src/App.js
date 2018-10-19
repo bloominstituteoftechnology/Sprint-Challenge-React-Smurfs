@@ -34,6 +34,7 @@ class App extends Component {
          .then(response => this.setState({smurfs: response.data}));
 
     this.props.history.push('/');
+    this.setState({prepDelete: !this.state.prepDelete})
   }
   addSmurf = (smurf) => {
     axios.post('http://localhost:3333/smurfs', smurf)
