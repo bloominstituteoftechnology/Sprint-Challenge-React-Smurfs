@@ -25,6 +25,16 @@ class App extends Component {
     this.setState({smurfs: smurfData})
   }
 
+  deleteSmurf = (e, id) => {
+    console.log(id)
+    e.preventDefault()
+    axios.delete(`http://localhost:3333/smurfs/${id}`)
+    .then((response) => this.setState({smurfs: response.data}))
+    .catch((error)=> console.log(error))
+
+
+  }
+
   // changeHandler = (e) => {
   //   console.log(e.target.value)
   //   // this.setState({newSmurf: {...this.state.newSmurf, [`${e.target.name}`]: e.target.value}})
@@ -38,7 +48,7 @@ class App extends Component {
       <div className="App">
        <NavBar />
        <Route path='/smurf-form' render={(props) => <SmurfForm {...props} newSmurf={this.newSmurf}/>} />
-       <Route exact path={'/'} render={(props) => <Smurfs {...props} smurfs={this.state.smurfs} />} />
+       <Route exact path={'/'} render={(props) => <Smurfs {...props} deleteSmurf={this.deleteSmurf}smurfs={this.state.smurfs} />} />
       </div>
     );
   }
