@@ -1,20 +1,20 @@
-import React from 'react';
+import React from 'react'
+import { SmurfContainer, SmurfImg, SmurfText, SmurfName } from '../styles/Smurf'
 
-const Smurf = props => {
-  return (
-    <div className="Smurf">
-      <h3>{props.name}</h3>
-      <strong>{props.height} tall</strong>
-      <p>{props.age} smurf years old</p>
-    </div>
-  );
-};
+const Smurf = ({ name, occupation, img }) => (
+  <SmurfContainer>
+    <SmurfImg alt={name} src={img} />
+    <SmurfName>{name}</SmurfName>
+    {occupation
+      .split(',')
+      .map((item, i) => <SmurfText key={i}>{item}</SmurfText>)}
+  </SmurfContainer>
+)
 
 Smurf.defaultProps = {
   name: '',
-  height: '',
-  age: ''
-};
+  occupation: '',
+  img: ''
+}
 
-export default Smurf;
-
+export default Smurf
