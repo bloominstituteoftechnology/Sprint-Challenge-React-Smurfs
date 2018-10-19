@@ -1,5 +1,8 @@
+// React and PropTypes import
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
+// Component imports
 import Smurf from './Smurf';
 
 class Smurfs extends Component {
@@ -26,7 +29,11 @@ class Smurfs extends Component {
 }
 
 Smurf.defaultProps = {
- smurfs: [],
+  smurfs: []
+};
+
+Smurfs.propTypes = {
+  smurfs: PropTypes.array.isRequired
 };
 
 export default Smurfs;
