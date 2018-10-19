@@ -1,3 +1,92 @@
 .App {
   text-align: center;
 }
+
+.header a {
+  font-size: 2rem;
+  padding: 0.5rem;
+
+  text-decoration: none;
+  font-family: "Chewy", cursive;
+  color: rgb(33, 62, 156);
+}
+.smurf-menu {
+  background-color: rgb(105, 219, 253);
+  height: 100%;
+  padding: 1rem 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.headliner {
+  background-image: url("./assets/smurfs-header.jpg");
+  background-color: rgb(33, 62, 156);
+  height: 20rem;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.headliner h1 {
+  font-size: 5rem;
+  color: white;
+  font-family: "Sigmar One", cursive;
+}
+.Smurfs {
+  background-image: url("./assets/smurf-village.jpg");
+  height: 50rem;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.village {
+  background-color: rgba(255, 255, 255, 0.267);
+  height: 50rem;
+}
+
+.Smurf {
+  background-color: rgb(217, 247, 248);
+  padding: 1rem;
+  width: 25%;
+  margin: 1rem;
+  border-radius: 1rem;
+}
+.village ul {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.village h1 {
+  color: rgb(33, 62, 156);
+  padding-top: 3rem;
+  font-size: 4rem;
+  font-family: "Sigmar One", cursive;
+  text-align: center;
+  margin: 0;
+}
+
+.SmurfForm {
+  padding-top: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.SmurfForm input {
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  border: none;
+  background-color: rgb(105, 219, 253);
+  margin: 0.5rem;
+  color: white;
+}
+
+.SmurfForm button {
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  border: none;
+  background-color: rgb(105, 219, 253);
+  margin: 0.5rem;
+}
