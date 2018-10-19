@@ -9,10 +9,16 @@
 ## Questions - Self Study - You can exercise your Google-Fu for this and any other _Sprint Challenge_ in the future.
 
 1.  Explain the differences between `client-side routing` and `server-side routing`.
-1.  What does HTTP stand for?
-1.  What does CRUD stand for?
-1.  Which HTTP methods can be mapped to the CRUD acronym that we use when interfacing with APIs/Servers.
-1.  Mention three tools we can use to make AJAX requests.
+Server side routing was the traditional method for serving documents that were requested where the entire page or new document is served to the client.  Because an entire page is being served at once, rather than just the specific components/data needed performance is usually not as good as client side routing because unnecessary data is requested (like headers or footers that dont change on every page), so it can take longer to render, however, because it was the standard for so long SEO is optimized this way as search engines can glean more relevant semantic data from the site and potentially rank it higher.   Client side routing handles events with javascript that has already loaded on the page, so it is handled internally rather than making a new request to the server.  This can make processing and rendering much faster, but there could be unused data that loaded on the first request, so initial loading might take longer, and it is less effective at SEO. 
+
+2.  What does HTTP stand for?  hyper text transfer protocol
+3.  
+4.  What does CRUD stand for?  create read update delete
+5.  
+6.  Which HTTP methods can be mapped to the CRUD acronym that we use when interfacing with APIs/Servers.
+7.  post get put delete
+8.  
+9.  Mention three tools we can use to make AJAX requests.  axios, postman, jquery
 
 ## Initializing Project - READ THIS CAREFULLY, you have two apps here. A server, and a client.
 
