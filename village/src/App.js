@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { Route, NavLink} from 'react-router-dom';
+import { Route, NavLink } from 'react-router-dom';
 
 import './App.css';
 import SmurfForm from './components/SmurfForm';
@@ -11,11 +11,6 @@ class App extends Component {
     super(props);
     this.state = {
       smurfs: [],
-      newSmurf: {
-        name: '',
-        age: '',
-        height: ''
-      }
     };
   }
   // add any needed code to ensure that the smurfs collection exists on state and it has data coming from the server
@@ -35,9 +30,9 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <div className="nav-bar">
+      <div className="nav-bar">
           <NavLink exact to={'/'}>Smurf</NavLink>
-          <NavLink to={'/smurf-form'}>Form</NavLink>
+          <NavLink to={'/smurf-form'}>Smurf Form</NavLink>
           
         </div>
         <Route exact path='/' render={ props => (
@@ -45,7 +40,7 @@ class App extends Component {
           )}
         />
         <Route path='/smurf-form' render={ props => (
-         <SmurfForm {...props} newSmurf={this.state.newSmurf} smurfs={this.state.smurfs}/>
+         <SmurfForm {...props}  smurfs={this.state.smurfs}/>
          
           
           )}
