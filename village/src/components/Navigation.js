@@ -6,11 +6,8 @@ import {
   NavbarBrand,
   Nav,
   NavItem,
-  NavLink,
-  UncontrolledDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem } from 'reactstrap';
+ } from 'reactstrap';
+ import { NavLink } from 'react-router-dom'
 
 class Navigation extends React.Component {
   constructor(props) {
@@ -35,10 +32,10 @@ class Navigation extends React.Component {
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
               <NavItem>
-                <NavLink href="/smurf-form">Register a new Smurf!</NavLink>
+                <NavLink to="/smurf-form">Register a new Smurf!</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="https://www.youtube.com/watch?v=SJv5C-maMa0">Anthem</NavLink>
+                <NavLink to="https://www.youtube.com/watch?v=SJv5C-maMa0">Anthem</NavLink>
               </NavItem>
             </Nav>
           </Collapse>
