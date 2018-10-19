@@ -32,7 +32,7 @@ class App extends Component {
           <Smurfs smurfs={this.state.smurfs} />
         )} />
         <Route path="/smurf-form" render={props => (
-          <SmurfForm onSubmit={this.update} />
+          <SmurfForm onSubmit={this.update} {...props} />
         )} />
       </div>
     );
