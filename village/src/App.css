@@ -1,3 +1,27 @@
 .App {
+  background: rgb(124, 166, 230);
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+}
+
+.SmurfForm {
+  padding: 5px;
+}
+
+.SmurfForm input, .SmurfForm button {
+  padding: 5px;
+}
+
+.Smurfs {
+  width: 80%;
   text-align: center;
+  margin: 0 auto;
+}
+
+.Smurf {
+  border: 3px dotted blue;
+  background: skyblue;
+  margin: 5px;
 }

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import axios from 'axios';
 
 import './App.css';
@@ -18,14 +19,14 @@ class App extends Component {
   // You'll need to make sure you have the right properties on state and pass them down to props.
 
 
-  getSmurfs(){
+  getSmurfs() {
     axios
-    .get('http://localhost:3333/smurfs')
-    .then(smurfs => this.setState({ smurfs: smurfs.data }))
-    .catch(error => console.log(error));
+      .get('http://localhost:3333/smurfs')
+      .then(smurfs => this.setState({ smurfs: smurfs.data }))
+      .catch(error => console.log(error));
   }
-  
-  componentDidMount(){
+
+  componentDidMount() {
     this.getSmurfs();
   }
 
@@ -35,13 +36,17 @@ class App extends Component {
   //   }
   // }
 
-  
+
   render() {
+    // const smurfs = this.state.smurfs;
     return (
-      <div className="App">
-        <SmurfForm />
-        <Smurfs smurfs={this.state.smurfs} />
-      </div>
+      <Router>
+        <div className="App">
+          <Route path='/SmurfForm' render={() => <SmurfForm />} />
+          <Route exact path='/' render={() => <Smurfs smurfs={this.state.smurfs} />} />
+          {/* <Smurfs smurfs={this.state.smurfs} /> */}
+        </div>
+      </Router>
     );
   }
 }
