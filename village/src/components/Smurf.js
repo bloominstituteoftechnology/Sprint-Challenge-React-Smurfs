@@ -7,12 +7,17 @@ const Smurf = props => {
       <h3>{props.name}</h3>
       <p>{props.height} tall</p>
       <p>{props.age} smurf years old</p>
-      <button onClick={e => props.deleteSmurf(e, props.id)}>Delete</button>
+      <button
+        onClick={e => props.deleteSmurf(e, props.id)}
+        className="smurfCardButton">
+        Delete
+      </button>
       <button
         onClick={function(e) {
           props.redirect();
           props.updateEditing(props.id);
-        }}>
+        }}
+        className="smurfCardButton">
         Update
       </button>
     </div>

@@ -89,16 +89,19 @@ input[type='number']::-webkit-outer-spin-button {
   transition: all 0.2s ease-in-out;
 }
 
-.smurfForm button:hover {
+.smurfForm button:hover,
+.Smurf .smurfCardButton:hover {
   background: #2295d6;
   color: #fff;
 }
 
-.smurfForm button:focus {
+.smurfForm button:focus,
+.Smurf .smurfCardButton:hover {
   outline: none;
 }
 
-.smurfForm button:active {
+.smurfForm button:active,
+.Smurf .smurfCardButton:hover {
   transform: scale(0.98);
 }
 
@@ -131,4 +134,16 @@ input[type='number']::-webkit-outer-spin-button {
 
 .Smurf p {
   font-size: 1.8rem;
+}
+
+.Smurf .smurfCardButton {
+  padding: 5px 5px;
+  font-size: 1.6rem;
+  border-radius: 3px;
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+.Smurf .smurfCardButton:hover {
+  transition: all 0.2s ease-in-out;
 }

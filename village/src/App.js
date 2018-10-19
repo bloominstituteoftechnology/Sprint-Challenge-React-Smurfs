@@ -48,6 +48,10 @@ class App extends Component {
     this.setState({ editing: true, editingId: id });
   };
 
+  homeSwitch = () => {
+    this.setState({ editing: false, editingId: null });
+  };
+
   updateSmurf = info => {
     axios
       .put(`http://localhost:3333/smurfs/${this.state.editingId}`, info)
@@ -60,7 +64,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Navigation editing={this.state.editing} />
+        <Navigation editing={this.state.editing} homeSwitch={this.homeSwitch} />
         <Route
           path="/smurf-form"
           render={props => (

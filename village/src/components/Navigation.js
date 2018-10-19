@@ -5,7 +5,7 @@ const Navigation = props => {
   return (
     <header className="mainNav">
       <nav>
-        <NavLink exact to="/" className="navLink">
+        <NavLink exact to="/" className="navLink" onClick={props.homeSwitch}>
           Home
         </NavLink>
         <NavLink to="/smurf-form" className="navLink">
