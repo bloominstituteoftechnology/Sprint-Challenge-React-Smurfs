@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { Route, NavLink } from "react-router-dom";
-
+import { Route, NavLink, withRouter } from "react-router-dom";
 import "./App.css";
 import SmurfForm from "./components/SmurfForm";
 import Smurfs from "./components/Smurfs";
@@ -10,13 +9,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      smurfs: [],
-      newSmurf: {
-        id: null,
-        name: "",
-        age: null,
-        height: ""
-      }
+      smurfs: []
     };
     console.log(this.state.smurfs);
   }
@@ -25,13 +18,15 @@ class App extends Component {
     axios.get("http://localhost:3333/smurfs").then(res => this.setState({ smurfs: res.data }));
   }
 
-  addSmurfToDom = () => {
-    console.log("addSmurfToDom fired");
+  addSmurf = (e, newFriend) => {
+    e.preventDefault();
+    // add code to create the smurf using the api
     axios
-      .post("http://localhost:3333/smurfs", this.state.smurfs)
-      .then(res => console.log(".then fired", res))
+      .post("http://localhost:3333/smurfs", newFriend)
+      .then(res => this.setState({ smurfs: res.data }))
       .catch(err => console.log(err));
   };
+
   // add any needed code to ensure that the smurfs collection exists on state and it has data coming from the server
   // Notice what your map function is looping over and returning inside of Smurfs.
   // You'll need to make sure you have the right properties on state and pass them down to props.
@@ -42,11 +37,11 @@ class App extends Component {
           <NavLink to="/smurfs">Smurf Village</NavLink>
           <NavLink to="/smurf-form">Add a Smurf</NavLink>
         </nav>
-        <Route path="/smurf-form" render={() => <SmurfForm addSmurfToDom={this.addSmurfToDom} />} />
+        <Route path="/smurf-form" render={props => <SmurfForm {...props} addSmurf={this.addSmurf} />} />
         <Route exact path="/smurfs" render={() => <Smurfs smurfs={this.state.smurfs} />} />
       </div>
     );
   }
 }
 
-export default App;
+export default withRouter(App);
