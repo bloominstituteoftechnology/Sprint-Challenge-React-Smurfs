@@ -4,6 +4,7 @@ import './App.css';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
 import { Route } from 'react-router-dom';
+import Navigation from './components/Navigation';
 
 class App extends Component {
   constructor(props) {
@@ -31,7 +32,8 @@ class App extends Component {
 
       <div className="App">
         <Route exact path='/' component={Smurfs} />
-        <Route path='/smurf-form' component={SmurfForm} />   
+        <Route exact path='/smurf-form' component={SmurfForm} />   
+        <Navigation/>
       </div>
     );
   }
