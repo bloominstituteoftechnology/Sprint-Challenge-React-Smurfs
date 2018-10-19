@@ -12,15 +12,27 @@ const Card = styled.div`
     font-weight: bold;
     font-size: 2rem;
   }
-  button {
+
+  .btns {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .btn {
     outline: none;
     border: transparent;
     border-radius: 5px;
     padding: 1rem 3rem;
     color: #fff;
-    background: red;
     margin-top: 2rem;
     cursor: pointer;
+  }
+  .btn-remove {
+    background: red;
+  }
+
+  .btn-edit {
+    background: green;
   }
 `;
 
@@ -30,7 +42,20 @@ const Smurf = props => {
       <h3>{props.name}</h3>
       <strong>{props.height} tall</strong>
       <p>{props.age} smurf years old</p>
-      <button onClick={() => props.deleteSmurf(props.id)}>Remove</button>
+      <div className="btns">
+        <button
+          className="btn btn-remove"
+          onClick={() => props.deleteSmurf(props.id)}
+        >
+          Remove
+        </button>
+        <button
+          className="btn btn-edit"
+          onClick={() => props.handleUpdateClick(props.id)}
+        >
+          Edit
+        </button>
+      </div>
     </Card>
   );
 };

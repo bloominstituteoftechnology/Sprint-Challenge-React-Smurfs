@@ -14,7 +14,9 @@ class App extends Component {
       url: 'http://localhost:3333',
       name: '',
       age: '',
-      height: ''
+      height: '',
+      editMode: false,
+      activeId: null
     };
   }
   // add any needed code to ensure that the smurfs collection exists on state and it has data coming from the server
@@ -30,6 +32,19 @@ class App extends Component {
     }
   }
 
+  // Prepares form for PUT REQUEST
+  handleUpdateClick = id => {
+    const smurf = this.state.smurfs.find(smurf => smurf.id === id);
+    this.props.history.push('/smurf-form');
+    this.setState({
+      name: smurf.name,
+      age: smurf.age,
+      height: smurf.height,
+      editMode: true,
+      activeId: id
+    });
+  };
+
   handleInputChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
@@ -40,10 +55,11 @@ class App extends Component {
   };
 
   // ADD NEW SMURF TO LIST
-  addSmurf = event => {
-    event.preventDefault();
+
+  // POST NEW SMURF
+  addSmurf = () => {
+    // e.preventDefault();
     const { name, age, height } = this.state;
-    // add code to create the smurf using the api
     axios
       .post(`http://localhost:3333/smurfs`, {
         name,
@@ -58,6 +74,8 @@ class App extends Component {
       age: '',
       height: ''
     });
+
+    this.props.history.push('/');
   };
 
   // DELETE SMURF
@@ -70,10 +88,28 @@ class App extends Component {
   };
 
   // UPDATE SINGLE SMURF
-  updateSmurf = e => {};
+  updateSmurf = id => {
+    const { name, age, height } = this.state;
+    axios
+      .put(`http://localhost:3333/smurfs/${id}`, {
+        name,
+        age,
+        height
+      })
+      .then(res => this.updateSmurfs(res.data))
+      .catch(err => console.log(err));
+
+    this.setState({
+      name: '',
+      age: '',
+      height: ''
+    });
+
+    this.props.history.push('/');
+  };
 
   render() {
-    const { name, age, height } = this.state;
+    const { name, age, height, editMode, activeId } = this.state;
     return (
       <div className="App">
         <nav className="nav">
@@ -89,9 +125,11 @@ class App extends Component {
               name={name}
               age={age}
               height={height}
+              activeId={activeId}
+              editMode={editMode}
               addSmurf={this.addSmurf}
+              updateSmurf={this.updateSmurf}
               handleInputChange={this.handleInputChange}
-              updateSmurfs={this.updateSmurfs}
               {...props}
             />
           )}
@@ -103,6 +141,7 @@ class App extends Component {
             <Smurfs
               smurfs={this.state.smurfs}
               deleteSmurf={this.deleteSmurf}
+              handleUpdateClick={this.handleUpdateClick}
               {...props}
             />
           )}

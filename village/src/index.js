@@ -1,13 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { BrowserRouter as Router, withRouter } from 'react-router-dom';
 
 import './index.css';
 import App from './App';
 
+// Give App access to React Router methods
+const AppWithRouter = withRouter(App);
+
 ReactDOM.render(
   <Router>
-    <App />
+    <AppWithRouter />
   </Router>,
   document.getElementById('root')
 );
