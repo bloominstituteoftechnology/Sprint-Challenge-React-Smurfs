@@ -1,3 +1,18 @@
 .App {
   text-align: center;
 }
+
+.form-link {
+  padding: 7px;
+  margin-top: 30px;
+  background: palevioletred;
+  color: white;
+  border-radius: 5px;
+}
+a {
+  padding: 10px;
+  margin-top: 30px;
+}
+.SmurfForm {
+  margin-top: 20px;
+}
