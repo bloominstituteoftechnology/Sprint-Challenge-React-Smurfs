@@ -8,7 +8,7 @@ const Smurf = props => {
       <strong>{props.height} cm tall</strong>
       <p>{props.age} smurf years old</p>
       <button
-        className="delete-button"
+        className="button"
         onClick={event => {
           props.deleteSmurf(event, props.id);
           props.history.push('/smurfs');
