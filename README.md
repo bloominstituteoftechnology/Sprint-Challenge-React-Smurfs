@@ -74,9 +74,9 @@
 
 ### DELETE '/smurfs/123', where 123 is the Id of the smurf you want to remove
 
-- For this endpoint to work, all you need is an id sent up as part of the request url.
+- [x] For this endpoint to work, all you need is an id sent up as part of the request url.
 
-- If your delete worked, you'll get a list of the smurfs back.
+- [x] If your delete worked, you'll get a list of the smurfs back.
 - Example:
 
 ```js

@@ -102,7 +102,8 @@ class App extends Component {
     this.setState({
       name: '',
       age: '',
-      height: ''
+      height: '',
+      editMode: false
     });
 
     this.props.history.push('/');
