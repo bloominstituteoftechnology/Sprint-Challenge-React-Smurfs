@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+import PropTypes from 'prop-types';
 class SmurfForm extends Component {
   constructor(props) {
     super(props);
@@ -30,18 +30,21 @@ class SmurfForm extends Component {
       <div className="SmurfForm">
         <form onSubmit={this.addSmurf}>
           <input
+            type="text"
             onChange={this.handleInputChange}
             placeholder="name"
             value={this.state.name}
             name="name"
           />
           <input
+            type="number"
             onChange={this.handleInputChange}
             placeholder="age"
             value={this.state.age}
             name="age"
           />
           <input
+            type="text"
             onChange={this.handleInputChange}
             placeholder="height"
             value={this.state.height}
@@ -55,5 +58,9 @@ class SmurfForm extends Component {
     );
   }
 }
+
+SmurfForm.propTypes = {
+  addNewSmurf: PropTypes.func.isRequired
+};
 
 export default SmurfForm;
