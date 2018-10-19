@@ -60,7 +60,8 @@ class App extends Component {
       <Route exact path='/' render={props =>
                       <Smurfs {...props}
                               smurfs={this.state.smurfs}
-                              prepDelete={this.state.prepDelete} />
+                              prepDelete={this.state.prepDelete}
+                              delete={this.delete} />
       } />
         
       <Route path='/addSmurf' render={props =>
