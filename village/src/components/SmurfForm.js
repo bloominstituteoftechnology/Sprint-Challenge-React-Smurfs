@@ -62,7 +62,7 @@ class SmurfForm extends Component {
             />
           </label>
           
-          <button className="submit" type="submit" onClick={this.addSmurf}>Add to the village</button>
+          <button className="submit" type="submit" /*onClick={this.addSmurf}*/>Add to the village</button>
         </form>
         </div>
         
