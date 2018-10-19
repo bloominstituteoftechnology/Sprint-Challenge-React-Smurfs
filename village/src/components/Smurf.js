@@ -1,14 +1,20 @@
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 // import axios from 'axios';
+
+
 
 const Smurf = props => {
   return (
     <div className="Smurf">
-      <h3>{props.name}</h3>
-      <strong>{props.height} tall</strong>
-      <p>{props.age} smurf years old</p>
+      {/* Stretch? added font-awesome libraries and icon */}
+      <h3 className='smurf-name'><FontAwesomeIcon icon="ghost" />     {props.name}</h3>
+      <strong className='height'>{props.height} tall</strong>
+      <p className='age'>{props.age} smurf years old</p>
     </div>
   );
+
+  // STRETCH DELETE FUNCTIONALITY 
   //   function handleDelete() {
   //   props.handleDelete(props.smurfs.id);
   //   props.history.push('/smurfs');
