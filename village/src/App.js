@@ -21,11 +21,15 @@ componentDidMount() {
   .catch(error => console.log(error));
 }
 
-// addSmurf = () => {
-//   axios.post('http://localhost:3333/smurfs', this.state.newSmurfs)
-//   .then(response => this.setState({smurfs: response.data}))
-//   .catch(error => console.log(error));
-// }
+deleteSmurf = (event, id) => {
+  event.preventDefault();
+  axios.delete(`http://localhost:3333/smurfs/${id}`)
+    .then(reponse => {
+      this.setState({smurfs: reponse.data})
+    })
+    .catch(error => console.log(error))
+  }
+
   // add any needed code to ensure that the smurfs collection exists on state and it has data coming from the server
   // Notice what your map function is looping over and returning inside of Smurfs.
   // You'll need to make sure you have the right properties on state and pass them down to props.
@@ -38,8 +42,6 @@ componentDidMount() {
       render = {props => (
         <SmurfForm {...props}
         smurfs={this.state.smurfs}
-        // newSmurfs={this.state.newSmurfs}
-        // addSmurf={this.addSmurf}
         />
       )}
         />
@@ -49,8 +51,7 @@ componentDidMount() {
         render = {props =>(
           <Smurfs {...props}
           smurfs={this.state.smurfs} 
-          // newSmurfs={this.state.newSmurfs}
-          // addSmurf={this.addSmurf}
+          deleteSmurf={this.deleteSmurf}
           />
         )}
           />
