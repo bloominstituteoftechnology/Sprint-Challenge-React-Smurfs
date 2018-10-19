@@ -1,3 +1,66 @@
 .App {
+  max-width: 100%;
+  width: 880px;
+  margin: 0px auto;
   text-align: center;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+h1 {
+  cursor: pointer;
+  text-decoration: none;
+
+}
+
+.Smurfs {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.Smurf {
+  border: 1px solid darkblue;
+  margin-bottom: 15px;
+  cursor: pointer;
+}
+
+.Smurf:hover {
+  color: white;
+  background: darkblue;
+  padding: 15px;
+  transition: .3s;
+}
+
+.SmurfForm {
+  /* margin: 50px; */
+  display: flex;
+  flex-direction: column;
+}
+
+input {
+  border: 1px darkblue solid;
+  margin: 10px;
+  padding: 15px;
+}
+
+input:hover {
+  color: white;
+  background: darkblue;
+  transition: .3s;
+}
+
+button {
+  margin-top: 25px;
+  border: 1px darkblue solid;
+  background: white;
+  padding: 10px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: darkblue;
+  color: white;
+  transition: .3s;
 }
