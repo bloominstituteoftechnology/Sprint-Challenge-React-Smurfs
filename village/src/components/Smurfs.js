@@ -11,7 +11,7 @@ class Smurfs extends Component {
     return (
       <div className="Smurfs">
         <h1>Smurf Village</h1>
-        <img src = {'http://cdn.collider.com/wp-content/uploads/The-Smurfs-movie-image-slice1.jpg'} />
+        <img src = {'http://cdn.collider.com/wp-content/uploads/The-Smurfs-movie-image-slice1.jpg'} alt = {'Smurfs'} />
         <ul>
           {this.props.smurfs.map(smurf => {
             return (

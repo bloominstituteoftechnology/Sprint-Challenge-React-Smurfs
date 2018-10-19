@@ -31,13 +31,30 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <SmurfForm 
-            updateSmurfs = {this.updateSmurfs}
+        {/* <SmurfForm 
+              updateSmurfs = {this.updateSmurfs}
+        /> */}
+       
+        <Route 
+            exact path='/add-smurf' 
+            render = { props => 
+                <SmurfForm  {...props} updateSmurfs = {this.updateSmurfs} />
+            }
         />
-        <Smurfs smurfs = {this.state.smurfs} />
+
+        {/* <Smurfs smurfs = {this.state.smurfs} /> */}
+          
+        <Route 
+            exact path='/' 
+            render = { props => 
+                <Smurfs {...props} smurfs = {this.state.smurfs} />
+            }
+        />
+
       </div>
     );
   }
 }
 
 export default App;
+
