@@ -26,6 +26,10 @@ class App extends Component {
     })
   }
 
+  addNewSmurf = data => {
+    this.setState({smurfs:data})
+  }
+
 
   // add any needed code to ensure that the smurfs collection exists on state and it has data coming from the server
   // Notice what your map function is looping over and returning inside of Smurfs.
@@ -33,7 +37,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <SmurfForm />
+        <SmurfForm addNewSmurf={this.addNewSmurf}/>
         <Smurfs smurfs={this.state.smurfs} />
       </div>
     );
