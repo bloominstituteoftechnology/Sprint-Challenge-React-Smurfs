@@ -1,25 +1,14 @@
 import React from 'react';
 import SmurfIcon from './SmurfIcon';
-import SmurfForm from './SmurfForm';
-// import axios from 'axios';
-import { Route, Link } from 'react-router-dom';
 
 class Smurf extends React.Component {
-  constructor(props){
-    super(props);
-    // this.state = {
-    //   id: this.props.id,
-    //   name: this.props.name,
-    //   age: this.props.age,
-    //   height: this.props.height,
-    //   editing: false,
-    // }
-  }
+  // constructor(props){
+    // super(props);
+  // }
 
   handleDelete = props => {
     this.props.deleteSmurf(this.props.smurf.id);
   }
-
 
   render(){
     return (
@@ -27,14 +16,14 @@ class Smurf extends React.Component {
       <div className="Smurf">
         <div className='buttons'>
           <div className='button delete' onClick={this.handleDelete}>
-            Delete Smurf
+            <i className="fas fa-trash"/>
           </div>
 
           <div className='button edit' onClick={event => {
             this.props.setUpForm(event, this.props.smurf);
             this.props.history.push('/smurf-form');
           }} >
-            Edit Smurf
+            <i className="fas fa-pencil-alt"/>
           </div>
         </div>
         <div className='icon'>

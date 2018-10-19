@@ -1,5 +1,7 @@
-body {
+body, html {
     background: #288ed7;
+    font-family: "Boogaloo", cursive;
+    color: white;
 }
 
 .App {
@@ -11,23 +13,29 @@ body {
 }
 
 .header {
-  border: 1px solid black;
   width: 100%;
-  background: url('https://ibin.co/4JbbAdloP9Jq.png');
-  background-size: contain;
-  background-repeat: no-repeat;
-  height: 300px;
-  background-position: left;
+  height: 200px;
   display: flex;
   flex-wrap: wrap;
 }
 
 .header h1 {
+  background: url('https://ibin.co/w800/4JbdZFwuH3wR.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+    background-position: left;
   align-self: flex-end;
   width: 100%;
   text-align: right;
+  text-transform: uppercase;
   padding: 0 50px;
   font-size: 90px;
+  margin-top: 0;
+  text-shadow: 0 1px 0 #ccc, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0 #b9b9b9,
+    0 5px 0 #aaa, 0 6px 1px rgba(0, 0, 0, 0.1), 0 0 5px rgba(0, 0, 0, 0.1),
+    0 1px 3px rgba(0, 0, 0, 0.3), 0 3px 5px rgba(0, 0, 0, 0.2),
+    0 5px 10px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.2),
+    0 20px 20px rgba(0, 0, 0, 0.15);
 }
 
 .header nav {
@@ -57,6 +65,9 @@ body {
   flex-direction: column;
   border: 3px solid white;
   justify-content: space-between;
+  border-radius: 5px;
+  background: white;
+  color: red;
 }
 
 .Smurf .buttons {
@@ -71,6 +82,7 @@ body {
   border: 1px solid white;
   cursor: pointer;
   border-radius: 3px;
+  margin: 5px;
 }
 
 .Smurf .icon {
@@ -84,13 +96,22 @@ body {
   align-items: center;
   align-self: center;
   background: #288ed7;
-  background: #CF0C0C; 
+  /* background: #CF0C0C; */
 }
 
 .Smurf .icon .smurf{
   margin: 0;
   fill: white;
 }
+
+/* .Smurf h3{
+  margin: 0;
+}
+
+.Smurf p {
+  margin: 0;
+  line-height: 1;
+} */
 
 .SmurfForm {
   display: flex;
@@ -112,4 +133,8 @@ body {
     cursor: pointer;
     border-radius: 3px;
     margin-top: 10px;
+}
+
+.welcome {
+  margin-top: 10%;
 }
