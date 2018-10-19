@@ -16,9 +16,27 @@ const sendUserError = (msg, res) => {
 let smurfs = [
   {
     id: 0,
-    name: 'Brainey Smurf',
-    age: 200,
-    height: '8cm'
+    name: 'Papa Smurf',
+    occupation: 'Village leader, wizard',
+    img: 'https://vignette.wikia.nocookie.net/smurfs/images/b/bd/Papa_Smurf123.png/revision/latest?cb=20130805130238'
+  },
+  {
+    id: 1,
+    name: 'Hefty Smurf',
+    occupation: 'Foreman, Strongman, Athlete',
+    img: 'https://vignette.wikia.nocookie.net/smurfs/images/3/37/Hefty_Smurf.png/revision/latest?cb=20170414161450'
+  },
+  {
+    id: 2,
+    name: 'Vanity Smurf',
+    occupation: 'Beautician',
+    img: 'https://vignette.wikia.nocookie.net/smurfs/images/8/8e/VanitySmurfPerfume.png/revision/latest?cb=20111119155857'
+  },
+  {
+    id: 3,
+    name: 'Jokey Smurf',
+    occupation: 'Prankster, comedian',
+    img: 'https://vignette.wikia.nocookie.net/smurfs/images/3/3d/Jokeycomics.png/revision/latest?cb=20181010113206'
   }
 ];
 server.get('/smurfs', (req, res) => {
