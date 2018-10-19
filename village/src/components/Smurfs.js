@@ -43,7 +43,7 @@ class Smurfs extends Component {
                 <button
                   id={smurf.id}
                   onClick={this.deleteSmurf}
-                  className="delet"
+                  className="delete"
                 >
                   X
                 </button>

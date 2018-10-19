@@ -29,12 +29,12 @@ class App extends Component {
     return (
       <div className="App">
         <NavBar />
-        <Route path="/smurf-form" component={SmurfForm} />
         <Route
           exact
           path="/"
           render={props => <Smurfs {...props} smurfs={this.state.smurfs} />}
         />
+        <Route path="/smurf-form" component={SmurfForm} />
       </div>
     );
   }

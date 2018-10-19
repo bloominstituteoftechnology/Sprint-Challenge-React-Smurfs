@@ -3,12 +3,12 @@ import { NavLink } from "react-router-dom";
 
 const NavBar = () => {
   return (
-    <div className="navigation-bar">
-      <NavLink to="/smurf-form" activeClassName="activeNavButton">
-        Smurf Form
+    <div className="nav-bar">
+      <NavLink exact to="/" activeClassName="activeNavButton a">
+        <button className="links">Smurf Village</button>
       </NavLink>
-      <NavLink exact to="/" activeClassName="activeNavButton">
-        Smurf Village
+      <NavLink to="/smurf-form" activeClassName="activeNavButton a">
+        <button className="links">Smurf Form</button>
       </NavLink>
     </div>
   );
