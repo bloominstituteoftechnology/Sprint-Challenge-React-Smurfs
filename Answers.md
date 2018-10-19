@@ -21,5 +21,4 @@ Get, Post, Put, and Delete
 
 1.  Mention three tools we can use to make AJAX requests
 
-Javascript methods like fetch,
-axios 
+Fetch, Axios, and lifecycle methods
