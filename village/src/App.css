@@ -1,3 +1,18 @@
 .App {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
   text-align: center;
 }
+
+nav {
+  width: 50%;
+  margin: 15px auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.SmurfForm input, .SmurfForm button {
+  margin: 2px;
+}
+
