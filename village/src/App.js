@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import {BrowserRouter as Router, Link, Route, NavLink } from "react-router-dom"
+import { Link, Route, NavLink } from "react-router-dom"
 import './App.css';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
-
+import Home from "./components/Home"
 class App extends Component {
   constructor(props) {
     super(props);
@@ -28,8 +28,14 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <SmurfForm />
-        <Smurfs smurfs={this.state.smurfs} />
+        <NavLink exact to="/" activeClassName="form-link">Home</NavLink>
+        <NavLink to="/smurfs" activeClassName="form-link">Smurfs</NavLink>
+        <NavLink to="/smurf-form" activeClassName="form-link">Form</NavLink>
+        <Route exact path ="/" component={Home} />
+        <Route  path ="/smurfs" render={props => <Smurfs {...props} smurfs={this.state.smurfs} /> } />
+        <Route exact path ="/smurf-form" component={SmurfForm} />
+        {/* <SmurfForm />
+        <Smurfs smurfs={this.state.smurfs} /> */}
       </div>
     );
   }
