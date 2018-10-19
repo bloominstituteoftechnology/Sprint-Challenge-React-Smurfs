@@ -13,6 +13,7 @@ class App extends Component {
       smurfs: [],
     };
     EventEmitter.subscribe('addSmurf', (newSmurf) => this.addSmurf(newSmurf))
+    EventEmitter.subscribe('deleteSmurf', (id) => this.deleteSmurf(id))
   }
   
   componentDidMount() {
@@ -35,6 +36,21 @@ class App extends Component {
       .catch(err => {
         console.error('Error adding smurf', err);
       })
+  }
+
+  deleteSmurf = (id) => {
+    this.state.smurfs.map(smurf => {
+      if (smurf.id === id) {
+        axios
+          .delete(`http://localhost:3333/smurfs/${id}`)
+          .then(res => {
+            this.setState({ smurfs: res.data });
+          })
+          .catch(err => {
+            console.error('Error deleting smurf', err);
+          })
+      }
+    })
   }
 
   render() {

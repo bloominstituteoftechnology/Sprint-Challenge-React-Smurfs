@@ -9,7 +9,7 @@ const Smurf = props => {
       <p>{props.age} smurf years old</p>
       <div className='smurf-btns'>
         <div className='smurf-btn' id={props.id}>Edit</div>
-        <div className='smurf-btn' id={props.id}>Delete</div>
+        <div className='smurf-btn' onClick={(id) => EventEmitter.dispatch('deleteSmurf', props.id)}>Delete</div>
       </div>
     </div>
   );
