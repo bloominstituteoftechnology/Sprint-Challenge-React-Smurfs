@@ -17,9 +17,11 @@ ul{
   padding: 0;
 }
 .Smurf{
+  justify-content: center;
   border:1px solid black;
   margin:5px; 
   width:300px;
+ 
 }
 .SmurfForm{
   display: flex;
