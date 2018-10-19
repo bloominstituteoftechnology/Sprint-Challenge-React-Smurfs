@@ -33,6 +33,21 @@ class App extends Component {
       .then(res => this.setState({ smurfs: res.data}))
       .catch(err => console.log('couldn\'t get smurf list'));
   }
+
+  modifySmurf = (smurfObj) => {
+    axios 
+      .put(serverRoot + '/smurfs/' + smurfObj.id, smurfObj)
+      .then(res => this.setState({ smurfs: res.data}))
+      .catch(err => console.log('couldn\'t get smurf list'));
+  }
+
+  deleteSmurf = (smurfObj) => {
+    axios 
+      .delete(serverRoot + '/smurfs/' + smurfObj.id)
+      .then(res => this.setState({ smurfs: res.data}))
+      .catch(err => console.log('couldn\'t get smurf list')); 
+  }
+
   // Notice what your map function is looping over and returning inside of Smurfs.
   // You'll need to make sure you have the right properties on state and pass them down to props.
   render() {
@@ -42,8 +57,24 @@ class App extends Component {
           <NavLink to='/'>Home</NavLink>
           <NavLink exact to='/smurf-form'>Add Smurf</NavLink>
         </div>
-        <Route path='/smurf-form' render={props => <SmurfForm addSmurf={this.addSmurf} {...props}/>}/>
-        <Route exact path='/' render={props => <Smurfs smurfs={this.state.smurfs} {...props}/>}/>
+        <Route 
+          path='/smurf-form' 
+          render={props => 
+            <SmurfForm 
+              addSmurf={this.addSmurf} 
+              {...props}/>
+            }
+        />
+        <Route 
+          exact 
+          path='/' 
+          render={props =>
+             <Smurfs 
+              smurfs={this.state.smurfs} 
+              deleteSmurf={this.deleteSmurf} 
+              {...props}/>
+            }
+        />
         
       </div>
     );
