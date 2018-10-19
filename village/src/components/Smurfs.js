@@ -7,6 +7,7 @@ class Smurfs extends Component {
   deleteSmurf = e =>{
     let id = e.target.id
     axios.delete(`http://localhost:3333/smurfs/${id}`)
+    .then(window.location.reload())
   }
   render() {
    

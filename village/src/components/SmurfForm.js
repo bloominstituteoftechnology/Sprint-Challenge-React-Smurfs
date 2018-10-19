@@ -19,7 +19,8 @@ class SmurfForm extends Component {
         age: "",
         height: ""
       });
-    this.props.history.push( '/')}
+    this.props.history.push( '/');
+    window.location.reload()}
     );
     // add code to create the smurf using the api
   };
