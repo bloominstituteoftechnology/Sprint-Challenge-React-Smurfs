@@ -35,7 +35,9 @@ color: #3D97E4;
 }
 .Smurfs h1{
   font-size: 4rem;
-  margin-bottom: 30px
+  margin-bottom: 30px;
+  color: whitesmoke;
+  font-weight: bold;
 }
 
 .Smurf{
@@ -52,4 +54,19 @@ color: #3D97E4;
 
 .smurf-text{
   padding-left: 23%;
+}
+
+button{
+  margin: 0 1%;
+}
+
+.edit-smurf-form{
+  display: flex;
+  flex-direction: column;
+  width:50%;
+  margin: 20px 0 20px 30%;
+}
+
+.edit-smurf-form input{
+  margin: 10px 0;
 }
