@@ -29,25 +29,9 @@ class SmurfForm extends Component {
       })
       .catch(err => console.log(err));
 
-    this.setState({
-      name: '',
-      age: '',
-      height: ''
-    });
-    console.log('The props are:', this.props);
     this.props.history.push(`/`);
-  };
 
-  DeleteSmurf = (event, id) => {
-    event.preventDefault();
-    // add code to create the smurf using the api
-    axios
-      .delete(`http://localhost:3333/smurfs/${id}`)
-      .then(response => {
-        console.log(response);
-        // this.props.history.push('/item-list');
-      })
-      .catch(error => console.log(error));
+    window.location.reload();
   };
 
   handleInputChange = e => {

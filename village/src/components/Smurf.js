@@ -13,6 +13,20 @@ const Smurf = props => {
       >
         Delete this Smurf
       </button>
+      <form
+        onSubmit={event => {
+          props.ChangeSmurfAge(event, props.id);
+        }}
+      >
+        <input type="text" placeholder="New Age:" value="undefined" />
+        <button
+          onSubmit={event => {
+            props.ChangeSmurfAge(event, props.id);
+          }}
+        >
+          Change Age
+        </button>
+      </form>
     </div>
   );
 };

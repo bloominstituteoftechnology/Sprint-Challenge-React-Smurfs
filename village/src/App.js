@@ -9,7 +9,12 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      smurfs: []
+      smurfs: [],
+      EditedSmurf: {
+        name: '',
+        height: '',
+        age: ''
+      }
     };
   }
   // add any needed code to ensure that the smurfs collection exists on state and it has data coming from the server
@@ -28,12 +33,39 @@ class App extends Component {
     console.log(id);
     // add code to create the smurf using the api
     axios
-      .delete('/id=0')
+      .delete(`http://localhost:3333/smurfs/${id}`)
       .then(response => {
-        console.log(response);
-        // this.props.history.push('/item-list');
+        this.setState({ smurfs: response.data });
       })
       .catch(error => console.log(event.target));
+  };
+
+  changeHandler = ev => {
+    this.setState({
+      smurfs: {
+        ...this.state.EditedSmurf,
+        [ev.target.name]: ev.target.value
+      }
+    });
+  };
+
+  ChangeSmurfAge = (event, id) => {
+    event.preventDefault();
+    // add code to create the smurf using the api
+    console.log(event);
+    console.log(event.target);
+    console.log(event.target.name);
+    console.log(event.target.value);
+    console.log(id);
+    axios
+      .put(`http://localhost:3333/smurfs/${id}`, this.state.EditedSmurf)
+      .then(response => {
+        this.setState({
+          smurfs: response.data,
+          EditedSmurf: {}
+        });
+      })
+      .catch(error => console.log(error));
   };
 
   render() {
@@ -66,7 +98,15 @@ class App extends Component {
         <Route
           exact
           path="/"
-          render={props => <Smurfs {...props} DeleteSmurf={this.DeleteSmurf} smurfs={this.state.smurfs} />}
+          render={props => (
+            <Smurfs
+              {...props}
+              ChangeSmurfAge={this.ChangeSmurfAge}
+              DeleteSmurf={this.DeleteSmurf}
+              smurfs={this.state.smurfs}
+              EditedSmurf={this.state.EditedSmurf}
+            />
+          )}
         />
       </div>
     );
