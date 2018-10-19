@@ -5,7 +5,7 @@ const port = 3333;
 
 const server = express();
 server.use(bodyParser.json());
-server.use(cors());
+server.use(cors()); 
 
 const sendUserError = (msg, res) => {
   res.status(422);
