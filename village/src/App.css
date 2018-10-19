@@ -1,3 +1,25 @@
+body {
+  background: #3db7eb;
+}
+
 .App {
   text-align: center;
+}
+
+.nav {
+  padding-top: 30px;
+}
+
+.nav a {
+  color: white;
+  text-decoration: none;
+  margin: 0 20px;
+  font-size: 20px;
+  padding: 10px 20px;
+}
+
+.active {
+  border: 1px solid white;
+
+  color: white;
 }
