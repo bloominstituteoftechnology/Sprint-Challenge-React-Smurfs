@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-const Navigation = () => {
+const Navigation = props => {
   return (
     <header className="mainNav">
       <nav>
@@ -8,7 +8,7 @@ const Navigation = () => {
           Home
         </NavLink>
         <NavLink to="/smurf-form" className="navLink">
-          Add Smurf <i className="fas fa-plus fa-sm fa-fw" />{' '}
+          {props.editing ? 'Update Smurf' : 'Add Smurf'}
         </NavLink>
       </nav>
     </header>

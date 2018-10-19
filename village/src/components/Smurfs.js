@@ -6,6 +6,9 @@ import PropTypes from 'prop-types';
 import Smurf from './Smurf';
 
 class Smurfs extends Component {
+  redirect = () => {
+    this.props.history.push('/smurf-form');
+  };
   render() {
     return (
       <div className="smurfsBody">
@@ -19,6 +22,9 @@ class Smurfs extends Component {
                 age={smurf.age}
                 height={smurf.height}
                 key={smurf.id}
+                deleteSmurf={this.props.deleteSmurf}
+                redirect={this.redirect}
+                updateEditing={this.props.updateEditing}
               />
             );
           })}
@@ -33,7 +39,8 @@ Smurf.defaultProps = {
 };
 
 Smurfs.propTypes = {
-  smurfs: PropTypes.arrayOf(PropTypes.object).isRequired
+  smurfs: PropTypes.arrayOf(PropTypes.object).isRequired,
+  deleteSmurf: PropTypes.func.isRequired
 };
 
 export default Smurfs;

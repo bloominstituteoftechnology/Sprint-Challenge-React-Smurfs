@@ -7,6 +7,13 @@ const Smurf = props => {
       <h3>{props.name}</h3>
       <p>{props.height} tall</p>
       <p>{props.age} smurf years old</p>
+      <button onClick={e => props.deleteSmurf(e, props.id)}>Delete</button>
+      <button
+        onClick={function(e) {
+          props.redirect(), props.updateEditing(props.id);
+        }}>
+        Update
+      </button>
     </div>
   );
 };
@@ -22,7 +29,8 @@ Smurf.propTypes = {
   height: PropTypes.string.isRequired,
   // Age keeps throwing an error can't figure it out
   // age: PropTypes.string.isRequired,
-  id: PropTypes.number
+  id: PropTypes.number,
+  redirect: PropTypes.func.isRequired
 };
 
 export default Smurf;

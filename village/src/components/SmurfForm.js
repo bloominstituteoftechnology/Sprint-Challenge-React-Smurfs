@@ -19,10 +19,17 @@ class SmurfForm extends Component {
       age: '',
       height: ''
     });
+    this.props.history.push('/');
   };
 
   handleInputChange = e => {
     this.setState({ [e.target.name]: e.target.value });
+  };
+
+  update = e => {
+    e.preventDefault();
+    this.props.updateSmurf(this.state);
+    this.props.history.push('/');
   };
 
   render() {
@@ -53,8 +60,10 @@ class SmurfForm extends Component {
             name="height"
             autoComplete="off"
           />
-          <button type="submit" onClick={this.addSmurf}>
-            Add to the village
+          <button
+            type="submit"
+            onClick={this.props.editing ? this.update : this.addSmurf}>
+            {this.props.editing ? 'Update Smurf' : 'Add to the village'}
           </button>
         </form>
       </div>
