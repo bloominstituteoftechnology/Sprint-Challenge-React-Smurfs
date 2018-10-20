@@ -49,7 +49,7 @@ class Smurf extends React.Component {
                 placeholder="height"
                 value={this.state.height}
               />
-              <button type="submit" >Update</button>
+              <button type="submit">Update</button>
             </form>
           </div>
         )}
@@ -63,9 +63,9 @@ class Smurf extends React.Component {
     const smurf = { name, age, height, id };
     console.log(smurf);
     this.props.onUpdate(smurf);
-    this.setState((previous) => {
-      return {display: !previous.display}
-    })
+    this.setState(previous => {
+      return { display: !previous.display };
+    });
   };
 
   displayForm = event => {
