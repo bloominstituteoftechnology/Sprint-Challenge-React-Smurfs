@@ -28,11 +28,11 @@ const Card = styled.div`
     cursor: pointer;
   }
   .btn-remove {
-    background: red;
+    background: #db3832;
   }
 
   .btn-edit {
-    background: green;
+    background: #75aff5;
   }
 `;
 

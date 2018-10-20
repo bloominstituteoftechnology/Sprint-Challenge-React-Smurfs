@@ -35,7 +35,7 @@ class App extends Component {
   // Prepares form for PUT REQUEST
   handleUpdateClick = id => {
     const smurf = this.state.smurfs.find(smurf => smurf.id === id);
-    this.props.history.push('/smurf-form');
+
     this.setState({
       name: smurf.name,
       age: smurf.age,
@@ -43,6 +43,8 @@ class App extends Component {
       editMode: true,
       activeId: id
     });
+
+    this.props.history.push('/smurf-form');
   };
 
   handleInputChange = e => {
@@ -53,8 +55,6 @@ class App extends Component {
   updateSmurfs = smurfs => {
     this.setState({ smurfs });
   };
-
-  // ADD NEW SMURF TO LIST
 
   // POST NEW SMURF
   addSmurf = () => {
@@ -103,7 +103,8 @@ class App extends Component {
       name: '',
       age: '',
       height: '',
-      editMode: false
+      editMode: false,
+      activeId: null
     });
 
     this.props.history.push('/');
