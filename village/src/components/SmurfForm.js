@@ -22,9 +22,8 @@ class SmurfForm extends Component {
     axios
     .post("http://localhost:3333/smurfs", newSmurf)
     .then(response => {
-      this.setState({ smurfs: response.data });
+      this.props.updateSmurfs(response.data)
       this.props.history.push('/');
-      window.location.reload();
       
     })
     .catch(error => console.log(error));

@@ -31,6 +31,10 @@ class App extends Component {
       .catch(error => console.log(error));
   }
 
+  updateSmurfs = (newSmurfs) => {
+    this.setState({ smurfs: newSmurfs })
+  }
+
   render() {
     return (
       <div className="App">
@@ -38,9 +42,9 @@ class App extends Component {
           <NavLink to='/'>SmurfList</NavLink>
           <NavLink to='/smurf-form'>SmurfList</NavLink>
         </nav>
-        <Route path="/smurf-form" render={props => <SmurfForm {...props} />} />
-        <Route exact path="/" render={props => <Smurfs {...props} smurfs={this.state.smurfs} />} />
-        <Route path="/smurfs/:id" render={props => <Smurf {...props} />} />
+        <Route path="/smurf-form" render={props => <SmurfForm {...props} updateSmurfs={this.updateSmurfs} />} />
+        <Route exact path="/" render={props => <Smurfs {...props} smurfs={this.state.smurfs} updateSmurfs={this.updateSmurfs} />} />
+        <Route path="/smurfs/:id" render={props => <Smurf {...props} smurfs={this.state.smurfs} />} />
       </div>
     );
   }
