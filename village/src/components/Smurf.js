@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 
-import "./Smurf.css";
+import './Smurf.css';
 
 class Smurf extends React.Component {
   state = {
@@ -8,7 +8,7 @@ class Smurf extends React.Component {
     age: this.props.age,
     height: this.props.height,
     id: this.props.id,
-    display: false
+    display: false,
   };
 
   render() {
@@ -24,8 +24,7 @@ class Smurf extends React.Component {
               <button
                 onClick={() => {
                   this.props.onDelete(this.props);
-                }}
-              >
+                }}>
                 Delete
               </button>
             ) : null}
@@ -34,21 +33,9 @@ class Smurf extends React.Component {
         {!this.state.display ? null : (
           <div className="update-form">
             <form onSubmit={this.submitHandler} className="format">
-              <input
-                onChange={this.updateName}
-                placeholder="name"
-                value={this.state.name}
-              />
-              <input
-                onChange={this.updateAge}
-                placeholder="age"
-                value={this.state.age}
-              />
-              <input
-                onChange={this.updateHeight}
-                placeholder="height"
-                value={this.state.height}
-              />
+              <input onChange={this.updateName} placeholder="name" value={this.state.name} />
+              <input onChange={this.updateAge} placeholder="age" value={this.state.age} />
+              <input onChange={this.updateHeight} placeholder="height" value={this.state.height} />
               <button type="submit">Update</button>
             </form>
           </div>
@@ -74,19 +61,19 @@ class Smurf extends React.Component {
 
   updateName = event => {
     this.setState({
-      name: event.target.value
+      name: event.target.value,
     });
   };
 
   updateAge = event => {
     this.setState({
-      age: event.target.value
+      age: event.target.value,
     });
   };
 
   updateHeight = event => {
     this.setState({
-      height: event.target.value
+      height: event.target.value,
     });
   };
 }
