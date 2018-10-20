@@ -17,6 +17,7 @@ class Smurfs extends Component {
                 history={this.props.history}
                 smurf={smurf}
                 setUpForm={this.props.setUpForm}
+                chooseSmurf={this.props.chooseSmurf}
               />
             );
           })}

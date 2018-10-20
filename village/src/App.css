@@ -4,6 +4,10 @@ body, html {
     color: white;
 }
 
+a {
+  text-decoration: none;
+}
+
 .App {
   text-align: center;
 
@@ -90,8 +94,7 @@ body, html {
 }
 
 .Smurf{
-  margin: 0 auto;
-  margin: 20px auto;
+  margin: 20px;
   padding: 10px;
   width: 200px;
   height: 200px;
@@ -110,7 +113,7 @@ body, html {
   justify-content: space-between;
 }
 
-.smurf-container .button {
+.Smurf .button {
   /* background: #CF0C0C; */
   padding: 10px;
   color: white;
@@ -171,7 +174,7 @@ body, html {
 .SmurfForm input{
   margin: 10px;
   width: 70%;
-  text-align: center; 
+  text-align: center;
 }
 
 .SmurfForm button{

@@ -103,6 +103,7 @@ class App extends Component {
       })
     }
 
+
   render() {
     if (this.state.smurfs.length === 0) {
       return(
@@ -118,7 +119,7 @@ class App extends Component {
           setUpForm={this.setUpForm}
         deleteSmurf={this.deleteSmurf} />)} />
         <Route path='/smurf-form' render={(props) => (
-          <SmurfForm {...props}
+          <SmurfForm {...props} chooseSmurf={this.chooseSmurf}
             smurf={this.state.smurf} makeSmurf={this.makeSmurf} handleInputChange={this.handleInputChange}
           isEditing={this.state.isEditing}
         editSmurf={this.editSmurf} />)} />

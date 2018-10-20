@@ -46,6 +46,7 @@
 import React from 'react';
 import SmurfIcon from './SmurfIcon';
 
+
 class Smurf extends React.Component {
 
   handleDelete = props => {
@@ -54,8 +55,7 @@ class Smurf extends React.Component {
 
   render(){
     return (
-      <div className='smurf-container'>
-      <div className="Smurf">
+      <div className="Smurf" onClick={this.props.chooseSmurf}>
         <div className='buttons'>
           <div className='button delete' onClick={this.handleDelete}>
             <i className="fas fa-trash"/>
@@ -74,7 +74,7 @@ class Smurf extends React.Component {
         <h3>{this.props.smurf.name}</h3>
         <p>{this.props.smurf.height} tall</p>
         <p>{this.props.smurf.age} smurf years old</p>
-      </div>
+
     </div>
     );
   }
