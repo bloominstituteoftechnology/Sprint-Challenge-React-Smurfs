@@ -16,7 +16,7 @@ class SmurfForm extends Component {
   addSmurf = event => {
     const { name, age, height } = this.state;
     event.preventDefault();
-    
+
     Axios
       .post('http://localhost:3333/smurfs', {
         name: name,
@@ -29,19 +29,22 @@ class SmurfForm extends Component {
           age: '',
           height: '',
           isAuth: true
-      }))
-      .catch( error => console.log(error, "POST ERROR"))
+        }))
+      .then((response) => {
+        this.props.handleUpdate(response.data)
+      })
+      .catch(error => console.log(error, "POST ERROR"))
   }
 
   handleInputChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
 
-  
-  
+
+
 
   render() {
-    if (this.state.isAuth) {return <Redirect to='/' />}
+    if (this.state.isAuth) { return <Redirect to='/' /> }
     return (
       <div className="SmurfForm">
         <form onSubmit={this.addSmurf}>
