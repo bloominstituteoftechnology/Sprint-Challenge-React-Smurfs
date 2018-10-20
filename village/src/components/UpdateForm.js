@@ -2,37 +2,38 @@ import React, { Component } from 'react';
 import Axios from 'axios';
 import { Redirect } from 'react-router-dom';
 
-class SmurfForm extends Component {
+class UpdateForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
       name: '',
       age: '',
       height: '',
-      isAuth: false
+      isAuth: false, 
+      id: ''
     };
   }
 
-  addSmurf = event => {
-    const { name, age, height } = this.state;
+  updateSmurf = event => {
+    let id = this.state.id;
     event.preventDefault();
-
     Axios
-      .post('http://localhost:3333/smurfs', {
-        name: name,
-        age: age,
-        height: height,
+      .put(`http://localhost:3333/smurfs/${id}`, {
+        name: this.state.name,
+        age: this.state.age,
+        height: this.state.height,
+        isAuth: false
+ 
       })
-      .then(
+      .then(response =>
         this.setState({
+          smurfs: response.data,
           name: '',
           age: '',
-          height: '',
+          height: '', 
           isAuth: true
+         
         }))
-      .then((response) => {
-        this.props.handleUpdate(response.data)
-      })
       .catch(error => console.log(error, "POST ERROR"))
   }
 
@@ -40,14 +41,14 @@ class SmurfForm extends Component {
     this.setState({ [e.target.name]: e.target.value });
   };
 
-
-
+  
+  
 
   render() {
-    if (this.state.isAuth) { return <Redirect to='/' /> }
+    if (this.state.isAuth) {return <Redirect to='/' />}
     return (
       <div className="SmurfForm">
-        <form onSubmit={this.addSmurf}>
+        <form onSubmit={this.updateSmurf}>
           <input
             onChange={this.handleInputChange}
             placeholder="name"
@@ -73,4 +74,4 @@ class SmurfForm extends Component {
   }
 }
 
-export default SmurfForm;
+export default UpdateForm;

@@ -18,7 +18,7 @@ let smurfs = [
     id: 0,
     name: 'Brainey Smurf',
     age: 200,
-    height: '8cm'
+    height: '8'
   }
 ];
 server.get('/smurfs', (req, res) => {
@@ -48,6 +48,8 @@ server.post('/smurfs', (req, res) => {
   smurfs.push(newSmurf);
   smurfId++;
   res.json(smurfs);
+
+
 });
 
 server.put('/smurfs/:id', (req, res) => {
