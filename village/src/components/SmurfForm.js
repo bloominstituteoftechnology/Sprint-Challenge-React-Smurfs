@@ -1,53 +1,52 @@
 import React, { Component } from 'react';
 
 class SmurfForm extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      name: '',
-      age: '',
-      height: ''
-    };
-  }
+  // constructor(props) {
+  //   super(props);
+  //
+  // }
 
-  addSmurf = event => {
+
+
+  handleSubmit = event => {
     event.preventDefault();
-    // add code to create the smurf using the api
-
-    this.setState({
-      name: '',
-      age: '',
-      height: ''
-    });
+    if (this.props.isEditing) {
+      this.props.editSmurf();
+    } else {
+      this.props.makeSmurf();
+    }
+    this.props.history.push('/village');
   }
 
-  handleInputChange = e => {
-    this.setState({ [e.target.name]: e.target.value });
-  };
+  // handleInputChange = e => {
+  //   this.setState({ [e.target.name]: e.target.value });
+  // };
 
   render() {
     return (
       <div className="SmurfForm">
-        <form onSubmit={this.addSmurf}>
+        <h2>{this.props.isEditing ? 'Edit Smurf' : 'Add a Smurf'}</h2>
+        <form action=''>
           <input
-            onChange={this.handleInputChange}
+            type='text'
+            onChange={this.props.handleInputChange}
             placeholder="name"
-            value={this.state.name}
+            value={this.props.smurf.name}
             name="name"
           />
           <input
-            onChange={this.handleInputChange}
+            onChange={this.props.handleInputChange}
             placeholder="age"
-            value={this.state.age}
+            value={this.props.smurf.age}
             name="age"
           />
           <input
-            onChange={this.handleInputChange}
+            onChange={this.props.handleInputChange}
             placeholder="height"
-            value={this.state.height}
+            value={this.props.smurf.height}
             name="height"
           />
-          <button type="submit">Add to the village</button>
+          <button type="submit" onClick={this.handleSubmit}>{this.props.isEditing ? 'Update Smurf' : 'Add to village'}</button>
         </form>
       </div>
     );

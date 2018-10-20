@@ -7,19 +7,21 @@ class Smurfs extends Component {
     return (
       <div className="Smurfs">
         <h1>Smurf Village</h1>
-        <ul>
+        <div className='smurf-collection'>
           {this.props.smurfs.map(smurf => {
             return (
               <Smurf
-                name={smurf.name}
-                id={smurf.id}
-                age={smurf.age}
-                height={smurf.height}
                 key={smurf.id}
+                deleteSmurf={this.props.deleteSmurf}
+                editSmurf={this.props.editSmurf}
+                history={this.props.history}
+                smurf={smurf}
+                setUpForm={this.props.setUpForm}
+                chooseSmurf={this.props.chooseSmurf}
               />
             );
           })}
-        </ul>
+        </div>
       </div>
     );
   }
