@@ -8,6 +8,7 @@ const Smurf = props => {
       <h3>{props.name}</h3> {props.height} tall and {props.age} smurf years old
       <button onClick={event=>props.handleDeleteSmurf(event,props.id)}>Delete Smurf</button>
       <Link to={`/smurf-form/${props.id}`} onClick={event=>props.handleUpdateSmurf(event,props.id)}>Update Smurf</Link>
+      <Link to={`/smurf/${props.id}`}>View Smurf</Link>
     </div>
   );
 };
