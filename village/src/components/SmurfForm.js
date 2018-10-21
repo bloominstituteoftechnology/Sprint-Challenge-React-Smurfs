@@ -21,12 +21,12 @@ class SmurfForm extends Component {
       age:this.state.age,
       height:this.state.height  
     }
-    console.log('newsmurf = ', newSmurf)
     Axios.post('http://localhost:3333/smurfs',newSmurf)
          .then(res => {
            //experimenting here:
            if(res.data){
               this.props.history.push('/')
+              this.props.handleAddNewSmurf()
            }
            
          })

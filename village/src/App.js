@@ -22,10 +22,16 @@ class App extends Component {
   componentDidMount(){
     this.getSmurfData();
   }
+
   handleAddNewSmurf = smurfData =>{
-    if(smurfData==='ok'){
-      this.getSmurfData();
-    }
+    this.getSmurfData();
+  }
+  handleDeleteSmurf = (event,id) =>{
+    event.preventDefault();
+    Axios.delete(`http://localhost:3333/smurfs/${id}`)
+         .then(res => this.setState({smurfs:res.data})) //could have called getSmurfData but i am avoiding the extra api call.
+         .catch(error => console.log(error))
+    
   }
   // add any needed code to ensure that the smurfs collection exists on state and it has data coming from the server
   // Notice what your map function is looping over and returning inside of Smurfs.
@@ -36,8 +42,8 @@ class App extends Component {
         <NavLink to='/'>Home</NavLink>
         <NavLink to='/smurf-form'>Add New Smurf</NavLink>
 
-        <Route exact path={'/'} render={()=><Smurfs smurfs={this.state.smurfs}/>}></Route>
-        <Route path={'/smurf-form'} render={props=><SmurfForm {...props}/>}></Route>
+        <Route exact path={'/'} render={()=><Smurfs smurfs={this.state.smurfs} handleDeleteSmurf={this.handleDeleteSmurf}/>}></Route>
+        <Route path={'/smurf-form'} render={props=><SmurfForm {...props}  handleAddNewSmurf={this.handleAddNewSmurf}/>}></Route>
       </div>
     );
   }
