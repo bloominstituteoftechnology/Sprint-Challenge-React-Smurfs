@@ -24,7 +24,6 @@ class App extends Component {
     this.getSmurfData();
   }
   handleUpdateSmurf = (event,id) =>{
-    console.log('updating that smurf', id)
     this.getSmurfData();
   }
   handleAddNewSmurf = smurfData =>{

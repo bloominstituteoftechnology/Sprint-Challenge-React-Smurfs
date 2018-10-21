@@ -13,7 +13,6 @@ class SmurfForm extends Component {
     };
   }
   componentDidMount(){
-     console.log(this.props)
      if(this.props.match.params.id){
        Axios.get(`http://localhost:3333/smurfs/${this.props.match.params.id}`)
             .then(res => {

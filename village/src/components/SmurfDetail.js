@@ -14,10 +14,8 @@ class SmurfDetail extends React.Component{
     }
     
     componentDidMount(){
-        console.log('wtf??')
         Axios.get(`http://localhost:3333/smurfs/${this.props.match.params.id}`)
              .then(res =>{
-                 console.log('results...',res)
                  this.setState({
                                     id:res.data[0].id,
                                     name:res.data[0].name,
@@ -33,10 +31,10 @@ class SmurfDetail extends React.Component{
         
         return(
             <div>
-                <p>{this.state.id}</p>
-                <p>{this.state.name}</p>
-                <p>{this.state.age}</p>
-                <p>{this.state.height}</p>
+                <p>ID: {this.state.id}</p>
+                <p>Name: {this.state.name}</p>
+                <p>Age: {this.state.age}</p>
+                <p>Height: {this.state.height}</p>
             </div>
         )
     
