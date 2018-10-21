@@ -1,39 +1,37 @@
-import React, { Component } from 'react';
-import { timingSafeEqual } from 'crypto';
-import axios from 'axios';
+import React, { Component } from "react";
+import { timingSafeEqual } from "crypto";
+import axios from "axios";
 
 class SmurfForm extends Component {
   constructor(props) {
     super(props);
     this.serverURL = "http://localhost:3333/smurfs";
-    
+
     this.state = {
-      name: '',
-      age: '',
-      height: ''
+      name: "",
+      age: "",
+      height: ""
     };
   }
 
   addSmurf = event => {
     event.preventDefault();
     // add code to create the smurf using the api
-    axios.post(this.serverURL, {
-      name: this.state.name,
-      age: this.state.age,
-      height: this.state.height
-    })
-    .then(response => this.props.updateSmurfs(response.data))
-    .catch(error => console.log(error));
- 
+    const { name, age, height } = this.state;
+
+    axios
+      .post(this.serverURL, { name, age, height })
+      .then(response => this.props.addSmurfs(response.data))
+      .catch(error => console.log(error));
+
     this.setState({
-      name: '',
-      age: '',
-      height: ''
+      name: "",
+      age: "",
+      height: ""
     });
 
-      this.props.history.push("/");
-   
-  }
+    this.props.history.push("/");
+  };
 
   handleInputChange = e => {
     this.setState({ [e.target.name]: e.target.value });
