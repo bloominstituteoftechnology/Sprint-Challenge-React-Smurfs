@@ -8,7 +8,6 @@ class Smurfs extends Component {
     super(props)
   }
   render() {
-    console.log('i received...', this.props)
     return (
       <div className="Smurfs">
         <h1>Smurf Village</h1>

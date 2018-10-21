@@ -25,30 +25,54 @@ class SmurfForm extends Component {
             })
      }
   }
-  addSmurf = event => {
+
+
+  createSmurf(smurf){
+    Axios.post('http://localhost:3333/smurfs',smurf)
+    .then(res => {
+      //experimenting here:
+      if(res.data){
+         this.props.history.push('/')
+         this.props.handleAddNewSmurf()
+      }
+      
+    })
+    .catch(error => console.log(error))
+  }
+
+  updateSmurf(id,smurf){
+    Axios.put(`http://localhost:3333/smurfs/${id}`,smurf)
+    .then(res => {
+      //experimenting here:
+      if(res.data){
+         this.props.history.push('/')
+         this.props.handleUpdateSmurf()
+      }
+      
+    })
+    .catch(error => console.log(error))
+
+  }
+
+  AddEditSmurf = event => {
     event.preventDefault();
 
     // add code to create the smurf using the api
-    let newSmurf = {
+    let smurf = {
       name:this.state.name,
       age:this.state.age,
       height:this.state.height  
     }
-    Axios.post('http://localhost:3333/smurfs',newSmurf)
-         .then(res => {
-           //experimenting here:
-           if(res.data){
-              this.props.history.push('/')
-              this.props.handleAddNewSmurf()
-           }
-           
-         })
-         .catch(error => console.log(error))
+
+    const id = this.props.match.params.id;
+    this.state.isUpdate? this.updateSmurf(id,smurf):this.createSmurf(smurf);
 
     this.setState({
       name: '',
       age: '',
-      height: ''
+      height: '',
+      isUpdate:false,
+
     });
   }
 
@@ -62,7 +86,7 @@ class SmurfForm extends Component {
 
     return (
       <div className="SmurfForm">
-        <form onSubmit={this.addSmurf}>
+        <form onSubmit={this.AddEditSmurf}>
           <input
             onChange={this.handleInputChange}
             placeholder="name"
