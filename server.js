@@ -26,6 +26,15 @@ server.get('/smurfs', (req, res) => {
 });
 let smurfId = 1;
 
+server.get('/smurfs/:id', (req, res) => {
+  const { id } = req.params;
+  let data = smurfs.filter(el=>{
+    return el.id ==id
+  }); 
+  res.json(data);
+});
+
+
 server.post('/smurfs', (req, res) => {
   const { name, age, height } = req.body;
   const newSmurf = { name, age, height, id: smurfId };

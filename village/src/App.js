@@ -22,7 +22,9 @@ class App extends Component {
   componentDidMount(){
     this.getSmurfData();
   }
-
+  handleUpdateSmurf = (event,id) =>{
+    console.log('updating that smurf', id)
+  }
   handleAddNewSmurf = smurfData =>{
     this.getSmurfData();
   }
@@ -40,10 +42,11 @@ class App extends Component {
     return (
       <div className="App">
         <NavLink to='/'>Home</NavLink>
-        <NavLink to='/smurf-form'>Add New Smurf</NavLink>
+        <NavLink to='/smurf-form'>Add New Smurf</NavLink> 
 
-        <Route exact path={'/'} render={()=><Smurfs smurfs={this.state.smurfs} handleDeleteSmurf={this.handleDeleteSmurf}/>}></Route>
-        <Route path={'/smurf-form'} render={props=><SmurfForm {...props}  handleAddNewSmurf={this.handleAddNewSmurf}/>}></Route>
+        <Route exact path={'/'} render={props=><Smurfs {...props} smurfs={this.state.smurfs} handleUpdateSmurf={this.handleUpdateSmurf} handleDeleteSmurf={this.handleDeleteSmurf}/>}></Route>
+        <Route exact path={'/smurf-form'} render={props=><SmurfForm {...props}  handleAddNewSmurf={this.handleAddNewSmurf}/>}></Route>
+        <Route exact path={'/smurf-form/:id'} render={props=><SmurfForm {...props}  handleAddNewSmurf={this.handleAddNewSmurf}/>}></Route>
       </div>
     );
   }

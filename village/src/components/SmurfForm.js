@@ -8,10 +8,23 @@ class SmurfForm extends Component {
     this.state = {
       name: '',
       age: '',
-      height: ''
+      height: '',
+      isUpdate:false
     };
   }
+  componentDidMount(){
+     console.log(this.props)
+     if(this.props.match.params.id){
+       Axios.get(`http://localhost:3333/smurfs/${this.props.match.params.id}`)
+            .then(res => {
 
+              this.setState({name:res.data[0].name,
+                             age:res.data[0].age,
+                             height:res.data[0].height, 
+                             isUpdate:true})
+            })
+     }
+  }
   addSmurf = event => {
     event.preventDefault();
 
@@ -44,6 +57,9 @@ class SmurfForm extends Component {
   };
 
   render() {
+
+    let buttonText = this.state.isUpdate ? 'Update': 'Add to the village'
+
     return (
       <div className="SmurfForm">
         <form onSubmit={this.addSmurf}>
@@ -65,7 +81,7 @@ class SmurfForm extends Component {
             value={this.state.height}
             name="height"
           />
-          <button type="submit">Add to the village</button>
+          <button type="submit">{buttonText}</button>
         </form>
       </div>
     );
