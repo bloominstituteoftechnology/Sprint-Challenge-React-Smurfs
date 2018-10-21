@@ -26,7 +26,7 @@ class SmurfForm extends Component {
          .then(res => {
            //experimenting here:
            if(res.data){
-              this.props.handleAddNewSmurf('ok')
+              this.props.history.push('/')
            }
            
          })

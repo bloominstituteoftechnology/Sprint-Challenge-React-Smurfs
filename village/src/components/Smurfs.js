@@ -4,7 +4,7 @@ import Smurf from './Smurf';
 
 class Smurfs extends Component {
   render() {
-    console.log('smurfs.. receives', this.props)
+
     return (
       <div className="Smurfs">
         <h1>Smurf Village</h1>
