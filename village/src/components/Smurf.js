@@ -8,6 +8,12 @@ class Smurf extends React.Component {
     };
   }
 
+submitAndToggleEditing(event) {
+  
+    this.props.updateSmurf(event, this.props.id);
+  this.toggleEditing();
+}
+
   toggleEditing = () => {
     this.setState({ isEditing: !this.state.isEditing });
   };
@@ -46,9 +52,7 @@ class Smurf extends React.Component {
         <div className="Smurf">
           <form
             className="edit-form"
-            onSubmit={event => {
-              this.props.updateSmurf(event, this.props.id);
-            }}
+            onSubmit={event=>this.submitAndToggleEditing(event)}
           >
             <input
               onChange={event =>
