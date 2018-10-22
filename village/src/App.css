@@ -1,3 +1,92 @@
+* {
+  box-sizing: border-box;
+}
+
 .App {
   text-align: center;
+  width: 100%;
+}
+.App .nav-header {
+  padding: 30px 0;
+}
+
+.App a {
+  text-decoration: none;
+  border: 2px solid #1ba0cf;
+  border-radius: 5px;
+  color: #1ba0cf;
+  background: white;
+  font-weight: bold;
+  padding: 15px 10px;
+  margin: 30px 10px;
+}
+.App .activePageLink {
+  color: white;
+  background: #1ba0cf;
+}
+
+.Smurfs ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.Smurf {
+  border: 3px solid #1ba0cf;
+  color: #1ba0cf;
+  width: 35%;
+  border-radius: 10px;
+  margin: 20px 0;
+}
+
+.delete-button,
+.edit-button {
+  color: white;
+  background: #1ba0cf;
+  border: 2px solid white;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 5px;
+  margin: 10px 5px;
+}
+
+.delete-button:hover,
+.edit-button:hover {
+  background: white;
+  color: #1ba0cf;
+  border: 2px solid #1ba0cf;
+}
+
+.Smurf .edit-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.Smurf .edit-form {
+  width: 60%;
+  margin: 10px auto;
+}
+
+.Smurf .edit-form * {
+  width: 100%;
+  margin: 5px 0;
+}
+
+.Smurf button {
+  color: white;
+  background: #1ba0cf;
+  border: 2px solid white;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 5px;
+  margin: 10px 5px;
+}
+
+.Smurf button:hover {
+  background: white;
+  color: #1ba0cf;
+  border: 2px solid #1ba0cf;
 }
