@@ -12,4 +12,4 @@
   `Update`:`Put`;
   `Delete/Destroy`:`Delete`; 
 5.  Mention three tools we can use to make AJAX requests
-  Three tools used to make AJAX requests are ...
+  Three tools used to make AJAX requests are `axios`, `fetch`, `jQuery`.
