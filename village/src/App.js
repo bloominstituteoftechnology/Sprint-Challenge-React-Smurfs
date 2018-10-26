@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { Route } from 'react-router-dom';
+import { NavLink } from 'react-router-dom'
 
 import './App.css';
 import SmurfForm from './components/SmurfForm';
@@ -18,6 +20,7 @@ componentDidMount() {
     .get('http://localhost:3333/smurfs')
       .then(response => {
         this.setState(() => ({ smurfs: response.data }));
+        this.props.history.push("/");
       })
       .catch(error => {
         console.error('Server Error', error);
@@ -29,8 +32,10 @@ componentDidMount() {
   render() {
     return (
       <div className="App">
-        <SmurfForm />
-        <Smurfs smurfs={this.state.smurfs} />
+        <NavLink to="/">Home</NavLink>
+        <NavLink to="/smurf-form">Add Smurf</NavLink>
+        <Route exact path='/smurf-form' component={SmurfForm} />
+        <Route exact path = "/" render = { () => <Smurfs smurfs = { this.state.smurfs }/> }/> 
       </div>
     );
   }
