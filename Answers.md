@@ -14,4 +14,4 @@
     DELETE request-Delete
 
 1.  Mention three tools we can use to make AJAX requests
-    
+    fetch(), then(), and catch() methods
