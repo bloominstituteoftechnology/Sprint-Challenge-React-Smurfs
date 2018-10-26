@@ -3,7 +3,8 @@ import axios from 'axios';
 import './App.css';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
-import { Route } from 'react-router-dom';
+import { Route, NavLink } from 'react-router-dom';
+import SmurfAlert from './components/SmurfAlert';
 
 class App extends Component {
   constructor(props) {
@@ -37,7 +38,7 @@ class App extends Component {
           height: ''
         }  
     }))
-      .catch(error => console.log(error));
+      .catch(error => SmurfAlert.toggleOn);
   }
 
   handleInputChange = e => {
@@ -54,13 +55,8 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <SmurfForm 
-          newSmurf={this.state.newSmurf}
-          handleInputChange={this.handleInputChange}
-          addSmurf={this.addSmurf}/>
-        <Smurfs 
-          mySmurfs={this.state.smurfs}
-          onPageLoad={this.componentDidMount} />
+        <NavLink exact to='/'>Visit Smurf Village</NavLink>
+        <NavLink to='/smurf-form'>Add Smurf!</NavLink>
         <Route 
           exact path='/' 
           render={props => (
