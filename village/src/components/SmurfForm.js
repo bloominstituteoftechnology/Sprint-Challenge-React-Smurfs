@@ -32,19 +32,6 @@ class SmurfForm extends Component {
     this.setState({ [e.target.name]: e.target.value });
   };
 
-  // handleSubmit = event => {
-  //   Axios.post('http://localhost:5000/friends', {
-  //       name: this.state.name,
-  //       age: this.state.age,
-  //       email: this.state.email
-  //     })
-  //       .then(res => {Axios.get('http://localhost:3333/smurfs')
-  //         .then(res => {
-  //           this.setState({ smurfs: res.data})
-  //         })})
-  //           .catch(err =>console.log(err));
-  // }
-
   render() {
     return (
       <div className="SmurfForm">
