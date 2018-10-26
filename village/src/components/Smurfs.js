@@ -3,6 +3,22 @@ import React, { Component } from 'react';
 import Smurf from './Smurf';
 
 class Smurfs extends Component {
+  constructor(props){
+    super(props);
+  // function routeToItem(ev, smurf) {
+  //   ev.preventDefault();
+  //   props.history.push(`/smurfs/${smurf.id}`);
+  //   props.getItemById(smurf.id)
+  // }    
+    this.state = {
+      routeToItem: function(ev, smurf) {
+        ev.preventDefault();
+        props.history.push(`/smurfs/${smurf.id}`);
+        props.getItemById(smurf.id)
+      }
+    }
+  }
+
   render() {
     return (
       <div className="Smurfs">
@@ -11,6 +27,7 @@ class Smurfs extends Component {
           {this.props.smurfs.map(smurf => {
             return (
               <Smurf
+                onClick={ev => this.state.routeToItem(ev, smurf)}
                 name={smurf.name}
                 id={smurf.id}
                 age={smurf.age}

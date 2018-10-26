@@ -99,6 +99,8 @@ class App extends Component {
     });
   };
 
+  
+
 
   // add any needed code to ensure that the smurfs collection exists on state and it has data coming from the server
   // Notice what your map function is looping over and returning inside of Smurfs.
@@ -124,12 +126,17 @@ class App extends Component {
         <Route exact path='/smurf-form' render={(props) => <SmurfForm {...props} 
         addNewSmurf = {this.addNewSmurf} 
         changeHandler = {this.changeHandler} 
+        isEditing={this.state.isEditing}
+        updateSmurf={this.updateSmurf}
         smurf = {this.state.smurf} />} />
 
         <Route exact path='/smurfs' render={(props) => <Smurfs {...props} 
+        getSmurfById={this.getSmurfById}
         smurfs={this.state.smurfs} />} />
 
         <Route path='/smurfs/:id' render={(props) => <Smurf {...props} 
+        deleteSmurf={this.deleteSmurf}
+        activeSmurf={this.state.activeSmurf}
         smurfs={this.state.smurfs} />} />
 
       </div>
