@@ -1,4 +1,5 @@
 import React from 'react';
+import './Smurf.css';
 
 function Village(props) {
     const routeToSmurfs = event => {

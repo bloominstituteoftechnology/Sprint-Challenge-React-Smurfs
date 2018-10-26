@@ -1,4 +1,5 @@
 import React from 'react';
+import './Smurf.css';
 
 
 const Smurf = props => {
@@ -17,6 +18,7 @@ const Smurf = props => {
       <strong>{props.height} tall</strong>
       <p>{props.age} smurf years old</p>
       <button
+      className = "smurf-button"
         // onClick={event => {
         //   updateItem(event, smurf);
         //   history.push('/smurf-form');
@@ -26,6 +28,7 @@ const Smurf = props => {
         Update Smurf
       </button>
       <button
+      className = "smurf-button"
         // onClick={event => {
         //   deleteItem(event, smurf.id);
         //   history.push('/smurfs');
