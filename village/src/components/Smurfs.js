@@ -11,7 +11,7 @@ class Smurfs extends React.Component {
       <div className="Smurfs">
         <h1>Smurf Village</h1>
         <ul>
-          {this.props.smurfs.map(smurf => {
+          {this.props.mySmurfs.map(smurf => {
             return (
               <Smurf
                 name={smurf.name}

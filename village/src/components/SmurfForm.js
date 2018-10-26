@@ -1,34 +1,37 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-function SmurfForm(props) {
-  
+class SmurfForm extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  render() {
     return (
       <div className="SmurfForm">
-        <form onSubmit={props.addSmurf}>
+        <form onSubmit={this.props.addSmurf}>
           <input
-            onChange={props.handleInputChange}
+            onChange={this.props.handleInputChange}
             placeholder="name"
-            value={props.newSmurf.name}
+            value={this.props.newSmurf.name}
             name="name"
           />
           <input
-            onChange={props.handleInputChange}
+            onChange={this.props.handleInputChange}
             placeholder="age"
-            value={props.newSmurf.age}
+            value={this.props.newSmurf.age}
             name="age"
           />
           <input
-            onChange={props.handleInputChange}
+            onChange={this.props.handleInputChange}
             placeholder="height"
-            value={props.newSmurf.height}
+            value={this.props.newSmurf.height}
             name="height"
           />
           <button type="submit">Add to the village</button>
         </form>
       </div>
     );
-  
+  }
 }
 
 export default SmurfForm;
