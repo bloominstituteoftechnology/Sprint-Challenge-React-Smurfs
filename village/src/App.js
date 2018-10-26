@@ -3,6 +3,7 @@ import axios from 'axios';
 import './App.css';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
+import { Route } from 'react-router-dom';
 
 class App extends Component {
   constructor(props) {
@@ -57,7 +58,11 @@ class App extends Component {
           newSmurf={this.state.newSmurf}
           handleInputChange={this.handleInputChange}
           addSmurf={this.addSmurf}/>
-        <Smurfs smurfs={this.state.smurfs} />
+        <Smurfs 
+          smurfs={this.state.smurfs}
+          onPageLoad={this.componentDidMount} />
+        <Route exact path='/' component={Smurfs}/>
+        <Route path='/smurf-form' component={SmurfForm} />
       </div>
     );
   }
