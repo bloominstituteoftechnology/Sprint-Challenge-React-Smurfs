@@ -20,7 +20,6 @@ componentDidMount() {
     .get('http://localhost:3333/smurfs')
       .then(response => {
         this.setState(() => ({ smurfs: response.data }));
-        this.props.history.push("/");
       })
       .catch(error => {
         console.error('Server Error', error);
