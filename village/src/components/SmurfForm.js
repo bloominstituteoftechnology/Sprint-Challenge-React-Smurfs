@@ -29,7 +29,6 @@ class SmurfForm extends Component {
         this.setState({ smurfs: response.data })
       })
       .catch(error => console.log(error))
-
   }
 
   render() {
