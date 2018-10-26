@@ -1,9 +1,18 @@
 import React, { Component } from 'react';
-
+import Village from './components/Village';
 import './App.css';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
+import Smurf from './components/Smurf';
 import axios from 'axios';
+import { Route, NavLink } from 'react-router-dom';
+
+const blankSmurf = {
+  photo: '',
+  name: '',
+  age: '',
+  height: '',
+};
 
 class App extends Component {
   constructor(props) {
@@ -11,12 +20,13 @@ class App extends Component {
     this.state = {
       smurfs: [],
       smurf: {
+        photo: '',
         name: '',
         age: '',
         height: '',
       },
       editingId: null,
-      activeFriend: null,
+      activeSmurf: null,
       isEditing: false
     };
   }
@@ -25,6 +35,13 @@ class App extends Component {
     axios
       .get('http://localhost:3333/smurfs')
       .then(response => this.setState({ smurfs: response.data }))
+      .catch(error => console.log(error));
+  }
+
+  getSmurfById = id => {
+    axios
+      .get(`http://localhost:3333/smurfs/${id}`)
+      .then(response => this.setState({activeSmurf: response.data }))
       .catch(error => console.log(error));
   }
 
@@ -46,6 +63,42 @@ class App extends Component {
       .catch(error => console.log(error));
   }
 
+  deleteSmurf = (ev, id) => {
+    ev.preventDefault();
+    axios
+      .delete(`http://localhost:3333/smurfs/${id}`)
+      .then(response => {
+        this.setState({ smurfs: response.data });
+      })
+      .catch(error => console.log(error));
+  };
+
+  updateSmurf = () => {
+    axios
+      .put(
+        `http://localhost:3333/smurfs/${this.state.editingId}`,
+        this.state.item
+      )
+      .then(response => {
+        this.setState({
+          items: response.data,
+          editingId: null,
+          isEditing: false,
+          smurf: blankSmurf
+        });
+      })
+      .catch(error => console.log(error));
+  };
+
+  setUpUpdateForm = (ev, smurf) => {
+    ev.preventDefault();
+    this.setState({
+      smurf, 
+      isEditing: true,
+      editingId: smurf.id
+    });
+  };
+
 
   // add any needed code to ensure that the smurfs collection exists on state and it has data coming from the server
   // Notice what your map function is looping over and returning inside of Smurfs.
@@ -53,15 +106,32 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <SmurfForm 
-        addNewSmurf = {this.addNewSmurf}
-        changeHandler = {this.changeHandler}
-        smurf = {this.state.smurf}
-        />
-        <Smurfs 
-        smurfs={this.state.smurfs} 
-        
-        />
+        <nav>
+          <h1 className = "smurf-village-header">Welcome To Smurf Village</h1>
+          <div className = "the-smurfing-nav">
+            <NavLink exact to="/smurf-form">
+              Add Your Smurfing Smurf
+            </NavLink>
+            <NavLink exact to="/">
+              Village
+            </NavLink>
+            <NavLink to='/smurfs'>Meet The Smurfs</NavLink>
+          </div>
+        </nav>
+
+        <Route exact path='/' render={(props) => <Village {...props} />}/>
+
+        <Route exact path='/smurf-form' render={(props) => <SmurfForm {...props} 
+        addNewSmurf = {this.addNewSmurf} 
+        changeHandler = {this.changeHandler} 
+        smurf = {this.state.smurf} />} />
+
+        <Route exact path='/smurfs' render={(props) => <Smurfs {...props} 
+        smurfs={this.state.smurfs} />} />
+
+        <Route path='/smurfs/:id' render={(props) => <Smurf {...props} 
+        smurfs={this.state.smurfs} />} />
+
       </div>
     );
   }
