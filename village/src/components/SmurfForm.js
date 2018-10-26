@@ -14,12 +14,12 @@ class SmurfForm extends Component {
   }
 
   addSmurf = (event) => {
-    event.preventDefault();
     const newSmurf = {
       name: this.state.name,
       age: this.state.age,
       height: this.state.height
     }
+
     Axios
     .post('http://localhost:3333/smurfs', newSmurf)
     .then(res => { this.props.createSmurf(res.data)

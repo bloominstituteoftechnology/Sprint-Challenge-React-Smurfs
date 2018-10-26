@@ -24,7 +24,7 @@ class App extends Component {
     .catch(err => console.log(err));
   }
 
-  createSmurf = smurfs => {
+  createSmurf = (smurfs) => {
     console.log('smurfs', smurfs);
     this.setState({ smurfs: smurfs });
   }
