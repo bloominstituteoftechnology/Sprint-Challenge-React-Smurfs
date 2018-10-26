@@ -27,7 +27,8 @@ class SmurfForm extends Component {
     this.setState({ [e.target.name]: e.target.value });
   };
 
-  handleSubmitChange = () => {
+  handleSubmitChange = (e) => {
+    e.preventDefault();
     const name = {
       name: this.state.name,
       age: this.state.age,
