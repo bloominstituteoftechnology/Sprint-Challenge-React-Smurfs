@@ -21,7 +21,8 @@ componentDidMount() {
 
 addSmurf = (event, newSmurf) => {
   event.preventDefault();
-  axios.post('http://localhost:3333/smurfs', newSmurf)
+  axios
+  .post('http://localhost:3333/smurfs', newSmurf)
   .then(response => this.setState({smurfs: response.data}))
   .catch(err => console.log('Error!'))
 
