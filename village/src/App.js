@@ -6,6 +6,7 @@ import Smurfs from './components/Smurfs';
 import Smurf from './components/Smurf';
 import {Route, Link, NavLink} from 'react-router-dom';
 import {withRouter} from 'react-router';
+import {Transition, Spring, config} from 'react-spring';
 
 
 class App extends Component {
@@ -55,7 +56,14 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-      <header><h1>Smurf Village</h1></header>
+      <Spring from={{height: 0, opacity: 0}}
+              to={{height: 550, opacity: 1}}
+              delay={500}
+              config={config.molasses}>
+              {(props) =>
+                 <header style={props}><h1 >Smurf Village</h1></header>}
+      
+      </Spring>
       <nav><NavLink to='/'>Home</NavLink><NavLink to='/addSmurf'>Add Smurf</NavLink><div className="delete"onClick={this.prepDelete}>Delete Smurf</div></nav>
       
       <Route exact path='/' render={props =>
