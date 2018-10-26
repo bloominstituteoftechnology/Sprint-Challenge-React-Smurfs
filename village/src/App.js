@@ -61,8 +61,22 @@ class App extends Component {
         <Smurfs 
           mySmurfs={this.state.smurfs}
           onPageLoad={this.componentDidMount} />
-        <Route exact path='/' component={Smurfs}/>
-        <Route path='/smurf-form' component={SmurfForm} />
+        <Route 
+          exact path='/' 
+          render={props => (
+           <Smurfs 
+            {...props}
+            mySmurfs={this.state.smurfs} />
+          )}/>
+        <Route 
+          path='/smurf-form'
+          render={props => (
+            <SmurfForm 
+              {...props}
+              newSmurf={this.state.newSmurf}
+              handleInputChange={this.handleInputChange}
+              addSmurf={this.addSmurf}/>
+          )}  />
       </div>
     );
   }
