@@ -3,3 +3,41 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+
+nav {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-evenly;
+  
+  
+}
+
+a {
+  color: blue;
+  font-size: 24px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+
+input {
+  padding: 5px;
+  text-align: center;
+  font-size: 12px;
+  font-weight: bold
+}
+
+button {
+  padding: 5px;
+  margin-top: 10px;
+  font-size: 12px;
+}
+
+
+
+
