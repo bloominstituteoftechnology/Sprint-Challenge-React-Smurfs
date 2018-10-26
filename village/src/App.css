@@ -1,3 +1,10 @@
 .App {
   text-align: center;
 }
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: dodgerblue;
+}
