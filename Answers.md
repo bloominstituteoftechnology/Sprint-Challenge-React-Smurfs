@@ -17,5 +17,14 @@ D- delete
 
 1.  Which HTTP methods can be mapped to the CRUD acronym that we use when interfacing with APIs/Servers.
 
-Create- 
+Create- A POST request asks the server to create or add new content
+
+Read- A GET request asks for information from the server that we can read
+
+Update- A PUT request is used by the client to ask the server to update specific resources
+
+Delete- A DELETE request asks the server to erase a particular resource.
+
 1.  Mention three tools we can use to make AJAX requests
+
+There are three tools that I am familiar with for making AJAX requests: Axios, Fetch, and jQuery. 
