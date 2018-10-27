@@ -28,7 +28,9 @@ class SmurfForm extends React.Component {
             name="height"
           />
           <button type="submit">Add to the village</button>
+          
         </form>
+
       </div>
     );
   }

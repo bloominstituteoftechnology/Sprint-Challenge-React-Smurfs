@@ -1,8 +1,23 @@
 .App {
   text-align: center;
+  text-decoration: none;
 }
  
 .active {
-  color: blue;
-  background-color: black;
+  color: white;
+  background-color: red;
+  border-radius: 20%;
+  padding: 0 4%;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-around;
+  background-color: blue;
+}
+
+.navbar h3 {
+  text-decoration: none;
+  color: white;
+  font-size: 2rem;
 }

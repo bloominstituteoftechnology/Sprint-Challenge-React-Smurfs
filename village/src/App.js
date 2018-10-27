@@ -4,13 +4,15 @@ import './App.css';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
 import { Route, NavLink } from 'react-router-dom';
-import SmurfAlert from './components/SmurfAlert';
+import AlertToggle from './components/AlertToggle'
+
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
       smurfs: [],
+      smurfAlert: false,
       newSmurf: {
         name: '',
         age: '',
@@ -26,19 +28,29 @@ class App extends Component {
       .then(response => this.setState({ smurfs: response.data }))
   }
 
+  
+
   addSmurf = event => {
     event.preventDefault();
     // add code to create the smurf using the api
     axios.post('http://localhost:3333/smurfs', this.state.newSmurf)
       .then(response => this.setState({
         smurfs: response.data,
+        smurfAlert: false,
         newSmurf: {
           name: '',
           age: '',
           height: ''
         }  
     }))
-      .catch(error => SmurfAlert.toggleOn);
+      .catch(error => this.smurfAlert(error));
+  }
+
+  smurfAlert = () => {
+    this.setState({
+      smurfAlert: true
+    })
+
   }
 
   handleInputChange = e => {
@@ -55,8 +67,15 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <NavLink exact to='/'>Visit Smurf Village</NavLink>
-        <NavLink to='/smurf-form'>Add Smurf!</NavLink>
+        <div className="navbar">
+          <NavLink exact to='/'>
+            <h3>Visit Smurf Village</h3>
+          </NavLink>
+          <NavLink to='/smurf-form'>
+            <h3>Add Smurf!</h3>
+          </NavLink>
+        </div>  
+        <AlertToggle smurfAlert={this.state.smurfAlert} />
         <Route 
           exact path='/' 
           render={props => (
@@ -71,7 +90,8 @@ class App extends Component {
               {...props}
               newSmurf={this.state.newSmurf}
               handleInputChange={this.handleInputChange}
-              addSmurf={this.addSmurf}/>
+              addSmurf={this.addSmurf}
+              smurfAlert={this.state.smurfAlert}/>
           )}  />
       </div>
     );
