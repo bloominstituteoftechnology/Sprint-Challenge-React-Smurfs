@@ -25,7 +25,7 @@ class App extends Component {
   componentDidMount() {
     axios
       .get('http://localhost:3333/smurfs')
-      .then(response => this.setState({ smurfs: response.data }))
+      .then(response => this.setState({ smurfs: response.data, smurfAlert: false }))
   }
 
   
@@ -50,7 +50,12 @@ class App extends Component {
     this.setState({
       smurfAlert: true
     })
+  }
 
+  smurfAlertOff = () => {
+    this.setState({
+      smurfAlert: false
+    })
   }
 
   handleInputChange = e => {
@@ -75,7 +80,9 @@ class App extends Component {
             <h3>Add Smurf!</h3>
           </NavLink>
         </div>  
-        <AlertToggle smurfAlert={this.state.smurfAlert} />
+        <AlertToggle 
+          smurfAlert={this.state.smurfAlert}
+          smurfAlertOff={this.smurfAlertOff} />
         <Route 
           exact path='/' 
           render={props => (
