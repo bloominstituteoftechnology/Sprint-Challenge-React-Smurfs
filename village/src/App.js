@@ -44,13 +44,20 @@ class App extends Component {
       })
   }
 
-
+  handleInputChange = e => {
+    this.setState({ 
+      smurf: {
+        ...this.state.smurf,
+        [e.target.name]: e.target.value 
+      }
+    });
+  };
 
   render() {
-    console.log(this.state.smurf)
+    console.log(this.state.smurfs)
     return (
       <div className="App">
-        <SmurfForm handleAddNewSmurf={this.handleAddNewSmurf} smurf={this.state.smurf}/>
+        <SmurfForm handleAddNewSmurf={this.handleAddNewSmurf} smurf={this.state.smurf} handleInputChange={this.handleInputChange}/>
         <Smurfs smurfs={this.state.smurfs} />
       </div>
     );
