@@ -5,6 +5,7 @@ import axios from 'axios';
 import './App.css';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
+import ShowSmurf from './components/ShowSmurf';
 
 class App extends Component {
   constructor(props) {
@@ -52,6 +53,9 @@ class App extends Component {
         <Route exact path="/" render={ () => (
           <Smurfs smurfs={this.state.smurfs} handleDelete={this.handleDelete}/>
         ) } />
+        <Route path="/smurf/:id" component={ () =>
+          <ShowSmurf smurfs={this.state.smurfs} />
+        } />
       </div>
     );
   }
