@@ -4,9 +4,13 @@
 * Answers to your written questions will be recorded in _Answers.md_
 * This is to be worked on alone but you can use outside resources. You can _reference_ any old code you may have, and the React Documentation, however, please refrain from copying and pasting any of your answers. Try and understand the question and put your responses in your own words. Be as thorough as possible when explaining something.
 
-## [x] Start by forking and cloning this repository.
+## Start by forking and cloning this repository.
+
+[x]
 
 ## Questions - Self Study - You can exercise your Google-Fu for this and any other _Sprint Challenge_ in the future.
+
+[x]
 
 1.  Explain the differences between `client-side routing` and `server-side routing`.
 1.  What does HTTP stand for?
@@ -14,7 +18,9 @@
 1.  Which HTTP methods can be mapped to the CRUD acronym that we use when interfacing with APIs/Servers.
 1.  Mention three tools we can use to make AJAX requests.
 
-## Initializing Project - READ THIS CAREFULLY, you have two apps here. A server, and a client.
+## [x] Initializing Project - READ THIS CAREFULLY, you have two apps here. A server, and a client.
+
+[x]
 
 * Start by Forking and Cloning this Repo.
 * `cd` into the forked copy.
@@ -28,17 +34,21 @@
 
 ## Project Description
 
+[x]
+
 * The requirements for completion are that you are using AXIOS to `GET` a list of Smurfs that exist on the server && a `POST` to create a new Smurf and save it to the Smurf DB.
 * You are to then work on adding a Router to this application by using React Router.
 * If you get both of those two requirements finished early. Proceed to the **STRETCH PROBLEM** to try and implement a `PUT`.
 
 ## API Design - This is how you'll interface with the API and what is required from every endpoint.
 
+[x]
+
 * [Here](http://smurfs.wikia.com/wiki/Category:Smurfs_Characters) is a list of smurf data you can use to create your village.
 
 ### GET '/smurfs'
 
-* To retreive an array all the smurfs in the Smurf DB simply write a get to the endpoint `'/smurfs'`
+[x] To retreive an array all the smurfs in the Smurf DB simply write a get to the endpoint `'/smurfs'`
 
 ### POST '/smurfs'
 
