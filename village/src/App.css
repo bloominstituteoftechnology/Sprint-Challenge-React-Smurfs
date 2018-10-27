@@ -1,3 +1,18 @@
 .App {
   text-align: center;
 }
+
+.navBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  border: 1px solid #88CCFF;
+  background-color: #88CCFF;
+  height: 35px;
+  margin-bottom: 25px;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
