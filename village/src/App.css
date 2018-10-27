@@ -1,3 +1,33 @@
 .App {
   text-align: center;
 }
+
+.navBar{
+  display: flex; 
+  flex-wrap: wrap; 
+  justify-content: center; 
+  width: 100%; 
+  background-color: rgba(0, 0, 0, 0.3);
+  height: 50px; 
+  align-items: center; 
+}
+
+.navBar-item{
+  margin-right: 10px;  
+}
+
+.Smurf{
+  background-color: rgb(204, 204, 228);  
+  width: 300px; 
+  margin-left: 490px; 
+}
+
+.SmurfForm{
+  margin-top: 250px; 
+}
+
+h2{
+  text-decoration: underline; 
+}
+
+
