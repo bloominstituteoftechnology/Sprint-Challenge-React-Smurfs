@@ -36,7 +36,7 @@ deleteSmurf = event => {
   render() {
     return (
       <div className="Smurfs">
-        <h1>Smurf Village</h1>
+        <h1 className=" Heading mt-3">Smurf Village</h1>
         <ul>
           {this.state.smurfs.map(smurf => {
             return (
