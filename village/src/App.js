@@ -26,13 +26,19 @@ class App extends Component {
         });
       })
       .catch(err => console.log(err))
-  }
+  };
 
   addSmurfToDB = response => {
     this.setState({
       smurfs: response
-    })
+    });
   }
+
+  deleteFromDB = response => {
+    this.setState({
+      smurfs: response
+    });
+  };
 
   render() {
     return (
@@ -57,6 +63,7 @@ class App extends Component {
             <Smurfs
               {...props}
               smurfs={this.state.smurfs}
+              deleteFromDB={this.deleteFromDB}
             />
           }
         />
