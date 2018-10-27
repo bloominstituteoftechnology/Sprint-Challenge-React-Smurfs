@@ -19,7 +19,7 @@ class SmurfForm extends Component {
       age: '',
       height: ''
     });
-  }
+  };
 
   handleInputChange = e => {
     this.setState({ [e.target.name]: e.target.value });
