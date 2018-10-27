@@ -39,7 +39,7 @@ class App extends Component {
           console.log(err)
         })
 
-    this.props.history.push('/smurfs')
+    this.props.history.push('/')
   }
 
   deleteSmurf = (id) => {
@@ -52,7 +52,7 @@ class App extends Component {
           console.log(err)
         })
 
-    this.props.history.push('/smurfs')
+    this.props.history.push('/')
   }
 
   render() {
