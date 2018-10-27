@@ -24,9 +24,8 @@ class App extends Component {
       .catch( error => console.error(error) );
   };
 
-  updateState(data) {
-    this.setState( {smurfs: data});
-  };
+  // Need to update state from SmurfForm
+  updateState = (data) => this.setState({ smurfs: data });
 
   render() {
     return (
