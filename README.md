@@ -28,8 +28,8 @@ X **RUN** `yarn start or npm start` to fire up your React application.
 
 ## Project Description
 
-* The requirements for completion are that you are using AXIOS to `GET` a list of Smurfs that exist on the server && a `POST` to create a new Smurf and save it to the Smurf DB.
-* You are to then work on adding a Router to this application by using React Router.
+X The requirements for completion are that you are using AXIOS to `GET` a list of Smurfs that exist on the server && a `POST` to create a new Smurf and save it to the Smurf DB.
+X You are to then work on adding a Router to this application by using React Router.
 * If you get both of those two requirements finished early. Proceed to the **STRETCH PROBLEM** to try and implement a `PUT`.
 
 ## API Design - This is how you'll interface with the API and what is required from every endpoint.
