@@ -58,11 +58,16 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <SmurfForm />
-        <Smurfs smurfs={this.state.smurfs} />
+        <Nav />
+        <Route exact path='/' render={ props => (
+          <Smurfs {...props} smurfs={this.state.smurfs} delete={this.deleteSmurf} />
+        )} />
+        <Route path='/smurf-form' render={ props => (
+          <SmurfForm {...props} smurfs={this.state.smurfs} add={this.addSmurf} />
+        )} />
       </div>
     );
   }
 }
 
-export default App;
+export default withRouter(App);
