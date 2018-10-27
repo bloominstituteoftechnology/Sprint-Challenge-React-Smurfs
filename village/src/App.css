@@ -1,3 +1,21 @@
 .App {
+  box-sizing: border-box;
+  margin: 0 auto;
+  width: 600px;
+  max-width: 100%;
   text-align: center;
+}
+.link {
+  text-decoration: none;
+  border: 2px solid black;
+  padding: 15px;
+  color: #88CCFF
+}
+.linkbox {
+  margin: 20px;
+  }
+.AppNav {
+  display: flex;
+  justify-content: center;
+  border: 1px dashed black;
 }
