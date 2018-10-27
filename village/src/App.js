@@ -34,6 +34,14 @@ class App extends Component {
       <BrowserRouter>
         <div className="App">
         <SmurfForm />
+        {/* <Route path="/smurfForm" render={props =>
+          <SmurfForm 
+            name={this.state.name}
+            height={this.state.height}
+            handleInputChange={this.handleInputChange}
+            addSmurf={this.addSmurf}
+          />}
+        /> */}
         <Route exact path ="/" render={props => <Smurfs smurfs={this.state.smurfs} />}/>
          
          
