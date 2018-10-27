@@ -1,12 +1,15 @@
 import React from 'react';
+import { TableBody, TableRow, TableCell } from '@material-ui/core';
 
 const Smurf = props => {
   return (
-    <div className="Smurf">
-      <h3>{props.name}</h3>
-      <strong>{props.height} tall</strong>
-      <p>{props.age} smurf years old</p>
-    </div>
+    <TableBody>
+      <TableRow>
+        <TableCell>{props.name}</TableCell>
+        <TableCell>{props.age}</TableCell>
+        <TableCell>{props.height}</TableCell>
+      </TableRow>
+    </TableBody>
   );
 };
 
