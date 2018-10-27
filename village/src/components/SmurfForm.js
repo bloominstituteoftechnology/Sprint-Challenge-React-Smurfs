@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Button, FormGroup, Form, Input, Tooltip, Row, Col, Container } from 'reactstrap';
 
 class SmurfForm extends Component {
   constructor(props) {
@@ -6,9 +7,12 @@ class SmurfForm extends Component {
     this.state = {
       name: '',
       age: '',
-      height: ''
+      height: '',
+      tooltipOpen:false
     };
   }
+  
+  toggleToolTip = () => this.setState({tooltipOpen: !this.state.tooltipOpen})
 
   addSmurf = event => {
     event.preventDefault();
@@ -33,27 +37,17 @@ class SmurfForm extends Component {
   render() {
     return (
       <div className="SmurfForm">
-        <form onSubmit={this.addSmurf}>
-          <input
-            onChange={this.handleInputChange}
-            placeholder="name"
-            value={this.state.name}
-            name="name"
-          />
-          <input
-            onChange={this.handleInputChange}
-            placeholder="age"
-            value={this.state.age}
-            name="age"
-          />
-          <input
-            onChange={this.handleInputChange}
-            placeholder="height"
-            value={this.state.height}
-            name="height"
-          />
-          <button type="submit" onClick={this.addSmurf}>Add to the village</button>
-        </form>
+        <Form onSubmit={this.addSmurf}>
+          <FormGroup>
+            <Input onChange={this.handleInputChange} placeholder="name" value={this.state.name} name="name"></Input>
+            <Input onChange={this.handleInputChange} placeholder="age" value={this.state.age} name="age" ></Input>
+            <Input onChange={this.handleInputChange} placeholder="height" value={this.state.height} name="height"></Input>
+            <Button id="add" color="success" type="submit" onClick={this.addSmurf}>Add to the village</Button>
+            <Tooltip placement="bottom" isOpen={this.state.tooltipOpen} target="add" toggle={this.toggleToolTip}>
+                Add a Smurf!
+            </Tooltip>
+          </FormGroup>
+        </Form>
       </div>
     );
   }
