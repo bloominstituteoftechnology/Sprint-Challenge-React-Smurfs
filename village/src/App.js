@@ -4,6 +4,7 @@ import "./App.css";
 import SmurfForm from "./components/SmurfForm";
 import Smurfs from "./components/Smurfs";
 import { Route } from "react-router";
+import Nav from "./components/NavBar";
 
 class App extends Component {
   constructor(props) {
@@ -27,6 +28,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <Nav />
         <Route
           path="/smurf-form"
           component={() => <SmurfForm smurfs={this.state.smurfs} />}
