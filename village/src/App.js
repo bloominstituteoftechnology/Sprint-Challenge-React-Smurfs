@@ -9,6 +9,9 @@ class App extends Component {
     super(props);
     this.state = {
       smurfs: [],
+      name: '',
+      age: 0,
+      height: '',
     };
   }
   // add any needed code to ensure that the smurfs collection exists on state and it has data coming from the server
@@ -25,12 +28,22 @@ class App extends Component {
       })
       .catch(err => console.log(err));
   }
-  
-  
-  
-  
-  
-  
+
+  createNewSmurf = (e) => {
+ const newSmurf = {
+   name: this.state.name,
+   age: this.state.age,
+   height: this.state.height,
+ }
+    axios
+      .post("//local:3333/smurfs", newSmurf)
+      .then(response => {
+        this.setState({ smurf: response.data })
+      })
+      .catch(err => console.log(err));
+
+  }
+
   render() {
     return (
       <div className="App">
