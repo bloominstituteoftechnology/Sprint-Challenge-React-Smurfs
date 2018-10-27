@@ -1,3 +1,15 @@
 .App {
   text-align: center;
 }
+@import url('https://fonts.googleapis.com/css?family=Luckiest+Guy');
+
+body {
+  background-color: #88ccff;
+}
+
+h1 {
+  font-family: 'Luckiest Guy', cursive;
+  color: white;
+  -webkit-text-stroke: 1px black;
+  font-size: 48px;
+}
