@@ -62,12 +62,14 @@ class App extends Component {
         <ul className="navbar">
           <li>
             <NavLink to="/smurf-form">
-            Smurf Form
+              Smurf Form
             </NavLink>
           </li>
 
           <li>
+            <NavLink to="/smurfs">
             Smurf Village
+            </NavLink>
           </li>
         </ul>
 
@@ -83,9 +85,12 @@ class App extends Component {
         )} 
         />
 
-        
+        <Route exact path="/smurfs" render={props => (
+          <Smurfs smurfs={this.state.smurfs} />
+        )}
+        />
 
-        <Smurfs smurfs={this.state.smurfs} />
+        
 
 
       </div>
