@@ -7,6 +7,7 @@ import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
 import Nav from './components/Nav';
 import DetailSmurf from './components/DetailSmurf';
+import EditSmurfForm from './components/EditSmurfForm';
 
 class App extends Component {
   constructor(props) {
@@ -45,6 +46,7 @@ class App extends Component {
         <Route exact path='/' render={props => <Smurfs smurfs={this.state.smurfs} selectSmurf={this.selectSmurf} {...props} />} />
         <Route path='/smurf-form' component={SmurfForm} />
         <Route path='/smurf' render={props => <DetailSmurf smurf={this.state.currentSmurf} {...props} />} />
+        <Route path='/editsmurf' render={props => <EditSmurfForm smurf={this.state.currentSmurf} {...props} />} />
       </div>
     );
   }

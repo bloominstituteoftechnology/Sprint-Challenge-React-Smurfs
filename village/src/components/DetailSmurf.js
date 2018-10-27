@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import axios from 'axios';
+import { Route } from 'react-router-dom';
 
 class DetailSmurf extends Component {
     constructor(props) {
@@ -25,6 +26,10 @@ class DetailSmurf extends Component {
                 console.log(err);
             });
     }
+
+    selectSmurf = (smurf) => {
+        this.props.history.push('/editsmurf');
+    }
   
     render() {
         return (
@@ -33,6 +38,7 @@ class DetailSmurf extends Component {
                 <strong>{this.state.smurf.height} tall</strong>
                 <p>{this.state.smurf.age} smurf years old</p>
                 <button onClick={this.deleteSmurf}>Delete</button>
+                <button onClick={this.selectSmurf}>Edit</button>
             </div>
         );
     } 
