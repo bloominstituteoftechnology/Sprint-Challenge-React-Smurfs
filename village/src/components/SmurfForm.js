@@ -1,13 +1,15 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import axios from "axios";
+import { NavLink } from "react-router-dom";
 
 class SmurfForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: '',
-      age: '',
-      height: ''
+      name: props.smurf.name,
+      age: props.smurf.age,
+      height: props.smurf.height,
+      id: props.smurf.id
     };
   }
 
@@ -17,21 +19,45 @@ class SmurfForm extends Component {
       name: this.state.name,
       age: this.state.age,
       height: this.state.height
-    }
-
-    axios.post('http://localhost:3333/smurfs', newSmurf)
+    };
+    axios
+      .post("http://localhost:3333/smurfs", newSmurf)
       .then(response => {
         this.props.passState(response.data);
         this.setState({
-          name: '',
-          age: '',
-          height: ''
+          name: "",
+          age: "",
+          height: ""
         });
+        this.props.history.push("/");
       })
       .catch(err => {
-        console.log(`SMURF! ${err}`)
+        console.log(`SMURF! ${err}`);
+      });
+  };
+
+  updateSmurf = (event) => {
+    event.preventDefault();
+    const newSmurf = {
+      name: this.state.name,
+      age: this.state.age,
+      height: this.state.height
+    };
+    axios
+      .put(`http://localhost:3333/smurfs/${this.state.id}`, newSmurf)
+      .then(response => {
+        this.setState({
+          name: "",
+          age: "",
+          height: ""
+        });
+        this.props.history.push("/");
+        this.props.passState(response.data);
       })
-  }
+      .catch(err => {
+        console.log(`SMURF! ${err}`);
+      });
+  };
 
   handleInputChange = e => {
     this.setState({ [e.target.name]: e.target.value });
@@ -40,7 +66,7 @@ class SmurfForm extends Component {
   render() {
     return (
       <div className="SmurfForm">
-        <form onSubmit={this.addSmurf}>
+        <form onSubmit={this.props.update ? this.updateSmurf : this.addSmurf}>
           <input
             onChange={this.handleInputChange}
             placeholder="name"
@@ -60,6 +86,11 @@ class SmurfForm extends Component {
             name="height"
           />
           <button type="submit">Add to the village</button>
+          <NavLink to='/' >
+            <button>
+              Cancel
+            </button>
+          </NavLink>
         </form>
       </div>
     );

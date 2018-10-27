@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Route, NavLink, Redirect } from "react-router-dom";
+import { Route } from "react-router-dom";
 import axios from "axios";
 
 import "./App.css";
@@ -10,7 +10,14 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      smurfs: []
+      smurfs: [],
+      formDefaults: {
+        name: '',
+        age: '',
+        height: '',
+        id: ''
+      },
+      update: false
     };
   }
 
@@ -25,9 +32,28 @@ class App extends Component {
       });
   }
 
+  changeUpdateStatus = (name, age, height, id) => {
+    this.setState({ 
+      update: !this.state.update,
+      formDefaults: {
+        name: name,
+        age: age,
+        height: height,
+        id: id
+      }
+    });
+    this.props.history.push(`/smurf-form`);
+  };
+
   passState = data => {
     this.setState({
-      smurfs: data
+      smurfs: data,
+      update: false,
+      formDefaults: {
+        name: '',
+        age: '',
+        height: ''
+      },
     });
   };
   // Notice what your map function is looping over and returning inside of Smurfs.
@@ -35,19 +61,22 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <div>
-          <NavLink to={`/smurf-form/`}>Form</NavLink>
-          <span>  style me  </span>
-          <NavLink to={`/`}>Smurfs</NavLink>
-        </div>
         <Route
           path="/smurf-form"
-          render={props => <SmurfForm passState={this.passState} />}
+          render={props => (
+            <SmurfForm passState={this.passState} update={this.state.update} smurf={this.state.formDefaults} {...props} />
+          )}
         />
         <Route
           exact
           path="/"
-          render={props => <Smurfs smurfs={this.state.smurfs} passState={this.passState} />}
+          render={props => (
+            <Smurfs
+              smurfs={this.state.smurfs}
+              passState={this.passState}
+              changeUpdateStatus={this.changeUpdateStatus}
+            />
+          )}
         />
       </div>
     );
