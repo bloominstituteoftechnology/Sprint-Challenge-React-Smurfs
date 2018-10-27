@@ -10,13 +10,20 @@ class Smurfs extends Component {
         <ul>
           {this.props.smurfs.map(smurf => {
             return (
-              <Smurf
-                name={smurf.name}
-                id={smurf.id}
-                age={smurf.age}
-                height={smurf.height}
-                key={smurf.id}
-              />
+              <div key={smurf.id}>
+                <Smurf
+                  name={smurf.name}
+                  id={smurf.id}
+                  age={smurf.age}
+                  height={smurf.height}
+                  key={smurf.id}
+                />
+
+                <h2>Name: {smurf.name}</h2>
+                <h2>ID: {smurf.id}</h2>
+                <h2>Age: {smurf.age}</h2>
+                <h2>Height: {smurf.height}</h2>
+              </div>
             );
           })}
         </ul>
