@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Axios from 'axios';
 
 class SmurfForm extends Component {
   constructor(props) {
@@ -12,8 +13,16 @@ class SmurfForm extends Component {
 
   addSmurf = event => {
     event.preventDefault();
+    // Capitalize the first letter of the name:
+    let name = this.state.name[0].toUpperCase() + this.state.name.substr(1);
     // add code to create the smurf using the api
-
+    Axios.post("http://localhost:3333/smurfs", {
+      name: name,
+      age: parseInt(this.state.age),
+      height: this.state.height
+    })
+      .then( response => this.setState({ smurfs: response.data }) )
+      .catch( error => console.error(error) );
     this.setState({
       name: '',
       age: '',
