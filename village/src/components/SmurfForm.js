@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import { NavLink } from 'react-router-dom'
 class SmurfForm extends Component {
   constructor(props) {
     super(props);
@@ -10,10 +10,15 @@ class SmurfForm extends Component {
     };
   }
 
-  addSmurf = event => {
+  addSmurfHandler = event => {
     event.preventDefault();
     // add code to create the smurf using the api
-
+const smurf ={
+  name: this.state.name,
+  age: this.state.age,
+  height: this.state.height
+}
+    this.props.addNewSmurf(smurf);
     this.setState({
       name: '',
       age: '',
@@ -28,7 +33,10 @@ class SmurfForm extends Component {
   render() {
     return (
       <div className="SmurfForm">
-        <form onSubmit={this.addSmurf}>
+        <NavLink className="link" to='/'>
+          <p>Click Here To Go Back To Smurf Village.</p>
+        </NavLink>
+        <form onSubmit={this.addSmurfHandler}>
           <input
             onChange={this.handleInputChange}
             placeholder="name"

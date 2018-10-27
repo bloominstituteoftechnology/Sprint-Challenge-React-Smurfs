@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { Route } from 'react-router-dom';
 import './App.css';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
+import SmurfCard from './components/SmurfCard';
 
 class App extends Component {
   constructor(props) {
@@ -25,19 +27,19 @@ class App extends Component {
 
       });
   }
-  addNewSmurf = friend => {
+  addNewSmurf = smurf => {
 
 
-    axios.post('http://localhost:5000/friends', friend)
+    axios.post('http://localhost:3333/smurfs', smurf)
       .then((response) => {
         console.log(response);
-        this.setState(() => ({ friendlist: response.data }));
+        this.setState(() => ({ smurfs: response.data }));
       })
       .catch(error => {
         console.log(error);
       });
 
-    console.log(friend)
+    console.log(this.state)
   }
 
 
@@ -45,8 +47,11 @@ class App extends Component {
     console.log(this.state)
     return (
       <div className="App">
-        <SmurfForm />
-        <Smurfs smurfs={this.state.smurfs} />
+        <Route exact path="/" render={(props) => <Smurfs {...props} smurfs={this.state.smurfs} />} />
+        <Route path="/smurf-form" render={(props) => <SmurfForm {...props} addNewSmurf={this.addNewSmurf}  />} />
+        <Route path="/smurfs/:id" render={(props) => <SmurfCard {...props} update={this.update} smurfs={this.state.smurfs} />} />
+        {/* <SmurfForm />
+        <Smurfs smurfs={this.state.smurfs} /> */}
       </div>
     );
   }
