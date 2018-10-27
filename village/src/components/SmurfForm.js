@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Axios from 'axios';
 
+
 class SmurfForm extends Component {
   constructor(props) {
     super(props);
@@ -21,7 +22,7 @@ class SmurfForm extends Component {
       age: parseInt(this.state.age),
       height: this.state.height
     })
-      .then( response => this.setState({ smurfs: response.data }) )
+      .then( response => this.props.update(response.data) )
       .catch( error => console.error(error) );
     this.setState({
       name: '',
