@@ -19,7 +19,8 @@ let smurfs = [
     name: 'Brainey Smurf',
     age: 200,
     height: '8cm'
-  }
+  },
+
 ];
 server.get('/smurfs', (req, res) => {
   res.json(smurfs);
@@ -31,7 +32,7 @@ server.post('/smurfs', (req, res) => {
   const newSmurf = { name, age, height, id: smurfId };
   if (!name || !age || !height) {
     return sendUserError(
-      'Ya gone did smurfed! Name/Age/Height are all required to create a smurf in the smurf DB.',
+      'OOPS! Name/Age/Height are all required to create a smurf in the smurf DB.',
       res
     );
   }
@@ -40,7 +41,7 @@ server.post('/smurfs', (req, res) => {
   };
   if (smurfs.find(findSmurfByName)) {
     return sendUserError(
-      `Ya gone did smurfed! ${name} already exists in the smurf DB.`,
+      `Sorry! ${name} already exists.`,
       res
     );
   }
