@@ -38,11 +38,11 @@
 
 ### GET '/smurfs'
 
-* To retreive an array all the smurfs in the Smurf DB simply write a get to the endpoint `'/smurfs'`
+* [x] To retreive an array all the smurfs in the Smurf DB simply write a get to the endpoint `'/smurfs'`
 
 ### POST '/smurfs'
 
-* To add a smurf to the Smurf DB you'll need all three fields.
+* [x] To add a smurf to the Smurf DB you'll need all three fields.
 * Example:
 
 ```js
@@ -53,16 +53,16 @@
 }
 ```
 
-* If a smurf is created correctly, you should see a response that is an array of smurfs with unique id's assigned to each smurf.
+* [x] If a smurf is created correctly, you should see a response that is an array of smurfs with unique id's assigned to each smurf.
 
 ### Router
 
 * Once you've finished your `GET` and `POST` requests go ahead and implement a Router for your components within this application.  
-    * You'll start by wrapping your `root` component in the `Router` component.
-    * Then declare your routes with `Route`.
+    * [x] You'll start by wrapping your `root` component in the `Router` component.
+    * [x] Then declare your routes with `Route`.
     * Then make it so you can navigate to your routes using `Link`.
-* Create two `routes` in your `App` component, one at `'/'` for your `Smurfs` component, and one at `/smurf-form` for your form.
-* Then in your `App` component, create a nav bar that will use `NavLink` to route to your different pages.
+* [x] Create two `routes` in your `App` component, one at `'/'` for your `Smurfs` component, and one at `/smurf-form` for your form.
+* [x] Then in your `App` component, create a nav bar that will use `NavLink` to route to your different pages.
 
 ## STRETCH PROBLEMS
 
