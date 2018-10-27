@@ -1,9 +1,15 @@
 import React, { Component } from 'react';
+import { Route }from 'react-router-dom';
 import axios from "axios";
 
-import './App.css';
+import styled from 'styled-components';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
+import NavBar from './components/NavBar';
+
+const AppDiv = styled.div`
+  text-align: center;
+`;
 
 class App extends Component {
   constructor(props) {
@@ -28,10 +34,20 @@ class App extends Component {
   // You'll need to make sure you have the right properties on state and pass them down to props.
   render() {
     return (
-      <div className="App">
-        <SmurfForm />
-        <Smurfs smurfs={this.state.smurfs} />
-      </div>
+      <AppDiv>
+        <NavBar />
+
+        <Route exact path='/' component={SmurfForm} />
+        <Route exact path='/' render={props =>
+          <Smurfs {...props} smurfs={this.state.smurfs} />
+        } />
+
+        <Route path='/SmurfForm' component={SmurfForm} />
+        {/* <Route path='/smurfs/:id' render={props =>
+          <Smurf {...props} />
+        } /> */}
+        {/* Still need to get Smurf card to render properly */}
+      </AppDiv>
     );
   }
 }
