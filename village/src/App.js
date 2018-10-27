@@ -29,9 +29,11 @@ class App extends Component {
     return (
       <div className="App">
         <Nav />
-        <Route
+        {/* <Route
           path="/smurf-form"
-          component={() => <SmurfForm smurfs={this.state.smurfs} />}
+          component={() =>  */}
+          <SmurfForm smurfs={this.state.smurfs} />
+        // }
         />
         <Route
           path="/"
