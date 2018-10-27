@@ -18,11 +18,11 @@ class Smurfs extends Component {
                   height={smurf.height}
                   key={smurf.id}
                 />
-
-                <h2>Name: {smurf.name}</h2>
+              <button onClick={() => this.props.handleDeleteSmurf(smurf.id)}>DELETE</button>
+                {/* <h2>Name: {smurf.name}</h2>
                 <h2>ID: {smurf.id}</h2>
                 <h2>Age: {smurf.age}</h2>
-                <h2>Height: {smurf.height}</h2>
+                <h2>Height: {smurf.height}</h2> */}
               </div>
             );
           })}
