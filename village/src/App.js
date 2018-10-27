@@ -1,4 +1,5 @@
 import React, { Component } from "react"
+import { Route, NavLink } from "react-router-dom"
 import axios from "axios"
 
 import "./App.css"
@@ -30,7 +31,6 @@ class App extends Component {
 
   addSmurf = newSmurf => {
     const smurfs = [...this.state.smurfs, newSmurf]
-    console.log(smurfs)
 
     axios
       .post("http://localhost:3333/smurfs", newSmurf)
@@ -45,10 +45,22 @@ class App extends Component {
   }
 
   render() {
+    console.log(this.state.smurfs)
     return (
       <div className="App">
-        <SmurfForm addSmurf={this.addSmurf} />
-        <Smurfs smurfs={this.state.smurfs} />
+        <navbar>
+          <NavLink to="/">Smurfs</NavLink>
+          <NavLink to="/smurf-form">Smurf Form</NavLink>
+        </navbar>
+        <Route
+          path="/smurf-form"
+          render={props => <SmurfForm addSmurf={this.addSmurf} />}
+        />
+        <Route
+          exact
+          path="/"
+          render={props => <Smurfs smurfs={this.state.smurfs} />}
+        />
       </div>
     )
   }
