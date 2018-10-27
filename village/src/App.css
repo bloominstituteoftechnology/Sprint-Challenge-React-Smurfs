@@ -1,3 +1,30 @@
 .App {
   text-align: center;
 }
+
+.SmurfForm {
+  padding: 25px;
+
+}
+
+input {
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 8px;
+}
+
+.SmurfForm button {
+  margin: 5px;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 8px;
+}
+
+.Smurf {
+  border: 1px solid gray;
+  border-radius: 8px;
+  margin: 10px;
+  margin-right: 30px;
+  padding: 10px;
+  
+}
