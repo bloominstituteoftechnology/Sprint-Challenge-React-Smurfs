@@ -27,6 +27,17 @@ class App extends Component {
   // Need to update state from SmurfForm
   updateState = (data) => this.setState({ smurfs: data });
 
+  // Delete the smurf!
+  handleDelete = (id) => {
+    console.log("In handleDelete");
+    axios.delete(`http://localhost:3333/smurfs/${id}`)
+      .then( response => {
+        console.log("response:", response);
+        this.setState({ smurfs: response.data });
+      })
+      .catch( err => console.log(err) );
+  };
+
   render() {
     return (
       <div className="App">
@@ -39,7 +50,7 @@ class App extends Component {
           <SmurfForm update={this.updateState}/> }
         />
         <Route exact path="/" render={ () => (
-          <Smurfs smurfs={this.state.smurfs} />
+          <Smurfs smurfs={this.state.smurfs} handleDelete={this.handleDelete}/>
         ) } />
       </div>
     );
