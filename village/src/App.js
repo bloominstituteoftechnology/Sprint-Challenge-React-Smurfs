@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import {Route, Link} from 'react-router-dom';
 
 import './App.css';
 import SmurfForm from './components/SmurfForm';
@@ -36,9 +37,19 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <nav>
+          <Link to='/addSmurf/'>Add a Smurf</Link>
+        </nav>
       {/* Let's edit SmurfForm and pass along an update function for the returned smurf data when we create a new smurf. */}
-        <SmurfForm updateSmurfData={this.updateSmurfData}/>
-        <Smurfs smurfs={this.state.smurfs} />
+        <Route path='/addSmurf/' 
+          render={(props) => <SmurfForm {...props} updateSmurfData={this.updateSmurfData}/>}
+        />
+        <Route exact path='/' 
+          render={(props) => <Smurfs {...props} smurfs={this.state.smurfs} />}
+        />
+        <Route path='/smurf/:id'
+          render={(props) => <Smurfs {...props} smurfs={this.state.smurfs} />}
+        />
       </div>
     );
   }
