@@ -16,15 +16,15 @@
 
 ## Initializing Project - READ THIS CAREFULLY, you have two apps here. A server, and a client.
 
-* Start by Forking and Cloning this Repo.
-* `cd` into the forked copy.
-* **RUN** `yarn install or npm install` at the root to retrieve all the dependencies for the node server. You will not need to create any react apps here nor will you need to install any other dependencies. You should have all you need in this repo.
-* **LOOK** at all the files you've been given for this project. One important file to note is `server.js`. This file contains an **API** that you are going to be interfacing with. Below is documentation on how to interact with the **API**.
-* **RUN** `yarn start or npm start` to get your API up and running on `http://localhost:3333`. This is the **URL** you're going to need to use within your React app in order to make AJAX requests for data.
-* After your API is up and running, you can open chrome and type in `http://localhost:3333/smurfs`. You should see an Array `[]` with a smurf returned to you. This is an array that your **API** will be using to store our Smurf Data.
-* **LOOK** at your `village` directory and notice it's just a plain ol' React App that we've built using `create-react-app`.
-* **cd** into `village` and run `yarn install or npm install` to retrieve the client side dependencies.
-* **RUN** `yarn start or npm start` to fire up your React application.
+X Start by Forking and Cloning this Repo.
+X `cd` into the forked copy.
+X **RUN** `yarn install or npm install` at the root to retrieve all the dependencies for the node server. You will not need to create any react apps here nor will you need to install any other dependencies. You should have all you need in this repo.
+X **LOOK** at all the files you've been given for this project. One important file to note is `server.js`. This file contains an **API** that you are going to be interfacing with. Below is documentation on how to interact with the **API**.
+X **RUN** `yarn start or npm start` to get your API up and running on `http://localhost:3333`. This is the **URL** you're going to need to use within your React app in order to make AJAX requests for data.
+X After your API is up and running, you can open chrome and type in `http://localhost:3333/smurfs`. You should see an Array `[]` with a smurf returned to you. This is an array that your **API** will be using to store our Smurf Data.
+X **LOOK** at your `village` directory and notice it's just a plain ol' React App that we've built using `create-react-app`.
+X **cd** into `village` and run `yarn install or npm install` to retrieve the client side dependencies.
+X **RUN** `yarn start or npm start` to fire up your React application.
 
 ## Project Description
 
