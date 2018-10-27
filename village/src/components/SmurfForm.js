@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { Button, Input } from '@material-ui/core';
 
 class SmurfForm extends Component {
   constructor(props) {
@@ -46,25 +47,25 @@ class SmurfForm extends Component {
     return (
       <div className="SmurfForm">
         <form onSubmit={this.addSmurf}>
-          <input
+          <Input
             onChange={this.handleInputChange}
             placeholder="name"
             value={this.state.name}
             name="name"
           />
-          <input
+          <Input
             onChange={this.handleInputChange}
             placeholder="age"
             value={this.state.age}
             name="age"
           />
-          <input
+          <Input
             onChange={this.handleInputChange}
-            placeholder="height"
+            placeholder="height in cm"
             value={this.state.height}
             name="height"
           />
-          <button type="submit">Add to the village</button>
+          <Button variant="outlined" color="primary" type="submit">Add to the village</Button>
         </form>
       </div>
     );
