@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom'
+import smurfpic from './smurfs.jpeg'
+import '../index.css'
 class SmurfForm extends Component {
   constructor(props) {
     super(props);
@@ -33,8 +35,8 @@ const smurf ={
   render() {
     return (
       <div className="SmurfForm">
-        <NavLink className="link" to='/'>
-          <p>Click Here To Go Back To Smurf Village.</p>
+        <NavLink className="main-link link" to='/'>
+          <p>Click Here To Go Back To Smurf Village</p>
         </NavLink>
         <form onSubmit={this.addSmurfHandler}>
           <input
@@ -57,6 +59,7 @@ const smurf ={
           />
           <button type="submit">Add to the village</button>
         </form>
+        <img src={smurfpic} alt='smurffamily'/>
       </div>
     );
   }

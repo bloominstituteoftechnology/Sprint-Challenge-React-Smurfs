@@ -2,4 +2,23 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+  background-color: lightblue
+}
+.Smurf{
+  border:2px solid black;
+  width:250px;
+  margin:10px auto;
+  box-shadow: 5px 10px 18px #888888;
+}
+
+.link{
+  color:black;
+  text-decoration: none;
+
+}
+.main-link:hover{
+  color:white;
+}
+.SmurfForm{
+  margin:10px auto;
 }

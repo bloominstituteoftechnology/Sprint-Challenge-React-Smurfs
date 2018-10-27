@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
+import smurfvillage from './smurfs-village.jpg'
 import '../index.css'
 
 export default class SmurfCard extends Component {
@@ -34,7 +35,6 @@ export default class SmurfCard extends Component {
     render() {
         const id = this.props.match.params.id;
         const smurf = this.props.smurfs.find(smurf => `${smurf.id}` === id);
-
         if (!smurf) {
             return "Loading Smurf"
         }
@@ -64,13 +64,11 @@ export default class SmurfCard extends Component {
                     </form>
                 </div>
                 <div className="Smurf">
-
                     <h3>{smurf.name}</h3>
-                    <strong>{smurf.height} cm tall</strong>
+                    <strong>{smurf.height}in tall</strong>
                     <p>{smurf.age} smurf years old</p>
-
                 </div>
-
+                <img src={smurfvillage} alt='village' />
             </div>
         );
     }
