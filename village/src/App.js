@@ -33,16 +33,10 @@ class App extends Component {
     return (
       <BrowserRouter>
         <div className="App">
-        <NavLink to="/">Go home</NavLink>
+        <NavLink to="/">Go home</NavLink><br></br>
+        <Route path="/smurf-form" render={props =>
+        <SmurfForm addSmurf={this.addSmurf}/>}></Route>
         <SmurfForm />
-        {/* <Route path="/smurfForm" render={props =>
-          <SmurfForm 
-            name={this.state.name}
-            height={this.state.height}
-            handleInputChange={this.handleInputChange}
-            addSmurf={this.addSmurf}
-          />}
-        /> */}
         <Route exact path ="/" render={props => <Smurfs smurfs={this.state.smurfs} />}/>
          
          
