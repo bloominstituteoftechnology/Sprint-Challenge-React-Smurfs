@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { Route, NavLink } from 'react-router-dom';
 
 import './App.css';
 import SmurfForm from './components/SmurfForm';
@@ -57,15 +58,36 @@ class App extends Component {
     console.log(this.state.smurf)
     return (
       <div className="App">
-        <SmurfForm 
-        name={this.state.smurf.name}
-        age={this.state.smurf.age}
-        height={this.state.smurf.height}
+
+        <ul className="navbar">
+          <li>
+            <NavLink to="/smurf-form">
+            Smurf Form
+            </NavLink>
+          </li>
+
+          <li>
+            Smurf Village
+          </li>
+        </ul>
+
+        <Route exact path="/smurf-form" render={props => (
+            <SmurfForm 
+            name={this.state.smurf.name}
+            age={this.state.smurf.age}
+            height={this.state.smurf.height}
+
+            handleAddNewSmurf={this.handleAddNewSmurf} 
+            smurf={this.state.smurf} 
+            handleInputChange={this.handleInputChange}/>
+        )} 
+        />
+
         
-        handleAddNewSmurf={this.handleAddNewSmurf} 
-        smurf={this.state.smurf} 
-        handleInputChange={this.handleInputChange}/>
+
         <Smurfs smurfs={this.state.smurfs} />
+
+
       </div>
     );
   }
