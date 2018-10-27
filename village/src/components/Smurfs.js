@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 import Smurf from './Smurf';
 
@@ -19,10 +20,11 @@ class Smurfs extends Component {
                   key={smurf.id}
                 />
               <button onClick={() => this.props.handleDeleteSmurf(smurf.id)}>DELETE</button>
-                {/* <h2>Name: {smurf.name}</h2>
-                <h2>ID: {smurf.id}</h2>
-                <h2>Age: {smurf.age}</h2>
-                <h2>Height: {smurf.height}</h2> */}
+              <button onClick={event => this.props.goToUpdateSmurfForm(event, smurf.id)}>
+                <Link to="/smurf-form">
+                UPDATE
+                </Link>
+              </button>
               </div>
             );
           })}

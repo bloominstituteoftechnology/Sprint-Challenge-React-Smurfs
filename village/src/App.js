@@ -15,7 +15,8 @@ class App extends Component {
         name:'',
         age: '',
         height: ''
-      }
+      },
+      isUpdating: false,
     };
   }
   // add any needed code to ensure that the smurfs collection exists on state and it has data coming from the server
@@ -60,6 +61,28 @@ class App extends Component {
     .then(response => this.setState({ smurfs: response.data }))
   }
 
+  goToUpdateSmurfForm = (event, id) => {
+    event.preventDefault();
+    const smurfToUpdate = this.state.smurfs.find(smurf => smurf.id === id);
+    this.setState({ smurf: smurfToUpdate, isUpdating: true });
+  }
+
+  handleUpdateSmurf = id => {
+    console.log(id)
+    axios
+    .put(`http://localhost:3333/smurfs/${id}`, this.state.smurf)
+    .then(response => {
+      this.setState({
+        smurfs: response.data,
+        smurf: this.state.smurf,
+        isUpdating: true
+      });
+    })
+    .catch(err => {
+      console.log("Could not update existing Smurf", err);
+    });
+  }
+
   render() {
     console.log(this.state.smurfs[5])
     return (
@@ -87,13 +110,17 @@ class App extends Component {
 
             handleAddNewSmurf={this.handleAddNewSmurf} 
             smurf={this.state.smurf} 
-            handleInputChange={this.handleInputChange}/>
+            handleInputChange={this.handleInputChange}
+            isUpdating={this.isUpdating}
+            handleUpdateSmurf={this.handleUpdateSmurf}
+            />
         )} 
         />
 
         <Route exact path="/" render={props => (
           <Smurfs smurfs={this.state.smurfs} 
             handleDeleteSmurf={this.handleDeleteSmurf}
+            goToUpdateSmurfForm={this.goToUpdateSmurfForm}
           />
         )}
         />
