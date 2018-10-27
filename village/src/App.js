@@ -38,6 +38,21 @@ class App extends Component {
         .catch(err => {
           console.log(err)
         })
+
+    this.props.history.push('/smurfs')
+  }
+
+  deleteSmurf = (id) => {
+    axios
+        .delete(`http://localhost:3333/smurfs/${id}`)
+        .then(reponse => {
+          this.setState({ smurfs : reponse.data })
+        })
+        .catch(err => {
+          console.log(err)
+        })
+
+    this.props.history.push('/smurfs')
   }
 
   render() {
