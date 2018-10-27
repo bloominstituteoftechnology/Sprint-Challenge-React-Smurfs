@@ -26,7 +26,7 @@ class SmurfForm extends Component {
 
       })
       .catch(error => console.log('ERROR: ', error))
-  }
+  };
 /*
     this.setState({
       name: '',
