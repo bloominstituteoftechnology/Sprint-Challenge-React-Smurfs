@@ -1,16 +1,17 @@
 import React, { Component } from "react";
 import axios from "axios";
 import "./App.css";
+
 import SmurfForm from "./components/SmurfForm";
 import Smurfs from "./components/Smurfs";
 import { Route } from "react-router-dom";
-import NavLink from "react-router-dom/NavLink";
+// import NavLink from "react-router-dom/NavLink";
+import { NavbarBrand, Navbar, NavItem, Nav, NavLink }  from "reactstrap";
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      smurfs: [],
-
+      smurfs: []
     };
   }
   // add any needed code to ensure that the smurfs collection exists on state and it has data coming from the server
@@ -25,12 +26,12 @@ class App extends Component {
       });
   }
 
-  addASmurf = (newSmurfObj) => {
+  addASmurf = newSmurfObj => {
     axios
       .post("http://localhost:3333/smurfs", newSmurfObj)
       .then(response => {
         this.setState({
-          smurfs: response.data,
+          smurfs: response.data
         });
       })
       .catch(err => console.log(err));
@@ -41,11 +42,23 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <NavLink exact to="/">
-          Smurf Village
-        </NavLink>{" "}
-        <NavLink to="/smurf-form">Add Smurfs</NavLink>
-        <Route path="/smurf-form" render={props => (<SmurfForm {...props} addASmurf={this.addASmurf} />)} />
+         <Navbar color='light' light expand="md">
+        <NavbarBrand href="/">Smurfs Village</NavbarBrand>
+          <Nav className="ml-auto" navbar>
+          <NavItem >
+              <NavLink href="/">
+          Smurf Manifest
+        </NavLink>
+          </NavItem>
+          <NavItem>
+            <NavLink href="/smurf-form">Add Smurfs</NavLink>
+            </NavItem>
+            </Nav>
+        </Navbar>
+        <Route
+          path="/smurf-form"
+          render={props => <SmurfForm {...props} addASmurf={this.addASmurf} />}
+        />
         <Route
           exact
           path="/"
