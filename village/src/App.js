@@ -61,7 +61,7 @@ class App extends Component {
           )} 
         />
         <Route
-          path="/smurfs"
+          exact path="/smurfs"
           render={props => (
             <Smurfs
               {...props}
@@ -71,7 +71,12 @@ class App extends Component {
         />
       <Route 
         path="/smurfs/:id"
-        component={Smurf}
+        render={props => (
+          <Smurf
+            {...props}
+            smurfs={this.state.smurfs}
+          />
+        )}
       />
       </div>
     );
