@@ -30,7 +30,8 @@ class EditSmurfForm extends Component {
     })
     .then(res => {
       console.log(res.status);
-      this.props.history.push('/smurf');
+      this.props.getAPI();
+      this.props.history.push('/');
     })
     .catch(err => {
       console.log(err);

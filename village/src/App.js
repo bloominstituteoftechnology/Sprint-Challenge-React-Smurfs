@@ -19,6 +19,10 @@ class App extends Component {
   }
 
   componentDidMount() {
+    this.getAPI();
+  }
+
+  getAPI = () => {
     axios.get('http://localhost:3333/smurfs')
       .then((res) => {
         console.log(res.status);
@@ -44,9 +48,9 @@ class App extends Component {
       <div className="App">
         <Route path='/' component={Nav} />
         <Route exact path='/' render={props => <Smurfs smurfs={this.state.smurfs} selectSmurf={this.selectSmurf} {...props} />} />
-        <Route path='/smurf-form' component={SmurfForm} />
-        <Route path='/smurf' render={props => <DetailSmurf smurf={this.state.currentSmurf} {...props} />} />
-        <Route path='/editsmurf' render={props => <EditSmurfForm smurf={this.state.currentSmurf} {...props} />} />
+        <Route path='/smurf-form' render={props => <SmurfForm getAPI={this.getAPI} {...props}  />}/>
+        <Route path='/smurf' render={props => <DetailSmurf smurf={this.state.currentSmurf} getAPI={this.getAPI} {...props} />} />
+        <Route path='/editsmurf' render={props => <EditSmurfForm smurf={this.state.currentSmurf} getAPI={this.getAPI} {...props} />} />
       </div>
     );
   }
