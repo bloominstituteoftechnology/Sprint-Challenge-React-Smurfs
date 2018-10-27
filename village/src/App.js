@@ -3,7 +3,15 @@ import axios from 'axios';
 import './App.css';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
-import { Route } from 'react-router-dom';
+import { Route, NavLink } from 'react-router-dom';
+import styled from 'styled-components';
+
+const NavBar = styled.div`
+    display: flex;
+    justify-content: space-around;
+    width: 15%;
+    margin: 0 auto;
+`
 
 class App extends Component {
   constructor(props) {
@@ -34,6 +42,10 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <NavBar>
+            <NavLink to="/">Home</NavLink>
+            <NavLink to="/smurf-form">Add Smurf</NavLink>
+        </NavBar>
         <Route exact path="/" render={()    =>  <Smurfs smurfs={this.state.smurfs}/>} />
         <Route path="/smurf-form" render={()    =>  <SmurfForm updateSmurfs={this.updateSmurfs}/>}  />
       </div>
