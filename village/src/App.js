@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
+import axios from 'axios';
+import { Route, NavLink } from 'react-router-dom';
 
 import './App.css';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
-import axios from 'axios';
-import { Route, NavLink } from 'react-router-dom';
+import SmurfCard from './components/SmurfCard'
 
 class App extends Component {
   constructor(props) {
@@ -18,6 +19,7 @@ class App extends Component {
   // You'll need to make sure you have the right properties on state and pass them down to props.
 
   componentDidMount() {
+    console.log(this.state.smurfs);
     axios
       .get(`http://localhost:3333/smurfs`)
       .then(response => {
@@ -59,7 +61,7 @@ class App extends Component {
         <div>
           <NavLink to='/'>Home</NavLink>
           <NavLink to='/smurf-list'>Smurf List</NavLink>
-          <NavLink to='/Smurf-form'>Add a sSmurf!</NavLink>
+          <NavLink to='/smurf-form'>Add a sSmurf!</NavLink>
         </div>
         <Route path='/smurf-form' render={props => (
           <SmurfForm
@@ -67,11 +69,17 @@ class App extends Component {
             smurf={this.addSmurf}
           />
         )} />
-        <Route exact path='/smurf-list' render={props => (
+        <Route path='/smurf-list' render={props => (
           <Smurfs
             {...props}
             smurfs={this.state.smurfs}
             delete={this.deleteSmurf}
+          />
+        )} />
+        <Route exact path='/:id' render={props => (
+          <SmurfCard
+            {...props}
+            smurfs={this.state.smurfs}
           />
         )} />
       </div>
