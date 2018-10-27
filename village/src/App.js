@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import SmurfForm from './components/SmurfForm';
 import {BrowserRouter as Router,Route,Link} from 'react-router-dom';
 import './App.css';
+import {NavLink} from "react-router-dom";
 import Smurfs from './components/Smurfs';
 import axios from '../node_modules/axios';
 export default class App extends Component {
@@ -26,10 +27,23 @@ export default class App extends Component {
   // You'll need to make sure you have the right properties on state and pass them down to props.
   render() {
     return (
+      <div className='Main'>
+      <nav>
+        <NavLink activeClassName='selected' className='nav' exact to='/'>
+          Smurf Village
+        </NavLink>
+
+         <NavLink activeClassName='selected'  className='nav' to='/smurf-form'>
+          Join the Clan!
+        </NavLink>
+      </nav>
       <div className="App">
-        <SmurfForm smurfs={this.state.smurfs}/>
-        <Route exact path='/smurfs' component={<Smurfs smurfs={this.state.smurfs} />} />
+        <Route exact path="/" render={(props) => <Smurfs {...props} smurfs={this.state.smurfs} />} />
+        <Route exact path='/smurf-form' render={(props) => <SmurfForm className='form' {...props} smurfs={this.state.smurfs}/>} />
+        <Route exact path="/smurf-form" render={(props) => <Smurfs {...props} smurfs={this.state.smurfs} />} />
+      </div>
       </div>
     )
   }
 }
+
