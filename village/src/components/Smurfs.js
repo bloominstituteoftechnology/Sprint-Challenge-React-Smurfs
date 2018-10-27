@@ -3,33 +3,34 @@ import axios from 'axios';
 import Smurf from './Smurf';
 
 class Smurfs extends Component {
-  state={
-    name:'',
-    heignt:'',
-    age:''
+  constructor(props){
+    super(props);
+    this.state={
+      smurfs:[],
+    };
   }
   componentDidMount(){
     axios.get('http://localhost:3333/smurfs')
           .then( response=>{
-                  console.log(response)
-                  this.setState({name:response.data.name})
-                  this.setState({height:response.data.height})
-                  this.setState({age:response.data.age})        
-          })
+            this.setState(()=>({smurfs : response.data}));
+          }).catch(error=>{
+            console.error('Error',error);
+          });      
+          
   }
   render() {
     return (
       <div className="Smurfs">
         <h1>Smurf Village</h1>
         <ul>
-          {this.props.smurfs.map(smurf => {
+          {this.state.smurfs.map(smurf => {
             return (
               <Smurf
-                name={this.name}
-                id={this.id}
-                age={this.age}
-                height={this.height}
-                key={this.id}
+                name={smurf.name}
+                id={smurf.id}
+                age={smurf.age}
+                height={smurf.height}
+                key={smurf.id}
               />
             );
           })}
