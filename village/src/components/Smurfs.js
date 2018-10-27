@@ -2,11 +2,13 @@ import React, { Component } from 'react';
 
 import Smurf from './Smurf';
 
+import styles from '../css/Smurfs.css'
+
 class Smurfs extends Component {
   render() {
     return (
       <div className="Smurfs">
-        <h1>Smurf Village</h1>
+        <h1 className = 'smurf-header'>Smurf Village</h1>
         <ul>
           {this.props.smurfs.map(smurf => {
             return (

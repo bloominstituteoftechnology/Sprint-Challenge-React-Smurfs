@@ -1,0 +1,19 @@
+.app-body{
+    width:500px;
+    margin:50px auto;
+    border: 5px solid #0370B1;
+    background-color:  #15B2EC;
+}
+.nav-bar{
+    width:80%;
+    height:100px;
+    margin:20px auto;
+    display:flex;
+    justify-content:space-around;
+    align-items:center;
+    background-color: rgba(158, 235, 86, 0.76);
+    
+}
+.link{
+    color:white;
+}
