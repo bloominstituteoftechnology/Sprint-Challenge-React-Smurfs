@@ -27,10 +27,12 @@ class App extends Component {
       })
   }
 
+  pushSmurf = data => this.setState({ smurfs: data });
+
   render() {
     return (
       <div className="App">
-        <SmurfForm />
+        <SmurfForm smurfAdder={this.pushSmurf} />
         <Smurfs smurfs={this.state.smurfs} />
       </div>
     );
