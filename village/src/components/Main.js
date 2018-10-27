@@ -10,7 +10,7 @@ const Main = () => {
       <div className="container">
         <switch>
             <Route exact path="/" component={Smurfs} />
-            <Route exact path="about" component={About} />
+            <Route exact path="/about" component={About} />
         </switch>
       </div>
     )

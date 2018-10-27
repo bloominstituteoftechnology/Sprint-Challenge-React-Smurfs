@@ -35,6 +35,7 @@ addToSmurfs = smurf => {
                 height={smurf.height}
                 key={smurf.id}
               />
+              
             );
           })}
         </ul>

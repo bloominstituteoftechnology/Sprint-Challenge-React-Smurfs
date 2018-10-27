@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
+import Navbar from './components/Navbar';
 
 class App extends Component {
   constructor(props) {
@@ -17,6 +18,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+      <Navbar branding ="Smurfs"/>
       <SmurfForm />
         <Smurfs smurfs={this.state.smurfs}/>
       </div>
