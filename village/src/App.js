@@ -22,6 +22,14 @@ class App extends Component {
       })
   }
 
+  refresh() {
+    axios.get(`http://localhost:3333/smurfs`)
+    .then(res => {
+      const smurfs = res.data;
+      this.setState({ smurfs });
+    })
+  }
+
 
   // add any needed code to ensure that the smurfs collection exists on state and it has data coming from the server
   // Notice what your map function is looping over and returning inside of Smurfs.
@@ -29,8 +37,8 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Route exact path="/" render={(props) => <SmurfForm {...props} refreshSmurfs = {this.componentDidMount()} /> } />
-        <Route exact path="/" render={(props) => <Smurfs {...props} smurfs={this.state.smurfs} /> } />
+        <Route exact path="/" render={(props) => <SmurfForm {...props} refreshSmurfs = {this.refresh()} /> } />
+        <Route path="/" render={(props) => <Smurfs {...props} smurfs={this.state.smurfs} /> } />
       </div>
     );
   }

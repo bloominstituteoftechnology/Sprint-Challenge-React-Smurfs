@@ -20,11 +20,6 @@ class SmurfForm extends Component {
         age: this.state.age,
         height: this.state.height
       })
-      .then(res => {axios.get('http://localhost:3333/smurfs')
-        .then(res => {
-          const smurfs = res.data;
-          this.setState({smurfs: smurfs})
-        })})
       .catch(function (error) {
         console.log(error);
       });
