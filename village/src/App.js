@@ -29,7 +29,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <SmurfForm   refreshSmurfs = {this.componentDidMount()}/>
+        <Route exact path="/" render={(props) => <SmurfForm {...props} refreshSmurfs = {this.componentDidMount()} /> } />
         <Route exact path="/" render={(props) => <Smurfs {...props} smurfs={this.state.smurfs} /> } />
       </div>
     );
