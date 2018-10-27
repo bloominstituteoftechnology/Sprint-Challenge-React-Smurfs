@@ -46,6 +46,7 @@ class App extends Component {
             <SmurfForm 
               {...props}
               addSmurfToDB={this.addSmurfToDB}
+              smurfs={this.state.smurfs}
             />
           }
         />
