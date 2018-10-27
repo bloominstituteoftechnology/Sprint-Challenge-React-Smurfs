@@ -19,6 +19,8 @@ class App extends Component {
       <div className="App">
         <SmurfForm />
         <Smurfs smurfs={this.state.smurfs} />
+
+        
       </div>
     );
   }
