@@ -57,7 +57,7 @@
 
 ### Router
 
-* Once you've finished your `GET` and `POST` requests go ahead and implement a Router for your components within this application.  
+* Once you've finished your `GET` and `POST` requests go ahead and implement a Router for your components within this application.
     * You'll start by wrapping your `root` component in the `Router` component.
     * Then declare your routes with `Route`.
     * Then make it so you can navigate to your routes using `Link`.
