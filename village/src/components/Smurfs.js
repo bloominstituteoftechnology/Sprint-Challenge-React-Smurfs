@@ -4,6 +4,7 @@ import Smurf from './Smurf';
 
 class Smurfs extends Component {
   render() {
+    console.log(this.props)
     return (
       <div className="Smurfs">
         <h1>Smurf Village</h1>
@@ -16,6 +17,7 @@ class Smurfs extends Component {
                 age={smurf.age}
                 height={smurf.height}
                 key={smurf.id}
+                delete={this.props.delete}
               />
             );
           })}
