@@ -19,9 +19,15 @@
 .Smurf{
   background-color: rgb(204, 204, 228);  
   width: 300px; 
-  margin-left: 490px; 
-  margin-bottom: 10px; 
   border: 2px solid teal; 
+  margin-right: 35px; 
+}
+
+.Smurfs{
+  display: flex; 
+  justify-content: center; 
+  flex-direction: column; 
+  align-items: center; 
 }
 
 .SmurfForm{
