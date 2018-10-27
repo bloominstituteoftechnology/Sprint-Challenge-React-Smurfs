@@ -33,31 +33,45 @@ export default class SmurfCard extends Component {
 
     render() {
         const id = this.props.match.params.id;
-        const singlefriend = this.props.friends.find(user => `${user.id}` === id);
+        const smurf = this.props.smurfs.find(smurf => `${smurf.id}` === id);
 
-        if (!singlefriend) {
-            return null
+        if (!smurf) {
+            return "Loading Smurf"
         }
         return (
             <div className="card">
                 <div>
-                    <NavLink className="link" to='/friendlist/'>
-                        <p>Click Here To go back to Friends.</p>
+                    <NavLink className="link" to='/'>
+                        <p>Click Here To Go Back To Smurf Village.</p>
                     </NavLink>
-                    <form onSubmit={this.handleUpdateSubmit}>
-                        Name: <input onChange={this.changeHandler} name="name" type="text" />
-                        Age: <input onChange={this.changeHandler} name="age" type="text" />
-                        Email: <input onChange={this.changeHandler} name="email" type="text" />
-                        <input type="submit" value="Update Friend" />
+                    <form onSubmit={this.addSmurfHandler}>
+                        <input
+                            onChange={this.changeHandler}
+                            placeholder="name"
+                            value={this.state.name}
+                            name="name"
+                        />
+                        <input
+                            onChange={this.handleInputChange}
+                            placeholder="age"
+                            value={this.state.age}
+                            name="age"
+                        />
+                        <input
+                            onChange={this.handleInputChange}
+                            placeholder="height"
+                            value={this.state.height}
+                            name="height"
+                        />
+                        <button type="submit">Add to the village</button>
                     </form>
                 </div>
-                <div>
-
-                    <p className="text">
-                        Name: {singlefriend.name}<br />
-                        Age: {singlefriend.age}yrs<br />
-                        Email: {singlefriend.email}<br />
-                    </p>
+                <div className="Smurf">
+                    
+                        <h3>{smurf.name}</h3>
+                        <strong>{smurf.height} tall</strong>
+                        <p>{smurf.age} smurf years old</p>
+                    
                 </div>
 
             </div>
