@@ -1,0 +1,41 @@
+
+.SmurfForm {
+    margin-top: 5%;
+}
+
+.smurf-card {
+    min-width: 800px;
+    max-width: 800px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 2%;
+    margin-top: 5%;
+    border: 1px solid #88CCFF;
+}
+
+.smurf-card-links {
+    min-width: 800px;
+    max-width: 800px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #88CCFF;
+}
+.smurf-card-links a {
+    margin-left: 2%;
+}
+.delete-smurf-button {
+    display: flex;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    align-items: center;
+    cursor: pointer;
+    font-weight: bolder;
+    font-size: 1.6rem;
+    color: red;
+    background-color: black;
+}

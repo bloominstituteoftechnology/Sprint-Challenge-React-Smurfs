@@ -6,6 +6,7 @@
 
 ## Start by forking and cloning this repository.
 
+DONE
 ## Questions - Self Study - You can exercise your Google-Fu for this and any other _Sprint Challenge_ in the future.
 
 1.  Explain the differences between `client-side routing` and `server-side routing`.
@@ -14,6 +15,7 @@
 1.  Which HTTP methods can be mapped to the CRUD acronym that we use when interfacing with APIs/Servers.
 1.  Mention three tools we can use to make AJAX requests.
 
+DONE
 ## Initializing Project - READ THIS CAREFULLY, you have two apps here. A server, and a client.
 
 * Start by Forking and Cloning this Repo.
@@ -28,8 +30,11 @@
 
 ## Project Description
 
+DONE
 * The requirements for completion are that you are using AXIOS to `GET` a list of Smurfs that exist on the server && a `POST` to create a new Smurf and save it to the Smurf DB.
+DONE
 * You are to then work on adding a Router to this application by using React Router.
+DONE
 * If you get both of those two requirements finished early. Proceed to the **STRETCH PROBLEM** to try and implement a `PUT`.
 
 ## API Design - This is how you'll interface with the API and what is required from every endpoint.
@@ -57,6 +62,7 @@
 
 ### Router
 
+DONE
 * Once you've finished your `GET` and `POST` requests go ahead and implement a Router for your components within this application.  
     * You'll start by wrapping your `root` component in the `Router` component.
     * Then declare your routes with `Route`.
@@ -71,7 +77,8 @@
 
 * **HINT** if you are going to be working on Stretch Problem, you'll need to use that unique `id`.
 
-### DELETE '/smurfs/123', where 123 is the Id of the smurf you want to remove
+DONE 
+### DELETE '/smurfs/123', where 123 is the Id of the smurf you want to remove 
 
 * For this endpoint to work, all you need is an id sent up as part of the request url.
 
@@ -95,7 +102,7 @@
     }
 ]
 ```
-
+DONE
 ### PUT '/smurfs/123', where 123 is the Id of the smurf you want to modify
 * For this endpoint to work, you'll need an `id` added to the URL, and at least one field to update on the Smurf object. `name` `age` `height`.
 * Example:
@@ -114,7 +121,7 @@
   id: 1
 }]
 ```
-
+DONE
 ### Router Stretch Problem
 * If a user clicks on a smurf, they should be routed to `/smurf/:id` and a single smurf should be displayed on the page.
 * I know this seems like a small task, but you'll have to get crafty with your data and your logic here. 
