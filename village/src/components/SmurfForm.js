@@ -19,14 +19,16 @@ class SmurfForm extends Component {
         age: this.state.age,
         height: this.state.height,
       })
-      .then(response => this.props.updateSmurfs(response.data))
+      .then(response => {
+        this.props.updateSmurfs(response.data);
+        this.setState({
+          name: '',
+          age: '',
+          height: '',
+        });
+        this.props.history.push('/');
+      })
       .catch(err => console.log(err));
-
-    this.setState({
-      name: '',
-      age: '',
-      height: '',
-    });
   };
 
   handleInputChange = e => {
