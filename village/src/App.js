@@ -4,6 +4,7 @@ import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
 import axios from 'axios'
 import { Route, Link, NavLink } from 'react-router-dom'
+import Navigation from './components/Navigation'
 
 class App extends Component {
   constructor(props) {
@@ -25,6 +26,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <Navigation/>
         <Route path="/smurf-form" render={props =>(<SmurfForm stateChangeHandler={this.stateChangeHandler}/>)} />
         <Route exact path ="/" render= {props => (<Smurfs smurfs={this.state.smurfs}/>)} />
       </div>

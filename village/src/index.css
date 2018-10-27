@@ -3,3 +3,13 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+
+a{
+margin-left: 15px;
+text-decoration: none;
+color:black
+}
+
+.active{
+color: rgb(136,204,255)
+}
