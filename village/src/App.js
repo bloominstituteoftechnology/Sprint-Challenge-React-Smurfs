@@ -36,7 +36,7 @@ class App extends Component {
     return (
       <div className="App">
         <SmurfForm />
-        <Smurfs smurfs={this.state.smurfs} />
+        <Smurfs   smurfs={this.state.smurfs} />
 
 
       </div>
