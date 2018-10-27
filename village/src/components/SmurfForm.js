@@ -1,5 +1,20 @@
 import React, { Component } from 'react';
 
+import styled from 'styled-components';
+
+const FormContainer = styled.div`
+    align-items: center;
+    margin: 0 auto;
+    padding-top: 20px;
+    max-width: 400px;
+    width: 100%;
+    height: 1000px;
+
+    input {
+      background: white;
+    }
+`;
+
 class SmurfForm extends Component {
   constructor(props) {
     super(props);
@@ -37,7 +52,7 @@ class SmurfForm extends Component {
 
   render() {
     return (
-      <div className="SmurfForm">
+      <FormContainer>
         <form onSubmit={this.addSmurf}>
           <input
             onChange={this.handleInputChange}
@@ -59,7 +74,7 @@ class SmurfForm extends Component {
           />
           <button type="submit">Add to the village</button>
         </form>
-      </div>
+      </FormContainer>
     );
   }
 }

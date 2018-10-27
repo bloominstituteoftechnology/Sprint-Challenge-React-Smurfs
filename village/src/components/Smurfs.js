@@ -13,21 +13,21 @@ const SmurfsContainer = styled.div`
 class Smurfs extends Component {
   render() {
     return (
-      <div>
+      <div>        
         <h1>Smurf Village</h1>
-        <SmurfsContainer>
-          {this.props.smurfs.map(smurf => {
-            return (
-              <Smurf
-                name={smurf.name}
-                id={smurf.id}
-                age={smurf.age}
-                height={smurf.height}
-                key={smurf.id}
-              />
-            );
-          })}
-        </SmurfsContainer>
+          <SmurfsContainer>
+              {this.props.smurfs.map(smurf => {
+                return (
+                  <Smurf
+                    name={smurf.name}
+                    id={smurf.id}
+                    age={smurf.age}
+                    height={smurf.height}
+                    key={smurf.id}
+                  />
+                );
+              })}
+          </SmurfsContainer>
       </div>
     );
   }

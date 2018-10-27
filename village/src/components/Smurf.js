@@ -17,12 +17,17 @@ const SmurfContainer = styled.div`
   padding: 5px;
 `;
 
-const Smurf = props => {
+const Smurf = (props) => {
+  // const smurf = props.smurfs.find(smurf => Number(smurf.id) === Number(props.match.params.id));
+  // const newSmurf = {...smurf};
+  // const id = props.match.params.id;
+
   return (
     <SmurfContainer>
       <h3>{props.name}</h3>
       <strong>{props.height} tall</strong>
       <p>{props.age} smurf years old</p>
+      {/* <button onClick={() => {props.delete(id)}}>👋🏼 Smurf</button> */}
     </SmurfContainer>
   );
 };
