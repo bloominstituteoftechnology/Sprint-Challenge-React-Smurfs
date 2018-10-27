@@ -30,11 +30,20 @@ class App extends Component {
           })
         })
   }
+  deleteSmurf = (id) => {
+    axios 
+      .delete(`http://localhost:3333/smurfs/${id}`)
+        .then(response =>{
+          this.setState({
+            smurfs: response.data,
+          })
+        })
+  }   
   render() {
     return (
       <div className="App">
         <SmurfForm addSmurf = {this.addSmurf}/>
-        <Smurfs smurfs={this.state.smurfs} />
+        <Smurfs smurfs={this.state.smurfs} deleteSmurf = {this.deleteSmurf}/>
       </div>
     );
   }
