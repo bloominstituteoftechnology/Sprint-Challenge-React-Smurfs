@@ -20,6 +20,7 @@ class Smurf extends React.Component {
   return (
     <div className="Smurf">
       <button onClick={this.deleteSmurf}>X</button>
+      <h4>Smurf ID: {this.props.id}</h4>
       <h3>{this.props.name}</h3>
       <strong>{this.props.height} tall</strong>
       <p>{this.props.age} smurf years old</p>

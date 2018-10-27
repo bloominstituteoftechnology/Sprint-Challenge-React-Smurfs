@@ -29,6 +29,27 @@ class SmurfForm extends Component {
     this.setState({
       name: '',
       age: '',
+      height: '',
+      id: ''
+    });
+  }
+
+  updateSmurf = event => {
+    event.preventDefault();
+    axios.put(`http://localhost:3333/smurfs/${this.state.id}`, {
+        name: this.state.name,
+        age: this.state.age,
+        height: this.state.height
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+
+      this.props.refreshSmurfs;
+
+    this.setState({
+      name: '',
+      age: '',
       height: ''
     });
   }
@@ -61,7 +82,14 @@ class SmurfForm extends Component {
             value={this.state.height}
             name="height"
           />
+          <input
+            onChange={this.handleInputChange}
+            placeholder="id"
+            value={this.state.id}
+            name="id"
+          />
           <button type="submit">Add to the village</button>
+          <button onClick={this.updateSmurf}>Update Smurf</button>
         </form>
       </div>
     );
