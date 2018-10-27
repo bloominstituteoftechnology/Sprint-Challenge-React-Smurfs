@@ -6,7 +6,7 @@ import SmurfForm from "./components/SmurfForm";
 import Smurfs from "./components/Smurfs";
 import { Route } from "react-router-dom";
 // import NavLink from "react-router-dom/NavLink";
-import { NavbarBrand, Navbar, NavItem, Nav, NavLink }  from "reactstrap";
+import { NavbarBrand, Navbar, NavItem, Nav, NavLink } from "reactstrap";
 class App extends Component {
   constructor(props) {
     super(props);
@@ -36,24 +36,34 @@ class App extends Component {
       })
       .catch(err => console.log(err));
   };
+  deleteSmurf = id => {
+    return () => {
+      axios
+        .delete(`http://localhost:3333/smurfs/${id}`)
+        .then(response =>
+          this.setState({
+            friends: response.data
+          })
+        )
+        .catch(err => console.log(err));
+    };
+  };
 
   // Notice what your map function is looping over and returning inside of Smurfs.
   // You'll need to make sure you have the right properties on state and pass them down to props.
   render() {
     return (
       <div className="App">
-         <Navbar color='light' light expand="md">
-        <NavbarBrand href="/">Smurfs Village</NavbarBrand>
+        <Navbar color="light" light expand="md">
+          <NavbarBrand href="/">Smurfs Village</NavbarBrand>
           <Nav className="ml-auto" navbar>
-          <NavItem >
-              <NavLink href="/">
-          Smurf Manifest
-        </NavLink>
-          </NavItem>
-          <NavItem>
-            <NavLink href="/smurf-form">Add Smurfs</NavLink>
+            <NavItem>
+              <NavLink href="/">Smurf Manifest</NavLink>
             </NavItem>
-            </Nav>
+            <NavItem>
+              <NavLink href="/smurf-form">Add Smurfs</NavLink>
+            </NavItem>
+          </Nav>
         </Navbar>
         <Route
           path="/smurf-form"
@@ -62,7 +72,13 @@ class App extends Component {
         <Route
           exact
           path="/"
-          render={props => <Smurfs smurfs={this.state.smurfs} {...props} />}
+          render={props => (
+            <Smurfs
+              {...props}
+              smurfs={this.state.smurfs}
+              deleteSmurf={this.deleteSmurf}
+            />
+          )}
         />
       </div>
     );
