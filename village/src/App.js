@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { Route } from 'react-router-dom';
 
 import './App.css';
 import SmurfForm from './components/SmurfForm';
@@ -16,7 +17,7 @@ class App extends Component {
   componentDidMount() {
     axios.get('http://localhost:3333/smurfs')
       .then((res) => {
-        console.log(res);
+        console.log(res.status);
         this.setState({
           smurfs: res.data
         });
@@ -29,8 +30,8 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <SmurfForm />
-        <Smurfs smurfs={this.state.smurfs} />
+        <Route exact path='/' component={SmurfForm} />
+        <Route exact path='/' render={props => <Smurfs smurfs={this.state.smurfs} {...props} />} />
       </div>
     );
   }
