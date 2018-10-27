@@ -54,10 +54,17 @@ class App extends Component {
   };
 
   render() {
-    console.log(this.state.smurfs)
+    console.log(this.state.smurf)
     return (
       <div className="App">
-        <SmurfForm handleAddNewSmurf={this.handleAddNewSmurf} smurf={this.state.smurf} handleInputChange={this.handleInputChange}/>
+        <SmurfForm 
+        name={this.state.smurf.name}
+        age={this.state.smurf.age}
+        height={this.state.smurf.height}
+        
+        handleAddNewSmurf={this.handleAddNewSmurf} 
+        smurf={this.state.smurf} 
+        handleInputChange={this.handleInputChange}/>
         <Smurfs smurfs={this.state.smurfs} />
       </div>
     );
