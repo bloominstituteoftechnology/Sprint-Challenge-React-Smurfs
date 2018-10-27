@@ -1,14 +1,28 @@
-import React from 'react';
+import React, {Component} from 'react';
 
-const DetailSmurf = props => {
-  return (
-    <div className="Smurf">
-      <h3>{props.smurf.name}</h3>
-      <strong>{props.smurf.height} tall</strong>
-      <p>{props.smurf.age} smurf years old</p>
-      <button onClick={() => props.selectSmurf({name: props.name, height: props.height, age: props.age, id: props.id})}>Details</button>
-    </div>
-  );
+class DetailSmurf extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+          smurf: []
+        };
+    }
+
+    componentDidMount() {
+        this.setState({
+            smurf: this.props.smurf
+        });
+    }
+  
+    render() {
+        return (
+            <div className="Smurf">
+            <h3>{this.state.smurf.name}</h3>
+            <strong>{this.state.smurf.height} tall</strong>
+            <p>{this.state.smurf.age} smurf years old</p>
+            </div>
+        );
+    } 
 };
 
 DetailSmurf.defaultProps = {
