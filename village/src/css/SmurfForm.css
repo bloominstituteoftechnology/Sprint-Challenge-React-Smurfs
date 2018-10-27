@@ -1,0 +1,30 @@
+.SmurfForm{
+    background-color:rgba(158, 235, 86, 0.76);
+    color: white;
+    width:80%;
+    margin:20px auto;
+    border-radius:40px;
+    border:3px solid #F7D531;
+    
+    
+    
+   
+}
+form{
+    display:flex;
+    flex-direction:column;
+    margin:20px auto;
+}
+ input{
+     width:50%;
+     height:30px;
+     margin:10px auto;
+     border-radius: 20px;
+ }
+ .form-button{
+    width:40%;
+    height:40px;
+    margin:10px auto;
+    border-radius: 10px;
+    
+ }

@@ -7,22 +7,24 @@ import styles from '../css/Smurfs.css'
 class Smurfs extends Component {
   render() {
     return (
-      <div className="Smurfs">
+      <div className="smurfs">
         <h1 className = 'smurf-header'>Smurf Village</h1>
-        <ul>
-          {this.props.smurfs.map(smurf => {
-            return (
-              <Smurf
-                name={smurf.name}
-                id={smurf.id}
-                age={smurf.age}
-                height={smurf.height}
-                key={smurf.id}
-                deleteSmurf = {this.props.deleteSmurf}
-              />
-            );
-          })}
-        </ul>
+        <div className = 'smurf-character-container'>
+          <ul>
+            {this.props.smurfs.map(smurf => {
+              return (
+                <Smurf
+                  name={smurf.name}
+                  id={smurf.id}
+                  age={smurf.age}
+                  height={smurf.height}
+                  key={smurf.id}
+                  deleteSmurf = {this.props.deleteSmurf}
+                />
+              );
+            })}
+          </ul>
+        </div>  
       </div>
     );
   }

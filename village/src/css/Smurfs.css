@@ -1,5 +1,25 @@
 .smurf-header{
-    color:#F7D531;
+    border:3px solid #F7D531;
     margin:10px auto;
+    background-color:white;
+    color: #0370B1;
     text-align:center;
+    width:80%;
+    border-radius: 40px;
+    height: 80px;
+    padding-top:15px;
+    font-family: 'Spicy Rice', cursive;
+    font-size:48px;
+}
+.smurf-character-container{
+    background-color:rgba(158, 235, 86, 0.76);
+    color: white;
+    width:80%;
+    margin:20px auto;
+    border-radius:40px;
+    border:3px solid #F7D531;
+    display:flex;
+    
+    justify-content:center;
+   
 }

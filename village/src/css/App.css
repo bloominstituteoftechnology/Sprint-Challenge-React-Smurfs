@@ -3,6 +3,7 @@
     margin:50px auto;
     border: 5px solid #0370B1;
     background-color:  #15B2EC;
+    
 }
 .nav-bar{
     width:80%;
@@ -11,8 +12,12 @@
     display:flex;
     justify-content:space-around;
     align-items:center;
-    background-color: rgba(158, 235, 86, 0.76);
-    
+    background-color:#9C342B;
+    border-radius:40px;
+    border:3px solid #F7D531;
+    text-decoration:none;
+    font-family: 'Spicy Rice', cursive;
+    font-size:32px;
 }
 .link{
     color:white;

@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from '../css/Smurf.css'
 
 const Smurf = props => {
   return (
@@ -6,7 +7,7 @@ const Smurf = props => {
       <h3>{props.name}</h3>
       <strong>{props.height} tall</strong>
       <p>{props.age} smurf years old</p>
-      <button onClick = {() => {props.deleteSmurf(props.id)}}>Delete this homie</button> 
+      <button className = 'delete-button' onClick = {() => {props.deleteSmurf(props.id)}}>Delete this homie</button> 
     </div>
   );
 };
