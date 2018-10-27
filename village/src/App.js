@@ -15,7 +15,13 @@ class App extends Component {
   // Notice what your map function is looping over and returning inside of Smurfs.
   // You'll need to make sure you have the right properties on state and pass them down to props.
   componentDidMoun()    {
-
+      axios.get(`http://localhost:3333/smurfs`)
+      .then(data    =>  this.setState((state)   =>  ({
+          smurfs: data,
+      })))
+      .catch(err    =>  {
+          console.log("In Catch", err);
+      })
   }
 
   render() {
