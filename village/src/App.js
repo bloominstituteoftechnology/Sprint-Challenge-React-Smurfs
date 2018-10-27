@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import SmurfForm from './components/SmurfForm'
+import SmurfForm from './components/SmurfForm';
+import {BrowserRouter as Router,Route,Link} from 'react-router-dom';
 import './App.css';
 import Smurfs from './components/Smurfs';
 import axios from '../node_modules/axios';
-class App extends Component {
+export default class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -27,10 +28,8 @@ class App extends Component {
     return (
       <div className="App">
         <SmurfForm smurfs={this.state.smurfs}/>
-        <Smurfs smurfs={this.state.smurfs} />
+        <Route exact path='/smurfs' component={<Smurfs smurfs={this.state.smurfs} />} />
       </div>
-    );
+    )
   }
 }
-
-export default App;
