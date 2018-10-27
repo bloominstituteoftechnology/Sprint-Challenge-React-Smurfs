@@ -19,4 +19,13 @@
 
 .app-main-nav a {
   margin: 2% 3%;
+  padding: 15px;
+  border: 2px inset transparent;
+  text-decoration: none;
+}
+
+.app-main-nav a:hover {
+  border: 2px inset #88CCFF;;
+  background-color: black;
+  color: #88CCFF;
 }

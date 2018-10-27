@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
+import './smurf.css';
+
 class SmurfForm extends Component {
   constructor(props) {
     super(props);
@@ -19,7 +21,7 @@ class SmurfForm extends Component {
       this.props.updateSmurfData(res.data);
     }) 
     .catch(err => console.log(err))
-    
+
     this.setState({
       name: '',
       age: '',

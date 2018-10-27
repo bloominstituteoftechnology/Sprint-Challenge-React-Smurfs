@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Link, Redirect} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import axios from 'axios';
 
 import Smurf from './Smurf';
@@ -26,7 +26,8 @@ class Smurfs extends Component {
           <div className='smurf-card'>
             <div className='smurf-card-links'>
               <Link to='/'>Back to the Smurf list</Link>
-                <div className='delete-smurf-button' onClick={()=> this.delete(selectedSmurf.id)}>X</div>
+              <Link to={`/smurf/${selectedSmurf.id}/update/`}>Update</Link>
+              <div className='delete-smurf-button' onClick={()=> this.delete(selectedSmurf.id)}>X</div>
             </div>
             <div className='smurf-card-data'>
               <Smurf
