@@ -20,6 +20,8 @@
   background-color: rgb(204, 204, 228);  
   width: 300px; 
   margin-left: 490px; 
+  margin-bottom: 10px; 
+  border: 2px solid teal; 
 }
 
 .SmurfForm{
