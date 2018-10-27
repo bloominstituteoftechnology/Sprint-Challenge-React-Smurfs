@@ -73,9 +73,9 @@
 
 ### DELETE '/smurfs/123', where 123 is the Id of the smurf you want to remove
 
-* For this endpoint to work, all you need is an id sent up as part of the request url.
+* [x] For this endpoint to work, all you need is an id sent up as part of the request url.
 
-* If your delete worked, you'll get a list of the smurfs back.
+* [x] If your delete worked, you'll get a list of the smurfs back.
 * Example:
 
 ```js
@@ -97,7 +97,7 @@
 ```
 
 ### PUT '/smurfs/123', where 123 is the Id of the smurf you want to modify
-* For this endpoint to work, you'll need an `id` added to the URL, and at least one field to update on the Smurf object. `name` `age` `height`.
+* [x] For this endpoint to work, you'll need an `id` added to the URL, and at least one field to update on the Smurf object. `name` `age` `height`.
 * Example:
 
 ```js
