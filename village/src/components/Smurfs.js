@@ -48,7 +48,7 @@ class Smurfs extends Component {
         <ul>
           {this.props.smurfs.map(smurf => {
             return (
-              <Link to={`/smurf/${smurf.id}`}>
+              <Link key={smurf.id} to={`/smurf/${smurf.id}`}>
                 <Smurf
                   name={smurf.name}
                   id={smurf.id}
