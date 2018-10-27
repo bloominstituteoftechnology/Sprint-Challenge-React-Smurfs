@@ -4,6 +4,7 @@ import SmurfForm from './SmurfForm';
 import axios from 'axios';
 
 class Smurfs extends Component {
+
  constructor() {
    super();
   this.state= {
@@ -17,9 +18,20 @@ class Smurfs extends Component {
     .then(response => this.setState({smurfs: response.data}))
 }
 
-addToSmurfs = smurf => {
-  this.setState({ smurfs: smurf})
-}
+
+deleteSmurf = event => {
+  event.preventDefault();
+  // add code to create the smurf using the api
+  let smurfId = event.target.id;
+  axios
+    .delete(`http://localhost:3333/smurfs/${smurfId}`, this.state.smurfs)
+    .then(response => {
+      this.setState({
+        smurf: response.data
+      });
+      window.location.reload();
+    });
+};
 
   render() {
     return (
@@ -28,6 +40,7 @@ addToSmurfs = smurf => {
         <ul>
           {this.state.smurfs.map(smurf => {
             return (
+              <div>
               <Smurf
                 name={smurf.name}
                 id={smurf.id}
@@ -35,7 +48,8 @@ addToSmurfs = smurf => {
                 height={smurf.height}
                 key={smurf.id}
               />
-              
+              < i className="fas fa-trash" style={{cursor:'pointer', color: 'blue'}} id={smurf.id} onClick={this.deleteSmurf}></i>
+              </div>
             );
           })}
         </ul>
