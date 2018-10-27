@@ -21,13 +21,15 @@ class SmurfForm extends Component {
       })
       .then(response => {
         this.props.updateSmurfs(response.data);
+      })
+      .then(() => {
         this.setState({
           name: '',
           age: '',
           height: '',
         });
-        this.props.history.push('/');
       })
+      .then(() => this.props.history.push('/'))
       .catch(err => console.log(err));
   };
 
