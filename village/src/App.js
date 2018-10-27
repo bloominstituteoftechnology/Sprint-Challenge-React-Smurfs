@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import {Route} from 'react-router-dom';
 import './App.css';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
@@ -44,9 +44,12 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <SmurfForm addSmurf={this.addSmurf} />
-        <Smurfs smurfs={this.state.smurfs} />
-      </div>
+        <Route path = "/" render = { props => <SmurfForm {...props} addSmurf={this.addSmurf} /> } />
+        {/* <SmurfForm addSmurf={this.addSmurf} /> */}
+        <Route path ="/" render = { props => <Smurfs smurfs ={this.state.smurfs} /> } />
+        {/* <Smurfs smurfs={this.state.smurfs} />
+      */}
+       </div>
     );
   }
 }
