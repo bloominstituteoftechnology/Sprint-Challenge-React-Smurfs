@@ -8,7 +8,7 @@ export default class SmurfCard extends Component {
         this.state = {
             name: '',
             age: '',
-            email: '',
+            height: '',
         };
     }
 
@@ -20,13 +20,13 @@ export default class SmurfCard extends Component {
     }
     handleUpdateSubmit = (event) => {
         event.preventDefault();
-        const friend = {
+        const smurf = {
             name: this.state.name,
             age: this.state.age,
-            email: this.state.email
+            height: this.state.height
         }
         const id = this.props.match.params.id;
-        this.props.update(id, friend)
+        this.props.updateSmurf(id, smurf);
         event.target.reset();
 
     }
@@ -44,34 +44,31 @@ export default class SmurfCard extends Component {
                     <NavLink className="link" to='/'>
                         <p>Click Here To Go Back To Smurf Village.</p>
                     </NavLink>
-                    <form onSubmit={this.addSmurfHandler}>
+                    <form onSubmit={this.handleUpdateSubmit}>
                         <input
                             onChange={this.changeHandler}
                             placeholder="name"
-                            value={this.state.name}
                             name="name"
                         />
                         <input
-                            onChange={this.handleInputChange}
+                            onChange={this.changeHandler}
                             placeholder="age"
-                            value={this.state.age}
                             name="age"
                         />
                         <input
-                            onChange={this.handleInputChange}
+                            onChange={this.changeHandler}
                             placeholder="height"
-                            value={this.state.height}
                             name="height"
                         />
-                        <button type="submit">Add to the village</button>
+                        <button type="submit">Update your Smurf</button>
                     </form>
                 </div>
                 <div className="Smurf">
-                    
-                        <h3>{smurf.name}</h3>
-                        <strong>{smurf.height} tall</strong>
-                        <p>{smurf.age} smurf years old</p>
-                    
+
+                    <h3>{smurf.name}</h3>
+                    <strong>{smurf.height} cm tall</strong>
+                    <p>{smurf.age} smurf years old</p>
+
                 </div>
 
             </div>

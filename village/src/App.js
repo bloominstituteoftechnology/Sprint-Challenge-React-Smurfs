@@ -41,15 +41,35 @@ class App extends Component {
 
     console.log(this.state)
   }
+  updateSmurf = (id, smurf) => {
+    axios.put(`http://localhost:3333/smurfs/${id}`, smurf)
+      .then((response) => {
+        console.log(response);
+        this.setState(() => ({ smurfs: response.data }));
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  }
+  deleteSmurf = (id) => {
+    axios.delete(`http://localhost:3333/smurfs/${id}`)
+      .then((response) => {
+        console.log(response);
+        this.setState(() => ({ smurfs: response.data }));
+      })
+      .catch(error => {
+        console.log(error);
+      });
 
+  }
 
   render() {
     console.log(this.state)
     return (
       <div className="App">
-        <Route exact path="/" render={(props) => <Smurfs {...props} smurfs={this.state.smurfs} />} />
+        <Route exact path="/" render={(props) => <Smurfs {...props} delete={this.deleteSmurf} smurfs={this.state.smurfs} />} />
         <Route path="/smurf-form" render={(props) => <SmurfForm {...props} addNewSmurf={this.addNewSmurf}  />} />
-        <Route path="/smurfs/:id" render={(props) => <SmurfCard {...props} update={this.update} smurfs={this.state.smurfs} />} />
+        <Route path="/smurfs/:id" render={(props) => <SmurfCard {...props} updateSmurf={this.updateSmurf} smurfs={this.state.smurfs} />} />
         {/* <SmurfForm />
         <Smurfs smurfs={this.state.smurfs} /> */}
       </div>
