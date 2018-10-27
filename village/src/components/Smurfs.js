@@ -1,8 +1,14 @@
 import React, { Component } from 'react';
-
 import Smurf from './Smurf';
+import axios from 'axios';
 
 class Smurfs extends Component {
+
+  state={
+    smurfs:[]
+  }
+
+
   render() {
     return (
       <div className="Smurfs">
