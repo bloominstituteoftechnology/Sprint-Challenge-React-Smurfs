@@ -51,6 +51,7 @@
   age: 323,
   height: '5cm'
 }
+
 ```
 
 * If a smurf is created correctly, you should see a response that is an array of smurfs with unique id's assigned to each smurf.
