@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-
+import SmurfForm from './components/SmurfForm'
 import './App.css';
-import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
 import axios from '../node_modules/axios';
 class App extends Component {
@@ -9,6 +8,9 @@ class App extends Component {
     super(props);
     this.state = {
       smurfs: [],
+      name: '',
+      age: '',
+      height: '',
     };
   }
 
@@ -24,7 +26,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <SmurfForm />
+        <SmurfForm smurfs={this.state.smurfs}/>
         <Smurfs smurfs={this.state.smurfs} />
       </div>
     );
