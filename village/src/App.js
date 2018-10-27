@@ -26,6 +26,12 @@ class App extends Component {
       .catch(err => console.log(err))
   }
 
+  addToSmurfList = (smurfData) => {
+    this.setState({
+      smurfs: smurfData,
+    })
+  }
+
   deleteSmurf = (id) => {
     axios.delete(`http://localhost:3333/smurfs/${id}`)
       .then(response => {
@@ -35,6 +41,13 @@ class App extends Component {
       })
       .catch(err => console.log(err))
   }
+
+  updateSmurf = (id) => {
+  //   console.log(id)
+  //   axios.put(`http://localhost:3333/smurfs/${id}`, {name,age,height})
+  //     .then(response => console.log(response))
+  //     .catch(err => console.log(err))
+  }
   // Notice what your map function is looping over and returning inside of Smurfs.
   // You'll need to make sure you have the right properties on state and pass them down to props.
   render() {
@@ -42,9 +55,14 @@ class App extends Component {
       <div className="App">
         <NavigationBar />
         <Route exact path="/"
-          render={(props) => <Smurfs {...props} smurfs={this.state.smurfs} delete={this.deleteSmurf}/>}
+          render={(props) => <Smurfs {...props} smurfs={this.state.smurfs} delete={this.deleteSmurf} update={this.updateSmurf} />}
         />
-        <Route path="/smurf-form" component={SmurfForm} />
+        <Route path="/smurf-form"
+          render={(props) => <SmurfForm {...props} add={this.addToSmurfList} />}
+        />
+        <Route path="/smurf/:id"
+          render={(props) => <Smurf {...props} add={this.addToSmurfList}/>}
+        />
       </div>
     );
   }

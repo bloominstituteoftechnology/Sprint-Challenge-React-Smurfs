@@ -15,7 +15,7 @@ class SmurfForm extends Component {
     event.preventDefault();
     // add code to create the smurf using the api
     axios.post("http://localhost:3333/smurfs/", this.state)
-      .then(response => alert("Smurf Added"))
+      .then(response => this.props.add(response.data))
       .catch(err => console.log(err))
     this.setState({
       name: '',
@@ -29,8 +29,6 @@ class SmurfForm extends Component {
   };
 
   render() {
-    console.log(this.state)
-    console.log(this.props)
     return (
       <div className="SmurfForm">
         <form onSubmit={this.addSmurf}>
