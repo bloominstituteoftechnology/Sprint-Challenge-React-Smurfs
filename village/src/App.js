@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
@@ -17,8 +17,8 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <SmurfForm />
-        <Smurfs smurfs={this.state.smurfs} />
+      <SmurfForm />
+        <Smurfs smurfs={this.state.smurfs}/>
       </div>
     );
   }
