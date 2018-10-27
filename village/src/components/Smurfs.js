@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import Smurf from './Smurf';
+import './Smurfs.css';
 
 class Smurfs extends Component {
 
@@ -17,7 +18,7 @@ class Smurfs extends Component {
   render() {
     return (
       <div className="Smurfs">
-        <h2>Smurf Village</h2>
+        <h1>Smurf Village</h1>
         <ul>
           {
             this.state.smurfs.map((smurf) => {

@@ -1,0 +1,10 @@
+.Smurf {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+	border: 1px solid black;
+	background-color: #47B8FF; 
+	color: #fff;
+	width: 100%;
+}
