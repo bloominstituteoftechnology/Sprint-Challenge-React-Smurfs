@@ -8,29 +8,38 @@ const StyledNavBar = styled.div`
     align-items: center;
     background-color: dodgerblue;
     height: 50px;
+    margin-bottom: 10px;
+`;
+
+const StyledNavLink = styled(NavLink)`
+    text-decoration: none;
+    color: white;
 `;
 
 const NavBar = () => {
     return (
         <StyledNavBar>
-            <NavLink
-            to="/"
-            activeSyle={{
-                fontWeight: "bold",
-                color: "orange",
+            <StyledNavLink
+            exact to="/"
+            activeClassName="selected"
+            activeStyle={{
+                fontWeight: 'bold',
+                textTransform: 'uppercase',
+                fontStyle: 'italic',
             }}
             >
             Smurfs
-            </NavLink>
-            <NavLink 
+            </StyledNavLink>
+            <StyledNavLink 
             to="/smurf-form"
             activeStyle={{
-                fontWeight: "bold",
-                color: "black",
+                fontWeight: 'bold',
+                textTransform: 'uppercase',
+                fontStyle: 'italic'
             }}
             >
             Add Smurf
-            </NavLink>
+            </StyledNavLink>
         </StyledNavBar>
     )
 }
