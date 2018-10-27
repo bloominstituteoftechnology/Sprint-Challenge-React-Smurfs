@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 const SmurfContainer = styled.div`
     display: flex;
@@ -43,7 +44,7 @@ class Smurf extends Component {
             const {name, height, age} =   this.state;
             return (
               <SmurfContainer>
-                <h3>{name}</h3>
+                <h3><Link to={`/smurf/${this.state.id}`}>{name}</Link></h3>
                 <strong>{height} tall</strong>
                 <p>{age} smurf years old</p>
                 <Delete onClick={this.delete}>Delete</Delete>
