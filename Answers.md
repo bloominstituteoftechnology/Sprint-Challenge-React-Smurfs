@@ -25,4 +25,4 @@ Destroy: delete()
 
 1.  Mention three tools we can use to make AJAX requests
 
-We can use promises to help with running asynchronous functions in the background. We can also use then() when a promise is successfully fulfilled, to use the response received from the server; or we can use catch() to handle a situation when the promise is unsuccessful, for giving errors.
+Fetch, Axios and JQuery.
