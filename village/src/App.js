@@ -35,7 +35,7 @@ class App extends Component {
     return (
       <div className="App">
         <NavBar />
-        <Route path="/" render={props => (<Smurfs smurfs={this.state.smurfs} /> )} />
+        <Route exact path="/" render={props => (<Smurfs smurfs={this.state.smurfs} /> )} />
         <Route path="/SmurfForm" component={SmurfForm} />
       </div>
     );
