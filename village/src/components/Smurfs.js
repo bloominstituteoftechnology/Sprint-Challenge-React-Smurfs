@@ -36,7 +36,7 @@ deleteSmurf = event => {
   render() {
     return (
       <div className="Smurfs">
-        <h1 className=" Heading mt-3">Smurf Village</h1>
+        <h1 className="Heading mt-3">Smurf Village</h1>
         <ul>
           {this.state.smurfs.map(smurf => {
             return (
@@ -48,7 +48,7 @@ deleteSmurf = event => {
                 height={smurf.height}
                 key={smurf.id}
               />
-              < i className="fas fa-trash" style={{cursor:'pointer', color: 'blue'}} id={smurf.id} onClick={this.deleteSmurf}></i>
+              < i className="fas fa-trash mb-3" style={{cursor:'pointer', color: '#224de3'}} id={smurf.id} onClick={this.deleteSmurf}></i>
               </div>
             );
           })}
