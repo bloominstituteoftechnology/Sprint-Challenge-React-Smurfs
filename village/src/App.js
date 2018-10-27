@@ -42,7 +42,7 @@ class App extends Component {
         .delete(`http://localhost:3333/smurfs/${id}`)
         .then(response =>
           this.setState({
-            friends: response.data
+            smurfs: response.data
           })
         )
         .catch(err => console.log(err));
@@ -67,7 +67,13 @@ class App extends Component {
         </Navbar>
         <Route
           path="/smurf-form"
-          render={props => <SmurfForm {...props} addASmurf={this.addASmurf} />}
+          render={props => (
+            <SmurfForm
+              {...props}
+              addASmurf={this.addASmurf}
+
+            />
+          )}
         />
         <Route
           exact
