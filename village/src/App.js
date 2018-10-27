@@ -32,9 +32,15 @@ class App extends Component {
     this.setState({
       smurfs: response
     });
-  }
+  };
 
   deleteFromDB = response => {
+    this.setState({
+      smurfs: response
+    });
+  };
+
+  updateDB = response => {
     this.setState({
       smurfs: response
     });
@@ -64,6 +70,7 @@ class App extends Component {
               {...props}
               smurfs={this.state.smurfs}
               deleteFromDB={this.deleteFromDB}
+              updateDB={this.updateDB}
             />
           }
         />
