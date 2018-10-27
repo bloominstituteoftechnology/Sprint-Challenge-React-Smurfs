@@ -3,7 +3,6 @@
 }
 .nav {
   margin-top: 10px;
-  text-align: center;
 }
 .navlink {
   margin-right: 1%;
@@ -18,4 +17,8 @@
 .navlink-selected {
   color: green;
   font-size: 2rem;
+}
+
+.SmurfForm {
+  margin-top: 15px;
 }
