@@ -16,15 +16,15 @@
 
 ## Initializing Project - READ THIS CAREFULLY, you have two apps here. A server, and a client.
 
-* Start by Forking and Cloning this Repo.
-* `cd` into the forked copy.
-* **RUN** `yarn install or npm install` at the root to retrieve all the dependencies for the node server. You will not need to create any react apps here nor will you need to install any other dependencies. You should have all you need in this repo.
-* **LOOK** at all the files you've been given for this project. One important file to note is `server.js`. This file contains an **API** that you are going to be interfacing with. Below is documentation on how to interact with the **API**.
-* **RUN** `yarn start or npm start` to get your API up and running on `http://localhost:3333`. This is the **URL** you're going to need to use within your React app in order to make AJAX requests for data.
-* After your API is up and running, you can open chrome and type in `http://localhost:3333/smurfs`. You should see an Array `[]` with a smurf returned to you. This is an array that your **API** will be using to store our Smurf Data.
-* **LOOK** at your `village` directory and notice it's just a plain ol' React App that we've built using `create-react-app`.
-* **cd** into `village` and run `yarn install or npm install` to retrieve the client side dependencies.
-* **RUN** `yarn start or npm start` to fire up your React application.
+* [x] Start by Forking and Cloning this Repo.
+* [x] `cd` into the forked copy.
+* [x] **RUN** `yarn install or npm install` at the root to retrieve all the dependencies for the node server. You will not need to create any react apps here nor will you need to install any other dependencies. You should have all you need in this repo.
+* [x] **LOOK** at all the files you've been given for this project. One important file to note is `server.js`. This file contains an **API** that you are going to be interfacing with. Below is documentation on how to interact with the **API**.
+* [x] **RUN** `yarn start or npm start` to get your API up and running on `http://localhost:3333`. This is the **URL** you're going to need to use within your React app in order to make AJAX requests for data.
+* [x] After your API is up and running, you can open chrome and type in `http://localhost:3333/smurfs`. You should see an Array `[]` with a smurf returned to you. This is an array that your **API** will be using to store our Smurf Data.
+* [x] **LOOK** at your `village` directory and notice it's just a plain ol' React App that we've built using `create-react-app`.
+* [x] **cd** into `village` and run `yarn install or npm install` to retrieve the client side dependencies.
+* [x] **RUN** `yarn start or npm start` to fire up your React application.
 
 ## Project Description
 
@@ -38,11 +38,11 @@
 
 ### GET '/smurfs'
 
-* To retreive an array all the smurfs in the Smurf DB simply write a get to the endpoint `'/smurfs'`
+* [x] To retreive an array all the smurfs in the Smurf DB simply write a get to the endpoint `'/smurfs'`
 
 ### POST '/smurfs'
 
-* To add a smurf to the Smurf DB you'll need all three fields.
+* [x] To add a smurf to the Smurf DB you'll need all three fields.
 * Example:
 
 ```js
@@ -53,16 +53,16 @@
 }
 ```
 
-* If a smurf is created correctly, you should see a response that is an array of smurfs with unique id's assigned to each smurf.
+* [x] If a smurf is created correctly, you should see a response that is an array of smurfs with unique id's assigned to each smurf.
 
 ### Router
 
 * Once you've finished your `GET` and `POST` requests go ahead and implement a Router for your components within this application.  
-    * You'll start by wrapping your `root` component in the `Router` component.
-    * Then declare your routes with `Route`.
+    * [x] You'll start by wrapping your `root` component in the `Router` component.
+    * [x] Then declare your routes with `Route`.
     * Then make it so you can navigate to your routes using `Link`.
-* Create two `routes` in your `App` component, one at `'/'` for your `Smurfs` component, and one at `/smurf-form` for your form.
-* Then in your `App` component, create a nav bar that will use `NavLink` to route to your different pages.
+* [x] Create two `routes` in your `App` component, one at `'/'` for your `Smurfs` component, and one at `/smurf-form` for your form.
+* [x] Then in your `App` component, create a nav bar that will use `NavLink` to route to your different pages.
 
 ## STRETCH PROBLEMS
 
@@ -73,9 +73,9 @@
 
 ### DELETE '/smurfs/123', where 123 is the Id of the smurf you want to remove
 
-* For this endpoint to work, all you need is an id sent up as part of the request url.
+* [x] For this endpoint to work, all you need is an id sent up as part of the request url.
 
-* If your delete worked, you'll get a list of the smurfs back.
+* [x] If your delete worked, you'll get a list of the smurfs back.
 * Example:
 
 ```js
@@ -97,7 +97,7 @@
 ```
 
 ### PUT '/smurfs/123', where 123 is the Id of the smurf you want to modify
-* For this endpoint to work, you'll need an `id` added to the URL, and at least one field to update on the Smurf object. `name` `age` `height`.
+* [x] For this endpoint to work, you'll need an `id` added to the URL, and at least one field to update on the Smurf object. `name` `age` `height`.
 * Example:
 
 ```js
@@ -116,5 +116,5 @@
 ```
 
 ### Router Stretch Problem
-* If a user clicks on a smurf, they should be routed to `/smurf/:id` and a single smurf should be displayed on the page.
-* I know this seems like a small task, but you'll have to get crafty with your data and your logic here. 
+* [x] If a user clicks on a smurf, they should be routed to `/smurf/:id` and a single smurf should be displayed on the page.
+* [x] I know this seems like a small task, but you'll have to get crafty with your data and your logic here. 
