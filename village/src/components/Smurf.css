@@ -21,6 +21,8 @@
     height: 50px;
     width: 100px;
     cursor: pointer;
+    margin: 10px;
+
 
 }
 
@@ -29,7 +31,22 @@
 
 }
 
+.smurfing-smurfers {
+    margin: 0 auto;
+}
+
+.Smurf {
+    border: 1px solid red;
+    width: 400px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .SmurfForm {
     border: 1px solid blue;
+
 
 }

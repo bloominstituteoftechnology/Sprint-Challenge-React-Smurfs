@@ -136,7 +136,7 @@ class App extends Component {
 
         <Route path='/smurfs/:id' render={(props) => <Smurf {...props} 
         deleteSmurf={this.deleteSmurf}
-        activeSmurf={this.state.activeSmurf}
+        smurf={this.state.activeSmurf}
         smurfs={this.state.smurfs} />} />
 
       </div>
