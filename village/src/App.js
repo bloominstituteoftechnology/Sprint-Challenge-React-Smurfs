@@ -48,19 +48,29 @@ class App extends Component {
     console.log(this.state.smurfs)
     return (
       <div className="App">
-        <navbar>
-          <NavLink to="/">Smurfs</NavLink>
-          <NavLink to="/smurf-form">Smurf Form</NavLink>
-        </navbar>
-        <Route
-          path="/smurf-form"
-          render={props => <SmurfForm addSmurf={this.addSmurf} />}
-        />
-        <Route
-          exact
-          path="/"
-          render={props => <Smurfs smurfs={this.state.smurfs} />}
-        />
+        <nav>
+          <div className="nav-wrapper teal lighten-2">
+            <ul class="right">
+              <li>
+                <NavLink to="/">Smurfs</NavLink>
+              </li>
+              <li>
+                <NavLink to="/smurf-form">Smurf Form</NavLink>
+              </li>
+            </ul>
+          </div>
+        </nav>
+        <div className="container">
+          <Route
+            path="/smurf-form"
+            render={props => <SmurfForm addSmurf={this.addSmurf} />}
+          />
+          <Route
+            exact
+            path="/"
+            render={props => <Smurfs smurfs={this.state.smurfs} />}
+          />
+        </div>
       </div>
     )
   }
