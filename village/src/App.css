@@ -1,3 +1,15 @@
 .App {
   text-align: center;
+  box-sizing: border-box;
+}
+
+nav {
+  padding-top: 10px;
+}
+.nav-item {
+  padding: 10px;
+}
+
+ul {
+  padding-left: 0;
 }
