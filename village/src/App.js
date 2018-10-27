@@ -4,6 +4,7 @@ import './App.css';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
 import axios from 'axios'; /*Importing AXIOS to make AJAX requests*/
+import {BrowserRouter as Router, Route, NavLink} from 'react-router-dom'; /*Importing BorwserRouter and calling it Router to make it easier to type, as well as importing Route */
 
 class App extends Component {
   constructor(props) {
@@ -25,10 +26,17 @@ class App extends Component {
   // You'll need to make sure you have the right properties on state and pass them down to props.
   render() {
     return (
+      /*Setting up React Router*/
+      <Router>
       <div className="App">
-        <SmurfForm />
-        <Smurfs smurfs={this.state.smurfs} />
+        <nav>
+          <NavLink to="/">Home</NavLink> <br /> {/*Navigation button using NavLink component to go to Home Page*/}
+          <NavLink to="/smurf-form">Add New Smurf</NavLink> {/*Navigation button using NavLink component to go to Home Page*/}
+        </nav>
+        <Route path='/smurf-form' component={SmurfForm} /> {/*When the user goes to the route /smurf-form, the SmurfForm component is loaded*/}
+        <Route exact path='/' render={() => <Smurfs smurfs={this.state.smurfs} />} /> {/*Whe nthe user goes exactly to the / route, the client renders the smurf component with the array on the state passed as a prop*/}
       </div>
+      </Router>
     );
   }
 }
