@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from "axios";
+import { Route, NavLink } from 'react-router-dom';
 
 import './App.css';
 import SmurfForm from './components/SmurfForm';
@@ -25,12 +26,26 @@ class App extends Component {
         console.log("Error: ", err);
       });
   }
+  
+  componentDidUpdate() {
+    axios.get("http://localhost:3333/smurfs")
+      .then(response => {
+        this.setState({ smurfs: response.data });
+      })
+      .catch(err => {
+        console.log("Error: ", err);
+      });
+  }
 
   render() {
     return (
       <div className="App">
-        <SmurfForm />
-        <Smurfs smurfs={this.state.smurfs} />
+        <div className="nav-bar">
+          <NavLink to="/" className="home-button">Smurfs</NavLink>
+          <NavLink to="/smurf-form" className="home-button">Add Smurf</NavLink>
+        </div>
+        <Route path="/smurf-form" component={SmurfForm} />
+        <Route exact path="/" render={() => <Smurfs smurfs={this.state.smurfs} />} />
       </div>
     );
   }
