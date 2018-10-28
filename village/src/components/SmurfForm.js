@@ -58,7 +58,7 @@ class SmurfForm extends Component {
             />
           </div>
           <button className="btn waves-effect waves-light" type="submit">
-            <i class="material-icons right">send</i>
+            <i className="material-icons right">send</i>
             Add Smurf
           </button>
         </form>

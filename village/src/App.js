@@ -5,6 +5,7 @@ import axios from "axios"
 import "./App.css"
 import SmurfForm from "./components/SmurfForm"
 import Smurfs from "./components/Smurfs"
+import SingleSmurf from "./components/SingleSmurf"
 
 class App extends Component {
   constructor(props) {
@@ -30,8 +31,7 @@ class App extends Component {
   }
 
   addSmurf = newSmurf => {
-    const smurfs = [...this.state.smurfs, newSmurf]
-
+    // const smurfs = [...this.state.smurfs, newSmurf]
     axios
       .post("http://localhost:3333/smurfs", newSmurf)
       .then(response => {
@@ -45,7 +45,6 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.state.smurfs)
     return (
       <div className="App">
         <nav>
@@ -53,7 +52,7 @@ class App extends Component {
             <NavLink to="/" className="brand-logo">
               Smurf City Creation
             </NavLink>
-            <ul class="right">
+            <ul className="right">
               <li>
                 <NavLink to="/">Smurfs</NavLink>
               </li>
@@ -66,12 +65,19 @@ class App extends Component {
         <div className="container">
           <Route
             path="/smurf-form"
-            render={props => <SmurfForm addSmurf={this.addSmurf} />}
+            render={props => <SmurfForm {...props} addSmurf={this.addSmurf} />}
           />
           <Route
             exact
             path="/"
-            render={props => <Smurfs smurfs={this.state.smurfs} />}
+            render={props => <Smurfs {...props} smurfs={this.state.smurfs} />}
+          />
+          <Route
+            exact
+            path="/smurfs/:id"
+            render={props => (
+              <SingleSmurf {...props} smurfs={this.state.smurfs} />
+            )}
           />
         </div>
       </div>
