@@ -2,6 +2,21 @@
 	text-align: center;
 }
 
+.Smurfs .card-title {
+	font-size: 55px;
+	color: teal;
+	text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+}
+
+.Smurf .card-content {
+	width: 45%;
+	margin: 0 auto;
+}
+
+.Smurf .card-content a {
+	color: teal;
+}
+
 .Smurf .card-content h3 {
 	font-size: 36px;
 }

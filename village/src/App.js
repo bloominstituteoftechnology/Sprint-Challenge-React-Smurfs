@@ -47,17 +47,22 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <nav>
-          <div className="nav-wrapper teal lighten-2">
-            <NavLink to="/" className="brand-logo">
-              Smurf City Creation
-            </NavLink>
-            <ul className="right">
-              <li>
+        <nav class="nav-extended">
+          <div class="nav-wrapper teal">
+            <a href="#" class="brand-logo center">
+              Smurf Creation
+            </a>
+            <a href="#" data-target="mobile-demo" class="sidenav-trigger" />
+          </div>
+          <div class="nav-content teal">
+            <ul class="tabs tabs-transparent">
+              <li class="tab">
                 <NavLink to="/">Smurfs</NavLink>
               </li>
-              <li>
-                <NavLink to="/smurf-form">Smurf Form</NavLink>
+              <li class="tab">
+                <NavLink to="/smurf-form" href="#test2">
+                  Smurf Form
+                </NavLink>
               </li>
             </ul>
           </div>
