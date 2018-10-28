@@ -7,6 +7,7 @@ const SmurfBox = styled.div`
   display: flex;
   flex-direction: column;
   margin: 2% auto;
+  color: #88CCFF;
 `
 
 const Smurf = props => {
