@@ -15,6 +15,7 @@
 
 .Smurf .card-content .deletesmurf {
 	cursor: pointer;
+	margin-top: 10px;
 }
 
 .Smurf .card-content a {
@@ -28,6 +29,7 @@
 .Smurf .card-content p,
 .Smurf .card-content strong {
 	font-size: 20px;
+	margin-top: 10px;
 }
 
 .Smurf .card-content i {
