@@ -63,7 +63,7 @@
     * Then make it so you can navigate to your routes using `Link`.
 * Create two `routes` in your `App` component, one at `'/'` for your `Smurfs` component, and one at `/smurf-form` for your form.
 * Then in your `App` component, create a nav bar that will use `NavLink` to route to your different pages.
-
+<!-- 
 ## STRETCH PROBLEMS
 
 ### HTTP/Axios Stretch Problems
@@ -117,4 +117,4 @@
 
 ### Router Stretch Problem
 * If a user clicks on a smurf, they should be routed to `/smurf/:id` and a single smurf should be displayed on the page.
-* I know this seems like a small task, but you'll have to get crafty with your data and your logic here. 
+* I know this seems like a small task, but you'll have to get crafty with your data and your logic here.  -->
