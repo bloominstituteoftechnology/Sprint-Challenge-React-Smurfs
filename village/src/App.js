@@ -50,6 +50,9 @@ class App extends Component {
       <div className="App">
         <nav>
           <div className="nav-wrapper teal lighten-2">
+            <NavLink to="/" className="brand-logo">
+              Smurf City Creation
+            </NavLink>
             <ul class="right">
               <li>
                 <NavLink to="/">Smurfs</NavLink>

@@ -1,3 +1,16 @@
 .App {
-  text-align: center;
+	text-align: center;
+}
+
+.Smurf .card-content h3 {
+	font-size: 36px;
+}
+
+.Smurf .card-content p,
+.Smurf .card-content strong {
+	font-size: 20px;
+}
+
+.Smurf .card-content i {
+	font-size: 33px;
 }
