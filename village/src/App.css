@@ -1,3 +1,45 @@
 .App {
   text-align: center;
 }
+.jumbotron{
+  background-image: linear-gradient(to right, #243949 0%, #517fa4 100%);
+  color: #e9e9e9;
+  text-shadow: 0 1px 0 rgba(0,0,0,.1);
+}
+
+nav{ 
+ background-blend-mode: soft-light,screen;
+  color: #e9e9e9;
+  position: relative;
+  padding: 20px 15px;
+  text-shadow: 0 1px 0 rgba(0,0,0,.1);
+  margin-bottom: 50px;
+}
+
+.nav-item.nav-link {
+  color: #e9e9e9;
+  background: #007bff;
+  margin: 10px;
+}
+.nav-item.nav-link.selected{
+  background: #17a2b8;
+}
+.card{
+  max-width: 300px;
+}
+.SmurfForm{
+  margin: 20px auto;
+  
+}
+ul{
+  display: flex;
+  flex-wrap: wrap;
+  
+}
+.smurfcard .card{
+  max-width: 600px;
+  margin: 20px auto;
+}
+.smurfcard .card .btn-primary,.smurfcard .card .btn-danger {
+  display: none
+}
