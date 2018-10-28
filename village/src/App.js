@@ -5,6 +5,7 @@ import axios from 'axios';
 import './App.css';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
+import SingleSmurf from './components/SingleSmurf';
 
 class App extends Component {
   constructor(props) {
@@ -32,6 +33,15 @@ class App extends Component {
       .catch(err => console.log(err));
   };
 
+  editSmurf = (id, smurf) => {
+    axios
+      .put(`http://localhost:3333/smurfs/${id}`, smurf)
+      .then(response => {
+        this.setState({ smurfs: response.data });
+      })
+      .catch(err => console.log(err));
+  };
+
   render() {
     return (
       <div className="App">
@@ -51,6 +61,17 @@ class App extends Component {
               {...props}
               smurfs={this.state.smurfs}
               goodbyeSmurf={this.goodbyeSmurf}
+            />
+          )}
+        />
+        <Route
+          path="/smurf/:id"
+          render={props => (
+            <SingleSmurf
+              {...props}
+              smurfs={this.state.smurfs}
+              goodbyeSmurf={this.goodbyeSmurf}
+              editSmurf={this.editSmurf}
             />
           )}
         />
