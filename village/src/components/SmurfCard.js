@@ -2,9 +2,12 @@ import React from 'react';
 import {BrowserRouter as Router, Link} from 'react-router-dom';
 import SmurfStyle from './SmurfStyle';
 
-const Smurf = props => {
+const SmurfCard = props => {
+    console.log(props)
+    const id = props.match.params.id;
+    const smurf = props.smurfs.find(smurf => `${smurf.id}` === id); 
   return (
-    <div className="Smurf">
+    <div className="SmurfCard">
       <SmurfStyle>
       <h3>{props.name}</h3>
       <strong>{props.height} tall</strong>
@@ -14,11 +17,7 @@ const Smurf = props => {
   );
 };
 
-Smurf.defaultProps = {
-  name: '',
-  height: '',
-  age: ''
-};
 
-export default Smurf;
+
+export default SmurfCard;
 

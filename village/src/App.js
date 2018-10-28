@@ -14,18 +14,21 @@ class App extends Component {
       smurfs: [],
       name: '',
       age: '',
-      height: ''
+      height: '',
+      errorMessage: null
     };
   }
   componentDidMount() {
     axios.get("http://localhost:3333/smurfs")
          .then(response => {
             this.setState({
-                smurfs: response.data
+                smurfs: response.data,
+                errorMessage: null
             });
          })
-         .catch( error => console.log(error))
-     
+         .catch( error =>
+              this.setState({errorMessage: "Error: There is some error getting smurfs"})
+         );
   }
 
   addSmurf = (smurf) => {
@@ -46,6 +49,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        {this.state.errorMessage !== null ? (<h3>{this.state.errorMessage}</h3>) : null}
         <nav>
          <NavLink to='/'>Show Village</NavLink>
          {"   |  "}        
