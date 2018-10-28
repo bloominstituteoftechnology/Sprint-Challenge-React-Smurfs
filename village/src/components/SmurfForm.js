@@ -33,9 +33,12 @@ class SmurfForm extends Component {
   render() {
     return (
       <div className="d-flex justify-content-center">
+
         <Form>
           <Row form>
-            <Col lg={6}>
+            <Col lg={50} className="mt-10">
+              <br />
+              <br />
               <form onSubmit={this.addSmurf}>
                 <FormGroup>
                   <Input
