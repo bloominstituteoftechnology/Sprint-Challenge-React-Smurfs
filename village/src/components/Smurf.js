@@ -1,9 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Route } from 'react-router-dom';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Input, Form, FormGroup, Tooltip } from 'reactstrap';
-
-import UpdateForm from './UpdateForm';
 
 const Icon = styled.i`
 color: darkcyan;
@@ -35,6 +32,7 @@ class Smurf extends React.Component {
       modal: false,
       tooltipOpen: false,
       tooltipOpenTwo: false,
+      tooltipOpenThree: false,
     }
   }
 
@@ -55,6 +53,12 @@ class Smurf extends React.Component {
         tooltipOpenTwo: !this.state.tooltipOpenTwo
         });
     }
+
+    toggleToolTipThree = () => {
+      this.setState({
+      tooltipOpenThree: !this.state.tooltipOpenThree
+      });
+  }
 
     changeHandler = e => this.setState({[e.target.name]: e.target.value});
 
@@ -78,24 +82,40 @@ class Smurf extends React.Component {
     <div className="Smurf">
       <Container>
           <h3>{this.props.name}</h3>
-          <IconContainer><Icon onClick={this.toggle} className="fas fa-edit"></Icon><Icon onClick={() => this.props.deleteSmurf(this.props.id)} className="fas fa-trash-alt"></Icon></IconContainer>
+          <IconContainer>
+              <Icon onClick={this.toggle} 
+              className="fas fa-edit"></Icon>
+              <Icon onClick={() => this.props.deleteSmurf(this.props.id)} 
+              className="fas fa-trash-alt"></Icon>
+          </IconContainer>
       </Container>
       
       <strong>{this.props.height} tall</strong>
       <p>{this.props.age} smurf years old</p>
-      {/* <Route path="/smurf-update-form" render={props => <UpdateForm {...props} updateSmurf={props.updateSmurf} id={props.id} />} /> */}
       <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
-                        <ModalHeader toggle={this.toggle}>Update Friend Info</ModalHeader>
+                        <ModalHeader toggle={this.toggle}>Update Smurf Info</ModalHeader>
                         <ModalBody>
                             <Form>
                                 <FormGroup>
-                                    <Input placeholder="Edit your friend's name here" onChange={this.changeHandler} name="name" value={this.state.name}></Input>
+                                    <Input placeholder="Edit smurf's name here"
+                                    onChange={this.changeHandler} 
+                                    name="name" 
+                                    value={this.state.name}>
+                                    </Input>
                                 </FormGroup>
                                 <FormGroup>
-                                    <Input placeholder="Edit your friend's age here" onChange={this.changeHandler} name="age" value={this.state.age}></Input>
+                                    <Input placeholder="Edit smurf's age here" 
+                                    onChange={this.changeHandler} 
+                                    name="age" 
+                                    value={this.state.age}>
+                                    </Input>
                                 </FormGroup>
                                 <FormGroup>
-                                    <Input placeholder="Edit your friend's email here" type="email" onChange={this.changeHandler} name="height"  value={this.state.height}></Input>
+                                    <Input placeholder="Edit smurf's height" 
+                                    onChange={this.changeHandler} 
+                                    name="height"  
+                                    value={this.state.height}>
+                                    </Input>
                                 </FormGroup>
                             </Form>  
                         </ModalBody>

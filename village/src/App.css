@@ -1,7 +1,9 @@
-.App {
-  text-align: center;
+a {
+    color: darkcyan;
+    font-weight: bolder
 }
- a {
-   color: darkcyan;
-   font-weight: bolder
- }
+
+img {
+  height: 450px;
+  width: 800px
+}
