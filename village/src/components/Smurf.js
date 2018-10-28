@@ -4,33 +4,24 @@ import {
   Button,
   CardTitle,
   CardText,
-  Row,
-  Col,
-  Container,
-  CardBody,
-  CardGroup,
-  CardColumns
+  CardGroup
 } from "reactstrap";
 
 const Smurf = props => {
   return (
-    <CardColumns >
-      <Card
-        body
-        inverse
-        style={{
-          backgroundColor: "#88CCFF",
-          borderColor: "#88CCFF",
-        }}
-      >
+
+    <CardGroup className="h-100 d-inline-block" style={{ width: "200px", margin: "10px"}}>
+
+<Card inverse style={{backgroundColor: '#88CCFF', borderColor: '#88CCFF' }}>
         <CardTitle>{props.name}</CardTitle>
         <CardText>
           <strong>{props.height} tall</strong>
           <p>{props.age} smurf years old</p>
-          <Button onClick={props.deleteSmurf(props.id)}>Delete</Button>
+          <Button color="primary" onClick={props.deleteSmurf(props.id)}>Delete</Button>
         </CardText>
-      </Card>
-    </CardColumns>
+        </Card>
+      </CardGroup>
+
   );
 };
 
