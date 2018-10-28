@@ -1,3 +1,74 @@
+/* DEV STYLES */
+.TestTextYellow {
+  /* background-color: rgb(182, 90, 90); */
+  /* height: 14px;
+  padding: 20px; */
+  width: 30%;
+  margin: 3 auto;
+  color: yellow;
+}
+
+.TestTextYellowGreen {
+  background-color: rgba(59, 88, 112, 0.76);
+  /* height: 14px;
+  padding: 2px; */
+  width: 30%;
+  margin: 3 auto;
+  color: yellowgreen;
+}
+
+/* BUILD STYLES */
 .App {
   text-align: center;
+}
+
+.btn-NavButton {
+  display: inline-flex;
+  direction: row;
+  justify-content: center;
+  align-content: center;
+  vertical-align: middle;
+  align-items: center;
+  
+  padding: 2px;
+  width: 140px;
+  height: 50px;
+  margin: 5px;
+  /*margin-top: 5px;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  margin-left: 5px;*/
+  line-height: 30px;
+  
+  /*border: solid 1.5px #888f91;*/
+  /*border-radius: 5%;*/
+  /*border-top-left-radius: 30%;
+  border-top-right-radius: 30%;
+  border-bottom-right-radius:  30%;
+  border-bottom-left-radius:  30%;*/
+  box-shadow: 20%;
+
+
+  background: rgb(14, 124, 158);
+  color: white;
+  font-family: sans-serif;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.InputElement {
+  outline: none;
+  border: 1px solid teal;
+  background-color: white;
+  font: inherit;
+  padding: 6px 10px;
+  display: inline-block;
+  width: 20%;
+  height: 46px;
+  box-sizing: border-box;
+}
+
+.InputElement:focus {
+  outline: none;
+  background-color: #ccc;
 }

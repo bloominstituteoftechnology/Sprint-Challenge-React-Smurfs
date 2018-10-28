@@ -1,3 +1,5 @@
+// https://github.com/LambdaSchool/Sprint-Challenge-React-Smurfs/pull/630
+
 ## Initializing Project - READ THIS CAREFULLY, you have two apps here. A server, and a client.
 
 [x] * Start by Forking and Cloning this Repo.
