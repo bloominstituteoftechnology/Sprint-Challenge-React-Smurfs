@@ -1,12 +1,23 @@
 import React from 'react';
+import styled from 'styled-components';
+
+const SmurfBox = styled.div`
+  border: 1px solid black;
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  margin: 2% auto;
+  color: #88CCFF;
+`
 
 const Smurf = props => {
   return (
-    <div className="Smurf">
+    <SmurfBox>
       <h3>{props.name}</h3>
       <strong>{props.height} tall</strong>
       <p>{props.age} smurf years old</p>
-    </div>
+      <button onClick = {() => props.deleteSmurf(props.id)}>Delete</button>
+    </SmurfBox>
   );
 };
 
@@ -17,4 +28,3 @@ Smurf.defaultProps = {
 };
 
 export default Smurf;
-
