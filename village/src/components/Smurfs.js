@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import Smurf from './Smurf';
 
+
 class Smurfs extends Component {
   render() {
     return (
@@ -10,13 +11,20 @@ class Smurfs extends Component {
         <ul>
           {this.props.smurfs.map(smurf => {
             return (
+
+               
               <Smurf
                 name={smurf.name}
                 id={smurf.id}
                 age={smurf.age}
                 height={smurf.height}
                 key={smurf.id}
+                smurfs={this.props.smurfs}
+                smurf = {smurf}
+                deleteSmurf ={this.props.deleteSmurf}
+                updateSmurfHandler = {this.props.updateSmurfHandler}
               />
+          
             );
           })}
         </ul>
