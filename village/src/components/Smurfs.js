@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 
 import Smurf from './Smurf';
-import smurfStyle from './smurfStyle';
+import { Link } from 'react-router-dom';
+
 
 class Smurfs extends Component {
   render() {
@@ -11,13 +12,18 @@ class Smurfs extends Component {
         <ul>
           {this.props.smurfs.map(smurf => {
             return (
+
+               <Link to={`/smurfs/${smurf.id}`}>
               <Smurf
                 name={smurf.name}
                 id={smurf.id}
                 age={smurf.age}
                 height={smurf.height}
                 key={smurf.id}
+                smurfs={this.props.smurfs}
+                smurf = {smurf}
               />
+            </Link>
             );
           })}
         </ul>
