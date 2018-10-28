@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 
 class SmurfForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      key: 0,
       name: '',
       age: '',
       height: ''

@@ -1,7 +1,7 @@
-const express = require('express');
-const bodyParser = require('body-parser');
-const cors = require('cors');
-const port = 3333;
+const express = require('express');  // loads Node/Express library
+const bodyParser = require('body-parser'); // loads body-parser 
+const cors = require('cors'); // 'cors'  provides a Connect/Express middleware that can be used to enable CORS with various options.   
+const port = 3333; // app is running on localhost:3333
 
 const server = express();
 server.use(bodyParser.json());
@@ -13,7 +13,7 @@ const sendUserError = (msg, res) => {
   return;
 };
 
-let smurfs = [
+let smurfs = [ // creates seed array
   {
     id: 0,
     name: 'Brainey Smurf',
@@ -25,6 +25,9 @@ server.get('/smurfs', (req, res) => {
   res.json(smurfs);
 });
 let smurfId = 1;
+// let nextId = 1;
+// function getNewId() {
+//   return nextId++;
 
 server.post('/smurfs', (req, res) => {
   const { name, age, height } = req.body;
