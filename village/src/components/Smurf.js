@@ -1,29 +1,34 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 
-const Smurf = props => {
-  return (
-    <div className="Smurf">
-      {props.location.pathname === '/' ? (
-        <div
+class Smurf extends Component {
+  goodbyeSmurf = () => {
+    this.props.goodbyeSmurf(this.props.id);
+    this.props.history.push('/');
+  };
+
+  render() {
+    return (
+      <div className="Smurf">
+        <span
           style={{ color: 'red', cursor: 'pointer', fontWeight: 'bold' }}
-          onClick={() => props.goodbyeSmurf(props.id)}
+          onClick={this.goodbyeSmurf}
         >
           X
-        </div>
-      ) : null}
-      {props.location.pathname !== '/' ? (
-        <h3>{props.name}</h3>
-      ) : (
-        <Link to={`/smurf/${props.id}`}>
-          <h3>{props.name}</h3>
-        </Link>
-      )}
-      <strong>{props.height} tall</strong>
-      <p>{props.age} smurf years old</p>
-    </div>
-  );
-};
+        </span>
+        {this.props.location.pathname !== '/' ? (
+          <h3>{this.props.name}</h3>
+        ) : (
+          <Link to={`/smurf/${this.props.id}`}>
+            <h3>{this.props.name}</h3>
+          </Link>
+        )}
+        <strong>{this.props.height} tall</strong>
+        <p>{this.props.age} smurf years old</p>
+      </div>
+    );
+  }
+}
 
 Smurf.defaultProps = {
   name: '',
@@ -31,6 +36,6 @@ Smurf.defaultProps = {
   age: '',
 };
 
-// withRouter was needed here to be able to use props.location in the conditionals above
+// withRouter is needed here to be able to use Route props, namely the history object, location object, and match object.
 
 export default withRouter(Smurf);

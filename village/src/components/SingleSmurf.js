@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import axios from 'axios';
+import axios from 'axios';
 
 import Smurf from './Smurf';
 
@@ -15,23 +15,21 @@ export default class SingleSmurf extends Component {
   }
 
   componentDidMount() {
-    // This was a workaround for error in render()
+    axios
+      .get(`http://localhost:3333/smurfs/`)
+      .then(response =>
+        this.setState({
+          smurf: response.data.find(
+            smurf => `${smurf.id}` === this.props.match.params.id
+          ),
+        })
+      )
+      .catch(err => console.log(err));
 
-    // axios
-    //   .get(`http://localhost:3333/smurfs/`)
-    //   .then(response =>
-    //     this.setState({
-    //       smurf: response.data.find(
-    //         smurf => `${smurf.id}` === this.props.match.params.id
-    //       ),
-    //     })
-    //   )
-    //   .catch(err => console.log(err));
-
-    const smurf = this.props.smurfs.find(
-      smurf => `${smurf.id}` === this.props.match.params.id
-    );
-    this.setState({ smurf });
+    // const smurf = this.props.smurfs.find(
+    //   smurf => `${smurf.id}` === this.props.match.params.id
+    // );
+    // this.setState({ smurf });
   }
 
   editSmurf = e => {

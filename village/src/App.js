@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import { Route, NavLink } from 'react-router-dom';
 import axios from 'axios';
 
-import './App.css';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
 import SingleSmurf from './components/SingleSmurf';
+import './App.css';
 
-class App extends Component {
+export default class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -79,5 +79,3 @@ class App extends Component {
     );
   }
 }
-
-export default App;
