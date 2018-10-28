@@ -26,6 +26,8 @@ export default class SingleSmurf extends Component {
       )
       .catch(err => console.log(err));
 
+    // Using GET because <Smurf /> doesn't render when using direct link http://localhost:3000/smurf/:id
+
     // const smurf = this.props.smurfs.find(
     //   smurf => `${smurf.id}` === this.props.match.params.id
     // );
