@@ -5,20 +5,22 @@ import React, { Component } from 'react';
 class SmurfForm extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      name: '',
-      age: '',
-      height: ''
-    };
+    // this.state = {
+    //   name: '',
+    //   age: '',
+    //   height: ''
+    // };
   }
 
   addSmurf = event => {
     event.preventDefault();
     // add code to create the smurf using the api
+    console.log(this.props)
     if (this.props.isUpdating) {
       console.log('Updating Success');
       this.props.handleUpdateSmurf(this.props.smurf.id);
     } else {
+      console.log("Updating Fail")
       this.props.handleAddNewSmurf(event);
     }
     
@@ -41,7 +43,7 @@ class SmurfForm extends Component {
   render() {
     return (
       <div className="SmurfForm">
-        <form onSubmit={this.addSmurf}>
+        <form>
           <h3>{this.props.isUpdating ? "Update Existing Smurf" : "Add New Smurf"}</h3>
           <input
             onChange={this.props.handleInputChange}
@@ -61,7 +63,7 @@ class SmurfForm extends Component {
             value={this.props.height}
             name="height"
           />
-          <button type="submit">Add to the village</button>
+          <button onClick={this.addSmurf}>Add to the village</button>
         </form>
       </div>
     );

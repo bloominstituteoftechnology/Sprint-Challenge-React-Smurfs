@@ -11,11 +11,11 @@ class App extends Component {
     super(props);
     this.state = {
       smurfs: [],
-      smurf: {
-        name:'',
-        age: '',
-        height: ''
-      },
+      // smurf: {
+      //   name:'',
+      //   age: '',
+      //   height: ''
+      // },
       isUpdating: false,
     };
   }
@@ -62,9 +62,11 @@ class App extends Component {
   }
 
   goToUpdateSmurfForm = (event, id) => {
+    console.log('firing', id);
     event.preventDefault();
     const smurfToUpdate = this.state.smurfs.find(smurf => smurf.id === id);
     this.setState({ smurf: smurfToUpdate, isUpdating: true });
+    console.log(smurfToUpdate.isUpdating)
   }
 
   handleUpdateSmurf = id => {
@@ -75,7 +77,7 @@ class App extends Component {
       this.setState({
         smurfs: response.data,
         smurf: this.state.smurf,
-        isUpdating: true
+        isUpdating: true,
       });
     })
     .catch(err => {
@@ -84,7 +86,7 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.state.smurfs[5])
+    // console.log(this.state.smurfs)
     return (
       <div className="App">
 
