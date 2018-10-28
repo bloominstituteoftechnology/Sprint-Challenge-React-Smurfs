@@ -13,6 +13,10 @@
 	margin: 0 auto;
 }
 
+.Smurf .card-content .deletesmurf {
+	cursor: pointer;
+}
+
 .Smurf .card-content a {
 	color: teal;
 }

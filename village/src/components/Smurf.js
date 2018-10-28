@@ -18,7 +18,13 @@ class Smurf extends Component {
             </h3>
           </Link>
           <strong>{this.props.height} tall</strong>
-          <p>{this.props.age} smurf years old</p>
+          <p>{this.props.age} smurf years old</p>{" "}
+          <i
+            onClick={() => this.props.deleteSmurf(this.props.smurf.id)}
+            className="material-icons prefix deletesmurf"
+          >
+            delete
+          </i>
         </div>
       </div>
     )

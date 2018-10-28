@@ -17,7 +17,7 @@ const SingleSmurf = props => {
 					<i className="material-icons prefix md-36">
 						sentiment_very_satisfied
 					</i>{" "}
-					{singleSmurf.name}
+					{singleSmurf.name}{" "}
 				</h3>
 				<strong>{singleSmurf.height} tall</strong>
 				<p>{singleSmurf.age} smurf years old</p>
