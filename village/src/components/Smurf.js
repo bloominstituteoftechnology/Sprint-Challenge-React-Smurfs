@@ -1,20 +1,40 @@
-import React from 'react';
+import React, { Component } from "react"
+import axios from "axios"
 
-const Smurf = props => {
-  return (
-    <div className="Smurf">
-      <h3>{props.name}</h3>
-      <strong>{props.height} tall</strong>
-      <p>{props.age} smurf years old</p>
-    </div>
-  );
-};
+import { Link } from "react-router-dom"
+
+class Smurf extends Component {
+  render() {
+    return (
+      <div className="Smurf card teal lighten-5">
+        <div className="card-content">
+          <Link to={`smurfs/${this.props.smurf.id}`}>
+            <h3>
+              {" "}
+              <i className="material-icons prefix md-36">
+                sentiment_very_satisfied
+              </i>{" "}
+              {this.props.name}
+            </h3>
+          </Link>
+          <strong>{this.props.height} tall</strong>
+          <p>{this.props.age} smurf years old</p>{" "}
+          <i
+            onClick={() => this.props.deleteSmurf(this.props.smurf.id)}
+            className="material-icons prefix deletesmurf"
+          >
+            delete
+          </i>
+        </div>
+      </div>
+    )
+  }
+}
 
 Smurf.defaultProps = {
-  name: '',
-  height: '',
-  age: ''
-};
+  name: "",
+  height: "",
+  age: ""
+}
 
-export default Smurf;
-
+export default Smurf
