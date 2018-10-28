@@ -16,6 +16,7 @@
 
 .Smurf:hover {
     transform: scale(1.1) rotate(-2deg) translate(20px, 10px);
+    background-color: rgb(146, 202, 224);
 }
 
 .SmurfForm {

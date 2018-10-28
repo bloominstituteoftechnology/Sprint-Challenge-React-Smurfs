@@ -5,6 +5,7 @@ import axios from "axios";
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
 import NavBar from "./components/NavBar";
+import SmurfUpdate from "./components/SmurfUpdate";
 
 class App extends Component {
   constructor(props) {
@@ -37,6 +38,7 @@ class App extends Component {
         <NavBar />
         <Route exact path="/" render={props => (<Smurfs smurfs={this.state.smurfs} /> )} />
         <Route path="/SmurfForm" component={SmurfForm} />
+        <Route path="/SmurfUpdate" component={SmurfUpdate} />
       </div>
     );
   }

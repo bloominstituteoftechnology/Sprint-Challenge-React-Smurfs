@@ -9,7 +9,7 @@ const NavBar = props => {
   
   <div className="smurf-list"><NavLink to="/">Smurf List</NavLink></div>
   <div className="smurf-form"><NavLink to="/SmurfForm">Add Smurfs</NavLink></div>
-   <div className="smurf-update"><NavLink to="/Update">Update Smurfs</NavLink></div>  
+   <div className="smurf-update"><NavLink to="/">Update Smurfs</NavLink></div>  
    <div className="smurf-delete"><NavLink to="/Delete">Remove Smurfs</NavLink></div>
   
     </div>
