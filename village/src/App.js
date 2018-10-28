@@ -13,6 +13,7 @@ export default class App extends Component {
       name: '',
       age: '',
       height: '',
+      clicked: false,
     };
   }
 
@@ -29,7 +30,7 @@ export default class App extends Component {
     return (
       <div className='Main'>
       <nav>
-        <NavLink activeClassName='selected' className='nav' exact to='/'>
+        <NavLink activeClassName='selected' className='nav' exact to='/smurfs'>
           Smurf Village
         </NavLink>
 
@@ -38,7 +39,7 @@ export default class App extends Component {
         </NavLink>
       </nav>
       <div className="App">
-        <Route exact path="/" render={(props) => <Smurfs {...props} smurfs={this.state.smurfs} />} />
+        <Route exact path="/smurfs" render={(props) => <Smurfs {...props} smurfs={this.state.smurfs} />} />
         <Route exact path='/smurf-form' render={(props) => <SmurfForm className='form' {...props} smurfs={this.state.smurfs}/>} />
         <Route exact path="/smurf-form" render={(props) => <Smurfs {...props} smurfs={this.state.smurfs} />} />
       </div>
