@@ -17,11 +17,11 @@ class Smurfs extends Component {
                 height={smurf.height}
                 key={smurf.id}
                 deleteSmurf={this.props.deleteSmurf}
-                updateSmurfs={this.props.updateSmurf}
+                updateSmurf={this.props.updateSmurf}
                 history={this.props.history}
               />
             );
-          })}
+          }).reverse()}
         </ul>  
       </div>
     );

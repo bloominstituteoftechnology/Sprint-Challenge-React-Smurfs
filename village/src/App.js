@@ -42,7 +42,11 @@ class App extends Component {
   .catch(err => console.error(err))
 
   updateSmurf = (smurf, id) => axios.put(`http://localhost:3333/smurfs/${id}`, smurf)
-
+  .then(response => this.setState({
+    smurfs: [...response.data]
+  }))
+  .catch(err => console.error(err))
+  
   render() {
     return (
       <div className="App">
@@ -52,10 +56,13 @@ class App extends Component {
             <Collapse isOpen={!this.state.collapsed} navbar>
               <Nav navbar>
                 <NavItem>
-                  <NavLink to="/">Smurfs Village</NavLink>
+                  <NavLink to="/" onClick={this.toggleNavbar}>Smurfs Village</NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink to="/smurf-form">Add New Smurf</NavLink>
+                  <NavLink to="/smurf-form" onClick={this.toggleNavbar}>Add New Smurf</NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink to="/smurf-update-form" onClick={this.toggleNavbar}>Update a Smurf</NavLink>
                 </NavItem>
               </Nav>
             </Collapse>

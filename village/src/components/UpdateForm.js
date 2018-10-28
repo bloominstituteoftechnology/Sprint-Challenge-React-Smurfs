@@ -36,7 +36,7 @@ export default class UpdateForm extends React.Component {
                     <Input onChange={this.handleInputChange} placeholder="name" value={this.state.name} name="name"></Input>
                     <Input onChange={this.handleInputChange} placeholder="age" value={this.state.age} name="age" ></Input>
                     <Input onChange={this.handleInputChange} placeholder="height" value={this.state.height} name="height"></Input>
-                    <Button id="update" color="success" type="submit" onClick={this.addSmurf}>Add to the village</Button>
+                    <Button id="update" color="success" type="submit" onClick={this.addSmurf}>Update Smurf's Info</Button>
                     <Tooltip placement="bottom" isOpen={this.state.tooltipOpen} target="update" toggle={this.toggleToolTip}>
                         Update a Smurf!
                     </Tooltip>
