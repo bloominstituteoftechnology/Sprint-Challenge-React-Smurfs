@@ -1,9 +1,12 @@
 import React from 'react';
 
+
 const Smurf = props => {
   return (
     <div className="Smurf">
-      <h3>{props.name}</h3>
+      {/* {props.smurfs.map(smurf =>{
+      })} */}
+      <h4>{props.name}</h4>
       <strong>{props.height} tall</strong>
       <p>{props.age} smurf years old</p>
     </div>
