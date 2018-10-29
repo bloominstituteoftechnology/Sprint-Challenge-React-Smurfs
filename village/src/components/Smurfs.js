@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Carousel, CarouselItem, CarouselControl, CarouselIndicators, CarouselCaption, Container, Row, Col } from 'reactstrap';
-import carousel1 from '../assets/carousel1.jpg';
+import { Carousel, CarouselItem, CarouselControl, CarouselIndicators, Container, Row, Col, ListGroup } from 'reactstrap';
+import carousel1 from '../assets/carousel1.png';
 import carousel2 from '../assets/carousel2.jpg';
 import carousel3 from '../assets/carousel3.jpg';
 import carousel4 from '../assets/carousel4.jpg';
@@ -89,7 +89,7 @@ export default class Smurfs extends Component {
 
     return  <Container>
                 <Row>
-                    <Col xs={"12"}md={{ size: 8, offset: 2 }}>
+                    <Col>
                         <h1>Smurf Village</h1>
                             <Carousel
                             activeIndex={activeIndex}
@@ -100,7 +100,7 @@ export default class Smurfs extends Component {
                                 <CarouselControl direction="prev" directionText="Previous" onClickHandler={this.previous} />
                                 <CarouselControl direction="next" directionText="Next" onClickHandler={this.next} />
                             </Carousel>
-                            <ul>
+                            <ListGroup style={{marginTop: '20px'}}>
                               {this.props.smurfs.map(smurf => {
                                 return (
                                   <Smurf
@@ -115,7 +115,7 @@ export default class Smurfs extends Component {
                                   />
                                 );
                               }).reverse()}
-                            </ul>
+                            </ListGroup>
                     </Col>
                 </Row>                
             </Container>

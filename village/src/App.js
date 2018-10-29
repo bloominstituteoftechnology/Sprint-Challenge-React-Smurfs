@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Route, NavLink } from 'react-router-dom';
-import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem } from 'reactstrap';
+import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, Container, Row, Col } from 'reactstrap';
 import styled from 'styled-components';
 
 import './App.css';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
+import SmurfProfile from './components/SmurfProfile';
 
 const AppContainer = styled.div`
     text-align: center;
@@ -52,23 +53,30 @@ export default class App extends Component {
       .catch(err => console.error(err))
 
   render() {
-    return  <AppContainer className="App">
-                <Navbar color="faded" light>
-                    <NavbarBrand href="/" className="mr-auto">React Smurfs</NavbarBrand>
-                    <NavbarToggler onClick={this.toggleNavbar} className="mr-2" />
-                    <Collapse isOpen={!this.state.collapsed} navbar>
-                        <Nav navbar>
-                            <NavItem>
-                                <NavLink to="/" onClick={this.toggleNavbar}>Smurfs Village</NavLink>
-                            </NavItem>
-                            <NavItem>
-                                <NavLink to="/smurf-form" onClick={this.toggleNavbar}>Add New Smurf</NavLink>
-                            </NavItem>
-                        </Nav>
-                    </Collapse>
-                </Navbar>
-                <Route exact path="/" render={props => <Smurfs {...props} smurfs={this.state.smurfs} deleteSmurf={this.deleteSmurf} updateSmurf={this.updateSmurf} />} />
-                <Route path="/smurf-form" render={props => <SmurfForm {...props} smurfsPost={this.smurfsPost} />} />
+    return  <AppContainer>
+                <Container>
+                    <Row>
+                        <Col xs={"12"}md={{ size: 8, offset: 2 }}>
+                            <Navbar color="info" light style={{marginBottom: '20px'}}>
+                                <NavbarBrand href="/" className="mr-auto text-white">React Smurfs</NavbarBrand>
+                                <NavbarToggler onClick={this.toggleNavbar} className="mr-2" />
+                                <Collapse isOpen={!this.state.collapsed} navbar>
+                                    <Nav navbar>
+                                        <NavItem>
+                                            <NavLink to="/" onClick={this.toggleNavbar}>Smurfs Village</NavLink>
+                                        </NavItem>
+                                        <NavItem>
+                                            <NavLink to="/smurf-form" onClick={this.toggleNavbar}>Add New Smurf</NavLink>
+                                        </NavItem>
+                                    </Nav>
+                                </Collapse>
+                            </Navbar>
+                            <Route exact path="/" render={props => <Smurfs {...props} smurfs={this.state.smurfs} deleteSmurf={this.deleteSmurf} updateSmurf={this.updateSmurf} />} />
+                            <Route path="/smurf-form" render={props => <SmurfForm {...props} smurfsPost={this.smurfsPost} />} />
+                            <Route path="/smurf-form/:id" render={props => <SmurfProfile {...props} smurfs={this.state.smurfs} />} />
+                        </Col>
+                    </Row>
+                </Container>  
             </AppContainer>  
   }
 }

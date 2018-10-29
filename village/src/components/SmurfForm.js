@@ -27,7 +27,7 @@ export default class SmurfForm extends Component {
       age: '',
       height: ''
     });
-    this.props.history.push('/')
+    this.props.history.push('/');
   }
 
   handleInputChange = e => {
@@ -37,7 +37,7 @@ export default class SmurfForm extends Component {
   render() {
     return  <Container>
                 <Row>
-                    <Col>
+                    <Col xs={{ size: 8, offset: 2 }}>
                     <Form onSubmit={this.addSmurf}>
                         <FormGroup>
                             <Input onChange={this.handleInputChange} placeholder="name" value={this.state.name} name="name"></Input>
@@ -51,7 +51,7 @@ export default class SmurfForm extends Component {
                     </Form>
                     </Col>
                         <img src={require("../assets/form-image.jpg")} alt='Smurf'/>
-                    <Col>
+                    <Col xs="6">
                     </Col>
                 </Row>
             </Container>      
