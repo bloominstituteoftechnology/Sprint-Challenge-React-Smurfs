@@ -13,6 +13,10 @@ class App extends Component {
   }
 
   componentDidMount() {
+      this.fetch();
+  }
+
+  fetch = () => {
       axios.get('http://localhost:3333/smurfs')
           .then((response) => {
               this.setState({smurfs: response.data});
@@ -20,12 +24,12 @@ class App extends Component {
           .catch((error) => {
               console.log(error);
           });
-  }
+  };
 
   render() {
     return (
       <div className="App">
-        <SmurfForm />
+        <SmurfForm refetch={this.fetch} />
         <Smurfs smurfs={this.state.smurfs} />
       </div>
     );
