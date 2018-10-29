@@ -73,7 +73,7 @@ export default class App extends Component {
                             </Navbar>
                             <Route exact path="/" render={props => <Smurfs {...props} smurfs={this.state.smurfs} deleteSmurf={this.deleteSmurf} updateSmurf={this.updateSmurf} />} />
                             <Route path="/smurf-form" render={props => <SmurfForm {...props} smurfsPost={this.smurfsPost} />} />
-                            {/* <Route path="/:id" render={props => <SmurfProfile {...props} smurfs={this.state.smurfs} />} /> */}
+                            <Route path="/:id" render={props => <SmurfProfile {...props} smurfs={this.state.smurfs} />} />
                         </Col>
                     </Row>
                 </Container>  
