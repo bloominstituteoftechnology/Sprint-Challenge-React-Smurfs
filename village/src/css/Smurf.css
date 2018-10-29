@@ -1,0 +1,23 @@
+.delete-button{
+    cursor:pointer;
+    height:40px;
+    margin:10px auto;
+    border-radius: 10px;
+    font-family: 'Niramit', sans-serif;
+    font-weight:bold;
+    border:3px solid #F7D531;
+    background-color:#0370B1;
+    font-size:16px;
+    width:150px;
+    padding-top:10px;
+    
+ }
+ .Smurf{
+    display:flex;
+    flex-direction:column;
+    align-content:center;
+    text-align:center;
+    width:90%;
+    font-size:20px;
+    
+}

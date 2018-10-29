@@ -1,0 +1,39 @@
+.SmurfForm{
+    background-color:rgba(136, 202, 74, 0.795);
+    color: rgb(247, 242, 233);
+    width:80%;
+    margin:20px auto;
+    border-radius:40px;
+    border:3px solid #F7D531;
+    
+    
+    
+   
+}
+form{
+    display:flex;
+    flex-direction:column;
+    margin:20px auto;
+}
+ input{
+     width:50%;
+     height:30px;
+     margin:10px auto;
+     border-radius: 20px;
+ }
+ .form-button{
+    width:40%;
+    height:40px;
+    margin:10px auto;
+    border-radius: 10px;
+    font-family: 'Niramit', sans-serif;
+    font-weight:bold;
+    border:3px solid #F7D531;
+    background-color:#0370B1;
+    font-size:16px;
+    width:150px;
+    color:white;
+    text-align:center;
+    cursor:pointer;
+    
+ }
