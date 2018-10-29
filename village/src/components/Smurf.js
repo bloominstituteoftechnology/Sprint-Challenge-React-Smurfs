@@ -86,7 +86,7 @@ export default class Smurf extends React.Component {
                     <ListGroupItemText>
                         <Icon onClick={this.toggle} className="fas fa-edit"></Icon>
                         <Icon onClick={() => this.props.deleteSmurf(this.props.id)} className="fas fa-trash-alt"></Icon>
-                        <Icon onClick={() => this.props.history.push(`/smurfs-form/${this.props.id}`)} className="fas fa-info-circle"></Icon>
+                        <Icon onClick={() => this.props.history.push(`/${this.props.id}`)} className="fas fa-info-circle"></Icon>
                     </ListGroupItemText>
                 </ListGroupItem>
                 <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
