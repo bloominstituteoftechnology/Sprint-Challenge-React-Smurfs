@@ -8,7 +8,7 @@ const SingleSmurf = props => {
     smurf => `${smurf.id}` === props.match.params.id
   );
 
-  if (!smurf) return null;
+  // if (!smurf) return null; // implement loader here
   return (
     <div>
       <SmurfForm id={smurf.id} editSmurf={props.editSmurf} />

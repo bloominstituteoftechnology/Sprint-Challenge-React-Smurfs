@@ -43,6 +43,7 @@ export default class App extends Component {
   };
 
   render() {
+    if (!this.state.smurfs.length) return null; // to do: implement loader to display while waiting for data
     return (
       <div className="App">
         <NavLink to="/">Smurfs</NavLink>
