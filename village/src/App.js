@@ -79,10 +79,12 @@ class App extends Component {
           <NavLink to='/smurf-form'>
             <h3>Add Smurf!</h3>
           </NavLink>
-        </div>  
-        <AlertToggle 
-          smurfAlert={this.state.smurfAlert}
-          smurfAlertOff={this.smurfAlertOff} />
+        </div>
+        <div className="alertContainer">
+          <AlertToggle 
+            smurfAlert={this.state.smurfAlert}
+            smurfAlertOff={this.smurfAlertOff} />
+        </div>    
         <Route 
           exact path='/' 
           render={props => (

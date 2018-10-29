@@ -1,5 +1,6 @@
 import React from 'react';
 import { Alert } from 'reactstrap';
+import './SmurfAlert.css'
 
 export class SmurfAlert extends React.Component {
   constructor(props) {
@@ -22,6 +23,7 @@ export class SmurfAlert extends React.Component {
     return (
       
       <Alert 
+        className='smurfAlert'
         color="info" 
         isOpen={this.state.visible} 
         toggle={this.onDismiss}>

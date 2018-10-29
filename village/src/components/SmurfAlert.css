@@ -1,0 +1,12 @@
+.smurfAlert {
+  background-color: rgb(233, 8, 8);
+  width: 75%;
+  padding: 2%;
+  font-size: 42px;
+  font-family: 'Spicy Rice', cursive;
+  color: white;
+  letter-spacing: 1.2px;
+  border-radius: 15px;
+  -webkit-box-shadow: 5px 5px 15px 5px #000000; 
+  box-shadow: 5px 5px 15px 5px #000000;
+}

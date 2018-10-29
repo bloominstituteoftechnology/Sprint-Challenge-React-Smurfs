@@ -1,5 +1,5 @@
 import React from 'react';
-
+import './Smurfs.css'
 import Smurf from './Smurf';
 
 class Smurfs extends React.Component {
@@ -9,7 +9,9 @@ class Smurfs extends React.Component {
   render() {
     return (
       <div className="Smurfs">
-        <h1>Smurf Village</h1>
+        <div className='headingContainer'>
+          <h1>Smurf Village</h1>
+        </div>
         <ul>
           {this.props.mySmurfs.map(smurf => {
             return (

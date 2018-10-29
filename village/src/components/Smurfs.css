@@ -1,0 +1,33 @@
+.Smurfs {
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  align-items: center;
+}
+
+.headingContainer {
+  margin: 25px;
+  background-image: url('http://worldartsme.com/images/wood-background-clipart-1.jpg');
+  width: 35%;
+  -webkit-box-shadow: 5px 5px 15px 5px #000000; 
+  box-shadow: 5px 5px 15px 5px #000000;
+  border-radius: 50%;
+}
+
+h1 {
+  margin: 30px;
+  font-family: 'Spicy Rice';
+  color: rgb(199, 187, 16);
+  font-size: 62px;
+  text-shadow: -3px 5px 7px rgba(2, 23, 37, 0.72);
+  letter-spacing: 1.5px;
+
+}
+
+ul {
+  display: flex;
+  font-family: cursive;
+  letter-spacing: 1px;
+  font-size: 20px;
+  font-weight: bold;
+}
