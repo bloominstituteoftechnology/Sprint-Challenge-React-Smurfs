@@ -13,12 +13,15 @@ class SmurfUpdate extends Component {
   }
 
   componentDidMount() {
+    
+   
 
-this.setState(() => ({
+console.log("in update did mount:", this.state)
+    this.setState(() => ({
   name: this.state.name, 
   age: this.state.age,
   height: this.state.height,
-  id: this.state.id
+  //id: this.state.id
 
 }) )
 
@@ -30,18 +33,21 @@ this.setState(() => ({
   
   putSmurf = event => {
     event.preventDefault();
+
+    const id = this.props.match.params.id;
     // add code to create the smurf using the api
    /*  axios.post('http://localhost:3333/smurfs', { */
-   const newIndex = this.props.id
-        let webUrl = `http://localhost:3333/smurfs/${newIndex}`;
+  // const newIndex = 3;
+   console.log("the id", id)
+        let webUrl = `http://localhost:3333/smurfs/${id}`;
     axios.put(webUrl, {
       name: this.state.name,
       age: this.state.age,
       height: this.state.height,
-      id: this.state.id
+      //id: this.state.id
     })
       .then(response => {
-        console.log("in the addSmurf", this.state)
+       
         this.setState(() => ({ smurfs: response.data }));
         console.log("in the addSmurf", this.state)
       })
@@ -67,9 +73,10 @@ this.setState(() => ({
     return (
       <div className="SmurfForm">
         <form onSubmit={this.putSmurf}>
+        <p className="update-header">Currently Updating Smurf with id: {this.props.match.params.id}</p>
           <input
             onChange={this.handleInputChange}
-            placeholder={this.props.name}
+            placeholder="name"
             value={this.state.name}
             name="name"
           className="input"
@@ -95,7 +102,7 @@ this.setState(() => ({
             name="id"
             className="input"
           />
-          <button type="submit">Update the village</button>
+          <button className="button-submit" type="submit">Update the village</button>
         </form>
       </div>
     );
