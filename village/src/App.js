@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
-import axios from 'axios';
-
-import './App.css';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
+import {Router, Route, Link } from 'react-router-dom';
+import axios from 'axios';
+import './App.css';
+
+
 
 class App extends Component {
   constructor(props) {
@@ -28,12 +30,20 @@ componentDidMount() {
 
   render() {
     return (
+      <Router>
       <div className="App">
-        <SmurfForm />
-        <Smurfs smurfs={this.state.smurfs} />
-      </div>
-    );
-  }
-}
+        <Route exact path ="/" component = {Smurfs}/>
+        <Route path='/smurfs' render={(props) => {return (
+          <div>
+            <Link to='/'>Home</Link>
+            <SmurfForm createSmurf={this.createSmurf}/>
+            <Smurfs smurfs={this.state.smurfs} />
+          </div>
+        )}}/>
+       </div>
+       </Router>
+     );
+   }
+ }
 
 export default App;
