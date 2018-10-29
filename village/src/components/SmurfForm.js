@@ -69,18 +69,21 @@ class SmurfForm extends Component {
             placeholder="name"
             value={this.state.name}
             name="name"
+            type="text"
           />
           <input
             onChange={this.handleInputChange}
             placeholder="age"
             value={this.state.age}
             name="age"
+            type="number"
           />
           <input
             onChange={this.handleInputChange}
             placeholder="height"
             value={this.state.height}
             name="height"
+            type="text"
           />
           {/* Adding a smurf:
           User will be unable to submit form unless all input fields are 
