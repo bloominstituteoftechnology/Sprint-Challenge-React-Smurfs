@@ -12,16 +12,34 @@ class SmurfForm extends Component {
     };
   }
 
-  addSmurf = event => {
-    event.preventDefault();
-    // add code to create the smurf using the api
-
-    this.setState({
-      name: '',
-      age: '',
-      height: ''
+  // add code to create the smurf using the api
+  componentDidMount() {
+    axios.get("http://localhost:3333/smurfs")
+    .then(response => {
+      this.setState({ smurfs: response.data });
+    })
+    .catch(() => {
+      console.error("Error getting smurfs");
     });
   }
+
+  addSmurf = event => {
+    event.preventDefault();
+    axios
+      .post("http://localhost:3333/smurfs", this.state)
+      .then(response => {
+        this.setState({ smurfs: response.data, name:'', age:'', height:''});
+      })
+      .catch(error => {
+        console.error("Error making post", error);
+      })
+      this.setState({
+        name: '',
+        age: '',
+        height: ''
+      });
+    }
+    // reset inputs or duplicated in line 21??
 
   handleInputChange = e => {
     this.setState({ [e.target.name]: e.target.value });
