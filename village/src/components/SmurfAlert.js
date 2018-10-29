@@ -27,7 +27,7 @@ export class SmurfAlert extends React.Component {
         color="info" 
         isOpen={this.state.visible} 
         toggle={this.onDismiss}>
-        You need to smurf all the Smurf data before you can smurf this Smurf into Smurf Village!
+        You need to smurf all the Smurf info before you can smurf this Smurf into Smurf Village!
       </Alert>
     );
   }

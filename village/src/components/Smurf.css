@@ -1,6 +1,7 @@
 .Smurf {
   background-color: rgb(190, 190, 245);
   width: 30%;
+  min-width: 150px;
   padding: 5px;
   margin: 5px;
   -webkit-box-shadow: 5px 5px 15px 5px #000000; 

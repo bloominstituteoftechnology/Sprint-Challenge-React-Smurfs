@@ -25,9 +25,8 @@
 }
 .active {
   background-color: white;
-  border-radius: 20%;
-  padding: 0 4%;
-  margin: 5px;
+  padding: 0 1%;
+  margin: 1px 5px;
   -webkit-box-shadow: 5px 5px 15px 5px #000000; 
   box-shadow: 5px 5px 15px 5px #270683;
   border-radius:15%;
