@@ -12,7 +12,6 @@ class SmurfForm extends Component {
   }
 
   addSmurf = event => {
-    console.log(this.state);
     event.preventDefault();
     // add code to create the smurf using the api
     axios
@@ -31,7 +30,6 @@ class SmurfForm extends Component {
   };
 
   handleInputChange = e => {
-    console.log(e.target.value);
     this.setState({ [e.target.placeholder]: e.target.value });
   };
 
@@ -39,24 +37,9 @@ class SmurfForm extends Component {
     return (
       <div className="SmurfForm">
         <form onSubmit={this.addSmurf}>
-          <input
-            onChange={this.handleInputChange}
-            placeholder="name"
-            // value={this.state.name}
-            // name="name"
-          />
-          <input
-            onChange={this.handleInputChange}
-            placeholder="age"
-            // value={this.state.age}
-            // name="age"
-          />
-          <input
-            onChange={this.handleInputChange}
-            placeholder="height"
-            // value={this.state.height}
-            // name="height"
-          />
+          <input onChange={this.handleInputChange} placeholder="name" />
+          <input onChange={this.handleInputChange} placeholder="age" />
+          <input onChange={this.handleInputChange} placeholder="height" />
           <button type="submit">Add</button>
         </form>
       </div>
