@@ -1,14 +1,11 @@
 import React, { Component } from 'react';
 import Smurf from './Smurf';
 
-class Smurfs extends React.Component {
+class Smurfs extends Component {
   constructor(props){
     super(props);
     this.state={
-      name: props.smurf.name,
-      age: props.smurf.age,
-      height: props.smurf.height,
-      id: props.friend.id
+ 
     };
   }
 

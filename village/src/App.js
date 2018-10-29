@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import {BrowserRouter as Router} from 'react-router-dom';
 import './App.css';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
@@ -15,10 +14,15 @@ class App extends Component {
   }
   componentDidMount(){
     axios
-    .get("http://localhost:3333/smurfs");
+    .get("http://localhost:3333/smurfs")
     .then(response =>{
-      this.setState({smurfsData: response.data});
-    })
+      this.setState({
+        smurfs: response.data
+    });
+  })
+  .catch(err =>{
+    console.log(err);
+  });
   };
 
   // add any needed code to ensure that the smurfs collection exists on state and it has data coming from the server
@@ -29,7 +33,6 @@ class App extends Component {
       <div className="App">
         <SmurfForm />
         <Smurfs smurfs={this.state.smurfs} />
-        <Route path = '/' render = {(props) => <smurfs{...props}smurfs={this.state.smurfsData}/>}/>
       </div>
     );
   }
