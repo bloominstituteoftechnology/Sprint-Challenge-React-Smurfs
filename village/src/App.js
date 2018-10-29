@@ -4,6 +4,7 @@ import Smurfs from './components/Smurfs';
 import {Router, Route, Link } from 'react-router-dom';
 import axios from 'axios';
 import './App.css';
+import { NavLink } from 'react-router-dom';
 
 
 
@@ -32,6 +33,8 @@ componentDidMount() {
     return (
       <Router>
       <div className="App">
+      <NavLink to = '/smurfs'>Smurfs</NavLink>
+      <NavLink to = '/'>Home</NavLink>
         <Route exact path ="/" component = {Smurfs}/>
         <Route path='/smurfs' render={(props) => {return (
           <div>
