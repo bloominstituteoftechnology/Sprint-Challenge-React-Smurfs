@@ -1,3 +1,138 @@
 .App {
   text-align: center;
+  background-image: url('./img/environment-forest-trees-1102911.jpg');
+  margin: 0;
+  background-size: cover;
+  background-position: center;
+  height: 1090px;
 }
+
+.navBar {
+  width: 20%;
+  height: 50px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 0 0 0 auto;
+  background-color: rgba(0, 0, 0, 0.75);
+  
+}
+
+.border {
+  border-bottom: 1px solid white;
+  width: 23%;
+  margin: 0 0 0 auto;
+}
+
+.navLinks {
+  text-decoration: none;
+  margin: 0 3%;
+  color: white;
+  font-weight: bold;
+}
+
+.active {
+  text-decoration: underline;
+}
+
+
+h1 {
+  color: white;
+  border-right: 1px solid white;
+  text-shadow: 2px 2px black;
+  background-color: rgba(0, 0, 0, 0.75);
+  margin: 0 auto;
+  width: 28.2%;
+}
+
+.titleBorder {
+  border-bottom: 1px solid white;
+  width: 34.2%;
+  margin: 0px 0% 0 29.9%;
+}
+
+.smurfList {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 97%;
+}
+
+.Smurf {
+  display: flex;
+  border: 1px solid green;
+  width: 40%;
+  background: white;
+  border-top: 2px solid lightgrey;
+  border-left: 2px solid lightgrey;
+  border-right: 2px solid darkgrey;
+  border-bottom: 2px solid darkgrey;
+  margin-top: 50px;
+}
+
+.flexyDiv {
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+margin-left: 2%;
+}
+
+.Smurf p {
+  margin: 0;
+}
+
+.smurfForm {
+  background: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 50%;
+  margin: 50px auto;
+  height: 100%;
+  }
+
+  .smurfForm input {
+    margin: 1%;
+    padding-top: 13px;
+    font-size: 150%;
+    border: none;
+  }
+  
+  .submitButton {
+    width: 22%;
+    margin: 0 0 0 77%;
+    padding: 0.5%;
+    border-radius: 2px;
+  }
+
+  .Smurfs {
+    margin-top: 50px;
+  }
+
+  .seeMore {
+    color: black;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+
+  .villageButtonDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 600px;
+  }
+
+  .villageButton{
+    padding: 1%;
+    border-radius: 1px;
+  }
+
+  .Home {
+    background: none;
+  }
+
+  .smurfImg {
+    background: grey;
+    height: 200px;
+    width: 200px;
+  }

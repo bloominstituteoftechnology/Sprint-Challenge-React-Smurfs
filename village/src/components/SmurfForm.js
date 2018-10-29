@@ -1,53 +1,46 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
+
+
 
 class SmurfForm extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      name: '',
-      age: '',
-      height: ''
-    };
   }
 
-  addSmurf = event => {
-    event.preventDefault();
-    // add code to create the smurf using the api
-
-    this.setState({
-      name: '',
-      age: '',
-      height: ''
-    });
+handleClick = (ev) => {
+    ev.preventDefault();
+    if (this.props.isEditing) {
+      this.props.editNote();
+    } else {
+      this.props.addSmurf();
+    }
   }
-
-  handleInputChange = e => {
-    this.setState({ [e.target.name]: e.target.value });
-  };
 
   render() {
+
+
     return (
-      <div className="SmurfForm">
-        <form onSubmit={this.addSmurf}>
+      <div>
+        <form onSubmit={(ev) => {this.handleClick(ev); this.props.history.push('/village')}} className="smurfForm">
+          <h1>New Smurf!</h1>
+          <div className="titleBorder" />
           <input
-            onChange={this.handleInputChange}
-            placeholder="name"
-            value={this.state.name}
-            name="name"
+            onChange={this.props.handleInputChange}
+            placeholder="title"
+            value={this.props.note.title}
+            name="title"
+            type="text"
           />
           <input
-            onChange={this.handleInputChange}
-            placeholder="age"
-            value={this.state.age}
-            name="age"
+            onChange={this.props.handleInputChange}
+            placeholder="textBody"
+            value={this.props.note.textBody}
+            name="textBody"
+            type="text"
           />
-          <input
-            onChange={this.handleInputChange}
-            placeholder="height"
-            value={this.state.height}
-            name="height"
-          />
-          <button type="submit">Add to the village</button>
+          <button type="submit" className="submitButton">
+         {this.props.isEditing ? 'Edit Note' : 'Add Note'}
+          </button>
         </form>
       </div>
     );
