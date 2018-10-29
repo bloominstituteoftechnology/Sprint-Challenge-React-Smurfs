@@ -1,9 +1,19 @@
 import React, { Component } from 'react';
-
 import Smurf from './Smurf';
 
-class Smurfs extends Component {
+class Smurfs extends React.Component {
+  constructor(props){
+    super(props);
+    this.state={
+      name: props.smurf.name,
+      age: props.smurf.age,
+      height: props.smurf.height,
+      id: props.friend.id
+    };
+  }
+
   render() {
+
     return (
       <div className="Smurfs">
         <h1>Smurf Village</h1>
