@@ -67,10 +67,8 @@ h1 {
 }
 
 .update-header {
-font-weight: bold;
-color:  rgb(84, 182, 221);
-
-
+    font-weight: bold;
+    color: rgb(84, 182, 221);
 }
 
 .button-submit {
@@ -81,7 +79,5 @@ color:  rgb(84, 182, 221);
 }
 
 .button-submit:hover {
-
     background-color: rgb(199, 237, 252);
-
 }

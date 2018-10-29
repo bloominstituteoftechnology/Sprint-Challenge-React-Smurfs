@@ -22,26 +22,23 @@ class SmurfForm extends Component {
       id: this.state.id
     })
       .then(response => {
-        console.log("in the addSmurf", this.state)
         this.setState(() => ({ smurfs: response.data }));
-        console.log("in the addSmurf", this.state)
       })
       .catch(error => {
         console.log(error);
       });
-      /********************************* */
+
     this.setState({
       name: '',
       age: '',
       height: '',
-      id: '' 
+      id: ''
     });
     window.location.reload();
   }
 
   handleInputChange = e => {
     this.setState({ [e.target.name]: e.target.value });
-    console.log("this.state: ", this.state)
   };
 
   render() {
@@ -53,8 +50,8 @@ class SmurfForm extends Component {
             placeholder="name"
             value={this.state.name}
             name="name"
-          className="input"
-         />
+            className="input"
+          />
           <input
             onChange={this.handleInputChange}
             placeholder="age"
@@ -69,7 +66,7 @@ class SmurfForm extends Component {
             name="height"
             className="input"
           />
-           <input
+          <input
             onChange={this.handleInputChange}
             placeholder="id"
             value={this.state.id}
