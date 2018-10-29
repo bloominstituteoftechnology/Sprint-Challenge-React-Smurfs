@@ -12,6 +12,8 @@ import 'bootstrap/dist/js/bootstrap.bundle.min';
 
 import './App.css';
 import SmurfForm from './components/SmurfForm';
+
+
 import Smurfs from './components/Smurfs';
 import Home from './components/home'
 import SmurfHeader from './components/smurfHeader'
@@ -33,7 +35,6 @@ class App extends Component {
       axios
       .delete(`http://localhost:3333/smurfs/${id}`)
       .then(response => {
-        console.log('ffffff')
         this.setState({ smurfs: response.data })
         
       })
@@ -70,6 +71,7 @@ class App extends Component {
       <Route exact
           path="/smurfs"
           render={() => <SmurfForm smurfs={this.state.smurfs}/>} />
+            
       <Route exact
           path="/smurfs"
           render={() => <Smurfs 
@@ -81,6 +83,7 @@ class App extends Component {
        render={props => 
          <SmurfProfile  
          {...props} smurfs={this.state.smurfs}
+         deleteFriendHandler ={this.deleteFriendHandler}
          />
        }
        />

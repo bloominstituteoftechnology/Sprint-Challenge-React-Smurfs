@@ -3,6 +3,7 @@ import axios from "axios";
 
 
 import Smurf from './Smurf';
+import UpdateForm from './updateForm';
 
 class SmurfProfile extends Component {
     constructor(props){
@@ -19,7 +20,8 @@ class SmurfProfile extends Component {
         return (
            
      <div className='smurfcard'> 
-       <Smurf {...friends} />
+     <UpdateForm  {...friends}/>
+       <Smurf {...friends} deleteFriendHandler ={this.props.deleteFriendHandler}/>
      </div>
     )
         

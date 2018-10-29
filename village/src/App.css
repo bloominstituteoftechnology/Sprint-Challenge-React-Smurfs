@@ -43,3 +43,14 @@ ul{
 .smurfcard .card .btn-primary,.smurfcard .card .btn-danger {
   display: none
 }
+.update{
+  background: #20c997;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+.update .btn-primary{
+  background: #fd7e14;
+
+}
