@@ -14,7 +14,7 @@ import {  Button,
           ListGroupItemText } from 'reactstrap';
 
 const Icon = styled.i`
-color: black;
+color: dodgerblue;
 cursor: pointer;
 margin-right: 10px;
 &:last-of-type {
@@ -117,7 +117,7 @@ export default class Smurf extends React.Component {
                         </Form>  
                     </ModalBody>
                     <ModalFooter>
-                        <Button id="update" color="success" onClick={this.clickHandler}>Update Info</Button>
+                        <Button id="update" color="info" onClick={this.clickHandler}>Update Info</Button>
                         <Button id="cancel" color="secondary" onClick={this.toggle}>Cancel</Button>
                         <Tooltip placement="bottom" isOpen={this.state.tooltipOpen} target="update" toggle={this.toggleToolTip}>
                             Update Info!

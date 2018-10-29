@@ -43,7 +43,7 @@ export default class SmurfForm extends Component {
                             <Input onChange={this.handleInputChange} placeholder="name" value={this.state.name} name="name"></Input>
                             <Input onChange={this.handleInputChange} placeholder="age" value={this.state.age} name="age" ></Input>
                             <Input onChange={this.handleInputChange} placeholder="height" value={this.state.height} name="height"></Input>
-                            <Button block id="add" color="success" type="submit" onClick={this.addSmurf}>Add to the village</Button>
+                            <Button block id="add" color="info" type="submit" onClick={this.addSmurf}>Add to the village</Button>
                             <Tooltip placement="bottom" isOpen={this.state.tooltipOpen} target="add" toggle={this.toggleToolTip}>
                                 Add a Smurf!
                             </Tooltip>
