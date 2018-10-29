@@ -9,18 +9,16 @@ const Smurfs = props => {
         <h1>Smurf Village</h1>
         <div className="titleBorder"/>
         <ul className="smurfList">
-          {props.smurfs.map(smurf => {
+          {props.notes.map(note => {
             return (
               <Smurf
-                name={smurf.name}
-                id={smurf.id}
-                age={smurf.age}
-                height={smurf.height}
-                key={smurf.id}
-                imgUrl={smurf.imgUrl}
-
-                
+                title={note.title}
+                _id={note._id}
+                textBody={note.textBody}
+                key={note._id}
                 deleteSmurf={props.deleteSmurf}
+                toggleEditNoteForm={props.toggleEditNoteForm}
+                note={note}
               />
             );
           })}

@@ -5,27 +5,28 @@ import {withRouter} from 'react-router-dom'
 const Smurf = props => {
 function routeToSmurf(ev) {
   ev.preventDefault()
-  props.history.push(`/village/${props.id}`)
-  
+  props.history.push(`/village/${props._id}`)
 }
+
+
+
+  
+
   return (
     <div className="Smurf">
-      <img src={props.imgUrl} alt={props.name} />
+      <div className="smurfImg"/>
       <div className="flexyDiv">
         <h3>{props.name}</h3>
-        <p><strong>Smurfey Height:</strong> {props.height} tall</p>
-        <p><strong>Smurfey Age:</strong> {props.age} smurf years old</p>
-        <button onClick={ev => routeToSmurf(ev, props.id)}>Select Smurf</button>
-        <button onClick={event => props.deleteSmurf(event, props.id)}>Clear Smurf</button>
+        <p><strong>Title:</strong> {props.title}</p>
+        <p><strong>Note:</strong> {props.textBody}</p>
+        <button onClick={ev => routeToSmurf(ev, props._id)}>Select Smurf</button>
+        <button onClick={ev => props.deleteSmurf(ev, props._id)}>Delete Note</button>
+        <button onClick={ev => {props.toggleEditNoteForm(ev, props.note)}}> Edit Info </button>
       </div>
     </div>
   );
 };
 
-Smurf.defaultProps = {
-  name: "",
-  height: "",
-  age: ""
-};
+
 
 export default withRouter(Smurf);

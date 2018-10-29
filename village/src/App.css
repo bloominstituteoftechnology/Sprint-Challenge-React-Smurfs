@@ -130,3 +130,9 @@ margin-left: 2%;
   .Home {
     background: none;
   }
+
+  .smurfImg {
+    background: grey;
+    height: 200px;
+    width: 200px;
+  }
