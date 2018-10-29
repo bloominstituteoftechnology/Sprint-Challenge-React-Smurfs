@@ -16,9 +16,9 @@ const sendUserError = (msg, res) => {
 let smurfs = [
   {
     id: 0,
-    name: 'Orlando Smurf',
-    age: 20,
-    height: '1cm'
+    name: 'Brainey Smurf',
+    age: 200,
+    height: '8cm'
   }
 ];
 server.get('/smurfs', (req, res) => {

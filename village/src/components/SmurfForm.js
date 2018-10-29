@@ -12,7 +12,6 @@ class SmurfForm extends Component {
   }
 
   addSmurf = event => {
-    event.preventDefault();
     // add code to create the smurf using the api
     axios
       .post('http://localhost:3333/smurfs', {
@@ -30,6 +29,7 @@ class SmurfForm extends Component {
   };
 
   handleInputChange = e => {
+    console.log(e.target.value);
     this.setState({ [e.target.placeholder]: e.target.value });
   };
 
