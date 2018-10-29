@@ -1,55 +1,48 @@
-import React, { Component } from 'react';
+import React from 'react';
+import axios from 'axios';
+import './SmurfForm.css'
 
-class SmurfForm extends Component {
+class SmurfForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      name: '',
-      age: '',
-      height: ''
-    };
   }
-
-  addSmurf = event => {
-    event.preventDefault();
-    // add code to create the smurf using the api
-
-    this.setState({
-      name: '',
-      age: '',
-      height: ''
-    });
-  }
-
-  handleInputChange = e => {
-    this.setState({ [e.target.name]: e.target.value });
-  };
-
   render() {
     return (
-      <div className="SmurfForm">
-        <form onSubmit={this.addSmurf}>
-          <input
-            onChange={this.handleInputChange}
-            placeholder="name"
-            value={this.state.name}
-            name="name"
-          />
-          <input
-            onChange={this.handleInputChange}
-            placeholder="age"
-            value={this.state.age}
-            name="age"
-          />
-          <input
-            onChange={this.handleInputChange}
-            placeholder="height"
-            value={this.state.height}
-            name="height"
-          />
-          <button type="submit">Add to the village</button>
-        </form>
-      </div>
+      <div className="smurfFormContainer">
+        <div className="SmurfForm">
+          <form 
+            className="formFields"
+            onSubmit={this.props.addSmurf}>
+            <h2>Please smurf all your Smurf info here</h2>
+            <input
+              className='inputFields'
+              onChange={this.props.handleInputChange}
+              placeholder="name"
+              value={this.props.newSmurf.name}
+              name="name"
+            />
+            <input
+              className='inputFields'
+              onChange={this.props.handleInputChange}
+              placeholder="age"
+              value={this.props.newSmurf.age}
+              name="age"
+            />
+            <input
+              className='inputFields'
+              onChange={this.props.handleInputChange}
+              placeholder="height + unit of measure"
+              value={this.props.newSmurf.height}
+              name="height"
+            />
+            <button 
+              type="submit"
+              className="button">Join Smurf Village</button>
+
+          </form>
+
+         </div>
+        </div>  
     );
   }
 }

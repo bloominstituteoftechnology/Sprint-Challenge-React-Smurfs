@@ -1,14 +1,19 @@
-import React, { Component } from 'react';
-
+import React from 'react';
+import './Smurfs.css'
 import Smurf from './Smurf';
 
-class Smurfs extends Component {
+class Smurfs extends React.Component {
+  constructor(props) {
+    super(props);
+  }
   render() {
     return (
       <div className="Smurfs">
-        <h1>Smurf Village</h1>
+        <div className='headingContainer'>
+          <h1>Smurf Village</h1>
+        </div>
         <ul>
-          {this.props.smurfs.map(smurf => {
+          {this.props.mySmurfs.map(smurf => {
             return (
               <Smurf
                 name={smurf.name}

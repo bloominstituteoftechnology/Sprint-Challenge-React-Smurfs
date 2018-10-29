@@ -1,0 +1,55 @@
+.smurfFormContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.SmurfForm {
+  background-color: white;
+  width: 30%;
+  padding: 5px;
+  margin: 5px;
+  -webkit-box-shadow: 5px 5px 15px 5px #000000; 
+  box-shadow: 5px 5px 15px 5px #270683;
+  border-radius:15%;
+}
+
+.formFields {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  color: rgb(73, 115, 206);
+}
+
+.formFields h2 {
+  font-family: 'Spicy Rice', cursive;
+  background-color: rgb(73, 115, 206);
+  color: white;
+  letter-spacing: 1px;
+  padding: 15px;
+  border-radius: 15px;
+  text-shadow: -3px 5px 7px black;
+}
+
+.inputFields {
+  margin: 15px;
+  font-family: cursive;
+  font-size: 1.6rem;
+  
+}
+
+.button {
+  font-family: 'Spicy Rice', cursive;
+  font-size: 1rem;
+  letter-spacing: 1px;
+  padding: 15px;
+  border-radius: 15px;
+  text-shadow: -3px 5px 7px black;  background-color: rgb(73, 115, 206);
+  color: white;
+}
+
+.button:hover {
+  -webkit-box-shadow: 5px 5px 15px 5px #000000; 
+  box-shadow: 5px 5px 15px 5px #000000;
+}
