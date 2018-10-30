@@ -45,3 +45,12 @@ ul {
 .update:hover {
   background: rgba(69, 219, 0, 0.815);
 }
+
+.disabled {
+  background: rgba(51, 51, 51, 0.63);
+  cursor: auto;
+}
+
+.disabled:hover {
+  background: rgba(51, 51, 51, 0.63);
+}

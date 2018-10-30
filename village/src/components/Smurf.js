@@ -10,7 +10,9 @@ const Smurf = props => {
         <div className="button delete" onClick={props.deleteSmurf}>
           Delete
         </div>
-        <div className="button update">Update</div>
+        <div className="button update disabled" onClick={props.updateSmurf}>
+          Update
+        </div>
       </div>
     </div>
   );
