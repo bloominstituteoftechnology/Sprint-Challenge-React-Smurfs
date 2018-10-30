@@ -13,3 +13,35 @@ nav {
 ul {
   padding-left: 0;
 }
+
+.Smurf {
+  border: 1px solid black;
+  width: 50%;
+  margin: 5px auto;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+}
+
+.button {
+  /* border: 1px solid red; */
+  width: 30%;
+  margin: 0 1%;
+  margin-bottom: 5px;
+  padding: 5px;
+  box-sizing: border-box;
+  background-color: #333;
+  color: white;
+  cursor: pointer;
+  transition: 0.15s;
+}
+
+.delete:hover {
+  background: rgba(255, 0, 0, 0.911);
+}
+
+.update:hover {
+  background: rgba(69, 219, 0, 0.815);
+}
