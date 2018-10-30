@@ -47,7 +47,7 @@ export default class App extends Component {
       <div className="App">
         <NavLink to="/">Smurfs</NavLink>
         <NavLink to="/smurf-form">Add a Smurf</NavLink>
-        {this.state.smurfs.length ? null : (
+        {!this.state.smurfs.length ? null : (
         <React.Fragment>
           <Route
             path="/smurf-form"
