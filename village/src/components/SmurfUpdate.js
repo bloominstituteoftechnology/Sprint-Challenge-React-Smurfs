@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from "axios";
 
-class SmurfForm extends Component {
+class SmurfUpdate extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -12,14 +12,26 @@ class SmurfForm extends Component {
     };
   }
 
-  addSmurf = event => {
-    event.preventDefault();
-    // add code to create the smurf using the api
-    axios.post('http://localhost:3333/smurfs', {
+  componentDidMount() {
+
+    this.setState(() => ({
       name: this.state.name,
       age: this.state.age,
       height: this.state.height,
-      id: this.state.id
+    }))
+  }
+
+  putSmurf = event => {
+    event.preventDefault();
+    const id = this.props.match.params.id;
+    // add code to create the smurf using the api
+    /*  axios.post('http://localhost:3333/smurfs', { */
+    let webUrl = `http://localhost:3333/smurfs/${id}`;
+    
+    axios.put(webUrl, {
+      name: this.state.name,
+      age: this.state.age,
+      height: this.state.height,
     })
       .then(response => {
         this.setState(() => ({ smurfs: response.data }));
@@ -27,7 +39,7 @@ class SmurfForm extends Component {
       .catch(error => {
         console.log(error);
       });
-
+   
     this.setState({
       name: '',
       age: '',
@@ -44,7 +56,8 @@ class SmurfForm extends Component {
   render() {
     return (
       <div className="SmurfForm">
-        <form onSubmit={this.addSmurf}>
+        <form onSubmit={this.putSmurf}>
+          <p className="update-header">Currently Updating Smurf with id: {this.props.match.params.id}</p>
           <input
             onChange={this.handleInputChange}
             placeholder="name"
@@ -73,11 +86,11 @@ class SmurfForm extends Component {
             name="id"
             className="input"
           />
-          <button type="submit">Add to the village</button>
+          <button className="button-submit" type="submit">Update the village</button>
         </form>
       </div>
     );
   }
 }
 
-export default SmurfForm;
+export default SmurfUpdate;

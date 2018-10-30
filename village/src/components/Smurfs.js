@@ -7,6 +7,7 @@ class Smurfs extends Component {
     return (
       <div className="Smurfs">
         <h1>Smurf Village</h1>
+        <h4>Click on the Smurfs Text you would like to update</h4>
         <ul>
           {this.props.smurfs.map(smurf => {
             return (
