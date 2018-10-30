@@ -28,7 +28,7 @@ class SmurfForm extends Component {
       })
       .catch(error => console.log(error));
   }
-  
+  c
   render() {
     return (
       <div className="SmurfForm">
