@@ -43,39 +43,42 @@ export default class App extends Component {
   };
 
   render() {
-    if (!this.state.smurfs.length) return null; // to do: implement loader to display while waiting for data
     return (
       <div className="App">
         <NavLink to="/">Smurfs</NavLink>
         <NavLink to="/smurf-form">Add a Smurf</NavLink>
-        <Route
-          path="/smurf-form"
-          render={props => (
-            <SmurfForm {...props} updateSmurfs={this.updateSmurfs} />
-          )}
-        />
-        <Route
-          exact
-          path="/"
-          render={props => (
-            <Smurfs
-              {...props}
-              smurfs={this.state.smurfs}
-              goodbyeSmurf={this.goodbyeSmurf}
-            />
-          )}
-        />
-        <Route
-          path="/smurf/:id"
-          render={props => (
-            <SingleSmurf
-              {...props}
-              smurfs={this.state.smurfs}
-              goodbyeSmurf={this.goodbyeSmurf}
-              editSmurf={this.editSmurf}
-            />
-          )}
-        />
+        {this.state.smurfs.length ? null : (
+        <React.Fragment>
+          <Route
+            path="/smurf-form"
+            render={props => (
+              <SmurfForm {...props} updateSmurfs={this.updateSmurfs} />
+            )}
+          />
+          <Route
+            exact
+            path="/"
+            render={props => (
+              <Smurfs
+                {...props}
+                smurfs={this.state.smurfs}
+                goodbyeSmurf={this.goodbyeSmurf}
+              />
+            )}
+          />
+          <Route
+            path="/smurf/:id"
+            render={props => (
+              <SingleSmurf
+                {...props}
+                smurfs={this.state.smurfs}
+                goodbyeSmurf={this.goodbyeSmurf}
+                editSmurf={this.editSmurf}
+              />
+            )}
+          />
+        </React.Fragment>
+        )}
       </div>
     );
   }

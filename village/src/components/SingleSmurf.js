@@ -8,6 +8,7 @@ const SingleSmurf = props => {
     smurf => `${smurf.id}` === props.match.params.id
   );
 
+  if (!smurf) return null; // this prevents undefined error when using a direct link to a smurf that doesn't exist
   return (
     <div>
       <SmurfForm id={smurf.id} editSmurf={props.editSmurf} />
