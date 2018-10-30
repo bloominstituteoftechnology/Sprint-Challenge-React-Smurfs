@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import axios from 'axios'
+import axios from 'axios';
+import Smurfs from './Smurfs'
 
 class SmurfForm extends Component {
   constructor(props) {
@@ -27,6 +28,9 @@ class SmurfForm extends Component {
       height: ''
     })
     window.location.reload();
+  })
+  .catch(err =>{
+    console.log(err)
   })
   }
 
