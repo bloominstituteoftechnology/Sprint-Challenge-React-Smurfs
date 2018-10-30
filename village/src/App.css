@@ -1,3 +1,56 @@
 .App {
   text-align: center;
+  box-sizing: border-box;
+}
+
+nav {
+  padding-top: 10px;
+}
+.nav-item {
+  padding: 10px;
+}
+
+ul {
+  padding-left: 0;
+}
+
+.Smurf {
+  border: 1px solid black;
+  width: 50%;
+  margin: 5px auto;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+}
+
+.button {
+  /* border: 1px solid red; */
+  width: 30%;
+  margin: 0 1%;
+  margin-bottom: 5px;
+  padding: 5px;
+  box-sizing: border-box;
+  background-color: #333;
+  color: white;
+  cursor: pointer;
+  transition: 0.15s;
+}
+
+.delete:hover {
+  background: rgba(255, 0, 0, 0.911);
+}
+
+.update:hover {
+  background: rgba(69, 219, 0, 0.815);
+}
+
+.disabled {
+  background: rgba(51, 51, 51, 0.63);
+  cursor: auto;
+}
+
+.disabled:hover {
+  background: rgba(51, 51, 51, 0.63);
 }
