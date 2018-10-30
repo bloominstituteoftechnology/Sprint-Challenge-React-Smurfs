@@ -1,36 +1,38 @@
 import React, { Component } from "react";
 
-class SmurfForm extends Component {
+class UpdateSmurf extends Component {
   constructor(props) {
     super(props);
     this.state = {
       name: "",
       age: "",
-      height: ""
+      height: "",
+      id: ""
     };
   }
+  // on mount should prepopulate the smurf details with current
   componentDidMount() {
-    console.log(this.props);
-  }
-  addSmurf = event => {
-    event.preventDefault();
-    // add code to create the smurf using the api
-    this.props.add({ ...this.state });
     this.setState({
-      name: "",
-      age: "",
-      height: ""
+      name: this.props.name,
+      age: this.props.age,
+      height: this.props.height,
+      id: this.props.id
     });
+  }
+  // handler for sending smurf details to the parent for pushing to server
+  updateSmurf = e => {
+    e.preventDefault();
+    return this.props.update(this.state);
   };
-
+  // handles all input from form inputs
   handleInputChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
 
   render() {
     return (
-      <div className="SmurfForm">
-        <form onSubmit={this.addSmurf}>
+      <div className="UpdateSmurf">
+        <form onSubmit={this.updateSmurf}>
           <input
             onChange={this.handleInputChange}
             placeholder="name"
@@ -49,11 +51,11 @@ class SmurfForm extends Component {
             value={this.state.height}
             name="height"
           />
-          <button type="submit">Add to the village</button>
+          <button type="submit">Update Smurf</button>
         </form>
       </div>
     );
   }
 }
 
-export default SmurfForm;
+export default UpdateSmurf;
