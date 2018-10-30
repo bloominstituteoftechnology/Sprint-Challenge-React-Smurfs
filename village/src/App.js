@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Route, NavLink, Link } from "react-router-dom";
+import { Route, NavLink } from "react-router-dom";
 import axios from "axios";
 import "./App.css";
 import SmurfForm from "./components/SmurfForm";
@@ -9,7 +9,8 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      smurfs: []
+      smurfs: [],
+      id: 0
     };
   }
   // add any needed code to ensure that the smurfs collection exists on state and it has data coming from the server
@@ -36,13 +37,36 @@ class App extends Component {
       })
       .catch(err => console.log(err));
   };
+  delete = (id) => {
+    axios
+      .delete(`http://localhost:3333/smurfs/${id.target.name}`)
+      .then(res => {this.setState({smurfs: res.data})})
+      .catch(err => console.log(err))
+  }
 
   render() {
     // add condition for empty smurf array loading component
+
     return (
       <div className="App">
-        <SmurfForm add={this.addSmurf} />
-        <Smurfs smurfs={this.state.smurfs} />
+        <ul>
+          <NavLink to="/">Home</NavLink>
+          <NavLink to="/smurf-form">Add A Smurf</NavLink>
+        </ul>
+        <Route
+          path="/"
+          exact
+          render={() => {
+            return <Smurfs smurfs={this.state.smurfs} delete={this.delete} />;
+          }}
+        />
+        <Route
+          path="/smurf-form"
+          exact
+          render={() => {
+            return <SmurfForm add={this.addSmurf} />;
+          }}
+        />
       </div>
     );
   }
