@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
-
+import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
+import Navbar from './components/Navbar';
+import About from './components/About';
+import { Route, Switch } from 'react-router-dom';
 
 class App extends Component {
   constructor(props) {
@@ -17,8 +20,14 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <SmurfForm />
-        <Smurfs smurfs={this.state.smurfs} />
+      <Navbar branding ="Smurfs"/>
+      <SmurfForm />
+      <div className="container">
+        <switch>
+            <Route exact path='/' component={Smurfs} />
+            <Route exact path='/about' component={About} />
+        </switch>
+      </div>
       </div>
     );
   }
