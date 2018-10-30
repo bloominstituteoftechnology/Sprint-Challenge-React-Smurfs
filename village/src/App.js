@@ -66,7 +66,7 @@ class App extends Component {
     event.preventDefault();
     const smurfToUpdate = this.state.smurfs.find(smurf => smurf.id === id);
     this.setState({ smurf: smurfToUpdate, isUpdating: true });
-    console.log(smurfToUpdate.isUpdating)
+    console.log(smurfToUpdate)
   }
 
   handleUpdateSmurf = id => {
@@ -106,9 +106,10 @@ class App extends Component {
 
         <Route path="/smurf-form" render={props => (
             <SmurfForm 
-            name={this.state.smurf.name}
-            age={this.state.smurf.age}
-            height={this.state.smurf.height}
+            {...props}
+            // name={this.state.smurf.name}
+            // age={this.state.smurf.age}
+            // height={this.state.smurf.height}
 
             handleAddNewSmurf={this.handleAddNewSmurf} 
             smurf={this.state.smurf} 
