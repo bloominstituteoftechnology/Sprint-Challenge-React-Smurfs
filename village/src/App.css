@@ -80,3 +80,15 @@ p {
   border: 5px solid blue;
   color:blue;
 }
+
+input {
+  background-color: yellow;
+  height: 100px;
+  width: 100px;
+}
+
+.X {
+  background-color: red;
+  width: 50px;
+}
+
