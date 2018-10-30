@@ -54,7 +54,7 @@ class App extends Component {
       <div className="App">
         <nav>
           <NavLink className="nav-item" to={'/smurf-form'}>
-            Form
+            Add New Smurf
           </NavLink>
           <NavLink className="nav-item" to={'/'}>
             Smurfs
