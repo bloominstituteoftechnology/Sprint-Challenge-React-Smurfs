@@ -15,7 +15,7 @@ class Smurfs extends Component {
         <ul>
           {sortedSmurfs.map(smurf => {
             return (
-              <Smurf
+              <Smurf deleteHandler={this.props.deleteHandler}
                 name={smurf.name}
                 id={smurf.id}
                 age={smurf.age}
