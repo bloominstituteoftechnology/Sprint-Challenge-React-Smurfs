@@ -4,6 +4,7 @@ import axios from "axios";
 import "./App.css";
 import SmurfForm from "./components/SmurfForm";
 import Smurfs from "./components/Smurfs";
+import Smurf from "./components/Smurf";
 import UpdateSmurf from "./components/UpdateSmurf";
 
 class App extends Component {
@@ -74,14 +75,15 @@ class App extends Component {
   };
   render() {
     // add condition for empty smurf array loading component
-
+    console.log(this.state.smurfs[this.state.id]);
     return (
       <div className="App">
         <ul>
           <NavLink to="/">Home</NavLink>
           <NavLink to="/smurf-form">Add A Smurf</NavLink>
         </ul>
-        {this.state.updateSmurf ? (
+        {// BUG: Will not update the update form input content when a new edit smurf is clicked. State is being updated though
+        this.state.updateSmurf ? (
           <UpdateSmurf
             {...this.state.smurfs[this.state.id]}
             update={this.update}
@@ -106,6 +108,13 @@ class App extends Component {
           exact
           render={() => {
             return <SmurfForm add={this.addSmurf} />;
+          }}
+        />
+        <Route
+          path="/smurf/:id"
+          exact
+          render={props => {
+            return <Smurf {...this.state.smurfs[props.match.params.id]} />;
           }}
         />
       </div>
