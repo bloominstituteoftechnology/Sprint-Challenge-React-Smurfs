@@ -5,6 +5,7 @@ import { Route, NavLink } from 'react-router-dom';
 import './App.css';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
+import Smurf from './components/Smurf.js'
 
 class App extends Component {
   constructor(props) {
@@ -51,7 +52,7 @@ class App extends Component {
       <div className="App">
         <NavLink to='/smurfform'>Add a smurf to the village!</NavLink>
         <br/>
-        <NavLink to='smurfs'>See the smurfs in the village!</NavLink>
+        <NavLink to='/smurfs'>See the smurfs in the village!</NavLink>
         <Route
           path='/smurfform'
           render={props => 
@@ -62,8 +63,8 @@ class App extends Component {
             />
           }
         />
-        {/* <SmurfForm addSmurfToDB={this.addSmurfToDB} /> */}
         <Route
+          exact
           path='/smurfs'
           render={props => 
             <Smurfs
@@ -71,6 +72,15 @@ class App extends Component {
               smurfs={this.state.smurfs}
               deleteFromDB={this.deleteFromDB}
               updateDB={this.updateDB}
+            />
+          }
+        />
+        <Route
+          path='/smurfs/:id'
+          render={props => 
+            <Smurf
+              {...props}
+              match={this.match}
             />
           }
         />
