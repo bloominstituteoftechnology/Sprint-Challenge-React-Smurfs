@@ -25,9 +25,9 @@ class App extends Component {
   // You'll need to make sure you have the right properties on state and pass them down to props.
   componentDidMount()    {
       axios.get(`http://localhost:3333/smurfs`)
-      .then(data    =>  this.setState((state)   =>  ({
-          smurfs: data.data
-      })))
+      .then(data    =>  {
+          this.setState({smurfs: data.data}, () =>  console.log(this.state))
+      })
       .catch(err    =>  {
           console.log("In Catch", err);
       })

@@ -9,6 +9,11 @@ class Smurfs extends Component {
             smurfs: this.props.smurfs,
         }
     }
+    componentWillReceiveProps(newProps)  {
+        this.setState({
+            smurfs: newProps.smurfs,
+        })
+    }
 
   render() {
     return (
