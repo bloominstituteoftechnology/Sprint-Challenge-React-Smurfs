@@ -69,15 +69,15 @@ class App extends Component {
     console.log(smurfToUpdate)
   }
 
-  handleUpdateSmurf = id => {
-    console.log(id)
+  handleUpdateSmurf = smurf => {
+    console.log(smurf)
     axios
-    .put(`http://localhost:3333/smurfs/${id}`, this.state.smurf)
+    .put(`http://localhost:3333/smurfs/${smurf.id}`, smurf)
     .then(response => {
       this.setState({
         smurfs: response.data,
         smurf: this.state.smurf,
-        isUpdating: true,
+        isUpdating: false,
       });
     })
     .catch(err => {
@@ -114,7 +114,7 @@ class App extends Component {
             handleAddNewSmurf={this.handleAddNewSmurf} 
             smurf={this.state.smurf} 
             handleInputChange={this.handleInputChange}
-            isUpdating={this.isUpdating}
+            isUpdating={this.state.isUpdating}
             handleUpdateSmurf={this.handleUpdateSmurf}
             />
         )} 
