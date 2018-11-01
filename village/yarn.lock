@@ -7253,3 +7253,7 @@ yargs@~3.10.0:
     cliui "^2.1.0"
     decamelize "^1.0.0"
     window-size "0.1.0"
+
+youtube-embed-video@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/youtube-embed-video/-/youtube-embed-video-1.1.0.tgz#315734ba7750a90b023170c1b3174ba1e79b4a42"
