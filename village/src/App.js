@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
-import axios from 'axios';
-import './App.css';
-import SmurfForm from './components/SmurfForm';
-import Smurfs from './components/Smurfs';
-import {Route} from 'react-router-dom';
+import React, { Component } from "react";
+import axios from "axios";
+import "./App.css";
+import SmurfForm from "./components/SmurfForm";
+import Smurfs from "./components/Smurfs";
+import { Route } from "react-router-dom";
 
 class App extends Component {
   constructor(props) {
@@ -12,17 +12,18 @@ class App extends Component {
       smurfs: [],
       name: "",
       age: 0,
-      height: '',
+      height: ""
     };
   }
   // add any needed code to ensure that the smurfs collection exists on state and it has data coming from the server
   // Notice what your map function is looping over and returning inside of Smurfs.
   // You'll need to make sure you have the right properties on state and pass them down to props.
   componentDidMount() {
-        axios.get("http://localhost:3333/smurfs")
-          .then(response => this.setState({ smurfs: response.data }));
-      }
-  
+    axios
+      .get("http://localhost:3333/smurfs")
+      .then(response => this.setState({ smurfs: response.data }));
+  }
+
   //     handleSubmit(e) {
   //   e.preventDefault();
   //   let newSmurf = {
@@ -41,16 +42,14 @@ class App extends Component {
   //       });
   //     });
   // }
-  
-  
-  
+
   render() {
     return (
       <div className="App">
-        <div className='formStyle'>
+        <div className="formStyle">
           <SmurfForm />
         </div>
-        <div className='smurfCard'>
+        <div className="smurfCard">
           <Smurfs smurfs={this.state.smurfs} />
         </div>
       </div>
@@ -59,7 +58,6 @@ class App extends Component {
 }
 
 export default App;
-
 
 //The following code has been copied from other files and will be used as reference for completing the challenge.
 // componentDidMount() {

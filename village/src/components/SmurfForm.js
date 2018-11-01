@@ -1,12 +1,12 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
 class SmurfForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: '',
-      age: '',
-      height: ''
+      name: "",
+      age: "",
+      height: ""
     };
   }
 
@@ -15,11 +15,11 @@ class SmurfForm extends Component {
     // add code to create the smurf using the api
 
     this.setState({
-      name: '',
-      age: '',
-      height: ''
+      name: "",
+      age: "",
+      height: ""
     });
-  }
+  };
 
   handleInputChange = e => {
     this.setState({ [e.target.name]: e.target.value });
@@ -56,21 +56,20 @@ class SmurfForm extends Component {
 
 export default SmurfForm;
 
-  //     handleSubmit(e) {
-  //   e.preventDefault();
-  //   let newSmurf = {
-  //     name: this.state.name,
-  //     age: this.state.age,
-  //     height: this.state.height
-  //   }
-  //   axios.post("http://localhost:3333/smurfs", newSmurf)
-  //     .then(response => {
-  //       let newSmurfArray = response.data.slice();
-  //       this.setState({
-  //         smurfs: newSmurfArray,
-  //         name: "",
-  //         age: 0,
-  //         height: "",
-  //       });
-  //     });
-  
+//     handleSubmit(e) {
+//   e.preventDefault();
+//   let newSmurf = {
+//     name: this.state.name,
+//     age: this.state.age,
+//     height: this.state.height
+//   }
+//   axios.post("http://localhost:3333/smurfs", newSmurf)
+//     .then(response => {
+//       let newSmurfArray = response.data.slice();
+//       this.setState({
+//         smurfs: newSmurfArray,
+//         name: "",
+//         age: 0,
+//         height: "",
+//       });
+//     });
