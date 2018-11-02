@@ -2,4 +2,26 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+  background-image: linear-gradient(to bottom right, #CFDBC5, brown); 
+  /* background-image: linear-gradient(to top right, #CFDBC5, yellow); */
+  color: brown;
+  border: 75px dashed lightgoldenrodyellow;
+  padding-top: 75px;
+  
+}
+
+::placeholder, h1 {
+  color: #88CCFF;
+}
+
+h1 {
+  text-shadow:
+		-1px -1px 0 #000,
+		1px -1px 0 #000,
+		-1px 1px 0 #000,
+		1px 1px 0 #000;
+}
+
+.smurf {
+  background-color: red;
 }

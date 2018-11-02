@@ -43,11 +43,20 @@ export default class SmurfForm extends React.Component {
       }).catch(error => console.log(error))
   };
 
+
+
+
+
   
 
   render(props) {
     return (
       <div className="SmurfForm">
+
+      {/*this.state.smurfs.map(each => (
+        <Smurfs each={each} deleter={this.deleter} />
+      ))*/}
+
         <form onSubmit={this.addSmurf}>
           <input
             onChange={this.handleInputChange}
@@ -69,7 +78,9 @@ export default class SmurfForm extends React.Component {
             
             name="height"
           />
+          
           <button type="submit">Add to the village</button>
+          
         </form>
       </div>
     )

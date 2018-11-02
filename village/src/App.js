@@ -5,14 +5,13 @@ import './App.css';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
 
+
 class App extends Component {
   constructor() {
     super();
     this.state = {
       smurfs: [],
-      name: '',
-      age: '',
-      height: ''
+      
     };
   }
   // add any needed code to ensure that the smurfs collection exists on state and it has data coming from the server
@@ -40,6 +39,22 @@ componentDidMount(){
       });
 }
 
+//Troubleshooting
+//check link
+
+
+deleter = id => {
+  console.log(id)
+  axios
+  .delete(`http://localhost:3333/smurfs/${id}`)
+  .then(response => { console.log(response)
+    this.setState({
+      smurfs: response.data
+    })
+  }).catch(event => console.log(event))
+}
+
+
 
 
   render() {
@@ -48,7 +63,7 @@ componentDidMount(){
       <div className="App">
       <h1>Smurf Village</h1>
         <SmurfForm />
-    <div>{this.state.smurfs.map(each => <Smurfs data={each} key={each.id} />)} </div>
+    <div>{this.state.smurfs.map(each => <Smurfs data={each} key={each.id} deleter={this.deleter} />)} </div>
       </div>
     );
   }
