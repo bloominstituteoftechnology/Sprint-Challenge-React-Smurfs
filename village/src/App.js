@@ -3,6 +3,7 @@ import './App.css';
 import axios from 'axios'
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
+import Smurf from './components/Smurf'
 import { Route, Link, NavLink} from 'react-router-dom'
 
 class App extends Component {
@@ -28,6 +29,20 @@ class App extends Component {
       console.log(err)
     });
   }
+
+  GargamelASmurf = (smurfId) => {
+    return () => {
+      axios
+      .delete('http://localhost:3333/smurfs')
+      .then((result) => {
+
+        
+      }).catch((err) => {
+        
+      });
+    }
+    
+  }
   render() {
     return (
       <div className="App">
@@ -35,6 +50,7 @@ class App extends Component {
       {' '}
       <NavLink to='/smurf-form'>Smurf Form</NavLink>
       <Route path='/smurf-form' component={SmurfForm} />
+      <Route path='/smurf/:id' render={() => <Smurf/> } />
       <Route path='/'  render={() => <Smurfs match={this.props.match} smurfs={this.state.smurfs} />} />
       </div>
     );
