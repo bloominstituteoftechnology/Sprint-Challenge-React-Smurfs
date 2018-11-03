@@ -1,11 +1,14 @@
 import React from 'react';
-
+import { Link } from 'react-router-dom'
 const Smurf = props => {
   return (
     <div className="Smurf">
-      <h3>{props.name}</h3>
-      <strong>{props.height} tall</strong>
-      <p>{props.age} smurf years old</p>
+    {props.smurfs.map((smurf, index) => <div key={index}>
+      <h3>{smurf.name}</h3>
+      <h4>{smurf.age}</h4>
+      <h6>{smurf.height}</h6>
+      <button onClick={() => props.delete(smurf.id)} >Delete</button>
+    </div>)}
     </div> 
   );
 };

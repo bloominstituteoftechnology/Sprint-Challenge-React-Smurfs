@@ -3,8 +3,8 @@ import './App.css';
 import axios from 'axios'
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
-import Smurf from './components/Smurf'
 import { Route, Link, NavLink} from 'react-router-dom'
+import Smurf from './components/Smurf'
 
 class App extends Component {
   constructor(props) {
@@ -30,14 +30,18 @@ class App extends Component {
     });
   }
 
-  GargamelASmurf = (smurfId) => {
+  delete = (smurfId) => {
     return () => {
       axios
-      .delete('http://localhost:3333/smurfs')
+      .delete(`http://localhost:3333/smurfs/${smurfId}`)
       .then((result) => {
-
+        console.log('Server Response: ', result)
+        this.setState({
+          smurfs: result.data
+        })
         
       }).catch((err) => {
+        console.log('Error: ', err)
         
       });
     }
@@ -50,8 +54,14 @@ class App extends Component {
       {' '}
       <NavLink to='/smurf-form'>Smurf Form</NavLink>
       <Route path='/smurf-form' component={SmurfForm} />
-      <Route path='/smurf/:id' render={() => <Smurf/> } />
-      <Route path='/'  render={() => <Smurfs match={this.props.match} smurfs={this.state.smurfs} />} />
+      <Route exact path='/:id' render={() => <Smurf
+      smurfs={this.state.smurfs} match={this.props.match}
+       {...this.props} delete={this.delete} />} />
+      <Route exact path='/'  render={() => <Smurfs 
+      delete={this.delete}
+      match={this.props.match} 
+      smurfs={this.state.smurfs}
+       />} />
       </div>
     );
   }
