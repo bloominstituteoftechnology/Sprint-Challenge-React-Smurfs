@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 import './App.css';
+import axios from 'axios'; // <-- I can't believe I forgot to import that until so late
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
 
-const url = "http://localhost:3333/smurfs"
+const url = "http://localhost:3333/smurfs" // <-- Thanks, Tom!
 
 class App extends Component {
   constructor(props) {
@@ -30,7 +31,7 @@ class App extends Component {
     return (
       <div className="App">
         <Route exact path="/" render={ (props) => {
-          return(<Smurfs {...props} smurfs={this.smurfs}/>)
+          return(<Smurfs {...props} smurfs={this.state.smurfs}/>)
           }} />
         <Route path="/smurf-form" component={SmurfForm} />
       </div>
