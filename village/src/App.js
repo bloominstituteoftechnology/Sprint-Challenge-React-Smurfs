@@ -18,7 +18,7 @@ class App extends Component {
   // Notice what your map function is looping over and returning inside of Smurfs.
   // You'll need to make sure you have the right properties on state and pass them down to props.
 
-  componentDidMount() {
+  componentDidMount(e) {
     axios.get('http://localhost:3333/smurfs')
       .then(response => {
         this.setState({
@@ -37,6 +37,7 @@ class App extends Component {
       })
       .catch(err => console.log(err))
   }
+
   render() {
     return (
       <div className="App">
