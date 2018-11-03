@@ -31,11 +31,11 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-      <NavLink to='/' />
-      <NavLink to='/smurf-form' />
+      <NavLink to='/'>Smurfs</NavLink>
+      {' '}
+      <NavLink to='/smurf-form'>Smurf Form</NavLink>
       <Route path='/smurf-form' component={SmurfForm} />
-        <SmurfForm />
-      <Route path='/'  render={() => <Smurfs  match={this.props.match} smurfs={this.state.smurfs} />} />
+      <Route path='/'  render={() => <Smurfs match={this.props.match} smurfs={this.state.smurfs} />} />
       </div>
     );
   }
