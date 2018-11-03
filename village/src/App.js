@@ -54,7 +54,7 @@ class App extends Component {
       {' '}
       <NavLink to='/smurf-form'>Smurf Form</NavLink>
       <Route path='/smurf-form' component={SmurfForm} />
-      <Route exact path='/:id' render={() => <Smurf
+      <Route exact path='/smurfs/:id' render={() => <Smurf
       smurfs={this.state.smurfs} match={this.props.match}
        {...this.props} delete={this.delete} />} />
       <Route exact path='/'  render={() => <Smurfs 
