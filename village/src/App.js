@@ -4,6 +4,7 @@ import './App.css';
 import axios from 'axios'; // <-- I can't believe I forgot to import that until so late
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
+import NavBar from './components/NavBar';
 
 const url = "http://localhost:3333/smurfs" // <-- Thanks, Tom!
 
@@ -30,6 +31,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <NavBar />
         <Route exact path="/" render={ (props) => {
           return(<Smurfs {...props} smurfs={this.state.smurfs}/>)
           }} />
