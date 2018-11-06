@@ -5,6 +5,7 @@ import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
 import axios from 'axios';
 import { Route, Link, NavLink } from 'react-router-dom';
+import IndividualSmurf from './components/IndividualSmurf';
 
 class App extends Component {
   constructor(props) {
@@ -50,7 +51,11 @@ class App extends Component {
 
   <Route 
  path="/smurfform" 
-  render={props => <SmurfForm {...props} /> } />
+  render={props => <SmurfForm {...props} /> }/>
+
+  <Route path="/smurfs/:id"
+  render={props=><IndividualSmurf {...props} smurfs={this.state.smurfs}/>}
+  />
       </div>
     );
   }
