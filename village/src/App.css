@@ -1,7 +1,7 @@
 .App {
   text-align: center;
+}
 
-  ul {
-    list-style-type:none;
-  }
+.App ul {
+  list-style:none;
 }
