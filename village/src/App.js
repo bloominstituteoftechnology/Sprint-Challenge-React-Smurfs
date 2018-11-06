@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { Route } from 'react-router-dom';
 
 import './App.css';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
+import NavBar from './components/NavBar';
 
 class App extends Component {
   constructor(props) {
@@ -17,7 +19,8 @@ class App extends Component {
   // You'll need to make sure you have the right properties on state and pass them down to props.
   
   componentDidMount() {
-    axios.get(`http://localhost:3333/smurfs`)
+    axios
+      .get(`http://localhost:3333/smurfs`)
       .then( response => this.setState({
         smurfs: response.data
         })
@@ -39,8 +42,25 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <SmurfForm addSmurfHandler={this.addSmurfHandler} />
-        <Smurfs smurfs={this.state.smurfs} />
+        <Route path="/">
+          <NavBar />
+        </Route>
+
+        <Route 
+          path="/smurf-form"           
+          render={props => (          
+            <SmurfForm addSmurfHandler={this.addSmurfHandler} />
+        )}>
+        </Route>
+
+        <Route 
+          exact 
+          path="/" 
+          render={props => (
+            <Smurfs {...props} smurfs={this.state.smurfs} />
+        )}>
+        </Route>
+
       </div>
     );
   }
