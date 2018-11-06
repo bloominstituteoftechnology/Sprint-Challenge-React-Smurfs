@@ -1,29 +1,19 @@
 import React from "react";
-import axios from "axios";
 
-class Smurf extends React.Component {
-  deleteSmurf = id => {
-    axios
-      .delete(`http://localhost:3333/smurfs/${this.props.id}`)
-      .then(res => {
-        this.setState({ smurfs: res.data });
-      })
-      .catch(err => {
-        console.log(err.res);
-      });
-  };
-  render() {
-    return (
-      <div className="Smurf">
-        <h3>{this.props.name}</h3>
-        <strong>{this.props.height} tall</strong>
-        <p>{this.props.age} smurf years old</p>
-        <button onClick={this.deleteSmurf}>delete</button>
-        <button>update</button>
-      </div>
-    );
-  }
-}
+
+const Smurf = props => {
+  console.log('props')
+  const {id,name, height, age} = props
+  return (
+    <div className="Smurf">
+      <h3>{name}</h3>
+      <strong>{height} tall</strong>
+      <p>{age} smurf years old</p>
+      <button onClick={() => props.deleteSmurf(id)}>delete</button>
+      <button>update</button>
+    </div>
+  );
+};
 
 Smurf.defaultProps = {
   name: "",

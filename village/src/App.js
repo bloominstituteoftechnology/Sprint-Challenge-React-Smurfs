@@ -25,16 +25,29 @@ class App extends Component {
       });
   }
 
-  // deleteSmurf = id => {
-  //   axios
-  //     .delete(`http://localhost:3333/smurfs/${id}`)
-  //     .then(res => {
-  //       this.setState({ smurfs: res.data });
-  //     })
-  //     .catch(err => {
-  //       console.log(err);
-  //     });
-  // };
+  addSmurf = (e, obj) => {
+    e.preventDefault();
+    axios
+      .post("http://localhost:3333/smurfs", obj)
+      .then(res => {
+        this.setState({ smurfs: res.data });
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  };
+
+  deleteSmurf = id => {
+    axios
+      .delete(`http://localhost:3333/smurfs/${id}`)
+      .then(res => {
+        console.log("success delete");
+        this.setState({ smurfs: res.data });
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  };
 
   // gotToUpdate = (e, id) => {
   //   e.preventDefault();
@@ -42,12 +55,17 @@ class App extends Component {
   //   this.setState({isUpdating: true, smurf: updatedSmurf});
   // }
 
-  // updatedSmurf = smurfId => {
-  //   axios
-  //     .put(`http://localhost:3333/smurfs/${smurfId}`, this.state.)
-  // }
+  updateSmurf = id => {
+    axios
+      .put(`http://localhost:3333/smurfs/${id}`)
+        .then(res => console.log(res))
+        .catch(err => console.log(err))
+  }
 
   render() {
+    if (this.state.smurfs.length === 0) {
+      return <div>Loading...</div>;
+    }
     return (
       <div className="App">
         <ul className="navbar">
@@ -65,18 +83,25 @@ class App extends Component {
 
         <Route
           path="/smurf-form"
-          render={props => <SmurfForm {...props} smurfs={this.state.smurfs} />}
+          render={() => (
+            <SmurfForm smurfs={this.state.smurfs} addSmurf={this.addSmurf} updateSmurf={this.updateSmurf} />
+          )}
         />
         <Route
-          path="/smurfs/:smurfId"
-          render={props => <Smurf {...props} smurfs={this.state.smurfs}  />}  //deleteSmurf={this.deleteSmurf}
+          path="/smurfs/:id"
+          render={() => (
+            <Smurf smurfs={this.state.smurfs} deleteSmurf={this.deleteSmurf} />
+          )} 
         />
         <Route
           exact
           path="/"
-          render={props => <Smurfs {...props} smurfs={this.state.smurfs}  />}
+          render={() => (
+          <Smurfs smurfs={this.state.smurfs} deleteSmurf={this.deleteSmurf} />
+          )}
         />
-      </div>
+        </div>
+     
     );
   }
 }
