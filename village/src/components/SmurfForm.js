@@ -32,7 +32,7 @@ class SmurfForm extends Component {
   render() {
     return (
       <div className="SmurfForm">
-        <form onSubmit={this.addSmurf}>
+        <form onSubmit={this.props.addSmurf}>
           <input
             onChange={this.handleInputChange}
             placeholder="name"
