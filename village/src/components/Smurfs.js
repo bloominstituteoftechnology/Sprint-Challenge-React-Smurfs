@@ -20,8 +20,7 @@ class Smurfs extends Component {
       <div className="Smurfs">
         <h1>Smurf Village</h1>
         <ul>
-          {this.props.smurfs.map(smurf => {
-            return (
+          {this.state.smurfs.map(smurf => {
               <Smurf
                 name={smurf.name}
                 id={smurf.id}
@@ -30,7 +29,7 @@ class Smurfs extends Component {
                 key={smurf.id}
                 delete={this.props.delete}
               />
-            );
+            
           })}
         </ul>
       </div>

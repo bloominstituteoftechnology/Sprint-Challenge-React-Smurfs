@@ -52,15 +52,26 @@ class App extends Component {
       <div className="App">
       <NavLink to='/'>Smurfs</NavLink>
       {' '}
+
       <NavLink to='/smurf-form'>Smurf Form</NavLink>
+      
       <Route path='/smurf-form' component={SmurfForm} />
-      <Route exact path='/smurfs/:id' render={() => <Smurf
-      smurfs={this.state.smurfs} match={this.props.match}
-       {...this.props} delete={this.delete} />} />
-      <Route exact path='/'  render={() => <Smurfs 
+      
+      <Route path='/smurfs' render={() => 
+      
+      <Smurfs
+      smurfs={this.state.smurfs} 
+      match={this.props.match}
+      {...this.props} 
+      delete={this.delete} />} />
+      
+      <Route exact path='/'  
+      render={() => 
+      
+      <Smurf
       delete={this.delete}
       match={this.props.match} 
-      smurfs={this.state.smurfs}
+      smurfs={this.state.smurfs} // array passed as prop
        />} />
       </div>
     );
