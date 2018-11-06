@@ -31,7 +31,6 @@ class App extends Component {
   }
 
   delete = (smurfId) => {
-    return () => {
       axios
       .delete(`http://localhost:3333/smurfs/${smurfId}`)
       .then((result) => {
@@ -46,7 +45,22 @@ class App extends Component {
       });
     }
     
-  }
+
+  addSmurf = (event, objct) => {
+   event.preventDefault();
+   // const newSmurf = {name: this.state.name, age: this.state.age, height: this.state.height}
+   axios
+   .post('http://localhost:3333/smurfs')
+   .then(result => {
+    this.setState({
+     smurfs: result.data 
+    })
+   })
+   // add code to create the smurf using the api
+ }
+
+
+
   render() {
     return (
       <div className="App">
@@ -57,26 +71,21 @@ class App extends Component {
       
       <Route path='/smurf-form' render={() => <SmurfForm 
 
-      handleInputChange={this.handleInputChange} 
       addSmurf={this.addSmurf}
 
       />} />
       
-      <Route path='/smurfs' render={() => 
+      <Route exact path='/' render={() => 
       
       <Smurfs
       smurfs={this.state.smurfs} 
-      match={this.props.match}
-      {...this.props} 
       delete={this.delete} />} />
       
-      <Route exact path='/'  
+      <Route exact path='/:id'  
       render={() => 
       
       <Smurf
-      delete={this.delete}
-      match={this.props.match} 
-      smurfs={this.state.smurfs} // array passed as prop
+       // array passed as prop
        />} />
       </div>
     );

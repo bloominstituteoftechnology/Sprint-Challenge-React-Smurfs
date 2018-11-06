@@ -1,18 +1,19 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
-const Smurf = props => {
-  return (
-    <div className="Smurf">
-    {props.smurfs.map((smurf, index) => <div key={index}>
-      <h3>{smurf.name}</h3>
-      <h4>{smurf.age}</h4>
-      <h6>{smurf.height}</h6>
-      <button onClick={() => props.delete(smurf.id)} >Delete</button>
-    </div>)}
-    </div> 
-  );
-};
 
+
+
+const Smurf = props => {
+const {id, name, height, age} = props
+
+return(
+ <div>
+ <h1>{name}</h1>
+ <h3>{age}</h3>
+  <h4>{height}</h4>
+ </div>
+)
+};
+ 
 Smurf.defaultProps = {
   name: '',
   height: '',
