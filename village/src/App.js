@@ -57,8 +57,10 @@ class App extends Component {
 
   updateSmurf = id => {
     axios
-      .put(`http://localhost:3333/smurfs/${id}`)
-        .then(res => console.log(res))
+      .put(`http://localhost:3333/smurfs/${id}`, id)
+        .then(res => {
+          this.setState({smurfs: res.data})
+        })
         .catch(err => console.log(err))
   }
 
@@ -90,7 +92,7 @@ class App extends Component {
         <Route
           path="/smurfs/:id"
           render={() => (
-            <Smurf smurfs={this.state.smurfs} deleteSmurf={this.deleteSmurf} />
+            <Smurf smurfs={this.state.smurfs}  updateSmurf={this.updateSmurf} />
           )} 
         />
         <Route
