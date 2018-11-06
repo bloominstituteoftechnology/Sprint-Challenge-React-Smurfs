@@ -50,25 +50,12 @@ class App extends Component {
       <div className="App">
       <NavLink to='/'>Smurfs</NavLink>
       {' '}
-
       <NavLink to='/smurf-form'>Smurf Form</NavLink>
-      
-      <Route exact path='/smurf-form' render={() => <SmurfForm 
-
-      addSmurf={this.addSmurf}
-
+      <Route exact path='/smurf-form' render={() => <SmurfForm addSmurf={this.addSmurf}
       />} />
-      
       <Route exact path='/' render={() => 
-      
-      <Smurfs
-      smurfs={this.state.smurfs} 
-      delete={this.delete} />} />
-      
-      <Route exact path='/:id'render={() => <Smurf
-      delete={this.delete}
-       // array passed as prop
-       />} />
+      <Smurfs smurfs={this.state.smurfs} delete={this.delete} />} />
+      <Route exact path='/:id'render={() => <Smurf delete={this.delete}/>} />
       </div>
     );
   }
