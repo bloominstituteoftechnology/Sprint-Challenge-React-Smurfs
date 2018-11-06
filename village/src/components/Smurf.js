@@ -10,6 +10,7 @@ return(
  <h1>{name}</h1>
  <h3>{age}</h3>
   <h4>{height}</h4>
+  <button onClick={() => props.delete(id)}> Delete Smurf </button>
  </div>
 )
 };

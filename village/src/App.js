@@ -45,22 +45,6 @@ class App extends Component {
       });
     }
     
-
-  addSmurf = (event, objct) => {
-   event.preventDefault();
-   // const newSmurf = {name: this.state.name, age: this.state.age, height: this.state.height}
-   axios
-   .post('http://localhost:3333/smurfs')
-   .then(result => {
-    this.setState({
-     smurfs: result.data 
-    })
-   })
-   // add code to create the smurf using the api
- }
-
-
-
   render() {
     return (
       <div className="App">
@@ -69,7 +53,7 @@ class App extends Component {
 
       <NavLink to='/smurf-form'>Smurf Form</NavLink>
       
-      <Route path='/smurf-form' render={() => <SmurfForm 
+      <Route exact path='/smurf-form' render={() => <SmurfForm 
 
       addSmurf={this.addSmurf}
 
@@ -81,10 +65,8 @@ class App extends Component {
       smurfs={this.state.smurfs} 
       delete={this.delete} />} />
       
-      <Route exact path='/:id'  
-      render={() => 
-      
-      <Smurf
+      <Route exact path='/:id'render={() => <Smurf
+      delete={this.delete}
        // array passed as prop
        />} />
       </div>
