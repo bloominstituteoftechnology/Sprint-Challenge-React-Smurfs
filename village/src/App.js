@@ -46,16 +46,19 @@ class App extends Component {
     }
     
   render() {
+   console.log('Smurfs in state', this.state.smurfs)
     return (
       <div className="App">
       <NavLink to='/'>Smurfs</NavLink>
       {' '}
       <NavLink to='/smurf-form'>Smurf Form</NavLink>
-      <Route exact path='/smurf-form' render={() => <SmurfForm addSmurf={this.addSmurf}
+      <Route exact path='/smurf-form' render={() => <SmurfForm
       />} />
       <Route exact path='/' render={() => 
       <Smurfs smurfs={this.state.smurfs} delete={this.delete} />} />
-      <Route exact path='/:id'render={() => <Smurf delete={this.delete}/>} />
+      <Route exact path='/smurfs' render={() => 
+      <Smurfs smurfs={this.state.smurfs} delete={this.delete}   />} />
+      <Route exact path='/smurfs/:id'render={() => <Smurf/>} />
       </div>
     );
   }
