@@ -1,8 +1,15 @@
 import React, { Component } from 'react';
+// import { Route } from 'react-router-dom'
 import axios from 'axios';
 import './App.css';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
+// import NavBar from './components/NavBar';
+
+// Routes needed:
+// '/' aka home page
+// '/smurf-form' 
+//  nav bar using NavLink
 
 class App extends Component {
   constructor(props) {
@@ -28,7 +35,9 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <SmurfForm />
+       {/* <Route path='/smurf-form' component={SmurfForm} /> */}
+       {/* <Route exact path='/' render={(props) => <Smurfs {...props} smurfs={this.state.smurfs} />}> */}
+         <SmurfForm />
         <Smurfs smurfs={this.state.smurfs} />
       </div>
     );
