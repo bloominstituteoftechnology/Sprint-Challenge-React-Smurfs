@@ -28,7 +28,7 @@
 
 ## Project Description
 
-* The requirements for completion are that you are using AXIOS to `GET` a list of Smurfs that exist on the server && a `POST` to create a new Smurf and save it to the Smurf DB.
+* X The requirements for completion are that you are using AXIOS to `GET` a list of Smurfs that exist on the server && a `POST` to create a new Smurf and save it to the Smurf DB.
 * You are to then work on adding a Router to this application by using React Router.
 * If you get both of those two requirements finished early. Proceed to the **STRETCH PROBLEM** to try and implement a `PUT`.
 
@@ -58,7 +58,7 @@
 ### Router
 
 * Once you've finished your `GET` and `POST` requests go ahead and implement a Router for your components within this application.  
-    * You'll start by wrapping your `root` component in the `Router` component.
+    * X You'll start by wrapping your `root` component in the `Router` component.
     * Then declare your routes with `Route`.
     * Then make it so you can navigate to your routes using `Link`.
 * Create two `routes` in your `App` component, one at `'/'` for your `Smurfs` component, and one at `/smurf-form` for your form.
