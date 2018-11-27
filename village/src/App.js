@@ -7,8 +7,8 @@ import Smurfs from './components/Smurfs';
 import axios from 'axios';
 
 class App extends Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
       smurfs: [],
     };
