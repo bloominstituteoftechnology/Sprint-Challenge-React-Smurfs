@@ -35,6 +35,17 @@ class App extends Component {
             });
         });
     };
+
+    removeSmurf = (e, id) => {
+        e.preventDefault();
+        axios.delete(`http://localhost:3333/${id}`).then(response => {
+            console.log(response);
+            this.setState({
+                smurfs: response.data
+            });
+        });
+    };
+
     render() {
         return (
             <div className="App">
