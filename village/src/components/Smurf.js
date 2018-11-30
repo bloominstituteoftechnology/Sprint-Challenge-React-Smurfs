@@ -10,7 +10,9 @@ const Smurf = props => {
       <Link exact to={`/edit-smurf/${props.id}`}>
         <button>Edit Smurf</button>
       </Link>
-      <button onClick={() => props.deleteSmurf(props.id)}>Delete Smurf</button>
+      <button onClick={() => props.deleteSmurf(props.id)}>
+        Delete Smurf
+      </button>
     </div>
   );
 };

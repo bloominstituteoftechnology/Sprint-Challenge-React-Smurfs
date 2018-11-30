@@ -1,3 +1,90 @@
 .App {
   text-align: center;
 }
+
+.navigation {
+  width: 100%;
+  height: 7rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+}
+
+.navigation nav {
+  width: 80%;
+  display: flex;
+  justify-content: space-around;
+}
+.navigation nav a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #544E61;
+}
+
+/* .navigation nav a:active {
+  color: #224DE3;
+} */
+
+.navigation .navigation-logo {
+  height: 4.5rem;
+}
+
+.Smurfs {
+  margin-top: 4rem;
+}
+
+.Smurfs h1 {
+  font-size: 4rem;
+  margin-bottom: 2rem;
+}
+
+.Smurf {
+  width: 30rem;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
+  margin: 2rem auto;
+}
+
+.Smurf h3 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 1rem 0;
+}
+
+.Smurf strong {
+  font-weight: bold;
+  font-size: 1.4rem;
+  margin: 1rem 0;
+}
+
+.Smurf p {
+  margin: 1rem 0;
+}
+
+.Smurf button {
+  width: 40%;
+  margin: 0.5rem auto;
+  border: 1px solid #544E61;
+  background-color: #544E61;
+  color: #bfd0d8;
+}
+
+.SmurfForm {
+  margin-top: 3rem;
+}
+
+.SmurfForm form {
+  width: 30rem;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+}
+
+.SmurfForm form input{
+  height: 3rem;
+  margin: 1rem 0;
+  font-size: 1.6rem;
+}
