@@ -24,29 +24,44 @@ class SmurfForm extends Component {
         console.log(err);
       });
   }
+// THIS IS SO DUMB IM TELLING YUOU IT DOESNT UPDATE WTF COME ON COMPUTER
+// its almost certainly cuz im not passing the state object in smurfform back up from child to parent so it doesn't update or something
+// im telling you this is so dumb i hate you owl dude w/e your name is
 
+  // addSmurf = event => {
+  //   event.preventDefault();
+    
+  //     axios
+  //       .post("http://localhost:3333/smurfs",
+  //       {name: this.state.name,
+  //         age: this.state.age,
+  //         height: this.state.height}
+  //       )
+  //       .then(response => {
+  //         console.log(response);
+  //         this.setState({smurfs: response.data})
+
+  //       })
+  //       .catch(err => console.log(err));
+  //       // this.props.addNewSmurf(event, {...this.state, id:this.state.id});
+  //   this.setState({
+  //     name: '',
+  //     age: '',
+  //     height: ''
+  //   });
+  // }
+
+  //FUDGE YEAH SMURFING YES IT WORKS THANKS JON JON
   addSmurf = event => {
     event.preventDefault();
-    
-      axios
-        .post("http://localhost:3333/smurfs",
-        {name: this.state.name,
-          age: this.state.age,
-          height: this.state.height}
-        )
-        .then(response => {
-          console.log(response);
-          this.setState({smurfs: response.data})
-
-        })
-        .catch(err => console.log(err));
-        // this.props.addNewSmurf(event, {...this.state, id:this.state.id});
+    this.props.addNewSmurf(this.state);
     this.setState({
       name: '',
       age: '',
       height: ''
     });
   }
+
 
 
 

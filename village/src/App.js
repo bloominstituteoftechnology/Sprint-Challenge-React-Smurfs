@@ -36,17 +36,20 @@ class App extends Component {
   // You'll need to make sure you have the right properties on state and pass them down to props.
 
   //nothing is REFRESHING GAAAHHH
-  // addNewSmurf(event, data) {
-  //   event.preventDefault();
-  //   axios.post("http://localhost:3333/smurfs", data)
-  //   .then(response => {console.log(response);
-  //   this.setState({smurfs: response.data})
+  //THE INSTRUCTIONS ARE DUMB EVERYONE IS DUMB IM NOT DUMB PLEASE LET IT BE THAT IM NOT DUMB IM SO DUMB
+
+  // going to try to make the add function in app, pass it down, go fish for some data, pass it back up somehow with a callback, maybe
+  //it will refresh properly
+  addNewSmurf = data => {
+    axios.post("http://localhost:3333/smurfs", data)
+    .then(response => {console.log(response);
+    this.setState({smurfs: response.data})
     
-  //   });
+    });
 
 
-  // }
-
+  }
+  // FUDGE YES IT WORKS IT WORKS IT WORKS IT WORKS IT WORKS IT WORKS
 
   render() {
     return (
@@ -55,7 +58,7 @@ class App extends Component {
         <NavLink exact to={"/"} ><span>HOME</span></NavLink>
         <NavLink to={"/form"} ><span>FORM</span></NavLink>
         </div>
-        <Route path="/form"   render={props => (<SmurfForm {...props} smurfs={this.state.smurfs} />) } />
+        <Route path="/form"   render={props => (<SmurfForm {...props} smurfs={this.state.smurfs} addNewSmurf={this.addNewSmurf}/>) } />
         <Route exact path="/" render={props => (<Smurfs {...props} smurfs={this.state.smurfs} />)}/>
       </div>
     );
