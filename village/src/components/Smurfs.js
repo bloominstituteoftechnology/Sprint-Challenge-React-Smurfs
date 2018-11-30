@@ -6,10 +6,7 @@ import Smurf from "./Smurf";
 class Smurfs extends Component {
   delete = e => {
     e.preventDefault();
-    console.log(e.target.id);
-    let id = parseInt(e.target.id, 10);
-    console.log(id);
-    this.props.delete(id);
+    this.props.delete(e.target.id);
   };
 
   render() {
