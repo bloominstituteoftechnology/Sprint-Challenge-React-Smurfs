@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import Smurf from './Smurf';
 
 class SmurfForm extends Component {
   constructor(props) {
@@ -41,8 +42,15 @@ class SmurfForm extends Component {
   };
 
   render() {
+    const edit = this.props.edit || null;
     return (
       <div className="SmurfForm">
+        {edit && <Smurf 
+          name={this.state.name}
+          age={this.state.age}
+          height={this.state.height}
+        />
+        }
         <form onSubmit={this.handleSubmit}>
           <input
             onChange={this.handleInputChange}
