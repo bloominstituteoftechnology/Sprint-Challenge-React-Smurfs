@@ -40,7 +40,7 @@ class App extends Component {
           return (
           <div>
             <Smurfs {...props} smurfs={this.state.smurfs} />
-            <NavLink to="/smurf-form">Smurf Form</NavLink>
+            <NavLink className="nav-link" to="/smurf-form">Smurf Form</NavLink>
           </div>
           );
           
@@ -52,7 +52,7 @@ class App extends Component {
           return (
             <div>
             <SmurfForm {...props} smurfs={this.state.smurfs} updateSmurfList={this.updateSmurfList}/>
-            <NavLink to="/">Smurf List</NavLink>
+            <NavLink className="nav-link" to="/">Smurf List</NavLink>
             </div>
           );
         }}
