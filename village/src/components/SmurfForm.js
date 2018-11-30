@@ -17,6 +17,7 @@ class SmurfForm extends Component {
   submitHandler = event => {
     event.preventDefault();
     this.props.addSmurf(this.state);
+    this.props.history.push("/");
   }
 
   render() {

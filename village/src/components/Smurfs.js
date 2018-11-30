@@ -10,13 +10,11 @@ class Smurfs extends Component {
         <ul>
           {this.props.smurfs.map(smurf => {
             return (
-              <Smurf
-                name={smurf.name}
-                id={smurf.id}
-                age={smurf.age}
-                height={smurf.height}
-                key={smurf.id}
-              />
+                <div className="Smurf" key={smurf.id} onClick={() => this.props.history.push(`/smurf/${smurf.id}`)}>
+                  <h3>{smurf.name}</h3>
+                  <strong>{smurf.height} cm tall</strong>
+                  <p>{smurf.age} smurf years old</p>
+                </div>
             );
           })}
         </ul>

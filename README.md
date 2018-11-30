@@ -1,12 +1,12 @@
 <!-- # Assessing your Routing/AJAX Fu  -->
 
 <!-- * The purpose of this exercise is to get you used to being quizzed on _Interview Questions_ commonly asked about Client Side Routing and making AJAX requests from a React application. -->
-* Answers to your written questions will be recorded in _Answers.md_
+<!-- * Answers to your written questions will be recorded in _Answers.md_ -->
 <!-- * This is to be worked on alone but you can use outside resources. You can _reference_ any old code you may have, and the React Documentation, however, please refrain from copying and pasting any of your answers. Try and understand the question and put your responses in your own words. Be as thorough as possible when explaining something. -->
 
 <!-- ## Start by forking and cloning this repository. -->
 
-## Questions - Self Study - You can exercise your Google-Fu for this and any other _Sprint Challenge_ in the future.
+<!-- ## Questions - Self Study - You can exercise your Google-Fu for this and any other _Sprint Challenge_ in the future.
 
 1.  Explain the differences between `client-side routing` and `server-side routing`.
 1.  What does HTTP stand for?
@@ -14,7 +14,7 @@
 1.  Which HTTP methods can be mapped to the CRUD acronym that we use when interfacing with APIs/Servers.
 1.  Mention three tools we can use to make AJAX requests.
 
-## Initializing Project - READ THIS CAREFULLY, you have two apps here. A server, and a client.
+## Initializing Project - READ THIS CAREFULLY, you have two apps here. A server, and a client. -->
 
 <!-- * Start by Forking and Cloning this Repo. -->
 <!-- * `cd` into the forked copy. -->
@@ -25,12 +25,12 @@
 <!-- * **LOOK** at your `village` directory and notice it's just a plain ol' React App that we've built using `create-react-app`. -->
 <!-- * **cd** into `village` and run `yarn install or npm install` to retrieve the client side dependencies. -->
 <!-- * **RUN** `yarn start or npm start` to fire up your React application. -->
-
+<!-- 
 ## Project Description
 
 * The requirements for completion are that you are using AXIOS to `GET` a list of Smurfs that exist on the server && a `POST` to create a new Smurf and save it to the Smurf DB.
 * You are to then work on adding a Router to this application by using React Router.
-* If you get both of those two requirements finished early. Proceed to the **STRETCH PROBLEM** to try and implement a `PUT`.
+* If you get both of those two requirements finished early. Proceed to the **STRETCH PROBLEM** to try and implement a `PUT`. -->
 
 <!-- ## API Design - This is how you'll interface with the API and what is required from every endpoint. -->
 
