@@ -6,7 +6,8 @@ class SmurfForm extends Component {
     this.state = {
       name: "",
       age: "",
-      height: ""
+      height: "",
+      currentSmurf: {}
     };
   }
 
@@ -18,7 +19,8 @@ class SmurfForm extends Component {
     this.setState({
       name: this.props.update ? currentSmurf.name : "",
       age: this.props.update ? currentSmurf.age : "",
-      height: this.props.update ? currentSmurf.height : ""
+      height: this.props.update ? currentSmurf.height : "",
+      currentSmurf: currentSmurf
     });
   }
 
@@ -49,7 +51,9 @@ class SmurfForm extends Component {
       <div className="SmurfForm">
         <h1>
           {this.props.update
-            ? `Update: ${this.currentSmurf ? this.currentSmurf.name : ""}`
+            ? `Update: ${
+                this.state.currentSmurf ? this.state.currentSmurf.name : ""
+              }`
             : "Add New Smurf"}
         </h1>
         <form onSubmit={this.submitHandler}>
