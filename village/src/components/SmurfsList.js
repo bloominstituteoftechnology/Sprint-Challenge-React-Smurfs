@@ -1,13 +1,25 @@
 import React, { Component } from 'react';
-
+import styled from 'styled-components';
+import PropTypes from 'prop-types';
 import Smurf from './Smurf';
 
-class Smurfs extends Component {
+const Section = styled.section`
+display: flex;
+border: 1px solid #FFF4E2;
+flex-flow: row wrap;
+justify-content: space-around;
+align-content: center;
+width: 95%;
+padding: 1%;
+`
+
+
+
+
+class SmurfsList extends Component {
   render() {
     return (
-      <div className="Smurfs">
-        <h1>Smurf Village</h1>
-        <ul>
+      <Section>
           {this.props.smurfs.map(smurf => {
             return (
               <Smurf
@@ -19,14 +31,14 @@ class Smurfs extends Component {
               />
             );
           })}
-        </ul>
-      </div>
+      </Section>
     );
   }
 }
 
-Smurf.defaultProps = {
- smurfs: [],
-};
 
-export default Smurfs;
+export default SmurfsList;
+
+Smurf.propTypes = {
+  smurfs: PropTypes.array,
+}
