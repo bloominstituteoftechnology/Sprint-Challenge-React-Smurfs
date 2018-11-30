@@ -27,7 +27,7 @@ class SmurfForm extends Component {
 
   addSmurf = event => {
     event.preventDefault();
-    {
+    
       axios
         .post("http://localhost:3333/smurfs",
         {name: this.state.name,
@@ -40,8 +40,7 @@ class SmurfForm extends Component {
 
         })
         .catch(err => console.log(err));
-        this.props.refresh;
-    }
+        // this.props.addNewSmurf(event, {...this.state, id:this.state.id});
     this.setState({
       name: '',
       age: '',

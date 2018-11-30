@@ -10,12 +10,17 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
+
       smurfs: [],
     };
   }
+  
   componentDidMount() {
+    
     axios
+    
       .get("http://localhost:3333/smurfs")
+
       .then(response => {
         console.log(response);
         this.setState({ smurfs: response.data });
@@ -31,10 +36,16 @@ class App extends Component {
   // You'll need to make sure you have the right properties on state and pass them down to props.
 
   //nothing is REFRESHING GAAAHHH
-  addNewSmurf() {
+  // addNewSmurf(event, data) {
+  //   event.preventDefault();
+  //   axios.post("http://localhost:3333/smurfs", data)
+  //   .then(response => {console.log(response);
+  //   this.setState({smurfs: response.data})
+    
+  //   });
 
 
-  }
+  // }
 
 
   render() {
