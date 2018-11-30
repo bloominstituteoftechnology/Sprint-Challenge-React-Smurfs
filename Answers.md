@@ -11,4 +11,4 @@ server side has a longer load time however you do not have to tell it to start w
     Post, Get, Put, and Delete, 
 
 1.  Mention three tools we can use to make AJAX requests
-    axios jquery request library.
+    fetch, axios, jquery
