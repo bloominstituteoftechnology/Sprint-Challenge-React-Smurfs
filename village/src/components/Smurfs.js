@@ -1,8 +1,29 @@
 import React, { Component } from 'react';
+import { Route } from 'react-router-dom';
 
 import Smurf from './Smurf';
 
 class Smurfs extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      smurfs: []
+    }
+  }
+
+  componentDidMount() {
+    console.log(this.props.match.params.id)
+    if(this.props.match.params.id === undefined){
+      this.setState({smurfs: this.props.smurfs});
+    }
+    else {
+      let smurf = this.props.smurfs.find(smurf => {
+        return smurf.id === this.props.match.params.id;
+      })
+      this.setState({smurfs: [smurf]});
+    }
+  }
+
   render() {
     return (
       <div className="Smurfs">
@@ -18,6 +39,7 @@ class Smurfs extends Component {
                 height={smurf.height}
                 key={smurf.id}
                 stageUpdate={this.props.stageUpdate}
+                stageSelection={this.props.stageSelection}
                 smurf={smurf}
               />
             );

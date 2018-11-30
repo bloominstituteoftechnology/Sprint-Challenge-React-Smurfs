@@ -4,7 +4,7 @@ import './App.css';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
 import axios from 'axios';
-import { Route, NavLink } from 'react-router-dom';
+import { Router, Route, NavLink } from 'react-router-dom';
 
 const serverURL = `http://localhost:3333/smurfs`;
 
@@ -38,6 +38,11 @@ class App extends Component {
       updateForm: true
     });
   }
+  stageSelection = (smurf) => {
+    this.setState({
+      smurfToUpdate: smurf
+    })
+  }
 
   deleteSmurf = (id) => {
     axios
@@ -66,6 +71,7 @@ class App extends Component {
           render={(props) => <Smurfs {...props} 
           smurfs={this.state.smurfs} 
           stageUpdate={this.stageUpdate}
+          stageSelection={this.stageSelection}
           /> } />
 
         <Route path='/smurf-form'
@@ -75,6 +81,21 @@ class App extends Component {
           deleteSmurf={this.deleteSmurf}
           updateSmurf={this.updateSmurf}
           /> } />
+
+        {/* <Route path='/smurf/:id'
+          render={(props) =>
+          <Smurfs {...props} smurfs={[this.state.smurfs.find(smurf => {
+            return smurf.id === this.props.match.params.id;
+          })]}
+          />} /> */}
+
+        <Route exact path='/smurf/:id'
+          render={(props) => <Smurfs {...props} 
+          smurfs={[this.state.smurfToUpdate]} 
+          stageUpdate={this.stageUpdate}
+          stageSelection={this.stageSelection}
+          /> } />
+
       </div>
     );
   }
