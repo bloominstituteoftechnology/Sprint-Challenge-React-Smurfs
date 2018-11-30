@@ -15,6 +15,19 @@ class App extends Component {
     };
   }
 
+  // Create
+  addNewSmurf = data => {
+    axios
+      .post(`${url}smurfs`, data)
+      .then(resp => 
+          this.setState({
+            smurfs: resp.data
+          })
+        )
+      .catch(err => console.log(err))
+  }
+
+  // Read
   componentDidMount = () => {
     axios
       .get(`${url}smurfs`)
@@ -26,9 +39,12 @@ class App extends Component {
       .catch(err => console.log(err))
   }
 
-  addNewSmurf = data => {
+  // Update
+
+  // Delete
+  deleteSmurf = id => {
     axios
-      .post(`${url}smurfs`, data)
+      .delete(`${url}smurfs/${id}`)
       .then(resp => 
           this.setState({
             smurfs: resp.data
@@ -45,8 +61,8 @@ class App extends Component {
           <NavLink to='/smurf-form'> Add New Smurf</NavLink>
         </nav>
 
-        <Route exact path='/smurf-form' render={props => <SmurfForm {...props} add={this.addNewSmurf}/>}/>
-        <Route exact path='/' render={props => <Smurfs {...props} smurfs={this.state.smurfs}/>}/>
+        <Route exact path='/smurf-form' render={props => <SmurfForm {...props} create={this.addNewSmurf}/>}/>
+        <Route exact path='/' render={props => <Smurfs {...props} smurfs={this.state.smurfs} delete={this.deleteSmurf}/>}/>
       </div>
     );
   }
