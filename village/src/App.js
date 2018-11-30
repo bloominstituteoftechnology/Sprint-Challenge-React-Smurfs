@@ -40,6 +40,16 @@ class App extends Component {
   }
 
   // Update
+  editSmurf = (data, id) => {
+    axios
+      .put(`${url}smurfs/${id}`, data)
+      .then(resp => 
+          this.setState({
+            smurfs: resp.data
+          })
+        )
+      .catch(err => console.log(err))
+  }
 
   // Delete
   deleteSmurf = id => {
@@ -61,8 +71,9 @@ class App extends Component {
           <NavLink to='/smurf-form'> Add New Smurf</NavLink>
         </nav>
 
-        <Route exact path='/smurf-form' render={props => <SmurfForm {...props} create={this.addNewSmurf}/>}/>
         <Route exact path='/' render={props => <Smurfs {...props} smurfs={this.state.smurfs} delete={this.deleteSmurf}/>}/>
+        <Route exact path='/smurf-form' render={props => <SmurfForm {...props} create={this.addNewSmurf}/>}/>
+        <Route exact path='/smurf-form/:smurfId' render={props => <SmurfForm {...props} edit update={this.editSmurf}/>}/>
       </div>
     );
   }

@@ -13,7 +13,7 @@ class SmurfForm extends Component {
   addSmurf = event => {
     event.preventDefault();
 
-    this.props.create(this.state);
+    this.props.edit ? this.props.update(this.state, this.props.match.params.smurfId): this.props.create(this.state);
 
     this.setState({
       name: '',
