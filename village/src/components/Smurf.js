@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link }  from 'react-router-dom';
+
 
 const Smurf = props => {
   
@@ -10,6 +12,9 @@ const Smurf = props => {
         <h3>name: {smurfs.name}</h3>
         <strong>height: {smurfs.height} </strong>
         <p>smurf years old: {smurfs.age} </p>
+        <Link to={`/edit-smurf/${smurfs.id}`}>
+          <button>Update Smurf</button>
+        </Link>
         <button onClick={() => { props.delete(props.match.params.id) 
         props.history.push('/')
           }}>X</button>
