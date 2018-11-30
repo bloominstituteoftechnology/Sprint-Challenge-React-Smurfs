@@ -5,7 +5,7 @@ import axios from "axios";
 import "./App.css";
 import SmurfForm from "./components/SmurfForm";
 import Smurfs from "./components/Smurfs";
-
+import Home from "./components/Home";
 class App extends Component {
   constructor(props) {
     super(props);
@@ -45,12 +45,13 @@ class App extends Component {
           <NavLink to="/smurf-form">Add a Smurf</NavLink>
           <NavLink to="/smurfs">View Smurfs</NavLink>
         </nav>
+        <Route exact path="/" component={Home} />
         <Route
           path="/smurf-form"
           render={props => <SmurfForm {...props} addSmurfs={this.addSmurfs} />}
         />
         <Route
-          path="/"
+          path="/smurfs"
           render={props => <Smurfs {...props} smurfs={this.state.smurfs} />}
         />
       </div>
