@@ -39,21 +39,21 @@ class SmurfForm extends Component {
           placeholder="name"
           value={this.state.name}
           name="name"
-          autocomplete='off'
+          autoComplete='off'
         />
         <input
           onChange={this.handleInputChange}
           placeholder="age"
           value={this.state.age}
           name="age"
-          autocomplete='off'
+          autoComplete='off'
         />
         <input
           onChange={this.handleInputChange}
           placeholder="height"
           value={this.state.height}
           name="height"
-          autocomplete='off'
+          autoComplete='off'
         />
         <button type="submit">Add to the village</button>
       </form>

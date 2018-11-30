@@ -35,20 +35,27 @@ class Smurf extends React.Component {
 
   }
 
+  deleteSmurf = (e, id) => {
+
+    e.stopPropagation();
+    this.props.deleteFunc(id);
+    this.props.history.push('/');
+
+  }
+
   render() {
 
-    if (this.props.smurf.length === 0) {
+    const smurf = this.props.isOwnPage
+      ? this.props.smurfList.find(smurf => smurf.id == this.props.match.params.id)
+      : this.props.smurf;
 
-      return <h1>Getting smurf...</h1>;
+    if (!smurf) {
+
+      return <h1 style={{textAlign: 'center'}}>No smurf found!</h1>;
 
     }
 
-    const smurf = this.props.isOwnPage
-      ? this.props.smurf.find(smurf => smurf.id == this.props.match.params.id)
-      : this.props.smurf;
-
     const { name, height, age, id } = smurf;
-    const { deleteFunc } = this.props;
 
     return (
       <div className='page-container'>
@@ -61,7 +68,7 @@ class Smurf extends React.Component {
           <p>{age} smurf years old</p>
           <span
             className='delete-btn'
-            onClick={() => deleteFunc(id)}>X
+            onClick={e => this.deleteSmurf(e, id)}>X
           </span>
           <button onClick={this.toggleUpdate}>
             {this.state.showUpdateForm ? 'Cancel' : 'Update'}

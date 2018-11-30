@@ -76,7 +76,7 @@ class App extends Component {
             render={props =>
               <Smurf
                 {...props}
-                smurf={this.state.smurfs}
+                smurfList={this.state.smurfs}
                 updateFunc={this.updateSmurf}
                 deleteFunc={this.deleteSmurf}
                 isOwnPage
