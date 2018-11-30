@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { Route } from "react-router-dom";
+import Smurf from './Smurf';
 
 class SmurfForm extends Component {
   constructor(props) {
@@ -11,8 +13,9 @@ class SmurfForm extends Component {
   }
 
   componentDidMount(prevProps){
+    console.log(this.props.editSmurf)
     let editSmurf = this.props.editSmurf
-    console.log(editSmurf);
+    
     if(editSmurf.name){
       this.setState({
         name: editSmurf.name,
@@ -64,8 +67,23 @@ class SmurfForm extends Component {
             value={this.state.height}
             name="height"
           />
-          <button type="submit">Add to the village</button>
+          <button type="submit">{this.props.editSmurf.name ? 'Edit Smurf' : 'Add Smurf'}</button>
         </form>
+          {this.props.editSmurf.name &&<Route
+          path="/smurf-form/:id"
+          render={(props) => {console.log(props) 
+            console.log(this.props)
+          
+          return <Smurf
+            edit
+            smurf={this.props.editSmurf}
+            key={this.props.editSmurf.id}
+           
+          />}
+          
+          }/> 
+          }
+        
       </div>
     );
   }

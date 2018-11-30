@@ -82,7 +82,7 @@ updateStart = (obj) =>{
       <div className="App">
         <nav>
           <NavLink to='/'>Village</NavLink>
-          <NavLink to='/smurf-form'>Form</NavLink>
+          <NavLink to={this.state.editSmurf.name ? `/smurf-form/${this.state.editSmurf.id}` : '/smurf-form'}>Form</NavLink>
         </nav>
         <Route
           exact path="/"
