@@ -13,6 +13,7 @@ class SmurfForm extends Component {
   addSmurf = event => {
     event.preventDefault();
     this.props.addSmurf(this.state)
+    this.props.history.push('/')
 
     this.setState({
       name: '',
