@@ -8,29 +8,36 @@ const StyledSmurf = styled.div`
   color: white;
   border-radius: 5px;
   margin: 0 auto;
+
+  a {
+    color: white;
+  }
 `;
 
 const Button = styled.button`
   background-color: red;
   padding: 5px;
+  border-radius: 5px;
 `;
 
 const Smurf = props => {
   return (
-    <Link to={`/smurf/${props.id}`}>
-      <StyledSmurf>
-        <h3>{props.name}</h3>
-        <strong>{props.height} tall</strong>
-        <p>{props.age} smurf years old</p>
-        {!props.edit && (
-          <div>
-            <Button onClick={() => props.deleteSmurf(props.id)}>
-              Delete Smurf
-            </Button>
-          </div>
-        )}
-      </StyledSmurf>
-    </Link>
+    <StyledSmurf>
+      <Link style={{textDecoration: 'none'}} to={`/smurf/${props.id}`}>
+        <div>
+          <h3>{props.name}</h3>
+          <strong>{props.height} tall</strong>
+          <p>{props.age} smurf years old</p>
+        </div>
+      </Link>
+      {!props.edit && (
+        <div>
+          <Button onClick={() => props.deleteSmurf(props.id)}>
+            Delete Smurf
+          </Button>
+        </div>
+      )}
+    </StyledSmurf>
   );
 };
 
