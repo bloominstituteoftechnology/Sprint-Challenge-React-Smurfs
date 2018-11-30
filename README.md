@@ -1,12 +1,12 @@
-# Assessing your Routing/AJAX Fu
+<!-- # Assessing your Routing/AJAX Fu  -->
 
-* The purpose of this exercise is to get you used to being quizzed on _Interview Questions_ commonly asked about Client Side Routing and making AJAX requests from a React application.
-* Answers to your written questions will be recorded in _Answers.md_
-* This is to be worked on alone but you can use outside resources. You can _reference_ any old code you may have, and the React Documentation, however, please refrain from copying and pasting any of your answers. Try and understand the question and put your responses in your own words. Be as thorough as possible when explaining something.
+<!-- * The purpose of this exercise is to get you used to being quizzed on _Interview Questions_ commonly asked about Client Side Routing and making AJAX requests from a React application. -->
+<!-- * Answers to your written questions will be recorded in _Answers.md_ -->
+<!-- * This is to be worked on alone but you can use outside resources. You can _reference_ any old code you may have, and the React Documentation, however, please refrain from copying and pasting any of your answers. Try and understand the question and put your responses in your own words. Be as thorough as possible when explaining something. -->
 
-## Start by forking and cloning this repository.
+<!-- ## Start by forking and cloning this repository. -->
 
-## Questions - Self Study - You can exercise your Google-Fu for this and any other _Sprint Challenge_ in the future.
+<!-- ## Questions - Self Study - You can exercise your Google-Fu for this and any other _Sprint Challenge_ in the future.
 
 1.  Explain the differences between `client-side routing` and `server-side routing`.
 1.  What does HTTP stand for?
@@ -14,35 +14,35 @@
 1.  Which HTTP methods can be mapped to the CRUD acronym that we use when interfacing with APIs/Servers.
 1.  Mention three tools we can use to make AJAX requests.
 
-## Initializing Project - READ THIS CAREFULLY, you have two apps here. A server, and a client.
+## Initializing Project - READ THIS CAREFULLY, you have two apps here. A server, and a client. -->
 
-* Start by Forking and Cloning this Repo.
-* `cd` into the forked copy.
-* **RUN** `yarn install or npm install` at the root to retrieve all the dependencies for the node server. You will not need to create any react apps here nor will you need to install any other dependencies. You should have all you need in this repo.
-* **LOOK** at all the files you've been given for this project. One important file to note is `server.js`. This file contains an **API** that you are going to be interfacing with. Below is documentation on how to interact with the **API**.
-* **RUN** `yarn start or npm start` to get your API up and running on `http://localhost:3333`. This is the **URL** you're going to need to use within your React app in order to make AJAX requests for data.
-* After your API is up and running, you can open chrome and type in `http://localhost:3333/smurfs`. You should see an Array `[]` with a smurf returned to you. This is an array that your **API** will be using to store our Smurf Data.
-* **LOOK** at your `village` directory and notice it's just a plain ol' React App that we've built using `create-react-app`.
-* **cd** into `village` and run `yarn install or npm install` to retrieve the client side dependencies.
-* **RUN** `yarn start or npm start` to fire up your React application.
-
+<!-- * Start by Forking and Cloning this Repo. -->
+<!-- * `cd` into the forked copy. -->
+<!-- * **RUN** `yarn install or npm install` at the root to retrieve all the dependencies for the node server. You will not need to create any react apps here nor will you need to install any other dependencies. You should have all you need in this repo. -->
+<!-- * **LOOK** at all the files you've been given for this project. One important file to note is `server.js`. This file contains an **API** that you are going to be interfacing with. Below is documentation on how to interact with the **API**. -->
+<!-- * **RUN** `yarn start or npm start` to get your API up and running on `http://localhost:3333`. This is the **URL** you're going to need to use within your React app in order to make AJAX requests for data. -->
+<!-- * After your API is up and running, you can open chrome and type in `http://localhost:3333/smurfs`. You should see an Array `[]` with a smurf returned to you. This is an array that your **API** will be using to store our Smurf Data. -->
+<!-- * **LOOK** at your `village` directory and notice it's just a plain ol' React App that we've built using `create-react-app`. -->
+<!-- * **cd** into `village` and run `yarn install or npm install` to retrieve the client side dependencies. -->
+<!-- * **RUN** `yarn start or npm start` to fire up your React application. -->
+<!-- 
 ## Project Description
 
 * The requirements for completion are that you are using AXIOS to `GET` a list of Smurfs that exist on the server && a `POST` to create a new Smurf and save it to the Smurf DB.
 * You are to then work on adding a Router to this application by using React Router.
-* If you get both of those two requirements finished early. Proceed to the **STRETCH PROBLEM** to try and implement a `PUT`.
+* If you get both of those two requirements finished early. Proceed to the **STRETCH PROBLEM** to try and implement a `PUT`. -->
 
-## API Design - This is how you'll interface with the API and what is required from every endpoint.
+<!-- ## API Design - This is how you'll interface with the API and what is required from every endpoint. -->
 
-* [Here](http://smurfs.wikia.com/wiki/Category:Smurfs_Characters) is a list of smurf data you can use to create your village.
+<!-- * [Here](http://smurfs.wikia.com/wiki/Category:Smurfs_Characters) is a list of smurf data you can use to create your village. -->
 
-### GET '/smurfs'
+<!-- ### GET '/smurfs' -->
 
-* To retreive an array all the smurfs in the Smurf DB simply write a get to the endpoint `'/smurfs'`
+<!-- * To retreive an array all the smurfs in the Smurf DB simply write a get to the endpoint `'/smurfs'` -->
 
-### POST '/smurfs'
+<!-- ### POST '/smurfs' -->
 
-* To add a smurf to the Smurf DB you'll need all three fields.
+<!-- * To add a smurf to the Smurf DB you'll need all three fields.
 * Example:
 
 ```js
@@ -51,18 +51,18 @@
   age: 323,
   height: '5cm'
 }
-```
+``` -->
 
-* If a smurf is created correctly, you should see a response that is an array of smurfs with unique id's assigned to each smurf.
+<!-- * If a smurf is created correctly, you should see a response that is an array of smurfs with unique id's assigned to each smurf. -->
 
-### Router
+<!-- ### Router
 
 * Once you've finished your `GET` and `POST` requests go ahead and implement a Router for your components within this application.  
     * You'll start by wrapping your `root` component in the `Router` component.
     * Then declare your routes with `Route`.
     * Then make it so you can navigate to your routes using `Link`.
 * Create two `routes` in your `App` component, one at `'/'` for your `Smurfs` component, and one at `/smurf-form` for your form.
-* Then in your `App` component, create a nav bar that will use `NavLink` to route to your different pages.
+* Then in your `App` component, create a nav bar that will use `NavLink` to route to your different pages. -->
 
 ## STRETCH PROBLEMS
 
