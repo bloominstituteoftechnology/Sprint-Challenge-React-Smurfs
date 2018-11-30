@@ -1,10 +1,49 @@
 import React, { Component } from "react";
 import axios from "axios";
+import styled from "styled-components";
 
 import "./App.css";
 import SmurfForm from "./components/SmurfForm";
 import Smurfs from "./components/Smurfs";
 import { Route, NavLink, withRouter } from "react-router-dom";
+
+// ===========================
+// ==== STYLED COMPONENTS ====
+// ===========================
+
+const StyledNav = styled.nav`
+  width: 100%;
+  padding: 40px 5px 45px;
+  border-bottom: 1px solid blue;
+`;
+
+const StyledNavLink = styled(NavLink)`
+  text-decoration: none;
+  color: white;
+  padding: 10px 20px;
+  font-size: 20px;
+  cursor: pointer;
+  background: blue;
+  text-transform: uppercase;
+  margin: 0 35px;
+  letter-spacing: 2px;
+  border-radius: 55px;
+  box-shadow: 0 4px lightblue;
+  position: relative;
+  outline: none;
+  border: 1px solid lightblue;
+
+  &:hover {
+    top: 2px;
+    box-shadow: 0 2px lightblue;
+  }
+
+  &:active {
+    top: 4px;
+    box-shadow: 0 0 lightblue;
+  }
+`;
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -46,6 +85,17 @@ class App extends Component {
     });
   };
 
+  deleteSmurf = id => {
+    axios
+      .delete(`http://localhost:3333/smurfs/${id}`)
+      .then(res => {
+        this.setState({
+          smurfs: res.data
+        });
+      })
+      .catch(err => console.log(err));
+  };
+
   resetVillage = data => {
     this.setState({
       smurfs: data
@@ -54,10 +104,10 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <nav>
-          <NavLink to="/">Village</NavLink>
-          <NavLink to="/smurf-form">Add a Smurf</NavLink>
-        </nav>
+        <StyledNav>
+          <StyledNavLink to="/">Village</StyledNavLink>
+          <StyledNavLink to="/smurf-form">Add a Smurf</StyledNavLink>
+        </StyledNav>
         <Route
           exact
           path="/"
@@ -71,6 +121,7 @@ class App extends Component {
               {...props}
               addSmurf={this.addSmurf}
               resetVillage={this.resetVillage}
+              deleteSmurf={this.deleteSmurf}
             />
           )}
         />
