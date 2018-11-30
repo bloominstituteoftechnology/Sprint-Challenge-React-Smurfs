@@ -39,17 +39,12 @@ class Smurf extends Component {
       smurf: null
     };
   }
+
   render() {
     return (
       <SmurfDiv className="Smurf">
         <StyledH3>{this.props.name}</StyledH3>
-        <Span
-          onClick={() =>
-            this.props.deleteSmurf(this.props.match.params.smurfs.id)
-          }
-        >
-          X
-        </Span>
+        <Span onClick={() => this.props.deleteSmurf(this.props.id)}>X</Span>
         <strong>{this.props.height} tall</strong>
         <p>{this.props.age} smurf years old</p>
       </SmurfDiv>

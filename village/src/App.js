@@ -63,8 +63,6 @@ class App extends Component {
       .catch(err => console.log(err));
   };
 
-  componentDidUpdate = (prevProps, prevState) => {};
-
   addSmurf = data => {
     axios
       .post("http://localhost:3333/smurfs", data)
@@ -111,7 +109,13 @@ class App extends Component {
         <Route
           exact
           path="/"
-          render={props => <Smurfs {...props} smurfs={this.state.smurfs} />}
+          render={props => (
+            <Smurfs
+              {...props}
+              deleteSmurf={this.deleteSmurf}
+              smurfs={this.state.smurfs}
+            />
+          )}
         />
         <Route
           exact
@@ -121,7 +125,6 @@ class App extends Component {
               {...props}
               addSmurf={this.addSmurf}
               resetVillage={this.resetVillage}
-              deleteSmurf={this.deleteSmurf}
             />
           )}
         />
