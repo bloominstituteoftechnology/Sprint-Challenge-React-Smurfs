@@ -32,6 +32,17 @@ class App extends Component {
       })
       .catch(err => console.log(err));
   };
+  editSmurf = (id, data) => {
+    axios
+      .put(`http://localhost:3333/smurfs/${id}`, data)
+      .then(response => {
+        console.log(response);
+        this.setState({
+          smurfs: response.data
+        });
+      })
+      .catch(err => console.log(err));
+  };
   deleteSmurf = id => {
     axios
       .delete(`http://localhost:3333/smurfs/${id}`)
