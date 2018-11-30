@@ -11,6 +11,7 @@ const StyledInput = styled.input`
   width: 50%;
   margin: 0 auto 20px;
   display: block;
+  background: #d6bca5
 
   &:nth-child(3) {
     margin-bottom: 50px;

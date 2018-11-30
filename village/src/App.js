@@ -5,7 +5,7 @@ import styled from "styled-components";
 import "./App.css";
 import SmurfForm from "./components/SmurfForm";
 import Smurfs from "./components/Smurfs";
-import { Route, NavLink, withRouter } from "react-router-dom";
+import { Route, NavLink } from "react-router-dom";
 
 // ===========================
 // ==== STYLED COMPONENTS ====
@@ -135,4 +135,5 @@ class App extends Component {
   }
 }
 
-export default withRouter(App);
+export default App;
+// export default withRouter(App);
