@@ -43,12 +43,14 @@ class SmurfForm extends Component {
 
   render() {
     const edit = this.props.edit || null;
+    const buttonText = this.props.edit ? 'Edit Smurf' : 'Add to the Village'
     return (
       <div className="SmurfForm">
         {edit && <Smurf 
           name={this.state.name}
           age={this.state.age}
           height={this.state.height}
+          edit
         />
         }
         <form onSubmit={this.handleSubmit}>
@@ -70,7 +72,7 @@ class SmurfForm extends Component {
             value={this.state.height}
             name="height"
           />
-          <button type="submit">Add to the village</button>
+          <button type="submit">{buttonText}</button>
         </form>
       </div>
     );

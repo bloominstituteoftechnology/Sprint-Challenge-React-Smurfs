@@ -21,8 +21,12 @@ const Smurf = props => {
       <h3>{props.name}</h3>
       <strong>{props.height} tall</strong>
       <p>{props.age} smurf years old</p>
+      {!props.edit &&
+          <div>
       <Button onClick={() => props.deleteSmurf(props.id)}>Delete Smurf</Button>
       <Link to={`/smurf/${props.id}`}><Button>Edit Smurf</Button></Link>
+    </div>
+      }
     </StyledSmurf>
   );
 };
