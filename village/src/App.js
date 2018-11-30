@@ -6,8 +6,6 @@ import "./App.css";
 import SmurfForm from "./components/SmurfForm";
 import Smurfs from "./components/Smurfs";
 
-window.axios = axios;
-
 class App extends Component {
   constructor(props) {
     super(props);
@@ -46,9 +44,7 @@ class App extends Component {
       .then(res => this.setState({ smurfs: res.data }))
       .catch(err => console.log(err));
   };
-  // add any needed code to ensure that the smurfs collection exists on state and it has data coming from the server
-  // Notice what your map function is looping over and returning inside of Smurfs.
-  // You'll need to make sure you have the right properties on state and pass them down to props.
+
   render() {
     console.log(this.state);
     return (
@@ -57,8 +53,6 @@ class App extends Component {
           <NavLink to="/">Home</NavLink>
           <NavLink to="/smurf-form">Add Smurf</NavLink>
         </nav>
-        {/* <SmurfForm add={this.addSmurf} />
-        <Smurfs smurfs={this.state.smurfs} /> */}
         <Route
           path="/"
           render={props => (
