@@ -2,6 +2,8 @@ import React from 'react';
 
 import UpdateForm from './UpdateForm';
 
+import './Smurf.scss';
+
 class Smurf extends React.Component {
 
   constructor() {
@@ -28,7 +30,7 @@ class Smurf extends React.Component {
     const { deleteFunc } = this.props;
 
     return (
-      <div className="Smurf">
+      <div className="smurf">
         <h3>{name}</h3>
         <strong>{height} tall</strong>
         <p>{age} smurf years old</p>

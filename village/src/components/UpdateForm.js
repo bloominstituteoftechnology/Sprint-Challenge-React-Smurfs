@@ -1,5 +1,7 @@
 import React from 'react';
 
+import './UpdateForm.scss';
+
 export default class UpdateForm extends React.Component {
 
   constructor() {
@@ -52,9 +54,7 @@ export default class UpdateForm extends React.Component {
 
     return (
 
-      <div className='update-form'>
-
-        <form onSubmit={this.submitHandler}>
+        <form className='update-form' onSubmit={this.submitHandler}>
 
           <input type='text' name='name' onChange={this.handleChange} value={this.state.name} />
           <input type='text' name='age' onChange={this.handleChange} value={this.state.age} />
@@ -62,8 +62,6 @@ export default class UpdateForm extends React.Component {
           <button>Update</button>
 
         </form>
-
-      </div>
 
     );
 
