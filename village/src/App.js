@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { Route } from "react-router-dom";
+import { Route, Link, NavLink } from "react-router-dom";
 import './App.css';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
@@ -44,8 +44,20 @@ addToList = (obj) => {
   render() {
     return (
       <div className="App">
-        <SmurfForm addToList={this.addToList} />
-        <Smurfs smurfs={this.state.smurfs} />
+        <nav>
+          <NavLink to='/'>Village</NavLink>
+          <NavLink to='/smurf-form'>Form</NavLink>
+        </nav>
+        <Route
+          exact path="/"
+          render={(props) => <Smurfs smurfs={this.state.smurfs} />}
+        />
+        <Route
+          path="/smurf-form"
+          render={(props) => <SmurfForm addToList={this.addToList} />}
+        />
+        
+        
       </div>
     );
   }
