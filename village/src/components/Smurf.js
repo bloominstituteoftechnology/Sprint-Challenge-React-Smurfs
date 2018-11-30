@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 const StyledH3 = styled.h3`
   text-transform: uppercase;
@@ -12,8 +13,8 @@ const StyledH3 = styled.h3`
 
 const Span = styled.span`
   position: absolute;
-  top: 25px;
-  right: 35px;
+  top: 20px;
+  right: 25px;
   color: red;
   font-weight: bolder;
   cursor: pointer;
@@ -30,6 +31,30 @@ const SmurfDiv = styled.div`
   border: 1px solid blue;
   width: 50%;
   margin: 0 auto 30px;
+  padding-bottom: 20px;
+  background: aqua;
+  box-shadow: -2px 2px 8px rgb(0, 0, 0, 0.3);
+`;
+
+const Update = styled(Link)`
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+  padding: 10px 20px;
+  background: blue;
+  box-shadow: 0 4px lightblue;
+  border: 2px solid lightblue;
+  position: relative;
+
+  &:hover {
+    top: 2px;
+    box-shadow: 0 2px lightblue;
+  }
+
+  &:active {
+    top: 4px;
+    box-shadow: 0 0 lightblue;
+  }
 `;
 
 class Smurf extends Component {
@@ -47,6 +72,7 @@ class Smurf extends Component {
         <Span onClick={() => this.props.deleteSmurf(this.props.id)}>X</Span>
         <strong>{this.props.height} tall</strong>
         <p>{this.props.age} smurf years old</p>
+        <Update to={`/smurfs/${this.props.id}`}>Edit Smurf Data</Update>
       </SmurfDiv>
     );
   }

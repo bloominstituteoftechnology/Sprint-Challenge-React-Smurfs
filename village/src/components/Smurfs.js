@@ -4,12 +4,14 @@ import Smurf from "./Smurf";
 
 const StyledH1 = styled.h1`
   color: blue;
-  padding: 0 20px 20px;
+  margin-top: -20px;
+  padding: 20px;
   letter-spacing: 2px;
   text-transform: uppercase;
   font-weight: bolder;
   margin-bottom: 30px;
   border-bottom: 1px solid blue;
+  background: white;
 `;
 class Smurfs extends Component {
   render() {

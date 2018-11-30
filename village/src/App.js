@@ -16,6 +16,7 @@ const StyledNav = styled.nav`
   padding: 40px 5px 45px;
   border-bottom: 1px solid blue;
   margin-bottom: 20px;
+  background: aqua;
 `;
 
 const StyledNavLink = styled(NavLink)`
@@ -32,7 +33,7 @@ const StyledNavLink = styled(NavLink)`
   box-shadow: 0 4px lightblue;
   position: relative;
   outline: none;
-  border: 1px solid lightblue;
+  border: 2px solid lightblue;
 
   &:hover {
     top: 2px;
