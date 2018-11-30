@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 
-class SmurfForm extends Component {
+class EditSmurf extends Component {
   submitHandler = event => {
     event.preventDefault();
-    this.props.addSmurf(this.props.state);
+    this.props.editSmurf(this.props.match.params.id, this.props.state);
     this.props.history.push("/");
   };
 
@@ -13,27 +13,27 @@ class SmurfForm extends Component {
         <form onSubmit={this.submitHandler}>
           <input
             onChange={this.props.handleChange}
-            placeholder="name"
+            placeholder="Enter Updated Name"
             value={this.props.state.name}
             name="name"
           />
           <input
             onChange={this.props.handleChange}
-            placeholder="age"
+            placeholder="Enter Updated Age"
             value={this.props.state.age}
             name="age"
           />
           <input
             onChange={this.props.handleChange}
-            placeholder="height"
+            placeholder="Enter Updated Height"
             value={this.props.state.height}
             name="height"
           />
-          <button type="submit">Add to the village</button>
+          <button type="submit">Edit this Smurf</button>
         </form>
       </div>
     );
   }
 }
 
-export default SmurfForm;
+export default EditSmurf;

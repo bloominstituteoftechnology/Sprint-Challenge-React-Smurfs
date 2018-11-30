@@ -1,3 +1,65 @@
 .App {
   text-align: center;
+  background-image: url("https://i.pinimg.com/originals/37/bf/54/37bf5471bcb370ef94cd409f2fe32377.jpg");
+  height: 1880px;
+}
+
+* {
+  color: blue;
+  font-family: "Luckiest Guy", cursive;
+}
+
+a {
+  text-decoration: none;
+}
+
+.nav-bar a {
+  font-size: 20px;
+  color: red;
+  margin: 10px;
+  padding: 5px;
+  border: 1px dashed red;
+  background-color: white;
+}
+
+.nav-bar {
+  padding-top: 20px;
+}
+
+.Smurf {
+  border: 1px solid white;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 200px;
+  margin: 10px;
+  background-color: white;
+  opacity: 0.85;
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+}
+
+.SmurfForm {
+  margin-top: 20px;
+  padding-top: 10px;
+}
+
+.Smurf .delete-button {
+  border: 1px solid purple;
+  color: purple;
+}
+
+.fa-cat {
+  color: brown;
+}
+
+.fa-tree {
+  color: black;
+}
+
+.directions {
+  color: black;
 }
