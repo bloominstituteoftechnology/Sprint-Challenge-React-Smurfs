@@ -64,8 +64,11 @@ class App extends Component {
     return (
       <div className="App">
         <nav className="nav-bar">
-          <NavLink to="/">Smurfs</NavLink>
+          <h1>-</h1>
+          <NavLink to="/">Home</NavLink>
+          <h1>-</h1>
           <NavLink to="/add-smurf">Add New Smurf</NavLink>
+          <h1>-</h1>
         </nav>
 
         <Route

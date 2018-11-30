@@ -1,3 +1,89 @@
 .App {
   text-align: center;
+  max-width: 700px;
+  margin: 0 auto;
+  border: 2px solid black;
+  border-radius: 10px;
+  box-shadow: -1px 1px 3px black;
+}
+.nav-bar {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  background: dodgerblue;
+  color: white;
+  padding: 20px 0;
+  border-bottom: 2px solid black;
+}
+.nav-bar a,
+.nav-bar a:visited,
+.nav-bar h1 {
+  color: white;
+  text-decoration: none;
+  font-size: 2.4rem;
+  text-shadow: -1px 1px 3px black;
+  padding: 0 10px;
+}
+.smurfs {
+  padding: 30px 0;
+}
+.smurfs h1 {
+  font-size: 5rem;
+  font-weight: bold;
+  text-shadow: -1px -1px 0 dodgerblue, 1px -1px 0 dodgerblue, -1px 1px 0 dodgerblue, 1px 1px 0 dodgerblue;
+  color: white;
+  margin-bottom: 30px;
+}
+.smurfs .link-container {
+  text-decoration: none;
+  color: white;
+}
+.smurfs .smurf {
+  width: 60%;
+  margin: 0 auto;
+  border: 1px solid navy;
+  box-shadow: -1px 1px 3px black;
+  margin-bottom: 20px;
+  padding: 20px 0;
+  background: dodgerblue;
+  color: white;
+}
+.smurfs .smurf a,
+.smurfs .smurf a:visited,
+.smurfs .smurf h3,
+.smurfs .smurf p {
+  color: white;
+  text-decoration: none;
+  font-size: 5rem;
+  text-shadow: -1px 1px 3px black;
+  padding: 10px;
+}
+.smurfs .smurf p {
+  font-size: 3rem;
+  padding: 5px 0;
+}
+.smurf-card {
+  width: 60%;
+  margin: 20px auto 0;
+  border: 1px solid navy;
+  box-shadow: -1px 1px 3px black;
+  margin-bottom: 20px;
+  padding: 20px 0;
+  background: dodgerblue;
+  color: white;
+}
+.smurf-card h3,
+.smurf-card p {
+  color: white;
+  text-decoration: none;
+  font-size: 5rem;
+  text-shadow: -1px 1px 3px black;
+  padding: 10px;
+}
+.smurf-card p {
+  font-size: 3rem;
+  padding: 5px 0;
+}
+.smurf-card button {
+  margin: 20px 30px 0;
 }
