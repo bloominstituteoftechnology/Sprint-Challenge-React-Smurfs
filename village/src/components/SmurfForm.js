@@ -16,6 +16,7 @@ class SmurfForm extends Component {
     // add code to create the smurf using the api
     const newSmurf = this.state;
     this.props.addSmurf(newSmurf);
+    this.props.history.push('/');
 
 
     this.setState({
