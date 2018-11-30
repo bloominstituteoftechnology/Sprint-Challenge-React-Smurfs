@@ -15,12 +15,20 @@ const SmurfListHeader = styled.h1`
 `
 
 const DeleteButton = styled.button`
-  background: red;
+  background-color: #F52C07;
+  color: #fff;
+  padding: 3px 5px;
+  border: 0;
+  border-radius: 5px;
 `
 
 class Smurfs extends Component {
   constructor(props) {
     super(props);
+  }
+
+  componentDidMount() {
+
   }
 
 

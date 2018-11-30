@@ -37,12 +37,14 @@ const FormButton = styled.button`
   padding: 5px 20px;
   position: absolute;
   right: 50px;
-  bottom: 50px;
+  bottom: 62px;
 
   &:active {
     background-color: #bc2207;
+    border: 2px solid #c6c6c6;
+    color: #c6c6c6;
     box-shadow: 0 10px 0 0 #bc2207;
-    bottom: 45px;
+    bottom: 57px;
   }
 
   &:focus {
