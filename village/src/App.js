@@ -32,10 +32,24 @@ class App extends Component {
       });
   }
 
+  addNewSmurf = newSmurf => {
+    axios
+      .post(url, newSmurf)
+      .then(res => {
+        // console.log(res);
+        this.setState({
+          smurfs: res.data,
+        });
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  }
+
   render() {
     return (
       <div className="App">
-        <SmurfForm addSmurf={this.addNewSmurf}/>
+        <SmurfForm addSmurf={this.addNewSmurf} addNewSmurf={this.addNewSmurf}/>
         <Smurfs smurfs={this.state.smurfs} />
       </div>
     );
