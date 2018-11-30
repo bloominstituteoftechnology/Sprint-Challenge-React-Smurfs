@@ -11,7 +11,7 @@ const Smurf = props => {
         <strong>{props.height} tall</strong>
         <p>{props.age} smurf years old</p>
         <div>
-          <Link to={`/smurf-form/edit/${props.name}`}><button className='smurf-btns'>Edit Smurf</button></Link>
+          <Link to={`/smurf-form/edit/${props.id}`}><button className='smurf-btns'>Edit Smurf</button></Link>
           <button className='smurf-btns' onClick={() => props.deleteSmurf(props.id)}>Delete Smurf</button>
       </div>
       </div>

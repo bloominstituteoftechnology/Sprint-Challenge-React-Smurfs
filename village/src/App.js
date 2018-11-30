@@ -61,6 +61,20 @@ class App extends Component {
     });
   }
 
+  updateSmurf = (id, data) => {
+    axios
+      .put(`${url}/${id}`, data) 
+      .then(res => {
+        console.log(res);
+        this.setState({
+          smurfs: res.data,
+        });
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  }
+
   render() {
     return (
       <div className="App">
@@ -74,12 +88,21 @@ class App extends Component {
           </NavLink>
         </nav>
 
-        <Route path='/smurf-form' 
+        <Route exact path='/smurf-form' 
           render={props => 
             <SmurfForm 
               {...props} 
-              addSmurf={this.addNewSmurf} 
               addNewSmurf={this.addNewSmurf}
+            />
+          }
+        />
+
+        <Route path={`/smurf-form/edit/:id`} 
+          render={props =>
+            <SmurfForm 
+              {...props}
+              updateSmurf={this.updateSmurf}
+              edit
             />
           }
         />
