@@ -51,7 +51,7 @@ class App extends Component {
     axios
     .delete(`${url}/${id}`)
     .then(res => {
-      console.log(res);
+      // console.log(res);
       this.setState({
         smurfs: res.data,
       });
@@ -65,7 +65,7 @@ class App extends Component {
     axios
       .put(`${url}/${id}`, data) 
       .then(res => {
-        console.log(res);
+        // console.log(res);
         this.setState({
           smurfs: res.data,
         });
@@ -122,6 +122,7 @@ class App extends Component {
             <Smurfs
               {...props}
               smurfs={this.state.smurfs}
+              deleteSmurf={this.deleteSmurf}
               clicked
             />
           } 
