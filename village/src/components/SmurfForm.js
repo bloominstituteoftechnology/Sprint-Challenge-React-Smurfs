@@ -13,7 +13,7 @@ class SmurfForm extends Component {
   addHanddler = event => {
     event.preventDefault();
     // add code to create the smurf using the api
-    if (this.state.name && this.state.height)
+    if (this.state.name !== "" && this.state.height !== "")
       this.props.addNewSmurf(this.state);
     this.setState({
       name: "",
