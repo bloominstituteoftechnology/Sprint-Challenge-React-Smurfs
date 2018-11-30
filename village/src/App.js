@@ -63,8 +63,8 @@ class App extends Component {
     return (
       <div className="App">
         <nav className="nav-bar">
-          <NavLink to='/' onClick={()=>this.setState({updateForm: false})}>Smurf Home</NavLink>
-          <NavLink to='/smurf-form'onClick={()=>this.setState({updateForm: false})}>Smurf Form</NavLink>
+          <NavLink exact to='/' onClick={()=>this.setState({updateForm: false})}>Smurf Home</NavLink>
+          <NavLink to='/smurf-form'onClick={()=>this.setState({updateForm: false})}>Add a Smurf</NavLink>
         </nav>
 
         <Route exact path='/'

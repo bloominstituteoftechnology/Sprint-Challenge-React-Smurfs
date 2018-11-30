@@ -19,7 +19,17 @@ class SmurfForm extends Component {
       })
     }
   }
-  
+
+  componentDidUpdate(prevProps) {
+    if( this.props.updateForm === false && prevProps.updateForm === true){
+      this.setState({
+        name: '',
+        age: '',
+        height: ''
+      })
+    }
+  }
+
   establishSmurf = () => {
     return {
       name: this.state.name,
@@ -57,6 +67,11 @@ class SmurfForm extends Component {
   render() {
     return (
       <div className="SmurfForm">
+      {this.props.updateForm ? 
+        <p className="form-title">Update a Smurf</p>
+        : 
+        <p className="form-title">Add a Smurf</p>
+      }
         <form onSubmit={this.props.updateForm ? this.updateSmurf : this.addSmurf}>
           <input
             onChange={this.handleInputChange}
@@ -77,12 +92,14 @@ class SmurfForm extends Component {
             name="height"
           />
           {this.props.updateForm ? 
-            <div>
+            <div className='form-btn-holder'>
             <button type="submit">Update Info</button>
             <button onClick={this.deleteSmurf}>Delete</button>
             </div>
           :
+            <div className='form-btn-holder'>
             <button type="submit">Add to the village</button>
+            </div>
           }
           
         </form>

@@ -17,15 +17,19 @@ class Smurf extends React.Component {
 
   render() {
     return (
-      
-      <div className="Smurf">
+      <div className="smurf-wrapper">
       <Link to={`/smurf/${this.props.id}`} onClick={this.stageSelection}>
+      <div className="Smurf">  
       <h3>{this.props.name}</h3>
       <strong>{this.props.height} tall</strong>
       <p>{this.props.age} smurf years old</p>
-      </Link>
+      </div>
+      
+     </Link>
+     <div className="smurf-update-btn-wrapper">
       <button onClick={this.stageUpdate}>Update Info</button>
-    </div>
+     </div>
+      </div>
   );
 }
 };
