@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const SmurfCard = props => {
   const smurf = props.smurfs.find(
@@ -12,10 +13,13 @@ const SmurfCard = props => {
         <p>{smurf.age} smurf years old</p>
       </div>
       <div className="btns-div">
-        <button>Update</button>
+        <Link to={`/update-smurf/${smurf.id}`}>
+          <button>Update</button>
+        </Link>
+
         <button
           onClick={() => {
-            props.deleteSmurf(props.match.params.id);
+            props.deleteSmurf(smurf.id);
             props.history.push("/");
           }}
         >

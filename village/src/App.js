@@ -49,19 +49,42 @@ class App extends Component {
       .catch(err => console.log(err));
   };
 
+  updateSmurf = (data, id) => {
+    axios
+      .put(`http://localhost:3333/smurfs/${id}`, data)
+      .then(res => {
+        this.setState({
+          smurfs: res.data
+        });
+      })
+      .catch(err => console.log(err));
+  };
+
   render() {
     return (
       <div className="App">
         <nav className="nav-bar">
           <NavLink to="/">Smurfs</NavLink>
-          <NavLink to="/smurf-form">Add New Smurf</NavLink>
+          <NavLink to="/add-smurf">Add New Smurf</NavLink>
         </nav>
 
         <Route
           exact
-          path="/smurf-form"
+          path="/add-smurf"
           render={props => (
             <SmurfForm {...props} addNewSmurf={this.addNewSmurf} />
+          )}
+        />
+
+        <Route
+          exact
+          path="/update-smurf/:id"
+          render={props => (
+            <SmurfForm
+              {...props}
+              updateSmurf={this.updateSmurf}
+              update // update===true
+            />
           )}
         />
 
