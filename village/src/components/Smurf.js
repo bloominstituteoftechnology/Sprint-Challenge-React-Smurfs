@@ -9,12 +9,18 @@ const StyledSmurf = styled.div`
   margin: 0 auto;
 `;
 
+const DeleteButton = styled.button`
+  background-color: red;
+  padding: 5px;
+`;
+
 const Smurf = props => {
   return (
     <StyledSmurf>
       <h3>{props.name}</h3>
       <strong>{props.height} tall</strong>
       <p>{props.age} smurf years old</p>
+      <DeleteButton onClick={() => props.deleteSmurf(props.id)}>Delete Smurf</DeleteButton>
     </StyledSmurf>
   );
 };
