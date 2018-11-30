@@ -28,12 +28,12 @@ class App extends Component {
 	}
 
 	addSmurf = smurf => {
-		if (smurf.name != "")
+		if (smurf.name !== "")
 			axios
 				.post("http://localhost:3333/smurfs", smurf)
 				.then(smurfs => {
 					console.log(smurfs);
-					this.setState({ data: smurfs.data });
+					this.setState({ smurfs: smurfs.data });
 				})
 				.catch(smurfed => {
 					console.log(smurfed);
