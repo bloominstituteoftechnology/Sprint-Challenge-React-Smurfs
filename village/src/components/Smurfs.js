@@ -15,12 +15,10 @@ class Smurfs extends Component {
 
     return (
       <div className="Smurfs">
-        <h1>Smurf Village</h1>
+        {this.props.clicked ? <h1>Smurf Info</h1> : <h1>Smurf Village</h1>}
       <div>{this.props.clicked ? <Link to='/'><button>Back to Village</button></Link> : null}</div>
         <ul>
-          {this.props.clicked 
-            ? 
-
+          {this.props.clicked ? 
             <Smurf
               name={clickedSmurf.name}
               id={clickedSmurf.id}
@@ -28,21 +26,18 @@ class Smurfs extends Component {
               height={clickedSmurf.height}
               key={clickedSmurf.id}
               deleteSmurf={this.props.deleteSmurf}
-            />
-
-            : 
-
+            /> : 
             this.props.smurfs.map(smurf => {
-            return (
-              <Smurf
-                name={smurf.name}
-                id={smurf.id}
-                age={smurf.age}
-                height={smurf.height}
-                key={smurf.id}
-                deleteSmurf={this.props.deleteSmurf}
-              />
-            );
+              return (
+                <Smurf
+                  name={smurf.name}
+                  id={smurf.id}
+                  age={smurf.age}
+                  height={smurf.height}
+                  key={smurf.id}
+                  deleteSmurf={this.props.deleteSmurf}
+                />
+              );
           })}
         </ul>
       </div>

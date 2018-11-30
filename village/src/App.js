@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { Route, NavLink, Link } from 'react-router-dom';
+import { Route, NavLink } from 'react-router-dom';
 
 import './App.css';
 import SmurfForm from './components/SmurfForm';
@@ -75,6 +75,7 @@ class App extends Component {
       });
   }
 
+
   render() {
     return (
       <div className="App">
@@ -88,6 +89,7 @@ class App extends Component {
           </NavLink>
         </nav>
 
+        {/* {Add Form} */}
         <Route exact path='/smurf-form' 
           render={props => 
             <SmurfForm 
@@ -97,26 +99,31 @@ class App extends Component {
           }
         />
 
+        {/* {Update Form} */}
         <Route path={`/smurf-form/edit/:id`} 
           render={props =>
             <SmurfForm 
               {...props}
               updateSmurf={this.updateSmurf}
               edit
+              data={this.state.smurfs}
             />
           }
         />
         
+        {/* {Entire Smurf Village} */}
         <Route exact path='/'
           render={props => 
             <Smurfs 
               {...props} 
               smurfs={this.state.smurfs} 
               deleteSmurf={this.deleteSmurf}
+              
             />
           }
         />
 
+        {/* {Single clicked Smurf} */}
         <Route exact path={`/smurf/:id`}
           render={props => 
             <Smurfs

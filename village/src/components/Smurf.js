@@ -11,10 +11,18 @@ const Smurf = props => {
           <h3>{props.name}</h3>
           <strong>{props.height} tall</strong>
           <p>{props.age} smurf years old</p>
+
           <div>
-            <Link to={`/smurf-form/edit/${props.id}`} ><button className='smurf-btns'>Edit Smurf</button></Link>
-            <Link to='/'><button className='smurf-btns' onClick={() => props.deleteSmurf(props.id)}>Delete Smurf</button></Link>
+            <Link to={`/smurf-form/edit/${props.id}`} >
+              <button className='smurf-btns'>Edit Smurf</button>
+            </Link>
+            <Link to='/'>
+              <button className='smurf-btns' onClick={() => {props.deleteSmurf(props.id)}}>
+                Delete Smurf
+              </button>
+            </Link>
           </div>
+
         </div>
       </Link>}
     </div>

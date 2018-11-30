@@ -8,13 +8,13 @@ class SmurfForm extends Component {
       age: '',
       height: ''
     };
+
   }
 
   addSmurf = event => {
     event.preventDefault();
     // add code to create the smurf using the api
     this.props.addNewSmurf(this.state);
-    
 
     this.setState({
       name: '',
@@ -41,7 +41,27 @@ class SmurfForm extends Component {
     this.setState({ [e.target.name]: e.target.value });
   };
 
+
+  componentDidMount() {
+
+    if(this.props.edit) {
+      if(this.props.data.length === 0) {
+        return <div>Loading</div>
+      }
+      else {
+        const info = this.props.data.find(smurf => `${smurf.id}` === this.props.match.params.id);
+        this.setState({
+          name: info.name,
+          age: info.age,
+          height: info.height,
+        });
+      }
+    }
+  }
+
+
   render() {
+
     return (
       <div className="SmurfForm">
         <form onSubmit={this.props.edit ? this.update : this.addSmurf}>
