@@ -21,6 +21,7 @@
     justify-content: space-between;
     padding: 10px;
     margin: 20px;
+    box-shadow: 5px 5px 5px 0px rgba(15, 28, 166, 1);
 }
 
 nav {
