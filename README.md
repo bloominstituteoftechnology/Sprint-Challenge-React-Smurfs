@@ -32,17 +32,17 @@
 * You are to then work on adding a Router to this application by using React Router.
 * If you get both of those two requirements finished early. Proceed to the **STRETCH PROBLEM** to try and implement a `PUT`.
 
-## API Design - This is how you'll interface with the API and what is required from every endpoint.
+<!-- ## API Design - This is how you'll interface with the API and what is required from every endpoint. -->
 
-* [Here](http://smurfs.wikia.com/wiki/Category:Smurfs_Characters) is a list of smurf data you can use to create your village.
+<!-- * [Here](http://smurfs.wikia.com/wiki/Category:Smurfs_Characters) is a list of smurf data you can use to create your village. -->
 
-### GET '/smurfs'
+<!-- ### GET '/smurfs' -->
 
-* To retreive an array all the smurfs in the Smurf DB simply write a get to the endpoint `'/smurfs'`
+<!-- * To retreive an array all the smurfs in the Smurf DB simply write a get to the endpoint `'/smurfs'` -->
 
-### POST '/smurfs'
+<!-- ### POST '/smurfs' -->
 
-* To add a smurf to the Smurf DB you'll need all three fields.
+<!-- * To add a smurf to the Smurf DB you'll need all three fields.
 * Example:
 
 ```js
@@ -51,9 +51,9 @@
   age: 323,
   height: '5cm'
 }
-```
+``` -->
 
-* If a smurf is created correctly, you should see a response that is an array of smurfs with unique id's assigned to each smurf.
+<!-- * If a smurf is created correctly, you should see a response that is an array of smurfs with unique id's assigned to each smurf. -->
 
 ### Router
 
