@@ -5,12 +5,12 @@ import SmurfsList from './SmurfsList';
 
 const Main = styled.main`
 background: #E5BE9E;
-border: 1px solid #EAD7D1;
+border: 1px solid #1F1A38;
 border-radius: 10px;
-margin: 5%;
+margin: 15% 0 5% 5%;
 width: 90%;
 height: auto;
-padding: 1%;
+padding: 0 5% 5%;
 display: flex;
 flex-flow: column wrap;
 justify-content: center;
@@ -21,7 +21,7 @@ font-size: 3rem;
 font-weight: bold;
 text-align: center;
 width: 100%;
-margin-bottom: 5%;
+margin: 5% 0 7.5%;
 color: #1F1A38;
 `
 

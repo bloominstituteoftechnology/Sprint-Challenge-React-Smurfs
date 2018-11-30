@@ -24,14 +24,14 @@ width: 60%;
 font-size: 2rem;
 margin: 1% 0;
 color: #1F1A38;
-background: #FFF4E2
+background: #FFF4E2;
 `
 const H1 = styled.h1`
 font-size: 3rem;
 font-weight: bold;
 text-align: center;
 width: 100%;
-margin: 5% 0 10%;
+margin: 5% 0 7.5%;
 color: #1F1A38;
 `
 const Button = styled.button`
@@ -47,7 +47,6 @@ margin: 5% 0;
   color: #FFF4E2;
   border: 1px solid #FFF4E2;
 }
-
 `
 
 class SmurfForm extends Component {
@@ -67,6 +66,19 @@ class SmurfForm extends Component {
     this.props.addSmurf(this.state.smurf);
   }
 
+  updateSmurf = (event) => {
+		event.preventDefault();
+		this.props.updateSmurf(this.state.smurf, this.props.match.params.id);
+  };
+  
+  handleMode = () => {
+		if (this.props.mode === 'Add Smurf') {
+			return this.addSmurf;
+		} else {
+			return this.updateSmurf;
+		}
+	};
+
   handleInputChange = e => {
     this.setState({
       smurf: {
@@ -78,7 +90,7 @@ class SmurfForm extends Component {
 
   render() {
     return (
-        <Form onSubmit={this.addSmurf}>
+        <Form onSubmit={this.handleMode()}>
         <H1> Please Enter The Following Data: </H1>
           <Input
             onChange={this.handleInputChange}
@@ -98,7 +110,7 @@ class SmurfForm extends Component {
             value={this.state.smurf.height}
             name="height"
           />
-          <Button type="submit">Add to the village</Button>
+          <Button type="submit">{this.props.mode}</Button>
         </Form>
     );
   }

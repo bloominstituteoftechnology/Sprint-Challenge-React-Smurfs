@@ -107,6 +107,26 @@ class App extends Component {
 				});
 			})
 			.catch((err) => console.log(err));
+  };
+  deleteSmurf = (id) => {
+		axios
+			.delete(`http://localhost:3333/smurfs/${id}`)
+			.then((response) => {
+				this.setState({
+					smurfs: response.data
+				});
+			})
+			.catch((err) => console.log(err));
+  };
+  updateSmurf = (smurf, id) => {
+		axios
+			.put(`http://localhost:3333/smurfs/${id}`, smurf)
+			.then((response) => {
+				this.setState({
+					smurf: response.data
+				});
+			})
+			.catch((err) => console.log(err));
 	};
  
   render() {
@@ -132,6 +152,8 @@ class App extends Component {
           <SmurfPage
           {...props}
           smurfs={this.state.smurfs}
+          deleteSmurf={this.deleteSmurf}
+          updateSmurf={this.updateSmurf}
           />
         )}
         />
@@ -141,7 +163,25 @@ class App extends Component {
           <SmurfForm 
           {...props}
           addSmurf={this.addSmurf}
+          mode="Add Smurf"
           />
+        )}
+        />
+        <Route 
+        path={'/update/:id'}
+        render={(props)=> (
+          <React.Fragment>
+            <SmurfPage 
+            {...props}
+          smurfs={this.state.smurfs}
+          deleteSmurf={this.deleteSmurf}
+          updateSmurf={this.updateSmurf}/>
+          <SmurfForm 
+          {...props}
+          updateSmurf={this.updateSmurf}
+          mode="Update Smurf"
+          />
+          </React.Fragment>
         )}
         />
 

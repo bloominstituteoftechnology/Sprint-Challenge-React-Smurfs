@@ -5,16 +5,17 @@ import Smurf from './Smurf';
 
 const Section = styled.section`
 display: flex;
-border: 1px solid #FFF4E2;
 flex-flow: row wrap;
 justify-content: space-around;
 align-content: center;
-width: 95%;
+width: 100%;
 padding: 1%;
 `
 
 
-
+const theme = {
+  main: '120px'
+}
 
 class SmurfsList extends Component {
   render() {
@@ -28,6 +29,7 @@ class SmurfsList extends Component {
                 age={smurf.age}
                 height={smurf.height}
                 key={smurf.id}
+                theme={theme}
               />
             );
           })}
