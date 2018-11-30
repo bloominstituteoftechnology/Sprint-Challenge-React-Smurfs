@@ -45,7 +45,7 @@ class SmurfForm extends Component {
         smurf: true,
         name: smurf.name,
         age: smurf.age,
-        height: smurf.age,
+        height: smurf.height,
         id: smurf.id,
       })
     }
