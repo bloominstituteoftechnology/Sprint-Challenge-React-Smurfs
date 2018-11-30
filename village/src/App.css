@@ -22,6 +22,7 @@
     padding: 10px;
     margin: 20px;
     box-shadow: 5px 5px 5px 0px rgba(15, 28, 166, 1);
+    border-radius: 5px;
 }
 
 nav {
@@ -49,6 +50,7 @@ nav a:hover {
     align-items: center;
     border: 1px solid white;
     box-shadow: 10px 10px 5px 0px rgba(15, 28, 166, 1);
+    border-radius: 10px;
     width: 200px;
     height: 250px;
     margin: 20px;
