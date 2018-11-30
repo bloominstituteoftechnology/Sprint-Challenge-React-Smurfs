@@ -11,19 +11,6 @@ class Smurfs extends Component {
     }
   }
 
-  componentDidMount() {
-    console.log(this.props.match.params.id)
-    if(this.props.match.params.id === undefined){
-      this.setState({smurfs: this.props.smurfs});
-    }
-    else {
-      let smurf = this.props.smurfs.find(smurf => {
-        return smurf.id === this.props.match.params.id;
-      })
-      this.setState({smurfs: [smurf]});
-    }
-  }
-
   render() {
     return (
       <div className="Smurfs">

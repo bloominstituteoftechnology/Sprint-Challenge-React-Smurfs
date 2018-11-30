@@ -20,13 +20,17 @@ class SmurfForm extends Component {
     }
   }
 
+  clearInputs = () => {
+    this.setState({
+      name: '',
+      age: '',
+      height: ''
+    })
+  }
+
   componentDidUpdate(prevProps) {
     if( this.props.updateForm === false && prevProps.updateForm === true){
-      this.setState({
-        name: '',
-        age: '',
-        height: ''
-      })
+      this.clearInputs();
     }
   }
 
@@ -41,11 +45,7 @@ class SmurfForm extends Component {
   addSmurf = event => {
     event.preventDefault();
     this.props.addSmurf(this.establishSmurf())
-    this.setState({
-      name: '',
-      age: '',
-      height: ''
-    });
+    this.clearInputs();
     this.props.history.push('/');
   }
 
@@ -100,8 +100,7 @@ class SmurfForm extends Component {
             <div className='form-btn-holder'>
             <button type="submit">Add to the village</button>
             </div>
-          }
-          
+          }        
         </form>
       </div>
     );
