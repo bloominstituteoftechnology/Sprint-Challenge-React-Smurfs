@@ -38,7 +38,7 @@
 
 ### GET '/smurfs'
 
-* To retreive an array all the smurfs in the Smurf DB simply write a get to the endpoint `'/smurfs'`
+- [x] To retreive an array all the smurfs in the Smurf DB simply write a get to the endpoint `'/smurfs'`
 
 ### POST '/smurfs'
 
