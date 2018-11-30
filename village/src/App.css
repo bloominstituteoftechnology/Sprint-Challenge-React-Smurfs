@@ -1,3 +1,13 @@
 .App {
   text-align: center;
 }
+
+* {
+  color: blue;
+}
+
+a {
+  text-decoration: none;
+  margin: 5px;
+  color: red;
+}

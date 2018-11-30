@@ -1,12 +1,11 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
 class SmurfForm extends Component {
-
-
   submitHandler = event => {
     event.preventDefault();
     this.props.addSmurf(this.props.state);
-  }
+    this.props.history.push('/');
+  };
 
   render() {
     return (
