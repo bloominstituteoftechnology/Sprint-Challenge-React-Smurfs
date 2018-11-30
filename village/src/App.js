@@ -41,6 +41,7 @@ class App extends Component {
       .then( res => this.setState({
         smurfs: res.data,
       }))
+      .catch( err => console.log(`Error: ${err}`) )
   }
 
   updateSmurf = (smurf, id) => {
