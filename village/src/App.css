@@ -1,5 +1,11 @@
 .App {
     text-align: center;
+    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmE5uv8M0CG5JMEJM9X7wmAPNRYBK1xNzfmj0ShzhCBwZUZnyLTA");
+    background-repeat: no-repeat;
+    background-size: cover;
+    object-fit: cover;
+    height: 100vh;
+    color: antiquewhite;
 }
 
 .SmurfForm {
@@ -26,12 +32,21 @@ nav {
     margin-top: 20px;
 }
 
+nav a {
+    color: antiquewhite;
+}
+
+nav a:hover {
+    color: cyan;
+}
+
 .smurf-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    border: 1px solid black;
+    border: 1px solid white;
+    box-shadow: 10px 10px 5px 0px rgba(15, 28, 166, 1);
     width: 200px;
     height: 250px;
     margin: 20px;
