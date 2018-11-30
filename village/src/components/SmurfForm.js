@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 
 let url = 'http://localhost:3333/smurfs';
 
@@ -15,13 +16,20 @@ class SmurfForm extends Component {
   addSmurf = event => {
     event.preventDefault();
     // add code to create the smurf using the api
+    axios
+      .post(url, this.state)
+      .then(response => {
+        console.log(response);
+        this.setState({ smurfs: response.data })})
+      .catch(err => console.log(err));
+    
 
     this.setState({
       name: '',
       age: '',
       height: ''
     });
-  }
+  };
 
   handleInputChange = e => {
     this.setState({ [e.target.name]: e.target.value });

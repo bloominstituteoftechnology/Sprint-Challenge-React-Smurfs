@@ -66,8 +66,8 @@ class App extends Component {
 
 
           </div>
-        <SmurfForm />
-        <Smurfs smurfs={this.state.smurfs} />
+        <footer><Smurfs smurfs={this.state.smurfs} /></footer>
+        
       </div>
     );
   }
