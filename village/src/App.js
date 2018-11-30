@@ -40,15 +40,21 @@ class App extends Component {
 
   // going to try to make the add function in app, pass it down, go fish for some data, pass it back up somehow with a callback, maybe
   //it will refresh properly
-  addNewSmurf = data => {
-    axios.post("http://localhost:3333/smurfs", data)
-    .then(response => {console.log(response);
-    this.setState({smurfs: response.data})
+  // addNewSmurf = data => {
+  //   axios.post("http://localhost:3333/smurfs", data)
+  //   .then(response => {console.log(response);
+  //   this.setState({smurfs: response.data})
     
-    });
+  //   });
 
+
+  // }
+  
+  funnyFunction = cookies => {
+    this.setState({smurfs: cookies})
 
   }
+
   // FUDGE YES IT WORKS IT WORKS IT WORKS IT WORKS IT WORKS IT WORKS
 
   render() {
@@ -58,7 +64,7 @@ class App extends Component {
         <NavLink exact to={"/"} ><span>HOME</span></NavLink>
         <NavLink to={"/form"} ><span>FORM</span></NavLink>
         </div>
-        <Route path="/form"   render={props => (<SmurfForm {...props} smurfs={this.state.smurfs} addNewSmurf={this.addNewSmurf}/>) } />
+        <Route path="/form"   render={props => (<SmurfForm {...props} funnyFunction={this.funnyFunction} smurfs={this.state.smurfs} />) } />
         <Route exact path="/" render={props => (<Smurfs {...props} smurfs={this.state.smurfs} />)}/>
       </div>
     );
@@ -66,3 +72,5 @@ class App extends Component {
 }
 
 export default App;
+
+//addNewSmurf={this.addNewSmurf}
