@@ -4,18 +4,19 @@ class SmurfForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      smurf: false,
       name: '',
       age: '',
       height: ''
     };
   }
 
-  addSmurf = event => {
+  handleSubmit = event => {
     event.preventDefault();
 
     // add a new smurf to the server
     const newSmurf = {...this.state};
-    this.props.addSmurf(newSmurf);
+    this.props.handleSubmit(newSmurf, this.state.id);
 
     // reset the state
     this.setState({
@@ -23,6 +24,24 @@ class SmurfForm extends Component {
       age: '',
       height: ''
     });
+
+    this.props.history.push('/');
+  }
+
+  static getDerivedStateFromProps(props, state) {
+    if (props.update && props.smurfs.length > 0 && !state.smurf){ 
+      const smurf = props.smurfs.find( smurf => (
+        smurf.id.toString() === props.match.params.id
+      ));
+      
+      return({
+        name: smurf.name,
+        age: smurf.age,
+        height: smurf.age,
+        id: smurf.id,
+      })
+    }
+    return null
   }
 
   handleInputChange = e => {
@@ -32,7 +51,7 @@ class SmurfForm extends Component {
   render() {
     return (
       <div className="SmurfForm">
-        <form onSubmit={this.addSmurf}>
+        <form onSubmit={this.handleSubmit}>
           <input
             onChange={this.handleInputChange}
             placeholder="name"
@@ -51,6 +70,7 @@ class SmurfForm extends Component {
             value={this.state.height}
             name="height"
           />
+          <button type="button" onClick={ () => this.props.history.push('/') }>Cancel</button>
           <button type="submit">Add to the village</button>
         </form>
       </div>
