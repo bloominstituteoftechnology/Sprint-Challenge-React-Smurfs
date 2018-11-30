@@ -1,13 +1,25 @@
 import React from 'react';
 
-const Smurf = props => {
-  return (
-    <div className="Smurf">
-      <h3>{props.name}</h3>
-      <strong>{props.height} tall</strong>
-      <p>{props.age} smurf years old</p>
+class Smurf extends React.Component {
+  constructor(props){
+    super(props);
+  }
+
+  stageUpdate = () => {
+    this.props.stageUpdate(this.props.smurf);
+    this.props.history.push('/smurf-form');
+  }
+
+  render() {
+    return (
+      <div className="Smurf">
+      <h3>{this.props.name}</h3>
+      <strong>{this.props.height} tall</strong>
+      <p>{this.props.age} smurf years old</p>
+      <button onClick={this.stageUpdate}>Update Info</button>
     </div>
   );
+}
 };
 
 Smurf.defaultProps = {
