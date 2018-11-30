@@ -15,6 +15,7 @@ class App extends Component {
     super(props);
     this.state = {
       smurfs: [],
+      smurfToEdit: {},
     };
   }
 
@@ -28,7 +29,6 @@ class App extends Component {
       })
   }
 
-
   addData = dataToAdd => {
     axios
       .post(apiURL, dataToAdd)
@@ -38,6 +38,17 @@ class App extends Component {
       .catch(error => {
         console.log(error);
       })
+  }
+
+  updateData = (dataForEdit, id )=> {
+    axios
+      .put(`${apiURL}/${id}`, dataForEdit)
+      .then(response => {
+        this.setState({ smurfs: response.data });
+      })
+      .catch(error => {
+        console.log(error);
+      });
   }
   // add any needed code to ensure that the smurfs collection exists on state and it has data coming from the server
   // Notice what your map function is looping over and returning inside of Smurfs.
@@ -52,7 +63,10 @@ class App extends Component {
         />
         <Route 
           exact path='/add-a-smurf' 
-          render={props => <SmurfForm {...props} addData={this.addData}/>} />
+          render={props => <SmurfForm {...props} addData={this.addData} />} />
+        <Route 
+        exact path='/edit-smurf/:id' 
+        render={props => <SmurfForm {...props} updateData={this.updateData} smurfs={this.state.smurfs} edit/>} />
       </div>
     );
   }
