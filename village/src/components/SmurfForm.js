@@ -10,14 +10,32 @@ class SmurfForm extends Component {
     };
   }
 
+  componentDidMount(prevProps){
+    let editSmurf = this.props.editSmurf
+    console.log(editSmurf);
+    if(editSmurf.name){
+      this.setState({
+        name: editSmurf.name,
+        age: editSmurf.age,
+        height: editSmurf.height
+      })
+    }
+  }
+
   addSmurf = event => {
     event.preventDefault();
-    this.props.addToList(this.state);
+    if(!this.props.editSmurf.name){
+      this.props.addToList(this.state);
+    }else{
+      this.props.updateToList(this.props.editSmurf.id, this.state);
+    }
+    
     this.setState({
       name: '',
       age: '',
       height: ''
     });
+    this.props.history.push('/')
   }
 
   handleInputChange = e => {

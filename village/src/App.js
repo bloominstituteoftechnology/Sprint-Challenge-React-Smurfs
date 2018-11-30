@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { Route, Link, NavLink } from "react-router-dom";
+import { Route, NavLink } from "react-router-dom";
 import './App.css';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
@@ -11,6 +11,7 @@ class App extends Component {
     super(props);
     this.state = {
       smurfs: [],
+      editSmurf:{},
     };
   }
 
@@ -52,6 +53,9 @@ deleteItem = id => {
 
 updateToList = (id, obj) => {
   console.log(id);
+  this.setState({
+    editSmurf: {}
+  })
   axios 
     .put(`http://localhost:3333/smurfs/${id}`, obj)
     .then(response => {
@@ -61,6 +65,13 @@ updateToList = (id, obj) => {
       })
     })
     .catch(err => console.log(err));
+}
+
+updateStart = (obj) =>{
+  this.setState({
+    editSmurf: obj
+  })
+  console.log(this.state.editSmurf)
 }
 
   // add any needed code to ensure that the smurfs collection exists on state and it has data coming from the server
@@ -75,11 +86,11 @@ updateToList = (id, obj) => {
         </nav>
         <Route
           exact path="/"
-          render={(props) => <Smurfs smurfs={this.state.smurfs} deleteItem={this.deleteItem} updateToList={this.updateToList} />}
+          render={(props) => <Smurfs {...props} smurfs={this.state.smurfs} deleteItem={this.deleteItem} updateStart={this.updateStart}  />}
         />
         <Route
           path="/smurf-form"
-          render={(props) => <SmurfForm addToList={this.addToList} />}
+          render={(props) => <SmurfForm {...props} addToList={this.addToList} updateToList={this.updateToList} editSmurf={this.state.editSmurf} />}
         />
         
         
