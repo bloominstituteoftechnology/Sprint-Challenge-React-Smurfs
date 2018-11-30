@@ -35,10 +35,11 @@ nav {
 
 nav a {
     color: antiquewhite;
+    margin-top: 20px;
 }
 
 nav a:hover {
-    color: cyan;
+    color: rgba(15, 28, 166, 1);
 }
 
 .smurf-container {
