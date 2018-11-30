@@ -15,7 +15,9 @@ const Smurf = props => {
         <strong>{props.smurf.height} tall</strong>
         <p>{props.smurf.age} smurf years old</p>
       </div>
-      {!props.edit && <button onClick={()=>props.deleteItem(props.smurf.id)}>delete</button>}
+      {!props.edit && 
+      <button onClick={()=>props.deleteItem(props.smurf.id)}>delete</button>
+      }
     </div>
   );
 };

@@ -67,7 +67,10 @@ class SmurfForm extends Component {
             value={this.state.height}
             name="height"
           />
-          <button type="submit">{this.props.editSmurf.name ? 'Edit Smurf' : 'Add Smurf'}</button>
+          <button type="submit">{this.props.editSmurf.name ? 
+            'Edit Smurf' 
+            : 
+            'Add Smurf'}</button>
         </form>
           {this.props.editSmurf.name &&<Route
           path="/smurf-form/:id"

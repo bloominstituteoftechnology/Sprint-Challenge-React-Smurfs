@@ -14,7 +14,7 @@ class App extends Component {
       editSmurf:{},
     };
   }
-
+//axios requests -------
 componentDidMount(){
   axios
     .get('http://localhost:3333/smurfs')
@@ -67,6 +67,8 @@ updateToList = (id, obj) => {
     .catch(err => console.log(err));
 }
 
+//functions
+
 updateStart = (obj) =>{
   this.setState({
     editSmurf: obj
@@ -84,19 +86,31 @@ editReset = () =>{
   // Notice what your map function is looping over and returning inside of Smurfs.
   // You'll need to make sure you have the right properties on state and pass them down to props.
   render() {
+    let { name, id } = this.state.editSmurf;
     return (
       <div className="App">
         <nav>
-          <NavLink to='/'>Village</NavLink>
-          <NavLink to={this.state.editSmurf.name ? `/smurf-form/${this.state.editSmurf.id}` : '/smurf-form'}>Form</NavLink>
+          <NavLink to='/' onClick={()=>console.log('onclick')}>Village</NavLink>
+          <NavLink to={'/smurf-form/' + (name ? `${id}` : '')}>Form</NavLink>
         </nav>
         <Route
           exact path="/"
-          render={(props) => <Smurfs {...props} smurfs={this.state.smurfs} deleteItem={this.deleteItem} updateStart={this.updateStart} editReset={this.editReset} />}
+          render={(props) => 
+          <Smurfs 
+            {...props} 
+            smurfs={this.state.smurfs} 
+            deleteItem={this.deleteItem} 
+            updateStart={this.updateStart} 
+            editReset={this.editReset} />}
         />
         <Route
           path="/smurf-form"
-          render={(props) => <SmurfForm {...props} addToList={this.addToList} updateToList={this.updateToList} editSmurf={this.state.editSmurf} />}
+          render={(props) => 
+          <SmurfForm 
+          {...props} 
+          addToList={this.addToList} 
+          updateToList={this.updateToList} 
+          editSmurf={this.state.editSmurf} />}
         />
         
         
