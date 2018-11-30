@@ -11,7 +11,7 @@ class SmurfForm extends Component {
   }
 
   componentDidMount() {
-    let currentSmurf = this.props.smurfs.find(
+    const currentSmurf = this.props.smurfs.find(
       smurf => smurf.id.toString() === this.props.match.params.id
     );
 
@@ -47,6 +47,11 @@ class SmurfForm extends Component {
   render() {
     return (
       <div className="SmurfForm">
+        <h1>
+          {this.props.update
+            ? `Update: ${this.currentSmurf ? this.currentSmurf.name : ""}`
+            : "Add New Smurf"}
+        </h1>
         <form onSubmit={this.submitHandler}>
           <input
             onChange={this.handleInputChange}
@@ -61,6 +66,7 @@ class SmurfForm extends Component {
             value={this.state.age}
             name="age"
             required
+            className="age-input"
           />
           <input
             onChange={this.handleInputChange}
@@ -68,6 +74,7 @@ class SmurfForm extends Component {
             value={this.state.height}
             name="height"
             required
+            className="height-input"
           />
           <button type="submit">
             {this.props.update ? "Update Smurf" : "Add to the village"}
