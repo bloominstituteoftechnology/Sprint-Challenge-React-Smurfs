@@ -25,3 +25,16 @@ nav {
     margin: 0 auto;
     margin-top: 20px;
 }
+
+.smurf-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    width: 200px;
+    height: 250px;
+    margin: 20px;
+    margin: 0 auto;
+    margin-top: 20px;
+}
