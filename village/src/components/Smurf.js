@@ -43,7 +43,9 @@ class Smurf extends React.Component {
 
     }
 
-    const smurf = this.props.isOwnPage ? this.props.smurf.find(smurf => smurf.id == this.props.match.params.id) : this.props.smurf;
+    const smurf = this.props.isOwnPage
+      ? this.props.smurf.find(smurf => smurf.id == this.props.match.params.id)
+      : this.props.smurf;
 
     const { name, height, age, id } = smurf;
     const { deleteFunc } = this.props;
@@ -61,8 +63,16 @@ class Smurf extends React.Component {
             className='delete-btn'
             onClick={() => deleteFunc(id)}>X
           </span>
-          <button onClick={this.toggleUpdate}>{this.state.showUpdateForm ? 'Cancel' : 'Update'}</button>
-          {this.state.showUpdateForm && <UpdateForm onClick={e => e.stopPropagation()} updateFunc={this.props.updateFunc} turnOff={this.turnOff} smurf={smurf}/>}
+          <button onClick={this.toggleUpdate}>
+            {this.state.showUpdateForm ? 'Cancel' : 'Update'}
+          </button>
+          {this.state.showUpdateForm &&
+            <UpdateForm
+              onClick={e => e.stopPropagation()}
+              updateFunc={this.props.updateFunc}
+              turnOff={this.turnOff}
+              smurf={smurf}
+            />}
         </div>
       </div>
     );

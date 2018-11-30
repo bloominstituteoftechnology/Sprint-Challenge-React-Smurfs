@@ -9,8 +9,13 @@ export default function Navbar() {
 
     <div className='nav-bar'>
 
-      <NavLink activeStyle={{fontWeight: 'bold'}} exact to='/'>Home</NavLink>
-      <NavLink activeStyle={{fontWeight: 'bold'}} to='/smurf-form'>Add Form</NavLink>
+      <NavLink
+        activeStyle={{fontWeight: 'bold'}}
+        exact
+        to='/'>Home</NavLink>
+      <NavLink
+        activeStyle={{fontWeight: 'bold'}}
+        to='/smurf-form'>Add Form</NavLink>
 
     </div>
 

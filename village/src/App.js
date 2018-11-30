@@ -56,13 +56,15 @@ class App extends Component {
           <Route
             exact
             path='/smurf-form'
-            render={props => <SmurfForm {...props} addFunc={this.addSmurf}/>}
+            render={props =>
+              <SmurfForm {...props} addFunc={this.addSmurf}/>}
           />
           <Route
             exact
             path='/'
             render={props =>
-              <Smurfs {...props}
+              <Smurfs
+                {...props}
                 smurfs={this.state.smurfs}
                 updateFunc={this.updateSmurf}
                 deleteFunc={this.deleteSmurf}
@@ -71,7 +73,14 @@ class App extends Component {
           <Route
             exact
             path='/smurf/:id'
-            render={props => <Smurf {...props} smurf={this.state.smurfs} updateFunc={this.updateSmurf} isOwnPage/>}
+            render={props =>
+              <Smurf
+                {...props}
+                smurf={this.state.smurfs}
+                updateFunc={this.updateSmurf}
+                deleteFunc={this.deleteSmurf}
+                isOwnPage
+              />}
           />
         </div>
       </Router>
