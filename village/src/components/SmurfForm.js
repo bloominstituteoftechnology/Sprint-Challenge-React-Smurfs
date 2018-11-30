@@ -33,15 +33,22 @@ class SmurfForm extends Component {
       const smurf = props.smurfs.find( smurf => (
         smurf.id.toString() === props.match.params.id
       ));
+
+      if (!smurf) {
+        window.alert(`Cannot find a smurf with id ${props.match.params.id}`)
+        props.history.push('/');
+        return null;
+      }
       
       return({
+        smurf: true,
         name: smurf.name,
         age: smurf.age,
         height: smurf.age,
         id: smurf.id,
       })
     }
-    return null
+    return null;
   }
 
   handleInputChange = e => {
@@ -73,6 +80,9 @@ class SmurfForm extends Component {
           <button type="button" onClick={ () => this.props.history.push('/') }>Cancel</button>
           <button type="submit">Add to the village</button>
         </form>
+        {
+          this.props.update && !this.state.smurf && <div>Loading...</div>
+        }
       </div>
     );
   }
