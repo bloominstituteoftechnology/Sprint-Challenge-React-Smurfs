@@ -29,12 +29,26 @@ nav {
 .smurf-container {
     display: flex;
     flex-wrap: wrap;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
     border: 1px solid black;
     width: 200px;
     height: 250px;
     margin: 20px;
-    margin: 0 auto;
+    /* margin: 0 auto; */
     margin-top: 20px;
+}
+
+
+/* .Smurfs {
+    display: grid;
+    grid-template-columns: 100px 50px 100px;
+    grid-template-rows: 80px auto 80px;
+    grid-column-gap: 10px;
+    grid-row-gap: 15px;
+} */
+
+.Smurfs h1 {
+    margin: 20px;
 }
