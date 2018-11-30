@@ -6,6 +6,9 @@ import './App.css';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
 
+let url = 'http://localhost:3333/smurfs';
+
+
 class App extends Component {
   constructor(props) {
     super(props);
