@@ -8,6 +8,7 @@ import axios from 'axios';
 import Navigation from './components/Navigation';
 import Home from './components/Home';
 import { Route } from 'react-router-dom';
+import BadGuys from './components/BadGuys';
 
 class App extends Component {
   constructor(props) {
@@ -40,10 +41,11 @@ class App extends Component {
     return (
       <div className="App">
         <Navigation />
-        <SmurfForm addSmurf={this.addSmurf}/>
+        
+        <Route exact path='/smurfs' render={() => <SmurfForm addSmurf={this.addSmurf}/>} />
         <Route exact path='/' component={Home} />
         <Route path='/smurfs' render={() => <Smurfs smurfs={this.state.smurfs} />} />
-        
+        <Route path='/bad-guys' component={BadGuys} />
          
       </div>
     );
