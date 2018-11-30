@@ -38,6 +38,7 @@ class App extends Component {
 
         <div>
           <NavLink to="/">Home</NavLink>
+          <h1>.</h1>
           <NavLink to="/SmurfForm">Add Your New Smurf</NavLink>
         </div>
           <div>
