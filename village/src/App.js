@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Route, NavLink } from 'react-router-dom';
-import { Container, Menu } from 'semantic-ui-react';
+import { Container, Menu, Input } from 'semantic-ui-react';
 
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
@@ -14,6 +14,7 @@ class App extends Component {
     super(props);
     this.state = {
       smurfs: [],
+      filterTerm: '',
     };
   }
 
@@ -53,7 +54,17 @@ class App extends Component {
     .catch( err => console.log(`Error: ${err}`))
   }
 
+  handleSearch = e => {
+    this.setState({
+      [e.target.name]: e.target.value,
+    });
+  }
+
   render() {
+    // filter smurf based on filterTerm
+    const filteredSmurf = this.state.smurfs.filter(
+      smurf => smurf.name.toLowerCase().includes(this.state.filterTerm.toLocaleLowerCase())
+    );
     return (
       <Container className="App">
 
@@ -61,13 +72,20 @@ class App extends Component {
         <Menu pointing>
           <NavLink className="item" exact to='/' >Smurf Village</NavLink>
           <NavLink className="item" to='/smurf-form' >Add Smurf</NavLink>
+          <Menu.Menu position='right'>
+            <Menu.Item>
+              <Input
+                name='filterTerm'
+                onChange={this.handleSearch} icon='search' placeholder='Search...' />
+            </Menu.Item>
+          </Menu.Menu>
         </Menu>
 
         {/* add routes */}
         <Route exact path='/' render={ props => (
           <Smurfs
             {...props}
-            smurfs={this.state.smurfs}
+            smurfs={filteredSmurf}
             removeSmurf={this.removeSmurf}
           /> )}
         />
