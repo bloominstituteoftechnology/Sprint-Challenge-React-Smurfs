@@ -40,6 +40,17 @@ class App extends Component {
       })
   }
 
+  deleteData = id => {
+    axios
+      .delete(`${apiURL}/${id}`)
+      .then(response => {
+        this.setState({ smurfs: response.data })
+      })
+      .catch( error => {
+        console.log(error);
+      });
+  }
+
   updateData = (dataForEdit, id )=> {
     axios
       .put(`${apiURL}/${id}`, dataForEdit)
@@ -59,7 +70,7 @@ class App extends Component {
         <Navigation />
         <Route 
           exact path='/' 
-          render={props => <Smurfs {...props} smurfs={this.state.smurfs} />} 
+          render={props => <Smurfs {...props} smurfs={this.state.smurfs} deleteData={this.deleteData}/>} 
         />
         <Route 
           exact path='/add-a-smurf' 
