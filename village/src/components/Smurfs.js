@@ -4,6 +4,10 @@ import Smurf from './Smurf';
 
 class Smurfs extends Component {
   render() {
+
+    const clickedSmurf = this.props.smurfs.find(smurf => `${smurf.id}` === this.props.match.params.id);
+    console.log(clickedSmurf);
+    
     return (
       <div className="Smurfs">
         <h1>Smurf Village</h1>

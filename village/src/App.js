@@ -117,6 +117,16 @@ class App extends Component {
           }
         />
 
+        <Route exact path={`/smurf/:id`}
+          render={props => 
+            <Smurfs
+              {...props}
+              smurfs={this.state.smurfs}
+              clicked
+            />
+          } 
+        />
+
       </div>
     );
   }

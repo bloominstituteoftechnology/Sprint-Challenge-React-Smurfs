@@ -12,6 +12,10 @@
     width: 280px;
 }
 
+.Smurf:hover {
+    background-color: whitesmoke;
+}
+
 button{
     margin: 10px 10px;
     color: #ffffff;
@@ -19,4 +23,13 @@ button{
     border-radius: 5px;
     padding: 5px 10px;
     cursor: pointer;
+}
+
+button:hover {
+    padding: 5px 15px;
+}
+
+a {
+    text-decoration: none;
+    color: #222222;
 }
