@@ -16,6 +16,7 @@
   display: flex;
   justify-content: space-around;
 }
+
 .navigation nav a {
   display: flex;
   align-items: center;
@@ -37,43 +38,69 @@
 
 .Smurfs h1 {
   font-size: 4rem;
-  margin-bottom: 2rem;
+  margin-bottom: 4rem;
 }
 
 .Smurf {
   width: 30rem;
   display: flex;
   flex-direction: column;
-  border: 1px solid black;
-  margin: 2rem auto;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 5px;
+  margin: 4rem auto;
+  position: relative;
+}
+
+.Smurf .Smurf-floating-text {
+  position: absolute;
+  top: -1.5rem;
+  left: -2rem;
+  padding: 1rem 3.5rem;
+  background-color: white;
+  border-radius: 5px;
+  font-size: 2rem;
 }
 
 .Smurf h3 {
   font-size: 2rem;
   font-weight: bold;
-  margin: 1rem 0;
+  margin: 6rem 0 2rem 0;
 }
 
 .Smurf strong {
   font-weight: bold;
   font-size: 1.4rem;
-  margin: 1rem 0;
 }
 
 .Smurf p {
   margin: 1rem 0;
 }
 
-.Smurf button {
-  width: 40%;
-  margin: 0.5rem auto;
+.Smurf .Smurf-buttons {
+  margin: 1rem 0 2rem 0;
+}
+
+.Smurf .Smurf-buttons button {
+  width: 10rem;
+  padding: 5px;
+  margin: 0.5rem;
   border: 1px solid #544E61;
+  border-radius: 5px;
   background-color: #544E61;
   color: #bfd0d8;
 }
 
 .SmurfForm {
-  margin-top: 3rem;
+  width: 45rem;
+  padding: 5rem;
+  margin: 5rem auto;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 5px;
+}
+
+.SmurfForm .SmurfForm-title {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
 }
 
 .SmurfForm form {
@@ -87,4 +114,21 @@
   height: 3rem;
   margin: 1rem 0;
   font-size: 1.6rem;
+  background-color: rgba(255, 255, 255, 0);;
+  border: none;
+  border-bottom: 1px solid #544E61;
+}
+
+.SmurfForm form input::placeholder {
+  color: #544E61;
+}
+
+.SmurfForm form button {
+  width: 20rem;
+  padding: 0.5rem;
+  background-color: #544E61;
+  border: 1px solid #544E61;
+  border-radius: 5px;
+  margin: 1.5rem auto;
+  color: #bfd0d8;
 }

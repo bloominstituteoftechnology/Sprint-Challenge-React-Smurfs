@@ -40,6 +40,7 @@ class SmurfForm extends Component {
   render() {
     return (
       <div className="SmurfForm">
+        <p className='SmurfForm-title'>{this.props.edit ?  'Rewrite that Smurf' : 'Add a Smurf'}</p>
         <form onSubmit={this.props.edit ? this.editSmurf : this.addSmurf}>
           <input
             onChange={this.handleInputChange}
