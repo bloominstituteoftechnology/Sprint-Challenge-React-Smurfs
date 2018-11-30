@@ -32,6 +32,8 @@ class App extends Component {
             console.log(response);
             this.setState({
                 smurfs: response.data
+            }).catch(err => {
+                console.log(err);
             });
         });
     };
@@ -42,6 +44,8 @@ class App extends Component {
             console.log(response);
             this.setState({
                 smurfs: response.data
+            }).catch(err => {
+                console.log(err);
             });
         });
     };
