@@ -1,3 +1,31 @@
 .App {
   text-align: center;
 }
+a {
+  text-decoration: none;
+}
+
+nav {
+  font-size: 28px;
+  border-top: 1px solid lightgray;
+  border-bottom: 1px solid lightgray;
+  padding: 20px 0;
+  margin-top: 10px;
+}
+
+.navBarLink {
+  margin: 0 20px;
+  color: rgb(26, 110, 179);
+  text-decoration: none;
+}
+
+.navBarLink:hover {
+  color: rgb(7, 59, 102);
+  font-weight: bold;
+}
+
+.active {
+  text-decoration: underline;
+  color: rgb(7, 59, 102);
+  font-weight: bold;
+}

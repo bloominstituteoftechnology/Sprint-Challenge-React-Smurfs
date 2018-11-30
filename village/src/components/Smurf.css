@@ -1,0 +1,22 @@
+
+.Smurf-container {
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.Smurf {
+    border: 2px solid rgb(26, 110, 179);
+    border-radius: 10px;
+    width: 280px;
+}
+
+button{
+    margin: 10px 10px;
+    color: #ffffff;
+    background-color: rgb(26, 110, 179);
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
