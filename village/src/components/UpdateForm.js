@@ -54,11 +54,11 @@ export default class UpdateForm extends React.Component {
 
     return (
 
-        <form className='update-form' onSubmit={this.submitHandler}>
+        <form className='update-form' onSubmit={this.submitHandler} onClick={e => e.stopPropagation()}>
 
-          <input type='text' name='name' onChange={this.handleChange} value={this.state.name} />
-          <input type='text' name='age' onChange={this.handleChange} value={this.state.age} />
-          <input type='text' name='height' onChange={this.handleChange} value={this.state.height} />
+          <input type='text' name='name' onChange={this.handleChange} value={this.state.name} autocomplete='off' />
+          <input type='text' name='age' onChange={this.handleChange} value={this.state.age} autocomplete='off' />
+          <input type='text' name='height' onChange={this.handleChange} value={this.state.height} autocomplete='off' />
           <button>Update</button>
 
         </form>

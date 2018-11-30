@@ -6,6 +6,7 @@ import './App.css';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
 import Navbar from './components/Navbar';
+import Smurf from './components/Smurf';
 
 class App extends Component {
   constructor(props) {
@@ -52,8 +53,26 @@ class App extends Component {
       <Router>
         <div className="App">
           <Navbar />
-          <Route exact path='/smurf-form' render={props => <SmurfForm {...props} addFunc={this.addSmurf}/>} />
-          <Route exact path='/' render={props => <Smurfs {...props} smurfs={this.state.smurfs} updateFunc={this.updateSmurf} deleteFunc={this.deleteSmurf}/>} />
+          <Route
+            exact
+            path='/smurf-form'
+            render={props => <SmurfForm {...props} addFunc={this.addSmurf}/>}
+          />
+          <Route
+            exact
+            path='/'
+            render={props =>
+              <Smurfs {...props}
+                smurfs={this.state.smurfs}
+                updateFunc={this.updateSmurf}
+                deleteFunc={this.deleteSmurf}
+              />}
+          />
+          <Route
+            exact
+            path='/smurf/:id'
+            render={props => <Smurf {...props} smurf={this.state.smurfs} updateFunc={this.updateSmurf} isOwnPage/>}
+          />
         </div>
       </Router>
     );

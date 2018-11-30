@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 
 import UpdateForm from './UpdateForm';
 
@@ -12,13 +13,23 @@ class Smurf extends React.Component {
 
     this.state = {
 
-      showUpdateForm: false
+      showUpdateForm: false,
+      smurf: null
 
     }
 
   }
 
-  toggleUpdate = () => {
+  toggleUpdate = e => {
+
+    console.log(e);
+
+    e.stopPropagation();
+    this.setState({showUpdateForm: !this.state.showUpdateForm});
+
+  }
+
+  turnOff = () => {
 
     this.setState({showUpdateForm: !this.state.showUpdateForm});
 
@@ -26,20 +37,33 @@ class Smurf extends React.Component {
 
   render() {
 
-    const { name, height, age, id } = this.props.smurf;
+    if (this.props.smurf.length === 0) {
+
+      return <h1>Getting smurf...</h1>;
+
+    }
+
+    const smurf = this.props.isOwnPage ? this.props.smurf.find(smurf => smurf.id == this.props.match.params.id) : this.props.smurf;
+
+    const { name, height, age, id } = smurf;
     const { deleteFunc } = this.props;
 
     return (
-      <div className="smurf">
-        <h3>{name}</h3>
-        <strong>{height} tall</strong>
-        <p>{age} smurf years old</p>
-        <span
-          className='delete-btn'
-          onClick={() => deleteFunc(id)}>X
-        </span>
-        <button onClick={this.toggleUpdate}>{this.state.showUpdateForm ? 'Cancel' : 'Update'}</button>
-        {this.state.showUpdateForm && <UpdateForm updateFunc={this.props.updateFunc} turnOff={this.toggleUpdate} smurf={this.props.smurf}/>}
+      <div className='page-container'>
+        <div
+          className="smurf"
+          onClick={() => this.props.history.push(`/smurf/${id}`)}
+        >
+          <h3>{name}</h3>
+          <strong>{height} tall</strong>
+          <p>{age} smurf years old</p>
+          <span
+            className='delete-btn'
+            onClick={() => deleteFunc(id)}>X
+          </span>
+          <button onClick={this.toggleUpdate}>{this.state.showUpdateForm ? 'Cancel' : 'Update'}</button>
+          {this.state.showUpdateForm && <UpdateForm onClick={e => e.stopPropagation()} updateFunc={this.props.updateFunc} turnOff={this.turnOff} smurf={smurf}/>}
+        </div>
       </div>
     );
 
