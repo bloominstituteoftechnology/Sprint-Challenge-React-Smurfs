@@ -33,6 +33,7 @@ class App extends Component {
       .catch(err => console.log(err));
   };
   editSmurf = (id, data) => {
+    console.log("hi");
     axios
       .put(`http://localhost:3333/smurfs/${id}`, data)
       .then(response => {
@@ -78,6 +79,7 @@ class App extends Component {
               {...props}
               smurfs={this.state.smurfs}
               deleteSmurf={this.deleteSmurf}
+              editSmurf={this.editSmurf}
             />
           )}
         />

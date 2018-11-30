@@ -9,7 +9,11 @@ const Smurf = props => {
       <h3>{props.name}</h3>
       <strong>{props.height} tall</strong>
       <p>{props.age} smurf years old</p>
-      <Link to="/smurf-form" edit={true}>
+      <Link
+        to="/smurf-form"
+        onclick={() => props.editSmurf(props.id)}
+        edit={true}
+      >
         <button>Edit Info</button>
       </Link>
     </div>
