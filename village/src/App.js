@@ -31,13 +31,21 @@ class App extends Component {
 
   }
 
+  deleteSmurf = id => {
+
+    axios.delete(`http://localhost:3333/smurfs/${id}`)
+      .then(res => this.setState({smurfs: res.data}))
+      .catch(err => console.log(err));
+
+  }
+
   render() {
     return (
       <Router>
         <div className="App">
           <Navbar />
           <Route exact path='/smurf-form' render={props => <SmurfForm {...props} addFunc={this.addSmurf}/>} />
-          <Route exact path='/' render={props => <Smurfs {...props} smurfs={this.state.smurfs} />} />
+          <Route exact path='/' render={props => <Smurfs {...props} smurfs={this.state.smurfs} deleteFunc={this.deleteSmurf}/>} />
         </div>
       </Router>
     );
