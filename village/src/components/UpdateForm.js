@@ -69,16 +69,16 @@ export default class UpdateForm extends React.Component {
 
           <input
             type='text'
-            name='age'
+            name='height'
             onChange={this.handleChange}
-            value={this.state.age}
+            value={this.state.height}
             autoComplete='off' />
 
           <input
             type='text'
-            name='height'
+            name='age'
             onChange={this.handleChange}
-            value={this.state.height}
+            value={this.state.age}
             autoComplete='off' />
 
           <button>Update</button>
