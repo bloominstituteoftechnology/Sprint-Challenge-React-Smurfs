@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 const StyledSmurf = styled.div`
   width: 50%;
@@ -9,7 +10,7 @@ const StyledSmurf = styled.div`
   margin: 0 auto;
 `;
 
-const DeleteButton = styled.button`
+const Button = styled.button`
   background-color: red;
   padding: 5px;
 `;
@@ -20,7 +21,8 @@ const Smurf = props => {
       <h3>{props.name}</h3>
       <strong>{props.height} tall</strong>
       <p>{props.age} smurf years old</p>
-      <DeleteButton onClick={() => props.deleteSmurf(props.id)}>Delete Smurf</DeleteButton>
+      <Button onClick={() => props.deleteSmurf(props.id)}>Delete Smurf</Button>
+      <Link to={`/smurf/${props.id}`}><Button>Edit Smurf</Button></Link>
     </StyledSmurf>
   );
 };

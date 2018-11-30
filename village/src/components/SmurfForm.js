@@ -11,11 +11,21 @@ class SmurfForm extends Component {
     };
   }
 
-  addSmurf = event => {
+  //cdm - if in edit mode, load smurf
+  componentDidMount() {
+  if (this.props.edit) {
+    const smurf = this.props.smurfs.find(s => s.id == this.props.match.params.id);
+    console.log(smurf);
+    this.setState({...smurf});
+  }
+  }
+
+  handleSubmit = event => {
     event.preventDefault();
     // add code to create the smurf using the api
     const newSmurf = this.state;
-    this.props.addSmurf(newSmurf);
+    const func = this.props.edit ? this.props.editSmurf : this.props.addSmurf;
+    func(newSmurf);
     this.props.history.push('/');
 
 
@@ -33,7 +43,7 @@ class SmurfForm extends Component {
   render() {
     return (
       <div className="SmurfForm">
-        <form onSubmit={this.addSmurf}>
+        <form onSubmit={this.handleSubmit}>
           <input
             onChange={this.handleInputChange}
             placeholder="name"

@@ -22,7 +22,6 @@ class App extends Component {
       .get('http://localhost:3333/smurfs')
       .then(res => {
         this.setState({smurfs: res.data});
-        console.log(res);
       })
       .catch(err => console.log(err));
   }
@@ -45,6 +44,16 @@ class App extends Component {
       .catch(err => console.log(err));
   }
 
+  editSmurf = smurf => {
+    //const smurf = this.state.smurfs.find(s => s.id == smurf.id);
+    axios.put(`http://localhost:3333/smurfs/${smurf.id}`, smurf)
+      .then(res => {
+        //console.log(res);
+        this.setState({ smurfs: res.data })
+      })
+      .catch(err => console.log(err));
+  }
+
   render() {
     return (
       <div className="App">
@@ -56,6 +65,10 @@ class App extends Component {
         <Route exact path='/'
           render={props =>  <Smurfs {...props} smurfs={this.state.smurfs} deleteSmurf={this.deleteSmurf}/>}
         />
+        <Route path='/smurf/:id'
+          render={props => <SmurfForm {...props} editSmurf={this.editSmurf} smurfs={this.state.smurfs} edit />}
+        />
+          
       </div>
     );
   }
