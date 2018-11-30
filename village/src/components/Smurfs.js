@@ -6,8 +6,14 @@ class Smurfs extends Component {
   render() {
     return (
       <div className="Smurfs">
-        <h1>Smurf Village</h1>
-        <p>Click a Smurf's name to edit their information</p>
+        <h1>
+          <i class="fas fa-tree" /> <i class="fas fa-tree" />{" "}
+          <i class="fas fa-tree" /> Smurf Village <i class="fas fa-tree" />{" "}
+          <i class="fas fa-tree" /> <i class="fas fa-tree" />
+        </h1>
+        <p className="directions">
+          Click a Smurf's name to edit their information
+        </p>
         <ul>
           {this.props.state.smurfs.map(smurf => {
             return (

@@ -3,9 +3,8 @@ import React, { Component } from "react";
 class EditSmurf extends Component {
   submitHandler = event => {
     event.preventDefault();
-    this.props.editSmurf(this.props.match.params.id,
-        this.props.state);
-    this.props.history.push('/');
+    this.props.editSmurf(this.props.match.params.id, this.props.state);
+    this.props.history.push("/");
   };
 
   render() {
