@@ -36,6 +36,10 @@ class App extends Component {
       .then(response => this.setState({ smurfs: response.data }));
   };
 
+  updateState = smurfs => {
+    this.setState({ smurfs });
+  };
+
   render() {
     return (
       <div className="App">
@@ -68,7 +72,13 @@ class App extends Component {
               )}
             />
           )}
-          <Route path="/smurfform" component={SmurfForm} />
+          <Route
+            path="/smurfform"
+            render={props => <SmurfForm     
+              {...props}
+              updateState={this.updateState} 
+            />}
+          />
         </section>
       </div>
     );
