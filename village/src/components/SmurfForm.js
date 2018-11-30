@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Button, Segment, Form } from 'semantic-ui-react';
 
 class SmurfForm extends Component {
   constructor(props) {
@@ -57,33 +58,33 @@ class SmurfForm extends Component {
 
   render() {
     return (
-      <div className="SmurfForm">
-        <form onSubmit={this.handleSubmit}>
-          <input
+      <Segment className="SmurfForm">
+        <Form onSubmit={this.handleSubmit}>
+          <Form.Input
             onChange={this.handleInputChange}
             placeholder="name"
             value={this.state.name}
             name="name"
           />
-          <input
+          <Form.Input
             onChange={this.handleInputChange}
             placeholder="age"
             value={this.state.age}
             name="age"
           />
-          <input
+          <Form.Input
             onChange={this.handleInputChange}
             placeholder="height"
             value={this.state.height}
             name="height"
           />
-          <button type="button" onClick={ () => this.props.history.push('/') }>Cancel</button>
-          <button type="submit">Add to the village</button>
-        </form>
+          <Button type="button" onClick={ () => this.props.history.push('/') }>Cancel</Button>
+          <Button primary type="submit">Add to the village</Button>
+        </Form>
         {
           this.props.update && !this.state.smurf && <div>Loading...</div>
         }
-      </div>
+      </Segment>
     );
   }
 }

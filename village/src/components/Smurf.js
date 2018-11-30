@@ -1,22 +1,33 @@
 import React from 'react';
+import { Card, Button } from 'semantic-ui-react';
 
 const Smurf = props => {
   return (
-    <div onClick={() => props.history.push(`/smurf/${props.id}`)} className="Smurf">
-      <h3>{props.name}</h3>
-      <strong>{props.height} tall</strong>
-      <p>{props.age} smurf years old</p>
+    <Card onClick={() => props.history.push(`/smurf/${props.id}`)} className="Smurf">
+      <Card.Content>
+        <Card.Header textAlign='center'>{props.name}</Card.Header>
+        <Card.Description textAlign='center'>{props.height} tall</Card.Description>
+        <Card.Description textAlign='center'>{props.age} smurf years old</Card.Description>
+      </Card.Content>
+      <Card.Content extra>
+        <div className="ui two buttons">
+          <Button onClick={(e) => {
+            e.stopPropagation();
+            props.removeSmurf(props.id)
+          }}>
+            remove
+          </Button>
 
-      <button onClick={(e) => {
-        e.stopPropagation();
-        props.history.push(`/smurf-update/${props.id}`)
-      }} >update</button>
+          <Button primary onClick={(e) => {
+            e.stopPropagation();
+            props.history.push(`/smurf-update/${props.id}`)
+          }} >
+            update
+          </Button>
+        </div>
+      </Card.Content>
 
-      <button onClick={(e) => {
-        e.stopPropagation();
-        props.removeSmurf(props.id)
-      }}>remove</button>
-    </div>
+    </Card>
   );
 };
 

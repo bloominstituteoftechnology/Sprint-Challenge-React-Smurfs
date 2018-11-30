@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Segment, Header, Card, Loader } from 'semantic-ui-react';
 
 import Smurf from './Smurf';
 
@@ -6,12 +7,12 @@ class Smurfs extends Component {
   render() {
     const { smurfs, removeSmurf, ...props } = this.props;
     return (
-      <div className="Smurfs">
-        <h1>Smurf Village</h1>
+      <Segment className="Smurfs">
+        <Header style={{ marginBottom: '50px' }} textAlign='center' as='h1'>Smurf Village</Header>
         {
           smurfs.length === 0 ?
-          <div>Loading ... </div>:
-          <ul>
+          <Loader active inline='centered' />:
+          <Card.Group centered>
             {smurfs.map(smurf => {
               return (
                 <Smurf
@@ -25,9 +26,9 @@ class Smurfs extends Component {
                 />
               );
             })}
-          </ul>
+          </Card.Group>
         }
-      </div>
+      </Segment>
     );
   }
 }

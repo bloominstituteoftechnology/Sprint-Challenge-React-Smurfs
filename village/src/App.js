@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Route, NavLink } from 'react-router-dom';
+import { Container, Menu } from 'semantic-ui-react';
 
-import './App.css';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
 import SmurfDetail from './components/SmurfDetail';
@@ -55,11 +55,13 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
+      <Container className="App">
 
         {/* add navigation */}
-        <NavLink to='/' >Smurf Village</NavLink>
-        <NavLink to='/smurf-form' >Add Smurf</NavLink>
+        <Menu pointing>
+          <NavLink className="item" exact to='/' >Smurf Village</NavLink>
+          <NavLink className="item" to='/smurf-form' >Add Smurf</NavLink>
+        </Menu>
 
         {/* add routes */}
         <Route exact path='/' render={ props => (
@@ -89,7 +91,7 @@ class App extends Component {
             smurfs={this.state.smurfs}
           /> )} 
         />
-      </div>
+      </Container>
     );
   }
 }
