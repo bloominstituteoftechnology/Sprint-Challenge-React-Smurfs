@@ -21,8 +21,17 @@ class SmurfForm extends Component {
     });
   }
 
-  handleInputChange = e => {
-    this.setState({ [e.target.name]: e.target.value });
+  handleInputChange = event => {
+    // this.setState({ [e.target.name]: e.target.value });
+    if(event.target.type === "number"){
+      this.setState({
+        [event.target.name]: Number(event.target.value)
+      });
+    }else{
+      this.setState({
+        [event.target.name]: event.target.value
+      });
+    }
   };
 
   render() {
@@ -40,6 +49,7 @@ class SmurfForm extends Component {
             placeholder="age"
             value={this.state.age}
             name="age"
+            type="number"
           />
           <input
             onChange={this.handleInputChange}
