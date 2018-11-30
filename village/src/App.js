@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { Route, NavLink } from 'react-router-dom';
+import { Route, NavLink, Link } from 'react-router-dom';
 
 import './App.css';
 import SmurfForm from './components/SmurfForm';
@@ -80,7 +80,7 @@ class App extends Component {
       <div className="App">
 
         <nav>
-          <NavLink to='/' className='navBarLink' activeClassName="active">
+          <NavLink exact to='/' className='navBarLink' activeClassName="active">
             Smurf Village
           </NavLink>
           <NavLink to='/smurf-form' className='navBarLink' activeClassName="active">
