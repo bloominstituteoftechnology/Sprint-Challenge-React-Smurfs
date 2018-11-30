@@ -5,6 +5,7 @@ import { Route } from 'react-router-dom';
 import './App.css';
 import Nav from './Nav';
 import SmurfForm from './components/SmurfForm';
+import SmurfUpdate from './components/SmurfUpdate';
 import Smurfs from './components/Smurfs';
 
 class App extends Component {
@@ -40,12 +41,35 @@ class App extends Component {
       .catch(err => console.log(err));
   }
 
+  updateSmurf = (updatedSmurf, id) => {
+    axios
+      .put(`http://localhost:3333/smurfs/${id}`, updatedSmurf)
+      .then(response => {
+        this.setState({
+          smurfs: response.data,
+        })
+      })
+      .catch(err => console.log(err))
+  }
+
+  deleteSmurf = (id) => {
+    axios
+      .delete(`http://localhost:3333/smurfs/${id}`)
+      .then(response => {
+        this.setState({
+          smurfs: response.data,
+        })
+      })
+      .catch(err => console.log(err))
+  }
+
   render() {
     return (
       <div className="App">
         <Nav />
-        <Route path="/add" render={props => <SmurfForm {...props} add={this.addSmurf} />} />
-        <Route exact path="/" render={props => <Smurfs {...props} smurfs={this.state.smurfs} />} />
+        <Route path="/smurf-form" render={props => <SmurfForm {...props} add={this.addSmurf} />} />
+        <Route path="/update/:id" render={props => <SmurfUpdate {...props} update={this.updateSmurf} />} />
+        <Route exact path="/" render={props => <Smurfs {...props} smurfs={this.state.smurfs} delete={this.deleteSmurf} />} />
       </div>
     );
   }
