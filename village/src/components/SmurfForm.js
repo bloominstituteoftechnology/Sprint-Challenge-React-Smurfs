@@ -10,6 +10,18 @@ class SmurfForm extends Component {
     };
   }
 
+  componentDidMount() {
+    let currentSmurf = this.props.smurfs.find(
+      smurf => smurf.id.toString() === this.props.match.params.id
+    );
+
+    this.setState({
+      name: this.props.update ? currentSmurf.name : "",
+      age: this.props.update ? currentSmurf.age : "",
+      height: this.props.update ? currentSmurf.height : ""
+    });
+  }
+
   submitHandler = event => {
     event.preventDefault();
 

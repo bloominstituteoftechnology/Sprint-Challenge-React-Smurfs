@@ -72,7 +72,11 @@ class App extends Component {
           exact
           path="/add-smurf"
           render={props => (
-            <SmurfForm {...props} addNewSmurf={this.addNewSmurf} />
+            <SmurfForm
+              {...props}
+              addNewSmurf={this.addNewSmurf}
+              smurfs={this.state.smurfs}
+            />
           )}
         />
 
@@ -82,6 +86,7 @@ class App extends Component {
           render={props => (
             <SmurfForm
               {...props}
+              smurfs={this.state.smurfs}
               updateSmurf={this.updateSmurf}
               update // update===true
             />
