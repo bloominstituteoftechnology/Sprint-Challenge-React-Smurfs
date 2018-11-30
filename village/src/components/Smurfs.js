@@ -14,22 +14,15 @@ const SmurfListHeader = styled.h1`
   max-width: 40%;
 `
 
-const DeleteButton = styled.button`
-  background-color: #F52C07;
-  color: #fff;
-  padding: 3px 5px;
-  border: 0;
-  border-radius: 5px;
-`
 
 class Smurfs extends Component {
   constructor(props) {
     super(props);
   }
 
-  componentDidMount() {
+  // componentDidMount() {
 
-  }
+  // }
 
 
   render(props) {
@@ -46,8 +39,8 @@ class Smurfs extends Component {
                   age={smurf.age}
                   height={smurf.height}
                   key={smurf.id}
+                  deleteSmurf={this.props.deleteSmurf} 
                 />
-                <DeleteButton onClick={this.props.deleteSmurf}>Remove this Smurf</DeleteButton>
               </React.Fragment>
             );
           })}

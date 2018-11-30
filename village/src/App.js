@@ -81,7 +81,6 @@ class App extends Component {
             <Smurfs
               {...props}
               smurfs={this.state.smurfs}
-              deleteSmurf={this.deleteSmurf} 
             />
           )}
         />
