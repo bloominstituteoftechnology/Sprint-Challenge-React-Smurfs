@@ -2,6 +2,10 @@ import React, { Component } from "react";
 import axios from "axios";
 import styled from "styled-components";
 
+// ===========================
+// ==== STYLED COMPONENTS ====
+// ===========================
+
 const StyledInput = styled.input`
   padding: 10px;
   margin: 10px;
@@ -11,7 +15,7 @@ const StyledInput = styled.input`
   width: 50%;
   margin: 0 auto 20px;
   display: block;
-  background: #d6bca5
+  background: #d6bca5;
 
   &:nth-child(3) {
     margin-bottom: 50px;
@@ -48,6 +52,10 @@ const StyledButton = styled.button`
     box-shadow: 0 0 lightblue;
   }
 `;
+
+// ===========================
+// ====     COMPONENT     ====
+// ===========================
 class SmurfForm extends Component {
   constructor(props) {
     super(props);

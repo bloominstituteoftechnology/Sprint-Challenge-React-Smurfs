@@ -2,6 +2,10 @@ import React, { Component } from "react";
 import styled from "styled-components";
 import Smurf from "./Smurf";
 
+// ===========================
+// ==== STYLED COMPONENTS ====
+// ===========================
+
 const StyledH1 = styled.h1`
   color: blue;
   margin-top: -20px;
@@ -13,6 +17,10 @@ const StyledH1 = styled.h1`
   border-bottom: 1px solid blue;
   background: white;
 `;
+
+// ===========================
+// ====     COMPONENT     ====
+// ===========================
 class Smurfs extends Component {
   render() {
     return (

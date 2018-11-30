@@ -2,6 +2,10 @@ import React, { Component } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
+// ===========================
+// ==== STYLED COMPONENTS ====
+// ===========================
+
 const StyledH3 = styled.h3`
   text-transform: uppercase;
   letter-spacing: 2px;
@@ -57,6 +61,9 @@ const Update = styled(Link)`
   }
 `;
 
+// ===========================
+// ====     COMPONENT     ====
+// ===========================
 class Smurf extends Component {
   constructor(props) {
     super(props);

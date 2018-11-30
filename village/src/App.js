@@ -6,6 +6,7 @@ import "./App.css";
 import SmurfForm from "./components/SmurfForm";
 import Smurfs from "./components/Smurfs";
 import { Route, NavLink } from "react-router-dom";
+import SingleSmurf from "./components/SingleSmurf";
 
 // ===========================
 // ==== STYLED COMPONENTS ====
@@ -46,6 +47,10 @@ const StyledNavLink = styled(NavLink)`
   }
 `;
 
+// ===========================
+// ====     COMPONENT     ====
+// ===========================
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -65,26 +70,6 @@ class App extends Component {
       .catch(err => console.log(err));
   };
 
-  addSmurf = data => {
-    axios
-      .post("http://localhost:3333/smurfs", data)
-      .then(res => {
-        this.setState({
-          name: data.name,
-          age: data.age,
-          height: data.height
-        });
-        this.props.history.push("/");
-      })
-      .catch(err => console.log(err));
-
-    this.setState({
-      name: "",
-      age: "",
-      height: ""
-    });
-  };
-
   deleteSmurf = id => {
     axios
       .delete(`http://localhost:3333/smurfs/${id}`)
@@ -101,6 +86,7 @@ class App extends Component {
       smurfs: data
     });
   };
+
   render() {
     return (
       <div className="App">
@@ -120,7 +106,6 @@ class App extends Component {
           )}
         />
         <Route
-          exact
           path="/smurf-form"
           render={props => (
             <SmurfForm
@@ -130,10 +115,15 @@ class App extends Component {
             />
           )}
         />
+        <Route
+          path="/smurfs/:id"
+          render={props => (
+            <SingleSmurf {...props} resetVillage={this.resetVillage} />
+          )}
+        />
       </div>
     );
   }
 }
 
 export default App;
-// export default withRouter(App);
