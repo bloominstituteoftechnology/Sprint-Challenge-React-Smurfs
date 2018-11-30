@@ -50,3 +50,10 @@ nav {
 .Smurfs h1 {
     padding-left: 40px;
 }
+
+ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+}
