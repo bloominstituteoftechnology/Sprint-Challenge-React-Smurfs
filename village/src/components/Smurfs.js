@@ -28,7 +28,7 @@ class Smurfs extends Component {
                   age={smurf.age}
                   height={smurf.height}
                   key={smurf.id}
-                  deleteItem={this.deleteSmurf}
+                  deleteSmurf={this.deleteSmurf}
                 />
               </div>
             );

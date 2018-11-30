@@ -68,6 +68,8 @@ nav a:hover {
 
 .Smurfs h1 {
     padding-left: 40px;
+    color: red;
+    font-weight: 800;
 }
 
 ul {
