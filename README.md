@@ -24,13 +24,14 @@
 [x] _ After your API is up and running, you can open chrome and type in `http://localhost:3333/smurfs`. You should see an Array `[]` with a smurf returned to you. This is an array that your **API** will be using to store our Smurf Data.
 [x] _ **LOOK** at your `village` directory and notice it's just a plain ol' React App that we've built using `create-react-app`.
 [x] _ **cd** into `village` and run `yarn install or npm install` to retrieve the client side dependencies.
-[x] \* **RUN** `yarn start or npm start` to fire up your React application.
+[x] - **RUN** `yarn start or npm start` to fire up your React application.
 
 ## Project Description
 
 [x] - The requirements for completion are that you are using AXIOS to `GET` a list of Smurfs that exist on the server && a `POST` to create a new Smurf and save it to the Smurf DB.
 
-- You are to then work on adding a Router to this application by using React Router.
+[x] - You are to then work on adding a Router to this application by using React Router.
+
 - If you get both of those two requirements finished early. Proceed to the **STRETCH PROBLEM** to try and implement a `PUT`.
 
 ## API Design - This is how you'll interface with the API and what is required from every endpoint.
@@ -59,11 +60,11 @@
 ### Router
 
 - Once you've finished your `GET` and `POST` requests go ahead and implement a Router for your components within this application.
-  - You'll start by wrapping your `root` component in the `Router` component.
-  - Then declare your routes with `Route`.
-  - Then make it so you can navigate to your routes using `Link`.
-- Create two `routes` in your `App` component, one at `'/'` for your `Smurfs` component, and one at `/smurf-form` for your form.
-- Then in your `App` component, create a nav bar that will use `NavLink` to route to your different pages.
+  [x] - You'll start by wrapping your `root` component in the `Router` component.
+  [x] - Then declare your routes with `Route`.
+  [x] - Then make it so you can navigate to your routes using `Link`.
+  [x] - Create two `routes` in your `App` component, one at `'/'` for your `Smurfs` component, and one at `/smurf-form` for your form.
+  [x] - Then in your `App` component, create a nav bar that will use `NavLink` to route to your different pages.
 
 ## STRETCH PROBLEMS
 

@@ -5,8 +5,6 @@ import "./App.css";
 import SmurfForm from "./components/SmurfForm";
 import Smurfs from "./components/Smurfs";
 import { Route, NavLink, withRouter } from "react-router-dom";
-import Home from "./components/Home";
-
 class App extends Component {
   constructor(props) {
     super(props);
@@ -16,12 +14,9 @@ class App extends Component {
   }
 
   componentDidMount = () => {
-    console.log("MOUNTEDDDD");
-
     axios
       .get("http://localhost:3333/smurfs")
       .then(res => {
-        console.log(res);
         this.setState({
           smurfs: res.data
         });
@@ -31,26 +26,53 @@ class App extends Component {
 
   componentDidUpdate = (prevProps, prevState) => {};
 
-  // add any needed code to ensure that the smurfs collection exists on state and it has data coming from the server
-  // Notice what your map function is looping over and returning inside of Smurfs.
-  // You'll need to make sure you have the right properties on state and pass them down to props.
+  addSmurf = data => {
+    axios
+      .post("http://localhost:3333/smurfs", data)
+      .then(res => {
+        this.setState({
+          name: data.name,
+          age: data.age,
+          height: data.height
+        });
+        this.props.history.push("/");
+      })
+      .catch(err => console.log(err));
+
+    this.setState({
+      name: "",
+      age: "",
+      height: ""
+    });
+  };
+
+  resetVillage = data => {
+    this.setState({
+      smurfs: data
+    });
+  };
   render() {
     return (
       <div className="App">
         <nav>
-          <NavLink to="/">Home</NavLink>
-          <NavLink to="/smurfs">Village</NavLink>
-          <NavLink to="/add-smurf">Add a Smurf</NavLink>
+          <NavLink to="/">Village</NavLink>
+          <NavLink to="/smurf-form">Add a Smurf</NavLink>
         </nav>
-        <Route exact path="/" component={Home} />
         <Route
-          path="/smurfs"
+          exact
+          path="/"
           render={props => <Smurfs {...props} smurfs={this.state.smurfs} />}
         />
         <Route
           exact
-          path="/add-smurf"
-          render={props => <SmurfForm {...props} />}
+          path="/smurf-form"
+          render={props => (
+            <SmurfForm
+              {...props}
+              addSmurf={this.addSmurf}
+              resetVillage={this.resetVillage}
+            />
+          )}
         />
       </div>
     );
