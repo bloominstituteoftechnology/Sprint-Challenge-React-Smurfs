@@ -3,8 +3,8 @@ import axios from 'axios';
 import './App.css';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
+import SmurfCard from './components/SmurfCard';
 import { Route, NavLink, Switch } from "react-router-dom";
-
 
 class App extends Component {
   constructor(props) {
@@ -13,9 +13,11 @@ class App extends Component {
       smurfs: [],
     };
   }
-  // add any needed code to ensure that the smurfs collection exists on state and it has data coming from the server
+  // add any needed code to ensure that the smurfs collection 
+  // exists on state and it has data coming from the server
   // Notice what your map function is looping over and returning inside of Smurfs.
-  // You'll need to make sure you have the right properties on state and pass them down to props.
+  // You'll need to make sure you have the right properties on state 
+  // and pass them down to props.
 
   componentDidMount() {
     axios
@@ -45,11 +47,12 @@ class App extends Component {
           />
         )} />
         <Route path="/smurf-form" component={SmurfForm} />
+        {/* <Route path="/smurf/:id" component={SmurfCard} /> */}
+        {/* <Route path="/smurf/:id" component={SmurfCard} /> */}
       </div>
     );
   }
 }
 
-{/* <Link to={`/card/${props.index}`}> {props.username} </Link> */}
 
 export default App;
