@@ -46,15 +46,15 @@ class App extends Component {
   };
 
   render() {
-    console.log(this.state);
     return (
       <div className="App">
         <nav>
-          <NavLink to="/">Home</NavLink>
+          <NavLink to="/smurfs">Village</NavLink>
           <NavLink to="/smurf-form">Add Smurf</NavLink>
         </nav>
+        <h3>Welcome to the 'Wonderful' Smurf Village</h3>
         <Route
-          path="/"
+          path="/smurfs"
           render={props => (
             <Smurfs
               {...props}
