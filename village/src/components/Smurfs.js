@@ -3,7 +3,15 @@ import { Link } from "react-router-dom";
 import Smurf from './Smurf';
 
 class Smurfs extends Component {
+
+  componentDidMount(){
+    console.log(this.props)
+    this.props.editReset();
+  }
+
   render() {
+    
+    
     return (
       <div className="Smurfs">
         <Link to="/smurf-form"><h1>Smurf Village</h1></Link>

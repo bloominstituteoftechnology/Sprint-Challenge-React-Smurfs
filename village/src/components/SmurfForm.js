@@ -13,7 +13,7 @@ class SmurfForm extends Component {
   }
 
   componentDidMount(prevProps){
-    console.log(this.props.editSmurf)
+    
     let editSmurf = this.props.editSmurf
     
     if(editSmurf.name){
@@ -71,17 +71,14 @@ class SmurfForm extends Component {
         </form>
           {this.props.editSmurf.name &&<Route
           path="/smurf-form/:id"
-          render={(props) => {console.log(props) 
-            console.log(this.props)
-          
-          return <Smurf
+          render={(props) => 
+           <Smurf
             edit
             smurf={this.props.editSmurf}
             key={this.props.editSmurf.id}
            
           />}
-          
-          }/> 
+          /> 
           }
         
       </div>

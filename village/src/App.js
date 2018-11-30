@@ -74,6 +74,12 @@ updateStart = (obj) =>{
   console.log(this.state.editSmurf)
 }
 
+editReset = () =>{
+  this.setState({
+    editSmurf: {}
+  })
+}
+
   // add any needed code to ensure that the smurfs collection exists on state and it has data coming from the server
   // Notice what your map function is looping over and returning inside of Smurfs.
   // You'll need to make sure you have the right properties on state and pass them down to props.
@@ -86,7 +92,7 @@ updateStart = (obj) =>{
         </nav>
         <Route
           exact path="/"
-          render={(props) => <Smurfs {...props} smurfs={this.state.smurfs} deleteItem={this.deleteItem} updateStart={this.updateStart}  />}
+          render={(props) => <Smurfs {...props} smurfs={this.state.smurfs} deleteItem={this.deleteItem} updateStart={this.updateStart} editReset={this.editReset} />}
         />
         <Route
           path="/smurf-form"
