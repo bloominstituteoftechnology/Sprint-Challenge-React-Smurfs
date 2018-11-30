@@ -4,7 +4,7 @@ import "./App.css";
 import SmurfForm from "./components/SmurfForm";
 import Smurfs from "./components/Smurfs";
 import axios from "axios";
-import { Route, Link, NavLink } from "react-router-dom";
+import { Route, NavLink } from "react-router-dom";
 
 class App extends Component {
 	constructor(props) {
@@ -39,6 +39,30 @@ class App extends Component {
 				.catch(smurfed => {
 					console.log(smurfed);
 				});
+  };
+  
+  deleteSmurf = id => {
+		axios
+			.delete(`http://localhost:3333/smurfs/${id}`)
+			.then(smurfs => {
+        console.log(smurfs);
+        this.setState({ smurfs: smurfs.data });
+      })
+      .catch(smurfed => {
+        console.log(smurfed);
+      });
+	};
+
+	editSmurf = (data, id) => {
+		axios
+			.put(`http://localhost:3333/smurfs/${id}`, data)
+			.then(smurfs => {
+        console.log(smurfs);
+        this.setState({ smurfs: smurfs.data });
+      })
+      .catch(smurfed => {
+        console.log(smurfed);
+      });
 	};
 
 	render() {
@@ -58,7 +82,7 @@ class App extends Component {
 					exact
 					path='/'
 					render={props => (
-						<Smurfs {...props} smurfs={this.state.smurfs} />
+						<Smurfs {...props} smurfs={this.state.smurfs} deleteSmurf={this.deleteSmurf}/>
 					)}
 				/>
 			</div>
