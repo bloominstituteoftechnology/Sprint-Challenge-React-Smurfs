@@ -21,10 +21,18 @@ class App extends Component {
 
   }
 
+  addSmurf = smurf => {
+
+    axios.post('http://localhost:3333/smurfs', smurf)
+      .then(res => this.setState({smurfs: res.data}))
+      .catch(err => console.log(err));
+
+  }
+
   render() {
     return (
       <div className="App">
-        <SmurfForm />
+        <SmurfForm addFunc={this.addSmurf}/>
         <Smurfs smurfs={this.state.smurfs} />
       </div>
     );
