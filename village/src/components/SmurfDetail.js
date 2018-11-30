@@ -1,4 +1,5 @@
 import React from 'react';
+import { Segment, Loader, Card, Image, Button } from 'semantic-ui-react';
 
 class SmurfDetail extends React.Component {
   state = {
@@ -24,16 +25,25 @@ class SmurfDetail extends React.Component {
 
   render() {
     return (
-      <div>
+      <Segment>
         {
           !this.state.smurf?
-          <div>Loading...</div>:
-          <div>
-            {this.state.smurf.name}
-            <button onClick={() => this.props.history.push('/')}>Back</button>
-          </div>
+          <Loader active inline='centered' />:
+          <Card.Group centered>
+            <Card>
+              <Image src='https://react.semantic-ui.com/images/avatar/large/matthew.png' />
+              <Card.Content>
+                <Card.Header>{this.state.smurf.name}</Card.Header>
+                <Card.Description>{this.state.smurf.age} smurf years</Card.Description>
+                <Card.Description>{this.state.smurf.height} tall</Card.Description>
+              </Card.Content>
+              <Card.Content>
+                <Button floated='right' onClick={() => this.props.history.push('/')}>Back</Button>
+              </Card.Content>
+            </Card>
+          </Card.Group>
         }
-      </div>
+      </Segment>
     );
   }
 }

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Segment, Form } from 'semantic-ui-react';
+import { Header, Segment, Form } from 'semantic-ui-react';
 
 class SmurfForm extends Component {
   constructor(props) {
@@ -59,6 +59,11 @@ class SmurfForm extends Component {
   render() {
     return (
       <Segment className="SmurfForm">
+        <Header textAlign='center' as='h3'>{
+          this.props.update? 
+          `Update ${this.state.name}'s Info`:
+          'Add a New Smurf'
+          }</Header>
         <Form onSubmit={this.handleSubmit}>
           <Form.Input
             onChange={this.handleInputChange}
@@ -78,8 +83,10 @@ class SmurfForm extends Component {
             value={this.state.height}
             name="height"
           />
-          <Button type="button" onClick={ () => this.props.history.push('/') }>Cancel</Button>
-          <Button primary type="submit">Add to the village</Button>
+          <div className="ui two buttons">
+            <Form.Button type="button" onClick={ () => this.props.history.push('/') }>Cancel</Form.Button>
+            <Form.Button primary type="submit">{this.props.update ? 'Update' : 'Add'}</Form.Button>
+          </div>
         </Form>
         {
           this.props.update && !this.state.smurf && <div>Loading...</div>
