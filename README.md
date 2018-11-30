@@ -42,8 +42,8 @@
 
 ### POST '/smurfs'
 
-* To add a smurf to the Smurf DB you'll need all three fields.
-* Example:
+- [x] To add a smurf to the Smurf DB you'll need all three fields.
+- [x] Example:
 
 ```js
 {
@@ -53,7 +53,7 @@
 }
 ```
 
-* If a smurf is created correctly, you should see a response that is an array of smurfs with unique id's assigned to each smurf.
+- [x] If a smurf is created correctly, you should see a response that is an array of smurfs with unique id's assigned to each smurf.
 
 ### Router
 

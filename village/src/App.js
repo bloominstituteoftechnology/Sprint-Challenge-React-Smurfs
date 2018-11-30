@@ -5,6 +5,7 @@ import './App.css';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
 
+const url = 'http://localhost:3333/'
 class App extends Component {
   constructor(props) {
     super(props);
@@ -16,9 +17,9 @@ class App extends Component {
   // Notice what your map function is looping over and returning inside of Smurfs.
   // You'll need to make sure you have the right properties on state and pass them down to props.
 
-  componentDidMount(){
+  componentDidMount = () => {
     axios
-      .get('http://localhost:3333/smurfs')
+      .get(`${url}smurfs`)
       .then(resp => 
           this.setState({
             smurfs: resp.data
@@ -26,10 +27,22 @@ class App extends Component {
         )
       .catch(err => console.log(err))
   }
+
+  addNewSmurf = data => {
+    axios
+      .post(`${url}smurfs`, data)
+      .then(resp => 
+          this.setState({
+            smurfs: resp.data
+          })
+        )
+      .catch(err => console.log(err))
+  }
+
   render() {
     return (
       <div className="App">
-        <SmurfForm />
+        <SmurfForm add={this.addNewSmurf}/>
         <Smurfs smurfs={this.state.smurfs} />
       </div>
     );
