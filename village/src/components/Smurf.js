@@ -9,7 +9,7 @@ const Smurf = props => {
       </Link>
       <strong>{props.height} tall</strong>
       <p>{props.age} smurf years old</p>
-      <div className="delete-button" onClick={props.deleteSmurf}>
+      <div className="delete-button" onClick={() => props.deleteSmurf(props.id)}>
         Feed Smurf to the cat <i class="fas fa-cat" />
       </div>
     </div>

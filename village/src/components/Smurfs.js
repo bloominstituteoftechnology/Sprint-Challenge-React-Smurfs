@@ -18,12 +18,13 @@ class Smurfs extends Component {
           {this.props.state.smurfs.map(smurf => {
             return (
               <Smurf
+                smurfs={this.props.state.smurfs}
                 name={smurf.name}
                 id={smurf.id}
                 age={smurf.age}
                 height={smurf.height}
                 key={smurf.id}
-                deleteSmurf={this.props.deleteSmurf.bind(null, smurf.id)}
+                deleteSmurf={this.props.deleteSmurf}
                 props={this.props}
               />
             );
