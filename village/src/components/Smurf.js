@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
 const StyledSmurf = styled.div`
   width: 50%;
@@ -17,17 +17,20 @@ const Button = styled.button`
 
 const Smurf = props => {
   return (
-    <StyledSmurf>
-      <h3>{props.name}</h3>
-      <strong>{props.height} tall</strong>
-      <p>{props.age} smurf years old</p>
-      {!props.edit &&
+    <Link to={`/smurf/${props.id}`}>
+      <StyledSmurf>
+        <h3>{props.name}</h3>
+        <strong>{props.height} tall</strong>
+        <p>{props.age} smurf years old</p>
+        {!props.edit && (
           <div>
-      <Button onClick={() => props.deleteSmurf(props.id)}>Delete Smurf</Button>
-      <Link to={`/smurf/${props.id}`}><Button>Edit Smurf</Button></Link>
-    </div>
-      }
-    </StyledSmurf>
+            <Button onClick={() => props.deleteSmurf(props.id)}>
+              Delete Smurf
+            </Button>
+          </div>
+        )}
+      </StyledSmurf>
+    </Link>
   );
 };
 

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import axios from 'axios';
 import Smurf from './Smurf';
 
@@ -8,17 +8,19 @@ class SmurfForm extends Component {
     this.state = {
       name: '',
       age: '',
-      height: ''
+      height: '',
     };
   }
 
   //cdm - if in edit mode, load smurf
   componentDidMount() {
-  if (this.props.edit) {
-    const smurf = this.props.smurfs.find(s => s.id == this.props.match.params.id);
-    console.log(smurf);
-    this.setState({...smurf});
-  }
+    if (this.props.edit) {
+      const smurf = this.props.smurfs.find(
+        s => s.id == this.props.match.params.id,
+      );
+      console.log(smurf);
+      this.setState({...smurf});
+    }
   }
 
   handleSubmit = event => {
@@ -29,30 +31,30 @@ class SmurfForm extends Component {
     func(newSmurf);
     this.props.history.push('/');
 
-
     this.setState({
       name: '',
       age: '',
-      height: ''
+      height: '',
     });
-  }
+  };
 
   handleInputChange = e => {
-    this.setState({ [e.target.name]: e.target.value });
+    this.setState({[e.target.name]: e.target.value});
   };
 
   render() {
     const edit = this.props.edit || null;
-    const buttonText = this.props.edit ? 'Edit Smurf' : 'Add to the Village'
+    const buttonText = this.props.edit ? 'Edit Smurf' : 'Add to the Village';
     return (
       <div className="SmurfForm">
-        {edit && <Smurf 
-          name={this.state.name}
-          age={this.state.age}
-          height={this.state.height}
-          edit
-        />
-        }
+        {edit && (
+          <Smurf
+            name={this.state.name}
+            age={this.state.age}
+            height={this.state.height}
+            edit
+          />
+        )}
         <form onSubmit={this.handleSubmit}>
           <input
             onChange={this.handleInputChange}
