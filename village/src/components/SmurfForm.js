@@ -10,10 +10,31 @@ class SmurfForm extends Component {
     };
   }
 
-  addSmurf = event => {
-    event.preventDefault();
-    // add code to create the smurf using the api
+  // addSmurf = event => {
+  //   event.preventDefault();
+  //   // add code to create the smurf using the api
+  //   axios.post('http://localhost:3333/smurfs', data)
+  //   .then(response => {
+  //     this.setState({
 
+  //     })
+  //   })
+
+
+  //   this.setState({
+  //     name: '',
+  //     age: '',
+  //     height: ''
+  //   });
+  // }
+
+  handleInputChange = e => {
+    this.setState({ [e.target.name]: e.target.value });
+  };
+
+  submitHandler = event => {
+    event.preventDefault()
+    this.props.addSmurf(this.state);
     this.setState({
       name: '',
       age: '',
@@ -21,14 +42,10 @@ class SmurfForm extends Component {
     });
   }
 
-  handleInputChange = e => {
-    this.setState({ [e.target.name]: e.target.value });
-  };
-
   render() {
     return (
       <div className="SmurfForm">
-        <form onSubmit={this.addSmurf}>
+        <form onSubmit={this.submitHandler}>
           <input
             onChange={this.handleInputChange}
             placeholder="name"
