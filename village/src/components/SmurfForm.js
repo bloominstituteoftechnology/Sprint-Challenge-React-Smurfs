@@ -24,21 +24,32 @@ class SmurfForm extends Component {
     this.setState({ [e.target.name]: e.target.value });
   };
 
+  addSmurf(newSmurf) {
+    axios
+      .post('http://localhost:3333/smurfs', newSmurf)
+      .then(res =>
+        this.setState({
+          smurfs: res.data
+        })
+      )
+      .catch(err => console.log(err));
+  }
+
+  submitHandler = e => {
+    this.addSmurf(
+      createSmurf(
+        this.props.smurfs[this.props.smurfs.length - 1].id + 1,
+        this.state.name,
+        this.state.age,
+        this.state.height
+      )
+    );
+  };
+
   render() {
     return (
       <div className='SmurfForm'>
-        <form
-          onSubmit={() =>
-            this.props.addSmurf(
-              createSmurf(
-                this.props.smurfs[this.props.smurfs.length - 1].id + 1,
-                this.state.name,
-                this.state.age,
-                this.state.height
-              )
-            )
-          }
-        >
+        <form onSubmit={e => this.submitHandler(e)}>
           <input
             onChange={this.handleInputChange}
             placeholder='name'

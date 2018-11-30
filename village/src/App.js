@@ -4,9 +4,11 @@ import axios from 'axios';
 import './App.css';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
+import Header from './components/Header.js';
 
 const urlLinks = {
-  home: '/'
+  home: '/',
+  smurfForm: '/smurfForm'
 };
 
 class App extends Component {
@@ -28,29 +30,19 @@ class App extends Component {
       .catch(err => console.log(err));
   }
 
-  addSmurf(newSmurf) {
-    axios
-      .post('http://localhost:3333/smurfs', newSmurf)
-      .then(res =>
-        this.setState({
-          smurfs: res.data
-        })
-      )
-      .catch(err => console.log(err));
-  }
-
   // Notice what your map function is looping over and returning inside of Smurfs.
   // You'll need to make sure you have the right properties on state and pass them down to props.
   render() {
     return (
       <div className='App'>
+        <Header urlLinks={urlLinks} />
         <Route
-          path={urlLinks.home}
+          path={urlLinks.smurfForm}
           render={props => (
             <SmurfForm
               {...props}
+              urlLinks={urlLinks}
               smurfs={this.state.smurfs}
-              addSmurf={this.addSmurf}
             />
           )}
         />
@@ -58,13 +50,7 @@ class App extends Component {
         <Route
           exact
           path={urlLinks.home}
-          render={props => (
-            <Smurfs
-              {...props}
-              smurfs={this.state.smurfs}
-              addSmurf={this.addSmurf}
-            />
-          )}
+          render={props => <Smurfs {...props} smurfs={this.state.smurfs} />}
         />
       </div>
     );
