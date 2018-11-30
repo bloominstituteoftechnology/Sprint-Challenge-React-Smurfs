@@ -1,5 +1,56 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import styled from 'styled-components';
+
+const FormWrapper = styled.div`
+  width: 60%;
+  min-width: 600px;
+  margin: 50px auto;
+  padding: 40px 10px;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+`
+
+const FormHeader = styled.h2`
+  font-size: 2rem;
+  width: 100%;
+`
+
+const FormInput = styled.input`
+  width: 60%;
+  padding: 15px;
+  margin: 10px 200px 10px 20px;
+  border: 0;
+  border-radius: 5px;
+`
+
+const FormButton = styled.button`
+  background-color: #F52C07;
+  color: #fff;
+  font-size: 1rem;
+  border: 2px solid;
+  box-shadow: 0 15px 0 0 #bc2207;
+  border-radius: 50%;
+  height: 100px;
+  width: 100px;
+  padding: 5px 20px;
+  position: absolute;
+  right: 50px;
+  bottom: 50px;
+
+  &:active {
+    background-color: #bc2207;
+    box-shadow: 0 10px 0 0 #bc2207;
+    bottom: 45px;
+  }
+
+  &:focus {
+    outline: 0;
+  }
+`
+
+// End Styled Components =====================
 
 class SmurfForm extends Component {
   constructor(props) {
@@ -30,7 +81,8 @@ class SmurfForm extends Component {
           height: ''
         });
       })
-
+    this.props.history.push("/");
+    
     // this.setState({
     //   name: '',
     //   age: '',
@@ -44,29 +96,33 @@ class SmurfForm extends Component {
 
   render() {
     return (
-      <div className="SmurfForm">
+    <React.Fragment>
+      <FormHeader>Smurf Form</FormHeader>
+      <FormWrapper>
         <form onSubmit={this.addSmurf}>
-          <input
+          <FormInput
             onChange={this.handleInputChange}
             placeholder="name"
             value={this.state.name}
             name="name"
           />
-          <input
+          <FormInput
             onChange={this.handleInputChange}
+            type="number"
             placeholder="age"
             value={this.state.age}
             name="age"
           />
-          <input
+          <FormInput
             onChange={this.handleInputChange}
             placeholder="height"
             value={this.state.height}
             name="height"
           />
-          <button type="submit">Add to the village</button>
+          <FormButton type="submit">Add to the village</FormButton>
         </form>
-      </div>
+      </FormWrapper>
+    </React.Fragment>
     );
   }
 }
