@@ -5,6 +5,7 @@ import { Route, NavLink } from 'react-router-dom';
 import './App.css';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
+import SmurfDetail from './components/SmurfDetail';
 
 const URL = 'http://localhost:3333/smurfs';
 
@@ -67,18 +68,24 @@ class App extends Component {
             removeSmurf={this.removeSmurf}
           /> )}
         />
-        <Route path='/smurf-form' render={ props => (
+        <Route exact path='/smurf-form' render={ props => (
           <SmurfForm
             {...props}
             handleSubmit={this.addSmurf}
           /> )}
         />
-        <Route path='/smurf-update/:id' render={ props => (
+        <Route exact path='/smurf-update/:id' render={ props => (
           <SmurfForm
             update
             {...props}
             smurfs={this.state.smurfs}
             handleSubmit={this.updateSmurf}
+          /> )} 
+        />
+        <Route path='/smurf/:id' render={ props => (
+          <SmurfDetail
+            {...props}
+            smurfs={this.state.smurfs}
           /> )} 
         />
       </div>

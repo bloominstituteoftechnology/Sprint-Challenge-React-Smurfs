@@ -39,7 +39,7 @@ class SmurfForm extends Component {
         props.history.push('/');
         return null;
       }
-      
+
       return({
         smurf: true,
         name: smurf.name,
