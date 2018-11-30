@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 import Smurf from "./Smurf";
 
@@ -25,6 +26,9 @@ class Smurfs extends Component {
                   age={smurf.age}
                   height={smurf.height}
                 />
+                <Link to={`/smurf-edit/${smurf.id}`}>
+                  <button>Update Smurf</button>
+                </Link>
                 <button type="submit" id={smurf.id} onClick={this.delete}>
                   Delete Smurf
                 </button>
