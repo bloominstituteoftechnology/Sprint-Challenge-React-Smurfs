@@ -29,11 +29,11 @@ color: #1F1A38;
 const Button = styled.button`
 background: #FFF4E2;
 border: 1px solid #1F1A38;
-padding: 10%;
+padding: 1%;
 border-radius: 5px;
 color: #1F1A38;
 width: 150px;
-margin: 5% 0;
+margin: 1% 0;
 
 :hover{
   background: #1F1A38;
@@ -42,10 +42,17 @@ margin: 5% 0;
 }
 `
 class SmurfPage extends Component {
+constructor(props){
+    super(props);
+    this.state = {
+        id: this.props.match.params.id
+    }
+}
 
     deleteSmurf = (event) => {
         event.preventDefault();
-        this.props.deleteSmurf(this.props.match.params.id);
+        this.props.history.push(`/`)
+        this.props.deleteSmurf(this.state.id);
     }
 
     
@@ -66,11 +73,10 @@ class SmurfPage extends Component {
                               height={smurf.height}
                               theme={'single'}
                             />
-                            <Link to={'/'} style={{textDecoration: 'none'}}><Button name={smurf.id} type='submit' onSubmit={this.deleteSmurf}>Delete Smurf</Button></Link>
-                            <Link to={`/update/${smurf.id}`} style={{textDecoration: 'none'}}><Button name={smurf.id} type='button'>Update Smurf</Button></Link>
+                            <Button name={smurf.id} type='button' onClick={this.deleteSmurf}>Delete Smurf</Button>
+                            <Button name={smurf.id} type='button' onClick={()=>{this.props.history.push(`/update/${smurf.id}`)}}>Update Smurf</Button>
                             </React.Fragment>
-                          );
-                          
+                          );  
                     }
               })}
     

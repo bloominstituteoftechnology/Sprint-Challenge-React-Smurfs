@@ -27,7 +27,7 @@ text-align: center;
 
 const Smurf = props => {
   return (
-    <Link to={`/${props.id}`} style={{textDecoration: 'none'}}>
+    <Link to={`details/${props.id}`} style={{textDecoration: 'none'}}>
     <Div theme={props.theme}>
       <H3>{props.name}</H3>
       <P>{props.height} tall</P>

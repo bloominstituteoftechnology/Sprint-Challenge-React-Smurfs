@@ -23,7 +23,7 @@ const Navigation = (props) => {
             <NavLink exact to={'/'} style={{textDecoration: 'none'}}>
                 <H1>View All Smurfs</H1>
             </NavLink>
-            <NavLink to={'/add'} style={{textDecoration: 'none'}}>
+            <NavLink  to={`/add`} style={{textDecoration: 'none'}}>
                  <H1>Add A Smurf</H1>
             </NavLink>
         </Header>

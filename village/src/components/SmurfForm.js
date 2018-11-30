@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
 const Form = styled.form `
-background: #E5BE9E;
+background: ${props => props.mode === 'Add Smurf' ? '#E5BE9E' : `#1F1A38`};
 border: 1px solid #EAD7D1;
 border-radius: 10px;
 margin: 15% 0 5% 5%;
@@ -32,7 +32,7 @@ font-weight: bold;
 text-align: center;
 width: 100%;
 margin: 5% 0 7.5%;
-color: #1F1A38;
+color: ${props => props.mode === 'Add Smurf' ? '#1F1A38' : `#FFF4E2`};
 `
 const Button = styled.button`
 background: #FFF4E2;
@@ -57,18 +57,23 @@ class SmurfForm extends Component {
       name: '',
       age: '',
       height: ''
-     }
+     },
+     id: this.props.match.params.id
     };
   }
 
   addSmurf = event => {
+    
     event.preventDefault();
     this.props.addSmurf(this.state.smurf);
+   
   }
 
   updateSmurf = (event) => {
+   
 		event.preventDefault();
-		this.props.updateSmurf(this.state.smurf, this.props.match.params.id);
+    this.props.updateSmurf(this.state.smurf, this.state.id);
+   
   };
   
   handleMode = () => {
@@ -90,7 +95,7 @@ class SmurfForm extends Component {
 
   render() {
     return (
-        <Form onSubmit={this.handleMode()}>
+        <Form mode={this.props.mode} onSubmit={this.handleMode()}>
         <H1> Please Enter The Following Data: </H1>
           <Input
             onChange={this.handleInputChange}
@@ -117,3 +122,8 @@ class SmurfForm extends Component {
 }
 
 export default SmurfForm;
+
+SmurfForm.propTypes= {
+  addSmurf: PropTypes.func,
+  updateSmurf: PropTypes.func
+}

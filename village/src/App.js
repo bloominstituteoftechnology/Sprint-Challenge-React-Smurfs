@@ -3,8 +3,9 @@ import styled, {createGlobalStyle} from 'styled-components';
 import axios from 'axios';
 import { Route } from 'react-router-dom';
 import SmurfForm from './components/SmurfForm';
-import MainPage from './components/MainPage'
-import SmurfPage from './components/SmurfPage'
+import MainPage from './components/MainPage';
+import UpdatePage from './components/UpdatePage';
+import SmurfPage from './components/SmurfPage';
 import Navigation from './components/Navigation';
 
 
@@ -147,7 +148,7 @@ class App extends Component {
         )}
         />
         <Route 
-        path={'/:id'}
+        path={'/details/:id'}
         render={(props)=>(
           <SmurfPage
           {...props}
@@ -170,18 +171,12 @@ class App extends Component {
         <Route 
         path={'/update/:id'}
         render={(props)=> (
-          <React.Fragment>
-            <SmurfPage 
-            {...props}
-          smurfs={this.state.smurfs}
-          deleteSmurf={this.deleteSmurf}
-          updateSmurf={this.updateSmurf}/>
-          <SmurfForm 
+          <UpdatePage 
           {...props}
+          smurfs={this.state.smurfs}
           updateSmurf={this.updateSmurf}
-          mode="Update Smurf"
+          mode={'Update Smurf'}
           />
-          </React.Fragment>
         )}
         />
 
