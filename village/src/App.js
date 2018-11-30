@@ -23,13 +23,23 @@ class App extends Component {
       )
       .catch(err => console.log(err));
   }
-  addSmurfs = data => {
+  addSmurf = data => {
     axios
       .post("http://localhost:3333/smurfs", data)
       .then(response => {
         console.log(response);
         this.setState({ smurfs: response.data });
       })
+      .catch(err => console.log(err));
+  };
+  deleteSmurf = id => {
+    axios
+      .delete(`http://localhost:3333/smurfs/${id}`)
+      .then(response =>
+        this.setState({
+          smurfs: response.data
+        })
+      )
       .catch(err => console.log(err));
   };
   // add any needed code to ensure that the smurfs collection exists on state and it has data coming from the server
@@ -48,11 +58,17 @@ class App extends Component {
         <Route exact path="/" component={Home} />
         <Route
           path="/smurf-form"
-          render={props => <SmurfForm {...props} addSmurfs={this.addSmurfs} />}
+          render={props => <SmurfForm {...props} addSmurf={this.addSmurf} />}
         />
         <Route
           path="/smurfs"
-          render={props => <Smurfs {...props} smurfs={this.state.smurfs} />}
+          render={props => (
+            <Smurfs
+              {...props}
+              smurfs={this.state.smurfs}
+              deleteSmurf={this.deleteSmurf}
+            />
+          )}
         />
       </div>
     );
