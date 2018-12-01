@@ -5,8 +5,15 @@ import Smurf from './Smurf';
 /***************************************************************************************************
  ********************************************** Styles *********************************************
  **************************************************************************************************/
-const H1SmurfVillage = styled.h1`
-  font-family: 'Indie Flower', cursive;
+const ImgSmurfVillage = styled.img`
+  width: 20%;
+`;
+
+const UlSmurfList = styled.ul`
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 `;
 
 /***************************************************************************************************
@@ -16,8 +23,8 @@ class Smurfs extends Component {
   render() {
     return (
       <div className='Smurfs'>
-        <H1SmurfVillage>Smurf Village</H1SmurfVillage>
-        <ul>
+        <ImgSmurfVillage src={require('../Images/SmurfVillage.png')} alt='' />
+        <UlSmurfList>
           {this.props.smurfs.map(smurf => {
             return (
               <Smurf
@@ -29,7 +36,7 @@ class Smurfs extends Component {
               />
             );
           })}
-        </ul>
+        </UlSmurfList>
       </div>
     );
   }

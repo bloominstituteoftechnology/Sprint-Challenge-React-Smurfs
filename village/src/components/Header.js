@@ -48,7 +48,7 @@ const LinkSmurfForm = styled(Link)`
 const Header = props => {
   return (
     <DivWrapper>
-      <LinkVillage to={props.urlLinks.home}>Village</LinkVillage>
+      <LinkVillage to={props.urlLinks.home}>Smurf Village</LinkVillage>
       <LinkSmurfForm to={props.urlLinks.smurfForm}>Smurf Form</LinkSmurfForm>
     </DivWrapper>
   );
