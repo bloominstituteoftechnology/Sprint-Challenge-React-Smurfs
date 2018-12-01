@@ -1,8 +1,6 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import axios from "axios";
-import styled from "styled-components";
-
-import "./App.css";
+import styled, { createGlobalStyle, css } from "styled-components";
 import SmurfForm from "./components/SmurfForm";
 import Smurfs from "./components/Smurfs";
 import { Route, NavLink } from "react-router-dom";
@@ -11,6 +9,57 @@ import SingleSmurf from "./components/SingleSmurf";
 // ===========================
 // ==== STYLED COMPONENTS ====
 // ===========================
+
+const GlobalStyle = createGlobalStyle`
+  body {
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background: #ba9677;
+  }
+
+  button {
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+    padding: 10px 20px;
+    background: blue;
+    box-shadow: 0 4px lightblue;
+    border: 2px solid lightblue;
+    position: relative;
+
+    &:hover {
+      top: 2px;
+      box-shadow: 0 2px lightblue;
+    }
+
+    &:active {
+      top: 4px;
+      box-shadow: 0 0 lightblue;
+    }
+  }
+
+  input {
+    padding: 10px;
+  margin: 10px;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid blue;
+  width: 50%;
+  margin: 0 auto 20px;
+  display: block;
+  background: #d6bca5;
+
+  &:nth-child(3) {
+    margin-bottom: 50px;
+  }
+
+  &:placeholder-shown {
+    text-transform: uppercase;
+  }
+  }
+`;
 
 const StyledNav = styled.nav`
   width: 100%;
@@ -21,30 +70,20 @@ const StyledNav = styled.nav`
 `;
 
 const StyledNavLink = styled(NavLink)`
-  text-decoration: none;
-  color: white;
-  padding: 10px 20px;
   font-size: 20px;
-  cursor: pointer;
-  background: blue;
-  text-transform: uppercase;
   margin: 0 35px;
-  letter-spacing: 2px;
-  border-radius: 55px;
-  box-shadow: 0 4px lightblue;
-  position: relative;
   outline: none;
-  border: 2px solid lightblue;
+`;
 
-  &:hover {
-    top: 2px;
-    box-shadow: 0 2px lightblue;
-  }
-
-  &:active {
-    top: 4px;
-    box-shadow: 0 0 lightblue;
-  }
+const Button = styled.button`
+  text-transform: uppercase;
+  font-size: 20px;
+  ${props =>
+    props.rounded
+      ? css`
+          border-radius: 55px;
+        `
+      : null}
 `;
 
 // ===========================
@@ -89,39 +128,46 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        <StyledNav>
-          <StyledNavLink to="/">Village</StyledNavLink>
-          <StyledNavLink to="/smurf-form">Add a Smurf</StyledNavLink>
-        </StyledNav>
-        <Route
-          exact
-          path="/"
-          render={props => (
-            <Smurfs
-              {...props}
-              deleteSmurf={this.deleteSmurf}
-              smurfs={this.state.smurfs}
-            />
-          )}
-        />
-        <Route
-          path="/smurf-form"
-          render={props => (
-            <SmurfForm
-              {...props}
-              addSmurf={this.addSmurf}
-              resetVillage={this.resetVillage}
-            />
-          )}
-        />
-        <Route
-          path="/smurfs/:id"
-          render={props => (
-            <SingleSmurf {...props} resetVillage={this.resetVillage} />
-          )}
-        />
-      </div>
+      <Fragment>
+        <GlobalStyle />
+        <div className="App">
+          <StyledNav>
+            <StyledNavLink to="/">
+              <Button rounded>Village</Button>
+            </StyledNavLink>
+            <StyledNavLink to="/smurf-form">
+              <Button rounded>Add a Smurf</Button>
+            </StyledNavLink>
+          </StyledNav>
+          <Route
+            exact
+            path="/"
+            render={props => (
+              <Smurfs
+                {...props}
+                deleteSmurf={this.deleteSmurf}
+                smurfs={this.state.smurfs}
+              />
+            )}
+          />
+          <Route
+            path="/smurf-form"
+            render={props => (
+              <SmurfForm
+                {...props}
+                addSmurf={this.addSmurf}
+                resetVillage={this.resetVillage}
+              />
+            )}
+          />
+          <Route
+            path="/smurfs/:id"
+            render={props => (
+              <SingleSmurf {...props} resetVillage={this.resetVillage} />
+            )}
+          />
+        </div>
+      </Fragment>
     );
   }
 }

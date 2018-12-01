@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import axios from "axios";
 
 // ===========================
@@ -26,51 +26,13 @@ const SmurfDiv = styled.div`
   box-shadow: -2px 2px 8px rgb(0, 0, 0, 0.3);
 `;
 
-const StyledInput = styled.input`
-  padding: 10px;
-  margin: 10px;
-  border: none;
-  outline: none;
-  border-bottom: 1px solid blue;
-  width: 50%;
-  margin: 0 auto 20px;
-  display: block;
-  background: #d6bca5;
-
-  &:nth-child(3) {
-    margin-bottom: 50px;
-  }
-
-  &:placeholder-shown {
-    text-transform: uppercase;
-  }
-`;
-
-const StyledButton = styled.button`
-  text-decoration: none;
-  color: white;
-  padding: 10px 20px;
-  font-size: 20px;
-  cursor: pointer;
-  background: blue;
-  text-transform: uppercase;
-  margin: 0 15px;
-  letter-spacing: 2px;
-  border-radius: 55px;
-  box-shadow: 0 4px lightblue;
-  position: relative;
-  outline: none;
-  border: 2px solid lightblue;
-
-  &:hover {
-    top: 2px;
-    box-shadow: 0 2px lightblue;
-  }
-
-  &:active {
-    top: 4px;
-    box-shadow: 0 0 lightblue;
-  }
+const Button = styled.button`
+  ${props =>
+    props.rounded
+      ? css`
+          border-radius: 55px;
+        `
+      : null}
 `;
 
 // ===========================
@@ -148,24 +110,24 @@ class Smurf extends Component {
             <p>{this.state.age} smurf years old</p>
           </SmurfDiv>
           <form onSubmit={this.editSmurf}>
-            <StyledInput
+            <input
               onChange={this.handleInputChange}
               value={this.state.name}
               name="name"
             />
-            <StyledInput
+            <input
               onChange={this.handleInputChange}
               value={this.state.age}
               name="age"
             />
-            <StyledInput
+            <input
               onChange={this.handleInputChange}
               value={this.state.height}
               name="height"
             />
-            <StyledButton type="submit" onClick={this.editSmurf}>
+            <Button rounded type="submit" onClick={this.editSmurf}>
               Update Smurf Data
-            </StyledButton>
+            </Button>
           </form>
         </Fragment>
       );
