@@ -1,0 +1,41 @@
+
+.Smurf-container {
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.smurf-content {
+    border: 2px solid rgb(26, 110, 179);
+    border-radius: 10px;
+    width: 280px;
+}
+
+.smurf-content-clicked {
+    border: 2px solid rgb(26, 110, 179);
+    border-radius: 10px;
+    width: 280px;
+}
+
+.smurf-content:hover {
+    background-color: whitesmoke;
+}
+
+button{
+    margin: 10px 10px;
+    color: #ffffff;
+    background-color: rgb(26, 110, 179);
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+button:hover {
+    padding: 5px 15px;
+}
+
+a {
+    text-decoration: none;
+    color: #222222;
+}
