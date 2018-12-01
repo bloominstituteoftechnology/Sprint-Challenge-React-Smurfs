@@ -28,6 +28,7 @@ const GlobalStyle = createGlobalStyle`
     box-shadow: 0 4px lightblue;
     border: 2px solid lightblue;
     position: relative;
+    outline: none;
 
     &:hover {
       top: 2px;
@@ -73,6 +74,10 @@ const StyledNavLink = styled(NavLink)`
   font-size: 20px;
   margin: 0 35px;
   outline: none;
+
+  &.active > button {
+    opacity: 0.7;
+  }
 `;
 
 const Button = styled.button`
@@ -132,7 +137,7 @@ class App extends Component {
         <GlobalStyle />
         <div className="App">
           <StyledNav>
-            <StyledNavLink to="/">
+            <StyledNavLink exact to="/">
               <Button rounded>Village</Button>
             </StyledNavLink>
             <StyledNavLink to="/smurf-form">
@@ -151,6 +156,7 @@ class App extends Component {
             )}
           />
           <Route
+            exact
             path="/smurf-form"
             render={props => (
               <SmurfForm {...props} resetVillage={this.resetVillage} />
