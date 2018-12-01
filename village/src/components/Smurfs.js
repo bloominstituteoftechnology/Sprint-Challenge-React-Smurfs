@@ -1,12 +1,22 @@
 import React, { Component } from 'react';
-
+import styled from 'styled-components';
 import Smurf from './Smurf';
 
+/***************************************************************************************************
+ ********************************************** Styles *********************************************
+ **************************************************************************************************/
+const H1SmurfVillage = styled.h1`
+  font-family: 'Indie Flower', cursive;
+`;
+
+/***************************************************************************************************
+ ********************************************* Component *******************************************
+ **************************************************************************************************/
 class Smurfs extends Component {
   render() {
     return (
       <div className='Smurfs'>
-        <h1>Smurf Village</h1>
+        <H1SmurfVillage>Smurf Village</H1SmurfVillage>
         <ul>
           {this.props.smurfs.map(smurf => {
             return (
