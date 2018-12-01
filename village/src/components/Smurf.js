@@ -11,6 +11,13 @@ const DivSmurf = styled.div`
   margin: 10px;
   padding: 0 10px;
   border-radius: 10px;
+
+  &:hover {
+    cursor: pointer;
+    background-color: lightblue;
+    color: black;
+    transition: 0.3s all ease-in;
+  }
 `;
 
 const H3SmurfName = styled.h3`

@@ -15,7 +15,8 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      smurfs: []
+      smurfs: [],
+      sortedSmurfsByName: []
     };
   }
   // add any needed code to ensure that the smurfs collection exists on state and it has data coming from the server
@@ -24,11 +25,16 @@ class App extends Component {
       .get('http://localhost:3333/smurfs')
       .then(res =>
         this.setState({
-          smurfs: res.data
+          smurfs: res.data,
+          sortedSmurfsByName: []
         })
       )
       .catch(err => console.log(err));
   }
+
+  updateVillage = data => {
+    this.setState({ smurfs: data });
+  };
 
   // Notice what your map function is looping over and returning inside of Smurfs.
   // You'll need to make sure you have the right properties on state and pass them down to props.
@@ -43,6 +49,7 @@ class App extends Component {
               {...props}
               urlLinks={urlLinks}
               smurfs={this.state.smurfs}
+              updateVillage={this.updateVillage}
             />
           )}
         />

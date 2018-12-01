@@ -21,7 +21,19 @@ const FormAddSmurf = styled.form`
   }
 `;
 
-const FormRemoveSmurf = styled.div``;
+const FormRemoveSmurf = styled.div`
+  border-bottom: 2px solid black;
+
+  h1 {
+    font-family: 'Indie Flower', cursive;
+  }
+
+  select {
+    outline: none;
+    width: 200px;
+    text-align-last: center; /* Only works in chrome */
+  }
+`;
 
 const FormSubmitButton = styled.button`
   border-radius: 5px;
@@ -57,14 +69,25 @@ class SmurfForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: '',
-      age: '',
-      height: ''
+      sortedSmurfsByName: [],
+      newSmurf: {
+        name: '',
+        age: '',
+        height: ''
+      }
     };
   }
 
+  componentDidUpdate(prevProps) {
+    if (prevProps.smurfs !== this.props.smurfs) {
+      this.sortSmurfsByName(this.props.smurfs);
+    }
+  }
+
   handleInputChange = e => {
-    this.setState({ [e.target.name]: e.target.value });
+    this.setState({
+      newSmurf: { ...this.state.newSmurf, [e.target.name]: e.target.value }
+    });
   };
 
   createSmurf = (id, name, age, height) => {
@@ -76,14 +99,29 @@ class SmurfForm extends Component {
     };
   };
 
-  addSmurf(newSmurf) {
-    console.log(newSmurf);
+  sortSmurfsByName = smurfs => {
+    const sortedSmurfs = smurfs.slice().sort(function(a, b) {
+      const nameA = a.name.toUpperCase();
+      const nameB = b.name.toUpperCase();
+      return nameA < nameB ? -1 : nameA > nameB ? 1 : 0;
+    });
+    this.setState({ sortedSmurfsByName: sortedSmurfs });
+  };
+
+  renderSortedSmurfList = () => {
+    return this.state.sortedSmurfsByName.map(smurf => (
+      <option value={smurf.name} key={smurf.id}>
+        {smurf.name}
+      </option>
+    ));
+  };
+
+  addSmurf(e) {
+    e.preventDefault();
     axios
-      .post('http://localhost:3333/smurfs', newSmurf)
+      .post('http://localhost:3333/smurfs', this.state.newSmurf)
       .then(res => {
-        this.setState({
-          smurfs: res.data
-        });
+        this.props.updateVillage(res.data);
       })
       .catch(err => console.log(err));
   }
@@ -102,11 +140,12 @@ class SmurfForm extends Component {
 
   submitHandler = e => {
     this.addSmurf(
+      e,
       this.createSmurf(
         this.props.smurfs[this.props.smurfs.length - 1].id + 1,
-        this.state.name,
-        this.state.age,
-        this.state.height
+        this.state.newSmurf.name,
+        this.state.newSmurf.age,
+        this.state.newSmurf.height
       )
     );
   };
@@ -114,25 +153,25 @@ class SmurfForm extends Component {
   render() {
     return (
       <div className='SmurfForm'>
-        <FormAddSmurf onSubmit={e => this.submitHandler(e)}>
-          <h1>Add Smurf</h1>
+        <FormAddSmurf onSubmit={e => this.addSmurf(e)}>
+          <h1>Add Smurf to Village</h1>
           <div>
             <input
               onChange={this.handleInputChange}
               placeholder='name'
-              value={this.state.name}
+              value={this.state.newSmurf.name}
               name='name'
             />
             <input
               onChange={this.handleInputChange}
               placeholder='age'
-              value={this.state.age}
+              value={this.state.newSmurf.age}
               name='age'
             />
             <input
               onChange={this.handleInputChange}
               placeholder='height'
-              value={this.state.height}
+              value={this.state.newSmurf.height}
               name='height'
             />
           </div>
@@ -142,6 +181,15 @@ class SmurfForm extends Component {
             </FormSubmitButton>
           </div>
         </FormAddSmurf>
+        <FormRemoveSmurf>
+          <h1>Remove Smurf from Village</h1>
+          <select>
+            <option value='Select Smurf' key={0}>
+              Select Smurf
+            </option>
+            {this.renderSortedSmurfList()}
+          </select>
+        </FormRemoveSmurf>
       </div>
     );
   }
