@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Header, Segment, Form } from 'semantic-ui-react';
+import { Header, Segment, Form, Loader } from 'semantic-ui-react';
 
 class SmurfForm extends Component {
   constructor(props) {
@@ -89,7 +89,7 @@ class SmurfForm extends Component {
           </div>
         </Form>
         {
-          this.props.update && !this.state.smurf && <div>Loading...</div>
+          this.props.update && !this.state.smurf && <Loader active inline='centered' />
         }
       </Segment>
     );
