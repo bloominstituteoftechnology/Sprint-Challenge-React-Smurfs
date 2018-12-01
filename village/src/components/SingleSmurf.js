@@ -91,9 +91,6 @@ class Smurf extends Component {
   }
 
   componentDidMount = () => {
-    console.log("CDM", this.props);
-    console.log("axios", axios.get("http://localhost:3333/smurfs"));
-
     axios
       .get("http://localhost:3333/smurfs")
       .then(res => {
@@ -114,21 +111,21 @@ class Smurf extends Component {
 
   editSmurf = e => {
     e.preventDefault();
-    const data = {
+    let data = {
       name: this.state.name,
       age: this.state.age,
       height: this.state.height,
       id: parseInt(this.state.id, 10)
     };
     axios
-      .put(`/smurfs/${this.state.id}`, data)
+      .put(`http://localhost:3333/smurfs/${data.id}`, data)
       .then(res => {
         this.props.resetVillage(res.data);
         this.setState({
+          id: "",
           name: "",
           age: "",
-          height: "",
-          id: ""
+          height: ""
         });
         this.props.history.push("/");
       })

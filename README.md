@@ -32,7 +32,7 @@
 
 [x] - You are to then work on adding a Router to this application by using React Router.
 
-- If you get both of those two requirements finished early. Proceed to the **STRETCH PROBLEM** to try and implement a `PUT`.
+[x] - If you get both of those two requirements finished early. Proceed to the **STRETCH PROBLEM** to try and implement a `PUT`.
 
 ## API Design - This is how you'll interface with the API and what is required from every endpoint.
 
@@ -40,11 +40,12 @@
 
 ### GET '/smurfs'
 
-- To retrieve an array all the smurfs in the Smurf DB simply write a get to the endpoint `'/smurfs'`
+[x] - To retrieve an array all the smurfs in the Smurf DB simply write a get to the endpoint `'/smurfs'`
 
 ### POST '/smurfs'
 
-- To add a smurf to the Smurf DB you'll need all three fields.
+[x] - To add a smurf to the Smurf DB you'll need all three fields.
+
 - Example:
 
 ```js
@@ -55,24 +56,24 @@
 }
 ```
 
-- If a smurf is created correctly, you should see a response that is an array of smurfs with unique id's assigned to each smurf.
+[x] - If a smurf is created correctly, you should see a response that is an array of smurfs with unique id's assigned to each smurf.
 
 ### Router
 
-- Once you've finished your `GET` and `POST` requests go ahead and implement a Router for your components within this application.
-  [x] - You'll start by wrapping your `root` component in the `Router` component.
-  [x] - Then declare your routes with `Route`.
-  [x] - Then make it so you can navigate to your routes using `Link`.
-  [x] - Create two `routes` in your `App` component, one at `'/'` for your `Smurfs` component, and one at `/smurf-form` for your form.
-  [x] - Then in your `App` component, create a nav bar that will use `NavLink` to route to your different pages.
+[x] - Once you've finished your `GET` and `POST` requests go ahead and implement a Router for your components within this application.
+[x] - You'll start by wrapping your `root` component in the `Router` component.
+[x] - Then declare your routes with `Route`.
+[x] - Then make it so you can navigate to your routes using `Link`.
+[x] - Create two `routes` in your `App` component, one at `'/'` for your `Smurfs` component, and one at `/smurf-form` for your form.
+[x] - Then in your `App` component, create a nav bar that will use `NavLink` to route to your different pages.
 
 ## STRETCH PROBLEMS
 
 ### HTTP/Axios Stretch Problems
 
-- The following two endpoints are here for you if you'd like to push yourselves a little further.
+[x] - The following two endpoints are here for you if you'd like to push yourselves a little further.
 
-- **HINT** if you are going to be working on Stretch Problem, you'll need to use that unique `id`.
+[x] - **HINT** if you are going to be working on Stretch Problem, you'll need to use that unique `id`.
 
 ### DELETE '/smurfs/123', where 123 is the Id of the smurf you want to remove
 
@@ -102,7 +103,8 @@
 
 ### PUT '/smurfs/123', where 123 is the Id of the smurf you want to modify
 
-- For this endpoint to work, you'll need an `id` added to the URL, and at least one field to update on the Smurf object. `name` `age` `height`.
+[x] - For this endpoint to work, you'll need an `id` added to the URL, and at least one field to update on the Smurf object. `name` `age` `height`.
+
 - Example:
 
 ```js
