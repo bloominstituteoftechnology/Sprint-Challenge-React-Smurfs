@@ -63,7 +63,6 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 const StyledNav = styled.nav`
-  width: 100%;
   padding: 40px 5px 45px;
   border-bottom: 1px solid blue;
   margin-bottom: 20px;
