@@ -10,6 +10,19 @@ class SmurfForm extends Component {
     };
   }
 
+  componentDidMount() {
+    if (this.props.edit){
+      const smurf = this.props.smurfs.find((smurf) => { return smurf.id.toString() === this.props.match.params.id});
+      if (smurf){
+        this.setState({
+          name: smurf.name,
+          age: smurf.age,
+          height: smurf.height,
+        })
+      }
+  }
+  }
+
   addSmurf = event => {
     event.preventDefault();
     // add code to create the smurf using the api
@@ -60,7 +73,7 @@ class SmurfForm extends Component {
             value={this.state.height}
             name="height"
           />
-          <button type="submit">Add to the village</button>
+          <button type="submit">{this.props.edit ? 'Release back to the village' : 'Add to the village' }</button>
         </form>
       </div>
     );
