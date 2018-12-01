@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import styled, { css } from "styled-components";
-
+import PropTypes from "prop-types";
 // ===========================
 // ==== STYLED COMPONENTS ====
 // ===========================
@@ -90,5 +90,9 @@ class SmurfForm extends Component {
     );
   }
 }
+
+SmurfForm.propTypes = {
+  resetVillage: PropTypes.func.isRequired
+};
 
 export default SmurfForm;

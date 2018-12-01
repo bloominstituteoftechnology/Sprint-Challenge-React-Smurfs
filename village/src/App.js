@@ -42,22 +42,22 @@ const GlobalStyle = createGlobalStyle`
 
   input {
     padding: 10px;
-  margin: 10px;
-  border: none;
-  outline: none;
-  border-bottom: 1px solid blue;
-  width: 50%;
-  margin: 0 auto 20px;
-  display: block;
-  background: #d6bca5;
+    margin: 10px;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid blue;
+    width: 50%;
+    margin: 0 auto 20px;
+    display: block;
+    background: #d6bca5;
 
-  &:nth-child(3) {
-    margin-bottom: 50px;
-  }
+    &:nth-child(3) {
+      margin-bottom: 50px;
+    }
 
-  &:placeholder-shown {
-    text-transform: uppercase;
-  }
+    &:placeholder-shown {
+      text-transform: uppercase;
+    }
   }
 `;
 
@@ -153,11 +153,7 @@ class App extends Component {
           <Route
             path="/smurf-form"
             render={props => (
-              <SmurfForm
-                {...props}
-                addSmurf={this.addSmurf}
-                resetVillage={this.resetVillage}
-              />
+              <SmurfForm {...props} resetVillage={this.resetVillage} />
             )}
           />
           <Route

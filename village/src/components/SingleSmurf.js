@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from "react";
 import styled, { css } from "styled-components";
 import axios from "axios";
+import PropTypes from "prop-types";
 
 // ===========================
 // ==== STYLED COMPONENTS ====
@@ -39,7 +40,7 @@ const Button = styled.button`
 // ====     COMPONENT     ====
 // ===========================
 
-class Smurf extends Component {
+class SingleSmurf extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -136,10 +137,14 @@ class Smurf extends Component {
   }
 }
 
-Smurf.defaultProps = {
+SingleSmurf.defaultProps = {
   name: "",
   height: "",
   age: ""
 };
 
-export default Smurf;
+SingleSmurf.propTypes = {
+  resetVillage: PropTypes.func.isRequired
+};
+
+export default SingleSmurf;

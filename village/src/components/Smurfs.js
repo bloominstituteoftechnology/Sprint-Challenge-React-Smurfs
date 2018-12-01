@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 import Smurf from "./Smurf";
+import PropTypes from "prop-types";
 
 // ===========================
 // ==== STYLED COMPONENTS ====
@@ -47,6 +48,11 @@ class Smurfs extends Component {
 
 Smurf.defaultProps = {
   smurfs: []
+};
+
+Smurfs.propTypes = {
+  deleteSmurf: PropTypes.func.isRequired,
+  smurfs: PropTypes.array.isRequired
 };
 
 export default Smurfs;

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { PropTypes } from "prop-types";
 
 // ===========================
 // ==== STYLED COMPONENTS ====
@@ -89,6 +90,14 @@ Smurf.defaultProps = {
   name: "",
   height: "",
   age: ""
+};
+
+Smurf.propTypes = {
+  name: PropTypes.string.isRequired,
+  id: PropTypes.number.isRequired,
+  age: PropTypes.string.isRequired,
+  height: PropTypes.string.isRequired,
+  deleteSmurf: PropTypes.func.isRequired
 };
 
 export default Smurf;
