@@ -6,7 +6,8 @@ class SmurfForm extends Component {
     this.state = {
       name: '',
       age: '',
-      height: ''
+      height: '',
+      loaded: false,
     };
 
   }
@@ -19,7 +20,8 @@ class SmurfForm extends Component {
     this.setState({
       name: '',
       age: '',
-      height: ''
+      height: '',
+      loaded: false
     });
 
     this.props.history.push('/');
@@ -31,7 +33,8 @@ class SmurfForm extends Component {
     this.setState({
       name: '',
       age: '',
-      height: ''
+      height: '',
+      loaded: false,
     });
 
     this.props.history.push('/');
@@ -42,18 +45,21 @@ class SmurfForm extends Component {
   };
 
 
-  componentDidMount() {
-
-    if(this.props.edit) {
+  componentDidUpdate() {
+    
+    if(this.props.match.url.includes('edit')){
       if(this.props.data.length === 0) {
-        return <div>Loading</div>
+        console.log('no data loaded yet')
+      return <div></div>
       }
-      else {
+      if (this.props.edit && !this.state.loaded) {
+        console.log('something')
         const info = this.props.data.find(smurf => `${smurf.id}` === this.props.match.params.id);
         this.setState({
           name: info.name,
           age: info.age,
           height: info.height,
+          loaded: true,
         });
       }
     }
@@ -61,6 +67,7 @@ class SmurfForm extends Component {
 
 
   render() {
+
 
     return (
       <div className="SmurfForm">

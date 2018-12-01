@@ -6,13 +6,19 @@
     margin: 20px 0;
 }
 
-.Smurf {
+.smurf-content {
     border: 2px solid rgb(26, 110, 179);
     border-radius: 10px;
     width: 280px;
 }
 
-.Smurf:hover {
+.smurf-content-clicked {
+    border: 2px solid rgb(26, 110, 179);
+    border-radius: 10px;
+    width: 280px;
+}
+
+.smurf-content:hover {
     background-color: whitesmoke;
 }
 

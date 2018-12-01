@@ -26,6 +26,7 @@ class Smurfs extends Component {
               height={clickedSmurf.height}
               key={clickedSmurf.id}
               deleteSmurf={this.props.deleteSmurf}
+              clicked={this.props.clicked}
             /> : 
             this.props.smurfs.map(smurf => {
               return (
