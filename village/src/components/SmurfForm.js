@@ -8,7 +8,7 @@ class SmurfForm extends Component {
       name: '',
       age: '',
       height: '',
-      id: ''
+      id: 0
     };
   }
 
@@ -23,11 +23,11 @@ class SmurfForm extends Component {
     })
 
     .then(newResponse => {
-      console.log('from addSmurf', newResponse)
+      console.log('from addSmurf', newResponse.data)
       this.setState({ 
-        name: newResponse.data,
-        age: newResponse.data,
-        height: newResponse.data
+        name: '',
+        age: '',
+        height: ''
       });
     })
     .catch(err => console.log(err));
@@ -45,10 +45,9 @@ class SmurfForm extends Component {
       .then(newResponse => {
         console.log('from delete', newResponse)
         this.setState({
-          name: this.state.name,
-          age: this.state.age,
-          height: this.state.height,
-          id: this.state.id
+          name: '',
+          age: '',
+          height: ''
         })
       })
   }
@@ -66,16 +65,16 @@ class SmurfForm extends Component {
       .then(newResponse => {
         console.log('from update', newResponse)
         this.setState({
-          name: this.state.name,
-          age: this.state.age,
-          height: this.state.height,
-          id: this.state.id
+          name: '',
+          age: '',
+          height: ''
         })
       })
       .catch(err => console.log(err));
   }
 
   render() {
+    console.log('my state from smurf form', this.state.id)
     return (
       <div className="SmurfForm">
         <form onSubmit={this.addSmurf}>
@@ -104,9 +103,10 @@ class SmurfForm extends Component {
             name="height"
           />
           <button type="submit">Add to the village</button>
+        </form>
           <button onClick={this.delete} type="submit">Delete</button>
           <button onClick={this.update} type="submit">Update</button>
-        </form>
+        
       </div>
     );
   }

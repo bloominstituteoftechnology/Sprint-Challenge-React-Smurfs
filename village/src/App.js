@@ -48,7 +48,12 @@ class App extends Component {
         )} />
         <Route path="/smurf-form" component={SmurfForm} />
         {/* <Route path="/smurf/:id" component={SmurfCard} /> */}
-        {/* <Route path="/smurf/:id" component={SmurfCard} /> */}
+        <Route path="/smurf/:id" render={props => (
+          <SmurfCard 
+            {...props}
+            smurfs={this.state.smurfs}
+          />
+        )} />
       </div>
     );
   }

@@ -1,28 +1,16 @@
-// import React from 'react';
-// import { Route, Link, Switch } from "react-router-dom";
-// import OneSmurf from './OneSmurf';
-// import Smurfs from './Smurfs';
+import React from 'react';
+import { Route, Link, Switch } from "react-router-dom";
 
-// const SmurfCard = props => {
-//     console.log('props from smurfcard', props.smurfs)
-//   return (
-//     <div className="Smurf">
-//         {props.smurfs.map(mySmurf => {
-//             // {props.smurfs.filter(mySmurf => {
-//             return (
-//                 <Smurfs
-//                     name={mySmurf.name}
-//                     // id={smurf.id}
-//                     // age={smurf.age}
-//                     // height={smurf.height}
-//                     // key={smurf.id}
-//                 />
-//             );
-//         })}
-//     </div>
-//   );
-// };
+const SmurfCard = props => {
+  console.log('props from smurfcard', props)
+  // const myRegex = parseInt(props.location.pathname.match(/\d+$/)[0], 10);
+  const myRegex = props.match.params.id
+  return (
+    <div>
+      {props.smurfs[myRegex].name}
+      {props.smurfs[myRegex].height}
+    </div>
+  );
+};
 
-// export default SmurfCard;
-
-
+export default SmurfCard;
