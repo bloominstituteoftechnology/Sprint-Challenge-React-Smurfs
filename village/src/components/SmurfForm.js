@@ -78,25 +78,34 @@ class SmurfForm extends Component {
     };
   }
 
+  //========================== Methods =========================
+  componentDidMount() {
+    this.sortSmurfsByName(this.props.smurfs);
+  }
+
   componentDidUpdate(prevProps) {
     if (prevProps.smurfs !== this.props.smurfs) {
       this.sortSmurfsByName(this.props.smurfs);
     }
   }
 
-  handleInputChange = e => {
-    this.setState({
-      newSmurf: { ...this.state.newSmurf, [e.target.name]: e.target.value }
-    });
-  };
-
-  createSmurf = (id, name, age, height) => {
+  //-------------- Support Methods -------------
+  createSmurf = (name, age, height) => {
     return {
-      id,
       name,
       age,
       height
     };
+  };
+
+  clearNewSmurfState = () => {
+    this.setState({
+      newSmurf: {
+        name: '',
+        age: '',
+        height: ''
+      }
+    });
   };
 
   sortSmurfsByName = smurfs => {
@@ -116,6 +125,7 @@ class SmurfForm extends Component {
     ));
   };
 
+  //------------ AJAX/Axios Methods ------------
   addSmurf(e) {
     e.preventDefault();
     axios
@@ -138,22 +148,23 @@ class SmurfForm extends Component {
       .catch(err => console.log(err));
   }
 
-  submitHandler = e => {
-    this.addSmurf(
-      e,
-      this.createSmurf(
-        this.props.smurfs[this.props.smurfs.length - 1].id + 1,
-        this.state.newSmurf.name,
-        this.state.newSmurf.age,
-        this.state.newSmurf.height
-      )
-    );
+  //---------------- Form Methods --------------
+  handleInputChange = e => {
+    this.setState({
+      newSmurf: { ...this.state.newSmurf, [e.target.name]: e.target.value }
+    });
   };
 
+  submitHandler = e => {
+    this.addSmurf(e);
+    this.clearNewSmurfState();
+  };
+
+  //========================== Render ==========================
   render() {
     return (
       <div className='SmurfForm'>
-        <FormAddSmurf onSubmit={e => this.addSmurf(e)}>
+        <FormAddSmurf onSubmit={e => this.submitHandler(e)}>
           <h1>Add Smurf to Village</h1>
           <div>
             <input
