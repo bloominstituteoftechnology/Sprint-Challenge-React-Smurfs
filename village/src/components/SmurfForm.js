@@ -31,7 +31,7 @@ const FormAddSmurf = styled.form`
   }
 `;
 
-const FormRemoveSmurf = styled.div`
+const FormRemoveSmurf = styled.form`
   border-bottom: 2px solid black;
 
   h1 {
@@ -165,7 +165,8 @@ class SmurfForm extends Component {
         name: '',
         age: '',
         height: ''
-      }
+      },
+      deleteSmurfId: submitTypes.noDeleteId
     };
   }
 
@@ -227,14 +228,11 @@ class SmurfForm extends Component {
       .catch(err => console.log(err));
   }
 
-  removeSmurf(e, id) {
-    e.preventDefault();
+  removeSmurf(id) {
     axios
       .delete(`http://localhost:3333/smurfs/${id}`)
       .then(res => {
-        this.setState({
-          smurfs: res.data
-        });
+        this.props.updateVillage(res.data);
       })
       .catch(err => console.log(err));
   }
@@ -243,6 +241,12 @@ class SmurfForm extends Component {
   handleInputChange = e => {
     this.setState({
       newSmurf: { ...this.state.newSmurf, [e.target.name]: e.target.value }
+    });
+  };
+
+  deleteHandleChange = e => {
+    this.setState({
+      deleteSmurfId: e.target.value
     });
   };
 
@@ -258,8 +262,10 @@ class SmurfForm extends Component {
         this.clearNewSmurfState();
       }
     } else if (submitType === submitTypes.delete) {
-      if (id !== submitTypes.noDeleteId) this.removeSmurf(e, id);
+      if (id !== `${submitTypes.noDeleteId}` && id !== submitTypes.noDeleteId)
+        this.removeSmurf(id);
     }
+    // this.removeSmurf(id)
   };
 
   //========================== Render ==========================
@@ -300,7 +306,7 @@ class SmurfForm extends Component {
         </FormAddSmurf>
         <FormRemoveSmurf
           onSubmit={e =>
-            this.submitHandler(e, submitTypes.delete, submitTypes.noDeleteId)
+            this.submitHandler(e, submitTypes.delete, this.state.deleteSmurfId)
           }
         >
           <h1>Remove Smurf from Village</h1>
@@ -310,7 +316,7 @@ class SmurfForm extends Component {
             </FormSubmitButton>
           </div>
           <div>
-            <select>
+            <select onChange={this.deleteHandleChange}>
               <option
                 value={submitTypes.noDeleteId}
                 key={submitTypes.noDeleteId}
