@@ -24,6 +24,7 @@
   border-radius: 2px;
   color: #38404c;
   background: rgba(231, 232, 236, .2);
+  text-decoration: none;
 }
 
 .Smurf:hover {
@@ -37,6 +38,13 @@
   font-size: 2.3rem;
   margin-bottom: 20px;
   margin-top: 10px;
+  position: relative;
+}
+
+.awesome-edit {
+  position: absolute;
+  right: 10px;
+  color: #7575a3;
 }
 
 /* Nav Link */
@@ -76,10 +84,13 @@
   border-radius: 4px;
   width: 500px;
   margin-bottom: 20px;
-  
+  color:  #7575a3;
+  font-weight: bold;
+  font-family: 'Coming Soon', cursive;
+  font-size: 1.5rem;
 }
 
-.SmurfForm form button {
+.btn-primary {
   margin-bottom: 60px;
   background-color: #51b4ff;
   border: none;
@@ -96,7 +107,7 @@
   transition: all .2s ease-in-out;
 }
 
-.SmurfForm form button:hover {
+.btn-primary:hover {
   background: rgb(81, 180, 255, .3);
   color: black;
 }
