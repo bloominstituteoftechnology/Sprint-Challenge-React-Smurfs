@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
-
+import axios from 'axios';
 import './App.css';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
+import SmurfCard from './components/SmurfCard';
+import { Route, NavLink, Switch } from "react-router-dom";
 
 class App extends Component {
   constructor(props) {
@@ -11,17 +13,51 @@ class App extends Component {
       smurfs: [],
     };
   }
-  // add any needed code to ensure that the smurfs collection exists on state and it has data coming from the server
+  // add any needed code to ensure that the smurfs collection 
+  // exists on state and it has data coming from the server
   // Notice what your map function is looping over and returning inside of Smurfs.
-  // You'll need to make sure you have the right properties on state and pass them down to props.
+  // You'll need to make sure you have the right properties on state 
+  // and pass them down to props.
+
+  componentDidMount() {
+    axios
+      .get('http://localhost:3333/smurfs')
+      .then(response => {
+        // console.log(response)
+        this.setState({ 
+          smurfs: response.data
+        });
+      })
+      .catch(err => console.log(err));
+  }
+
+
   render() {
+    // console.log('state smurf from app render', this.state.smurfs)
     return (
       <div className="App">
-        <SmurfForm />
-        <Smurfs smurfs={this.state.smurfs} />
+      <div>
+        <NavLink exact to='/'> Home </NavLink>
+        <NavLink to='/smurf-form'> Smurf Form </NavLink>
+      </div>
+        <Route exact path="/" render={props => (
+          <Smurfs
+            {...props}
+            smurfs={this.state.smurfs}
+          />
+        )} />
+        <Route path="/smurf-form" component={SmurfForm} />
+        {/* <Route path="/smurf/:id" component={SmurfCard} /> */}
+        <Route path="/smurf/:id" render={props => (
+          <SmurfCard 
+            {...props}
+            smurfs={this.state.smurfs}
+          />
+        )} />
       </div>
     );
   }
 }
+
 
 export default App;
