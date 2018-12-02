@@ -265,7 +265,6 @@ class SmurfForm extends Component {
       if (id !== `${submitTypes.noDeleteId}` && id !== submitTypes.noDeleteId)
         this.removeSmurf(id);
     }
-    // this.removeSmurf(id)
   };
 
   //========================== Render ==========================
