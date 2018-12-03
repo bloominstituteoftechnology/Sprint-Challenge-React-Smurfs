@@ -3,8 +3,7 @@ import styled from "styled-components";
 import smurfizer from "./SmurfStyles";
 
 const SmurfingSmurfFormDiv = styled.div`
-  background-color: ${smurfizer.smurfLight};
-  height: 200px;
+  background-${smurfizer.smurfor}: ${smurfizer.smurfLight};
   padding: 100px;
 `;
 
@@ -16,15 +15,15 @@ const SmurfingForm = styled.form`
 const Smurfput = styled.input`
   margin: 10px;
   border: 2px solid ${smurfizer.smurfDark};
-  color: ${smurfizer.smurfSky};
-  background: ${smurfizer.smurf};
+  ${smurfizer.smurfor}: ${smurfizer.smurfSky};
+  background-${smurfizer.smurfor}: ${smurfizer.smurf};
   font-size: 2rem;
 `;
 
 const SmurfButton = styled.button`
   margin: 10px;
   border: 2px solid ${smurfizer.smurfDark};
-  color: ${smurfizer.smurfSky};
+  ${smurfizer.smurfor}: ${smurfizer.smurfSky};
   background: ${smurfizer.smurfCornflower};
   font-size: 2rem;
   border-radius: 5px;
@@ -56,8 +55,8 @@ class SmurfForm extends Component {
     });
   }
 
-  handleInputChange = e => {
-    this.setState({ [e.target.name]: e.target.value });
+  handleInputChange = smurfer => {
+    this.setState({ [smurfer.target.name]: smurfer.target.value });
   };
 
   render() {

@@ -4,15 +4,19 @@ import Smurf from "./Smurf";
 import styled from "styled-components";
 
 const SmurfsDiv = styled.div`
-	background-color: ${smurfizer.smurfCornflower};
+  background-${smurfizer.smurfor}: ${smurfizer.smurfCornflower};
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
 const SmurfH1 = styled.h1`
-  color: ${smurfizer.smurfNavy};
+  ${smurfizer.smurfor}: ${smurfizer.smurfNavy};
 `;
 
 const SmurfUl = styled.ul`
   border: 5px dashed ${smurfizer.smurfLight};
+  padding: 0;
 `;
 
 class Smurfs extends Component {

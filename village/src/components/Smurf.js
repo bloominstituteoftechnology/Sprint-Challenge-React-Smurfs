@@ -1,45 +1,45 @@
-import React from 'react';
-import styled from 'styled-components';
-import smurfizer from './SmurfStyles';
+import React from "react";
+import styled from "styled-components";
+import smurfizer from "./SmurfStyles";
 
 const SmurfDiv = styled.div`
-  color: ${smurfizer.smurfSky};
+	${smurfizer.smurfor}: ${smurfizer.smurfSky};
   border: 1px solid ${smurfizer.smurfLight};
+  padding: 10px;
 `;
-
 const SmurfH3 = styled.h3`
-  color: ${smurfizer.smurf};
+	${smurfizer.smurfor}: ${smurfizer.smurf};
 `;
-
 const SmurfStrong = styled.strong`
-  color: ${smurfizer.smurfLight};
+	${smurfizer.smurfor}: ${smurfizer.smurfLight};
 `;
-
 const SmurfP = styled.p`
-  color: ${smurfizer.smurfDark};
+	${smurfizer.smurfor}: ${smurfizer.smurfDark};
 `;
-
 const SmurfButton = styled.button`
-  background-color: ${smurfizer.smurfSky};
-  color: ${smurfizer.smurf};
-`;
+  background-${smurfizer.smurfor}: ${smurfizer.smurfSky};
+  ${smurfizer.smurfor}: ${smurfizer.smurf};`;
 
-const Smurf = props => {
-  return (
-    <SmurfDiv>
-      <SmurfH3>{props.name}</SmurfH3>
-      <SmurfStrong>smurfing {props.height} tall</SmurfStrong>
-      <SmurfP>{props.age} smurf years old</SmurfP>
-      <SmurfButton onClick={()=>{props.deleteSmurf(props.id)}}>Put This Smurf Out of Its Missery</SmurfButton>
-    </SmurfDiv>
-  );
+const Smurf = smurfer => {
+	return (
+		<SmurfDiv>
+			<SmurfH3>{smurfer.name}</SmurfH3>
+			<SmurfStrong>smurfing {smurfer.height} tall</SmurfStrong>
+			<SmurfP>{smurfer.age} smurf years old</SmurfP>
+			<SmurfButton
+				onClick={() => {
+					smurfer.deleteSmurf(smurfer.id);
+				}}>
+				Put This Smurf Out of Its Missery
+			</SmurfButton>
+		</SmurfDiv>
+	);
 };
 
 Smurf.defaultProps = {
-  name: '',
-  height: '',
-  age: ''
+	name: "",
+	height: "",
+	age: ""
 };
 
 export default Smurf;
-

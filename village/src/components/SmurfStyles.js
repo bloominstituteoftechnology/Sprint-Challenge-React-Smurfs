@@ -4,7 +4,8 @@ let smurfizer = {
     smurfLight : 'lightblue',
     smurfDark : 'darkblue',
     smurfCornflower : 'cornflowerblue',
-    smurfNavy : 'navy'
+    smurfNavy : 'navy',
+    smurfor : 'color'
 
 }
 
