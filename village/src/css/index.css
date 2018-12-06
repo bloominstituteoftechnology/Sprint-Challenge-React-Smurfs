@@ -103,6 +103,7 @@
   background: #8bff91;
   color: white;
   font-weight: bold;
+  cursor: pointer;
 }
 .SmurfForm {
   margin: 30px 0;
