@@ -23,6 +23,6 @@
 
 2. fetch
    axios
-   get, post, then, catch
+   get, post, then, ycatch
 
    
