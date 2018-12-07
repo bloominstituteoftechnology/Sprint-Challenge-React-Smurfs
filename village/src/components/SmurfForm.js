@@ -11,9 +11,15 @@ class SmurfForm extends Component {
       height: ''
     };
   }
+
   addSmurf = event => {
     event.preventDefault();
     // add code to create the smurf using the api
+    const newSmurf = {
+      name: "Test",
+      age: 1,
+      height: "4cm"
+    };
     axios
       .post("http://localhost:3333/smurfs", newSmurf)
       .then(response => {
