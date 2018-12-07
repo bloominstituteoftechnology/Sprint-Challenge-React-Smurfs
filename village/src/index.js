@@ -10,3 +10,5 @@ ReactDOM.render(
     <App />
     </Router>,
     document.getElementById('root'));
+
+    document.body.style.backgroundImage = "url('https://images6.alphacoders.com/521/521144.jpg')";

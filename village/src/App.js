@@ -58,6 +58,18 @@ class App extends Component {
     .catch(err => console.log(err))
   }
 
+  editSmurf = (id, data) => {
+    axios
+    .put(`${url}${id}`, data)
+    .then(response => {
+      console.log(response);
+      this.setState({
+        smurfs: response.data
+      })
+    })
+    .catch(err => console.log(err))
+  }
+
 
   render() {
     return (
@@ -68,7 +80,7 @@ class App extends Component {
         </nav-bar>
         <Route 
         exact path='/'
-        render={props => <Smurfs smurfs={this.state.smurfs} deleteSmurf={this.deleteSmurf} {...props} />}
+        render={props => <Smurfs smurfs={this.state.smurfs} deleteSmurf={this.deleteSmurf} editSmurf={this.editSmurf} {...props} />}
         />
         <Route path='/smurf-form' 
         render={props => <SmurfForm addSmurf={this.addSmurf} {...props} />}
