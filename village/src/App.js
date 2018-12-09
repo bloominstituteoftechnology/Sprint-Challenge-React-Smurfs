@@ -35,9 +35,9 @@ class App extends Component {
           <nav>
         <Smurfs smurfs={this.state.smurfs} />	          
         <NavLink exact to="/">
-          Smurfs
+          [++ List Smurfs ++]  
         </NavLink>
-        <NavLink to="/smurf-form">Add Smurf</NavLink>
+        <NavLink to="/smurf-form">    [++ Add Smurf ++] </NavLink>
         </nav>
         <Route
           path="/smurf-form"
