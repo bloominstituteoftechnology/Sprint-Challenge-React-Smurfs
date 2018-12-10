@@ -19,7 +19,7 @@ class App extends Component {
 
   componentDidMount() {
     axios
-      .get(`http://localhost:3333/village`)
+      .get(`http://localhost:3333/smurfs`)
       .then(response => {
         console.log(response)
         this.setState({ smurfs: response.data })
@@ -30,10 +30,10 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Route to='/smurf-form' component={SmurfForm} />
-        <Route exact to='/' component={Smurfs} />
-        {/* <Smurfs smurfs={this.state.smurfs} /> */}
-        <Link></Link>
+        <Link to='/smurf-form'>Form</Link>
+        <Link to='/'>Smurfs</Link>
+        <Route path='/smurf-form' component={SmurfForm} />
+        <Route exact path='/' render={() => <Smurfs smurfs={this.state.smurfs} />} />
       </div>
     );
   }
