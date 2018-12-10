@@ -25,6 +25,10 @@ class App extends Component {
       .catch(err => console.log(err));
   }
 
+  updateSmurfs = smurfs => {
+    this.setState({ smurfs })
+  }
+
 //   axios
 //       .post('http://localhost:3333/smurfs', newSmurf)
 //       .then(response => {
@@ -44,7 +48,7 @@ class App extends Component {
         <Route 
           path='/smurf-form'
           render={(props) => (
-          <SmurfForm {...props} smurfs={this.state.smurfs} />  
+          <SmurfForm {...props} smurfs={this.state.smurfs} updateSmurfs={this.updateSmurfs} />  
           )}
         />        
         <Route 
