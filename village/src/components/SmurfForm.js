@@ -22,15 +22,10 @@ class SmurfForm extends Component {
     }
 
     axios({
-      method: 'post',
+      method: 'POST',
       url: `http://localhost:3333/smurfs`,
-      data: { 
-        name: '',
-        age: '',
-        height: ''
-      }
+      data: smurf
     })
-      .post(`http://localhost:3333/smurfs`, { smurf })
       .then(response => {
         console.log(response)
         console.log(response.data)
