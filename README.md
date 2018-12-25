@@ -1,4 +1,4 @@
-# Assessing your Redux/Axios Foo
+# Assessing your Redux/Axios Fu
 * The purpose of this exercise is to get you used to being quizzed on _Interview Questions_ commonly asked about Redux.
 * Answers to your written questions will be recorded in *Answers.md* 
 * This is to be worked on alone but you can use outside resources. You can *reference* any old code you may have, and the React Documentation, however, please refrain from copying and pasting any of your answers. Try and understand the question and put your responses in your own words. Be as thorough as possible when explaining something. 
