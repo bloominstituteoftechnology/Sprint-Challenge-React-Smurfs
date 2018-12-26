@@ -41,8 +41,21 @@ server.post('/smurfs', (req, res) => {
   smurfId++;
   res.json(smurfs);
 });
-server.update();
-server.delete(() => {});
+
+server.update('/smurfs', (req, res) => {
+  const { name, age, height, id } = req.body;
+  if (!name || !age || !height) {
+    return sendUserError(
+      'Ya gone did smurfed! Name/Age/Height are all required to create a smurf in the smurf DB.',
+      res
+    );
+  }
+});
+
+server.delete('/smurfs', (req, res) => {
+  const { id } = req.body;
+});
+
 server.listen(port, err => {
   if (err) console.log(err);
   console.log(`server is listening on port ${port}`);
