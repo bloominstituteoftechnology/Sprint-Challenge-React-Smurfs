@@ -26,7 +26,24 @@
   height: '5cm'
 }
 ```
- * if a smurf is created correctly, you should see a response that is an array of smurfs with uniqe id's assigned to each smurf
+* if a smurf is created correctly, you should see a response that is an array of smurfs with uniqe id's assigned to each smurf.
+* example of object created in Smurf DB: 
+```
+[
+    {
+        "name": "Brainey",
+        "age": 200,
+        "height": "5cm",
+        "id": 0
+    },
+    {
+        "name": "Sleepy",
+        "age": 200,
+        "height": "5cm",
+        "id": 1
+    }
+]
+```
 
 ### Delete '/smurfs'
 * for this endpoint to work, all you need is an id sent up with your request body.
@@ -34,6 +51,23 @@
 ```
 {
   id: 1
+}
+```
+* if your delete worked, You'll get a success object back that looks like this 
+* example: 
+```
+input: 
+{
+  id: 1
+}
+output:
+{
+    "SmurfRemoved": {
+        "name": "Sleepy",
+        "age": 200,
+        "height": "5cm",
+        "id": 1
+    }
 }
 ```
 #### 
