@@ -4,6 +4,24 @@ import "./App.css";
 import SmurfForm from "./components/SmurfForm";
 import Smurfs from "./components/Smurfs";
 import { Route, NavLink } from "react-router-dom";
+import styled from "styled-components";
+
+const APP = styled.div`
+  text-align: center;
+`;
+
+const Nav = styled.div`
+  width: 200px;
+  display: flex;
+  margin: 15px auto;
+  justify-content: space-between;
+`;
+
+const Link = styled.h6`
+  border: 1px solid blue;
+  border-radius: 14px;
+  padding: 15px;
+`;
 
 class App extends Component {
   constructor(props) {
@@ -32,15 +50,16 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        <div className="Nav">
-          <NavLink className="link" to="/">
-            Home
+      <APP>
+        <Nav>
+          <NavLink to="/">
+            <Link>Home</Link>
           </NavLink>
-          <NavLink className="link" to="/add-smurf">
-            Add Smurf
+          <NavLink to="/add-smurf">
+            <Link>Add Smurf</Link>
           </NavLink>
-        </div>
+        </Nav>
+
         <Route
           path="/add-smurf"
           render={props => (
@@ -52,7 +71,7 @@ class App extends Component {
           path="/"
           render={props => <Smurfs {...props} smurfs={this.state.smurfs} />}
         />
-      </div>
+      </APP>
     );
   }
 }
