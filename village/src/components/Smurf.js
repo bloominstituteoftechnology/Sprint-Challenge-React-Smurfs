@@ -1,20 +1,33 @@
-import React from 'react';
+import React from "react";
+import styled from "styled-components";
+
+const SmurfCard = styled.div`
+  border: 1px solid black;
+  width: 250px;
+  margin: 5px 0;
+  border-radius: 14px;
+`;
+
+const Name = styled.h3``;
+
+const Height = styled.strong``;
+
+const Age = styled.p``;
 
 const Smurf = props => {
   return (
-    <div className="Smurf">
-      <h3>{props.name}</h3>
-      <strong>{props.height} tall</strong>
-      <p>{props.age} smurf years old</p>
-    </div>
+    <SmurfCard>
+      <Name>{props.name}</Name>
+      <Height>{props.height} tall</Height>
+      <Age>{props.age} smurf years old</Age>
+    </SmurfCard>
   );
 };
 
 Smurf.defaultProps = {
-  name: '',
-  height: '',
-  age: ''
+  name: "",
+  height: "",
+  age: ""
 };
 
 export default Smurf;
-
