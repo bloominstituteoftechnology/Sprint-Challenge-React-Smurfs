@@ -34,8 +34,8 @@ Demonstrate your understanding of this Sprint's concepts by answering the follow
 
 ## Project Set Up
 
-- [ ] Start by Forking and Cloning this Repo.
-- [ ] `cd` into the forked copy.
+- [x] Start by Forking and Cloning this Repo.
+- [x] `cd` into the forked copy.
 - [ ] **RUN** `yarn install or npm install` at the root to retrieve all the dependencies for the node server. You will not need to create any react apps here nor will you need to install any other dependencies. You should have all you need in this repo.
 - [ ] **LOOK** at all the files you've been given for this project. One important file to note is `server.js`. This file contains an **API** that you are going to be interfacing with. Below is documentation on how to interact with the **API**.
 - [ ] **RUN** `yarn start or npm start` to get your API up and running on `http://localhost:3333`. This is the **URL** you're going to need to use within your React app in order to make AJAX requests for data.
@@ -97,15 +97,15 @@ Add a Router to this application by using React Router.
 // output: `A list of all the smurfs in the Smurf DB will be returned`
 [
   {
-    name: 'Brainy',
+    name: "Brainy",
     age: 211,
-    height: '5cm',
+    height: "5cm",
     id: 0
   },
   {
-    name: 'Smurfette',
+    name: "Smurfette",
     age: 122,
-    height: '12cm',
+    height: "12cm",
     id: 1
   }
 ];
