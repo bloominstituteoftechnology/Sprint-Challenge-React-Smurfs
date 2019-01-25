@@ -4,6 +4,8 @@ import './App.css';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
 
+// Comment added to make initial commit
+
 class App extends Component {
   constructor(props) {
     super(props);
