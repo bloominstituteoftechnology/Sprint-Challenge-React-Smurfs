@@ -32,10 +32,17 @@ Demonstrate your understanding of this Sprint's concepts by answering the follow
 - [ ] Which HTTP methods can be mapped to the CRUD acronym that we use when interfacing with APIs/Servers.
 - [ ] Mention three tools we can use to make AJAX requests.
 
+
 ## Project Set Up
 
-- [ ] Start by Forking and Cloning this Repo.
-- [ ] `cd` into the forked copy.
+Follow these steps to set up and work on your project:
+
+- [ ] Create a forked copy of this project.
+- [ ] Add PM as collaborator on Github.
+- [ ] Clone your OWN version of Repo (Not Lambda's by mistake!).
+- [ ] Create a new Branch on the clone: git checkout -b `<firstName-lastName>`.
+- [ ] Implement the project on this Branch, committing changes regularly.
+- [ ] Push commits: git push origin `<firstName-lastName>`.
 - [ ] **RUN** `yarn install or npm install` at the root to retrieve all the dependencies for the node server. You will not need to create any react apps here nor will you need to install any other dependencies. You should have all you need in this repo.
 - [ ] **LOOK** at all the files you've been given for this project. One important file to note is `server.js`. This file contains an **API** that you are going to be interfacing with. Below is documentation on how to interact with the **API**.
 - [ ] **RUN** `yarn start or npm start` to get your API up and running on `http://localhost:3333`. This is the **URL** you're going to need to use within your React app in order to make AJAX requests for data.
@@ -44,6 +51,11 @@ Demonstrate your understanding of this Sprint's concepts by answering the follow
 - [ ] **cd** into `village` and run `yarn install or npm install` to retrieve the client side dependencies.
 - [ ] **RUN** `yarn start or npm start` to fire up your React application.
 
+Follow these steps for completing your project:
+
+- [ ] Submit a Pull-Request to merge <firstName-lastName> Branch into master (student's  Repo).
+- [ ] Add your Project Manager as a Reviewer on the Pull-request
+- [ ] PM then will count the HW as done by  merging the branch back into master.
 ## Minimum Viable Product
 
 The MVP of this project will be broken up between 2 stages. Follow each step and be sure to use your design/style skills to make this application look professional.
