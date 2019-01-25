@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import '../App.css';
+import {Link} from 'react-router-dom';
 
-class SmurfForm extends Component {
+class SmurfUpdateForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -11,18 +11,20 @@ class SmurfForm extends Component {
     };
   }
 
-  addSmurf = event => {
+  updateSmurf = event => {
     event.preventDefault();
     // add code to create the smurf using the api
-    this.props.newSmurf(this.state);
+    const smurfToUpdate = this.props.smurfs.find(
+      smurf => smurf.id === this.props.match.params.id,
+    );
+    const smurfId = smurfToUpdate.id;
+    this.props.updateSmurf(smurfId, this.state);
 
     this.setState({
       name: '',
       age: '',
       height: '',
     });
-
-    this.props.history.push('/smurfs');
   };
 
   handleInputChange = e => {
@@ -32,7 +34,7 @@ class SmurfForm extends Component {
   render() {
     return (
       <div className="SmurfForm">
-        <h3>Add Smurf</h3>
+        <h3>Update Smurf</h3>
         <form onSubmit={this.addSmurf}>
           <input
             onChange={this.handleInputChange}
@@ -52,13 +54,14 @@ class SmurfForm extends Component {
             value={this.state.height}
             name="height"
           />
-          <button type="submit" onClick={this.addSmurf}>
-            Add to the village
+          <button type="submit" onClick={this.updateSmurf}>
+            Update
           </button>
+          <Link to="/smurfs">Add New?</Link>
         </form>
       </div>
     );
   }
 }
 
-export default SmurfForm;
+export default SmurfUpdateForm;
