@@ -3,23 +3,22 @@ import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
+import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
+import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
-import DeleteIcon from "@material-ui/icons/Delete";
-import CardActions from "@material-ui/core/CardActions";
-import IconButton from "@material-ui/core/IconButton";
+
 const styles = {
   card: {
-    maxWidth: 345,
-    margin: 20
+    maxWidth: 345
   },
   media: {
     height: 140
   }
 };
 
-function Smurf(props) {
+function MediaCard(props) {
   const { classes } = props;
   return (
     <Card className={classes.card}>
@@ -31,32 +30,28 @@ function Smurf(props) {
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
-            {props.name}
+            Lizard
           </Typography>
-          <Typography component="p">{props.height} tall</Typography>
-          <Typography component="p">{props.age} smurf years old</Typography>
+          <Typography component="p">
+            Lizards are a widespread group of squamate reptiles, with over 6,000
+            species, ranging across all continents except Antarctica
+          </Typography>
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <IconButton
-          onClick={() => props.deleteSmurf(props.id)}
-          aria-label="Delete"
-        >
-          <DeleteIcon />
-        </IconButton>
+        <Button size="small" color="primary">
+          Share
+        </Button>
+        <Button size="small" color="primary">
+          Learn More
+        </Button>
       </CardActions>
     </Card>
   );
 }
 
-Smurf.propTypes = {
+MediaCard.propTypes = {
   classes: PropTypes.object.isRequired
 };
 
-Smurf.defaultProps = {
-  name: "",
-  height: "",
-  age: ""
-};
-
-export default withStyles(styles)(Smurf);
+export default withStyles(styles)(MediaCard);

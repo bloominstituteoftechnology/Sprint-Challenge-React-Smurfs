@@ -1,31 +1,78 @@
 import React from "react";
+import { withStyles } from "@material-ui/core/styles";
+import TextField from "@material-ui/core/TextField";
+import Button from "@material-ui/core/Button";
+
+const styles = theme => ({
+  container: {
+    display: "flex",
+    flexWrap: "wrap"
+  },
+  textField: {
+    marginLeft: theme.spacing.unit,
+    marginRight: theme.spacing.unit,
+    width: 200
+  },
+  dense: {
+    marginTop: 19
+  },
+  menu: {
+    width: 200
+  },
+  button: {
+    margin: theme.spacing.unit
+  },
+  smurf: {
+    margin: "0 auto",
+    textAlign: "center"
+  }
+});
 
 const SmurfForm = props => {
+  const { classes } = props;
+
   return (
-    <div className="SmurfForm">
+    <div className={classes.smurf}>
       <form onSubmit={props.addSmurf}>
-        <input
+        <TextField
+          id="standard-name"
+          label="Name"
+          className={classes.textField}
+          margin="normal"
           onChange={props.handleInputChange}
-          placeholder="name"
           value={props.state.name}
           name="name"
         />
-        <input
+        <TextField
+          id="standard-name"
+          label="Age"
+          className={classes.textField}
+          margin="normal"
           onChange={props.handleInputChange}
-          placeholder="age"
           value={props.state.age}
           name="age"
         />
-        <input
+        <TextField
+          id="standard-name"
+          label="Height"
+          className={classes.textField}
+          margin="normal"
           onChange={props.handleInputChange}
-          placeholder="height"
           value={props.state.height}
           name="height"
         />
-        <button type="submit">Add to the village</button>
+
+        <Button
+          type="submit"
+          variant="contained"
+          color="primary"
+          className={classes.button}
+        >
+          Add to the Village
+        </Button>
       </form>
     </div>
   );
 };
 
-export default SmurfForm;
+export default withStyles(styles)(SmurfForm);
