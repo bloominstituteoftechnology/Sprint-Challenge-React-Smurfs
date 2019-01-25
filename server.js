@@ -109,8 +109,4 @@ if (process.env.NODE_ENV === "production") {
   });
 }
 const port = process.env.PORT || 3333;
-
-server.listen(port, err => {
-  if (err) console.log(err);
-  console.log(`server is listening on port ${port}`);
-});
+server.listen(port, () => console.log(`server running on port ${port}`));
