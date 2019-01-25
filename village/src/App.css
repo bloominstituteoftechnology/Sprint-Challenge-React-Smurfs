@@ -1,3 +1,55 @@
 .App {
   text-align: center;
+  margin: 0 auto;
+  display: flex;
+  justify-content: start;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  background-color: darkcyan;
+  height: 100vh;
+}
+
+h1 {
+   font-size: 50px;
+}
+.Smurf {
+  background-color: lightblue;
+  width: 400px;
+  font-size: 35px;
+  border-radius: 5px;
+  padding: 10px;
+
+}
+
+.navigation {
+  display: flex;
+  font-size: 30px;
+  margin: 10px;
+}
+
+.navigation a {
+  padding: 20px;
+  color: lightgreen;
+  text-transform: uppercase;
+}
+
+button {
+  font-size: 30px;
+  background-color: blueviolet;
+  color: white;
+  border-radius: 5px;
+  font-weight: 100;
+  text-transform: uppercase;
+}
+
+.SmurfForm form{
+  display: flex;
+  flex-direction: column;
+}
+
+.SmurfForm form input{ 
+  font-size: 30px;
+  margin: 10px;
+  padding: 10px;
 }
