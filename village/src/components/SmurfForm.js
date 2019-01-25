@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 
 class SmurfForm extends Component {
   constructor(props) {
@@ -8,6 +9,17 @@ class SmurfForm extends Component {
       age: '',
       height: ''
     };
+  }
+
+  componentDidMount() {
+    if(this.props.update) {
+      axios.get(`http://localhost:3333/smurfs`)
+        .then(response => {
+          let smurf = response.data.find(data => data.id === Number(this.props.match.params.id))
+          this.setState({...smurf})
+        })
+        .catch(err => console.log(err));
+    }
   }
 
   addSmurf = event => {
