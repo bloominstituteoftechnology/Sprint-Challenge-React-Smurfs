@@ -4,8 +4,12 @@
   "description": "",
   "main": "server.js",
   "scripts": {
+    "client-install": "npm install --prefix client",
     "start": "node server.js",
-    "server": "nodemon server.js"
+    "server": "nodemon server.js",
+    "client": "npm start --prefix village",
+    "dev": "concurrently \"npm run server\" \"npm run village\"",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix village && npm run build --prefix village"
   },
   "author": "",
   "license": "ISC",
@@ -14,6 +18,7 @@
     "cors": "^2.8.4",
     "express": "^4.16.2",
     "nodemon": "^1.14.11",
+    "path": "^0.12.7",
     "uniqid": "^5.0.3"
   }
 }

@@ -2,8 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const uniqid = require("uniqid");
-
-const port = 3333;
+const path = require("path");
 
 const server = express();
 server.use(bodyParser.json());
@@ -102,6 +101,16 @@ server.delete("/smurfs/:id", (req, res) => {
     sendUserError("No smurf by that ID exists in the smurf DB", res);
   }
 });
+
+// Serve static assets if in production
+if (process.env.NODE_ENV === "production") {
+  // Set static folder
+  app.use(express.static("client/build"));
+  app.get("*", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "village", "build", "index.html"));
+  });
+}
+const port = process.env.PORT || 3333;
 
 server.listen(port, err => {
   if (err) console.log(err);

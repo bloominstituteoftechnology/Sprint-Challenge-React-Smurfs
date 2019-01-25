@@ -9,7 +9,7 @@ import { isEmpty } from "./components/isEmpty";
 import { Alert } from "reactstrap";
 import SmurfForm from "./components/SmurfForm";
 
-const URL = "http://localhost:3333";
+//const URL = "http://localhost:3333";
 class App extends Component {
   constructor(props) {
     super(props);
@@ -63,7 +63,7 @@ class App extends Component {
       isUpdating: false
     };
     axios
-      .post(`${URL}/smurfs`, newSmurf)
+      .post(`/smurfs`, newSmurf)
       .then(res =>
         this.setState({
           smurfs: res.data,
@@ -81,7 +81,7 @@ class App extends Component {
     });
   };
   fetchData = () => {
-    axios(`${URL}/smurfs`)
+    axios(`/smurfs`)
       .then(res => this.setState({ smurfs: res.data }))
       .catch(err => this.setState({ err }));
   };
@@ -92,7 +92,7 @@ class App extends Component {
   };
   deleteSmurf = id => {
     axios
-      .delete(`${URL}/smurfs/${id}`)
+      .delete(`/smurfs/${id}`)
       .then(res =>
         this.setState({ smurfs: res.data, message: "Successfully deleted" })
       )
@@ -131,9 +131,17 @@ class App extends Component {
     };
     console.log(this.state.updateId);
     axios
-      .put(`${URL}/smurfs/${this.state.updateId}`, updatedValue)
+      .put(`/smurfs/${this.state.updateId}`, updatedValue)
       .then(res =>
-        this.setState({ smurfs: res.data, message: "smurff updated", err: "" })
+        this.setState({
+          smurfs: res.data,
+          isUpdating: false,
+          message: "smurff updated",
+          err: "",
+          name: "",
+          age: "",
+          height: ""
+        })
       )
       .then(() => this.props.history.push(`/`))
       .catch(err => this.setState({ err }));
