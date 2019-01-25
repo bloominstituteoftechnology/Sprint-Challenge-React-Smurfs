@@ -42,6 +42,14 @@ class App extends Component {
       .catch(err => console.log(err));
   }
 
+  updateSmurf = (smurf, id) => {
+    axios.put(`http://localhost:3333/smurfs/${id}`, smurf)
+      .then(response => {
+        this.setState({ smurfs: response.data });
+      })
+      .catch(err => console.log(err));
+  }
+
   render() {
     return (
       <div className="App">
@@ -61,9 +69,17 @@ class App extends Component {
               smurfs={this.state.smurfs}
               deleteSmurf={this.deleteSmurf} 
             /> 
-          )} />
-          
-        
+          )}
+        />
+        <Route path="/update-form/:id"
+          render={props => (
+            <SmurfForm 
+              update 
+              updateSmurf={this.updateSmurf}
+              match={props.match}
+             />
+          )}  
+        />
       </div>
     );
   }
