@@ -9,6 +9,7 @@ import Typography from "@material-ui/core/Typography";
 import DeleteIcon from "@material-ui/icons/Delete";
 import CardActions from "@material-ui/core/CardActions";
 import IconButton from "@material-ui/core/IconButton";
+import Button from "@material-ui/core/Button";
 const styles = {
   card: {
     maxWidth: 345,
@@ -44,6 +45,13 @@ function Smurf(props) {
         >
           <DeleteIcon />
         </IconButton>
+        <Button
+          size="small"
+          onClick={() => props.populateForm(props.id)}
+          color="primary"
+        >
+          Update Smurf
+        </Button>
       </CardActions>
     </Card>
   );

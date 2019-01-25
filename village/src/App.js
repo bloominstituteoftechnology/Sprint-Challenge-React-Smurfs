@@ -3,7 +3,7 @@ import axios from "axios";
 import "./App.css";
 import SmurfForm from "./components/SmurfForm";
 import Smurfs from "./components/Smurfs";
-import { Route, NavLink } from "react-router-dom";
+import { Route } from "react-router-dom";
 import NavBar from "./components/NavBar";
 
 class App extends Component {
@@ -11,7 +11,9 @@ class App extends Component {
     smurfs: [],
     name: "",
     age: "",
-    height: ""
+    height: "",
+    currentId: "",
+    isUpdating: false
   };
 
   // add any needed code to ensure that the smurfs collection exists on state and it has data coming from the server
@@ -47,6 +49,41 @@ class App extends Component {
       .catch(error => console.log(error));
   };
 
+  populateForm = id => {
+    let selected = this.state.smurfs.find(smurf => smurf.id === id);
+
+    this.setState(
+      {
+        name: selected.name,
+        age: selected.age,
+        height: selected.height,
+        currentId: id,
+        isUpdating: true
+      },
+      () => this.props.history.push("/smurf-form")
+    );
+  };
+
+  updateSmurf = () => {
+    axios
+      .put(`http://localhost:3333/smurfs/${this.state.currentId}`, {
+        name: this.state.name,
+        age: this.state.age,
+        height: this.state.height
+      })
+      .then(res => {
+        this.setState({
+          smurfs: res.data,
+          name: "",
+          age: "",
+          height: "",
+          isUpdating: false
+        });
+        this.props.history.push("/");
+      })
+      .catch(error => console.log(error));
+  };
+
   render() {
     return (
       <div>
@@ -60,6 +97,7 @@ class App extends Component {
               {...props}
               deleteSmurf={this.deleteSmurf}
               smurfs={this.state.smurfs}
+              populateForm={this.populateForm}
             />
           )}
         />
@@ -71,6 +109,8 @@ class App extends Component {
               handleInputChange={this.handleInputChange}
               addSmurf={this.addSmurf}
               state={this.state}
+              updateSmurf={this.updateSmurf}
+              isUpdating={this.state.isUpdating}
             />
           )}
         />

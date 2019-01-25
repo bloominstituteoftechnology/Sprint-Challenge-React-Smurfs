@@ -30,10 +30,18 @@ const styles = theme => ({
 
 const SmurfForm = props => {
   const { classes } = props;
+  const handleSubmit = e => {
+    e.preventDefault();
+    if (props.isUpdating) {
+      props.updateSmurf();
+    } else {
+      props.addSmurf(e);
+    }
+  };
 
   return (
     <div className={classes.smurf}>
-      <form onSubmit={props.addSmurf}>
+      <form onSubmit={handleSubmit}>
         <TextField
           id="standard-name"
           label="Name"
@@ -68,7 +76,7 @@ const SmurfForm = props => {
           color="primary"
           className={classes.button}
         >
-          Add to the Village
+          {props.isUpdating ? "Update Smurf" : "Add to the Village"}
         </Button>
       </form>
     </div>
