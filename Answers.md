@@ -1,5 +1,17 @@
-1.  Explain the differences between `client-side routing` and `server-side routing`.
-1.  What does HTTP stand for?
-1.  What does CRUD stand for?
-1.  Which HTTP methods can be mapped to the CRUD acronym that we use when interfacing with APIs/Servers.
-1.  Mention three tools we can use to make AJAX requests
+1.    Explain the differences between client-side routing and server-side routing.
+Let’s start with server side routing, which is probably what everyone on the internet is most familiar with. As routing is simply how we handle communication between computers that have information and computers that want that information, we can think of server side routing as the simplest form of solving this situation, with one computer (the one looking for information) sending a request to another computer (with the information that the first computer is looking for).
+This is what essentially happens when one types in a url in a web browser, where we click on a link and initiate a process where we request a document (usually a template or html file) and the server we are talking to goes and finds that said document and delivers it to us. The server will also refresh the page, as what the heck are we going to do with a bunch of DOM elements ourselves? This requires us to refresh the whole page though, but in return, we only have to receive the specific content we want with this system, rather than download a whole slew of content documents and stuff, like with client-side.
+On the other hand, client-side routing allows us to download the whole website, essentially, full-stop. Our processing power on our browsers and new tools allow us to maintain state, or memory within our applications and use that to selectively choose what resources we want our browser to display. This allows us to keep the browser from continuously having to refresh every time we want to display new data, saving those precious milliseconds that deter people from staying on a website (curse you millennials with short attention spans).
+2.    What does HTTP stand for?
+Simply stands for  HyperText Transfer Protocol. This system basically defines how we in the modern world send requests for information over the internet. It is by definition the underlying theory that underpins the arteries of our web-based world.
+3.    What does CRUD stand for?
+CRUD stands for Create, Read, Update, Delete. It is suspiciously similar to our lifecycles in React – this stands to reason, as this is fundamentally how developers treat data. We create content, read or parse the data so that it can be seen by our users, update said data when we need to, and finally get rid of data that is non-necessary.
+
+
+4.    Which HTTP methods can be mapped to the CRUD acronym that we use when interfacing with APIs/Servers.
+Now we are cooking with fire. So, if we need to “get” stuff from a server, we use a GET request which looks for a URL that points us to the right repo with the resources we want.
+If we want to add stuff to our data and store it, we use a POST request. This can also be used to create new information too!
+If we want to edit some information already in the server, we use the PUT command!
+And finally, if we want to remove some data, we use the DELETE command to send a request to remove that specific data from the server.
+5.    Mention three tools we can use to make AJAX requests.
+The three commands we learnt have been ‘fetch’, ‘.then’, and ‘.catch’. For the last few days, we have replaced the ‘fetch’ command with axios’s ‘.get’ command, but it essentially does the same thing – it starts off our async AJAX request.
