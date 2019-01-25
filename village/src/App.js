@@ -18,22 +18,34 @@ class App extends Component {
   // You'll need to make sure you have the right properties on state and pass them down to props.
 
   componentDidMount(){
+    this.getSmurfs()
+  }
+
+  getSmurfs() {
     axios.get(`${baseUrl}/smurfs`)
       .then(res => this.setState({ smurfs: res.data}))
       .catch(err => console.log(err))
-  }
 
+  }
  
+  deleteSmurf = (e, smurfId) => {
+    e.preventDefault()
+    axios.delete(`${baseUrl}/smurfs/${smurfId}`)
+      .then(res => this.setState({
+        smurfs: res.data
+      }))
+      .catch(err => console.log(err))
+  }
 
   render() {
     return (
       <div className="App">
         <div>
-          <NavLink to='/'>Home</NavLink>
+          <NavLink onClick={() => this.getSmurfs()}to='/'>Home</NavLink>
           <NavLink to='/smurf-form'>Add Smurf</NavLink>
         </div>
-        <Route exact path='/' render={() => <Smurfs smurfs={this.state.smurfs} /> }/>
-        <Route path='/smurf-form' render={() => <SmurfForm baseUrl={baseUrl} smurfs={this.state.smurfs}/>}/>
+        <Route exact path='/' render={() => <Smurfs getSmurfs={this.getSmurfs} smurfs={this.state.smurfs} baseUrl={baseUrl} deleteSmurf={this.deleteSmurf} /> }/>
+        <Route path='/smurf-form' render={() => <SmurfForm {...this.props} baseUrl={baseUrl} smurfs={this.state.smurfs} getSmurfs={this.getSmurfs}/>}/>
       </div>
     );
   }
