@@ -19,16 +19,22 @@
   color: #ffffff;
 }
 
+.Smurfs {
+  width: 80%;
+  margin: 0 auto;
+}
+
 ul {
   display: flex;
   flex-wrap: wrap;
+  padding-left: 0;
 }
 
 .Smurf {
-  width: 22%;
+  width: 21%;
   border: 1px solid dodgerblue;
   background: rgb(53, 56, 231);
-  margin: 0 2%;
+  margin: 0 1% 20px;
   padding-bottom: 20px;
   border-radius: 6px;
   color: #ffffff;
