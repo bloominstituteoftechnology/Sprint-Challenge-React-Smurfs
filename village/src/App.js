@@ -53,8 +53,8 @@ class App extends Component {
     return (
       <div className="App">
         <div className="nav-bar">
-          <NavLink to="/">Home</NavLink>
-          <NavLink to="/smurf-form">Add Smurf</NavLink>
+          <NavLink exact to="/" activeClassName="selected">Home</NavLink>
+          <NavLink to="/smurf-form" activeClassName="selected">Add Smurf</NavLink>
         </div>
         <Route path="/smurf-form"
           render={props => (
@@ -75,7 +75,7 @@ class App extends Component {
             <SmurfForm 
               update 
               updateSmurf={this.updateSmurf}
-              match={props.match}
+              {...props}
              />
           )}  
         />
