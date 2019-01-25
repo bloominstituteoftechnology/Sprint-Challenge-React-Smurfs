@@ -1,3 +1,24 @@
 .App {
   text-align: center;
 }
+.nav {
+  margin-top: 10px;
+}
+.navlink {
+  margin-right: 1%;
+  font-size: 1.25rem;
+  text-decoration: none;
+  color: black;
+  border: 1px solid;
+  padding-left: .5%;
+  padding-right: .5%;
+  cursor: pointer;
+}
+.navlink-selected {
+  color: green;
+  font-size: 2rem;
+}
+
+.SmurfForm {
+  margin-top: 15px;
+}
