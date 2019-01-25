@@ -1,3 +1,144 @@
 .App {
   text-align: center;
+  background: lightgray;
+  height: 100vh;
+}
+a, a:visited {
+  color: black;
+  text-decoration: none;
+}
+a.active {
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+.nav-bar {
+  display: flex;
+  justify-content: space-around;
+  padding: 10px 0;
+  background: darkgray;
+  border-bottom: 1px solid black;
+}
+
+.nav-bar a {
+  border: 1px solid black;
+  padding: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  background: lightgray;
+}
+
+.nav-bar a:hover {
+  background: gray;
+  color: white;
+}
+
+.nav-bar a:active {
+  background: black;
+}
+
+.SmurfForm form {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+}
+
+.Smurfs ul {
+  width: 90%;
+  max-width: 1000px;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  box-sizing: border-box;
+  padding: 0;
+}
+
+.Smurf {
+  border: 1px solid black;
+  padding: 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+.smurf-wrapper {
+  position: relative;
+  background: white;
+  border-radius: 10px;
+  margin: 10px;
+}
+.smurf-update-btn-wrapper {
+  display: inline-block;
+  position: absolute;
+  bottom: 0;
+  right: 25%;
+  width: 50%;
+  cursor: pointer;
+}
+.smurf-wrapper button {
+  padding: 5px;
+  background:lightgray;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.smurf-wrapper button:hover {
+  background: gray;
+  border: 2px solid black;
+  color: white;
+} 
+
+.smurf-wrapper button:active {
+  background: black;
+  border: 2px solid black;
+  color: white;
+} 
+
+.Smurf:hover {
+  background: gray;
+}
+
+.Smurf:hover h3,
+.Smurf:hover strong,
+.Smurf:hover p {
+  color: white;
+}
+
+.Smurf:active {
+  background: black;
+}
+
+.form-title {
+  font-size: 30px;
+  font-weight: bold;
+}
+.SmurfForm input {
+  font-size: 16px;
+  background: darkgray;
+  color: white;
+}
+.SmurfForm input::placeholder {
+  color: white;
+}
+.form-btn-holder {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+.SmurfForm button {
+  font-size: 16px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  background: darkgray;
+  cursor: pointer;
+}
+.SmurfForm button:hover {
+  background: gray;
+  border: 2px solid white;
+}
+.SmurfForm button:active {
+  background: black;
+  color: white;
+  border: 2px solid white;
 }
