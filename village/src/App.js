@@ -37,7 +37,7 @@ class App extends Component {
     return (
       <div className="App">
         <nav>
-          <h1 className="header">Smirfs Village!!</h1>
+          <h1 className="header">Smurfs Village!!</h1>
         <div className="nav-links"> 
           <NavLink to="/">Smurfs List!</NavLink>
           <NavLink to="/smurf-form"> {this.state.isUpdating ? "Update" : "Add"}Smurf</NavLink>
