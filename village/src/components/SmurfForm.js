@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { Route } from "react-router-dom";
+import Smurf from './Smurf';
 
 class SmurfForm extends Component {
   constructor(props) {
@@ -10,15 +12,33 @@ class SmurfForm extends Component {
     };
   }
 
+  componentDidMount(prevProps){
+    
+    let editSmurf = this.props.editSmurf
+    
+    if(editSmurf.name){
+      this.setState({
+        name: editSmurf.name,
+        age: editSmurf.age,
+        height: editSmurf.height
+      })
+    }
+  }
+
   addSmurf = event => {
     event.preventDefault();
-    // add code to create the smurf using the api
-
+    if(!this.props.editSmurf.name){
+      this.props.addToList(this.state);
+    }else{
+      this.props.updateToList(this.props.editSmurf.id, this.state);
+    }
+    
     this.setState({
       name: '',
       age: '',
       height: ''
     });
+    this.props.history.push('/')
   }
 
   handleInputChange = e => {
@@ -47,8 +67,23 @@ class SmurfForm extends Component {
             value={this.state.height}
             name="height"
           />
-          <button type="submit">Add to the village</button>
+          <button type="submit">{this.props.editSmurf.name ? 
+            'Edit Smurf' 
+            : 
+            'Add Smurf'}</button>
         </form>
+          {this.props.editSmurf.name &&<Route
+          path="/smurf-form/:id"
+          render={(props) => 
+           <Smurf
+            edit
+            smurf={this.props.editSmurf}
+            key={this.props.editSmurf.id}
+           
+          />}
+          /> 
+          }
+        
       </div>
     );
   }
