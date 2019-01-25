@@ -102,7 +102,6 @@ server.delete("/smurfs/:id", (req, res) => {
   }
 });
 
-// Serve static assets if in production
 if (process.env.NODE_ENV === "production") {
   // Set static folder
   app.use(express.static("village/build"));
