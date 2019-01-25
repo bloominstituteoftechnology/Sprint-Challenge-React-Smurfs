@@ -1,0 +1,28 @@
+.smurf-form {
+
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  justify-content: center;
+  margin: auto;
+  margin-top: 30px;
+  background-color: #aabbaa;
+  padding: 20px;
+
+  input {
+
+    padding: 5px;
+    margin-bottom: 5px;
+
+  }
+
+  button {
+
+    height: 40px;
+    width: 200px;
+    margin: auto;
+    margin-top: 10px;
+
+  }
+
+}

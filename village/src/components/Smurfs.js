@@ -1,25 +1,26 @@
 import React, { Component } from 'react';
 
 import Smurf from './Smurf';
+import './Smurfs.scss';
 
 class Smurfs extends Component {
   render() {
     return (
-      <div className="Smurfs">
+      <div className="smurfs">
         <h1>Smurf Village</h1>
-        <ul>
+        <div className='smurfs-container'>
           {this.props.smurfs.map(smurf => {
             return (
               <Smurf
-                name={smurf.name}
-                id={smurf.id}
-                age={smurf.age}
-                height={smurf.height}
+                smurf={smurf}
                 key={smurf.id}
+                deleteFunc={this.props.deleteFunc}
+                updateFunc={this.props.updateFunc}
+                history={this.props.history}
               />
             );
           })}
-        </ul>
+        </div>
       </div>
     );
   }
