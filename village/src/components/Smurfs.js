@@ -1,32 +1,59 @@
-import React, { Component } from 'react';
+import React from "react";
+import Smurf from "./Smurf";
+import PropTypes from "prop-types";
+import styled from "styled-components";
+import { Link } from "react-router-dom";
+import CarouselSmurf from "./Carousel";
+const SmurfSyle = styled.div`
+  margin-top: 30px;
+  ul {
+    margin: 0 auto;
+  }
+`;
 
-import Smurf from './Smurf';
-
-class Smurfs extends Component {
-  render() {
-    return (
-      <div className="Smurfs">
-        <h1>Smurf Village</h1>
+const Smurfs = ({ smurfs, resetForm }) => {
+  return (
+    <React.Fragment>
+      <CarouselSmurf />
+      <SmurfSyle>
         <ul>
-          {this.props.smurfs.map(smurf => {
+          {smurfs.map(smurf => {
             return (
-              <Smurf
-                name={smurf.name}
-                id={smurf.id}
-                age={smurf.age}
-                height={smurf.height}
+              <Link
+                style={{ textDecoration: "none" }}
+                to={`/smurf/${smurf.id}`}
+                onClick={() => resetForm(smurf.id)}
                 key={smurf.id}
-              />
+              >
+                <Smurf
+                  name={smurf.name}
+                  id={smurf.id}
+                  age={smurf.age}
+                  height={smurf.height}
+                  resetForm={resetForm}
+                />
+              </Link>
             );
           })}
         </ul>
-      </div>
-    );
-  }
-}
+      </SmurfSyle>
+    </React.Fragment>
+  );
+};
 
-Smurf.defaultProps = {
- smurfs: [],
+Smurfs.propTypes = {
+  smurfs: PropTypes.arrayOf(
+    PropTypes.shape({
+      // age: PropTypes.string,
+      height: PropTypes.string,
+      id: PropTypes.String,
+      name: PropTypes.string
+    })
+  ),
+  isOpen: PropTypes.bool,
+  name: PropTypes.string,
+  // age: PropTypes.string,
+  height: PropTypes.string
 };
 
 export default Smurfs;
