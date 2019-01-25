@@ -71,7 +71,11 @@ class SmurfForm extends Component {
             name="height"
           />
           
-          {this.props.update ? <button onClick={this.putSmurf}>Update Smurf</button> : <button onClick={this.addSmurf} type="submit">Add to the village</button>}
+          {this.props.update ? 
+            <button onClick={this.putSmurf}>Update Smurf</button> : 
+            <button onClick={this.addSmurf} type="submit">Add to the village</button>
+          }
+          
         </form>
       </div>
     );
