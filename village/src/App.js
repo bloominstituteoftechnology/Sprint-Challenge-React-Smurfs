@@ -1,24 +1,60 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 
 import './App.css';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
+import Smurf from './components/Smurf';
+import IndividualSmurf from './components/IndividualSmurf';
+import { Route } from 'react-router-dom';
+
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
       smurfs: [],
+      maxId: 0,
+      loading: true,
     };
   }
-  // add any needed code to ensure that the smurfs collection exists on state and it has data coming from the server
-  // Notice what your map function is looping over and returning inside of Smurfs.
-  // You'll need to make sure you have the right properties on state and pass them down to props.
+
+  componentDidMount() {
+    this.loadSmurfs();
+  }
+  
+  onSmurfAddedButtonClick = () => {
+    this.loadSmurfs();
+  }
+  
+  loadSmurfs = () => {
+    axios
+    .get('http://localhost:3333/smurfs')
+    .then(response => {
+      let maxId = response.data[response.data.length-1].id+1;
+      console.log("maxId: " + maxId);
+      this.setState(() => ({ 
+        smurfs: response.data,
+        maxId: maxId,
+        loading: false
+      }));
+    })
+    .catch(error => {
+      console.error('Server Error', error);
+    });
+  }
+
+
   render() {
+    if(this.state.loading){
+      return <p>loading</p> 
+    }
+    console.log('render, maxId: ' + this.state.maxId);
     return (
       <div className="App">
-        <SmurfForm />
-        <Smurfs smurfs={this.state.smurfs} />
+        <SmurfForm maxId={this.state.maxId} onClick={this.onSmurfAddedButtonClick} />
+        <Route exact path="/" render={()=> <Smurfs smurfs={this.state.smurfs} />} />
+        <Route path="/smurfs/:id" component={IndividualSmurf} smurfs={this.state.smurfs} />
       </div>
     );
   }

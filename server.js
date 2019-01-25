@@ -52,6 +52,7 @@ server.post('/smurfs', (req, res) => {
 
 server.put('/smurfs/:id', (req, res) => {
   const { id } = req.params;
+  console.log('server.js: id = ' + req.params);
   const { name, age, height } = req.body;
   const findSmurfById = smurf => {
     return smurf.id == id;
