@@ -1,3 +1,80 @@
 .App {
-  text-align: center;
+    text-align: center;
+    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmE5uv8M0CG5JMEJM9X7wmAPNRYBK1xNzfmj0ShzhCBwZUZnyLTA");
+    background-repeat: no-repeat;
+    background-size: cover;
+    object-fit: cover;
+    height: 100vh;
+    color: antiquewhite;
+}
+
+.SmurfForm {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.input-container input {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 10px;
+    margin: 20px;
+    box-shadow: 5px 5px 5px 0px rgba(15, 28, 166, 1);
+    border-radius: 5px;
+}
+
+nav {
+    width: 600px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+nav a {
+    color: antiquewhite;
+    margin-top: 20px;
+}
+
+nav a:hover {
+    color: rgba(15, 28, 166, 1);
+}
+
+.smurf-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid white;
+    box-shadow: 10px 10px 5px 0px rgba(15, 28, 166, 1);
+    border-radius: 10px;
+    width: 200px;
+    height: 250px;
+    margin: 20px;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+
+/* .Smurfs {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+} */
+
+.Smurfs h1 {
+    padding-left: 40px;
+    color: red;
+    font-weight: 800;
+}
+
+ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
 }
