@@ -20,7 +20,9 @@ class SmurfForm extends Component {
           name: '',
           age: '',
           height: ''
-        })
+        });
+        {this.props.getSmurfs()}
+        this.props.history.push('/');
       })
       .catch(err => console.log(err))
     console.log

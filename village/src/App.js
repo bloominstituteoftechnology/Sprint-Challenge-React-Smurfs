@@ -25,7 +25,7 @@ class App extends Component {
     axios.get(`${baseUrl}/smurfs`)
       .then(res => this.setState({ smurfs: res.data}))
       .catch(err => console.log(err))
-
+    console.log(true)
   }
  
   deleteSmurf = (e, smurfId) => {
@@ -40,12 +40,12 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <div>
+        <div className='navigation'>
           <NavLink onClick={() => this.getSmurfs()}to='/'>Home</NavLink>
           <NavLink to='/smurf-form'>Add Smurf</NavLink>
         </div>
-        <Route exact path='/' render={() => <Smurfs getSmurfs={this.getSmurfs} smurfs={this.state.smurfs} baseUrl={baseUrl} deleteSmurf={this.deleteSmurf} /> }/>
-        <Route path='/smurf-form' render={() => <SmurfForm {...this.props} baseUrl={baseUrl} smurfs={this.state.smurfs} getSmurfs={this.getSmurfs}/>}/>
+        <Route exact path='/' render={props => <Smurfs {...props} getSmurfs={this.getSmurfs} smurfs={this.state.smurfs} baseUrl={baseUrl} deleteSmurf={this.deleteSmurf} /> }/>
+        <Route path='/smurf-form' render={props => <SmurfForm {...props} baseUrl={baseUrl} smurfs={this.state.smurfs} getSmurfs={this.getSmurfs}/>}/>
       </div>
     );
   }
