@@ -7,6 +7,7 @@ import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
 import Smurf from './components/Smurf'
 import Navigation from'./components/Navigation';
+import EditSmurf from './components/EditSmurf';
 
 class App extends Component {
   constructor(props) {
@@ -50,6 +51,17 @@ class App extends Component {
       .catch(error => console.log(error))
   };
 
+  updateSmurf = (id, smurf ) => {
+    axios
+      .put(`http://localhost:3333/smurfs/${id}`, smurf)
+      .then(response => {
+        console.log(response)
+        this.props.history.push('/');
+        this.setState({smurfs: this.state.smurfs })
+        window.location.reload();
+      })
+      .catch(error => console.log(error.response.data))
+  }
 
   // add any needed code to ensure that the smurfs collection exists on state and it has data coming from the server
   // Notice what your map function is looping over and returning inside of Smurfs.
@@ -75,7 +87,15 @@ class App extends Component {
           exact path="/smurfs/:id"
           render={(props) => <Smurf
             {... props }
+            updateSmurf = {this.updateSmurf}
             deleteSmurf = {this.deleteSmurf}
+            smurfs = {this.state.smurfs }/>}
+        />
+        <Route
+          exact path="/smurfs/:id/edit"
+          render={(props) => <EditSmurf
+            {... props }
+            updateSmurf = {this.updateSmurf}
             smurfs = {this.state.smurfs }/>}
         />
       </div>

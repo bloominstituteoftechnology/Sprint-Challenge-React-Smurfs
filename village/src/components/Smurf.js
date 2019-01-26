@@ -33,12 +33,14 @@ const Smurf = props => {
             <strong>{height} tall</strong>
             <p>{age} smurf years old</p>
             <button onClick={this.deleteSmurf}> Delete Smurf </button>
+            <Link to={{pathname: '/smurfs/' + id + '/edit', state: { name: name, age: age, height: height} }}><button> Edit Smurf </button></Link>
           </div>
       :  <div className="Smurf">
             <Link to={`/smurfs/${props.id }`}> <h3>{props.name}</h3></Link>
             <strong>{props.height} tall</strong>
             <p>{props.age} smurf years old</p>
             <button onClick={this.deleteSmurf}> Delete Smurf </button>
+            <Link to={{pathname: '/smurfs/' + props.id + '/edit', state: { name: props.name, age: props.age, height: props.height} }}><button> Edit Smurf </button></Link>
           </div>}
         </div>
 
