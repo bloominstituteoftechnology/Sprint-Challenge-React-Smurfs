@@ -1,3 +1,54 @@
 .App {
   text-align: center;
 }
+
+a{
+display: block;
+color: white;
+text-align: center;
+padding: 14px 16px;
+text-decoration: none;
+background-color: #333;
+
+}
+
+a:hover {
+  background-color: #111;
+}
+
+.Smurfs{
+display: flex;
+flex-direction: column;
+color: white;
+text-align: center;
+padding: 14px 16px;
+text-decoration: none;
+background-color: #333;
+}
+
+ul{
+  margin: 0 auto;
+  padding: 0%;
+}
+
+form{
+display: flex;
+flex-direction: row;
+justify-content: center;
+color: white;
+text-align: center;
+padding: 14px 16px;
+text-decoration: none;
+background-color: #333;
+height: 50px;
+}
+
+button{
+border: none;
+background-color: rgb(60, 47, 236);
+color: white;
+}
+
+button:hover {
+  background-color:darkblue;
+}
