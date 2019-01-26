@@ -50,10 +50,13 @@ class App extends Component {
       .catch(error=>console.log(error))
    }
 
+   //the id parameter is not used but if I try to destruct the object while skipping the id
+   // the compiler complains that id is not defined
    editSmurf = (smurf,id) =>{
     axios
-      .put(`http://localhost:3333/smurfs/${id}`,smurf)
+      .put(`http://localhost:3333/smurfs/${smurf.id}`,{id,...smurf})
       .then(response=>{
+        console.log(response)
         this.setState({smurfs: response.data })
       })
       .catch(error=>console.log(error))

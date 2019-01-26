@@ -20,6 +20,8 @@ class EditSmurfForm extends Component {
       age: '',
       height: ''
     });
+    //go home
+    this.props.history.push('/');
   }
 
   handleInputChange = e => {
