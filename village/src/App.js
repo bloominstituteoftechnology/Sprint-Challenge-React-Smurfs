@@ -29,9 +29,9 @@ class App extends Component {
 
   removeSmurf = id => {
     axios
-      .delete(`http://localhost:5000/smurfs/${id}`)
-      .then(response => {
-        this.setState(() => ({ smurfs: response.data }));
+      .delete(`http://localhost:3333/smurfs/${id}`)
+      .then(res => {
+        this.setState({smurfs: res.data});
       })
       .catch(error => {
         console.error('Oh no!', error);
@@ -45,9 +45,6 @@ class App extends Component {
           <NavLink exact to="/" activeClassName="activeNavButton">
             Home
           </NavLink>
-          <NavLink to="/smurfs" activeClassName="activeNavButton">
-            Smurfs
-          </NavLink>
           <NavLink to="/smurf-form" activeClassName="activeNavButton">
             Add New
           </NavLink>
@@ -56,7 +53,7 @@ class App extends Component {
         exact path="/smurf-form"
         component={SmurfForm}
         />
-        <Route path="/smurfs"
+        <Route path="/"
          render={props => (
           <Smurfs
           {...props}
