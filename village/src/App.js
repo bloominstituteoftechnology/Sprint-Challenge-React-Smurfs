@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Route } from "react-router-dom";
 import axios from "axios";
 import "./App.css";
+import NavBar from "./components/NavBar";
 import SmurfForm from "./components/SmurfForm";
 import Smurfs from "./components/Smurfs";
 
@@ -29,8 +30,10 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <Route path="/" component={NavBar} />
         <Route
           path="/"
+          exact
           render={props => <Smurfs smurfs={this.state.smurfs} {...props} />}
         />
         <Route
