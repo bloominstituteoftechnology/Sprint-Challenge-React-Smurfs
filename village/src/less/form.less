@@ -2,8 +2,7 @@
   margin: 1rem;
   form {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    justify-content: center;
   }
   &__input {
     padding: 0.25rem;
@@ -11,6 +10,8 @@
     border: 1px solid #ccc;
   }
   &__button {
+    cursor: pointer;
+    user-select: none;
     padding: 0.25rem;
     margin: 0.25rem;
     background: white;
