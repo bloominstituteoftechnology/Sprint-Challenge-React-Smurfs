@@ -1,15 +1,16 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 import Smurf from './Smurf';
 
-class Smurfs extends Component {
-  render() {
+const Smurfs = props => {
+  
     return (
       <div className="Smurfs">
         <h1>Smurf Village</h1>
         <ul>
-          {this.props.smurfs.map(smurf => {
+          {props.smurfs.map(smurf => {
             return (
+              <p onclick={()=>routeToSmurf(props,smurf)} >
               <Smurf
                 name={smurf.name}
                 id={smurf.id}
@@ -17,12 +18,17 @@ class Smurfs extends Component {
                 height={smurf.height}
                 key={smurf.id}
               />
+              </p>
             );
           })}
         </ul>
       </div>
     );
-  }
+  
+}
+
+function routeToSmurf(props, smurf) {
+  props.history.push(`/smurfs/${smurf.id}`)
 }
 
 Smurf.defaultProps = {
