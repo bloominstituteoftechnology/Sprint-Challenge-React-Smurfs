@@ -12,6 +12,9 @@ class App extends Component {
       smurfs: [],
     };
   }
+  // add any needed code to ensure that the smurfs collection exists on state and it has data coming from the server
+  // Notice what your map function is looping over and returning inside of Smurfs.
+  // You'll need to make sure you have the right properties on state and pass them down to props.
   componentDidMount() {
     Axios.get('http://localhost:3333/smurfs')
     .then(response => {
@@ -22,14 +25,22 @@ class App extends Component {
       console.log(error)
     })
   }
-  // add any needed code to ensure that the smurfs collection exists on state and it has data coming from the server
-  // Notice what your map function is looping over and returning inside of Smurfs.
-  // You'll need to make sure you have the right properties on state and pass them down to props.
+  postSmurf = (newSmurf) => {
+    Axios.post('http://localhost:3333/smurfs', newSmurf)
+    .then(response => {
+      let newSmurfsList = this.state.smurfs;
+      newSmurfsList.push(newSmurf)
+      this.setState({smurfs: newSmurfsList})
+    })
+    .catch(error => {
+      console.log(error);
+    })
+  }
 
   render() {
     return (
       <div className="App">
-        <SmurfForm />
+        <SmurfForm postSmurf={this.postSmurf}/>
         <Smurfs smurfs={this.state.smurfs} />
       </div>
     );
