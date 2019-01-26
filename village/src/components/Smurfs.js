@@ -7,6 +7,7 @@ class Smurfs extends Component {
     return (
       <div className="Smurfs">
         <h1>Smurf Village</h1>
+        {this.props.isLoading ? <h1>Loading... </h1> : null}
         <ul>
           {this.props.smurfs.map(smurf => {
             return (
