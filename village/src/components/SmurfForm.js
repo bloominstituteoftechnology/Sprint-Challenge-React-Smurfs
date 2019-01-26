@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-
+import PropTypes from 'prop-types';
+import axios from 'axios'
 class SmurfForm extends Component {
   constructor(props) {
     super(props);
@@ -10,9 +11,9 @@ class SmurfForm extends Component {
     };
   }
 
-  addSmurf = event => {
-    event.preventDefault();
-    // add code to create the smurf using the api
+  addSmurf = () => {
+    axios
+    .post('http://localhost:3333/smurfs', this.state);
 
     this.setState({
       name: '',
@@ -52,6 +53,16 @@ class SmurfForm extends Component {
       </div>
     );
   }
+}
+
+SmurfForm.propTypes = {
+  newSmurf: PropTypes.shape({
+    name: PropTypes.string,
+    age: PropTypes.number,
+    height: PropTypes.string
+  }),
+  addSmurf: PropTypes.func,
+  handleInputChange: PropTypes.func
 }
 
 export default SmurfForm;

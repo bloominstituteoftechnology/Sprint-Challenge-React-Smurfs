@@ -1,0 +1,33 @@
+.Smurfs{
+    display:flex;
+    justify-content: center;
+    flex-wrap:wrap;
+}
+.imageContainer{
+    width: 100%;
+}
+img{
+    width:200px;
+    height: 200px;
+}
+h1{
+    width:100%;
+}
+
+.Smurfs > ul{
+    display: flex;
+    justify-content: center;
+    width:50%;
+
+}
+.Smurf{
+    background: white;
+    border-radius: 10px;
+    padding:5px;
+    box-shadow: 0px 6px 21px 0px rgba(0,0,0,0.75);
+}
+.Smurf > button{
+    background:#88CCFF;
+    border:none;
+    border-radius: 5px;
+}

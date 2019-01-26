@@ -1,3 +1,16 @@
 .App {
   text-align: center;
+  background: #88CCFF;
+  height: 100vh;
+}
+.Nav{
+  display:flex;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 50px;
+}
+a{
+  color:white;
+  font-weight: 900;
+  text-decoration: none;
 }
