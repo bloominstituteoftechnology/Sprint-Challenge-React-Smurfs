@@ -26,10 +26,13 @@ export const SmurfWrapper = styled.div`
   margin: 20px 0;
   padding: 10px;
 
-  i {
+  i, a {
     font-size: 2rem;
     color: dodgerblue;
     cursor: pointer;
+    margin-right: 30px;
+    background-color: white
+    border: none;
   }
 `
 

@@ -4,6 +4,7 @@ import { SmurfsWrapper } from '../styles/smurfStyles';
 import Smurf from './Smurf';
 
 class Smurfs extends Component {
+
   render() {
     return (
       <SmurfsWrapper>
@@ -20,6 +21,7 @@ class Smurfs extends Component {
                 id={smurf.id}
                 key={smurf.id}
                 deleteSmurf={this.props.deleteSmurf}
+                updateSmurf={this.props.updateSmurf}
               />
             );
           })}
