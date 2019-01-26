@@ -19,3 +19,9 @@ a {
 h1 {
   font-size: 3rem;
 }
+
+a.active {
+  border: 1px solid dodgerblue;
+  padding: 5px;
+  font-size: 1.8rem;
+}

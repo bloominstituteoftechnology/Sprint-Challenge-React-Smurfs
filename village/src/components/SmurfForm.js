@@ -14,7 +14,6 @@ class SmurfForm extends Component {
   }
 
   componentDidMount = () => {
-    console.log(this.props.info);
     if(this.props.info) this.setState({name: this.props.info.name, age: this.props.info.age, height:this.props.info.height});
   }
 
@@ -24,7 +23,6 @@ class SmurfForm extends Component {
     if(this.props.updateList) {
       axios.post('http://localhost:3333/smurfs', this.state)
       .then(res => {
-        console.log(res);
         this.props.updateList(res.data);
         this.props.history.push('/');
       })

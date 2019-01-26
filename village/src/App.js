@@ -47,13 +47,11 @@ class App extends Component {
   }
 
   setUpdatedSmurf = (id, smurf) => {
-    console.log("updating: ", smurf);
     smurf.id = id;
     this.setState({updatedSmurf: smurf});
   }
 
   updateSmurf = (smurf) => {
-    console.log("updating", this.state.updatedSmurf.id, " to ", smurf)
     axios.put(`http://localhost:3333/smurfs/${this.state.updatedSmurf.id}`, smurf)
     .then(res => {
       this.setState({smurfs: res.data});
