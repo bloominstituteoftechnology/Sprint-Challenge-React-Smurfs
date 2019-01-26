@@ -10,6 +10,11 @@ ul {
   margin: 0;
   padding: 0;
 }
+a {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
 .App {
   text-align: center;
 }
@@ -34,7 +39,6 @@ ul {
   border: 1px solid #ccc;
 }
 .Smurfs {
-  border-top: 1px solid #ccc;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -45,4 +49,12 @@ ul {
   margin: 0.5rem;
   border-radius: 4px;
   border: 1px solid #ccc;
+}
+.nav {
+  display: flex;
+  justify-content: center;
+}
+.nav__link {
+  margin: 1rem;
+  padding: 0.25rem 0.5rem;
 }

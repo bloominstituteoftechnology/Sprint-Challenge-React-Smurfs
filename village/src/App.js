@@ -4,6 +4,7 @@ import Axios from "axios";
 
 import SmurfForm from "./components/SmurfForm";
 import Smurfs from "./components/Smurfs";
+import Nav from "./components/Nav";
 
 class App extends Component {
   constructor(props) {
@@ -28,6 +29,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <Route path="/" component={Nav} />
         <Route
           path="/smurfs-form"
           render={props => <SmurfForm {...props} setSmurfs={this.setSmurfs} />}
