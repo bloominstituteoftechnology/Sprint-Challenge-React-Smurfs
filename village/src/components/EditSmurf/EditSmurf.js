@@ -1,27 +1,27 @@
 import React, { Component } from 'react';
 
-class SmurfForm extends Component {
+class EditSmurfForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: '',
-      age: '',
-      height: ''
+      ...this.props.location.state
     };
   }
 
-  addSmurf = event => {
+  edit = event => {
     event.preventDefault();
     // add code to create the smurf using the api
     const smurf = {
       ...this.state
     }
-    this.props.addNewSmurf(smurf);
+    this.props.editSmurf(smurf)
     this.setState({
       name: '',
       age: '',
       height: ''
     });
+    //go home
+    this.props.history.push('/');
   }
 
   handleInputChange = e => {
@@ -31,7 +31,7 @@ class SmurfForm extends Component {
   render() {
     return (
       <div className="SmurfForm">
-        <form onSubmit={this.addSmurf}>
+        <form onSubmit={this.edit}>
           <input
             onChange={this.handleInputChange}
             placeholder="name"
@@ -50,11 +50,11 @@ class SmurfForm extends Component {
             value={this.state.height}
             name="height"
           />
-          <button type="submit">Add to the village</button>
+          <button type="submit">Edit</button>
         </form>
       </div>
     );
   }
 }
 
-export default SmurfForm;
+export default EditSmurfForm;
