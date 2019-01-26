@@ -34,4 +34,5 @@ The PUT method replaces all current representations of the target resource with 
 
 
 1.  Mention three tools we can use to make AJAX requests
+.then, .catch, .get
 

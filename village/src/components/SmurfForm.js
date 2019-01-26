@@ -28,7 +28,7 @@ class SmurfForm extends Component {
   };
 
   addSmurf = (event, newSmurf) => {
-    event.preventDefault();
+    event.preventDefault();// explicit
     Axios
       .post(`http://localhost:3333/smurfs`, {name: this.state.name, age: this.state.age, height: this.state.height })
       .then( response => {
@@ -60,7 +60,7 @@ class SmurfForm extends Component {
             value={this.state.height}
             name="height"
           />
-          <button onClick='addSmurf' type="submit">Add to the village</button>
+          <button type="submit">Add to the village</button>
         </form>
       </div>
     );
