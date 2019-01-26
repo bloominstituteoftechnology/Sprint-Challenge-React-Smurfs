@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Axios from 'axios';
+import {Route} from 'react-router-dom';
 import './App.css';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
@@ -28,16 +29,16 @@ class App extends Component {
 
 
 
-
+//  <Route path="/">
+//  <NavBar />
+// </Route>
 
 
   render() 
           {
     return (
         <div className="App">
-          <Route path="/">
-            <NavBar />
-          </Route>
+          
   
           <Route 
             path="/smurf-form"           
