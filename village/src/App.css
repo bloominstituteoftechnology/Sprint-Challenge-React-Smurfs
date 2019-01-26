@@ -1,3 +1,12 @@
 .App {
   text-align: center;
+  background-image: url("https://www.topbestalternatives.com/wp-content/uploads/2017/11/smurfs-village.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+}
+.nav-bar a{
+  text-decoration: none;
+  list-style: none;
+  margin: 20px;
 }
