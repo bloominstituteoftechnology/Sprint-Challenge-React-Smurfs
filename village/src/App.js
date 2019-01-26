@@ -40,7 +40,7 @@ class App extends Component {
         <Smurfs smurfs={this.state.smurfs} />	          
         <NavLink exact to="/">
           Smurfs
-        </Navlink>
+        </NavLink>
         <NavLink to="/smurf-form">Add Smurf</NavLink>
         </nav>
          <Route
