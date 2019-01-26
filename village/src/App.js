@@ -36,8 +36,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-      <nav>
-        <Smurfs smurfs={this.state.smurfs} />	          
+      <nav>      
         <NavLink exact to="/">
           Smurfs
         </NavLink>
