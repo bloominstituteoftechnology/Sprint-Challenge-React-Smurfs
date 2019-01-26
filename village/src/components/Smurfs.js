@@ -1,5 +1,4 @@
-import React, { Component } from 'react';
-
+import React, {Component} from 'react';
 import Smurf from './Smurf';
 
 class Smurfs extends Component {
@@ -26,7 +25,7 @@ class Smurfs extends Component {
 }
 
 Smurf.defaultProps = {
- smurfs: [],
+  smurfs: [],
 };
 
 export default Smurfs;

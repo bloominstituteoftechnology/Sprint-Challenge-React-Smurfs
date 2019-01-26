@@ -5,6 +5,7 @@ import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
 import {Route} from 'react-router-dom';
 import axios from 'axios';
+import SingleSmurf from './components/SingleSmurf.js';
 
 class App extends Component {
   constructor(props) {
@@ -30,6 +31,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <Route path="/" render={props => <Nav {...props} />} />
         <Route
           path="/smurf-form"
           render={props => (
@@ -40,7 +42,16 @@ class App extends Component {
             />
           )}
         />
+
         <Route
+          exact
+          path="/:id"
+          render={props => (
+            <SingleSmurf {...props} smurfs={this.state.smurfs} />
+          )}
+        />
+        <Route
+          exact
           path="/"
           render={props => <Smurfs {...props} smurfs={this.state.smurfs} />}
         />
