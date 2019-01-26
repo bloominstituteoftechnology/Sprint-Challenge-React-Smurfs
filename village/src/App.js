@@ -35,6 +35,12 @@ class App extends Component {
     
   }
 
+  deleteSmurfFromServer = id => {
+    axios.delete(`http://localhost:3333/smurfs/${id}`)
+    .then( response => this.refresh())
+    .catch( err => console.log(err))
+  }
+
   render() {
     return (
       <div className="App">
@@ -52,6 +58,7 @@ class App extends Component {
             <Smurfs
               {...props}
               smurfs={this.state.smurfs}
+              deleteSmurfFromServer={this.deleteSmurfFromServer}
             />
           }
         />
