@@ -5,6 +5,7 @@ import { Route, withRouter } from 'react-router-dom';
 import './App.css';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
+import Smurf from './components/Smurf'
 import Navigation from'./components/Navigation';
 
 class App extends Component {
@@ -43,6 +44,7 @@ class App extends Component {
       .delete(`http://localhost:3333/smurfs/${id}`)
       .then(response => {
         console.log('Response: ', response)
+        this.props.history.push('/');
         window.location.reload();
       })
       .catch(error => console.log(error))
@@ -69,7 +71,13 @@ class App extends Component {
             {... props }
             addSmurf = {this.addSmurf }/>}
         />
-
+        <Route
+          exact path="/smurfs/:id"
+          render={(props) => <Smurf
+            {... props }
+            deleteSmurf = {this.deleteSmurf}
+            smurfs = {this.state.smurfs }/>}
+        />
       </div>
     );
   }

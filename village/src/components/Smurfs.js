@@ -12,6 +12,7 @@ class Smurfs extends Component {
           {this.props.smurfs.map(smurf => {
             return (
               <Smurf
+                {... this.props}
                 deleteSmurf ={this.props.deleteSmurf}
                 name={smurf.name}
                 id={smurf.id}
