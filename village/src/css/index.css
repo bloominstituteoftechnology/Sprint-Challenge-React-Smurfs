@@ -71,6 +71,12 @@ a {
   border: 1px solid #ccc;
   background: white;
 }
+.Smurfs .icons {
+  margin-bottom: 1rem;
+}
+.Smurfs .icons i {
+  margin: 1rem;
+}
 .nav {
   display: flex;
   justify-content: center;

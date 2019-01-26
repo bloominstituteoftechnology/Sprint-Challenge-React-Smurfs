@@ -61,7 +61,10 @@ class Smurf extends React.Component {
               : null}{" "}
             smurf years old
           </p>
-          {/* <span onClick={this.delete}>&times;</span> */}
+          <span className="icons">
+            <i className="far fa-edit" />
+            <i className="far fa-trash-alt" />
+          </span>
         </div>
       </div>
     );
