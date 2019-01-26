@@ -17,6 +17,54 @@ header a {
 .active {
   font-weight: bold;
 }
+.Smurfs ul {
+  padding: 0;
+}
 .SmurfForm {
   margin-top: 20px;
+}
+.Smurf {
+  position: relative;
+  width: 50%;
+  margin: 0 auto;
+}
+.smurf-link {
+  text-decoration: none;
+  color: black;
+}
+.btn {
+  position: absolute;
+  font-size: 3rem;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+.delete {
+  right: 25%;
+}
+.edit {
+  left: 25%;
+}
+.btn:active {
+  transform: translateY(calc(-50% + 2px));
+}
+.update-form {
+  width: 50%;
+  margin: 0 auto;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px;
+}
+.return {
+  position: absolute;
+  top: 50%;
+  left: 25%;
+  transform: translateY(-50%);
+  font-size: 3rem;
+  cursor: pointer;
+}
+.return:active {
+  transform: translateY(calc(-50% + 2px));
 }
