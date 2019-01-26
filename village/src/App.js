@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
+import { Route } from 'react-router-dom';
 import axios from 'axios';
 
 import './App.css';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
+import Nav from './components/Nav';
 
 class App extends Component {
   constructor(props) {
@@ -29,11 +31,16 @@ class App extends Component {
     })
   }
 
+  updateList = (smurfList) => {
+    this.setState({smurfs: smurfList});
+  }
+
   render() {
     return (
       <div className="App">
-        <SmurfForm />
-        <Smurfs smurfs={this.state.smurfs} loading={this.state.loading} />
+        <Nav />
+        <Route path="/smurf-form" render={ (props) => <SmurfForm updateList={this.updateList} {...props}/>} />
+        <Route exact path="/" render={() => <Smurfs smurfs={this.state.smurfs} loading={this.state.loading} />} />
       </div>
     );
   }
