@@ -29,7 +29,7 @@ class SmurfForm extends Component {
   render() {
     return (
       <div className="SmurfForm">
-        <form className="input-wrapper" onSubmit={this.addSmurfHandler}>
+        <form className="container" onSubmit={this.addSmurfHandler}>
             <input
               onChange={this.handleInputChange}
               placeholder="name"

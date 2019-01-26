@@ -14,9 +14,9 @@ nav ul li a {
   text-decoration: black;
   font-size: 40px;
 }
-.input-wrapper {
+.container {
   margin-top: 40px;
-  max-width: 600px;
+  max-width: 1000px;
   margin-left: auto;
   margin-right: auto;
   display: flex;
@@ -33,6 +33,9 @@ button {
   border: none;
   margin-top: 40px;
 }
+button:hover {
+  cursor: pointer;
+}
 button svg {
   font-size: 20px;
   color: darkseagreen;
@@ -40,4 +43,20 @@ button svg {
 form, button {
   display: flex;
   justify-content: center;
+}
+
+h1 {
+  margin-bottom: 50px;
+}
+.Smurfs {
+  display: flex;
+  justify-content: space-around;
+}
+.smurf-card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
+  background-color: bisque;
+  border-radius: 2px;
+  padding: 18px;
 }
