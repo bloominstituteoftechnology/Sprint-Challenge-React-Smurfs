@@ -21,7 +21,6 @@ class App extends Component {
     this.setState({loading: true});
     axios.get('http://localhost:3333/smurfs')
     .then(res => {
-      console.log(res);
       this.setState({smurfs: res.data, loading: false});
     })
     .catch(err => {
