@@ -31,6 +31,11 @@ class App extends Component {
      });
  }
 
+ updateSmurfListOnServer = smurfData => {
+  this.setState({smurfs: smurfData});
+}
+
+
   render() {
     return (
       <div className="App">
