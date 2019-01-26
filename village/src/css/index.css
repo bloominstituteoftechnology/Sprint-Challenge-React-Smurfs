@@ -25,8 +25,14 @@ a {
 .App {
   text-align: center;
 }
+.logo {
+  width: 240px;
+  margin-top: 1.5rem;
+  cursor: pointer;
+  user-select: none;
+}
 .red {
-  color: #fc3131;
+  color: #37c6ff;
 }
 .blue {
   color: #37c6ff;
@@ -39,14 +45,14 @@ a {
   justify-content: center;
 }
 .SmurfForm__input {
-  padding: 0.25rem;
+  padding: 0.25rem 0.5rem;
   margin: 0.25rem;
   border: 1px solid #ccc;
 }
 .SmurfForm__button {
   cursor: pointer;
   user-select: none;
-  padding: 0.25rem;
+  padding: 0.25rem 0.5rem;
   margin: 0.25rem;
   background: white;
   border: 1px solid #ccc;
@@ -58,7 +64,8 @@ a {
 }
 .Smurfs__Smurf {
   cursor: pointer;
-  width: 500px;
+  width: 75vw;
+  max-width: 500px;
   margin: 0.5rem;
   border-radius: 4px;
   border: 1px solid #ccc;
@@ -93,5 +100,5 @@ a {
   bottom: -8px;
   left: -1px;
   right: 100;
-  color: #fc3131;
+  color: #37c6ff;
 }

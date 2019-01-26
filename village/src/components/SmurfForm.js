@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Axios from "axios";
+import { Redirect } from "react-router-dom";
 
 class SmurfForm extends Component {
   constructor(props) {
@@ -7,7 +8,8 @@ class SmurfForm extends Component {
     this.state = {
       name: "",
       age: "",
-      height: ""
+      height: "",
+      success: false
     };
   }
 
@@ -19,7 +21,10 @@ class SmurfForm extends Component {
       age: this.state.age,
       height: this.state.height
     })
-      .then(res => this.props.setSmurfs())
+      .then(res => {
+        this.setState({ success: true });
+        this.props.setSmurfs();
+      })
       .catch(err => console.log(err));
     this.setState({
       name: "",
@@ -35,6 +40,7 @@ class SmurfForm extends Component {
   render() {
     return (
       <div className="SmurfForm">
+        {this.state.success && <Redirect to="/smurfs" />}
         <form onSubmit={this.addSmurf}>
           <input
             className="SmurfForm__input"

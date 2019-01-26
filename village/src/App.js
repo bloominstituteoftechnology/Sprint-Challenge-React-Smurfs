@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Route, Redirect } from "react-router-dom";
+import { Link, Route, Redirect } from "react-router-dom";
 import Axios from "axios";
 
 import SmurfForm from "./components/SmurfForm";
@@ -29,6 +29,12 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <Link to="/smurfs">
+          <img
+            className="logo"
+            src="https://upload.wikimedia.org/wikipedia/en/thumb/e/e3/The_Smurfs_logo.svg/1024px-The_Smurfs_logo.svg.png"
+          />
+        </Link>
         {this.state.smurfs && <Redirect to="/smurfs" />}
         <Route path="/" component={Nav} />
         <Route
