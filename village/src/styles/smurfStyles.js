@@ -25,6 +25,12 @@ export const SmurfWrapper = styled.div`
   border: 2px solid dodgerblue;
   margin: 20px 0;
   padding: 10px;
+
+  i {
+    font-size: 2rem;
+    color: dodgerblue;
+    cursor: pointer;
+  }
 `
 
 export const FormWrapper = styled.div`
