@@ -23,11 +23,12 @@ class App extends Component {
       })
   }
 
-  addSmurf = smurf => {
+  addSmurf = (name, age, height) => {
+
     const newSmurf = {
-      name: smurf.name,
-      age: smurf.age,
-      heght: smurf.heght
+      name: name,
+      age: age,
+      height: height
     }
 
     axios
