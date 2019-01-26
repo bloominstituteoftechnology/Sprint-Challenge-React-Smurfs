@@ -1,0 +1,30 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+.App {
+  text-align: center;
+}
+.SmurfForm {
+  margin: 1rem;
+}
+.SmurfForm form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.SmurfForm__input {
+  padding: 0.25rem;
+  margin: 0.25rem;
+  border: 1px solid #ccc;
+}
+.SmurfForm__button {
+  padding: 0.25rem;
+  margin: 0.25rem;
+  background: white;
+  border: 1px solid #ccc;
+}
