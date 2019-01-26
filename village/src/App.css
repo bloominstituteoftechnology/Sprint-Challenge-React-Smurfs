@@ -24,3 +24,21 @@
   background-color: #4285f4;
   color: white;
 }
+
+h1 {
+  color: #4285f4;
+}
+
+.Smurfs {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.Smurf {
+  margin: 15px auto;
+  width: 180px;
+  border: 1px solid lightgrey;
+  border-radius: 5px;
+  background-color: #4285f4;
+}
