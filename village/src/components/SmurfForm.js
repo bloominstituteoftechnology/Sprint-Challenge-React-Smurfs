@@ -1,57 +1,52 @@
-import React, { Component } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 
-class SmurfForm extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      name: '',
-      age: '',
-      height: ''
-    };
-  }
-
-  addSmurf = event => {
-    event.preventDefault();
-    // add code to create the smurf using the api
-
-    this.setState({
-      name: '',
-      age: '',
-      height: ''
-    });
-  }
-
-  handleInputChange = e => {
-    this.setState({ [e.target.name]: e.target.value });
-  };
-
-  render() {
+function SmurfForm(props) {
     return (
       <div className="SmurfForm">
-        <form onSubmit={this.addSmurf}>
+        <h2> Add a new smurf! </h2>
+        <form>
           <input
-            onChange={this.handleInputChange}
-            placeholder="name"
-            value={this.state.name}
+            type="text"
             name="name"
+            placeholder="name"
+            value={props.newSmurf.name}
+            onChange={props.handleChange}
           />
           <input
-            onChange={this.handleInputChange}
-            placeholder="age"
-            value={this.state.age}
+            type="number"
             name="age"
+            placeholder="age"
+            value={props.newSmurf.age}
+            onChange={props.handleAgeChange}
           />
           <input
-            onChange={this.handleInputChange}
-            placeholder="height"
-            value={this.state.height}
+            type="text"
             name="height"
+            placeholder="height"
+            value={props.newSmurf.height}
+            onChange={props.handleChange}
           />
-          <button type="submit">Add to the village</button>
+          <input 
+            type="submit"
+            value="Submit"
+            onClick = {props.addNewSmurf} 
+          />
         </form>
       </div>
     );
-  }
 }
+
+SmurfForm.propTypes = {
+  smurfs: PropTypes.arrayOf(PropTypes.object),
+  newSmurf: PropTypes.shape({
+    id: PropTypes.number,
+    name: PropTypes.string,
+    age: PropTypes.number,
+    height: PropTypes.string
+  }),
+  handleChange: PropTypes.func,
+  addNewSmurf: PropTypes.func
+};
 
 export default SmurfForm;
