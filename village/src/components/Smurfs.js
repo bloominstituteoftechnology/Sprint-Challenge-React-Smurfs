@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import Smurf from './Smurf';
 
 class Smurfs extends Component {
+
   render() {
     return (
       <div className="Smurfs">
@@ -11,6 +12,7 @@ class Smurfs extends Component {
           {this.props.smurfs.map(smurf => {
             return (
               <Smurf
+                deleteSmurf ={this.props.deleteSmurf}
                 name={smurf.name}
                 id={smurf.id}
                 age={smurf.age}
