@@ -1,3 +1,94 @@
-.App {
-  text-align: center;
+.Main {
+  display:flex;
+  align-items: center;
+  flex-direction:column;
 }
+
+.App {
+  display:flex;
+  flex-direction: column;
+  margin-top: 100px;
+  align-items: center;
+}
+
+.Smurf {
+  margin: 20px;
+  padding: 30px;
+  border-radius:50%;
+  border:2px solid blue;
+  width:200px;
+  height: 200px;
+  background-color: white;
+}
+.Smurfs {
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-top: 50px;
+  background-color: aqua;
+  border-left: 20px ridge blue;
+  border-right: 20px ridge blue;
+  border-bottom: 20px ridge blue;
+border-radius: 100px;
+
+  width: 500px;
+}
+
+nav {
+  display:flex;
+  justify-content: center;
+}
+.nav {
+  margin-top: 20px;
+  padding:20px;
+  text-decoration:none;
+  font-size: 1.5rem;
+}
+
+.SmurfForm {
+  background-color: white;
+  border:none;
+}
+.input {
+  background-color: snow;
+  height:30px;
+  margin: 10px;
+  font-size: 1.25rem;
+  width: 125px;
+}
+
+button {
+  background-color: aqua;
+  margin: 10px;
+  font-size: 1.25rem;
+  width: 200px;
+  border-radius: 10px;
+  border: 2px solid blue;
+  padding: 10px;
+}
+
+h2 {
+  pointer-events: none;
+}
+
+p {
+  pointer-events: none;
+}
+
+.selected {
+  border: 5px solid blue;
+  color:blue;
+}
+
+input {
+  background-color: yellow;
+  height: 100px;
+  width: 100px;
+}
+
+.X {
+  background-color: red;
+  width: 50px;
+}
+
