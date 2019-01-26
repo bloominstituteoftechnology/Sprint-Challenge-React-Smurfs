@@ -14,6 +14,9 @@ header a {
   font-size: 2rem;
   text-decoration: none;
 }
+.active {
+  font-weight: bold;
+}
 .SmurfForm {
   margin-top: 20px;
 }
