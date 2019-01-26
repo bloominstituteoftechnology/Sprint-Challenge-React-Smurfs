@@ -10,7 +10,7 @@ nav ul li {
   list-style: none;
 }
 nav ul li a {
-  color: black;
+  color: cadetblue;
   text-decoration: black;
   font-size: 40px;
 }
@@ -24,6 +24,10 @@ nav ul li a {
 }
 input {
   padding: 10px 2px;
+  border: 1.3px solid sandybrown;
+  border-radius: 2px;
+  margin: 3px;
+  /* border */
 }
 button {
   border: none;
@@ -31,6 +35,7 @@ button {
 }
 button svg {
   font-size: 20px;
+  color: darkseagreen;
 }
 form, button {
   display: flex;
