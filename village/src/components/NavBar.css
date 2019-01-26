@@ -1,0 +1,14 @@
+nav {
+  display: flex;
+  background-color: #6299ec;
+}
+
+.navigation {
+  margin: 10px 5%;
+  color: #ffffff;
+}
+
+.selected {
+  color: #6299ec;
+  background-color: #ffffff;
+}
