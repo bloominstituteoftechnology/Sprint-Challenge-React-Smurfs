@@ -138,7 +138,7 @@ Add a Router to this application by using React Router.
 [{
   name: 'Sleepy',
   age: 30,
-  height: '3cm,
+  height: '3cm',
   id: 1
 }]
 ```
