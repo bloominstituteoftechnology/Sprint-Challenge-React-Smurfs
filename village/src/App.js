@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import {Route, Link, NavLink} from 'react-router-dom';
 import './App.css';
 import axios from 'axios';
 import SmurfForm from './components/SmurfForm';
@@ -42,9 +42,6 @@ class App extends Component {
     .then(response =>  {
       console.log('POST smurf: ', response);
     this.setState({
-      // name: response.data.name,
-      // age: response.data.age,
-      // height: response.data.height
       smurfs: response.data
     })
     })
@@ -55,8 +52,13 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <SmurfForm addSmurf={this.addSmurf}/>
-        <Smurfs smurfs={this.state.smurfs} />
+        <ul>
+          <NavLink  exact to ='/'><li>Smurf Village</li></NavLink>
+          <NavLink  to ='/smurf-form'><li>SmurfForm</li></NavLink>
+        </ul>
+         <Route exact path='/' render= {props => (<Smurfs {...props} smurfs={this.state.smurfs}/>)} />
+          <Route exact path='/smurf-form' render= {props => ( <SmurfForm addSmurf={this.addSmurf}/> )} />
+       
       </div>
     );
   }

@@ -7,7 +7,10 @@ align-items: center;
 justify-content: space-between;
 background: deepskyblue;
 border-radius: 2px;
-width: 90%;
+max-width: 1000px;
+width: 100%;
+padding-left: 2%;
+padding-right: 2%;
 `
 
 const Smurf = props => {
