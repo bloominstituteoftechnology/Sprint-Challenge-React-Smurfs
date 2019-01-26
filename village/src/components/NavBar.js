@@ -11,6 +11,9 @@ const NavBar = () => {
       <NavLink className="navigation" activeClassName="selected" to="/addsmurf">
         Add Smurf
       </NavLink>
+      <NavLink className="navigation" activeClassName="selected" to="/gargamel">
+        Gargamel Powers
+      </NavLink>
     </nav>
   );
 };
