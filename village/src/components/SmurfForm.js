@@ -1,42 +1,50 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 
 class SmurfForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      newSmurf: {
-        name: '',
-        age: '',
-        height: ''
-      }
-    };
-  }
-
-  addSmurf = event => {
-    event.preventDefault();
-    // add code to create the smurf using the api
-
-    this.setState({
       name: '',
       age: '',
       height: ''
-    });
+    };
   }
 
+  // addSmurf = event => {
+  //   event.preventDefault();
+  //   // add code to create the smurf using the api
+
+  //   this.setState({
+  //     name: '',
+  //     age: '',
+  //     height: ''
+  //   });
+  // }
+
+
   handleInputChange = e => {
-    this.setState({
-      newSmurf: {
-          ...this.state.newSmurf,
-          [e.target.name]: e.target.value
-      }
-  });
+    this.setState({ [e.target.name]: e.target.value });
   };
 
 
 
+
   addSmurf = event => {
     event.preventDefault();
-    this.props.addNewSmurf(this.state.newSmurf)
+    const [name, age, height] = [this.state.name, Number(this.state.age), this.state.height];
+    axios.post('http://localhost:3333/smurfs', {name, age, height})
+      .then(response => {
+        this.props.fetchSmurfs();
+        this.props.history.push('/');
+
+      })
+      .catch(err => console.log(err))
+    this.setState({
+        name: '',
+        age: '',
+        height: ''
+    });
   }
 
 
@@ -47,19 +55,19 @@ class SmurfForm extends Component {
           <input
             onChange={this.handleInputChange}
             placeholder="name"
-            value={this.state.newSmurf.name}
+            value={this.state.name}
             name="name"
           />
           <input
             onChange={this.handleInputChange}
             placeholder="age"
-            value={this.state.newSmurf.age}
+            value={this.state.age}
             name="age"
           />
           <input
             onChange={this.handleInputChange}
             placeholder="height"
-            value={this.state.newSmurf.height}
+            value={this.state.height}
             name="height"
           />
           <button type="submit">Add to the village</button>
