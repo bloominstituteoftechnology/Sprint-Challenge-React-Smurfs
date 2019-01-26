@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import styled from 'styled-components';
+// import axios from 'axios';
+
 
 class SmurfForm extends Component {
   constructor(props) {
@@ -12,7 +15,10 @@ class SmurfForm extends Component {
 
   addSmurf = event => {
     event.preventDefault();
+    console.log('something happening')
     // add code to create the smurf using the api
+    this.props.addSmurf(event, this.state)
+    console.log(  this.props.addSmurf(this.state))
 
     this.setState({
       name: '',
@@ -22,6 +28,9 @@ class SmurfForm extends Component {
   }
 
   handleInputChange = e => {
+    // this.state.name,
+    // this.state.age,
+    // this.state.height
     this.setState({ [e.target.name]: e.target.value });
   };
 
@@ -37,8 +46,9 @@ class SmurfForm extends Component {
           />
           <input
             onChange={this.handleInputChange}
+            type="number"
             placeholder="age"
-            value={this.state.age}
+            value={parseInt(this.state.age)}
             name="age"
           />
           <input
