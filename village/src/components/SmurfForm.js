@@ -16,8 +16,7 @@ class SmurfForm extends Component {
     // add code to create the smurf using the api
     const axios = require('axios');
     console.log("POST");
-    let smurf = {name:this.state.name,age:this.state.age,height:this.state.height
-    }
+    let smurf = {name:this.state.name,age:this.state.age,height:this.state.height}
     axios.post("http://localhost:3333/smurfs",smurf)
         .then(function (response) {
           console.log("SEE posted",response);
