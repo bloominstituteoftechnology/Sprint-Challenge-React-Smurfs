@@ -10,7 +10,6 @@ class App extends Component {
     super(props);
     this.state = {
       smurfs: [],
-      isLoading: false
     };
   }
   // add any needed code to ensure that the smurfs collection exists on state and it has data coming from the server
@@ -18,11 +17,10 @@ class App extends Component {
   // You'll need to make sure you have the right properties on state and pass them down to props.
  
  componentDidMount() {
-   this.setState({ isLoading: true })
    axios.get('http://localhost:3333/smurfs')
    .then(response => {
      console.log(response)
-     this.setState({ smurfs: response.data, isloading: false})
+     this.setState({ smurfs: response.data })
    })
    .catch(error => {
      console.log('server error', error)})
@@ -33,7 +31,7 @@ class App extends Component {
     return (
       <div className="App">
         <SmurfForm />
-        <Smurfs smurfs={this.state.smurfs} isLoading={this.state.isLoading} />
+        <Smurfs smurfs={this.state.smurfs} />
       </div>
     );
   }
