@@ -22,6 +22,7 @@ class SmurfForm extends Component {
   addSmurf = event => {
     event.preventDefault();
     this.addInfo("http://localhost:3333/smurfs", this.state);
+    this.props.history.push("/");
 
     // add code to create the smurf using the api
 
@@ -45,18 +46,21 @@ class SmurfForm extends Component {
             placeholder="name"
             value={this.state.name}
             name="name"
+            required
           />
           <input
             onChange={this.handleInputChange}
             placeholder="age"
             value={this.state.age}
             name="age"
+            required
           />
           <input
             onChange={this.handleInputChange}
             placeholder="height"
             value={this.state.height}
             name="height"
+            required
           />
           <button type="submit">Add to the village</button>
         </form>
