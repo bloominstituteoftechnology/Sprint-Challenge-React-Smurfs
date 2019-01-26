@@ -1,3 +1,20 @@
 .App {
   text-align: center;
 }
+
+.selected {
+  border: 3px solid black;
+  padding: 5px 15px;
+}
+
+.navCont {
+  margin: 15px;
+}
+
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  width: 50%;
+  justify-content: space-between;
+  margin: 0 auto;
+}

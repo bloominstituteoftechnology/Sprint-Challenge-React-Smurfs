@@ -1,16 +1,17 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import {NavLink} from 'react-router-dom';
 
 const Nav = props => {
   return (
     <div className="navCont">
-      <nav>
-        <Link to="/">
-          <div className="home">Home</div>
-        </Link>
-        <Link to="/smurf-form">
-          <div className="form">Add Smurf</div>
-        </Link>
+      <nav className="nav">
+        <NavLink exact to="/" activeClassName="selected">
+          {console.log(props.location.pathname)}
+          Home
+        </NavLink>
+        <NavLink to="/smurf-form" activeClassName="selected">
+          Add Smurf
+        </NavLink>
       </nav>
     </div>
   );
