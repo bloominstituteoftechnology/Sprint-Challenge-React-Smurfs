@@ -57,7 +57,7 @@ componentDidMount() {
       <div className="App">
         <Nav />
         <Route exact path='/' render={() => <Smurfs smurfs={this.state.smurfs} />} />
-        <Route path='/form' render={() => <SmurfForm postSmurf={this.postSmurf}/>} />
+        <Route path='/smurf-form' render={() => <SmurfForm postSmurf={this.postSmurf}/>} />
       </div>
     );
   }

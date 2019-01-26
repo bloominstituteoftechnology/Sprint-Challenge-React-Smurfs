@@ -1,11 +1,11 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 const Nav = () => {
   return(
     <nav className='navigation'>
-      <Link to='/'>Smurf Village</Link>
-      <Link to='/form'>Add a Smurf</Link>
+      <NavLink exact to='/' activeClassName="selected">Smurf Village</NavLink>
+      <NavLink to='/smurf-form' activeClassName="selected" >Add a Smurf</NavLink>
     </nav>
   );
 }
