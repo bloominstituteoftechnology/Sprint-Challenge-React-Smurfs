@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios'
-import { Route, NavLink } from 'react-router-dom'
+import { Route, NavLink, withRouter } from 'react-router-dom'
 
 import './App.css';
 import SmurfForm from './components/SmurfForm';
@@ -27,7 +27,17 @@ class App extends Component {
      console.log('server error', error)})
  }
  
- 
+ addToSmurfForm = smurf => {
+  axios
+  .post('http://localhost:3333/smurfs', smurf)
+  .then(response => {
+      console.log(response)
+      this.setState({ smurfs: response.data })
+})
+  .catch(error => {
+      console.log('Server Error', error)})
+ }
+
   render() {
     return (
       <div className="App">
@@ -40,11 +50,11 @@ class App extends Component {
           </li>
         </ul>
 
-        <Route exact path="/smurf-form" component={SmurfForm} />
+    <Route exact path="/smurf-form" render={props=> <SmurfForm addToSmurfForm={this.addToSmurfForm} {...props} />} />
         <Route path="/" render={props => <Smurfs smurfs={this.state.smurfs} {...props}/>} />
       </div>
     );
   }
 }
 
-export default App;
+export default withRouter(App);
