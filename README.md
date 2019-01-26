@@ -64,8 +64,8 @@ The MVP of this project will be broken up between 2 stages. Follow each step and
 
 Construct your Components to build a Single Page Application. Keep your components separate and design them as if they are pages before adding in your Router.
 
-- [ ] Construct an AXIOS request to retrieve an array all the Smurfs in the Smurf DB simply write a `GET` to the endpoint `/smurfs`.
-- [ ] Display those smurfs in a list on the screen.
+- [x] Construct an AXIOS request to retrieve an array all the Smurfs in the Smurf DB simply write a `GET` to the endpoint `/smurfs`.
+- [x] Display those smurfs in a list on the screen.
 - [ ] Construct an AXIOS request to `POST` to add a Smurf to the Smurf DB you'll need all three fields.
 - [ ] Create a form that will allow users to add Smurfs to the Smurf DB.
 - [ ] If a Smurf is created correctly, you should see a response that is an array of Smurfs with unique id's assigned to each Smurf.
