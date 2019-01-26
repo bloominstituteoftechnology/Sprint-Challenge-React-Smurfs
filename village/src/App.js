@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { Route, withRouter } from 'react-router-dom';
 
 import './App.css';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
+import Navigation from'./components/Navigation';
 
 class App extends Component {
   constructor(props) {
@@ -29,6 +31,7 @@ class App extends Component {
       .post(`http://localhost:3333/smurfs`, smurf )
       .then( response => {
         console.log(response)
+        this.props.history.push('/');
         this.setState({ smurfs: this.state.smurfs })
         window.location.reload();
       })
@@ -42,11 +45,23 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <SmurfForm addSmurf = { this.addSmurf }/>
-        <Smurfs smurfs={ this.state.smurfs} />
+        <Navigation />
+        <Route
+          exact path="/"
+          render={(props) => <Smurfs
+            {... props }
+            smurfs ={ this.state.smurfs }/>}
+        />
+        <Route
+          exact path="/smurfs-form"
+          render={(props) => <SmurfForm
+            {... props }
+            addSmurf = {this.addSmurf }/>}
+        />
+
       </div>
     );
   }
 }
 
-export default App;
+export default withRouter(App);

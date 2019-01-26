@@ -1,3 +1,21 @@
 .App {
   text-align: center;
 }
+
+.link{
+  margin: 15px;
+  padding: 10px;
+  font-size: 1.5rem;
+  text-decoration: none;
+  color: #000;
+
+}
+
+.link:hover{
+  color: #88CCFF;
+}
+
+.active{
+  color: #FFF;
+  background: #88CCFF;
+}
