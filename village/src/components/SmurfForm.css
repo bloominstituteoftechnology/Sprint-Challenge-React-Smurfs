@@ -1,0 +1,24 @@
+.SmurfForm {
+  max-width: 450px;
+  width: 100%;
+  margin: 20px auto;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+form input {
+  width: 75%;
+  margin: 10px auto;
+  font-size: 2rem;
+}
+
+form button {
+  width: 50%;
+  margin: 0 auto;
+  border-width: thick;
+  font-size: 2rem;
+  background-color: ;
+}
