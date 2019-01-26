@@ -31,12 +31,30 @@ class App extends Component {
 
 
 
-  render() {
+  render() 
+          {
     return (
-      <div className="App">
-        <SmurfForm />
-        <Smurfs smurfs={this.state.smurfs} />
-      </div>
+        <div className="App">
+          <Route path="/">
+            <NavBar />
+          </Route>
+  
+          <Route 
+            path="/smurf-form"           
+            render={props => (          
+              <SmurfForm addSmurf={this.addSmurf} />
+          )}>
+          </Route>
+  
+          <Route 
+            exact 
+            path="/" 
+            render={props => (
+              <Smurfs {...props} smurfs={this.state.smurfs} />
+          )}>
+          </Route>
+  
+        </div>
     );
   }
 }
