@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 class Smurf extends React.Component {
   constructor(props){
@@ -49,9 +50,13 @@ class Smurf extends React.Component {
       : (
       <div className="Smurf">
         <span className="far fa-edit edit btn" onClick={() => this.setState({ editing: true })}></span>
-        <h3>{this.props.name}</h3>
-        <strong>{this.props.height} tall</strong>
-        <p>{this.props.age} smurf years old</p>
+        <Link to={`/smurf/${this.props.id}`} className="smurf-link">
+          <div>
+            <h3>{this.props.name}</h3>
+            <strong>{this.props.height} tall</strong>
+            <p>{this.props.age} smurf years old</p>
+          </div>
+        </Link>
         <span className="far fa-trash-alt delete btn" onClick={() => this.props.deleteSmurf(this.props.id)}></span>
       </div>
     );

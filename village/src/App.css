@@ -28,6 +28,10 @@ header a {
   width: 50%;
   margin: 0 auto;
 }
+.smurf-link {
+  text-decoration: none;
+  color: black;
+}
 .btn {
   position: absolute;
   font-size: 3rem;

@@ -6,6 +6,7 @@ import './App.css';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
 import NavBar from './components/NavBar';
+import SmurfPage from './components/SmurfPage';
 
 class App extends Component {
   constructor(props) {
@@ -47,6 +48,10 @@ class App extends Component {
         <Route 
           path="/smurf-form" 
           render={props => <SmurfForm {...props} fetchSmurfs={this.fetchSmurfs} />} 
+        />
+        <Route 
+          path="/smurf/:id"
+          component={SmurfPage}
         />
       </div>
     );
