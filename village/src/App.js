@@ -40,11 +40,20 @@ class App extends Component {
       .catch(error=>console.log(error))
   }
 
+   deleteASmurf = id =>{
+     axios
+      .delete(`http://localhost:3333/smurfs/${id}`)
+      .then(response=>{
+        this.setState({smurfs: response.data})
+      })
+      .catch(error=>console.log(error))
+   }
+
   render() {
     return (
       <div className="App">
         <Route path="/" component={NavBar} />
-        <Route exact path="/" render={props=> <Smurfs smurfs={this.state.smurfs} />} />
+        <Route exact path="/" render={props=> <Smurfs smurfs={this.state.smurfs}  deleteASmurf={this.deleteASmurf} />} />
         <Route path="/smurf-form" render={props=> <SmurfForm  addNewSmurf={this.addNewSmurf}/>} />
       </div>
     );
