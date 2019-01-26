@@ -15,7 +15,10 @@ class SmurfForm extends Component {
     const [name, age, height] = [this.state.name, Number(this.state.age), this.state.height];
     event.preventDefault();
     axios.post('http://localhost:3333/smurfs', { name, age, height })
-      .then(res => this.props.fetchSmurfs())
+      .then(res => {
+        this.props.fetchSmurfs();
+        this.props.history.push('/');
+      })
       .catch(err => console.log(err));
 
     this.setState({
@@ -44,6 +47,7 @@ class SmurfForm extends Component {
             placeholder="age"
             value={this.state.age}
             name="age"
+            type="number"
           />
           <input
             onChange={this.handleInputChange}
