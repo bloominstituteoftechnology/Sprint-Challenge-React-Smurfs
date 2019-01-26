@@ -15,13 +15,13 @@ class SmurfForm extends Component {
     axios
       .post(URL, entry)
       .then(response => console.log(response))
+      .then(response => this.props.update("http://localhost:3333/smurfs"))
       .catch(err => console.log(err));
   };
 
   addSmurf = event => {
-    // event.preventDefault();
+    event.preventDefault();
     this.addInfo("http://localhost:3333/smurfs", this.state);
-    this.props.update();
 
     // add code to create the smurf using the api
 
