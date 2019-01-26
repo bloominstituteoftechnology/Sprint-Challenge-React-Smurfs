@@ -4,6 +4,7 @@ import Axios from "axios";
 
 import SmurfForm from "./components/SmurfForm";
 import Smurfs from "./components/Smurfs";
+import Smurf from "./components/Smurf";
 import Nav from "./components/Nav";
 
 class App extends Component {
@@ -35,15 +36,21 @@ class App extends Component {
             src="https://upload.wikimedia.org/wikipedia/en/thumb/e/e3/The_Smurfs_logo.svg/1024px-The_Smurfs_logo.svg.png"
           />
         </Link>
-        {this.state.smurfs && <Redirect to="/smurfs" />}
+        {this.props.match.isExact && <Redirect to="/smurfs" />}
         <Route path="/" component={Nav} />
         <Route
           path="/smurfs-form"
           render={props => <SmurfForm {...props} setSmurfs={this.setSmurfs} />}
         />
         <Route
+          exact
           path="/smurfs"
           render={props => <Smurfs {...props} smurfs={this.state.smurfs} />}
+        />
+        <Route
+          exact
+          path="/smurfs/:id"
+          render={props => <Smurf {...props} />}
         />
       </div>
     );
