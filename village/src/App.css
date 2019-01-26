@@ -1,3 +1,10 @@
 .App {
   text-align: center;
 }
+.navBar {
+  margin: 20px auto;
+  display: flex;
+  justify-content: space-between;
+  width: 200px;
+  
+}
