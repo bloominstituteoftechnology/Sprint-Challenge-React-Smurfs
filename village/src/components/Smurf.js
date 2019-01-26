@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Smurf = props => {
 
@@ -9,10 +10,9 @@ const Smurf = props => {
 
   return (
     <div className="Smurf">
-      <h3>{props.name} <span onClick={removeSmurf}>&times;</span></h3>
-      <strong>{props.height} tall</strong>
-      <p>{props.age} smurf years old</p>
-
+        <h3>{props.name} <span onClick={removeSmurf}>&times;</span></h3>
+        <strong>{props.height} tall</strong>
+        <p>{props.age} smurf years old</p>
     </div>
   );
 };

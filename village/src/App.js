@@ -22,7 +22,6 @@ class App extends Component {
 postSmurf = smurf => {
   axios.post('http://localhost:3333/smurfs', smurf)
         .then(res => {
-          console.log(res)
           this.setState({
             postSuccess: 'Smurf Added!',
             postFail: '',
@@ -41,9 +40,15 @@ postSmurf = smurf => {
 getSmurfs = () => {
   axios.get('http://localhost:3333/smurfs')
         .then(res => {
-          this.setState({
-            smurfs: res.data
-          })
+          this.setState({ smurfs: res.data })
+        })
+        .catch(err => console.log(err));
+}
+
+updateSmurf = (smurf, id) => {
+  axios.put(`http://localhost:3333/smurfs/${id}`, smurf)
+        .then(res => {
+          this.setState({ smurfs: res.data })
         })
         .catch(err => console.log(err));
 }
@@ -67,7 +72,9 @@ componentDidMount() {
         <Route exact path='/' render={() => <Smurfs smurfs={this.state.smurfs}
                                                     deleteHandler={this.deleteSmurf}/>} />
 
-        <Route path='/smurf-form' render={() => <SmurfForm postSmurf={this.postSmurf}/>} />
+        <Route path='/smurf-form' render={() => <SmurfForm postSmurf={this.postSmurf}
+                                                           updateSmurf={this.updateSmurf}
+                                                           smurfs={this.state.smurfs}/>} />
       </div>
     );
   }
