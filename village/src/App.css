@@ -1,3 +1,43 @@
 .App {
   text-align: center;
+  margin: 40px auto;
+}
+
+nav {
+  width: 70%;
+  padding: 5px 5%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: flex-start;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+nav a {
+  padding: 5px;
+}
+
+h1 {
+  margin: 30px auto;
+  align-self: stretch;
+}
+
+.Smurfs {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+.Smurf {
+  width: 90%;
+  border-radius: 5px;
+  border: 1px solid black;
+  margin: 10px auto;
+  padding: 10px;
 }
