@@ -1,3 +1,16 @@
 .App {
   text-align: center;
 }
+ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+ul li {
+  list-style: none;
+}
+ul li a {
+  color: black;
+  text-decoration: black;
+  font-size: 40px;
+}
