@@ -24,7 +24,18 @@ const Smurf = props => {
           props.deleteASmurf(props.id)
         }}>X</p>
       </div>
-      <h3>{props.name}</h3>
+      <Link to={{
+        pathname: `/smurf/${props.id}`,
+        search: "",
+        hash: "",
+        state: { smurf:[{
+          id:props.id,
+          name:props.name,
+          height:props.height,
+          age:props.age
+        }]
+        } 
+      }}><h3>{props.name}</h3></Link>
       <strong>{props.height} tall</strong>
       <p>{props.age} smurf years old</p>
     </div>

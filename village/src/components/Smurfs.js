@@ -4,11 +4,17 @@ import Smurf from './Smurf';
 
 class Smurfs extends Component {
   render() {
+    let smurfs;
+    if(this.props.smurfs[0]&&this.props.smurfs[0]=='single'){
+      smurfs = this.props.location.state.smurf
+    }else{
+      smurfs = this.props.smurfs
+    }
     return (
       <div className="Smurfs">
         <h1>Smurf Village</h1>
         <ul>
-          {this.props.smurfs.map(smurf => {
+          {smurfs.map(smurf => {
             return (
               <Smurf
                 name={smurf.name}

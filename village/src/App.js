@@ -67,11 +67,15 @@ class App extends Component {
       <div className="App">
         <Route path="/" component={NavBar} />
         <Route exact path="/" render={props=> <Smurfs smurfs={this.state.smurfs} deleteASmurf={this.deleteASmurf} editSmurf={this.editSmurf} />} />
+        {/* This is hacky as hell */}
+        <Route exact path="/smurf/:id"  render={props=> <Smurfs smurfs={['single']} {...props} deleteASmurf={this.deleteASmurf} editSmurf={this.editSmurf} />} />
         <Route path="/smurf-form" render={props=> <SmurfForm  addNewSmurf={this.addNewSmurf}/>} />
         <Route exact path="/smurf-form-edit" render={props=> <EditSmurfForm {...props} editSmurf={this.editSmurf}/>} />
       </div>
     );
   }
 }
+
+
 
 export default App;
