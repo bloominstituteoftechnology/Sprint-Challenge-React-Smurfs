@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Route } from "react-router-dom";
+import { Route, Redirect } from "react-router-dom";
 import Axios from "axios";
 
 import SmurfForm from "./components/SmurfForm";
@@ -29,6 +29,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        {this.state.smurfs && <Redirect to="/smurfs" />}
         <Route path="/" component={Nav} />
         <Route
           path="/smurfs-form"
