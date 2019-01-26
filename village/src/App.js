@@ -10,14 +10,27 @@ class App extends Component {
     super(props);
     this.state = {
       smurfs: [],
+      err: '',
+      loading: false
     };
   }
   // add any needed code to ensure that the smurfs collection exists on state and it has data coming from the server
    componentDidMount() {
+     this.setState({ loading: true})
      axios
      .get('http://localhost:3333/smurfs')
-     .then( response => console.log("get fetchSmurf: ", response))
-     .catch(err => {console.log("fetchSmurf error: ", err)});
+     .then( response => {console.log("get fetchSmurf: ", response.data);
+        this.setState({
+          smurfs: response.data,
+          error: '', 
+          loading: false
+          })
+        })
+     .catch(err => {console.log("fetchSmurf error: ", err);
+    this.setState({
+      err: 'Smurf not found', 
+      smurfs: [], 
+      loading: false})});
    }
   // Notice what your map function is looping over and returning inside of Smurfs.
   // You'll need to make sure you have the right properties on state and pass them down to props.
