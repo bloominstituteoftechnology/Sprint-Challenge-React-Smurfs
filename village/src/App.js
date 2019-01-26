@@ -41,16 +41,20 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+      <div className="navBar">
+      <NavLink to="/smurf-form">Smurf Form</NavLink>
+      <NavLink exact to="/">Smurfs</NavLink> 
+      </div>
         <Route 
-           path ="/smurf-form"
+          path ="/smurf-form"
            render={props=>
             <SmurfForm {...props} smurfs={this.state.smurfs} updateSmurfListOnServer={this.updateSmurfListOnServer}/> } />
+        
         <Route 
           exact path ="/"
           render ={props =>
           <Smurfs  {...props} smurfs={this.state.smurfs} /> } />
-    
-          
+        
       </div>
     );
   }
