@@ -1,4 +1,5 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
+import axios from 'axios';
 
 class SmurfForm extends Component {
   constructor(props) {
@@ -6,23 +7,64 @@ class SmurfForm extends Component {
     this.state = {
       name: '',
       age: '',
-      height: ''
+      height: '',
     };
   }
 
+  redirectToHome = () => {
+    this.props.history.push('/');
+  };
+
   addSmurf = event => {
     event.preventDefault();
-    // add code to create the smurf using the api
+    console.log(this.props.location.pathname);
+    if (this.props.location.pathname === '/smurf-form') {
+      let newSmurf = Object.assign(this.state);
+      if (newSmurf.name && newSmurf.age && newSmurf.height !== '') {
+        newSmurf.age = Number(newSmurf.age);
+        newSmurf.id = this.props.newId;
+        axios
+          .post('http://www.localhost:3333/smurfs', newSmurf)
+          .then(res => {
+            console.log(res);
+            this.props.updateState(res);
+            this.redirectToHome();
+          })
+          .catch(err => console.log(err));
+      }
+    } else {
+      event.preventDefault();
+      console.log(this.props.match.params.id);
+      let newSmurf = Object.assign(this.state);
+      if (newSmurf.name && newSmurf.age && newSmurf.height !== '') {
+        newSmurf.age = Number(newSmurf.age);
+        axios
+          .put(
+            `http://www.localhost:3333/smurfs/${this.props.match.params.id}`,
+            {
+              name: this.state.name,
+              age: this.state.age,
+              email: this.state.email,
+            },
+          )
+          .then(res => {
+            console.log(res);
+            this.props.updateState(res);
+            this.redirectToHome();
+          })
+          .catch(err => console.log(err));
+      }
+    }
 
     this.setState({
       name: '',
       age: '',
-      height: ''
+      height: '',
     });
-  }
+  };
 
   handleInputChange = e => {
-    this.setState({ [e.target.name]: e.target.value });
+    this.setState({[e.target.name]: e.target.value});
   };
 
   render() {
@@ -47,7 +89,7 @@ class SmurfForm extends Component {
             value={this.state.height}
             name="height"
           />
-          <button type="submit">Add to the village</button>
+          <button type="submit">Submit</button>
         </form>
       </div>
     );
