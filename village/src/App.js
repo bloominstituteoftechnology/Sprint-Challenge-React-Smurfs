@@ -7,6 +7,7 @@ import {Route} from 'react-router-dom';
 import axios from 'axios';
 import SingleSmurf from './components/SingleSmurf.js';
 import Nav from './components/nav.js';
+import EditSmurf from './components/editSmurf.js';
 
 class App extends Component {
   constructor(props) {
@@ -48,6 +49,18 @@ class App extends Component {
               {...props}
               newId={this.state.smurfs.length + 1}
               updateState={this.updateSmurf}
+            />
+          )}
+        />
+
+        <Route
+          path="/smurf/:id/edit"
+          render={props => (
+            <EditSmurf
+              {...props}
+              smurfs={this.state.smurfs}
+              updateState={this.updateSmurf}
+              deleteSmurf={this.deleteSmurf}
             />
           )}
         />

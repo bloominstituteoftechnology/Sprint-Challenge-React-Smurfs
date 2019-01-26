@@ -1,22 +1,22 @@
 import React from 'react';
-import Smurf from './Smurf.js';
+import SmurfForm from './SmurfForm.js';
 
-const SingleSmurf = props => {
+const EditSmurf = props => {
   let theSmurf = props.smurfs.find(sm => {
     return sm.id === Number(props.match.params.id);
   });
 
   return (
-    <Smurf
+    <SmurfForm
       {...props}
       name={theSmurf.name}
       id={theSmurf.id}
       age={theSmurf.age}
       height={theSmurf.height}
       key={theSmurf.id}
-      deleteSmurf={props.deleteSmurf}
+      updateState={props.updateState}
     />
   );
 };
 
-export default SingleSmurf;
+export default EditSmurf;

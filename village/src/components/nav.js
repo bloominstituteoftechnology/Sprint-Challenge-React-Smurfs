@@ -6,7 +6,6 @@ const Nav = props => {
     <div className="navCont">
       <nav className="nav">
         <NavLink exact to="/" activeClassName="selected">
-          {console.log(props.location.pathname)}
           Home
         </NavLink>
         <NavLink to="/smurf-form" activeClassName="selected">
