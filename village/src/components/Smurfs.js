@@ -15,17 +15,19 @@ class Smurfs extends Component {
         <ul>
           {this.props.smurfs.map(smurf => {
             return (
-              <Link to={`/smurfs/${smurf.id}`}>
-                <SmurfDetails
-                  smurf={{
-                    name: smurf.name,
-                    age: smurf.age,
-                    height: smurf.height,
-                    id: smurf.id
-                  }}
-                  key={smurf.id}
-                />
-              </Link>
+              <div key={smurf.id}>
+                <Link to={`/smurfs/${smurf.id}`}>
+                  <SmurfDetails
+                    smurf={{
+                      name: smurf.name,
+                      age: smurf.age,
+                      height: smurf.height,
+                      id: smurf.id
+                    }}
+                    key={smurf.id}
+                  />
+                </Link>
+              </div>
             );
           })}
         </ul>
@@ -34,11 +36,7 @@ class Smurfs extends Component {
   }
 }
 function SmurfDetails({ smurf }) {
-  return (
-    <Link to={`/smurfs/${smurf.id}`}>
-      <SmurfCard smurf={smurf} />
-    </Link>
-  );
+  return <SmurfCard smurf={smurf} />;
 }
 Smurf.defaultProps = {
   smurfs: []

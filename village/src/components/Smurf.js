@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-
+// import { Redirect } from "react-router-dom";
 class Smurf extends React.Component {
   constructor(props) {
     super(props);
@@ -28,9 +28,21 @@ class Smurf extends React.Component {
         console.log(err);
       });
   };
+  // delete = id => {
+  //   axios
+  //     .delete(`http://localhost:3333/smurfs/${this.props.match.params.id}`)
+  //     .then(res => {
+  //       console.log(res);
+  //       this.setState({ redirect: true });
+  //     })
+  //     .catch(err => {
+  //       console.log(err);
+  //     });
+  // };
   render() {
     return (
       <div className="Smurfs">
+        {/* {this.state.redirect && <Redirect to="/smurfs" />} */}
         <div className="Smurfs__Smurf">
           <h3 className="Smurfs__name">
             {this.state.smurf[0]
@@ -49,6 +61,7 @@ class Smurf extends React.Component {
               : null}{" "}
             smurf years old
           </p>
+          {/* <span onClick={this.delete}>&times;</span> */}
         </div>
       </div>
     );

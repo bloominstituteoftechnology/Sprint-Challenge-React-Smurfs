@@ -33,6 +33,7 @@ class App extends Component {
         <Link to="/smurfs">
           <img
             className="logo"
+            alt="smurf logo"
             src="https://upload.wikimedia.org/wikipedia/en/thumb/e/e3/The_Smurfs_logo.svg/1024px-The_Smurfs_logo.svg.png"
           />
         </Link>

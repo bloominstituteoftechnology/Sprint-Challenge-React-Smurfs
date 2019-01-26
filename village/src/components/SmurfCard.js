@@ -1,7 +1,6 @@
 import React from "react";
 
 const SmurfCard = props => {
-  console.log(props.smurf);
   const { name, age, height } = props.smurf;
   return (
     <div className="Smurfs__Smurf">
