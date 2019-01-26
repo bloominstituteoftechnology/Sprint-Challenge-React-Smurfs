@@ -35,6 +35,7 @@ class App extends Component {
         });
 
   }
+
   postHandler=(data)=>{
     this.setState({smurfs:data})
   }
@@ -42,18 +43,19 @@ class App extends Component {
   deleteHandler=(id)=> {
     const axios = require('axios');
     let url = "http://localhost:3333/smurfs/" + id;
+
     console.log(" delete is called " + url);
+    let newThis = this;
     axios.delete(url)
         .then(function (response) {
           console.log("DELETE RESPONSE",response);
           let newdata = response.data;
-          this.setState({smurfs:newdata})
+          console.log(" This here again " + newThis.state.smurfs);
+          newThis.setState({smurfs:newdata})
         }).catch(function (error) {
       console.log(error);
     });
   }
-
-
 
 
 
@@ -67,12 +69,13 @@ class App extends Component {
 
     return (
         <div className="App">
-          <div>
+          <div className="navlink">
             <NavLink to="/">Smurfs</NavLink>
             <NavLink to="/smurf-form">SmurfForm</NavLink>
           </div>
          <Route exact path="/" render={(props)=> <Smurfs {...props} smurfs={this.state.smurfs} deleteHandler={this.deleteHandler}  />}/>
          <Route exact path="/smurf-form" render={(props)=><SmurfForm {...props} postHandler={this.postHandler}/>} />
+
 
         </div>
     );

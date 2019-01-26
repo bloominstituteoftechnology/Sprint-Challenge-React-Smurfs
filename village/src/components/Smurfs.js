@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import Smurf from './Smurf';
+import {Route} from "react-router-dom";
 
 class Smurfs extends Component {
     constructor(props){

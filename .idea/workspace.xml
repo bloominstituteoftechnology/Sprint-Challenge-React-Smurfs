@@ -3,9 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="7e5a31c7-0d5b-4ec2-9fb2-d0a3fec6bf52" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/village/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/village/src/App.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/village/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/village/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/village/src/components/Smurf.js" beforeDir="false" afterPath="$PROJECT_DIR$/village/src/components/Smurf.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/village/src/components/SmurfForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/village/src/components/SmurfForm.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/village/src/components/Smurfs.js" beforeDir="false" afterPath="$PROJECT_DIR$/village/src/components/Smurfs.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -18,7 +18,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.60042286">
+    <splitter split-orientation="horizontal" split-proportion="0.8893587">
       <split-first>
         <leaf>
           <file pinned="false" current-in-tab="false">
@@ -36,8 +36,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/village/src/App.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="376">
-                  <caret line="73" column="108" selection-start-line="73" selection-start-column="95" selection-end-line="73" selection-end-column="108" />
+                <state relative-caret-position="288">
+                  <caret line="72" column="20" selection-start-line="72" selection-start-column="13" selection-end-line="72" selection-end-column="20" />
                   <folding>
                     <element signature="e#0#41#0" expanded="true" />
                   </folding>
@@ -60,10 +60,10 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/village/src/components/Smurfs.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="251">
-                  <caret line="28" column="45" selection-start-line="28" selection-start-column="32" selection-end-line="28" selection-end-column="45" />
+                <state relative-caret-position="726">
+                  <caret line="33" column="23" selection-start-line="33" selection-start-column="23" selection-end-line="33" selection-end-column="23" />
                   <folding>
-                    <element signature="e#26#67#0" expanded="true" />
+                    <element signature="e#0#41#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -72,17 +72,26 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/village/src/components/SmurfForm.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="44">
+                <state relative-caret-position="-51">
                   <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
                 </state>
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/village/src/components/Smurf.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="180">
-                  <caret line="11" column="26" selection-start-line="11" selection-start-column="26" selection-end-line="11" selection-end-column="26" />
+                <state relative-caret-position="352">
+                  <caret line="16" column="33" selection-start-line="16" selection-start-column="28" selection-end-line="16" selection-end-column="33" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/village/src/App.css">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="484">
+                  <caret line="22" column="24" selection-start-line="22" selection-start-column="24" selection-end-line="22" selection-end-column="24" />
                 </state>
               </provider>
             </entry>
@@ -104,6 +113,11 @@
       </split-second>
     </splitter>
   </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>deleteHandler</find>
+    </findStrings>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -116,6 +130,7 @@
         <option value="$PROJECT_DIR$/village/src/components/Smurfs.js" />
         <option value="$PROJECT_DIR$/village/src/components/Smurf.js" />
         <option value="$PROJECT_DIR$/village/src/App.js" />
+        <option value="$PROJECT_DIR$/village/src/App.css" />
       </list>
     </option>
   </component>
@@ -191,18 +206,18 @@
       <updated>1548004736825</updated>
       <workItem from="1548004738137" duration="463000" />
       <workItem from="1548131782583" duration="544000" />
-      <workItem from="1548472123227" duration="15580000" />
+      <workItem from="1548472123227" duration="17118000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="16587000" />
+    <option name="totallyTimeSpent" value="18125000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="877" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.1430585" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1430585" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -248,35 +263,42 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/village/src/components/SmurfForm.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="44">
+        <state relative-caret-position="-51">
           <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/village/src/App.js">
+    <entry file="file://$PROJECT_DIR$/village/src/components/Smurf.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="376">
-          <caret line="73" column="108" selection-start-line="73" selection-start-column="95" selection-end-line="73" selection-end-column="108" />
+        <state relative-caret-position="352">
+          <caret line="16" column="33" selection-start-line="16" selection-start-column="28" selection-end-line="16" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/village/src/components/Smurfs.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="726">
+          <caret line="33" column="23" selection-start-line="33" selection-start-column="23" selection-end-line="33" selection-end-column="23" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/village/src/components/Smurfs.js">
+    <entry file="file://$PROJECT_DIR$/village/src/App.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="251">
-          <caret line="28" column="45" selection-start-line="28" selection-start-column="32" selection-end-line="28" selection-end-column="45" />
+        <state relative-caret-position="288">
+          <caret line="72" column="20" selection-start-line="72" selection-start-column="13" selection-end-line="72" selection-end-column="20" />
           <folding>
-            <element signature="e#26#67#0" expanded="true" />
+            <element signature="e#0#41#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/village/src/components/Smurf.js">
+    <entry file="file://$PROJECT_DIR$/village/src/App.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="11" column="26" selection-start-line="11" selection-start-column="26" selection-end-line="11" selection-end-column="26" />
+        <state relative-caret-position="484">
+          <caret line="22" column="24" selection-start-line="22" selection-start-column="24" selection-end-line="22" selection-end-column="24" />
         </state>
       </provider>
     </entry>

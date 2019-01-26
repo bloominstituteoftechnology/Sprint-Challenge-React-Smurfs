@@ -7,7 +7,6 @@ class Smurf extends React.Component {
         this.state={
             deleteHandler: this.props.deleteHandler
         }
-
     }
     deleteSmurf=(event)=>{
         this.props.deleteHandler(this.props.id)
@@ -16,7 +15,7 @@ class Smurf extends React.Component {
     render() {
         return (
             <div className="Smurf">
-                <p>{this.props.id} : This is your id</p>
+                <p>ID : {this.props.id}</p>
                 <h3>{this.props.name}</h3>
                 <strong>{this.props.height} tall</strong>
                 <p>{this.props.age} smurf years old</p>
