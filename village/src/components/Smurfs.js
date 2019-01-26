@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
 import Smurf from "./Smurf";
+import SmurfCard from "./SmurfCard";
 
 class Smurfs extends Component {
   render() {
@@ -15,11 +16,13 @@ class Smurfs extends Component {
           {this.props.smurfs.map(smurf => {
             return (
               <Link to={`/smurfs/${smurf.id}`}>
-                <Smurf
-                  name={smurf.name}
-                  id={smurf.id}
-                  age={smurf.age}
-                  height={smurf.height}
+                <SmurfDetails
+                  smurf={{
+                    name: smurf.name,
+                    age: smurf.age,
+                    height: smurf.height,
+                    id: smurf.id
+                  }}
                   key={smurf.id}
                 />
               </Link>
@@ -30,7 +33,13 @@ class Smurfs extends Component {
     );
   }
 }
-
+function SmurfDetails({ smurf }) {
+  return (
+    <Link to={`/smurfs/${smurf.id}`}>
+      <SmurfCard smurf={smurf} />
+    </Link>
+  );
+}
 Smurf.defaultProps = {
   smurfs: []
 };
