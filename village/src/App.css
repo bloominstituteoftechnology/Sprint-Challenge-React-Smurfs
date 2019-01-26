@@ -28,14 +28,39 @@ header a {
   width: 50%;
   margin: 0 auto;
 }
-.delete-btn {
+.btn {
   position: absolute;
   font-size: 3rem;
-  right: 25%;
   top: 50%;
   transform: translateY(-50%);
   cursor: pointer;
 }
-.delete-btn:active {
+.delete {
+  right: 25%;
+}
+.edit {
+  left: 25%;
+}
+.btn:active {
+  transform: translateY(calc(-50% + 2px));
+}
+.update-form {
+  width: 50%;
+  margin: 0 auto;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px;
+}
+.return {
+  position: absolute;
+  top: 50%;
+  left: 25%;
+  transform: translateY(-50%);
+  font-size: 3rem;
+  cursor: pointer;
+}
+.return:active {
   transform: translateY(calc(-50% + 2px));
 }
