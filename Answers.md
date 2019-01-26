@@ -18,5 +18,9 @@
   that the World Wide Web is built on, essentially.
 
 1.  What does CRUD stand for?
+
+- CRUD refers to the operations that are performed across networks between clients
+  and servers, Create, Read, Update, and Delete.
+
 1.  Which HTTP methods can be mapped to the CRUD acronym that we use when interfacing with APIs/Servers.
 1.  Mention three tools we can use to make AJAX requests
