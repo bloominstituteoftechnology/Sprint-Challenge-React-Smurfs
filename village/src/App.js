@@ -17,11 +17,10 @@ class App extends Component {
   }
 
   componentDidMount() {
-   this.addSmurfs()
+   this.getSmurfs()
   }
   
-  addSmurfs()
-  {
+  getSmurfs() {
     axios
     .get(`${baseUrl}/smurfs`)
     .then(res => 
@@ -29,8 +28,8 @@ class App extends Component {
         smurfs: res.data
       }))
       
-          .catch(err => 
-            console.log(err)); 
+    .catch(err => console.log(err))
+    
   }
   
   deleteSmurf = (ev, smurfId) => {
@@ -52,13 +51,13 @@ class App extends Component {
         <nav>
           <h1 className="header">Smurfs Village!!</h1>
         <div className="nav-links"> 
-            <NavLink onClick={() => this.addSmurfs()} to="/">Smurfs List!</NavLink>
-            <NavLink exact to="/smurf-form"> Add Smurf</NavLink>
+            <NavLink onClick={() => this.getSmurfs()} to="/">Smurfs List!</NavLink>
+            <NavLink exact to="/smurf-form">Add Smurf</NavLink>
         </div>
         </nav>
-        <Route exact path="/" render={props => <Smurfs {...props} addSmurfs={this.addSmurfs} smurfs={this.state.smurfs} baseUrl={baseUrl} deleteSmurf={this.deleteSmurf}/>} />
+        <Route exact path="/" render={props => <Smurfs {...props} getSmurfs={this.getSmurfs} smurfs={this.state.smurfs} baseUrl={baseUrl} deleteSmurf={this.deleteSmurf}/>} />
         
-        <Route path="/smurf-form" render={props => <SmurfForm {...props} baseUrl={baseUrl} smurfs={this.state.smurfs} addSmurfs={this.addSmurfs}/>}/>
+        <Route path="/smurf-form" render={props => <SmurfForm {...props} baseUrl={baseUrl} smurfs={this.state.smurfs} getSmurfs={this.getSmurfs}/>}/>
       </div>
     );
   }
