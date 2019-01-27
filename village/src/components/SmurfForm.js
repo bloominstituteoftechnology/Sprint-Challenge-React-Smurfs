@@ -10,41 +10,50 @@ class SmurfForm extends Component {
     };
   }
 
-  addSmurf = event => {
-    event.preventDefault();
-    // add code to create the smurf using the api
+  // *****I got this kind of working, it would post the new smurf to the server, but It wouldn't update on the screen unless i
+  //     refreshed the page, so re-wrote them on App and passed it down, so the setState would re-render
+  // addSmurf = event => {
+  //   event.preventDefault();
+  //   axios.post(`http://localhost:3333/smurfs`, {
+  //     name: this.state.name,
+  //     age: this.state.age,
+  //     height: this.state.height
+  //   })
+  //   .then( response => {
+  //    this.props.smurfs = response.data;
+  //     this.setState({
+  //         name: '',
+  //         age: '',
+  //         height: ''
+  //       })  
+  //   })
+  //   .catch(err => console.log(err));
+  // }
 
-    this.setState({
-      name: '',
-      age: '',
-      height: ''
-    });
-  }
-
-  handleInputChange = e => {
-    this.setState({ [e.target.name]: e.target.value });
-  };
+  // handleInputChange = e => {
+  //   this.setState({ [e.target.name]: e.target.value });
+  // };
 
   render() {
     return (
       <div className="SmurfForm">
-        <form onSubmit={this.addSmurf}>
+        <form onSubmit={this.props.createSmurfHandler}>
           <input
-            onChange={this.handleInputChange}
+            onChange={this.props.inputHandler}
             placeholder="name"
-            value={this.state.name}
+            value={this.props.name}
             name="name"
           />
           <input
-            onChange={this.handleInputChange}
+            onChange={this.props.inputHandler}
             placeholder="age"
-            value={this.state.age}
+            value={this.props.age}
             name="age"
           />
           <input
-            onChange={this.handleInputChange}
+            onChange={this.props.inputHandler}
             placeholder="height"
-            value={this.state.height}
+            value={this.props.height}
             name="height"
           />
           <button type="submit">Add to the village</button>
