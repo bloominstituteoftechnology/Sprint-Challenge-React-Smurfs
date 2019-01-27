@@ -1,3 +1,70 @@
 .App {
   text-align: center;
+ 
 }
+
+h1{
+  margin-left: 30px;
+}
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 16px;
+  border-bottom: 1px solid black;
+  margin-bottom: 32px;
+  background-image: linear-gradient(to bottom right, rgb(111, 163, 223), rgb(190, 223, 233));
+}
+
+.nav-links {
+  display: flex;
+  justify-content: space-around;
+  width: 20%;
+  
+}
+.nav-links a {
+  text-decoration: underline;
+  color:black;
+  font-weight: bold;
+  font-size: 25px;
+  
+}
+
+
+.header {
+  color:black;
+  font-size: 25px;
+  
+}
+
+.button {
+  width: 317px;
+  margin: 15px auto;
+  box-shadow: 0px 5px 5px -3px rgba(0, 0, 0, 0.2),
+    0px 8px 10px 1px rgba(0, 0, 0, 0.14), 0px 3px 14px 2px rgba(0, 0, 0, 0.12);
+  font-size: 25px;
+    
+}
+
+form {
+  margin: 0 auto;
+  width: 200px;
+}
+
+input {
+  border: 1px solid black;
+  font-size: 25px;
+}
+
+
+h3{
+  text-decoration: underline;
+}
+
+.delete-button{
+  box-shadow: 0px 5px 5px -3px rgba(0, 0, 0, 0.2),
+    0px 8px 10px 1px rgba(0, 0, 0, 0.14), 0px 3px 14px 2px rgba(0, 0, 0, 0.12);
+  border: 1px solid black;
+  font-weight: bold;
+}
+
