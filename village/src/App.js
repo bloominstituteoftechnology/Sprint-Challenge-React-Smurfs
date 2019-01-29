@@ -27,9 +27,8 @@ class App extends Component {
   postSmurfToServer = smurf => {
     axios.post('http://localhost:3333/smurfs', smurf)
     .then( response => {
-      const newSmurfs = this.state.smurfs;
-      newSmurfs.push(smurf);
-      this.setState( { smurfs: newSmurfs } )
+      //this.setState( { smurfs: response.data } )
+      this.refresh();
     })
     .catch( err => console.log(err))
     
@@ -46,14 +45,14 @@ class App extends Component {
       <div className="App">
         <ul className="navbar">
           <li>
-            <NavLink exact to="/" activeClassName="activeNavButton">Smurf Village</NavLink>
+            <NavLink to="/" activeClassName="activeNavButton">Smurf Village</NavLink>
           </li>
           <li>
-            <NavLink exact to="/smurf-form" activeClassName="activeNavButton">Add to Village</NavLink>
+            <NavLink to="/smurf-form" activeClassName="activeNavButton">Add to Village</NavLink>
           </li>
         </ul>
         <Route
-          path="/"
+          exact path="/"
           render={props =>
             <Smurfs
               {...props}
@@ -63,7 +62,7 @@ class App extends Component {
           }
         />
         <Route
-          exact path="/smurf-form"
+          path="/smurf-form"
           render={props =>
             <SmurfForm
               {...props}
