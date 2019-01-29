@@ -29,8 +29,11 @@ class App extends Component {
   deleteData = URL => {
     axios
       .delete(URL)
-      .then(response => console.log(response))
-      .then(response => this.getData)
+      // .then(response => console.log(response))
+      .then(response => {
+        console.log(response);
+        this.setState({ smurfs: response.data });
+      })
       .catch(err => console.log(err));
   };
   // add any needed code to ensure that the smurfs collection exists on state and it has data coming from the server
