@@ -1,5 +1,4 @@
 import React from "react";
-import axios from "axios";
 import Smurfs from "./Smurfs";
 
 const Gargamel = props => {
