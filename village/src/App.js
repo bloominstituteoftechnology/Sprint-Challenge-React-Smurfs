@@ -4,6 +4,7 @@ import './App.css';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
 import{Route,Link, NavLink} from "react-router-dom"
+import Smurf from "./components/Smurf";
 
 class App extends Component {
   constructor(props) {
@@ -39,19 +40,22 @@ class App extends Component {
   postHandler=(data)=>{
     this.setState({smurfs:data})
   }
+    updateHandler=(data)=>{
+        this.setState({smurfs:data})
+    }
 
   deleteHandler=(id)=> {
     const axios = require('axios');
     let url = "http://localhost:3333/smurfs/" + id;
 
     console.log(" delete is called " + url);
-    let newThis = this;
+
     axios.delete(url)
-        .then(function (response) {
+        .then(response => {
           console.log("DELETE RESPONSE",response);
           let newdata = response.data;
-          console.log(" This here again " + newThis.state.smurfs);
-          newThis.setState({smurfs:newdata})
+          console.log(" This here again " + this.state.smurfs);
+          this.setState({smurfs:newdata})
         }).catch(function (error) {
       console.log(error);
     });
@@ -72,10 +76,18 @@ class App extends Component {
           <div className="navlink">
             <NavLink to="/">Smurfs</NavLink>
             <NavLink to="/smurf-form">SmurfForm</NavLink>
-          </div>
-         <Route exact path="/" render={(props)=> <Smurfs {...props} smurfs={this.state.smurfs} deleteHandler={this.deleteHandler}  />}/>
-         <Route exact path="/smurf-form" render={(props)=><SmurfForm {...props} postHandler={this.postHandler}/>} />
 
+          </div>
+
+         <Route exact path="/smurf-form" render={(props)=><SmurfForm {...props} postHandler={this.postHandler}/>} />
+         <Route exact path="/smurf-form/:id" render={(props)=><SmurfForm {...props} smurfs={this.state.smurfs} updateHandler={this.updateHandler}/>} />
+
+
+            <div>
+                <Route exact path="/:id" render={(props)=> <Smurf {...props} smurfs={this.state.smurfs} deleteHandler={this.deleteHandler} />} />
+            </div>
+
+            <Route  exact path="/" render={(props)=> <Smurfs {...props} smurfs={this.state.smurfs} deleteHandler={this.deleteHandler}  />}/>
 
         </div>
     );
