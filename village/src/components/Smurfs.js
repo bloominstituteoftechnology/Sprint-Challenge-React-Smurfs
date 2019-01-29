@@ -1,32 +1,44 @@
 import React, { Component } from 'react';
 
 import Smurf from './Smurf';
+import {NavLink, Route,Link} from "react-router-dom";
+import SmurfForm from "../App";
 
 class Smurfs extends Component {
-  render() {
-    return (
-      <div className="Smurfs">
-        <h1>Smurf Village</h1>
-        <ul>
-          {this.props.smurfs.map(smurf => {
-            return (
-              <Smurf
-                name={smurf.name}
-                id={smurf.id}
-                age={smurf.age}
-                height={smurf.height}
-                key={smurf.id}
-              />
-            );
-          })}
-        </ul>
-      </div>
-    );
-  }
+    constructor(props){
+        super(props);
+        this.state={
+
+        }
+
+    }
+
+
+    render() {
+        console.log("Creating route for " + this.props.smurfs);
+
+        return (
+            <div className="Smurfs">
+                <h1>Smurf Village</h1>
+
+                {
+                    this.props.smurfs.map(smurf => {
+                        return (
+                            <div>
+                            <Link to={`/${smurf.id}`}> {smurf.name} </Link>
+                            </div>
+                        );
+                    })
+                }
+
+
+            </div>
+        );
+    }
 }
 
 Smurf.defaultProps = {
- smurfs: [],
+    smurfs: [],
 };
 
 export default Smurfs;
