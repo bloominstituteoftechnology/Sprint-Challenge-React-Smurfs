@@ -38,6 +38,7 @@ header a {
   top: 50%;
   transform: translateY(-50%);
   cursor: pointer;
+  padding: 5px;
 }
 .delete {
   right: 25%;
