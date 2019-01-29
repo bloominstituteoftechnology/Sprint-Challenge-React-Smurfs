@@ -1,0 +1,31 @@
+.nav {
+  display: flex;
+  justify-content: center;
+  &__link {
+    margin: 1rem;
+    padding: 0.25rem 0.5rem;
+  }
+  .active {
+    position: relative;
+    &::before {
+      position: absolute;
+      content: "/";
+      display: block;
+      top: 4px;
+      bottom: -8px;
+      left: -5px;
+      right: 100;
+      color: @clr-highlight;
+    }
+    &::after {
+      position: absolute;
+      content: "/";
+      display: block;
+      top: 4px;
+      bottom: -8px;
+      left: -1px;
+      right: 100;
+      color: @clr-highlight;
+    }
+  }
+}
