@@ -1,0 +1,15 @@
+.Smurfs {
+  max-width: inherit;
+  width: 100%;
+  background-color: #6299ec;
+  color: #ffffff;
+}
+
+ul {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.Smurf {
+  width: 50%;
+}
