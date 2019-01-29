@@ -31,9 +31,10 @@ class App extends Component {
   postSmurf = (newSmurf) => {
     Axios.post('http://localhost:3333/smurfs', newSmurf)
     .then(response => {
-      let newSmurfsList = this.state.smurfs;
-      newSmurfsList.push(newSmurf)
-      this.setState({smurfs: newSmurfsList})
+      console.log(response.data)
+      // let newSmurfsList = this.state.smurfs;
+      // newSmurfsList.push(newSmurf)
+      this.setState({smurfs: response.data})
     })
     .catch(error => {
       console.log(error);
