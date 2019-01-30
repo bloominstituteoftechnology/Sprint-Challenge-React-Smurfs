@@ -29,6 +29,7 @@ const Smurfs = props => {
           );
         })}
       </ul>
+      <Link to="/">Gargamel is Coming! Flee the Village!</Link>
     </div>
   );
 };
