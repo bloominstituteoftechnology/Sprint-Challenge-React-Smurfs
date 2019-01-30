@@ -23,7 +23,10 @@ const Smurfs = props => {
                   }
                 }}
               >
-                {smurf.name}
+                { (smurf.name === 'Smurfette') ? 
+                <p>{smurf.name} </p> :
+                <p>{smurf.name} Smurf</p> 
+                }
               </Link>
             </li>
           );

@@ -16,9 +16,9 @@ const sendUserError = (msg, res) => {
 let smurfs = [
   {
     id: 0,
-    name: 'Brainy Smurf',
+    name: 'Brainy',
     age: 200,
-    height: '8cm'
+    height: '8'
   },
   {
     id: 1,
@@ -28,7 +28,7 @@ let smurfs = [
   },
   {
     id: 2,
-    name: 'Papa Smurf',
+    name: 'Papa',
     age: 675,
     height: '8cm'
   }

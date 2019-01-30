@@ -9,7 +9,10 @@ const Smurf = props => {
     <div className="smurf-list">
       <h3>ID: {props.match.params.id}</h3>
       <div className="smurf-list-card">
-        <p>NAME: {props.location.state.name} Smurf</p>
+        { (props.location.state.name === 'Smurfette') ? 
+                <p>NAME: {props.location.state.name} </p> :
+                <p>NAME: {props.location.state.name} Smurf</p> 
+        }
         <br />
         <p>AGE: {props.location.state.age} smurf years</p>
         <br />
