@@ -1,15 +1,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import SmurfForm from './SmurfForm';
 
 const Smurfs = props => {
   console.log(props, "list");
   return (
     <div className="smurf-list">
+      <SmurfForm addSmurf={props.addSmurf} handleChange={props.handleInputChange}/>
       <h3>Smurf List View</h3>
       <ul >
         {props.smurfs.map(smurf => {
           return (
-            <li key={smurf.id}>
+            <li key={smurf.id + smurf.name}>
               <Link
                 to={{
                   pathname: `/village/${smurf.id}`,

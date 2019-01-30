@@ -8,12 +8,12 @@ const Smurf = props => {
   return (
     <div className="smurf-list">
       <h3>ID: {props.match.params.id}</h3>
-      <div>
-        NAME: {props.location.state.name}
+      <div className="smurf-list-card">
+        <p>NAME: {props.location.state.name} Smurf</p>
         <br />
-        AGE: {props.location.state.age}
+        <p>AGE: {props.location.state.age} smurf years</p>
         <br />
-        HEIGHT: {props.location.state.height}
+        <p>HEIGHT: {props.location.state.height} cm</p>
         <br />
       </div>
       <ul>

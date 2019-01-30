@@ -5,11 +5,11 @@
 
 .smurf-list {
     list-style-type: none;
-    background-color: ivory;
+    background-color: rgba(255, 255, 240, .7);
     padding: 40px;
     display:flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
     width: 500px;
     height: 500px;
@@ -18,6 +18,52 @@
 .smurf-list li {
     list-style-type: none;
     width: 100%;
-    margin: -5px;
+    margin-right: 30px;
     height: 75px;
+    text-align: left;
+}
+
+
+.smurf-list-card {
+    height: 300px;
+    width: 300px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: rgb(112, 112, 202);
+
+}
+
+.smurf-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.smurf-form div {
+    width: 100%;
+    display: flex;
+}
+
+.smurf-form input {
+    height: 25px;
+    margin: 10px;
+}
+
+.smurf-form button {
+    background-color: royalblue;
+    width: 33%;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.smurf-form button:hover{
+    box-shadow: 3px 3px 3px gray;
 }
