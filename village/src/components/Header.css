@@ -1,0 +1,29 @@
+
+.text-container {
+    background: rgba(255, 255, 255, .85);
+    height: 200px;
+    width: auto;
+    padding: 40px;
+    box-shadow: 4px 4px 4px gray;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+} 
+
+.text-container a {
+    width: 300px;
+    height: 50px;
+    background-color: rgb(119, 119, 164);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bolder;
+    text-decoration: none;
+}
+
+.text-container a:hover {
+    box-shadow: 4px 4px 4px gray;
+
+}

@@ -1,0 +1,23 @@
+.smurf-link {
+    background: transparent!important;
+    color: blue !important;
+}
+
+.smurf-list {
+    list-style-type: none;
+    background-color: ivory;
+    padding: 40px;
+    display:flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 500px;
+    height: 500px;
+}
+
+.smurf-list li {
+    list-style-type: none;
+    width: 100%;
+    margin: -5px;
+    height: 75px;
+}

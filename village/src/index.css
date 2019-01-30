@@ -2,22 +2,12 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
-}
+  background-image: url("./Smurf_Village.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  display:flex;
+  justify-content: center;
+  align-items: center;
 
-.home-button{
-  display: flex;
-  text-decoration: none;
-  background-color: skyblue;
-  color: whitesmoke;
-  
-}
-
-.add-button{
-  background-color: white;
-  color: skyblue;
-  font-weight: bolder;
-}
-
-li{
-  list-style: none;
 }

@@ -1,18 +1,28 @@
 import React from 'react';
-import { Route, Link } from 'react-router-dom';
-import axios from 'axios';
-import Smurfs from './Smurfs';
+import { Link } from 'react-router-dom';
+import "./Smurf.css";
 
-const Smurf = (props) => {
-    return (
-    <div>
-      {}
-      <h1>Name: <Link to = {`/smurfs/profile/${props.id}`}>{props.name}</Link></h1>
-      <h2>Height: {props.height}cm</h2>
-      <h3>Age: {props.age} smurf years</h3>
-      <Link to='/smurfs'>Back to the Village</Link>
+
+const Smurf = props => {
+  console.log("SmurfDetail props", props);
+  return (
+    <div className="smurf-list">
+      <h3>ID: {props.match.params.id}</h3>
+      <div>
+        NAME: {props.location.state.name}
+        <br />
+        AGE: {props.location.state.age}
+        <br />
+        HEIGHT: {props.location.state.height}
+        <br />
+      </div>
+      <ul>
+        <li>
+          <Link to="/village"> Back to the Village</Link>
+        </li>
+      </ul>
     </div>
-    )
-  }
+  );
+};
 
-  export default Smurf;
+export default Smurf;
