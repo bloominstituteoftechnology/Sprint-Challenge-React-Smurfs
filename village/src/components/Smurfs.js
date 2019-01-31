@@ -1,6 +1,7 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
+import { Route, Link, NavLink } from "react-router-dom";
 
-import Smurf from './Smurf';
+import Smurf from "./Smurf";
 
 class Smurfs extends Component {
   render() {
@@ -20,13 +21,16 @@ class Smurfs extends Component {
             );
           })}
         </ul>
+         {/*<Link to={"/smurf-form"} className="link">
+          <div className="button">Add a Smurf Now!</div>
+        </Link>*/}
       </div>
     );
   }
 }
 
 Smurf.defaultProps = {
- smurfs: [],
+  smurfs: []
 };
 
 export default Smurfs;
