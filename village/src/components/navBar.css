@@ -1,0 +1,26 @@
+.navBar {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    background: #623E7E;
+    padding: 20px;
+}
+
+.navLink {
+    text-decoration: none;
+    background: white;
+    color: #623E7E;
+    margin: 20px;
+    padding: 10px;
+}
+
+/* why isn't this finding the link? */
+/* .navlink .left {
+    box-shadow: -8px 10px 5px 0px green;
+    background: green;
+    
+} */
+
+.selectedLink {
+    border-radius: 7px;
+}
