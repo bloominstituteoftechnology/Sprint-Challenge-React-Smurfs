@@ -11,8 +11,8 @@ class SmurfForm extends Component {
     };
   }
 
-  addSmurf = event => {
-    event.preventDefault();
+  addSmurf = () => {
+    // event.preventDefault();
     // add code to create the smurf using the api
     const newSmurf = this.state;
       axios
@@ -22,6 +22,9 @@ class SmurfForm extends Component {
               this.setState({
                   smurfs: response.data
               })
+          })
+          .catch(error => {
+              console.log(error.response)
           })
   }
 
