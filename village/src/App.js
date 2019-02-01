@@ -10,6 +10,11 @@ class App extends Component {
     super(props);
     this.state = {
       smurfs: [],
+        newSmurf: {
+          name: '',
+            age: '',
+            height: ''
+        }
     };
   }
   componentDidMount() {
@@ -23,7 +28,13 @@ class App extends Component {
             console.log(error)
         })
   };
-
+  handleChanges = event => {
+      this.setState({
+        newSmurf: {
+            ...this.state.newSmurf, [event.target.name]: event.target.value
+        }
+      })
+  }
   // add any needed code to ensure that the smurfs collection exists on state and it has data coming from the server
   // Notice what your map function is looping over and returning inside of Smurfs.
   // You'll need to make sure you have the right properties on state and pass them down to props.
@@ -31,7 +42,7 @@ class App extends Component {
     return (
       <div className="App">
         <SmurfForm />
-        <Smurfs smurfs={this.state.smurfs} />
+        <Smurfs smurfs={this.state.smurfs} handleChanges={this.handleChanges} />
       </div>
     );
   }
