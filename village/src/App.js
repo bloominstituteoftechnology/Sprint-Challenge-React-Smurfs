@@ -10,11 +10,6 @@ class App extends Component {
     super(props);
     this.state = {
       smurfs: [],
-        newSmurf: {
-          name: '',
-            age: '',
-            height: ''
-        }
     };
   }
   componentDidMount() {
