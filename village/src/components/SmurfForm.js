@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { EventEmitter } from '../events';
 
 class SmurfForm extends Component {
   constructor(props) {
@@ -12,13 +13,15 @@ class SmurfForm extends Component {
 
   addSmurf = event => {
     event.preventDefault();
-    // add code to create the smurf using the api
-
+    const { name, age, height } = this.state;
+    let newSmurf = { name, age, height }
+    EventEmitter.dispatch('addSmurf', newSmurf);
     this.setState({
       name: '',
       age: '',
       height: ''
     });
+    alert(`${name} added! Click View Smurfs to see the Village.`)
   }
 
   handleInputChange = e => {
@@ -28,26 +31,30 @@ class SmurfForm extends Component {
   render() {
     return (
       <div className="SmurfForm">
-        <form onSubmit={this.addSmurf}>
+        <img className='form-builder' src={require('../images/smurf.jpg')} alt='Builder Smurf'/>
+        <form className='add-form' onSubmit={this.addSmurf}>Enter Smurf Details:
           <input
+            className='input-add'
             onChange={this.handleInputChange}
             placeholder="name"
             value={this.state.name}
             name="name"
           />
           <input
+            className='input-add'
             onChange={this.handleInputChange}
             placeholder="age"
             value={this.state.age}
             name="age"
           />
           <input
+            className='input-add'
             onChange={this.handleInputChange}
             placeholder="height"
             value={this.state.height}
             name="height"
           />
-          <button type="submit">Add to the village</button>
+          <button className='submit-add' type="submit">Add to the village</button>
         </form>
       </div>
     );
