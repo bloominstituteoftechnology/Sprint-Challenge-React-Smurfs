@@ -59,8 +59,8 @@ class App extends Component {
               <Smurfs smurfs={this.state.smurfs} />
           )} />
 
-          <Route path='/smurf-form' render={() => (
-              <SmurfForm smurfs={this.state.smurfs} addSmurf={this.addSmurf} handleChanges={this.handleInputChange} />
+          <Route path='/smurf-form' render={props => (
+              <SmurfForm smurfs={this.state.smurfs} onSubmit={this.addSmurf} onChange={this.handleInputChange}  {...props} />
           )} />
       </div>
     );
