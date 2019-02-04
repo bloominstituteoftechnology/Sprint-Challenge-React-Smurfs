@@ -11,6 +11,11 @@ class App extends Component {
     super(props);
     this.state = {
       smurfs: [],
+        newSmurf: {
+          name:'',
+            age: '',
+            height: ''
+        }
     };
   }
   componentDidMount() {
@@ -27,9 +32,10 @@ class App extends Component {
     addSmurf = event => {
         event.preventDefault();
         // add code to create the smurf using the api
-        const newSmurf = this.state;
+        let newSmurf = this.state.newSmurf;
         axios
             .post('http://localhost:3333/smurfs', newSmurf)
+            // alert(JSON.stringify(newSmurf))
             .then(response => {
                 console.log(response.data);
                 this.setState({
@@ -41,8 +47,18 @@ class App extends Component {
             })
     }
 
-    handleInputChange = e => {
-        this.setState({ [e.target.name]: e.target.value });
+    // handleInputChange = e => {
+    //     this.setState({
+    //         [e.target.name]: e.target.value
+    //     });
+    // };
+    handleInputChange = event => {
+        // alert('test')
+        this.setState({
+            newSmurf: {
+                ...this.state.newSmurf, [event.target.name]: event.target.value
+            }
+        })
     };
   // add any needed code to ensure that the smurfs collection exists on state and it has data coming from the server
   // Notice what your map function is looping over and returning inside of Smurfs.
@@ -60,7 +76,7 @@ class App extends Component {
           )} />
 
           <Route path='/smurf-form' render={props => (
-              <SmurfForm smurfs={this.state.smurfs} onSubmit={this.addSmurf} onChange={this.handleInputChange}  {...props} />
+              <SmurfForm smurfs={this.state.smurfs} addSmurf={this.addSmurf} handleInputChange={this.handleInputChange}  {...props} />
           )} />
       </div>
     );
