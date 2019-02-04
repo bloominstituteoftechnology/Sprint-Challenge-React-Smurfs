@@ -22,7 +22,7 @@ function SmurfForm(props) {
             value={props.height}
             name="height"
           />
-          <button type="submit">Add to the village</button>
+          <button type="submit" onClick={props.addSmurf}>Add to the village</button>
         </form>
       </div>
     );

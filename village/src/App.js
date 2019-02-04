@@ -51,11 +51,11 @@ class App extends Component {
     return (
       <div className="App">
           <div>
-              <NavLink exact to='/' activeClassName="activeNavButton">Home</NavLink>
+              <NavLink exact to='/smurfs' activeClassName="activeNavButton">Home</NavLink>
               <NavLink to='/smurf-form' activeClassName="activeNavButton">Add Smurf</NavLink>
           </div>
 
-          <Route exact path='/' render={() => (
+          <Route exact path='/smurfs' render={() => (
               <Smurfs smurfs={this.state.smurfs} />
           )} />
 
