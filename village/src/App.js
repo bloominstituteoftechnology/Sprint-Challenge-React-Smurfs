@@ -3,7 +3,7 @@ import axios from 'axios';
 import './App.css';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link, NavLink } from "react-router-dom";
 
 class App extends Component {
   constructor(props) {
@@ -21,6 +21,7 @@ class App extends Component {
       .catch(err => console.log("Wrong ", err));
       console.log(this.state)
   }
+
  
   // add any needed code to ensure that the smurfs collection exists on state and it has data coming from the server
   // Notice what your map function is looping over and returning inside of Smurfs.
@@ -30,6 +31,13 @@ class App extends Component {
     return (
      
       <div className="App">
+      <nav>
+      <ul>
+        <li><NavLink to='/'>Smurfs List</NavLink></li>
+        <li><NavLink to='/smurf-form'>SmurfForm</NavLink></li>
+      </ul>
+    </nav>
+     
       <Route exact path="/" render={() => <Smurfs smurfs={this.state.smurfs} />} />
 
        <Route path="/smurf-form" component={SmurfForm} />
