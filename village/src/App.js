@@ -23,6 +23,33 @@ class App extends Component {
 	// state and it has data coming from the server
 	// Notice what your map function is looping over and returning inside of Smurfs.
 	// You'll need to make sure you have the right properties on state and pass them down to props.
+	componentDidMount() {
+		axios
+			.get(`http://localhost:3333/smurfs`)
+			.then((res) => {
+				console.log('fetch smurf:', res.date);
+				this.setState({
+					sumrfs: res.data
+				});
+			})
+			.catch((err) => {
+				console.log('error:', err);
+			});
+		this.setState({
+			smurfs: []
+		});
+	}
+	addSmurf = (prop) => {
+		axios
+			.post(`http://localhost:3333/smurfs`, prop)
+			.then((res) => {
+				console.log('post:', res);
+				this.setState({
+					smurfs: res.data
+				});
+			})
+			.catch((err) => console.log(err));
+	};
 	render() {
 		return (
 			<div className="App">
