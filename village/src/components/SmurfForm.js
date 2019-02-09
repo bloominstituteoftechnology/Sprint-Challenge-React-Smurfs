@@ -1,24 +1,33 @@
 import React, { Component } from 'react';
+import { Button, FormGroup, Form, Input, Tooltip, Row, Col, Container } from 'reactstrap';
 
-class SmurfForm extends Component {
+export default class SmurfForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
       name: '',
       age: '',
-      height: ''
+      height: '',
+      tooltipOpen:false
     };
   }
+  
+  toggleToolTip = () => this.setState({tooltipOpen: !this.state.tooltipOpen})
 
   addSmurf = event => {
     event.preventDefault();
-    // add code to create the smurf using the api
-
+    const smurf = {
+      name: this.state.name,
+      age: this.state.age,
+      height: this.state.height
+    }
+    this.props.smurfsPost(smurf)
     this.setState({
       name: '',
       age: '',
       height: ''
     });
+    this.props.history.push('/');
   }
 
   handleInputChange = e => {
@@ -26,32 +35,25 @@ class SmurfForm extends Component {
   };
 
   render() {
-    return (
-      <div className="SmurfForm">
-        <form onSubmit={this.addSmurf}>
-          <input
-            onChange={this.handleInputChange}
-            placeholder="name"
-            value={this.state.name}
-            name="name"
-          />
-          <input
-            onChange={this.handleInputChange}
-            placeholder="age"
-            value={this.state.age}
-            name="age"
-          />
-          <input
-            onChange={this.handleInputChange}
-            placeholder="height"
-            value={this.state.height}
-            name="height"
-          />
-          <button type="submit">Add to the village</button>
-        </form>
-      </div>
-    );
+    return  <Container>
+                <Row>
+                    <Col xs={{ size: 8, offset: 2 }}>
+                    <Form onSubmit={this.addSmurf}>
+                        <FormGroup>
+                            <Input onChange={this.handleInputChange} placeholder="name" value={this.state.name} name="name"></Input>
+                            <Input onChange={this.handleInputChange} placeholder="age" value={this.state.age} name="age" ></Input>
+                            <Input onChange={this.handleInputChange} placeholder="height" value={this.state.height} name="height"></Input>
+                            <Button block id="add" color="info" type="submit" onClick={this.addSmurf}>Add to the village</Button>
+                            <Tooltip placement="bottom" isOpen={this.state.tooltipOpen} target="add" toggle={this.toggleToolTip}>
+                                Add a Smurf!
+                            </Tooltip>
+                        </FormGroup>
+                    </Form>
+                    </Col>
+                        <img src={require("../assets/form-image.jpg")} alt='Smurf'/>
+                    <Col xs="6">
+                    </Col>
+                </Row>
+            </Container>      
   }
 }
-
-export default SmurfForm;
