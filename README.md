@@ -78,6 +78,7 @@ Construct your Components to build a Single Page Application. Keep your componen
   age: 323,
   height: '5cm'
 }
+
 ```
 
 ### Stage 2
