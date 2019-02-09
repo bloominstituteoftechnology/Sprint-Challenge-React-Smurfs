@@ -1,5 +1,20 @@
 import React, { Component } from 'react';
 
+import styled from 'styled-components';
+
+const FormContainer = styled.div`
+    align-items: center;
+    margin: 0 auto;
+    padding-top: 20px;
+    max-width: 400px;
+    width: 100%;
+    height: 1000px;
+
+    input {
+      background: white;
+    }
+`;
+
 class SmurfForm extends Component {
   constructor(props) {
     super(props);
@@ -14,11 +29,21 @@ class SmurfForm extends Component {
     event.preventDefault();
     // add code to create the smurf using the api
 
+    const newSmurf = {
+      name: this.state.name,
+      age: this.state.age,
+      height: this.state.height,
+    }
+
+    this.props.add(newSmurf)
+
     this.setState({
       name: '',
       age: '',
       height: ''
     });
+
+    event.target.reset();
   }
 
   handleInputChange = e => {
@@ -27,7 +52,7 @@ class SmurfForm extends Component {
 
   render() {
     return (
-      <div className="SmurfForm">
+      <FormContainer>
         <form onSubmit={this.addSmurf}>
           <input
             onChange={this.handleInputChange}
@@ -49,7 +74,7 @@ class SmurfForm extends Component {
           />
           <button type="submit">Add to the village</button>
         </form>
-      </div>
+      </FormContainer>
     );
   }
 }
