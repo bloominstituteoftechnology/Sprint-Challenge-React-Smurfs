@@ -1,3 +1,97 @@
 .App {
   text-align: center;
 }
+
+nav {
+  position: sticky;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  height: 40px;
+  background: #0D2A32;
+}
+
+nav a {
+  text-decoration: none;
+  color: #65D7D7;
+  font-weight: bold;
+  padding: 10px;
+}
+
+.active {
+  background: #65D7D7;
+  color: #0D2A32;
+}
+
+.Smurfs h1 {
+  color: #0D2A32;
+}
+
+.Smurfs ul {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0;
+}
+
+.SingleSmurf {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.Smurf {
+  position: relative;
+  width: 250px;
+  padding: 10px;
+  background: #0D2A32;
+  color: #65D7D7;
+  border: 2px solid #65D7D7;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.Smurf .fa-edit {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  color: green;
+  cursor: pointer;
+}
+
+.Smurf .fa-trash-alt {
+  color: red;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  cursor: pointer;
+}
+
+.Smurf a {
+  text-decoration: none;
+  color: #65D7D7;
+}
+
+.SmurfForm h1 {
+  color: #0D2A32;
+}
+
+.SmurfForm form input {
+  width: 150px;
+  height: 25px;
+  font-size: 0.9rem;
+  padding: 5px;
+  margin-right: 10px;
+  margin-bottom: 20px;
+}
+
+.SmurfForm form button {
+  background: #0D2A32;
+  color: #65D7D7;
+  font-size: 1rem;
+  padding: 5px 10px;
+  border: 1px solid #65D7D7;
+  border-radius: 5px;
+}
