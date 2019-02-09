@@ -2,3 +2,6 @@
 	text-align: center;
 	background-color: skyblue;
 }
+h2 {
+	text-decoration: inherit;
+}
