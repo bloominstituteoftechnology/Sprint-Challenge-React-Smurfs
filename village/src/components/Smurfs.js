@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import PropTypes from 'prop-types';
 import Smurf from './Smurf';
 
 class Smurfs extends Component {
@@ -23,6 +23,10 @@ class Smurfs extends Component {
       </div>
     );
   }
+}
+
+Smurfs.propTypes = {
+  smurfs: PropTypes.array
 }
 
 Smurf.defaultProps = {

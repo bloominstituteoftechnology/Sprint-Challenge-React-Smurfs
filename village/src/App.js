@@ -9,7 +9,13 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      smurfs: [],
+      smurfs: [{
+        name: '',
+        id: '',
+        height: '',
+        age: '',
+        key: ''
+      }],
     };
   }
   // add any needed code to ensure that the smurfs collection exists on state and it has data coming from the server
@@ -24,7 +30,7 @@ class App extends Component {
     .catch(err => {
       throw new Error(err);
     })
-  };
+  }
 
   render() {
     return (
