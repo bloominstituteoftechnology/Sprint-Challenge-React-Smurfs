@@ -3,6 +3,7 @@ import axios from "axios";
 import './App.css';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
+import { Route, NavLink } from 'react-router-dom';
 
 class App extends Component {
   constructor(props) {
@@ -18,15 +19,33 @@ class App extends Component {
   componentDidMount() {
     axios
       .get("http://localhost:3333/smurfs")
-      .then(res => this.setState({ smurfs: res.data }))
-      .catch(error => console.log(error))
-  }
+      .then(response =>{
+         this.setState(() => ({ smurfs: response.data }))
+        })
+      .catch(error =>
+         console.log(error))
+  };
 
   render() {
     return (
       <div className="App">
-        <SmurfForm />
-        <Smurfs smurfs={this.state.smurfs} />
+          <nav>
+          <NavLink to="/">Village</NavLink>
+          <NavLink to="/smurf-form">Add</NavLink>
+        </nav>
+
+        <Route
+          path='/' 
+          render={props =>(
+          <Smurfs smurfs={this.state.smurfs} {...props}/>)}
+          />
+
+        <Route 
+          path = '/smurf-form'
+          render ={props =>(
+          <SmurfForm {...props}/>
+        )}
+        />
       </div>
     );
   }
