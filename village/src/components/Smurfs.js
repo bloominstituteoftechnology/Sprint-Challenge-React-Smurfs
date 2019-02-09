@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Smurf from './Smurf';
 
 class Smurfs extends Component {
@@ -23,6 +23,7 @@ class Smurfs extends Component {
             );
           })}
         </ul>
+        <Link to="/smurf-form">Form</Link>
       </div>
     );
   }
