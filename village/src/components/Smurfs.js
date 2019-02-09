@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 import Smurf from './Smurf';
 
@@ -10,13 +11,21 @@ class Smurfs extends Component {
         <ul>
           {this.props.smurfs.map(smurf => {
             return (
-              <Smurf
-                name={smurf.name}
-                id={smurf.id}
-                age={smurf.age}
-                height={smurf.height}
-                key={smurf.id}
-              />
+              <div key={smurf.id}>
+                <Smurf
+                  name={smurf.name}
+                  id={smurf.id}
+                  age={smurf.age}
+                  height={smurf.height}
+                  key={smurf.id}
+                />
+              <button onClick={() => this.props.handleDeleteSmurf(smurf.id)}>DELETE</button>
+              <button onClick={event => this.props.goToUpdateSmurfForm(event, smurf.id)}>
+                <Link to="/smurf-form">
+                UPDATE
+                </Link>
+              </button>
+              </div>
             );
           })}
         </ul>
