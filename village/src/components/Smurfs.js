@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
-
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Smurf from './Smurf';
 
 class Smurfs extends Component {
+
+
   render() {
+    console.log(this.props)
     return (
       <div className="Smurfs">
         <h1>Smurf Village</h1>
@@ -20,6 +23,7 @@ class Smurfs extends Component {
             );
           })}
         </ul>
+        <Link to="/smurf-form">Form</Link>
       </div>
     );
   }
