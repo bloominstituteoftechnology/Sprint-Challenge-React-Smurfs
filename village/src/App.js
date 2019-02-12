@@ -5,6 +5,7 @@ import { Route, NavLink } from "react-router-dom";
 import './App.css';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
+import Header from './components/Header';
 
 
 class App extends Component {
@@ -48,12 +49,17 @@ class App extends Component {
             Add A Smurf
           </NavLink>
         </nav>
+
+        <Route 
+          exact path ="/" 
+          component={Header}
+        />
         <Route
-          exactpath="/"
+          exact path="/smurfs"
           render={props => <Smurfs {...props} smurfs={this.state.smurfs}/>}
         />
         <Route
-          exact path="/smurf-form"
+          path="/smurf-form"
           render={props => <SmurfForm {...props} />}
         />
       </div>
