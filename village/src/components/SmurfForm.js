@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './styles.css';
 
 class SmurfForm extends Component {
   constructor(props) {
@@ -19,9 +20,11 @@ class SmurfForm extends Component {
     this.props.postSmurf(event, this.state.smurf);
 
     this.setState({
+      smurf : {
       name: '',
       age: '',
       height: ''
+      }
     });
   }
 
@@ -41,6 +44,7 @@ class SmurfForm extends Component {
     return (
       <div className="SmurfForm">
         <form onSubmit={this.addSmurf}>
+          <h1>Don't forget to add YOUR favorite SMURF HERE!!!</h1>
           <input
             onChange={this.handleInputChange}
             placeholder="name"

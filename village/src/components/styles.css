@@ -1,0 +1,43 @@
+
+form {
+    display: flex;
+    flex-direction: column;
+    margin: 25px auto;
+    width: 25%
+}
+
+form h1:hover {
+    text-shadow: 0 0 10px blue;
+}
+
+input {
+    margin: 15px 0;
+    padding: 10px;
+    text-align: center;
+    font-size: 18px;
+}
+
+.SmurfForm button {
+    background: black;
+    color: white;
+    padding: 20px 0;
+    border-radius: 10px;
+    font-size: 18px;
+
+}
+
+.SmurfForm button:hover {
+    background: grey;
+}
+
+
+
+
+.Smurf {
+    border: 1px solid black;
+    margin: 15px;
+}
+
+.Smurf:hover {
+    background: wheat;  
+}
