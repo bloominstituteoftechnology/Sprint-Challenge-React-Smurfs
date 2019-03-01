@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './styles.css';
+import {Link} from 'react-router-dom';
 
 class SmurfForm extends Component {
   constructor(props) {
@@ -67,6 +68,7 @@ class SmurfForm extends Component {
             type = "text"
           />
           <button type="submit">Add to the village</button>
+          <button> <Link to = "/"> Go to the Village  </Link></button>
         </form>
       </div>
     );

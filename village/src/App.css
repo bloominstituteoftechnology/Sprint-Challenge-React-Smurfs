@@ -1,3 +1,26 @@
 .App {
   text-align: center;
+  background: rgb(196, 195, 195);
+  background-size: cover;
+  padding-bottom: 25px;
 }
+
+.nav-bar {
+  text-decoration: none;
+  border-bottom: 5px double black;
+  padding-bottom: 25px;
+  padding-top: 25px;
+  background: rgb(184, 167, 167); 
+  display: flex;
+  justify-content: space-around;
+}
+
+.nav-links {
+  text-decoration: none;
+  font-size: 18px;
+  color: blue;
+}
+
+  .activeLink {
+    border-bottom: 5px solid black;
+  }

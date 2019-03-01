@@ -1,8 +1,11 @@
+.SmurfForm {
+    height: 100vh;
+}
 
 form {
     display: flex;
     flex-direction: column;
-    margin: 25px auto;
+    margin: 0px auto;
     width: 25%
 }
 
@@ -15,21 +18,32 @@ input {
     padding: 10px;
     text-align: center;
     font-size: 18px;
+    border: 1px solid black;
 }
 
-.SmurfForm button {
+button {
     background: black;
     color: white;
     padding: 20px 0;
     border-radius: 10px;
     font-size: 18px;
+    margin-top: 7px;
 
 }
 
-.SmurfForm button:hover {
+button:hover {
     background: grey;
+    border: 2px solid red;
 }
 
+.smurfBtn {
+    background: black;
+    color: white;
+    padding: 20px 0;
+    border-radius: 10px;
+    font-size: 18px;
+    width: 300px;
+}
 
 
 
