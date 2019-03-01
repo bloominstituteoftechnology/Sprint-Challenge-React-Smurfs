@@ -1,6 +1,6 @@
 1.  Explain the differences between `client-side routing` and `server-side routing`.
 
-        Server-side will only request the data that is needed, which means every request will result 
+        Server-side will only request the data that is needed, which means every new request will result 
         in a new refresh. But the initial load time is faster.
 
         Client-side loads the whole web/app on the first request, so the initial load time is
@@ -26,8 +26,8 @@
 
 
 1.  Mention three tools we can use to make AJAX requests.
-
-    fetch(), ---> Kicks of the request.
-        .get()
-        .then(),
-        .catch()
+    
+    axios
+    fetch()
+    get()
+        
