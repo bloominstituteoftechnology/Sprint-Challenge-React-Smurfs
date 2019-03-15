@@ -4,7 +4,7 @@ import './App.css';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
 import axios from 'axios';
-import { Route } from 'react-router-dom';
+import { Route, NavLink } from 'react-router-dom';
 
 class App extends Component {
   constructor(props) {
@@ -39,16 +39,21 @@ class App extends Component {
         smurfs: response.data
       })
     })
-    .catch(error => console.log('Nope!', error))
+    .catch(error => console.log(error))
   }
 
   render() {
     return (
       <div className="App">
-        <SmurfForm postSmurf = {this.postSmurf} />
-        <Smurfs smurfs={this.state.smurfs} />
-        <Route path='/' component={Smurfs} />
-        <Route path='/smurf-form' component={SmurfForm} />
+        <nav className='nav-link'>
+          <NavLink exact to='/'>Smurf</NavLink>
+          <NavLink to='/smurf-form'>Smurfs Form</NavLink>
+          {/* <SmurfForm postSmurf = {this.postSmurf} />
+          <Smurfs smurfs={this.state.smurfs} /> */}
+        </nav>
+
+        <Route exact path='/' render={() => <Smurfs smurfs={this.state.smurfs} />} />
+        <Route path='/smurf-form' render={() => <SmurfForm postSmurf={this.postSmurf} />} />
       </div>
     );
   }
