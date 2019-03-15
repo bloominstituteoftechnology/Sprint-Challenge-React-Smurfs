@@ -3,21 +3,18 @@
 }
 
 .Smurf{
-  background-color: lightblue;
+  border: 1px solid black;
+  border-radius: 5px;
+  background-color: rgb(52, 133, 160);
   width: 200px;
   display: inline-block;
-  margin-left: 5px;
+  margin-right: 35px;
 }
 
 .navlink {
   display: flex;
   justify-content: space-evenly;
-  font-size: 2em;
+  font-size: 1.5em;
   height: 50px;
-  text-decoration: none;
-  background-color: dodgerblue;
-
+  background-color: rgb(46, 99, 247);
 }
-.navlink NavLink {
-  text-decoration: none;
-} 
