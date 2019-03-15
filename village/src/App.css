@@ -19,6 +19,9 @@
 button {
   background: lightblue;
   border: 1px solid black;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-right: 10px;
 }
 input {
   border: 1px solid black;

@@ -30,8 +30,7 @@ class App extends Component {
     })
   }
 
-  postSmurf = (event, smurf) => {
-    event.preventDefault();
+  postSmurf = (smurf) => {
     axios
     .post('http://localhost:3333/smurfs', smurf)
     .then( response => {
