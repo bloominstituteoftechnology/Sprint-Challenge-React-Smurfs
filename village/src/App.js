@@ -4,6 +4,7 @@ import './App.css';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
 import axios from 'axios';
+import { Route } from 'react-router-dom';
 
 class App extends Component {
   constructor(props) {
@@ -19,8 +20,10 @@ class App extends Component {
   componentDidMount() {
     axios 
     .get('http://localhost:3333/smurfs')
-    .then( res => {
-      this.setState(() => ({ smurfs: res.data }))
+    .then( response => {
+      this.setState({ 
+        smurfs: response.data 
+      })
     })
     .catch(error => {
       console.log('Not that!', error);
@@ -31,9 +34,9 @@ class App extends Component {
     event.preventDefault();
     axios
     .post('http://localhost:3333/smurfs', smurf)
-    .then( res => {
+    .then( response => {
       this.setState({
-        smurfs: res.data
+        smurfs: response.data
       })
     })
     .catch(error => console.log('Nope!', error))
@@ -44,6 +47,8 @@ class App extends Component {
       <div className="App">
         <SmurfForm postSmurf = {this.postSmurf} />
         <Smurfs smurfs={this.state.smurfs} />
+        <Route path='/' component={Smurfs} />
+        <Route path='/smurf-form' component={SmurfForm} />
       </div>
     );
   }
