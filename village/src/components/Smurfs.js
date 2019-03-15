@@ -21,7 +21,7 @@ class Smurfs extends Component {
             );
           })}
         </ul>
-        <Link to='/smurf-form'>Add a Smurf</Link>
+        <Link to='/smurf-form' className='ilink'>Add a Smurf</Link>
       </div>
     );
   }

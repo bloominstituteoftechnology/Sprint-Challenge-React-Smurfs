@@ -17,6 +17,7 @@ class SmurfForm extends Component {
     event.preventDefault();
     // add code to create the smurf using the api
     this.props.postSmurf(event, this.state.smurf);
+    
     this.setState({
       name: '',
       age: '',
@@ -26,11 +27,11 @@ class SmurfForm extends Component {
 
   handleInputChange = e => {
     e.persist();
-    this.setState( prevState => {
+    this.setState(prevState => {
       return {
-      smurf: {
-        ...prevState.smurf,
-         [e.target.name]: e.target.value
+        smurf: {
+         ...prevState.smurf,
+           [e.target.name]: e.target.value
         }
       }
     })
@@ -62,7 +63,7 @@ class SmurfForm extends Component {
             type='text'
           />
           <button type="submit">Add to the village</button>
-          <Link to='/'>Go to Village</Link>
+          <Link to='/'className='ilink'>Go to Village</Link>
         </form>
       </div>
     );

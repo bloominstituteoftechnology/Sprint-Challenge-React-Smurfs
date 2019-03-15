@@ -35,6 +35,7 @@ class App extends Component {
     axios
     .post('http://localhost:3333/smurfs', smurf)
     .then( response => {
+      console.log(response)
       this.setState({
         smurfs: response.data
       })
@@ -46,8 +47,8 @@ class App extends Component {
     return (
       <div className="App">
         <nav className='nav-link'>
-          <NavLink exact to='/'>Smurf</NavLink>
-          <NavLink to='/smurf-form'>Smurfs Form</NavLink>
+          <NavLink exact to='/' className='link'>Smurf</NavLink>
+          <NavLink to='/smurf-form' className='link'>Smurfs Form</NavLink>
           {/* <SmurfForm postSmurf = {this.postSmurf} />
           <Smurfs smurfs={this.state.smurfs} /> */}
         </nav>

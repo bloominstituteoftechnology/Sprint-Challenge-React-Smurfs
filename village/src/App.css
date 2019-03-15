@@ -1,10 +1,31 @@
 .App {
   text-align: center;
-
+  background: red;
 }
 .nav-link {
   display: flex;
   justify-content: space-evenly;
-  align-items: center;
   padding: 10px;
+  color: black;
+}
+.link {
+  color: black;
+  text-decoration: none;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 5px;
+  background: lightblue;
+}
+button {
+  background: lightblue;
+  border: 1px solid black;
+}
+input {
+  border: 1px solid black;
+  display: flex;
+  margin: 0 auto;
+}
+.ilink {
+  color: black;
+  text-decoration: none;
 }
