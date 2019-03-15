@@ -11,49 +11,36 @@ class SmurfForm extends Component {
     };
   }
 
-  componentDidMount() {
-    console.log('CDM now running');
-    axios
-      .get ('http://localhost:3333/smurfs')
-      .then(smurf => {
-        console.log(smurf);
-        this.setState({  
-          name: '',
-          age: '',
-          height: '' 
-        });
-      })
-      .catch(error => {
-        console.log(error);
-        this.setState({ error: error });
-      });
-  }
-
   addSmurf = event => {
     event.preventDefault();
     // add code to create the smurf using the api
+    let smurf = {name:this.state.name, age:this.state.sge, height:this.sate.height}
     axios
-      .post('http://localhost:3333/smurfs')
-      .then(smurf => {
-        console.log(smurf);
-        this.props.addSmurfs(event, this.state.smurf);
+      .post('http://localhost:3333/smurfs', smurf)
+      .then(response => {
         this.setState({
-          smurf: {
-            name: '',
-            age: '',
-            height: ''
-          }
+          smurfs: response.data
         });
       })
       .catch(error => {
         console.log(error);
-        this.setState({ error: error });
       });
   }
 
   handleInputChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
+
+  handleSubmit = event => {
+    this.props.addSmurfs(event, this.state.smurf);
+    this.setState({
+      smurf: {
+        name: '',
+        age: '',
+        height: ''
+      }
+    })
+  }
 
   render() {
     return (
