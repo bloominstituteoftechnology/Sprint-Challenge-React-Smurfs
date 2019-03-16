@@ -26,26 +26,22 @@ class App extends Component {
       })
       .catch(error => {
         console.log(error);
-        this.setState({ error: error });
       });
   }
 
-  addSmurf = (event) => {
-    event.preventDefault();
+  postSmurf = smurf => {
     // add code to create the smurf using the api
-    let smurf = {name:this.state.name, age:this.state.sge, height:this.state.height}
     axios
       .post(`http://localhost:3333/smurfs`, smurf)
       .then(response => {
         this.setState({
-         smurf: response.data
-        });
+          smurf: response.data
+        })
       })
-      .catch(error => {
-        console.log(error);
-      });
+        .catch (error =>
+    console.log(error))
   }
-
+  
   // add any needed code to ensure that the smurfs collection exists on state and it has data coming from the server
   // Notice what your map function is looping over and returning inside of Smurfs.
   // You'll need to make sure you have the right properties on state and pass them down to props.
@@ -57,7 +53,7 @@ class App extends Component {
           <NavLink to="/smurf-form"> SmurfForm</NavLink>
         </div>
         <Route exact path='/' render={(props) => <Smurfs {...props} smurfs={this.state.smurfs} />} />
-        <Route path='/smurf-form' render={(props) => <SmurfForm {...props} addSmurf={this.addSmurf} />} />
+        <Route path='/smurf-form' render={(props) => <SmurfForm {...props} postSmurf={this.postSmurf} />} />
       </div>
     );
   }
