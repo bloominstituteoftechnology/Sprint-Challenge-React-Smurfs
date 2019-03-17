@@ -1,3 +1,20 @@
 .App {
   text-align: center;
 }
+
+.Smurf{
+  border: 1px solid black;
+  border-radius: 5px;
+  background-color: rgb(52, 133, 160);
+  width: 200px;
+  display: inline-block;
+  margin-right: 35px;
+}
+
+.navlink {
+  display: flex;
+  justify-content: space-evenly;
+  font-size: 1.5em;
+  height: 50px;
+  background-color: rgb(46, 99, 247);
+}
