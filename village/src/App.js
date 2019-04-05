@@ -14,9 +14,17 @@ class App extends Component {
   }
 
   componentDidMount = () =>{
-    console.log("attempting ajax get request");
+    //console.log("attempting ajax get request");
 
     axios.get('http://localhost:3333/smurfs')
+      .then(res => this.setState({smurfs: res.data}))
+      .catch(err => console.log(err));
+  }
+
+  addSmurf = newSmurf =>{
+    //console.log(newSmurf);
+
+    axios.post('http://localhost:3333/smurfs', newSmurf)
       .then(res => this.setState({smurfs: res.data}))
       .catch(err => console.log(err));
   }
@@ -29,7 +37,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <SmurfForm />
+        <SmurfForm addSmurf={this.addSmurf}/>
         <Smurfs smurfs={this.state.smurfs} />
       </div>
     );
