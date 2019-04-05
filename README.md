@@ -1,4 +1,8 @@
-# Starting
+# Starting stage 1
+
+# Stage 1, complete
+
+# Starting stage 2
 
 # Sprint Challenge: Single Page Applications - Smurfs
 
