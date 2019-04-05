@@ -9,6 +9,7 @@ import Smurfs from './components/Smurfs';
 
 //import ajax tool
 import axios from 'axios'
+import Smurf from './components/Smurf';
 
 
 class App extends Component {
@@ -53,6 +54,9 @@ class App extends Component {
           <Route path='/smurfForm' component={SmurfForm} />
           <Route exact path='/' 
             render={ props => <Smurfs {...props} smurfs={this.state.smurfs} />}
+          />
+          <Route path='/smurf/:id'
+            render={props => <Smurf {...props} smurfs={this.state.smurfs} removeSmurf={this.removeSmurf}/>}
           />
         </div>
       </div>
