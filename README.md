@@ -29,9 +29,19 @@ In this challenge, you will create a Single Page Application complete with Clien
 Demonstrate your understanding of this Sprint's concepts by answering the following free-form questions. Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read by your project manager.
 
 - [ ] Explain the differences between `client-side routing` and `server-side routing`.
+
+- Server-side routing involves the client making requests to a server that require page reloads to display new information. Client-side routing refers to routing handled by JavaScript within our app, without any need to reach out to the server for new information. This does require the whole site or app to be loaded initially.
+
 - [ ] Which HTTP methods can be mapped to the CRUD acronym that we use when interfacing with APIs/Servers.
+
+- Create - Post
+  Read - Get
+  Update - Put
+  Delete - Delete
+
 - [ ] Mention three tools we can use to make AJAX requests.
 
+- Axios, the good old fetch function, and I guess jQuery AJAX.
 
 ## Project Set Up
 
@@ -53,9 +63,10 @@ Follow these steps to set up and work on your project:
 
 Follow these steps for completing your project:
 
-- [ ] Submit a Pull-Request to merge <firstName-lastName> Branch into master (student's  Repo).
+- [ ] Submit a Pull-Request to merge <firstName-lastName> Branch into master (student's Repo).
 - [ ] Add your Project Manager as a Reviewer on the Pull-request
-- [ ] PM then will count the HW as done by  merging the branch back into master.
+- [ ] PM then will count the HW as done by merging the branch back into master.
+
 ## Minimum Viable Product
 
 The MVP of this project will be broken up between 2 stages. Follow each step and be sure to use your design/style skills to make this application look professional.
@@ -109,15 +120,15 @@ Add a Router to this application by using React Router.
 // output: `A list of all the smurfs in the Smurf DB will be returned`
 [
   {
-    name: 'Brainy',
+    name: "Brainy",
     age: 211,
-    height: '5cm',
+    height: "5cm",
     id: 0
   },
   {
-    name: 'Smurfette',
+    name: "Smurfette",
     age: 122,
-    height: '12cm',
+    height: "12cm",
     id: 1
   }
 ];
