@@ -1,10 +1,8 @@
 .App {
   text-align: center;
-  background: red;
 }
 .nav-link {
-  display: flex;
-  justify-content: space-evenly;
+  text-align: center;
   padding: 10px;
   color: black;
 }
@@ -15,6 +13,7 @@
   border-radius: 5px;
   padding: 5px;
   background: lightblue;
+  margin: 10px;
 }
 button {
   background: lightblue;
@@ -31,4 +30,13 @@ input {
 .ilink {
   color: black;
   text-decoration: none;
+  text-align: center;
+  margin: 0 auto;
+}
+.Smurf {
+  border: 1px solid black;
+  width: 300px;
+  text-align: center;
+  margin: 5px auto;
+  background: red;
 }
