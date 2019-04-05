@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 class SmurfForm extends Component {
   constructor(props) {
@@ -8,6 +9,8 @@ class SmurfForm extends Component {
       age: '',
       height: ''
     };
+
+    console.log(this.props);
   }
 
   addSmurf = event => {
@@ -16,7 +19,7 @@ class SmurfForm extends Component {
 
     const newSmurf = {
       name: this.state.name,
-      age: this.state.age,
+      age: parseInt(this.state.age),
       height: this.state.height
     }
 
@@ -57,6 +60,7 @@ class SmurfForm extends Component {
           />
           <button type="submit">Add to the village</button>
         </form>
+        <Link to='/'>Return To Village</Link>
       </div>
     );
   }

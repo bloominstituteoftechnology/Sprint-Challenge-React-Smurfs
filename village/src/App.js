@@ -23,7 +23,7 @@ class App extends Component {
   }
 
   addSmurf = newSmurf =>{
-    //console.log(newSmurf);
+    console.log(newSmurf);
 
     axios.post('http://localhost:3333/smurfs', newSmurf)
       .then(res => this.setState({smurfs: res.data}))
