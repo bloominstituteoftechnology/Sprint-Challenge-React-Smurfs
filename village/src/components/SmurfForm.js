@@ -20,6 +20,7 @@ class SmurfForm extends Component {
 			height: ""
 		});
 		this.props.addNewSmurf(this.state);
+		this.props.history.push("/");
 	};
 
 	handleInputChange = e => {
