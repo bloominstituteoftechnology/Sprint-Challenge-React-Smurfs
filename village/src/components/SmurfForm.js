@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+//import ajax requesting tool
 import axios from 'axios'
 
 class SmurfForm extends Component {
@@ -25,7 +26,7 @@ class SmurfForm extends Component {
     axios.post('http://localhost:3333/smurfs', newSmurf)
     .then( res => {
       console.log(res)
-      
+      this.props.history.push('/')
     })
     .catch( err => {
       console.log(err)

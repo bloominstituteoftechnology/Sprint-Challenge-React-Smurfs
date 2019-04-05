@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
-
 import './App.css';
+import { Route, NavLink } from 'react-router-dom'
+
+
+//import components
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
 
+//import ajax tool
 import axios from 'axios'
 
 
@@ -34,9 +38,23 @@ class App extends Component {
   render() {
     console.log(this.state.smurfs)
     return (
-      <div className="App">
-        <SmurfForm />
-        <Smurfs smurfs={this.state.smurfs} />
+      <div>
+        <div>
+          <nav>
+            <NavLink exact to='/'>
+              Smurf List
+            </NavLink>
+            <NavLink exact to='/smurfForm'>
+              Add Smurf
+            </NavLink>
+          </nav>
+        </div>
+        <div className="App">
+          <Route path='/smurfForm' component={SmurfForm} />
+          <Route exact path='/' 
+            render={ props => <Smurfs {...props} smurfs={this.state.smurfs} />}
+          />
+        </div>
       </div>
     );
   }
