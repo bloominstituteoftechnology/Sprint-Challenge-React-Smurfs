@@ -3,6 +3,7 @@ import { Route } from 'react-router-dom'
 import axios from 'axios'
 
 import Nav from './components/nav/nav'
+import EditSmurf from './components/editsmurf'
 import SmurfForm from './components/SmurfForm'
 import Smurfs from './components/Smurfs'
 
@@ -20,25 +21,51 @@ class App extends Component {
       .then(smurfs => this.setState({smurfs: smurfs.data}))
       .catch(err => console.log('Error getting smurfs: ', err))
 
-  addSmurf = smurf => {
+  addSmurf = smurf =>
     axios
       .post(this.state.serverUrl, smurf)
-      .then(res => this.setState({smurfs: res.data}))
+      .then(smurfs => this.setState({smurfs: smurfs.data}))
       .catch(err => console.log('Error adding smurf:', err))
+
+  editSmurf = smurf => {
+    axios
+      .put(`${this.state.serverUrl}/${smurf.id}`, smurf)
+      .then(smurfs => this.setState({smurfs: smurfs.data}))
+      .catch(err => console.log('Error editing smurf:', err))
   }
-  // add any needed code to ensure that the smurfs collection exists on state and it has data coming from the server
-  // Notice what your map function is looping over and returning inside of Smurfs.
-  // You'll need to make sure you have the right properties on state and pass them down to props.
-  render() {
-    console.log(this.state.smurfs)
+
+  removeSmurf = smurf =>
+    axios
+      .delete(`${this.state.serverUrl}/${smurf.id}`)
+      .then(smurfs => this.setState({smurfs: smurfs.data}))
+      .catch(err => console.log('Error removing intruder:', err))
+
+  render = () => {
     return (
-      <div className="App">
-        <Nav />
-        <Route exact path='/' render={ props => <Smurfs {...props} smurfs={this.state.smurfs} />}/>
-        <Route path='/add' render={props => <SmurfForm {...props} add={this.addSmurf} />}/>
-      </div>
-    );
-  }
+    <div className="App">
+      <Nav />
+      <Route exact path='/' render={ props =>
+        <Smurfs
+          {...props}
+          smurfs={this.state.smurfs}
+          remove={this.removeSmurf}
+        />
+      }/>
+      <Route exact path='/add' render={props =>
+        <SmurfForm 
+          {...props}
+          add={this.addSmurf}
+        />
+      }/>
+      <Route path='/smurf/:id/edit' render={props =>
+        <EditSmurf
+          {...props}
+          smurfs={this.state.smurfs}
+          edit={this.editSmurf}
+        />
+      }/>
+    </div>
+    )}
 }
 
 export default App

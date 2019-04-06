@@ -17,6 +17,7 @@ class Smurfs extends Component {
                 height={smurf.height}
                 url={smurf.url}
                 key={smurf.id}
+                remove={this.props.remove}
               />
             );
           })}
