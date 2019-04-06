@@ -17,8 +17,9 @@ class App extends Component {
 
   componentDidMount() {
     axios
-    .get("http://localhost:3333/smurf")
+    .get("http://localhost:3333/smurfs")
     .then((response) => {
+      console.log(response)
       this.setState({smurfs:response.data})
     })
     .catch((error) =>{
@@ -36,7 +37,7 @@ class App extends Component {
         <Smurfs smurfs={this.state.smurfs} />
       
         <Route path="/" />
-        <Route path="/smurf-form"component={SmurfForm} />
+        <Route path="/smurf-form" component={SmurfForm} />
       </div>
     );
   }
