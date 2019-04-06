@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
+import { Route, Link } from 'react-router-dom';
+import axios from 'axios';
 
 import './App.css';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
+import ShowSmurf from './components/ShowSmurf';
 
 class App extends Component {
   constructor(props) {
@@ -14,11 +17,45 @@ class App extends Component {
   // add any needed code to ensure that the smurfs collection exists on state and it has data coming from the server
   // Notice what your map function is looping over and returning inside of Smurfs.
   // You'll need to make sure you have the right properties on state and pass them down to props.
+  componentDidMount() {
+    axios.get(`http://localhost:3333/smurfs`)
+      .then( response => {
+        this.setState( () => ({ smurfs: response.data }))
+      })
+      .catch( error => console.error(error) );
+  };
+
+  // Need to update state from SmurfForm
+  updateState = (data) => this.setState({ smurfs: data });
+
+  // Delete the smurf!
+  handleDelete = (id) => {
+    console.log("In handleDelete");
+    axios.delete(`http://localhost:3333/smurfs/${id}`)
+      .then( response => {
+        console.log("response:", response);
+        this.setState({ smurfs: response.data });
+      })
+      .catch( err => console.log(err) );
+  };
+
   render() {
     return (
       <div className="App">
-        <SmurfForm />
-        <Smurfs smurfs={this.state.smurfs} />
+        <div className="navBar">
+          <Link to="/">Home</Link>{" "}
+          <Link to="/smurf-form">Add Smurf</Link>
+        </div>
+
+        <Route path="/smurf-form" component={() =>
+          <SmurfForm update={this.updateState}/> }
+        />
+        <Route exact path="/" render={ () => (
+          <Smurfs smurfs={this.state.smurfs} handleDelete={this.handleDelete}/>
+        ) } />
+        <Route path="/smurf/:id" component={ () =>
+          <ShowSmurf smurfs={this.state.smurfs} />
+        } />
       </div>
     );
   }
