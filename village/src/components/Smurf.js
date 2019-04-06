@@ -48,11 +48,11 @@ class Smurf extends React.Component {
       )
       : (
       <div className="Smurf">
-        <button onClick={() => this.setState({ editing: true })}>Edit</button>
-        <h3>{this.props.name}</h3>
-        <strong>{this.props.height} tall</strong>
-        <p>{this.props.age} smurf years old</p>
-        <button onClick={() => this.props.deleteSmurf(this.props.id)}>Smurf this Smurf!</button>
+        <button class="edit"onClick={() => this.setState({ editing: true })}>Edit</button>
+        <h3>I'm {this.props.name}</h3>
+        <p>I stand at {this.props.height} cm tall</p>
+        <p>I'm {this.props.age} smurf years old</p>
+        <button class="delete" onClick={() => this.props.deleteSmurf(this.props.id)}>Smurf this Smurf!</button>
       </div>
     );
   }

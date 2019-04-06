@@ -28,15 +28,32 @@ header a {
   position: relative;
   width: 50%;
   margin: 0 auto;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid blue;
+  margin-bottom: 1rem;
 }
-.delete-btn {
+button.delete {
   position: absolute;
-  font-size: 3rem;
-  right: 25%;
-  top: 50%;
+  font-size: 1rem;
+  /* right: 25%; */
+  top: 90%;
   transform: translateY(-50%);
   cursor: pointer;
+  color: white;
+  background: blue;
 }
-.delete-btn:active {
-  transform: translateY(calc(-50% + 2px));
-} 
+button.edit {
+  position: absolute;
+  font-size: 1rem;
+  /* left: 40%; */
+  bottom: 80%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: white;
+  background: blue;
+
+}
