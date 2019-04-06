@@ -13,7 +13,7 @@ class SmurfForm extends Component {
 
   addSmurf = event => {
     event.preventDefault();
-    Axios.post('http://localhost:3333/smurfs', this.state.smurf)
+    Axios.post('http://localhost:3333/smurfs', this.state)
       .then(response => {
         this.props.updateSmurfs(response.data);
         this.props.history.push('/');
@@ -32,13 +32,19 @@ class SmurfForm extends Component {
     e.persist();
     let value = e.target.value;
     this.setState(prevState => ({
-      smurf: { ...prevState.smurf, [e.target.name]: value }
+       ...prevState, [e.target.name]: value
     }));
   };
 
   render() {
     return (
       <div className="SmurfForm">
+      {/* <form>
+        <input type="text" placeholder='name' name='name'/>
+        <input type="text" placeholder='age' name='age'/>
+        <input type="text" placeholder='height' name='height'/>
+        <button>Add to the Village</button>
+      </form> */}
         <form onSubmit={this.addSmurf}>
           <input
             
