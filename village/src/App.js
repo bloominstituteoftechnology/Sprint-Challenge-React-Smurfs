@@ -22,9 +22,20 @@ class App extends Component {
   getSmurfs = () => {
       axios
       .get('http://localhost:3333/smurfs')
-      .then(res => {
-        this.setState({ smurfs: res.data });
-      })
+      // .then(res => {
+      //   this.setState({ smurfs: res.data });
+      // })
+      .then(res => this.setState({ smurfs: res.data }))
+      .catch(err => console.log(err));
+  }
+  deleteSmurf = id => {
+    axios.delete(`http://localhost:3333/smurfs/${id}`)
+      .then(res => this.setState({ smurfs: res.data }))
+      .catch(err => console.log(err));
+  }
+  updateSmurf = (id, info) => {
+    axios.put(`http://localhost:3333/smurfs/${id}`, info)
+      .then(res => this.setState({ smurfs: res.data }))
       .catch(err => console.log(err));
   }
   render() {
@@ -35,9 +46,10 @@ class App extends Component {
         <Route path="/" component={SmurfBar} />
         <Route 
           exact path="/"
-          render={props => 
-            <Smurfs {...props} smurfs={this.state.smurfs} />
-          }
+          // render={props => 
+          //   <Smurfs {...props} smurfs={this.state.smurfs} getSmurfs={this.getSmurfs}/>
+          // }
+          render={props => <Smurfs {...props} smurfs={this.state.smurfs} deleteSmurf={this.deleteSmurf} updateSmurf={this.updateSmurf} />}
         />
         <Route 
         path="/smurf-form" 

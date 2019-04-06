@@ -84,11 +84,11 @@ Construct your Components to build a Single Page Application. Keep your componen
 
 Add a Router to this application by using React Router.
 
-- [ ] You'll start by wrapping your `root` component in the `Router` component.
-- [ ] Declare your routes with `Route`.
-- [ ] Then make it so you can navigate to your routes using `Link`.
-- [ ] Create two `routes` in your `App` component, one at `'/'` for your `Smurfs` component,and one at `/smurf-form` for your form.
-- [ ] Then in your `App` component, create a nav bar that will use `NavLink` to route to your different pages.
+- [x] You'll start by wrapping your `root` component in the `Router` component.
+- [x] Declare your routes with `Route`.
+- [x] Then make it so you can navigate to your routes using `Link`.
+- [x] Create two `routes` in your `App` component, one at `'/'` for your `Smurfs` component,and one at `/smurf-form` for your form.
+- [x] Then in your `App` component, create a nav bar that will use `NavLink` to route to your different pages.
 
 ## STRETCH PROBLEMS
 

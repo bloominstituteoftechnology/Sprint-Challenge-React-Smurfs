@@ -5,7 +5,7 @@ class SmurfBar extends React.Component {
   render(){
     return (
       <header>
-        <NavLink to="/">Home</NavLink>
+        <NavLink exact to="/">Home</NavLink>
         <NavLink to="/smurf-form">New Smurf!</NavLink>
       </header>
     )
