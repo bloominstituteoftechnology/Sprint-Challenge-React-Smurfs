@@ -3,6 +3,8 @@ import axios from 'axios';
 import './App.css';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
+import { Route } from 'react-router-dom';
+import SmurfBar from './components/SmurfBar';
 
 class App extends Component {
   constructor(props) {
@@ -20,14 +22,29 @@ class App extends Component {
   getSmurfs = () => {
       axios
       .get('http://localhost:3333/smurfs')
-      .then(res => this.setState({ smurfs: res.data }))
+      .then(res => {
+        this.setState({ smurfs: res.data });
+      })
       .catch(err => console.log(err));
   }
   render() {
     return (
       <div className="App">
-        <SmurfForm getSmurfs={this.getSmurfs} />
-        <Smurfs smurfs={this.state.smurfs} />
+        {/* <SmurfForm getSmurfs={this.getSmurfs} />
+        <Smurfs smurfs={this.state.smurfs} /> */}
+        <Route path="/" component={SmurfBar} />
+        <Route 
+          exact path="/"
+          render={props => 
+            <Smurfs {...props} smurfs={this.state.smurfs} />
+          }
+        />
+        <Route 
+        path="/smurf-form" 
+        render={props => 
+          <SmurfForm {...props} getSmurfs={this.getSmurfs} />
+          }
+        />
       </div>
     );
   }
