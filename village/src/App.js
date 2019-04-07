@@ -4,6 +4,11 @@ import { Route } from 'react-router-dom';
 import './App.css';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
+import Smirfone from './components/Smirfone';
+import Smirftwo from './components/Smirftwo';
+import { NavLink } from 'react-router-dom';
+import Intro from './components/Intro';
+import './App.css';
 // import { router } from 'sw-toolbox';
 
 class App extends Component {
@@ -30,19 +35,31 @@ class App extends Component {
     console.log(this.state.smurfs);
     return (
       <div className="App">
-        <Route
-          exact
-          path="/"
-          render={props => (
-            <SmurfForm {...props} updateSmurfs={this.updateSmurfs} />
-          )}
-        />
+        <nav>
+          <NavLink to="/" className='home'>Home</NavLink>{' '}
+          <NavLink to="/smurf-form" className='addsmurf'>Add a Smurf</NavLink>
+        </nav>
+        <div className="smurfbg">
+          <Smirfone />
+          <div>
+            <Route exact path="/" component={Intro} />
 
-        <Route
-          // exact
-          path="/"
-          render={props => <Smurfs {...props} smurfs={this.state.smurfs} />}
-        />
+            <Route
+              // exact
+              path="/smurf-form"
+              render={props => (
+                <SmurfForm {...props} updateSmurfs={this.updateSmurfs} />
+              )}
+            />
+
+            <Route
+              // exact
+              path="/smurf-form"
+              render={props => <Smurfs {...props} smurfs={this.state.smurfs} />}
+            />
+          </div>
+          <Smirftwo />
+        </div>
       </div>
     );
   }
