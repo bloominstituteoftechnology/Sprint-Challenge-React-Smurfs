@@ -11,12 +11,23 @@ class SmurfForm extends Component {
     };
   }
 
-  addSmurf = smurf => {
- 
+  handleChange = event => {
+    this.setState({
+      [event.target.name]: event.target.value
+    });
+  }
+
+  addSmurf = newSmurf => {
+    
     // add code to create the smurf using the api
     axios
-    .post("http://localhost:333/smurfs",smurf)
-    .then(response => this.setState({smurfs:response.data}) )
+    .post("http://localhost:333/smurfs",newSmurf)
+    .then(response => this.setState({
+      smurfs:response.newSmurf,
+      name:"",
+      age:"",
+      height:""
+    }) )
     .catch(error => console.log(error))
 
     this.setState({
