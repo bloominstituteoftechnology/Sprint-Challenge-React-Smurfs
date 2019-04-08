@@ -1,0 +1,26 @@
+.smurf-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  min-width: 220px;
+  height: 150px;
+  box-shadow: 4px 4px 7px black;
+  border-radius: 20px;
+  background-color: lightblue;
+}
+
+.remove-button {
+  align-self: center;
+  width: 90%;
+  font-size: 14px;
+  border-radius: 20px;
+  margin-bottom: 5px;
+  position: absolute;
+  margin-top: 50px;
+}
+
+.remove-button:hover {
+  color: lightblue;
+  background-color: black;
+}

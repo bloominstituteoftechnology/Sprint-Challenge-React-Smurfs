@@ -1,0 +1,34 @@
+.Header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: lightblue;
+    height: 100%;
+}
+
+.Header h2 {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.Header img {
+    width: 75%;
+    box-shadow: 6px 6px 10px black;
+    border-radius: 20px;
+}
+
+.Header .link {
+    color: black;
+    margin: 20px;
+    text-decoration: none;
+}
+
+.Header .link:hover {
+    color: gray;
+}
+
+.Header .link:visited {
+    text-decoration: none;
+    color: black;
+}
