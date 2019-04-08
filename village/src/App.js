@@ -21,13 +21,25 @@ class App extends Component {
     axios
     .get("http://localhost:3333/smurfs")
     .then((response) => {
-      console.log(response)
       this.setState({smurfs:response.data})
     })
     .catch((error) =>{
       console.log(error)
     })
   }
+
+  changeHandler = event => {
+    event.persist()
+    this.setState(prevState => {
+      return {
+        smurf: {
+          ...prevState.smurf,
+          [event.target.name]: event.target.value 
+        }
+      }
+    })
+};
+
 
   // add any needed code to ensure that the smurfs collection exists on state and it has data coming from the server
   // Notice what your map function is looping over and returning inside of Smurfs.
@@ -40,9 +52,10 @@ class App extends Component {
         <Route exact path="/" render={props => 
            <Smurfs {...props} smurfs={this.state.smurfs} />}/>
 
-      <SmurfForm/>   
+        
         <Route path="/smurf-form" render={props => 
-           <SmurfForm {...props} addSmurf={this.addSmurf}/>}/>
+           <SmurfForm {...props} updateSmurfs={this.addSmurf}/>}
+           />
        
          
       </div>

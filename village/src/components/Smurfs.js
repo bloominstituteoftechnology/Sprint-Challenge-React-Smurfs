@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Smurf from './Smurf';
 
-class Smurfs extends Component {
+class Smurfs extends React.Component {
   render() {
     return (
       <div className="Smurfs">

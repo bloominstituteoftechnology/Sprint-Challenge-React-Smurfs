@@ -5,8 +5,8 @@ class NavBar extends React.Component {
     render() {
         return(
             <header>
-                <NavLink to="/">HOME</NavLink>
-                <NavLink to="/smurf-form">ADD SMURF</NavLink>
+                <NavLink to="/">(Home)</NavLink>
+                <NavLink to="/smurf-form">(Add Smurf)</NavLink>
             </header>
         )
     }
