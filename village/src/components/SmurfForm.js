@@ -17,12 +17,11 @@ class SmurfForm extends React.Component {
     // add code to create the smurf using the api
     event.preventDefault()
     axios
-    .post("http://localhost:333/smurfs")
+    .post("http://localhost:333/smurfs", this.state.smurfs)
     .then(response =>{
       console.log(response)
-     this.setState({
-       smurfs:response.data,
-      })
+     this.props.updateSmurfs(response.data)
+     this.props.history.push("./server")
     })
     .catch(error => console.log(error))
   }
