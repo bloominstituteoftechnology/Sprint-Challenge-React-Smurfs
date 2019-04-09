@@ -22,4 +22,4 @@ Client-side routing
 
 1.  Mention three tools we can use to make AJAX requests
 
-- fetch, axios
+- fetch, axios, jQuery

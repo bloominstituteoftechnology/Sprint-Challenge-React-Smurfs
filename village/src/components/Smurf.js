@@ -6,7 +6,7 @@ const Smurf = props => {
     <Route path={`/smurf/:${props.id}`}>
       {/* render={props => ( {...props} */}
       <div className="Smurf">
-        <h3>{props.name}</h3>
+        <h2>{props.name}</h2>
         <strong>{props.height} tall</strong>
         <p>{props.age} smurf years old</p>
       </div>
