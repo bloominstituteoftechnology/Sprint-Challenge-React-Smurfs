@@ -17,7 +17,7 @@ class SmurfForm extends Component {
     Axios.post('http://localhost:3333/smurfs', this.state)
       .then(response => {
         this.props.updateSmurfs(response.data);
-        this.props.history.push('/');
+        this.props.history.push('/smurf-form');
       })
       .catch(err => console.log(err));
     // add code to create the smurf using the api
@@ -33,23 +33,21 @@ class SmurfForm extends Component {
     e.persist();
     let value = e.target.value;
     this.setState(prevState => ({
-       ...prevState, [e.target.name]: value
+      ...prevState,
+      [e.target.name]: value
     }));
   };
 
   render() {
     return (
       <div className="SmurfForm">
-     
         <form onSubmit={this.addSmurf}>
           <input
-            
             placeholder="name"
             type="text"
             name="name"
             onChange={this.handleInputChange}
             value={this.state.name}
-            
           />
           <input
             type="text"
