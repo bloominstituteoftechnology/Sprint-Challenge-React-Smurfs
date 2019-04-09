@@ -15,16 +15,32 @@ class SmurfForm extends React.Component {
 
   addSmurf = event => {
     // add code to create the smurf using the api
+   const  newSmurf = {
+     ...this.state.smurf
+   }
     event.preventDefault()
     axios
-    .post("http://localhost:333/smurfs", this.state.smurfs)
+    .post("http://localhost:3333/smurfs", newSmurf)
     .then(response =>{
       console.log(response)
      this.props.updateSmurfs(response.data)
-     this.props.history.push("./server")
     })
-    .catch(error => console.log(error))
+    .catch(error => {console.log(error)
+    })
   }
+
+  
+  changeHandler = event => {
+    event.persist()
+    this.setState(prevState => {
+      return {
+        smurf: {
+          ...prevState.smurf,
+          [event.target.name]: event.target.value 
+        }
+      }
+    })
+};
 
  
   render() {

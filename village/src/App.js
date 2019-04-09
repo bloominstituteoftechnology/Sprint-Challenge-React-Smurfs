@@ -32,20 +32,6 @@ this.setState({smurfs:newSmurfs})
     })
   }
 
-  changeHandler = event => {
-    event.persist()
-    this.setState(prevState => {
-      return {
-        smurf: {
-          ...prevState.smurf,
-          [event.target.name]: event.target.value 
-        }
-      }
-    })
-};
-
-
-
 
   // add any needed code to ensure that the smurfs collection exists on state and it has data coming from the server
   // Notice what your map function is looping over and returning inside of Smurfs.
@@ -60,9 +46,7 @@ this.setState({smurfs:newSmurfs})
         
         <Route path="/smurf-form" render={props => 
            <SmurfForm {...props} updateSmurfs={this.updateSmurfs}/>}
-           />
-       
-         
+           />        
       </div>
     );
   }
