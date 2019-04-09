@@ -2,16 +2,17 @@ import React from 'react';
 // import axios from 'axios';
 
 
-const deleteItem = event => {
-  console.log("Item deleted");
-  // axios
-  //   .delete("http://localhost:3333/smurfs/${props.id}")
-  //   .then(response => (response.data) )
-  //   .catch(error => console.log(error))
 
-}
 
 const Smurf = props => {
+
+  const deleteItem = event => {
+    console.log("Item deleted");
+    axios
+      .delete(`http://localhost:3333/smurfs/${props.id}`)
+      .then(response => (response.data) )
+      .catch(error => console.log(error))
+  }
   return (
     <div className="smurf">
       {console.log(props)}
