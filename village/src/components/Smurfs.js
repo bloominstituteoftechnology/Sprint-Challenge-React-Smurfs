@@ -1,12 +1,12 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
+import styled from 'styled-components'
 
 import Smurf from './Smurf';
 
 class Smurfs extends Component {
   render() {
     return (
-      <div className="Smurfs">
-        <h1>Smurf Village</h1>
+      <SMURFS>
         <ul>
           {this.props.smurfs.map(smurf => {
             return (
@@ -15,12 +15,14 @@ class Smurfs extends Component {
                 id={smurf.id}
                 age={smurf.age}
                 height={smurf.height}
+                url={smurf.url}
                 key={smurf.id}
+                remove={this.props.remove}
               />
             );
           })}
         </ul>
-      </div>
+      </SMURFS>
     );
   }
 }
@@ -30,3 +32,11 @@ Smurf.defaultProps = {
 };
 
 export default Smurfs;
+
+const SMURFS = styled.div`
+  margin: 2rem 0;
+  ul {
+    display: flex;
+    justify-content: center;
+  }
+`

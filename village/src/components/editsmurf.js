@@ -1,29 +1,29 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 
-class SmurfForm extends Component {
+class EditSmurf extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      url: '',
-      name: '',
-      age: '',
-      height: ''
-    };
+        url: '',
+        name: '',
+        age: '',
+        height: ''
+    }
   }
-
-  addSmurf = event => {
+  editSmurf = event => {
     event.preventDefault()
     const {url, name, age, height} = this.state
     let smurf = {url, name, age, height}
-    this.props.add(smurf)
+    smurf.id = this.props.match.params.id
+    this.props.edit(smurf)
 
     this.setState({
       url: '',
       name: '',
       age: '',
       height: ''
-    });
+    })
   }
 
   handleInputChange = e => {
@@ -34,33 +34,33 @@ class SmurfForm extends Component {
     return (
       <FormWrapper>
         <div>
-          <h1>Add A Smurf</h1>
+          <h1>Change A Smurf</h1>
           <form onSubmit={this.addSmurf}>
             <input
               onChange={this.handleInputChange}
-              placeholder='image url'
+              placeholder='url'
               value={this.state.url}
               name='url'
               />
             <input
               onChange={this.handleInputChange}
-              placeholder="name"
+              placeholder='name'
               value={this.state.name}
               name="name"
               />
             <input
               onChange={this.handleInputChange}
-              placeholder="age"
+              placeholder='age'
               value={this.state.age}
               name="age"
               />
             <input
               onChange={this.handleInputChange}
-              placeholder="height"
+              placeholder='height'
               value={this.state.height}
               name="height"
               />
-            <button type="submit">Add to the village</button>
+            <button onClick={this.editSmurf}>Change</button>
           </form>
         </div>
       </FormWrapper>
@@ -68,7 +68,7 @@ class SmurfForm extends Component {
   }
 }
 
-export default SmurfForm;
+export default EditSmurf;
 
 const FormWrapper = styled.div`
   display: flex;
