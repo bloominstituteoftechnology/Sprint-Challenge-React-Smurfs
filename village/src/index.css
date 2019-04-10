@@ -3,3 +3,40 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+
+.smurf {
+  border: 2px solid blue;
+  padding: 20px;
+  margin: 20px;
+}
+
+.smurf-list {
+  padding:  0 25%;
+}
+.nav-links a {
+  text-decoration: none;
+  color: blue;
+  font-weight: bold;
+  margin: 8px;
+}
+.nav-links {
+  margin: 10px;
+}
+
+.nav-links a.active {
+  border-bottom: 1px solid #1c5d76;
+}
+
+a.hover {
+  cursor: pointer;
+}
+
+.delete {
+  border: 1px solid black;
+  padding: 5px;
+}
+
+.delete:hover {
+  cursor: pointer;
+  color: red;
+}
