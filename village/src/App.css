@@ -1,3 +1,116 @@
+body{
+  background: #0052D4;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #6FB1FC, #4364F7, #0052D4);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #6FB1FC, #4364F7, #0052D4); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+font-family: 'Luckiest Guy', cursive;
+}
+
 .App {
   text-align: center;
+}
+
+nav{
+display: flex;
+justify-content: space-between;
+margin-top: 20px;
+font-size: 1.5rem;
+position: fixed;
+width: 100%;
+}
+.home{
+  margin-right: 100px;
+  margin-left: 60px;
+}
+.addsmurf{
+  margin-right: 40px;
+}
+
+.smurfbg{
+  display: flex;
+  justify-content: space-between;
+
+}
+
+img{
+  height: 400px;
+  margin-top: 100px;
+}
+
+h3{
+  color: white;
+  font-size: 3rem;
+  text-align: center;
+  margin-top: 250px;
+  padding-left: 50px;
+  text-shadow: -1px -1px 3px rgba(0, 0, 0, 1);
+}
+
+h3:hover{
+  cursor: pointer;
+  transform: scale(1.2);
+  -webkit-transition: transform 0.8s ease-in-out;
+    -moz-transition:transform 0.8s ease-in-out;
+    -ms-transition:transform 0.8s ease-in-out;
+}
+
+a{
+  text-decoration: none;
+  color: inherit;
+}
+
+.Smurf{
+  border: 1px royalblue solid;
+  border-radius: 8px;
+  background: white;
+  margin: 10px;
+  padding: 10px;
+  width: 450px;
+  margin-left: 50px;
+}
+
+h4{
+  font-size: 1.5rem;
+  text-decoration: underline;
+}
+
+form{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 90px;
+  margin-left: 85px;
+  margin-top: 100px;
+  margin-bottom: 50px;
+}
+input{
+  padding: 8px;
+  border: none;
+  border-radius: 8px;
+  width:300px;
+  margin: 3px;
+}
+
+h1{
+  padding-left: 30px;
+  color: white;
+  text-decoration: underline;
+  text-shadow: -1px -1px 3px rgba(0, 0, 0, 1);
+  margin-left: 60px;
+}
+
+button{
+  background: white;
+  border: black 1px solid;
+  border-radius: 5px;
+  padding: 5px;
+  width: 200px;
+  margin:auto;
+  margin-left: 60px;
+  font-family: 'Luckiest Guy', cursive;
+  font-size: 1.2rem;
+}
+
+button:hover{
+  box-shadow: -1px -1px 3px rgba(0, 0, 0, 1);
+  cursor: pointer;
 }
