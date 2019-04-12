@@ -51,10 +51,15 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <div className = "Nav">
-          <NavLink to = '/'>Smurf's</NavLink>
-          <NavLink to = '/smurf-form'>Add A Smurf</NavLink>
-        </div>
+        <ul className = "Nav">
+         <li>
+           <NavLink exact to = '/' activeClassName = "activeNavButton">Smurf's</NavLink>
+          </li> 
+          <li>
+             <NavLink to = '/smurf-form' activeClassName = "activeNavButton">Add A Smurf</NavLink>
+          </li>
+         
+        </ul>
         <div className = "Display">
           <Route exact path = '/'
            render = {() => <Smurfs smurfs = {this.state.smurfs} /> }

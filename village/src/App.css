@@ -1,3 +1,17 @@
 .App {
   text-align: center;
+  background:lightskyblue;
+}
+
+.Nav > li > a {
+  color: rgb(22, 85, 105);
+  font-weight: bolder;
+  text-decoration: none;
+}
+.Nav {
+  background: pink;
+}
+.Nav > li > a.activeNavButton {
+ 
+  color: blue;
 }
