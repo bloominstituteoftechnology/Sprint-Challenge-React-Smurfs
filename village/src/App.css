@@ -1,3 +1,54 @@
 .App {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
   text-align: center;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
+
+nav {
+  width: 50%;
+  margin: 15px auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+nav a {
+  color: blue;
+}
+
+nav .active {
+  color: #bb0000;
+}
+
+.SmurfForm input, .SmurfForm button {
+  margin: 2px;
+}
+
+.Smurf {
+  margin: 10px;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 1px 1px 5px blue;
+  background: #92B6F2;
+}
+
+.Smurf .first-line {
+  display: flex;
+  justify-content: center;
+}
+
+.Smurf .delX {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.Smurf .first-line h3 {
+  margin: 0;
 }
