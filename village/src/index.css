@@ -3,3 +3,31 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+
+/* Navigation Bar */
+
+.nav-bar {
+  height: 55px;
+  background-color: #26baee;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.activeNavButton {
+  border: none;
+  background-color: #fffbe0;
+}
+
+.links {
+  border: 1px solid black;
+  border-top: none;
+  border-bottom: none;
+  padding: 19px 15px;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+.links:hover {
+  background-color: #ffb400;
+}
