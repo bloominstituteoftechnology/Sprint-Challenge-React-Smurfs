@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './smurf.css';
 
 class SmurfForm extends Component {
   constructor(props) {
@@ -13,12 +14,15 @@ class SmurfForm extends Component {
   addSmurf = event => {
     event.preventDefault();
     // add code to create the smurf using the api
+    this.props.newSmurf(this.state);
 
     this.setState({
       name: '',
       age: '',
       height: ''
     });
+
+    this.props.history.push('/');
   }
 
   handleInputChange = e => {
@@ -28,27 +32,40 @@ class SmurfForm extends Component {
   render() {
     return (
       <div className="SmurfForm">
-        <form onSubmit={this.addSmurf}>
-          <input
-            onChange={this.handleInputChange}
-            placeholder="name"
-            value={this.state.name}
-            name="name"
-          />
-          <input
-            onChange={this.handleInputChange}
-            placeholder="age"
-            value={this.state.age}
-            name="age"
-          />
-          <input
-            onChange={this.handleInputChange}
-            placeholder="height"
-            value={this.state.height}
-            name="height"
-          />
-          <button type="submit">Add to the village</button>
+        <div className="form">
+          <form onSubmit={this.addSmurf}>
+          <label>
+            Name:
+            <input
+              onChange={this.handleInputChange}
+              placeholder="name"
+              value={this.state.name}
+              name="name"
+            /> <br></br>
+          </label>
+          <label>
+            Age:
+            <input
+              onChange={this.handleInputChange}
+              placeholder="age"
+              value={this.state.age}
+              name="age"
+            /> <br></br>
+          </label>
+          <label>
+            Height:
+            <input
+              onChange={this.handleInputChange}
+              placeholder="height"
+              value={this.state.height}
+              name="height"
+            />
+          </label>
+          
+          <button className="submit" type="submit" /*onClick={this.addSmurf}*/>Add to the village</button>
         </form>
+        </div>
+        
       </div>
     );
   }

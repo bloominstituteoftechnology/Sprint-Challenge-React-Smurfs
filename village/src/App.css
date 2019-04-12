@@ -1,3 +1,19 @@
 .App {
   text-align: center;
 }
+
+.nav-links {
+  margin: 20px;
+}
+
+.nav-link {
+  margin: 0 35px;
+  text-decoration: none;
+  color: black;
+}
+
+.nav-link:hover {
+  text-decoration: underline;
+  color: #63B2FE;
+}
+

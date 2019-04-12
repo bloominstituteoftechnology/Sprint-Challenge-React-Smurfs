@@ -1,0 +1,62 @@
+.Smurfs {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  
+  h1 {
+    width: 100%;
+  }
+  
+  .container {
+    margin: 0 auto;
+  }
+  
+  .Smurf {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .smurfs {
+    
+    background-color: #63B2FE;
+    color: rgba(0,0,0,0.7);
+    box-shadow: 0 -1px 0 #e0e0e0, 0 0 2px rgba(0,0,0,.12), 0 2px 4px rgba(0,0,0,.24);
+    height: 200px;
+    width: 350px;
+    margin: 20px 30px;
+    border-radius: 15px;
+    border: 0.5px solid darkgrey;
+    font-family: sans-serif;
+  }
+  
+  .SmurfForm {
+    margin: 20px auto;
+    border: 0.5px solid black;
+    border-radius: 15px;
+    height: 280px;
+    width: 350px;
+  }
+  
+  .form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    font-weight: bold;
+  }
+  
+  input {
+      margin-top: 20px;
+      margin-left: 10px;
+  }
+  
+  .submit {
+    margin-top: 30px;
+    background-color:  #63B2FE;
+    color: white;
+    font-weight: bold;
+    height: 35px;
+    width: 150px;
+  }
+  
