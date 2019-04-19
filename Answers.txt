@@ -1,0 +1,10 @@
+ Explain the differences between client-side routing and server-side routing.
+A. Client side routing loads all the data initially where server-side loads data as needed.
+
+
+ Which HTTP methods can be mapped to the CRUD acronym that we use when interfacing with APIs/Servers.
+A. .get .post .put .delete .then .catch are all HTTP methods that can be mapped to the CRUD acronym.
+
+
+ Mention three tools we can use to make AJAX requests.
+A. .put .post .delete are three tools to make AJAX requests.
