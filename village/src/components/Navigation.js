@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const Navigation = () => {
     return (
-        <div>
+        <div className="nav">
         <div>
             <Link className="smurf-list" to="/">
             Home
