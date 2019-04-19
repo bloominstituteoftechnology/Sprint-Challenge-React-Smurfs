@@ -7,4 +7,4 @@ A. .get .post .put .delete .then .catch are all HTTP methods that can be mapped 
 
 
  Mention three tools we can use to make AJAX requests.
-A. .put .post .delete are three tools to make AJAX requests.
+A. Axios, fetch, jquery are three tools to make AJAX requests.
