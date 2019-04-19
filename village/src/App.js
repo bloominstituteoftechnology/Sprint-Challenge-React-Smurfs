@@ -28,16 +28,17 @@ class App extends Component {
       })
   }
 
-  addSmurf = (e, smurf) => {
-    e.preventDefault();
+  addSmurf = (smurf) => {
+    
     axios
       .post("http://localhost:3333/smurfs", smurf)
       .then(res => {
-        this.setState({ smurfs: res.data })
+        this.setState({ smurfs: res.data });
+      })
       .catch(err => {
         console.log(err);
         this.setState({ error: err });
-        })
+       
       })
   }
 
@@ -52,12 +53,12 @@ class App extends Component {
       </div>
       <div className="Main">
 
-      <NavLink exact to="/">
+      {/* <NavLink exact to="/">
       Smurf List
       </NavLink>
       <NavLink exact to="/smurf-form">
       Smurf Form
-      </NavLink>
+      </NavLink> */}
 
       <Route
         exact path="/"
