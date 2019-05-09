@@ -1,3 +1,180 @@
-.App {
+* {
+  /*border: 1px solid black;*/
+}
+
+body {
+  background: lightgray;
+}
+
+a {
+  color: #fff;
+  text-decoration: none;
+}
+
+a:visited {
+  color: #fff;
+}
+
+form {
+  width: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+form input {
+  box-sizing: border-box;
+  width: 200px;
+  height: 50px;
+  padding: 0 15px;
+  margin-bottom: 10px;
+  border: 1px solid black;
+  border-radius: 4px;
+  font-size: 15px;
+}
+
+button {
+  width: 200px;
+  height: 50px;
+  padding: 0;
+  margin-top: 10px;
+  color: #fff;
+  background: #004499;
+  border: 1px solid #000;
+  border-radius: 4px;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button:hover {
+  color: #004499;
+  background: #fff;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 1000px;
+  margin: 0 auto;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+  border: 2px solid black;
+  background: white;
+  border-radius: 4px;
+}
+
+.header a {
+  font-size: 20px;
+}
+
+.home-link {
+  width: 25%;
+  text-align: right;
+  padding-right: 20px;
+}
+
+.add-smurf-link {
+  width: 25%;
+  text-align: left;
+  padding-left: 20px;
+}
+
+.header-title {
+  width: 50%;
   text-align: center;
+}
+
+.header h2 {
+  font-size: 35px;
+}
+
+.header a {
+  text-decoration: none;
+  padding: 10px 20px;
+  background: #004499;
+  color: #fff;
+  border: 1px solid #000;
+  border-radius: 5px;
+}
+.header a:hover {
+  color: #004499;
+  background: #fff;
+}
+
+.smurf-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.smurf-card {
+  text-align: center;
+  background: #004499;
+  font-size: 2rem;
+  color: #fff;
+  margin: 10px;
+  padding: 15px 20px;;
+  border: 2px solid #000;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+.smurf-card:hover {
+  color: #004499;
+  background: #fff;
+}
+
+.smurf-card a {
+  text-decoration: none;
+}
+.smurf-card a:hover {
+  text-decoration: none;
+}
+
+.smurf-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 0;
+  padding: 20px 0 20px 0;
+  border: 2px solid #000;
+  border-radius: 15px;
+  text-align: center;
+  background: #fff;
+}
+
+.smurf-page h3 {
+  font-size: 30px;
+  margin: 0 0 15px 0;
+}
+
+.smurf-page strong {
+  font-size: 20px;
+}
+
+.smurf-page p {
+  font-size: 20px;
+}
+
+.buttons-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
