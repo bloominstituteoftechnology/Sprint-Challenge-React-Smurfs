@@ -10,14 +10,17 @@ class Smurfs extends Component {
         <h1>Smurf Village</h1>
         <ul>
           {this.props.smurfs.map(smurf => {
+
             return (
-              <Link to={"/smurfs"}><Smurf
+             <Smurf
                 name={smurf.name}
                 id={smurf.id}
                 age={smurf.age}
                 height={smurf.height}
                 key={smurf.id}
-              /></Link>
+                // deleteSmurf={this.props.deleteSmurf}
+                
+              />
             );
           })}
         </ul>
