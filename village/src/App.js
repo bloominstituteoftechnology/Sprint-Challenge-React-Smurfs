@@ -16,26 +16,16 @@ class App extends Component {
   componentDidMount = () => {
     axios.get("http://localhost:3333/smurfs")
     .then(res => {
-      const smurfs = res.data;
-      this.setState({ smurfs: smurfs });
-      console.log(this.state.smurfs);
+      const smurfs = res
+      this.setState({ smurfs: smurfs.data });
+    
     
     });
   }
 
-  
-  // deleteSmurf = (id) => {
-  //   axios
-      
-  //     .delete(`http://localhost:3333/smurfs/${id}`)
-  //     .then(res => {
-  //       console.log(res);
-  //       this.setState({smurfs:res.data})
-  //     })
-  //     .catch(err => {
-  //       console.log(err);
-  //     });
-  // }
+
+
+
 
 
 

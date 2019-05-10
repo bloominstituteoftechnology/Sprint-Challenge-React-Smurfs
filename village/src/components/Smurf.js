@@ -8,11 +8,7 @@ import React from 'react';
 
 
 const Smurf = props => {
-  const deleteSmurf = (id) =>{
 
-    props.deleteSmurf(id)
- 
-  }
 
 
 
@@ -21,10 +17,10 @@ const Smurf = props => {
       <h3>{props.name}</h3>
       <strong>{props.height} tall</strong>
       <p>{props.age} smurf years old</p>
-      <button onClick={()=>deleteSmurf(props.id)}>delete smurf</button>
+
     </div>
   );
-};
+  }
 
 Smurf.defaultProps = {
   name: '',
