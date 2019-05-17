@@ -20,6 +20,7 @@ class Smurfs extends Component {
             );
           })}
         </ul>
+        
       </div>
     );
   }
