@@ -1,8 +1,14 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
-import Smurf from './Smurf';
+import Smurf from "./Smurf";
 
 class Smurfs extends Component {
+  delete = e => {
+    e.preventDefault();
+    this.props.delete(e.target.id);
+  };
+
   render() {
     return (
       <div className="Smurfs">
@@ -10,13 +16,20 @@ class Smurfs extends Component {
         <ul>
           {this.props.smurfs.map(smurf => {
             return (
-              <Smurf
-                name={smurf.name}
-                id={smurf.id}
-                age={smurf.age}
-                height={smurf.height}
-                key={smurf.id}
-              />
+              <div key={smurf.id}>
+                <Smurf
+                  name={smurf.name}
+                  id={smurf.id}
+                  age={smurf.age}
+                  height={smurf.height}
+                />
+                <Link to={`/smurf-edit/${smurf.id}`}>
+                  <button>Update Smurf</button>
+                </Link>
+                <button type="submit" id={smurf.id} onClick={this.delete}>
+                  Delete Smurf
+                </button>
+              </div>
             );
           })}
         </ul>
@@ -26,7 +39,7 @@ class Smurfs extends Component {
 }
 
 Smurf.defaultProps = {
- smurfs: [],
+  smurfs: []
 };
 
 export default Smurfs;
