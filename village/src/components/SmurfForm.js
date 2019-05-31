@@ -7,7 +7,7 @@ class SmurfForm extends Component {
       profile: {
       name: '',
       age: '',
-      height: ''
+      height: ''  
     }
     };
   }
