@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 import './App.css';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
-import Smurf from './components/Smurf';
 
 import axios from 'axios';
 import {
@@ -37,7 +36,7 @@ class App extends Component {
       .post('http://localhost:3333/smurfs', smurf)
       .then(res => {
         this.setState({smurfs: res.data})
-        // this.props.history.push('/')
+        this.props.history.push('/smurf-list')
       })
       .then(err=>console.log(err))
 
