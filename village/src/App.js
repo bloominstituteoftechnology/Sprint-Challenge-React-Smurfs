@@ -11,6 +11,11 @@ class App extends Component {
     super(props);
     this.state = {
       smurfs: [],
+      newSmurf:{
+        name: '',
+        age: '',
+        height: '',
+      }
     };
   }
 
@@ -35,9 +40,32 @@ class App extends Component {
           <div className="nav-links">
             <NavLink exact to="/">Smurfs</NavLink>
             <NavLink exact to="/smurf-form">Smurf Form</NavLink>
+        <Route
+          exact
+          path="/"
+          render={props => (
+            <Smurfs
+              {...props}
+              smurfs={this.state.smurfs}
+            />
+          )}
+        />
+         <Route
+          exact
+          path="/smurf-form"
+          render={props => (
+            <SmurfForm
+              {...props} 
+             
+            />
+          )}
+        />
+            
+            
           </div>
         </nav>
-      </div>
+        </div>
+       
     );
   }
 }
