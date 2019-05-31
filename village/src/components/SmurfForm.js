@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 
 class SmurfForm extends Component {
   constructor(props) {
@@ -19,6 +20,8 @@ class SmurfForm extends Component {
       age: '',
       height: ''
     });
+    axios
+      .post('http://localhost:3333/smurfs', {name: this.name, age: this.age, height: this.height})
   }
 
   handleInputChange = e => {
