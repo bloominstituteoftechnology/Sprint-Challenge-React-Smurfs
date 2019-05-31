@@ -1,6 +1,7 @@
+//updateForm
 import React, { Component } from 'react';
 
-class SmurfForm extends Component {
+class UpdateForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -12,17 +13,8 @@ class SmurfForm extends Component {
     };
   }
 
-  addSmurf = event => {
-    event.preventDefault();
-    // add code to create the smurf using the api
-    this.props.addSmurf(this.state.profile);
-    this.setState({
-      profile: {
-        name: '',
-        age: '',
-        height: ''
-      }
-    })
+  updateSmurf = e =>{
+    this.props.updateSmurf('72', this.state.profile);
   }
 
   handleInputChange = e => {
@@ -51,11 +43,11 @@ class SmurfForm extends Component {
             value={this.state.height}
             name="height"
           />
-          <button onClick={this.addSmurf}>Add to the village</button>
+          <button onClick={this.updateSmurf}>Update Smurf</button>
         </form>
       </div>
     );
   }
 }
 
-export default SmurfForm;
+export default UpdateForm;
