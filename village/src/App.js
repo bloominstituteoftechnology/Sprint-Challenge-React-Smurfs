@@ -3,7 +3,15 @@ import React, { Component } from 'react';
 import './App.css';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
+import Smurf from './components/Smurf';
+
 import axios from 'axios';
+import {
+  Route,
+  NavLink,
+
+} from 'react-router-dom';
+
 
 class App extends Component {
   constructor(props) {
@@ -24,6 +32,17 @@ class App extends Component {
   }
 
 
+  addSmurffy = smurf => {
+    axios
+      .post('http://localhost:3333/smurfs', smurf)
+      .then(res => {
+        this.setState({smurfs: res.data})
+        // this.props.history.push('/')
+      })
+      .then(err=>console.log(err))
+
+
+  };
 
 
 
@@ -34,11 +53,23 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <SmurfForm />
-        <Smurfs smurfs={this.state.smurfs} />
+      <nav>
+        <div className="link">
+        <NavLink exact to="/smurf-list">Smurf List</NavLink>
+        </div>
+        <div className="link">
+        <NavLink exact to="/">Home</NavLink>
+        </div>
+
+      </nav>
+        <Route exact path = "/" render={(props) => <SmurfForm smurfs={this.state.smurfs} addSmurffy={this.addSmurffy} {...props}/>}/>
+        <Route exact path = "/smurf-list" render={(props) => <Smurfs smurfs={this.state.smurfs} {...props}/>}/>
       </div>
     );
   }
 }
+
+// const AppWithRouter = WithRouter(App);
+
 
 export default App;
