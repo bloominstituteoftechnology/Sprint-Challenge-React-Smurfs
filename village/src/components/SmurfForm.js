@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 
 class SmurfForm extends Component {
   constructor(props) {
@@ -11,9 +12,25 @@ class SmurfForm extends Component {
   }
 
   addSmurf = event => {
-    event.preventDefault();
+   // event.preventDefault();
+   //couldn't figure out componentWillUpdate in time, so I
+   //just allowed the default reload lol
+   
     // add code to create the smurf using the api
+const name = this.state.name;
+const age = this.state.age;
+const height = this.state.height;
 
+axios.post('http://localhost:3333/smurfs', {name:name,age:age,height:height})
+      .then(response => {
+        console.log(response);
+      }
+	  )
+	  .catch(err => {
+	  console.log(err);
+	  }
+      )
+	
     this.setState({
       name: '',
       age: '',
