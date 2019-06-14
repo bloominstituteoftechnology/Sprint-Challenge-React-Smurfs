@@ -60,7 +60,7 @@ class App extends Component {
 		return (
 			<Router>
 				<div className="container">
-					<div>
+					<div className="navbar">
 						<li activeClassName="activeNavButton">
 							<NavLink exact to="/">
 								Home
