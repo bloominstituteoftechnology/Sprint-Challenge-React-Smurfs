@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom';
 import axios from 'axios';
 
 class SmurfForm extends Component {
@@ -7,7 +8,8 @@ class SmurfForm extends Component {
     this.state = {
       name: '',
       age: '',
-      height: ''
+      height: '',
+      redirect: false
     };
   }
 
@@ -36,6 +38,9 @@ class SmurfForm extends Component {
   };
 
   render() {
+    if(this.state.redirect) {
+      return <Redirect push to='/' />
+    }
     return (
       <div className="SmurfForm">
         <form onSubmit={this.addSmurf}>

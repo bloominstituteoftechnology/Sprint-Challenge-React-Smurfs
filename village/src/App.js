@@ -36,11 +36,11 @@ class App extends Component {
             exact path='/'
             render={(props) => <Smurfs {...props}
               smurfs={this.state.smurfs}
-              sendFormData={(newData) => this.setState({smurfs: newData})} />} />
-        <Route
-            exact path='/smurf-from'
-            render={(props) => <SmurfForm {...props}
-              sendFormData={(newData) => this.setState({smurfs: newData})} />} />
+              sendNewData={(newData) => this.setState({smurfs: newData})} />} />
+        <Route 
+          path='/smurf-form' 
+          render={(props) => <SmurfForm {...props}
+            sendFormData={(newData) => this.setState({smurfs: newData})} />} />
       </div>
     );
   }
