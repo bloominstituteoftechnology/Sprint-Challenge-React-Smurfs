@@ -14,12 +14,7 @@ class App extends Component {
 		this.state = {
 			smurfs: [],
 			isLoading: false,
-			errorMessage: '',
-			form: {
-				nameValue: '',
-				ageValue: '',
-				heightValue: ''
-			}
+			errorMessage: ''
 		};
 	}
 	// add any needed code to ensure that the smurfs collection exists on state and it has data coming from the server
@@ -72,15 +67,15 @@ class App extends Component {
 							</NavLink>
 						</li>
 						<li activeClassName="activeNavButton">
-							<NavLink exact to="/smurf-editor">
+							<NavLink exact to="/smurf-add">
 								Add a Smurf
 							</NavLink>
 						</li>
 					</div>
-
 					<div className="App">
-						<SmurfForm />
-						<Smurfs smurfs={this.state.smurfs} />
+						<Route exact path="/" render={() => <h1>Welcome to Smurf Village</h1>} />
+						<Route exact path="/smurfs" render={props => <Smurfs smurfs={this.state.smurfs} />} />
+						<Route exact path="/smurf-add" render={props => <SmurfForm {...props} />} />
 					</div>
 				</div>
 			</Router>
