@@ -1,5 +1,5 @@
 # Sprint Challenge: Single Page Applications - Smurfs
-
+jose montero
 This challenge allows you to practice the concepts and techniques learned over the past Sprint and apply them in a concrete project. This Sprint explored Single Page Applications, React Router I - II & HTTP/AJAX I - II. In your challenge for this Sprint, you will demonstrate proficiency by creating a Single Page Application that performs CRUD operations on a locally hosted API, Smurfs.
 
 ## Instructions
