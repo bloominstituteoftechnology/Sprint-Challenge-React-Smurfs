@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 
-export default class NavBar extends Component {
+export class Navbar extends Component {
     render() {
         return (
-            <Nav>
-                <NavContainer>
+            <div>
+                <div>
                     <NavLink to='/'>Home</NavLink>
                     <NavLink to='/smurf-form'>Add Smurf</NavLink>
-                </NavContainer>
-            </Nav>
+                </div>
+            </div>
         )
     }
 }
