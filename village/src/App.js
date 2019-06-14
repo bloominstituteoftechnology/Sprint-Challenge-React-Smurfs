@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { BrowserRouter as Router, NavLink, Route } from 'react-router-dom';
-import uuid from 'uuid';
 
 import './App.css';
 import SmurfForm from './components/SmurfForm';
@@ -39,29 +38,28 @@ class App extends Component {
 			})
 			.finally(this.setState({ isLoading: false }));
 	}
-	addSmurf = () => {
-		this.setState({ isLoading: true });
-		const newSmurf = {
-			id: uuid(),
-			name: this.state.form.nameValue,
-			age: this.state.form.ageValue,
-			height: this.state.form.heightValue
-		};
-		axios
-			.post(SMURFS_API, { ...newSmurf })
-			.then(res => {
-				this.setState({ smurfs: res.data });
-			})
-			.catch(err => {
-				this.setState({ errorMessage: err.response.statusText });
-			})
-			.finally(this.setState({ isLoading: false }));
-	};
-
+	// addSmurf = () => {
+	// 	this.setState({ isLoading: true });
+	// 	const newSmurf = {
+	// 		id: uuid(),
+	// 		name: this.state.form.nameValue,
+	// 		age: this.state.form.ageValue,
+	// 		height: this.state.form.heightValue
+	// 	};
+	// 	axios
+	// 		.post(SMURFS_API, { ...newSmurf })
+	// 		.then(res => {
+	// 			this.setState({ smurfs: res.data });
+	// 		})
+	// 		.catch(err => {
+	// 			this.setState({ errorMessage: err.response.statusText });
+	// 		})
+	// 		.finally(this.setState({ isLoading: false }));
+	// };
 	render() {
 		return (
 			<div className="App">
-				<SmurfForm addSmurf={this.addSmurf} />
+				<SmurfForm />
 				<Smurfs smurfs={this.state.smurfs} />
 			</div>
 		);
