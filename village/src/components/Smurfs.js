@@ -1,9 +1,28 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 
 import Smurf from './Smurf';
 
 class Smurfs extends Component {
+
+
+  getSmurfs(){
+    axios
+    .get('http://localhost:3333/smurfs')
+    .then(smurfs => this.setState({ smurfs: smurfs.data }))
+    .catch(error => console.log(error));
+  }
+
+  componentDidUpdate(prevProps){
+    if(prevProps.smurfs.length !== this.props.smurfs.length){
+      this.getSmurfs();
+    }
+  }
+
+
   render() {
+    console.log(this.props.smurfs);
+
     return (
       <div className="Smurfs">
         <h1>Smurf Village</h1>

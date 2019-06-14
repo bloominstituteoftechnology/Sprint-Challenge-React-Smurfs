@@ -1,3 +1,46 @@
 .App {
+  background: rgb(124, 166, 230);
+  min-height: 100vh;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.SmurfForm {
+  padding: 5px;
+}
+
+.SmurfForm input, .SmurfForm button {
+  padding: 8px;
+}
+
+.navbar {
+  height: 40px;
+  background: blue;
+  color: snow;
+  display: flex;
+
+}
+
+.navLink {
+  text-decoration: none;
+  color: snow;
+  padding: 10px;
+}
+
+.active {
+  background: royalblue;
+}
+
+.Smurfs {
+  width: 80%;
   text-align: center;
+  margin: 0 auto;
+}
+
+.Smurf {
+  border: 3px dotted blue;
+  background: skyblue;
+  margin: 5px;
 }
