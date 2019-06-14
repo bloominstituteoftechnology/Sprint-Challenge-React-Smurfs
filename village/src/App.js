@@ -58,10 +58,32 @@ class App extends Component {
 	// };
 	render() {
 		return (
-			<div className="App">
-				<SmurfForm />
-				<Smurfs smurfs={this.state.smurfs} />
-			</div>
+			<Router>
+				<div className="container">
+					<div>
+						<li activeClassName="activeNavButton">
+							<NavLink exact to="/">
+								Home
+							</NavLink>
+						</li>
+						<li activeClassName="activeNavButton">
+							<NavLink exact to="/smurfs">
+								Village
+							</NavLink>
+						</li>
+						<li activeClassName="activeNavButton">
+							<NavLink exact to="/smurf-editor">
+								Add a Smurf
+							</NavLink>
+						</li>
+					</div>
+
+					<div className="App">
+						<SmurfForm />
+						<Smurfs smurfs={this.state.smurfs} />
+					</div>
+				</div>
+			</Router>
 		);
 	}
 }
