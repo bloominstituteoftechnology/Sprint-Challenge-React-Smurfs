@@ -1,0 +1,52 @@
+.Smurfs{
+    margin-top: 100px;    
+}
+
+.Smurfs .eaSmurf{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;;
+}
+
+.Smurfs h1{
+    color: rgb(22, 22, 90);
+    margin-bottom: 50px;
+}
+
+.Smurf{
+    width: 40%;
+    border: outset 4px rgb(22, 22, 90);
+    border-radius: 20px;
+    background: rgba(88, 180, 255, 0.25);
+    color: rgb(22, 22, 90);
+    margin-bottom: 20px;
+    margin-right:  10px;
+    margin-left: 10px;
+}
+
+.SmurfForm{
+    position: relative;
+    top: 100px;
+}
+
+.SmurfForm h1{
+    margin-bottom: 50px;
+    color: rgb(22, 22, 90);
+}
+
+.SmurfForm form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.SmurfForm form input{
+    width: 40%;
+    height: 25px;
+    margin-bottom: 20px;
+}
+
+.SmurfForm form button{
+    width: 25%;
+    height: 25px;
+}
