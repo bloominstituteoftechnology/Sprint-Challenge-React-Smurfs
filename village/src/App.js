@@ -51,6 +51,19 @@ class App extends Component {
 	// 		})
 	// 		.finally(this.setState({ isLoading: false }));
 	// };
+	deleteSmurf = id => {
+		axios
+			.delete(`${SMURFS_API}/${id}`)
+			.then(
+				this.setState({
+					smurfs: this.state.smurfs.filter(smurf => smurf.id !== id)
+				})
+			)
+			.catch(err => {
+				this.setState({ errorMessage: err.response.statusText });
+			});
+	};
+
 	render() {
 		return (
 			<Router>
@@ -74,7 +87,13 @@ class App extends Component {
 					</div>
 					<div className="App">
 						<Route exact path="/" render={() => <h1>Welcome to Smurf Village</h1>} />
-						<Route exact path="/smurfs" render={props => <Smurfs smurfs={this.state.smurfs} />} />
+						<Route
+							exact
+							path="/smurfs"
+							render={props => (
+								<Smurfs {...props} smurfs={this.state.smurfs} deleteSmurf={this.deleteSmurf} />
+							)}
+						/>
 						<Route exact path="/smurf-add" render={props => <SmurfForm {...props} />} />
 					</div>
 				</div>
