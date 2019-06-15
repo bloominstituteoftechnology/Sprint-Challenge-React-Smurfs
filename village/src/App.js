@@ -35,8 +35,11 @@ class App extends Component {
       <div className='App'>
         <div>
           <button>
-            <NavLink exact to='/add'>
-              Add a Smurf
+            <NavLink to='/add'>Add a Smurf</NavLink>
+          </button>
+          <button>
+            <NavLink exact to='/'>
+              The Village
             </NavLink>
           </button>
         </div>
@@ -46,8 +49,11 @@ class App extends Component {
             <SmurfForm {...props} updatedList={this.updatedList} />
           )}
         />
-
-        <Smurfs smurfs={this.state.smurfs} />
+        <Route
+          exact
+          path='/'
+          render={props => <Smurfs {...props} smurfs={this.state.smurfs} />}
+        />
       </div>
     );
   }
