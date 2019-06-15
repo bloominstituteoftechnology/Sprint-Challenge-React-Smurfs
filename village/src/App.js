@@ -25,6 +25,10 @@ class App extends Component {
       .catch(err => console.log(err));
   }
 
+  updatedList = newSmurf => {
+    this.setState({ smurfs: newSmurf });
+  };
+
   render() {
     return (
       <div className='App'>
