@@ -33,16 +33,17 @@ class App extends Component {
   render() {
     return (
       <div className='App'>
-        <div>
-          <button>
+        <nav>
+          <h1>SMURF REACT VILLAGE</h1>
+          <div className='nav-link'>
             <NavLink to='/add'>Add a Smurf</NavLink>
-          </button>
-          <button>
+          </div>
+          <div className='nav-link'>
             <NavLink exact to='/'>
               The Village
             </NavLink>
-          </button>
-        </div>
+          </div>
+        </nav>
         <Route
           path='/add'
           render={props => (
