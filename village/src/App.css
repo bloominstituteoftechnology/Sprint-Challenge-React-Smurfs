@@ -1,3 +1,39 @@
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background: url('https://cdn3.movieweb.com/i/article/3ub0MkOGl5U1usA5zBNadVlu5cL75j/1200:100/Visit-Smurf-Village-In-Smurfs-Reboot-Concept-Art.jpg')
+    no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  text-transform: uppercase;
+}
+
 .App {
+  font-family: sans-serif;
   text-align: center;
+  font-family: 'Boogaloo', cursive;
+}
+
+h1 {
+  color: #ffffff;
+  margin-right: 2%;
+  font-size: 55px;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black,
+    3px 4px 4px black;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+
+h2 {
+  color: #ffffff;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black,
+    3px 4px 4px black;
+  font-size: 40px;
 }
