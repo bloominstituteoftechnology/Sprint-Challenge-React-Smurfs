@@ -25,6 +25,7 @@ const SmurfCard = styled.div`
   flex-flow: column;
   border-radius: 8px;
   font-size: 20px;
+  border: 1px inset silver;
 `;
 const DeleteButton = styled.button`
   cursor: pointer;
