@@ -1,5 +1,6 @@
 # Sprint Challenge: Single Page Applications - Smurfs
-jose montero
+
+jose montero start of sprint day 2
 This challenge allows you to practice the concepts and techniques learned over the past Sprint and apply them in a concrete project. This Sprint explored Single Page Applications, React Router I - II & HTTP/AJAX I - II. In your challenge for this Sprint, you will demonstrate proficiency by creating a Single Page Application that performs CRUD operations on a locally hosted API, Smurfs.
 
 ## Instructions
@@ -32,7 +33,6 @@ Demonstrate your understanding of this Sprint's concepts by answering the follow
 - [ ] Which HTTP methods can be mapped to the CRUD acronym that we use when interfacing with APIs/Servers.
 - [ ] Mention three tools we can use to make AJAX requests.
 
-
 ## Project Set Up
 
 Follow these steps to set up and work on your project:
@@ -53,9 +53,10 @@ Follow these steps to set up and work on your project:
 
 Follow these steps for completing your project:
 
-- [ ] Submit a Pull-Request to merge <firstName-lastName> Branch into master (student's  Repo).
+- [ ] Submit a Pull-Request to merge <firstName-lastName> Branch into master (student's Repo).
 - [ ] Add your Project Manager as a Reviewer on the Pull-request
-- [ ] PM then will count the HW as done by  merging the branch back into master.
+- [ ] PM then will count the HW as done by merging the branch back into master.
+
 ## Minimum Viable Product
 
 The MVP of this project will be broken up between 2 stages. Follow each step and be sure to use your design/style skills to make this application look professional.
@@ -112,14 +113,14 @@ Add a Router to this application by using React Router.
     name: 'Brainy',
     age: 211,
     height: '5cm',
-    id: 0
+    id: 0,
   },
   {
     name: 'Smurfette',
     age: 122,
     height: '12cm',
-    id: 1
-  }
+    id: 1,
+  },
 ];
 ```
 
