@@ -7,11 +7,11 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 
 function App() {
   return (
-    <Router>
+   
       <Nav />
       <Route exact path="/" component={Home} />
       <Route exact path="/form" component={Form} />
-    </Router>
+ 
   );
 }
 
