@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
+import { Route, NavLink } from 'react-router-dom'
 
 import './App.css';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
 import axios from 'axios'
+import { runInContext } from 'vm';
 
 class App extends Component {
   constructor(props) {
@@ -67,10 +69,22 @@ addSmurf = newSmurf => {
   render() {
     return (
       <div className="App">
-        <SmurfForm reset = {this.resetSmurfState} addSmurf={this.addSmurf}/>
+        <NavLink to= '/smurf-form'>Add New Smurf</NavLink>
+        <Route 
+         path = '/smurf-form'
+         render ={() => (
+          <SmurfForm reset = {this.resetSmurfState} addSmurf={this.addSmurf}/>
+
+         )}
+         />
+        {/* <SmurfForm reset = {this.resetSmurfState} addSmurf={this.addSmurf}/> */}
         <h1> HHH</h1>
-        <Smurfs smurfs={this.state.smurfs} deleteSmurf={this.state.deleteSmurf} />
-      </div>
+        <Route
+         path ='/'
+         render ={ () =>        (<Smurfs smurfs={this.state.smurfs} deleteSmurf={this.state.deleteSmurf} />
+        )}
+        />
+       </div>
     );
   }
 }
