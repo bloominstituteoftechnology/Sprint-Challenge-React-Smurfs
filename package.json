@@ -4,12 +4,13 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "concurrently \"node server.js\" \"yarn --cwd ./village start\""
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.18.2",
+    "concurrently": "^4.0.1",
     "cors": "^2.8.4",
     "express": "^4.16.2",
     "nodemon": "^1.14.11"

@@ -1,34 +1,41 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
+import axios from 'axios'
+import { FormContainer, Form } from '../styles/SmurfForm'
 
 class SmurfForm extends Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
       name: '',
-      age: '',
-      height: ''
-    };
+      occupations: '',
+      img: ''
+    }
   }
 
   addSmurf = event => {
-    event.preventDefault();
+    event.preventDefault()
+    console.log(this.state)
     // add code to create the smurf using the api
+    axios
+      .post('/smurfs', this.state)
+      .then(res => console.log(res))
+      .catch(err => console.log(err))
 
     this.setState({
       name: '',
-      age: '',
-      height: ''
-    });
+      occupations: '',
+      img: ''
+    })
   }
 
   handleInputChange = e => {
-    this.setState({ [e.target.name]: e.target.value });
-  };
+    this.setState({ [e.target.name]: e.target.value })
+  }
 
   render() {
     return (
-      <div className="SmurfForm">
-        <form onSubmit={this.addSmurf}>
+      <FormContainer>
+        <Form onSubmit={this.addSmurf}>
           <input
             onChange={this.handleInputChange}
             placeholder="name"
@@ -37,21 +44,21 @@ class SmurfForm extends Component {
           />
           <input
             onChange={this.handleInputChange}
-            placeholder="age"
-            value={this.state.age}
-            name="age"
+            placeholder="occupations"
+            value={this.state.occupations}
+            name="occupations"
           />
           <input
             onChange={this.handleInputChange}
-            placeholder="height"
-            value={this.state.height}
-            name="height"
+            placeholder="img"
+            value={this.state.img}
+            name="img"
           />
           <button type="submit">Add to the village</button>
-        </form>
-      </div>
-    );
+        </Form>
+      </FormContainer>
+    )
   }
 }
 
-export default SmurfForm;
+export default SmurfForm
