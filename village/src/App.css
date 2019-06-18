@@ -1,3 +1,83 @@
 .App {
   text-align: center;
 }
+
+/* Just smurfin around in the CSS */
+
+nav {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 20px;
+  background: #88CCFF;
+}
+
+nav a {
+  text-decoration: none;
+  color: white;
+}
+
+.Smurfs {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.Smurf{
+  background: #88CCFF;
+  color: white;
+  border: 0.5px solid black;
+  border-radius: 5px;
+  padding: 20px;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+  width: 300px;
+  height: 150px;
+  position: relative;
+}
+
+.delete {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+}
+
+.delete:hover {
+  color: crimson;
+}
+
+form {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+input {
+  width: 50%;
+  font-size: 15px;
+  padding: 10px;
+  outline: none;
+  margin-top: 20px;
+  border-radius: 5px;
+  border: 1px solid #88CCFF;
+}
+
+button {
+  border-radius: 5px;
+  border: 1px solid #88CCFF;
+  color: #88CCFF;
+  background: white;
+  padding: 10px;
+  margin-top: 20px;
+}
+
+button:hover {
+  border: 1px solid #88CCFF;
+  color: white;
+  background: #88CCFF;
+}
