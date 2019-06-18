@@ -1,0 +1,28 @@
+.smurf-nav {
+    margin-top: 50px;
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.smurf-nav a {
+    text-decoration: none;
+    font-size: 24px;
+    padding: 10px;
+    border-right: 1px solid black;
+    color: black;
+}
+
+.smurf-nav a:hover {
+    color: #345DA4;
+}
+
+.smurf-nav a:last-child {
+    border-right: none;
+}
+
+.smurf-nav a.selected {
+    text-decoration: underline;
+}
