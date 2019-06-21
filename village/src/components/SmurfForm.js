@@ -12,13 +12,15 @@ class SmurfForm extends Component {
 
   addSmurf = event => {
     event.preventDefault();
-    // add code to create the smurf using the api
+    const { name, age, height } = this.state;
+    let newSmurf = { name, age, height }
 
     this.setState({
       name: '',
       age: '',
       height: ''
     });
+    alert(`${name} added! Click View Smurfs to see the Village.`)
   }
 
   handleInputChange = e => {
