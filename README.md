@@ -29,7 +29,11 @@ In this challenge, you will create a Single Page Application complete with Clien
 Demonstrate your understanding of this Sprint's concepts by answering the following free-form questions. Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read by your project manager.
 
 - [ ] Explain the differences between `client-side routing` and `server-side routing`.
- Ok I found a cool explanation on Stack Overflow, I am going to post here for note to myself later. However, from what I read this reminds me of when I was trying to host my own ecommerce store where I had to build the site on there server, but in order for it to be available to everyone I had to do a server-side routing so it could be available on a public server. Sound about right?
+ Ok chnage of answer
+
+ Serverside routing is when the user clicks an a link and they  are taken to an entirely new HTML page.
+
+ Client-side routing is when the changes made are taken in directly on that page but does not navigate the user to another page. 
 
  Here is the explanation I researched...
 
@@ -40,7 +44,7 @@ On a webapp that uses server side routing:
 
 The browser detects that the user has clicked on an anchor element.
 It makes an HTTP GET request to the URL found in the href tag
-The server processes the request, and sends a new document (usually HTML) as a response.
+The server processes the request, and sends a new document (usually HTML) as a response. --- Like when we connect anchor tags in our nav menu's
 The browser discards the old webpage altogether, and displays the newly downloaded one.
 If the webapp uses client side routing:
 
@@ -87,6 +91,8 @@ Delete = DELETE
 PUT can map to both Create and Update depending on the existence of the URI used with the PUT.
 
 POST maps to Create and Update, but mostly used for create. POST can also be a partial update so we don't need the proposed PATCH method.
+
+
 - [ ] Mention three tools we can use to make AJAX requests.
 
 Fetch API--
