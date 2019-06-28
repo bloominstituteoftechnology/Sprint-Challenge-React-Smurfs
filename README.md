@@ -29,11 +29,101 @@ In this challenge, you will create a Single Page Application complete with Clien
 Demonstrate your understanding of this Sprint's concepts by answering the following free-form questions. Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read by your project manager.
 
 - [ ] Explain the differences between `client-side routing` and `server-side routing`.
+ Ok I found a cool explanation on Stack Overflow, I am going to post here for note to myself later. However, from what I read this reminds me of when I was trying to host my own ecommerce store where I had to build the site on there server, but in order for it to be available to everyone I had to do a server-side routing so it could be available on a public server. Sound about right?
+
+ Here is the explanation I researched...
+
+
+ Imagine the user clicking on a simple link:  <a href="/hello">Hello!</a>
+
+On a webapp that uses server side routing:
+
+The browser detects that the user has clicked on an anchor element.
+It makes an HTTP GET request to the URL found in the href tag
+The server processes the request, and sends a new document (usually HTML) as a response.
+The browser discards the old webpage altogether, and displays the newly downloaded one.
+If the webapp uses client side routing:
+
+The browser detects that the user has clicked on an anchor element, just like before.
+A client side code (usually the routing library) catches this event, detects that the URL is not an external link, and then prevents the browser from making the HTTP GET request.
+The routing library then manually changes the URL displayed in the browser (using the HTML5 history API, or maybe URL hashbangs on older browsers)
+The routing library then changes the state of the client app. For example, it can change the root React/Angular/etc component according to the route rules.
+The app (particularly the MVC library, like React) then processes state changes. It renders the new components, and if necessary, it requests new data from the server. But this time the response isn't necessarily an entire webpage, it may also be "raw" data, in which case the client-side code turns it into HTML elements.
+Client-side routing sound more complicated, because it is. But some libraries really make it easy these days.
+
+
+There are several upsides of client-side routing: you download less data to display new content, you can reuse DOM elements, display loading notifications to user etc. However, webapps that generate the DOM on server side are much easier to crawl (by search engines), thereby making SEO optimization easier. Combining these two approaches is also possible, the excellent Flow Router SSR is a good example for that.
+
+
+
+
 - [ ] What does HTTP stand for?
+
+It stands for Hypertext Transfer Protocol.  I also found the difference between HTTP an HTTPS (Hypertext Transfer Protocol Secure). 
+
+
+ is a combination of the Hypertext Transfer Protocol (HTTP) with the Secure Socket Layer (SSL)/Transport Layer Security (TLS) protocol. TLS is an authentication and security protocol widely implemented in browsers and Web servers.
+
+
 - [ ] What does CRUD stand for?
+
+create, read, update, and delete[1] (CRUD) are the four basic functions of persistent storage. CRUD is also used to describe user interface conventions that help to view, search, and change info. 
+
+Other variations of CRUD include:
+
+BREAD (Browse, Read, Edit, Add, Delete) [5]
+DAVE (Delete, Add, View, Edit)[6]
+CRAP (Create, Replicate, Append, Process)[7]
+CRUDE (Create, Read, Update, Delete, Experience)
+
+
 - [ ] Which HTTP methods can be mapped to the CRUD acronym that we use when interfacing with APIs/Servers.
+
+Create = PUT with a new URI
+         POST to a base URI returning a newly created URI
+Read   = GET
+Update = PUT with an existing URI
+Delete = DELETE
+PUT can map to both Create and Update depending on the existence of the URI used with the PUT.
+
+POST maps to Create and Update, but mostly used for create. POST can also be a partial update so we don't need the proposed PATCH method.
 - [ ] Mention three tools we can use to make AJAX requests.
 
+Fetch API--
+
+- modern alternative to XMLHttpRequest for retrieving resources from the server
+
+-powerful feature set 
+- syntax and strucure that is flexible and easy to use
+- supported by all modern web browsers
+-follows a request-response approach where Fetch makes a request and returns a promise that resolves to the Response object.
+
+-You can pass a Request object to fetch or, alternatively, just the URL of the resource to be fetched. 
+
+Axios--
+
+-Modern JS library built on top of XMLHttpRequest for making AJAX calls
+- Can make HTTP request from both the browser and the server
+-Supports the Promise API native to ES6
+-Intercepts requests and responses
+-Transform request and response data using promises 
+-Automatically transforms JSON data
+-May cancel live request
+
+-To use Axios, you will need to install it first.npm install axios
+
+-Axios has an easier syntax compared to that of Fetch
+-Axios is definitely more readable. Axios is also popular with modern libraries such as React and Vue.
+
+jQuery--
+
+- Formally a front-line library used to handle everything from AJAX calls to manipulating DOM contents
+
+- not used as much anymore since Fetch and Axios 
+- can still be used for making asychronus calls 
+- has a ton of support documentation 
+
+there is Also SuperAgent(Lightweight and progressive AJAX library, focused on realiabilty and flexibility) and Request(A Simplified HTTP Client- easiest way to make HTTP calls)
 
 ## Project Set Up
 

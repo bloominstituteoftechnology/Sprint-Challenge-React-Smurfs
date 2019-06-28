@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>README.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: "Segoe WPC", "Segoe UI", "SFUIText-Light", "HelveticaNeue-Light", sans-serif, "Droid Sans Fallback";
+	font-size: 14px;
+	padding: 0 12px;
+	line-height: 22px;
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	color: #4080D0;
+	text-decoration: none;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+h1 code,
+h2 code,
+h3 code,
+h4 code,
+h5 code,
+h6 code {
+	font-size: inherit;
+	line-height: auto;
+}
+
+a:hover {
+	color: #4080D0;
+	text-decoration: underline;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left: 5px solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 14px;
+	line-height: 19px;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+.mac code {
+	font-size: 12px;
+	line-height: 18px;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+/** Theming */
+
+.vscode-light,
+.vscode-light pre code {
+	color: rgb(30, 30, 30);
+}
+
+.vscode-dark,
+.vscode-dark pre code {
+	color: #DDD;
+}
+
+.vscode-high-contrast,
+.vscode-high-contrast pre code {
+	color: white;
+}
+
+.vscode-light code {
+	color: #A31515;
+}
+
+.vscode-dark code {
+	color: #D7BA7D;
+}
+
+.vscode-light pre:not(.hljs),
+.vscode-light code > div {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre:not(.hljs),
+.vscode-dark code > div {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre:not(.hljs),
+.vscode-high-contrast code > div {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+.vscode-light blockquote,
+.vscode-dark blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.vscode-high-contrast blockquote {
+	background: transparent;
+	border-color: #fff;
+}
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family:  "Meiryo", "Segoe WPC", "Segoe UI", "SFUIText-Light", "HelveticaNeue-Light", sans-serif, "Droid Sans Fallback";
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+</head>
+<body>
+<h1 id="sprint-challenge-single-page-applications---smurfs">Sprint Challenge: Single Page Applications - Smurfs</h1>
+<p>This challenge allows you to practice the concepts and techniques learned over the past Sprint and apply them in a concrete project. This Sprint explored Single Page Applications, React Router I - II &amp; HTTP/AJAX I - II. In your challenge for this Sprint, you will demonstrate proficiency by creating a Single Page Application that performs CRUD operations on a locally hosted API, Smurfs.</p>
+<h2 id="instructions">Instructions</h2>
+<p><strong>Read these instructions carefully. Understand exactly what is expected <em>before</em> starting this Sprint Challenge.</strong></p>
+<p>This is an individual assessment. All work must be your own. Your challenge score is a measure of your ability to work independently using the material covered through this sprint. You need to demonstrate proficiency in the concepts and objectives introduced and practiced in preceding days.</p>
+<p>You are not allowed to collaborate during the Sprint Challenge. However, you are encouraged to follow the twenty-minute rule and seek support from your PM and Instructor in your cohort help channel on Slack. Your work reflects your proficiency ReactJS Fundamentals and your command of the concepts and techniques in the Function Components and Class Components.</p>
+<p>You have three hours to complete this challenge. Plan your time accordingly.</p>
+<h2 id="commits">Commits</h2>
+<p>Commit your code regularly and meaningfully. This helps both you (in case you ever need to return to old code for any number of reasons and your project manager).</p>
+<h2 id="description">Description</h2>
+<p>In this challenge, you will create a Single Page Application complete with Client-Side Routing and components that are built to consume a locally hosted Web Server (API). Your application will be built to consume live data that will be served up by your Node/Express web server. You will design, architect, and develop a Smurf Village from scratch. Your creative abilities</p>
+<p><strong>Note</strong> Utilize the following to help design the Data for your Application:</p>
+<ul>
+<li><a href="http://smurfs.wikia.com/wiki/Category:Smurfs_Characters">Here</a> is a list of Smurf data you can use to create your village.</li>
+</ul>
+<h2 id="self-studyessay-questions">Self-Study/Essay Questions</h2>
+<p>Demonstrate your understanding of this Sprint's concepts by answering the following free-form questions. Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read by your project manager.</p>
+<ul>
+<li><input type="checkbox" id="checkbox0"><label for="checkbox0">Explain the differences between </label><code>client-side routing</code> and <code>server-side routing</code>.
+Ok I found a cool explanation on Stack Overflow, I am going to post here for note to myself later. However, from what I read this reminds me of when I was trying to host my own ecommerce store where I had to build the site on there server, but in order for it to be available to everyone I had to do a server-side routing so it could be available on a public server. Sound about right?</li>
+</ul>
+<p>Here is the explanation I researched...</p>
+<p>Imagine the user clicking on a simple link:  <a href="/hello">Hello!</a></p>
+<p>On a webapp that uses server side routing:</p>
+<p>The browser detects that the user has clicked on an anchor element.
+It makes an HTTP GET request to the URL found in the href tag
+The server processes the request, and sends a new document (usually HTML) as a response.
+The browser discards the old webpage altogether, and displays the newly downloaded one.
+If the webapp uses client side routing:</p>
+<p>The browser detects that the user has clicked on an anchor element, just like before.
+A client side code (usually the routing library) catches this event, detects that the URL is not an external link, and then prevents the browser from making the HTTP GET request.
+The routing library then manually changes the URL displayed in the browser (using the HTML5 history API, or maybe URL hashbangs on older browsers)
+The routing library then changes the state of the client app. For example, it can change the root React/Angular/etc component according to the route rules.
+The app (particularly the MVC library, like React) then processes state changes. It renders the new components, and if necessary, it requests new data from the server. But this time the response isn't necessarily an entire webpage, it may also be &quot;raw&quot; data, in which case the client-side code turns it into HTML elements.
+Client-side routing sound more complicated, because it is. But some libraries really make it easy these days.</p>
+<p>There are several upsides of client-side routing: you download less data to display new content, you can reuse DOM elements, display loading notifications to user etc. However, webapps that generate the DOM on server side are much easier to crawl (by search engines), thereby making SEO optimization easier. Combining these two approaches is also possible, the excellent Flow Router SSR is a good example for that.</p>
+<ul>
+<li><input type="checkbox" id="checkbox1"><label for="checkbox1">What does HTTP stand for?</label></li>
+</ul>
+<p>It stands for Hypertext Transfer Protocol.  I also found the difference between HTTP an HTTPS (Hypertext Transfer Protocol Secure).</p>
+<p>is a combination of the Hypertext Transfer Protocol (HTTP) with the Secure Socket Layer (SSL)/Transport Layer Security (TLS) protocol. TLS is an authentication and security protocol widely implemented in browsers and Web servers.</p>
+<ul>
+<li><input type="checkbox" id="checkbox2"><label for="checkbox2">What does CRUD stand for?</label></li>
+<li><input type="checkbox" id="checkbox3"><label for="checkbox3">Which HTTP methods can be mapped to the CRUD acronym that we use when interfacing with APIs/Servers.</label></li>
+<li><input type="checkbox" id="checkbox4"><label for="checkbox4">Mention three tools we can use to make AJAX requests.</label></li>
+</ul>
+<p>Fetch API--</p>
+<ul>
+<li>modern alternative to XMLHttpRequest for retrieving resources from the server</li>
+</ul>
+<p>-powerful feature set</p>
+<ul>
+<li>syntax and strucure that is flexible and easy to use</li>
+<li>supported by all modern web browsers
+-follows a request-response approach where Fetch makes a request and returns a promise that resolves to the Response object.</li>
+</ul>
+<p>-You can pass a Request object to fetch or, alternatively, just the URL of the resource to be fetched.</p>
+<p>Axios--</p>
+<p>-Modern JS library built on top of XMLHttpRequest for making AJAX calls</p>
+<ul>
+<li>Can make HTTP request from both the browser and the server
+-Suppots the Promise API native to ES6</li>
+</ul>
+<h2 id="project-set-up">Project Set Up</h2>
+<p>Follow these steps to set up and work on your project:</p>
+<ul>
+<li><input type="checkbox" id="checkbox5"><label for="checkbox5">Create a forked copy of this project.</label></li>
+<li><input type="checkbox" id="checkbox6"><label for="checkbox6">Add PM as collaborator on Github.</label></li>
+<li><input type="checkbox" id="checkbox7"><label for="checkbox7">Clone your OWN version of Repo (Not Lambda's by mistake!).</label></li>
+<li><input type="checkbox" id="checkbox8"><label for="checkbox8">Create a new Branch on the clone: git checkout -b </label><code>&lt;firstName-lastName&gt;</code>.</li>
+<li><input type="checkbox" id="checkbox9"><label for="checkbox9">Implement the project on this Branch, committing changes regularly.</label></li>
+<li><input type="checkbox" id="checkbox10"><label for="checkbox10">Push commits: git push origin </label><code>&lt;firstName-lastName&gt;</code>.</li>
+<li><input type="checkbox" id="checkbox11"><label for="checkbox11"></label><strong>RUN</strong> <code>yarn install or npm install</code> at the root to retrieve all the dependencies for the node server. You will not need to create any react apps here nor will you need to install any other dependencies. You should have all you need in this repo.</li>
+<li><input type="checkbox" id="checkbox12"><label for="checkbox12"></label><strong>LOOK</strong> at all the files you've been given for this project. One important file to note is <code>server.js</code>. This file contains an <strong>API</strong> that you are going to be interfacing with. Below is documentation on how to interact with the <strong>API</strong>.</li>
+<li><input type="checkbox" id="checkbox13"><label for="checkbox13"></label><strong>RUN</strong> <code>yarn start or npm start</code> to get your API up and running on <code>http://localhost:3333</code>. This is the <strong>URL</strong> you're going to need to use within your React app in order to make AJAX requests for data.</li>
+<li><input type="checkbox" id="checkbox14"><label for="checkbox14">After your API is up and running, you can open chrome and type in </label><code>http://localhost:3333/smurfs</code>. You should see an Array <code>[]</code> with a smurf returned to you. This is an array that your <strong>API</strong> will be using to store our Smurf Data.</li>
+<li><input type="checkbox" id="checkbox15"><label for="checkbox15"></label><strong>LOOK</strong> at your <code>village</code> directory and notice it's just a plain ol' React App that we've built using <code>create-react-app</code>.</li>
+<li><input type="checkbox" id="checkbox16"><label for="checkbox16"></label><strong>cd</strong> into <code>village</code> and run <code>yarn install or npm install</code> to retrieve the client side dependencies.</li>
+<li><input type="checkbox" id="checkbox17"><label for="checkbox17"></label><strong>RUN</strong> <code>yarn start or npm start</code> to fire up your React application.</li>
+</ul>
+<p>Follow these steps for completing your project:</p>
+<ul>
+<li><input type="checkbox" id="checkbox18"><label for="checkbox18">Submit a Pull-Request to merge </label><firstName-lastName> Branch into master (student's  Repo).</li>
+<li><input type="checkbox" id="checkbox19"><label for="checkbox19">Add your Project Manager as a Reviewer on the Pull-request</label></li>
+<li><input type="checkbox" id="checkbox20"><label for="checkbox20">PM then will count the HW as done by  merging the branch back into master.</label></li>
+</ul>
+<h2 id="minimum-viable-product">Minimum Viable Product</h2>
+<p>The MVP of this project will be broken up between 2 stages. Follow each step and be sure to use your design/style skills to make this application look professional.</p>
+<h3 id="stage-1">Stage 1</h3>
+<p>Construct your Components to build a Single Page Application. Keep your components separate and design them as if they are pages before adding in your Router.</p>
+<ul>
+<li>
+<p><input type="checkbox" id="checkbox21"><label for="checkbox21">Construct an AXIOS request to retrieve an array all the Smurfs in the Smurf DB simply write a </label><code>GET</code> to the endpoint <code>/smurfs</code>.</p>
+</li>
+<li>
+<p><input type="checkbox" id="checkbox22"><label for="checkbox22">Display those smurfs in a list on the screen.</label></p>
+</li>
+<li>
+<p><input type="checkbox" id="checkbox23"><label for="checkbox23">Construct an AXIOS request to </label><code>POST</code> to add a Smurf to the Smurf DB you'll need all three fields.</p>
+</li>
+<li>
+<p><input type="checkbox" id="checkbox24"><label for="checkbox24">Create a form that will allow users to add Smurfs to the Smurf DB.</label></p>
+</li>
+<li>
+<p><input type="checkbox" id="checkbox25"><label for="checkbox25">If a Smurf is created correctly, you should see a response that is an array of Smurfs with unique id's assigned to each Smurf.</label></p>
+</li>
+<li>
+<p>Example:</p>
+</li>
+</ul>
+<pre class="hljs"><code><div>{
+  <span class="hljs-attr">name</span>: <span class="hljs-string">'Sleepy'</span>,
+  <span class="hljs-attr">age</span>: <span class="hljs-number">323</span>,
+  <span class="hljs-attr">height</span>: <span class="hljs-string">'5cm'</span>
+}
+</div></code></pre>
+<h3 id="stage-2">Stage 2</h3>
+<p>Add a Router to this application by using React Router.</p>
+<ul>
+<li><input type="checkbox" id="checkbox26"><label for="checkbox26">You'll start by wrapping your </label><code>root</code> component in the <code>Router</code> component.</li>
+<li><input type="checkbox" id="checkbox27"><label for="checkbox27">Declare your routes with </label><code>Route</code>.</li>
+<li><input type="checkbox" id="checkbox28"><label for="checkbox28">Then make it so you can navigate to your routes using </label><code>Link</code>.</li>
+<li><input type="checkbox" id="checkbox29"><label for="checkbox29">Create two </label><code>routes</code> in your <code>App</code> component, one at <code>'/'</code> for your <code>Smurfs</code> component,and one at <code>/smurf-form</code> for your form.</li>
+<li><input type="checkbox" id="checkbox30"><label for="checkbox30">Then in your </label><code>App</code> component, create a nav bar that will use <code>NavLink</code> to route to your different pages.</li>
+</ul>
+<h2 id="stretch-problems">STRETCH PROBLEMS</h2>
+<p><strong>HTTP/Axios Stretch Problems</strong></p>
+<ul>
+<li>
+<p><input type="checkbox" id="checkbox31"><label for="checkbox31">The following two endpoints are here for you if you'd like to push yourselves a little further.</label></p>
+</li>
+<li>
+<p><input type="checkbox" id="checkbox32"><label for="checkbox32"></label><strong>HINT</strong> if you are going to be working on Stretch Problem, you'll need to use that unique <code>id</code>.</p>
+</li>
+</ul>
+<p><strong>DELETE '/smurfs/123', where 123 is the Id of the smurf you want to remove</strong></p>
+<ul>
+<li>
+<p><input type="checkbox" id="checkbox33"><label for="checkbox33">For this endpoint to work, all you need is an id sent up as part of the request url.</label></p>
+</li>
+<li>
+<p><input type="checkbox" id="checkbox34"><label for="checkbox34">If your delete worked, you'll get a list of the smurfs back.</label></p>
+</li>
+<li>
+<p><input type="checkbox" id="checkbox35"><label for="checkbox35">Example:</label></p>
+</li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-comment">// output: `A list of all the smurfs in the Smurf DB will be returned`</span>
+[
+  {
+    <span class="hljs-attr">name</span>: <span class="hljs-string">'Brainy'</span>,
+    <span class="hljs-attr">age</span>: <span class="hljs-number">211</span>,
+    <span class="hljs-attr">height</span>: <span class="hljs-string">'5cm'</span>,
+    <span class="hljs-attr">id</span>: <span class="hljs-number">0</span>
+  },
+  {
+    <span class="hljs-attr">name</span>: <span class="hljs-string">'Smurfette'</span>,
+    <span class="hljs-attr">age</span>: <span class="hljs-number">122</span>,
+    <span class="hljs-attr">height</span>: <span class="hljs-string">'12cm'</span>,
+    <span class="hljs-attr">id</span>: <span class="hljs-number">1</span>
+  }
+];
+</div></code></pre>
+<p><strong>PUT '/smurfs/123', where 123 is the Id of the smurf you want to modify</strong></p>
+<ul>
+<li><input type="checkbox" id="checkbox36"><label for="checkbox36">For this endpoint to work, you'll need an </label><code>id</code> added to the URL, and at least one field to update on the Smurf object. <code>name</code> <code>age</code> <code>height</code>.</li>
+<li><input type="checkbox" id="checkbox37"><label for="checkbox37">Example:</label></li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-comment">// input:</span>
+{
+  <span class="hljs-attr">id</span>: <span class="hljs-number">1</span>,
+  <span class="hljs-attr">name</span>: Sleepy
+}
+<span class="hljs-comment">// output: `A list of all the smurfs in the Smurf DB will be returned`</span>
+[{
+  <span class="hljs-attr">name</span>: <span class="hljs-string">'Sleepy'</span>,
+  <span class="hljs-attr">age</span>: <span class="hljs-number">30</span>,
+  <span class="hljs-attr">height</span>: <span class="hljs-string">'3cm,
+  id: 1
+}]
+</span></div></code></pre>
+<p><strong>Router Stretch Problem</strong></p>
+<ul>
+<li><input type="checkbox" id="checkbox38"><label for="checkbox38">If a user clicks on a smurf, they should be routed to </label><code>/smurf/:id</code> and a single smurf should be displayed on the page.</li>
+<li><input type="checkbox" id="checkbox39"><label for="checkbox39">I know this seems like a small task, but you'll have to get crafty with your data and your logic here.</label></li>
+</ul>
+
+</body>
+</html>
