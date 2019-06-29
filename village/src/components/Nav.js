@@ -6,10 +6,10 @@ const Nav=()=>{
         <div>
             <div className="App">
                 <span>
-                    <Link to="/">Smurf List</Link>
+                    <Link to="/">Home</Link>
                 </span>
                 <span>
-                    <Link to ="/smurf-form">Smurf Form</Link>
+                    <Link to ="/smurfs">Smurfs</Link>
                 </span>
             </div>
         </div>
