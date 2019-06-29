@@ -9,16 +9,17 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      smurfs: [],
+      smurfs: []
     };
   }
-  
-  componentDidMount(){
-    axios.get("http://localhost:3333/smurfs")
-    .then(response => {
-      const smurfs = response.data;
-      this.setState({smurfs})
-    })
+
+  componentDidMount() {
+    axios
+      .get('http://localhost:3333/smurfs')
+      .then(response => {
+        this.setState({ smurfs: response.data });
+      })
+      .catch(err => console.log('error', err));
   }
 
   render() {
