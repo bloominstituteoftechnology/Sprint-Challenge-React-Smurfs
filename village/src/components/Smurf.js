@@ -12,7 +12,7 @@ class Smurf extends React.Component {
       Smurf: {}
     };
   }
-
+// was meant to add styling with "editsmurf,editbutton,and delete" but ran out of time to make class components im still debugging my functionality
   toggleForm = () => {
     console.log(" working?");
     this.setState({
@@ -61,12 +61,12 @@ class Smurf extends React.Component {
     return (
       <Smurf>
         <h3>{this.props.name}</h3>
-        <strong>{this.props.height} tall</strong>
+        <h2>{this.props.height} tall</h2>
         <p>{this.props.age} smurf years old</p>
 
         {this.state.formToggle ? (
           <div>
-            <EditSmurf>
+            <div>
               Name:
               <input
                 type="text"
@@ -93,10 +93,10 @@ class Smurf extends React.Component {
                 name="editAge"
                 value={this.state.editAge}
               />
-            </EditSmurf>
+            </div>
             <div>
-              <EditBTN onClick={this.editSmurf}>Submit Edit</EditBTN>
-              <DeleteBTN onClick={this.deleteSmurf}>Delete Smurf</DeleteBTN>
+              <button onClick={this.editSmurf}>Submit Edit</button>
+              <button onClick={this.deleteSmurf}>Delete Smurf</button>
             </div>
           </div>
         ) : null}
