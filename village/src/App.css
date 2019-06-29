@@ -1,3 +1,39 @@
 .App {
   text-align: center;
+  opacity: .3px;
+  background-color: white;
+  width: 50%;
+}
+
+nav {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+}
+
+nav a {
+  color: black;
+  cursor: pointer;
+  padding: 10px;
+  text-decoration: none;
+  border: 1px solid white;
+  background: salmon;
+  color: white;
+  border-radius: 5px;
+  margin: 10px;
+  margin-top: 30%;
+}
+
+button {
+  color: black;
+  cursor: pointer;
+  padding: 10px;
+  text-decoration: none;
+  border: 1px solid white;
+  background: salmon;
+  color: white;
+  border-radius: 5px;
+  margin: 10px;
+  margin-top: 3%;
+  font-size: 16px;
 }
