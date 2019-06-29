@@ -38,7 +38,7 @@ Create Read Update Delete
 - [ ] Which HTTP methods can be mapped to the CRUD acronym that we use when interfacing with APIs/Servers.
 post get put delete
 - [ ] Mention three tools we can use to make AJAX requests.
-axios, super agent, fetch
+fetch, .then, .catch
 
 
 ## Project Set Up
