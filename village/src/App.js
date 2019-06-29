@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, Link } from "react-router-dom"
+import { Route, Link, NavLink } from "react-router-dom"
 import axios from "axios"
 
 import './App.css';
@@ -17,7 +17,7 @@ class App extends Component {
   componentDidMount() {
     axios.get('http://localhost:3333/smurfs')
       .then(response => {
-    console.log(response.data)
+        console.log(response.data)
         this.setState({
           smurfs: response.data
         })
@@ -26,22 +26,26 @@ class App extends Component {
         console.log('Error:', err)
       })
   }
-  // add any needed code to ensure that the smurfs collection exists on state and it has data coming from the server
-  // Notice what your map function is looping over and returning inside of Smurfs.
-  // You'll need to make sure you have the right properties on state and pass them down to props.
+
+  updateSmurf = (smurfs) => {
+		this.setState({ smurfs })
+	}
+
   render() {
     const { smurfs } = this.state
 
     return (
       <div className="App">
         <nav>
-          <div>
-            <Link to="/">Smurfs</Link>
-          </div>
+					<div className="header-content">
+						<Link to="/">Home</Link>
+						<NavLink to="/smurf-from">New</NavLink>
+					</div>
+				</nav>
 
-          <SmurfForm />
           <Route path='/' exact render={(props) => <Smurfs {...props} smurfs={smurfs} />} />
-        </nav>
+          <Route path='/smurf-from' exact render={(props) => <SmurfForm {...props} updateSmurf={this.updateSmurf} />} />
+
       </div>
     );
   }
