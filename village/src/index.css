@@ -3,3 +3,10 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  width: 15%;
+}
