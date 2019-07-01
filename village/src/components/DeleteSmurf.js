@@ -15,7 +15,7 @@ function DeleteSmurf(props) {
             })
     }    
     return (
-        <span onClick={removeSmurf}> X </span>
+        <span className="delete-button" onClick={removeSmurf}> <img src="../x-button.png" alt="Delete"/> </span>
     )
 }
 

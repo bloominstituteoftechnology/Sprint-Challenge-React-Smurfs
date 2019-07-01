@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link, NavLink } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import axios from 'axios'
 
 class SmurfForm extends Component {
@@ -45,6 +45,7 @@ class SmurfForm extends Component {
     return (
       <div className="SmurfForm">
         <form onSubmit={this.addSmurf}>
+          <h3>Add New Smurf</h3>
           <input
             onChange={this.handleInputChange}
             placeholder="name"
