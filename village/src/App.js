@@ -28,6 +28,10 @@ class App extends Component {
         console.log("Error retreiving smurfs", error)
       })
   }
+  
+  updateSmurfs = (smurfs) => {
+    this.setState({smurfs})
+  }
 
   render() {
     return (
@@ -36,8 +40,8 @@ class App extends Component {
           <NavLink className ="navlink" to="/">Home</NavLink>
           <NavLink className ="navlink" to="/smurf-form">Add New Smurf</NavLink>
         </nav>
-        <Route exact path="/" render={(props) => <Smurfs {...props} smurfs={this.state.smurfs}/>} />
-        <Route path="/smurf-form" render={(props) => <SmurfForm {...props} smurfs={this.state.smurfs} />} />
+        <Route exact path="/" render={(props) => <Smurfs {...props} updateSmurfs={this.updateSmurfs} smurfs={this.state.smurfs}/>} />
+        <Route path="/smurf-form" render={(props) => <SmurfForm {...props} updateSmurfs={this.updateSmurfs} smurfs={this.state.smurfs} />} />
         
       </div>
     );

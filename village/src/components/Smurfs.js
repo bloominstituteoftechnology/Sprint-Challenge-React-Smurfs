@@ -14,6 +14,7 @@ class Smurfs extends Component {
             return (
               <div className="smurf">
                 <Smurf
+                  updateSmurfs={this.props.updateSmurfs}
                   name={smurf.name}
                   id={smurf.id}
                   age={smurf.age}
