@@ -46,9 +46,9 @@ nav{
   padding: 1em 1em;
   text-decoration: none; 
   background-color: #EBF5FF; 
-  /* color: #4312AE;  */
+  color: #4312AE; 
   border: 2px solid black;
-  border-top-left-radius: 1em 1em; 
-  border-top-right-radius: 1em 1em; 
+  border-top-left-radius: 2em 2em; 
+  border-top-right-radius: 2em 2em; 
 }
 
