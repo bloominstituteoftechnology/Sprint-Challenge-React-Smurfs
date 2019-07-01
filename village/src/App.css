@@ -1,3 +1,54 @@
 .App {
   text-align: center;
+  background-color: rgb(172, 248, 225);
 }
+
+.SmurfForm{
+ 
+  width:450px;
+	padding:30px;
+	margin:40px auto;
+	background: rgb(192, 225, 248);
+	border-radius: 10px;
+	-webkit-border-radius:10px;
+	-moz-border-radius: 10px;
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.13);
+	-moz-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.13);
+	-webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.13);
+}
+
+.SmurfForm input{
+  display: flex;
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+  width: 100%;
+  margin: 8px;
+	padding: 8px;
+	border-radius: 6px;
+	-webkit-border-radius:6px;
+	-moz-border-radius:6px;
+	border: 2px solid #fff;
+	box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.33);
+	-moz-box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.33);
+	-webkit-box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.33);
+}
+button{
+  width: 30%;
+  height: 40px;
+  border-radius: 0px;
+  font-weight: bold;
+}
+button:hover{
+  background-color:  rgb(4, 146, 248);
+}
+nav{
+  padding: 1em 1em;
+  text-decoration: none; 
+  background-color: #EBF5FF; 
+  /* color: #4312AE;  */
+  border: 2px solid black;
+  border-top-left-radius: 1em 1em; 
+  border-top-right-radius: 1em 1em; 
+}
+
