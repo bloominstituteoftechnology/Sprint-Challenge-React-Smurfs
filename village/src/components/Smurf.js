@@ -1,5 +1,5 @@
 import React from "react";
-
+import './Smurf.css'
 class Smurf extends React.Component {
   constructor(props) {
     super(props);
@@ -9,10 +9,10 @@ class Smurf extends React.Component {
   render() {
     return (
       <div className="Smurf">
-        <h3>{this.props.name}</h3>
-        <strong>{this.props.height} tall</strong>
-        <p>{this.props.age} smurf years old</p>
-        <button onClick={event=>this.props.deleteSmurf(event,this.props.id)}>Delete</button>
+        <h3 className="Name">{this.props.name}</h3>
+        <strong className="Height">{this.props.height} tall</strong>
+        <p className="Age">{this.props.age} years old</p>
+        <button className="Delete" onClick={event => this.props.deleteSmurf(event, this.props.id)}>Delete Smurf</button>
       </div>
     );
   }
