@@ -1,0 +1,24 @@
+.Delete{
+    border-radius:10px;
+    background-color:rgb(22, 231, 221);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size:25px;
+    font-style:oblique white;
+    color:rgb(187, 19, 19);
+    max-width:350px;
+    margin-left:37%;
+    margin-bottom:35px;
+    box-shadow:3px 3px 3px aliceblue;
+}
+.Delete:hover{
+    border-radius:8px;
+    background-color:rgb(255, 83, 83);
+    margin-left:37.5%;
+    color: rgb(22, 231, 221);
+}
+.Smurf{
+    display:flex;
+    flex-wrap:wrap;
+    flex-direction:column;
+    justify-content: space-between;
+}
