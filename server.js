@@ -11,8 +11,6 @@ const sendUserError = (msg, res) => {
 };
 
 const smurfs = [];
-// example of a smurf object;
-// { name: 'Brainy', height: '3cm', age: 300, id: 0 }
 server.get('/smurfs', (req, res) => {
   res.json(smurfs);
 });
