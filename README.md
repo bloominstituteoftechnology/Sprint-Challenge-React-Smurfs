@@ -13,11 +13,13 @@
 ## Project
 * 
 
-## API Design
+## API Design - This is how you'll interface with the API and what is required from every endpoint.
+
 ### GET '/smurfs'
-  * to read all the smurfs in the smurf db simply write a get to the endpoint `'/smurfs'`
+  * to retreive an array all the smurfs in the Smurf DB simply write a get to the endpoint `'/smurfs'`
+
 ### POST '/smurfs'
-* to add a smurf into the smurf DB you'll need all three fields
+* to add a smurf into the Smurf DB you'll need all three fields
 * example
 ```
 {
@@ -45,7 +47,31 @@
 ]
 ```
 
-### Delete '/smurfs'
+
+
+
+## ABOVE AND BEYOND - Stretch Problem
+* The following two endpoints are here for you if you'd like to push yourselve a little further. 
+### PUT '/smurfs'
+* for this endpoint to work, you'll need an `id` and at least one field to update on the Smurf object. `name` `age` `height`.
+* example:
+
+```
+input:
+{
+  id: 1,
+  name: Sleepy
+}
+output:
+{
+  name: 'Sleepy',
+  age: 30,
+  height: '3cm,
+  id: 1
+}
+```
+
+### DELETE '/smurfs'
 * for this endpoint to work, all you need is an id sent up with your request body.
 * example: 
 ```
