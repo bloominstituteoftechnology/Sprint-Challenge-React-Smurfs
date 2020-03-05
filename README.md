@@ -4,14 +4,23 @@
 * This is to be worked on alone but you can use outside resources. You can *reference* any old code you may have, and the React Documentation, however, please refrain from copying and pasting any of your answers. Try and understand the question and put your responses in your own words. Be as thorough as possible when explaining something. 
 * **Just a friendly Reminder** Don't fret or get anxious about this, this is a no-pressure assessment that is only going to help guide you here in the near future. This is NOT a pass/fail situation. 
 ## Start by forking and cloning this repository.
-## Questions
+## Questions - Self Study - You can exercise your Google-Fu for this and any other _Sprint Challenge_ in the future.
 1. Describe the concept of a "Single Source of Truth" in Redux. Ex. What is the difference between Redux/Application _State_ vs. React/Component _State_?
 2. Describe what an _Action_ is/does.
 3. Describe what a _Reducer_ is/does.
 4. What does HTTP stand for? What does CRUD stand for? Describe four HTTP methods that can be mapped to the CRUD acronym that we use to interface with APIs/Servers.
 
-## Project
-* 
+## Initializing Project
+* Start by Forking and Cloning this Repo.
+* `cd` into the forked copy.
+* _RUN_ `npm install` to retrieve all the dependancies.
+* _LOOK_ at all the files you've been given for this project. One important file to note is `server.js`. This file contains and **API** that you are going to be interfacing with. Below is documentation on how to interact with the **API**.
+* _RUN_ `npm start` to get your API up and running on `http://localhost:3333`. This is the **URL** you're going to need to use within your Redux Actions. 
+* After your API is up and running, you can open chrome and type in `http://localhost:3333/smurfs`. You should see an empty Array `[]` returned to you. This is your DB that your **API** will be using to store our Smurf Data. 
+
+## Project Description 
+* Hello students! Welcome to your Redux/Axios Sprint Challenge. For this challenge you're going to be implementing a few HTTP Request from within a Redux Application.
+
 
 ## API Design - This is how you'll interface with the API and what is required from every endpoint.
 
@@ -29,6 +38,7 @@
 }
 ```
 * if a smurf is created correctly, you should see a response that is an array of smurfs with uniqe id's assigned to each smurf.
+* **HINT** if you are going to be working on Extra Credit, you'll need to use that unique `id`.
 * example of object created in Smurf DB: 
 ```
 [
@@ -50,7 +60,7 @@
 
 
 
-## ABOVE AND BEYOND - Stretch Problem
+## STRETCH PROBLEM - Extra Credit!
 * The following two endpoints are here for you if you'd like to push yourselve a little further. 
 ### PUT '/smurfs'
 * for this endpoint to work, you'll need an `id` and at least one field to update on the Smurf object. `name` `age` `height`.
