@@ -10,13 +10,16 @@
 3. Describe what a _Reducer_ is/does.
 4. What does HTTP stand for? What does CRUD stand for? Describe four HTTP methods that can be mapped to the CRUD acronym that we use to interface with APIs/Servers.
 
-## Initializing Project
+## Initializing Project - READ THIS CAREFULLY, you have two apps here. A server, and a client.
 * Start by Forking and Cloning this Repo.
 * `cd` into the forked copy.
 * _RUN_ `npm install` to retrieve all the dependancies.
 * _LOOK_ at all the files you've been given for this project. One important file to note is `server.js`. This file contains and **API** that you are going to be interfacing with. Below is documentation on how to interact with the **API**.
 * _RUN_ `npm start` to get your API up and running on `http://localhost:3333`. This is the **URL** you're going to need to use within your Redux Actions. 
-* After your API is up and running, you can open chrome and type in `http://localhost:3333/smurfs`. You should see an empty Array `[]` returned to you. This is your DB that your **API** will be using to store our Smurf Data. 
+* After your API is up and running, you can open chrome and type in `http://localhost:3333/smurfs`. You should see an empty Array `[]` returned to you. This is your DB that your **API** will be using to store our Smurf Data.
+* _LOOK_ at your `village` directory and notice it's just a plain ol' React App that we've built and included redux.
+* _cd_ into `village` and run `npm install` to retreive the client side dependancies.
+* _RUN_ `npm start` to fire up your React Server. 
 
 ## Project Description 
 * Hello students! Welcome to your Redux/Axios Sprint Challenge. For this challenge you're going to be implementing a few HTTP Request from within a Redux Application.
