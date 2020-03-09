@@ -22,10 +22,14 @@
 * _cd_ into `village` and run `npm install` to retreive the client side dependancies.
 * _RUN_ `npm start` to fire up your React Server. 
 * _Notice_ your app is built out, but you don't have any actions or reducers!! You're goal is to solve that problem! 
+<<<<<<< HEAD
 * You can begin working on your Redux application now. Start with either the actions or reduces. Have fun!
 =======
 * After your API is up and running, you can open chrome and type in `http://localhost:3333/smurfs`. You should see an empty Array `[]` returned to you. This is the DB that your **API** will be using to store our Smurf Data. 
 >>>>>>> 3ce7caa... Update README.md
+=======
+* You can begin working on your Redux application now. Start with either the actions or reduces. Have fun! 
+>>>>>>> 8871edd... repeat
 
 ## Project Description 
 * Hello students! Welcome to your Redux/Axios Sprint Challenge. For this challenge you're going to be implementing a few HTTP Requests from within a Redux Application.
