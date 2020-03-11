@@ -17,4 +17,10 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, { getSmurfs })(Smurfs);
+const mapDispatchToProps = (dispatch) => {
+  return  {
+    fetchSmurfs: () => dispatch(getSmurfs())
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Smurfs);
