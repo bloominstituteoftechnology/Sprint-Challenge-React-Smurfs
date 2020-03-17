@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 
 class SmurfForm extends Component {
-
   constructor(props) {
     super(props);
     this.state = {
@@ -9,16 +8,12 @@ class SmurfForm extends Component {
       age: '',
       height: ''
     };
-    this.addSmurf = this.addSmurf.bind(this);
-    this.updateName = this.updateName.bind(this);
-    this.updateAge = this.updateAge.bind(this);
-    this.updateHeight = this.updateHeight.bind(this);
   }
 
   addSmurf(event) {
     event.preventDefault();
     // add code to create the smurf using the api
-    
+
     this.setState({
       name: '',
       age: '',
@@ -26,23 +21,23 @@ class SmurfForm extends Component {
     });
   }
 
-  updateName(event) {
+  updateName = event => {
     this.setState({
       name: event.target.value
     });
-  }
+  };
 
-  updateAge(event) {
+  updateAge = event => {
     this.setState({
       age: event.target.value
     });
-  }
+  };
 
-  updateHeight(event) {
+  updateHeight = event => {
     this.setState({
       height: event.target.value
     });
-  }
+  };
 
   render() {
     return (

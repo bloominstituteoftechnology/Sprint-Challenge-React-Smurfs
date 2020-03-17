@@ -6,20 +6,22 @@
 * **Just a friendly Reminder** Don't fret or get anxious about this, this is a no-pressure assessment that is only going to help guide you here in the near future. This is NOT a pass/fail situation.
 
 ## Start by forking and cloning this repository.
+
 ## Questions - Self Study - You can exercise your Google-Fu for this and any other _Sprint Challenge_ in the future.
 
-1. Explain the differences between `client-side routing` and `server-side routing`.
-1. What does HTTP stand for? 
-1. What does CRUD stand for? 
-1. Which HTTP methods can be mapped to the CRUD acronym that we use when interfacing with APIs/Servers.
-1. Mention three tools we can use to make AJAX requests.
+1.  Explain the differences between `client-side routing` and `server-side routing`.
+1.  What does HTTP stand for?
+1.  What does CRUD stand for?
+1.  Which HTTP methods can be mapped to the CRUD acronym that we use when interfacing with APIs/Servers.
+1.  Mention three tools we can use to make AJAX requests.
 
 ## Initializing Project - READ THIS CAREFULLY, you have two apps here. A server, and a client.
 
 * Start by Forking and Cloning this Repo.
 * `cd` into the forked copy.
-* _RUN_ `npm install` to retrieve all the dependancies.
+* _RUN_ `yarn install or npm install` at the root to retrieve all the dependancies for the node server.
 * _LOOK_ at all the files you've been given for this project. One important file to note is `server.js`. This file contains an **API** that you are going to be interfacing with. Below is documentation on how to interact with the **API**.
+<<<<<<< HEAD
 <<<<<<< HEAD
 * _RUN_ `npm start` to get your API up and running on `http://localhost:3333`. This is the **URL** you're going to need to use within your Redux Actions. 
 <<<<<<< HEAD
@@ -43,9 +45,14 @@
 =======
 * _RUN_ `npm start` to get your API up and running on `http://localhost:3333`. This is the **URL** you're going to need to use within your React app in order to make AJAX requests for data.
 * After your API is up and running, you can open chrome and type in `http://localhost:3333/smurfs`. You should see an empty Array `[]` returned to you. This is an array that your **API** will be using to store our Smurf Data.
+=======
+* _RUN_ `yarn start or npm start` to get your API up and running on `http://localhost:3333`. This is the **URL** you're going to need to use within your React app in order to make AJAX requests for data.
+* After your API is up and running, you can open chrome and type in `http://localhost:3333/smurfs`. You should see an Array `[]` with a smurf returned to you. This is an array that your **API** will be using to store our Smurf Data.
+>>>>>>> 13e26c6... updates formats ,changes readme instructions, adds stretch
 * _LOOK_ at your `village` directory and notice it's just a plain ol' React App that we've built using `create-react-app`.
-* _cd_ into `village` and run `npm install` to retreive the client side dependencies.
-* _RUN_ `npm start` to fire up your React application, you should see an error that reads: `TypeError: Cannot read property 'smurfs' of null`.
+* _cd_ into `village` and run `yarn install or npm install` to retrieve the client side dependencies.
+* _Install_ `React Router` and `axios` through yarn. **React Router** is a stretch problem for this challenge. We want you to focus on building out a UI that interfaces with an API.
+* _RUN_ `yarn start or npm start` to fire up your React application, you should see an error that reads: `TypeError: Cannot read property 'smurfs' of null`.
 
 ## Project Description
 
@@ -94,8 +101,28 @@
 ]
 ```
 
-## STRETCH PROBLEM - Extra Credit!
+### DELETE '/smurfs/123', where 123 is the Id of the smurf you want to remove
 
+* For this endpoint to work, all you need is an id sent up as part of the request url.
+
+* If your delete worked, you'll get a success object back.
+* Example:
+
+```
+output:
+{
+    "SmurfRemoved": {
+        "name": "Sleepy",
+        "age": 200,
+        "height": "5cm",
+        "id": 1
+    }
+}
+```
+
+## STRETCH PROBLEMS
+
+* Once you have your app built out the way you'd like, add React Router and declare some routes between your Smurfs, SmurfForm and Smurf components.
 * The following two endpoints are here for you if you'd like to push yourselves a little further.
   ### PUT '/smurfs/123', where 123 is the Id of the smurf you want to modify
 * For this endpoint to work, you'll need an `id` added to the URL, and at least one field to update on the Smurf object. `name` `age` `height`.
@@ -113,24 +140,5 @@ output:
   age: 30,
   height: '3cm,
   id: 1
-}
-```
-
-### DELETE '/smurfs/123', where 123 is the Id of the smurf you want to remove
-
-* For this endpoint to work, all you need is an id sent up as part of the request url.
-
-* If your delete worked, you'll get a success object back.
-* Example:
-
-```
-output:
-{
-    "SmurfRemoved": {
-        "name": "Sleepy",
-        "age": 200,
-        "height": "5cm",
-        "id": 1
-    }
 }
 ```
