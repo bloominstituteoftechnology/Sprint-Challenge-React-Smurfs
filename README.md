@@ -57,9 +57,14 @@
 ## Project Description
 
 * For this challenge you're going to fix all errors and finish the application.
+<<<<<<< HEAD
 * The requirements for completion are that you are using AXIOS to `GET` a list of Smurfs that exist on the server && a `POST` to create a new Smurf and save it to the Smurf DB.
 >>>>>>> 9453b4c... Removes references to Redux
 * If you get both of those two requirements finished early. Proceed to the **STRETCH PROBLEM** to try and implement a `PUT` and a `DELETE`.
+=======
+* The requirements for completion are that you are using AXIOS to `GET` a list of Smurfs that exist on the server && a `POST` to create a new Smurf and save it to the Smurf DB and a `DELETE` to remove a smurf from the village.
+* If you get both of those two requirements finished early. Proceed to the **STRETCH PROBLEM** to try and implement a `PUT`.
+>>>>>>> a25f22e... Update README.md
 
 ## API Design - This is how you'll interface with the API and what is required from every endpoint.
 
