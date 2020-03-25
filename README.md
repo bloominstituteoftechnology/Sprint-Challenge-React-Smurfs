@@ -20,6 +20,7 @@
 * Start by Forking and Cloning this Repo.
 * `cd` into the forked copy.
 <<<<<<< HEAD
+<<<<<<< HEAD
 * _RUN_ `yarn install or npm install` at the root to retrieve all the dependancies for the node server.
 * _LOOK_ at all the files you've been given for this project. One important file to note is `server.js`. This file contains an **API** that you are going to be interfacing with. Below is documentation on how to interact with the **API**.
 <<<<<<< HEAD
@@ -56,6 +57,9 @@
 * _RUN_ `yarn start or npm start` to fire up your React application, you should see an error that reads: `TypeError: Cannot read property 'smurfs' of null`.
 =======
 * **RUN** `yarn install or npm install` at the root to retrieve all the dependencies for the node server.
+=======
+* **RUN** `yarn install or npm install` at the root to retrieve all the dependencies for the node server. You will not need to create any react apps here nor will you need to install any other dependencies. You should have all you need in this repo.
+>>>>>>> f9e9a50... updates deps, removes outdated code, updates readme instructions
 * **LOOK** at all the files you've been given for this project. One important file to note is `server.js`. This file contains an **API** that you are going to be interfacing with. Below is documentation on how to interact with the **API**.
 * **RUN** `yarn start or npm start` to get your API up and running on `http://localhost:3333`. This is the **URL** you're going to need to use within your React app in order to make AJAX requests for data.
 * After your API is up and running, you can open chrome and type in `http://localhost:3333/smurfs`. You should see an Array `[]` with a smurf returned to you. This is an array that your **API** will be using to store our Smurf Data.
@@ -67,6 +71,7 @@
 
 ## Project Description
 
+<<<<<<< HEAD
 * For this challenge you're going to fix all errors and finish the application.
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -78,6 +83,10 @@
 =======
 * The requirements for completion are that you are using AXIOS to `GET` a list of Smurfs that exist on the server && a `POST` to create a new Smurf and save it to the Smurf DB.
 >>>>>>> 3998a48... fixes instructions
+=======
+* The requirements for completion are that you are using AXIOS to `GET` a list of Smurfs that exist on the server && a `POST` to create a new Smurf and save it to the Smurf DB.
+* You are to then work on adding a Router to this application by using React Router.
+>>>>>>> f9e9a50... updates deps, removes outdated code, updates readme instructions
 * If you get both of those two requirements finished early. Proceed to the **STRETCH PROBLEM** to try and implement a `PUT`.
 >>>>>>> a25f22e... Update README.md
 
@@ -99,11 +108,12 @@
   height: '5cm'
 }
 ```
+* If a smurf is created correctly, you should see a response that is an array of smurfs with unique id's assigned to each smurf.
+
 * Once you've finished your `GET` and `POST` requests go ahead and implement a Router for your components within this application. 
     * You'll start by wrapping your `root` component in the `Router` component.
     * Then declare your routes with `Route`.
     * Then make it so you can navigate to your routes using `Link`.
-* If a smurf is created correctly, you should see a response that is an array of smurfs with unique id's assigned to each smurf.
 * **HINT** if you are going to be working on Stretch Problem, you'll need to use that unique `id`.
 * Example of object created in Smurf DB:
 
@@ -131,19 +141,25 @@
 
 * For this endpoint to work, all you need is an id sent up as part of the request url.
 
-* If your delete worked, you'll get a success object back.
+* If your delete worked, you'll get a list of the smurfs back.
 * Example:
 
 ```js
-output:
-{
-    "SmurfRemoved": {
-        "name": "Sleepy",
-        "age": 200,
+// output: `A list of all the smurfs in the Smurf DB will be returned`
+[
+    {
+        "name": "Brainy",
+        "age": 211,
         "height": "5cm",
+        "id": 0
+    },
+    {
+        "name": "Smurfette",
+        "age": 122,
+        "height": "12cm",
         "id": 1
     }
-}
+]
 ```
 
 ### PUT '/smurfs/123', where 123 is the Id of the smurf you want to modify
@@ -151,16 +167,16 @@ output:
 * Example:
 
 ```js
-input:
+// input:
 {
   id: 1,
   name: Sleepy
 }
-output:
-{
+// output: `A list of all the smurfs in the Smurf DB will be returned`
+[{
   name: 'Sleepy',
   age: 30,
   height: '3cm,
   id: 1
-}
+}]
 ```
