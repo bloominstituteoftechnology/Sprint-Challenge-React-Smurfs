@@ -92,6 +92,8 @@
 
 ## API Design - This is how you'll interface with the API and what is required from every endpoint.
 
+* [Here](http://smurfs.wikia.com/wiki/Category:Smurfs_Characters) is a list of smurf data you can use to create your village.
+
 ### GET '/smurfs'
 
 * To retreive an array all the smurfs in the Smurf DB simply write a get to the endpoint `'/smurfs'`
