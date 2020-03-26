@@ -110,34 +110,24 @@
   height: '5cm'
 }
 ```
+
 * If a smurf is created correctly, you should see a response that is an array of smurfs with unique id's assigned to each smurf.
 
-* Once you've finished your `GET` and `POST` requests go ahead and implement a Router for your components within this application. 
+### Router
+
+* Once you've finished your `GET` and `POST` requests go ahead and implement a Router for your components within this application.  
     * You'll start by wrapping your `root` component in the `Router` component.
     * Then declare your routes with `Route`.
     * Then make it so you can navigate to your routes using `Link`.
-* **HINT** if you are going to be working on Stretch Problem, you'll need to use that unique `id`.
-* Example of object created in Smurf DB:
-
-```js
-[
-    {
-        "name": "Brainey",
-        "age": 200,
-        "height": "5cm",
-        "id": 0
-    },
-    {
-        "name": "Sleepy",
-        "age": 200,
-        "height": "5cm",
-        "id": 1
-    }
-]
-```
+* Create a home `/` route that mounts a header describing to a user that they are welcomed guests in the smurf village.
+* Create a link that navigates a user into the village. This route `/smurfs` should mount the `App` component that will fetch your data, and display your Smurfs as well as your Smurf Form.
 
 ## STRETCH PROBLEMS
+
+### HTTP/Axios Stretch Problems
 * The following two endpoints are here for you if you'd like to push yourselves a little further.
+
+* **HINT** if you are going to be working on Stretch Problem, you'll need to use that unique `id`.
 
 ### DELETE '/smurfs/123', where 123 is the Id of the smurf you want to remove
 
@@ -182,3 +172,7 @@
   id: 1
 }]
 ```
+
+### Router Stretch Problem
+* If a user clicks on a smurf, they should be routed to `/smurf/:id` and a single smurf should be displayed on the page.
+* I know this seems like a small task, but you'll have to get crafty with your data and your logic here. 
