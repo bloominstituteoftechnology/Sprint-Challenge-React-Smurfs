@@ -9,7 +9,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      smurfs: [],
+      smurfs: []
     };
   }
   // add any needed code to ensure that the smurfs collection exists on state and it has data coming from the server
@@ -21,12 +21,13 @@ class App extends Component {
         .then(response => this.setState({smurfs: response.data}))
         .catch(error => console.log(error))
     }
+
   render() {
     const {smurfs} = this.state
     return (
       <div className="App">
         <SmurfForm />
-        <Smurfs smurfs={this.state.smurfs} />
+        <Smurfs smurfs={smurfs} />
       </div>
     );
   }
