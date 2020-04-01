@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Route, NavLink} from 'react-router-dom';
 
 import './App.css';
 import SmurfForm from './components/SmurfForm';
@@ -26,8 +27,19 @@ class App extends Component {
     const {smurfs} = this.state
     return (
       <div className="App">
-        <SmurfForm />
-        <Smurfs smurfs={smurfs} />
+        <nav>
+          <NavLink to='/'>
+            Smurfs
+          </NavLink>
+
+          <NavLink to='/smurf-form'>
+            Add New Smurf
+          </NavLink>
+        </nav>
+
+        <Route exact path='/' render={props => <Smurfs {...props} smurfs={smurfs} />} />
+        <Route path='/smurf-form' render={props => <SmurfForm {...props} smurfs={smurfs} />} />
+
       </div>
     );
   }

@@ -22,6 +22,8 @@ class SmurfForm extends Component {
               height: ''
             }
           })
+          window.location.reload();
+          this.props.history.push('/')
           console.log(response);
         })
         .catch(error => console.log(error));
