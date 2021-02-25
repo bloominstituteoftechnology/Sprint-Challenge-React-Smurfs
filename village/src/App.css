@@ -1,3 +1,19 @@
 .App {
   text-align: center;
 }
+
+
+.nav{
+  width: 20%;
+  display: flex;
+  justify-content: space-between;
+  
+}
+.nav .nav-item{
+  text-decoration: none;
+  color: black;
+
+}
+.nav .nav-item:hover{
+  color: gray;
+}
