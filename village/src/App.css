@@ -1,3 +1,12 @@
 .App {
   text-align: center;
+  margin: 0 auto;  
 }
+
+.eviction {
+  font-size: 12px;
+  border: 1px solid black;
+  border-radius: 5px;
+  width: 6%;
+  margin: 0 47%;
+} 
