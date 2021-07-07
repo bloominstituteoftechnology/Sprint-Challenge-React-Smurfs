@@ -1,0 +1,22 @@
+
+.Smurf{
+  margin: 10px auto;
+  width: 400px;
+  border: 1px solid  rgba(105, 105, 105, .1);
+  padding-bottom: 20px;
+}
+
+.Smurf:hover{
+  box-shadow: 1px 1px 4px rgba(105, 105, 105, 0.2);
+}
+
+.removeBtn{
+  color: white;
+  background-color: lightgray;
+  border: 1px solid rgba(105, 105, 105, .1);
+  padding: 4px 20px;
+}
+
+.removeBtn:hover{
+  background-color: dimgray;
+}
