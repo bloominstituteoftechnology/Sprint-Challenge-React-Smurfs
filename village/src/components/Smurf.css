@@ -1,0 +1,52 @@
+.smurf-wrapper {
+    border: 1px solid red;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.village-image {
+    border: 1px solid orange;
+    background-size: cover;
+    height: 300px;
+    width: 800px;
+    margin: 0 auto;
+}
+
+.smurf-button {
+    border: 1px solid yellow;
+    height: 50px;
+    width: 100px;
+    cursor: pointer;
+    margin: 10px;
+
+
+}
+
+.Smurfs {
+    border: 1px solid green;
+
+}
+
+.smurfing-smurfers {
+    margin: 0 auto;
+}
+
+.Smurf {
+    border: 1px solid red;
+    width: 400px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.SmurfForm {
+    border: 1px solid blue;
+
+
+}

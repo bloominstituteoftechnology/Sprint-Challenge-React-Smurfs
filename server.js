@@ -31,7 +31,7 @@ server.post('/smurfs', (req, res) => {
   const newSmurf = { name, age, height, id: smurfId };
   if (!name || !age || !height) {
     return sendUserError(
-      'Ya gone did smurfed! Name/Age/Height are all required to create a smurf in the smurf DB.',
+      'Ya gone did smurfed up, you smurfing smurf! Name/Age/Height are all required to create a smurf in the smurf DB.',
       res
     );
   }
