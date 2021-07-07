@@ -1,31 +1,35 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-class SmurfForm extends Component {
+class EditSmurfForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
       name: '',
-      age: '',
-      height: ''
+      age: 0,
+      height: '',
+      id: 0
     };
   }
 
-  addSmurf = event => {
+  componentDidMount() {
+    this.setState({
+        name: this.props.smurf.name,
+        age: this.props.smurf.age,
+        height: this.props.smurf.height,
+        id: this.props.smurf.id
+    });
+  }
+
+  editSmurf = event => {
     event.preventDefault();
-    // add code to create the smurf using the api
-    axios.post('http://localhost:3333/smurfs', {
+    axios.put(`http://localhost:3333/smurfs/${this.state.id}`, {
       name: this.state.name,
       age: this.state.age,
       height: this.state.height
     })
     .then(res => {
       console.log(res.status);
-      this.setState({
-        name: '',
-        age: '',
-        height: ''
-      });
       this.props.getAPI();
       this.props.history.push('/');
     })
@@ -41,7 +45,7 @@ class SmurfForm extends Component {
   render() {
     return (
       <div className="SmurfForm">
-        <form onSubmit={this.addSmurf}>
+        <form onSubmit={this.editSmurf}>
           <input
             onChange={this.handleInputChange}
             placeholder="name"
@@ -67,4 +71,4 @@ class SmurfForm extends Component {
   }
 }
 
-export default SmurfForm;
+export default EditSmurfForm;
