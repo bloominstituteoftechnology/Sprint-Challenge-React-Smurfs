@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import Axios from 'axios';
+
 
 class SmurfForm extends Component {
   constructor(props) {
@@ -6,18 +8,70 @@ class SmurfForm extends Component {
     this.state = {
       name: '',
       age: '',
-      height: ''
+      height: '',
+      isUpdate:false
     };
   }
+  componentDidMount(){
+     if(this.props.match.params.id){
+       Axios.get(`http://localhost:3333/smurfs/${this.props.match.params.id}`)
+            .then(res => {
 
-  addSmurf = event => {
+              this.setState({name:res.data[0].name,
+                             age:res.data[0].age,
+                             height:res.data[0].height, 
+                             isUpdate:true})
+            })
+     }
+  }
+
+
+  createSmurf(smurf){
+    Axios.post('http://localhost:3333/smurfs',smurf)
+    .then(res => {
+      //experimenting here:
+      if(res.data){
+         this.props.history.push('/')
+         this.props.handleAddNewSmurf()
+      }
+      
+    })
+    .catch(error => console.log(error))
+  }
+
+  updateSmurf(id,smurf){
+    Axios.put(`http://localhost:3333/smurfs/${id}`,smurf)
+    .then(res => {
+      //experimenting here:
+      if(res.data){
+         this.props.history.push('/')
+         this.props.handleUpdateSmurf()
+      }
+      
+    })
+    .catch(error => console.log(error))
+
+  }
+
+  AddEditSmurf = event => {
     event.preventDefault();
+
     // add code to create the smurf using the api
+    let smurf = {
+      name:this.state.name,
+      age:this.state.age,
+      height:this.state.height  
+    }
+
+    const id = this.props.match.params.id;
+    this.state.isUpdate? this.updateSmurf(id,smurf):this.createSmurf(smurf);
 
     this.setState({
       name: '',
       age: '',
-      height: ''
+      height: '',
+      isUpdate:false,
+
     });
   }
 
@@ -26,9 +80,12 @@ class SmurfForm extends Component {
   };
 
   render() {
+
+    let buttonText = this.state.isUpdate ? 'Update': 'Add to the village'
+
     return (
       <div className="SmurfForm">
-        <form onSubmit={this.addSmurf}>
+        <form onSubmit={this.AddEditSmurf}>
           <input
             onChange={this.handleInputChange}
             placeholder="name"
@@ -47,7 +104,7 @@ class SmurfForm extends Component {
             value={this.state.height}
             name="height"
           />
-          <button type="submit">Add to the village</button>
+          <button type="submit">{buttonText}</button>
         </form>
       </div>
     );
